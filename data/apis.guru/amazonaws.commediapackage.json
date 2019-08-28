@@ -1,1 +1,1641 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"AWS Elemental MediaPackage","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS Elemental MediaPackage","version":"2017-10-12","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediapackage-2017-10-12.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"mediapackage"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/mediapackage/"},"security":[{"hmac":[]}],"paths":{"/channels":{"get":{"description":"Returns a collection of Channels.","operationId":"ListChannels","parameters":[{"description":"Upper bound on number of records to return.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000}},{"description":"A token used to resume pagination from the end of a previous request.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListChannelsResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new Channel.","operationId":"CreateChannel","requestBody":{"content":{"application/json":{"schema":{"properties":{"description":{"description":"A short text description of the Channel.","type":"string"},"id":{"description":"The ID of the Channel. The ID must be unique within the region and it\ncannot be changed after a Channel is created.\n","type":"string"},"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"A collection of tags associated with a resource","type":"object"}},"required":["id"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateChannelResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/channels/{id}":{"delete":{"description":"Deletes an existing Channel.","operationId":"DeleteChannel","parameters":[{"description":"The ID of the Channel to delete.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteChannelResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"get":{"description":"Gets details about a Channel.","operationId":"DescribeChannel","parameters":[{"description":"The ID of a Channel.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeChannelResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Updates an existing Channel.","operationId":"UpdateChannel","parameters":[{"description":"The ID of the Channel to update.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"description":{"description":"A short text description of the Channel.","type":"string"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateChannelResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/channels/{id}/credentials":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"deprecated":true,"description":"Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead","operationId":"RotateChannelCredentials","parameters":[{"description":"The ID of the channel to update.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RotateChannelCredentialsResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/channels/{id}/ingest_endpoints/{ingest_endpoint_id}/credentials":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.","operationId":"RotateIngestEndpointCredentials","parameters":[{"description":"The ID of the channel the IngestEndpoint is on.","in":"path","name":"id","required":true,"schema":{"type":"string"}},{"description":"The id of the IngestEndpoint whose credentials should be rotated","in":"path","name":"ingest_endpoint_id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RotateIngestEndpointCredentialsResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/origin_endpoints":{"get":{"description":"Returns a collection of OriginEndpoint records.","operationId":"ListOriginEndpoints","parameters":[{"description":"When specified, the request will return only OriginEndpoints associated with the given Channel ID.","in":"query","name":"channelId","required":false,"schema":{"type":"string"}},{"description":"The upper bound on the number of records to return.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000}},{"description":"A token used to resume pagination from the end of a previous request.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListOriginEndpointsResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new OriginEndpoint record.","operationId":"CreateOriginEndpoint","requestBody":{"content":{"application/json":{"schema":{"properties":{"channelId":{"description":"The ID of the Channel that the OriginEndpoint will be associated with.\nThis cannot be changed after the OriginEndpoint is created.\n","type":"string"},"cmafPackage":{"description":"A Common Media Application Format (CMAF) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/CmafEncryption"},"HlsManifests":{"$ref":"#/components/schemas/__listOfHlsManifestCreateOrUpdateParameters"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentPrefix":{"$ref":"#/components/schemas/__string"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"dashPackage":{"description":"A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.","properties":{"AdTriggers":{"$ref":"#/components/schemas/AdTriggers"},"AdsOnDeliveryRestrictions":{"$ref":"#/components/schemas/AdsOnDeliveryRestrictions"},"Encryption":{"$ref":"#/components/schemas/DashEncryption"},"ManifestLayout":{"$ref":"#/components/schemas/ManifestLayout"},"ManifestWindowSeconds":{"$ref":"#/components/schemas/__integer"},"MinBufferTimeSeconds":{"$ref":"#/components/schemas/__integer"},"MinUpdatePeriodSeconds":{"$ref":"#/components/schemas/__integer"},"PeriodTriggers":{"$ref":"#/components/schemas/__listOf__PeriodTriggersElement"},"Profile":{"$ref":"#/components/schemas/Profile"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentTemplateFormat":{"$ref":"#/components/schemas/SegmentTemplateFormat"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"},"SuggestedPresentationDelaySeconds":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"description":{"description":"A short text description of the OriginEndpoint.","type":"string"},"hlsPackage":{"description":"An HTTP Live Streaming (HLS) packaging configuration.","properties":{"AdMarkers":{"$ref":"#/components/schemas/AdMarkers"},"AdTriggers":{"$ref":"#/components/schemas/AdTriggers"},"AdsOnDeliveryRestrictions":{"$ref":"#/components/schemas/AdsOnDeliveryRestrictions"},"Encryption":{"$ref":"#/components/schemas/HlsEncryption"},"IncludeIframeOnlyStream":{"$ref":"#/components/schemas/__boolean"},"PlaylistType":{"$ref":"#/components/schemas/PlaylistType"},"PlaylistWindowSeconds":{"$ref":"#/components/schemas/__integer"},"ProgramDateTimeIntervalSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"},"UseAudioRenditionGroup":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"id":{"description":"The ID of the OriginEndpoint.  The ID must be unique within the region\nand it cannot be changed after the OriginEndpoint is created.\n","type":"string"},"manifestName":{"description":"A short string that will be used as the filename of the OriginEndpoint URL (defaults to \"index\").","type":"string"},"mssPackage":{"description":"A Microsoft Smooth Streaming (MSS) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/MssEncryption"},"ManifestWindowSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"startoverWindowSeconds":{"description":"Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.\n","type":"integer"},"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"A collection of tags associated with a resource","type":"object"},"timeDelaySeconds":{"description":"Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n","type":"integer"},"whitelist":{"description":"A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.","items":{"$ref":"#/components/schemas/__string"},"type":"array"}},"required":["channelId","id"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateOriginEndpointResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/origin_endpoints/{id}":{"delete":{"description":"Deletes an existing OriginEndpoint.","operationId":"DeleteOriginEndpoint","parameters":[{"description":"The ID of the OriginEndpoint to delete.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteOriginEndpointResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"get":{"description":"Gets details about an existing OriginEndpoint.","operationId":"DescribeOriginEndpoint","parameters":[{"description":"The ID of the OriginEndpoint.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeOriginEndpointResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Updates an existing OriginEndpoint.","operationId":"UpdateOriginEndpoint","parameters":[{"description":"The ID of the OriginEndpoint to update.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"cmafPackage":{"description":"A Common Media Application Format (CMAF) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/CmafEncryption"},"HlsManifests":{"$ref":"#/components/schemas/__listOfHlsManifestCreateOrUpdateParameters"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentPrefix":{"$ref":"#/components/schemas/__string"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"dashPackage":{"description":"A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.","properties":{"AdTriggers":{"$ref":"#/components/schemas/AdTriggers"},"AdsOnDeliveryRestrictions":{"$ref":"#/components/schemas/AdsOnDeliveryRestrictions"},"Encryption":{"$ref":"#/components/schemas/DashEncryption"},"ManifestLayout":{"$ref":"#/components/schemas/ManifestLayout"},"ManifestWindowSeconds":{"$ref":"#/components/schemas/__integer"},"MinBufferTimeSeconds":{"$ref":"#/components/schemas/__integer"},"MinUpdatePeriodSeconds":{"$ref":"#/components/schemas/__integer"},"PeriodTriggers":{"$ref":"#/components/schemas/__listOf__PeriodTriggersElement"},"Profile":{"$ref":"#/components/schemas/Profile"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentTemplateFormat":{"$ref":"#/components/schemas/SegmentTemplateFormat"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"},"SuggestedPresentationDelaySeconds":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"description":{"description":"A short text description of the OriginEndpoint.","type":"string"},"hlsPackage":{"description":"An HTTP Live Streaming (HLS) packaging configuration.","properties":{"AdMarkers":{"$ref":"#/components/schemas/AdMarkers"},"AdTriggers":{"$ref":"#/components/schemas/AdTriggers"},"AdsOnDeliveryRestrictions":{"$ref":"#/components/schemas/AdsOnDeliveryRestrictions"},"Encryption":{"$ref":"#/components/schemas/HlsEncryption"},"IncludeIframeOnlyStream":{"$ref":"#/components/schemas/__boolean"},"PlaylistType":{"$ref":"#/components/schemas/PlaylistType"},"PlaylistWindowSeconds":{"$ref":"#/components/schemas/__integer"},"ProgramDateTimeIntervalSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"},"UseAudioRenditionGroup":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"manifestName":{"description":"A short string that will be appended to the end of the Endpoint URL.","type":"string"},"mssPackage":{"description":"A Microsoft Smooth Streaming (MSS) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/MssEncryption"},"ManifestWindowSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"startoverWindowSeconds":{"description":"Maximum duration (in seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.\n","type":"integer"},"timeDelaySeconds":{"description":"Amount of delay (in seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n","type":"integer"},"whitelist":{"description":"A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.","items":{"$ref":"#/components/schemas/__string"},"type":"array"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateOriginEndpointResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/tags/{resource-arn}":{"get":{"description":"","operationId":"ListTagsForResource","parameters":[{"description":"","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceResponse"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"","operationId":"TagResource","parameters":[{"description":"","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"","type":"object"}},"required":["tags"],"type":"object"}}},"required":true},"responses":{"204":{"description":"Success"}}}},"/tags/{resource-arn}#tagKeys":{"delete":{"description":"","operationId":"UntagResource","parameters":[{"description":"","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}},{"description":"The key(s) of tag to be deleted","in":"query","name":"tagKeys","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"204":{"description":"Success"}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]}},"servers":[{"description":"The MediaPackage multi-region endpoint","url":"http://mediapackage.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The MediaPackage multi-region endpoint","url":"https://mediapackage.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The MediaPackage endpoint for China (Beijing) and China (Ningxia)","url":"http://mediapackage.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The MediaPackage endpoint for China (Beijing) and China (Ningxia)","url":"https://mediapackage.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AdMarkers":{"enum":["NONE","SCTE35_ENHANCED","PASSTHROUGH"],"type":"string"},"AdTriggers":{"description":"A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no\nad markers are output.  Specify multiple items to create ad markers for all of the included\nmessage types.\n","items":{"$ref":"#/components/schemas/__AdTriggersElement"},"type":"array"},"AdsOnDeliveryRestrictions":{"description":"This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to\ndetermine whether a message signals an ad.  Choosing \"NONE\" means no SCTE-35 messages become\nads.  Choosing \"RESTRICTED\" means SCTE-35 messages of the types specified in AdTriggers that\ncontain delivery restrictions will be treated as ads.  Choosing \"UNRESTRICTED\" means SCTE-35\nmessages of the types specified in AdTriggers that do not contain delivery restrictions will\nbe treated as ads.  Choosing \"BOTH\" means all SCTE-35 messages of the types specified in\nAdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags\nand are always treated as ads if specified in AdTriggers.\n","enum":["NONE","RESTRICTED","UNRESTRICTED","BOTH"],"type":"string"},"Channel":{"description":"A Channel resource configuration.","properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"},"HlsIngest":{"$ref":"#/components/schemas/HlsIngest"},"Id":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"CmafEncryption":{"description":"A Common Media Application Format (CMAF) encryption configuration.","properties":{"KeyRotationIntervalSeconds":{"$ref":"#/components/schemas/__integer"},"SpekeKeyProvider":{"$ref":"#/components/schemas/SpekeKeyProvider"}},"required":["SpekeKeyProvider"],"type":"object"},"CmafPackage":{"description":"A Common Media Application Format (CMAF) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/CmafEncryption"},"HlsManifests":{"$ref":"#/components/schemas/__listOfHlsManifest"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentPrefix":{"$ref":"#/components/schemas/__string"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"CmafPackageCreateOrUpdateParameters":{"description":"A Common Media Application Format (CMAF) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/CmafEncryption"},"HlsManifests":{"$ref":"#/components/schemas/__listOfHlsManifestCreateOrUpdateParameters"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentPrefix":{"$ref":"#/components/schemas/__string"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"CreateChannelRequest":{"description":"A new Channel configuration.","properties":{"Description":{"$ref":"#/components/schemas/__string"},"Id":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/Tags"}},"required":["Id"],"type":"object"},"CreateChannelResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"},"HlsIngest":{"$ref":"#/components/schemas/HlsIngest"},"Id":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"CreateOriginEndpointRequest":{"description":"Configuration parameters used to create a new OriginEndpoint.","properties":{"ChannelId":{"$ref":"#/components/schemas/__string"},"CmafPackage":{"$ref":"#/components/schemas/CmafPackageCreateOrUpdateParameters"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"Description":{"$ref":"#/components/schemas/__string"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"ManifestName":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"StartoverWindowSeconds":{"$ref":"#/components/schemas/__integer"},"Tags":{"$ref":"#/components/schemas/Tags"},"TimeDelaySeconds":{"$ref":"#/components/schemas/__integer"},"Whitelist":{"$ref":"#/components/schemas/__listOf__string"}},"required":["ChannelId","Id"],"type":"object"},"CreateOriginEndpointResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"ChannelId":{"$ref":"#/components/schemas/__string"},"CmafPackage":{"$ref":"#/components/schemas/CmafPackage"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"Description":{"$ref":"#/components/schemas/__string"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"ManifestName":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"StartoverWindowSeconds":{"$ref":"#/components/schemas/__integer"},"Tags":{"$ref":"#/components/schemas/Tags"},"TimeDelaySeconds":{"$ref":"#/components/schemas/__integer"},"Url":{"$ref":"#/components/schemas/__string"},"Whitelist":{"$ref":"#/components/schemas/__listOf__string"}},"type":"object"},"DashEncryption":{"description":"A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.","properties":{"KeyRotationIntervalSeconds":{"$ref":"#/components/schemas/__integer"},"SpekeKeyProvider":{"$ref":"#/components/schemas/SpekeKeyProvider"}},"required":["SpekeKeyProvider"],"type":"object"},"DashPackage":{"description":"A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.","properties":{"AdTriggers":{"$ref":"#/components/schemas/AdTriggers"},"AdsOnDeliveryRestrictions":{"$ref":"#/components/schemas/AdsOnDeliveryRestrictions"},"Encryption":{"$ref":"#/components/schemas/DashEncryption"},"ManifestLayout":{"$ref":"#/components/schemas/ManifestLayout"},"ManifestWindowSeconds":{"$ref":"#/components/schemas/__integer"},"MinBufferTimeSeconds":{"$ref":"#/components/schemas/__integer"},"MinUpdatePeriodSeconds":{"$ref":"#/components/schemas/__integer"},"PeriodTriggers":{"$ref":"#/components/schemas/__listOf__PeriodTriggersElement"},"Profile":{"$ref":"#/components/schemas/Profile"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentTemplateFormat":{"$ref":"#/components/schemas/SegmentTemplateFormat"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"},"SuggestedPresentationDelaySeconds":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"DeleteChannelRequest":{"properties":{},"type":"object"},"DeleteChannelResponse":{"properties":{},"type":"object"},"DeleteOriginEndpointRequest":{"properties":{},"type":"object"},"DeleteOriginEndpointResponse":{"properties":{},"type":"object"},"DescribeChannelRequest":{"properties":{},"type":"object"},"DescribeChannelResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"},"HlsIngest":{"$ref":"#/components/schemas/HlsIngest"},"Id":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"DescribeOriginEndpointRequest":{"properties":{},"type":"object"},"DescribeOriginEndpointResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"ChannelId":{"$ref":"#/components/schemas/__string"},"CmafPackage":{"$ref":"#/components/schemas/CmafPackage"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"Description":{"$ref":"#/components/schemas/__string"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"ManifestName":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"StartoverWindowSeconds":{"$ref":"#/components/schemas/__integer"},"Tags":{"$ref":"#/components/schemas/Tags"},"TimeDelaySeconds":{"$ref":"#/components/schemas/__integer"},"Url":{"$ref":"#/components/schemas/__string"},"Whitelist":{"$ref":"#/components/schemas/__listOf__string"}},"type":"object"},"EncryptionMethod":{"enum":["AES_128","SAMPLE_AES"],"type":"string"},"ForbiddenException":{},"HlsEncryption":{"description":"An HTTP Live Streaming (HLS) encryption configuration.","properties":{"ConstantInitializationVector":{"$ref":"#/components/schemas/__string"},"EncryptionMethod":{"$ref":"#/components/schemas/EncryptionMethod"},"KeyRotationIntervalSeconds":{"$ref":"#/components/schemas/__integer"},"RepeatExtXKey":{"$ref":"#/components/schemas/__boolean"},"SpekeKeyProvider":{"$ref":"#/components/schemas/SpekeKeyProvider"}},"required":["SpekeKeyProvider"],"type":"object"},"HlsIngest":{"description":"An HTTP Live Streaming (HLS) ingest resource configuration.","properties":{"IngestEndpoints":{"$ref":"#/components/schemas/__listOfIngestEndpoint"}},"type":"object"},"HlsManifest":{"description":"A HTTP Live Streaming (HLS) manifest configuration.","properties":{"AdMarkers":{"$ref":"#/components/schemas/AdMarkers"},"Id":{"$ref":"#/components/schemas/__string"},"IncludeIframeOnlyStream":{"$ref":"#/components/schemas/__boolean"},"ManifestName":{"$ref":"#/components/schemas/__string"},"PlaylistType":{"$ref":"#/components/schemas/PlaylistType"},"PlaylistWindowSeconds":{"$ref":"#/components/schemas/__integer"},"ProgramDateTimeIntervalSeconds":{"$ref":"#/components/schemas/__integer"},"Url":{"$ref":"#/components/schemas/__string"}},"required":["Id"],"type":"object"},"HlsManifestCreateOrUpdateParameters":{"description":"A HTTP Live Streaming (HLS) manifest configuration.","properties":{"AdMarkers":{"$ref":"#/components/schemas/AdMarkers"},"AdTriggers":{"$ref":"#/components/schemas/AdTriggers"},"AdsOnDeliveryRestrictions":{"$ref":"#/components/schemas/AdsOnDeliveryRestrictions"},"Id":{"$ref":"#/components/schemas/__string"},"IncludeIframeOnlyStream":{"$ref":"#/components/schemas/__boolean"},"ManifestName":{"$ref":"#/components/schemas/__string"},"PlaylistType":{"$ref":"#/components/schemas/PlaylistType"},"PlaylistWindowSeconds":{"$ref":"#/components/schemas/__integer"},"ProgramDateTimeIntervalSeconds":{"$ref":"#/components/schemas/__integer"}},"required":["Id"],"type":"object"},"HlsPackage":{"description":"An HTTP Live Streaming (HLS) packaging configuration.","properties":{"AdMarkers":{"$ref":"#/components/schemas/AdMarkers"},"AdTriggers":{"$ref":"#/components/schemas/AdTriggers"},"AdsOnDeliveryRestrictions":{"$ref":"#/components/schemas/AdsOnDeliveryRestrictions"},"Encryption":{"$ref":"#/components/schemas/HlsEncryption"},"IncludeIframeOnlyStream":{"$ref":"#/components/schemas/__boolean"},"PlaylistType":{"$ref":"#/components/schemas/PlaylistType"},"PlaylistWindowSeconds":{"$ref":"#/components/schemas/__integer"},"ProgramDateTimeIntervalSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"},"UseAudioRenditionGroup":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"IngestEndpoint":{"description":"An endpoint for ingesting source content for a Channel.","properties":{"Id":{"$ref":"#/components/schemas/__string"},"Password":{"$ref":"#/components/schemas/__string"},"Url":{"$ref":"#/components/schemas/__string"},"Username":{"$ref":"#/components/schemas/__string"}},"type":"object"},"InternalServerErrorException":{},"ListChannelsRequest":{"properties":{},"type":"object"},"ListChannelsResponse":{"properties":{"Channels":{"$ref":"#/components/schemas/__listOfChannel"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListOriginEndpointsRequest":{"properties":{},"type":"object"},"ListOriginEndpointsResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/__string"},"OriginEndpoints":{"$ref":"#/components/schemas/__listOfOriginEndpoint"}},"type":"object"},"ListTagsForResourceRequest":{"properties":{},"type":"object"},"ListTagsForResourceResponse":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"ManifestLayout":{"enum":["FULL","COMPACT"],"type":"string"},"MaxResults":{"maximum":1000,"minimum":1,"type":"integer"},"MssEncryption":{"description":"A Microsoft Smooth Streaming (MSS) encryption configuration.","properties":{"SpekeKeyProvider":{"$ref":"#/components/schemas/SpekeKeyProvider"}},"required":["SpekeKeyProvider"],"type":"object"},"MssPackage":{"description":"A Microsoft Smooth Streaming (MSS) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/MssEncryption"},"ManifestWindowSeconds":{"$ref":"#/components/schemas/__integer"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"NotFoundException":{},"OriginEndpoint":{"description":"An OriginEndpoint resource configuration.","properties":{"Arn":{"$ref":"#/components/schemas/__string"},"ChannelId":{"$ref":"#/components/schemas/__string"},"CmafPackage":{"$ref":"#/components/schemas/CmafPackage"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"Description":{"$ref":"#/components/schemas/__string"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"ManifestName":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"StartoverWindowSeconds":{"$ref":"#/components/schemas/__integer"},"Tags":{"$ref":"#/components/schemas/Tags"},"TimeDelaySeconds":{"$ref":"#/components/schemas/__integer"},"Url":{"$ref":"#/components/schemas/__string"},"Whitelist":{"$ref":"#/components/schemas/__listOf__string"}},"type":"object"},"PlaylistType":{"enum":["NONE","EVENT","VOD"],"type":"string"},"Profile":{"enum":["NONE","HBBTV_1_5"],"type":"string"},"RotateChannelCredentialsRequest":{"properties":{},"type":"object"},"RotateChannelCredentialsResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"},"HlsIngest":{"$ref":"#/components/schemas/HlsIngest"},"Id":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"RotateIngestEndpointCredentialsRequest":{"properties":{},"type":"object"},"RotateIngestEndpointCredentialsResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"},"HlsIngest":{"$ref":"#/components/schemas/HlsIngest"},"Id":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"SegmentTemplateFormat":{"enum":["NUMBER_WITH_TIMELINE","TIME_WITH_TIMELINE","NUMBER_WITH_DURATION"],"type":"string"},"ServiceUnavailableException":{},"SpekeKeyProvider":{"description":"A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.","properties":{"CertificateArn":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"RoleArn":{"$ref":"#/components/schemas/__string"},"SystemIds":{"$ref":"#/components/schemas/__listOf__string"},"Url":{"$ref":"#/components/schemas/__string"}},"required":["Url","ResourceId","RoleArn","SystemIds"],"type":"object"},"StreamOrder":{"enum":["ORIGINAL","VIDEO_BITRATE_ASCENDING","VIDEO_BITRATE_DESCENDING"],"type":"string"},"StreamSelection":{"description":"A StreamSelection configuration.","properties":{"MaxVideoBitsPerSecond":{"$ref":"#/components/schemas/__integer"},"MinVideoBitsPerSecond":{"$ref":"#/components/schemas/__integer"},"StreamOrder":{"$ref":"#/components/schemas/StreamOrder"}},"type":"object"},"TagResourceRequest":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"required":["Tags"],"type":"object"},"Tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"A collection of tags associated with a resource","type":"object"},"TooManyRequestsException":{},"UnprocessableEntityException":{},"UntagResourceRequest":{"properties":{},"type":"object"},"UpdateChannelRequest":{"description":"Configuration parameters used to update the Channel.","properties":{"Description":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UpdateChannelResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"},"HlsIngest":{"$ref":"#/components/schemas/HlsIngest"},"Id":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"UpdateOriginEndpointRequest":{"description":"Configuration parameters used to update an existing OriginEndpoint.","properties":{"CmafPackage":{"$ref":"#/components/schemas/CmafPackageCreateOrUpdateParameters"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"Description":{"$ref":"#/components/schemas/__string"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"ManifestName":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"StartoverWindowSeconds":{"$ref":"#/components/schemas/__integer"},"TimeDelaySeconds":{"$ref":"#/components/schemas/__integer"},"Whitelist":{"$ref":"#/components/schemas/__listOf__string"}},"type":"object"},"UpdateOriginEndpointResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"ChannelId":{"$ref":"#/components/schemas/__string"},"CmafPackage":{"$ref":"#/components/schemas/CmafPackage"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"Description":{"$ref":"#/components/schemas/__string"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"ManifestName":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"StartoverWindowSeconds":{"$ref":"#/components/schemas/__integer"},"Tags":{"$ref":"#/components/schemas/Tags"},"TimeDelaySeconds":{"$ref":"#/components/schemas/__integer"},"Url":{"$ref":"#/components/schemas/__string"},"Whitelist":{"$ref":"#/components/schemas/__listOf__string"}},"type":"object"},"__AdTriggersElement":{"enum":["SPLICE_INSERT","BREAK","PROVIDER_ADVERTISEMENT","DISTRIBUTOR_ADVERTISEMENT","PROVIDER_PLACEMENT_OPPORTUNITY","DISTRIBUTOR_PLACEMENT_OPPORTUNITY","PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY","DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"],"type":"string"},"__PeriodTriggersElement":{"enum":["ADS"],"type":"string"},"__boolean":{"type":"boolean"},"__integer":{"type":"integer"},"__listOfChannel":{"items":{"$ref":"#/components/schemas/Channel"},"type":"array"},"__listOfHlsManifest":{"items":{"$ref":"#/components/schemas/HlsManifest"},"type":"array"},"__listOfHlsManifestCreateOrUpdateParameters":{"items":{"$ref":"#/components/schemas/HlsManifestCreateOrUpdateParameters"},"type":"array"},"__listOfIngestEndpoint":{"items":{"$ref":"#/components/schemas/IngestEndpoint"},"type":"array"},"__listOfOriginEndpoint":{"items":{"$ref":"#/components/schemas/OriginEndpoint"},"type":"array"},"__listOf__PeriodTriggersElement":{"items":{"$ref":"#/components/schemas/__PeriodTriggersElement"},"type":"array"},"__listOf__string":{"items":{"$ref":"#/components/schemas/__string"},"type":"array"},"__mapOf__string":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"type":"object"},"__string":{"type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Elemental MediaPackage",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Elemental MediaPackage",
+    "version": "2017-10-12",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediapackage-2017-10-12.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mediapackage"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/mediapackage/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/channels": {
+      "get": {
+        "description": "Returns a collection of Channels.",
+        "operationId": "ListChannels",
+        "parameters": [
+          {
+            "description": "Upper bound on number of records to return.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          {
+            "description": "A token used to resume pagination from the end of a previous request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListChannelsResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new Channel.",
+        "operationId": "CreateChannel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "description": { "description": "A short text description of the Channel.", "type": "string" },
+                  "id": {
+                    "description": "The ID of the Channel. The ID must be unique within the region and it\ncannot be changed after a Channel is created.\n",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "A collection of tags associated with a resource",
+                    "type": "object"
+                  }
+                },
+                "required": ["id"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateChannelResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/channels/{id}": {
+      "delete": {
+        "description": "Deletes an existing Channel.",
+        "operationId": "DeleteChannel",
+        "parameters": [
+          {
+            "description": "The ID of the Channel to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteChannelResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Gets details about a Channel.",
+        "operationId": "DescribeChannel",
+        "parameters": [
+          {
+            "description": "The ID of a Channel.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeChannelResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Updates an existing Channel.",
+        "operationId": "UpdateChannel",
+        "parameters": [
+          {
+            "description": "The ID of the Channel to update.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "description": { "description": "A short text description of the Channel.", "type": "string" }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateChannelResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/channels/{id}/credentials": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "deprecated": true,
+        "description": "Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead",
+        "operationId": "RotateChannelCredentials",
+        "parameters": [
+          {
+            "description": "The ID of the channel to update.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/RotateChannelCredentialsResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/channels/{id}/ingest_endpoints/{ingest_endpoint_id}/credentials": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.",
+        "operationId": "RotateIngestEndpointCredentials",
+        "parameters": [
+          {
+            "description": "The ID of the channel the IngestEndpoint is on.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The id of the IngestEndpoint whose credentials should be rotated",
+            "in": "path",
+            "name": "ingest_endpoint_id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/RotateIngestEndpointCredentialsResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/origin_endpoints": {
+      "get": {
+        "description": "Returns a collection of OriginEndpoint records.",
+        "operationId": "ListOriginEndpoints",
+        "parameters": [
+          {
+            "description": "When specified, the request will return only OriginEndpoints associated with the given Channel ID.",
+            "in": "query",
+            "name": "channelId",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The upper bound on the number of records to return.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          {
+            "description": "A token used to resume pagination from the end of a previous request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListOriginEndpointsResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new OriginEndpoint record.",
+        "operationId": "CreateOriginEndpoint",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "channelId": {
+                    "description": "The ID of the Channel that the OriginEndpoint will be associated with.\nThis cannot be changed after the OriginEndpoint is created.\n",
+                    "type": "string"
+                  },
+                  "cmafPackage": {
+                    "description": "A Common Media Application Format (CMAF) packaging configuration.",
+                    "properties": {
+                      "Encryption": { "$ref": "#/components/schemas/CmafEncryption" },
+                      "HlsManifests": { "$ref": "#/components/schemas/__listOfHlsManifestCreateOrUpdateParameters" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "SegmentPrefix": { "$ref": "#/components/schemas/__string" },
+                      "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+                    },
+                    "type": "object"
+                  },
+                  "dashPackage": {
+                    "description": "A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.",
+                    "properties": {
+                      "AdTriggers": { "$ref": "#/components/schemas/AdTriggers" },
+                      "AdsOnDeliveryRestrictions": { "$ref": "#/components/schemas/AdsOnDeliveryRestrictions" },
+                      "Encryption": { "$ref": "#/components/schemas/DashEncryption" },
+                      "ManifestLayout": { "$ref": "#/components/schemas/ManifestLayout" },
+                      "ManifestWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "MinBufferTimeSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "MinUpdatePeriodSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "PeriodTriggers": { "$ref": "#/components/schemas/__listOf__PeriodTriggersElement" },
+                      "Profile": { "$ref": "#/components/schemas/Profile" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "SegmentTemplateFormat": { "$ref": "#/components/schemas/SegmentTemplateFormat" },
+                      "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" },
+                      "SuggestedPresentationDelaySeconds": { "$ref": "#/components/schemas/__integer" }
+                    },
+                    "type": "object"
+                  },
+                  "description": { "description": "A short text description of the OriginEndpoint.", "type": "string" },
+                  "hlsPackage": {
+                    "description": "An HTTP Live Streaming (HLS) packaging configuration.",
+                    "properties": {
+                      "AdMarkers": { "$ref": "#/components/schemas/AdMarkers" },
+                      "AdTriggers": { "$ref": "#/components/schemas/AdTriggers" },
+                      "AdsOnDeliveryRestrictions": { "$ref": "#/components/schemas/AdsOnDeliveryRestrictions" },
+                      "Encryption": { "$ref": "#/components/schemas/HlsEncryption" },
+                      "IncludeIframeOnlyStream": { "$ref": "#/components/schemas/__boolean" },
+                      "PlaylistType": { "$ref": "#/components/schemas/PlaylistType" },
+                      "PlaylistWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "ProgramDateTimeIntervalSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" },
+                      "UseAudioRenditionGroup": { "$ref": "#/components/schemas/__boolean" }
+                    },
+                    "type": "object"
+                  },
+                  "id": {
+                    "description": "The ID of the OriginEndpoint.  The ID must be unique within the region\nand it cannot be changed after the OriginEndpoint is created.\n",
+                    "type": "string"
+                  },
+                  "manifestName": {
+                    "description": "A short string that will be used as the filename of the OriginEndpoint URL (defaults to \"index\").",
+                    "type": "string"
+                  },
+                  "mssPackage": {
+                    "description": "A Microsoft Smooth Streaming (MSS) packaging configuration.",
+                    "properties": {
+                      "Encryption": { "$ref": "#/components/schemas/MssEncryption" },
+                      "ManifestWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+                    },
+                    "type": "object"
+                  },
+                  "startoverWindowSeconds": {
+                    "description": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.\n",
+                    "type": "integer"
+                  },
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "A collection of tags associated with a resource",
+                    "type": "object"
+                  },
+                  "timeDelaySeconds": {
+                    "description": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n",
+                    "type": "integer"
+                  },
+                  "whitelist": {
+                    "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
+                    "items": { "$ref": "#/components/schemas/__string" },
+                    "type": "array"
+                  }
+                },
+                "required": ["channelId", "id"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateOriginEndpointResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/origin_endpoints/{id}": {
+      "delete": {
+        "description": "Deletes an existing OriginEndpoint.",
+        "operationId": "DeleteOriginEndpoint",
+        "parameters": [
+          {
+            "description": "The ID of the OriginEndpoint to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeleteOriginEndpointResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Gets details about an existing OriginEndpoint.",
+        "operationId": "DescribeOriginEndpoint",
+        "parameters": [
+          {
+            "description": "The ID of the OriginEndpoint.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeOriginEndpointResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Updates an existing OriginEndpoint.",
+        "operationId": "UpdateOriginEndpoint",
+        "parameters": [
+          {
+            "description": "The ID of the OriginEndpoint to update.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "cmafPackage": {
+                    "description": "A Common Media Application Format (CMAF) packaging configuration.",
+                    "properties": {
+                      "Encryption": { "$ref": "#/components/schemas/CmafEncryption" },
+                      "HlsManifests": { "$ref": "#/components/schemas/__listOfHlsManifestCreateOrUpdateParameters" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "SegmentPrefix": { "$ref": "#/components/schemas/__string" },
+                      "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+                    },
+                    "type": "object"
+                  },
+                  "dashPackage": {
+                    "description": "A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.",
+                    "properties": {
+                      "AdTriggers": { "$ref": "#/components/schemas/AdTriggers" },
+                      "AdsOnDeliveryRestrictions": { "$ref": "#/components/schemas/AdsOnDeliveryRestrictions" },
+                      "Encryption": { "$ref": "#/components/schemas/DashEncryption" },
+                      "ManifestLayout": { "$ref": "#/components/schemas/ManifestLayout" },
+                      "ManifestWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "MinBufferTimeSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "MinUpdatePeriodSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "PeriodTriggers": { "$ref": "#/components/schemas/__listOf__PeriodTriggersElement" },
+                      "Profile": { "$ref": "#/components/schemas/Profile" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "SegmentTemplateFormat": { "$ref": "#/components/schemas/SegmentTemplateFormat" },
+                      "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" },
+                      "SuggestedPresentationDelaySeconds": { "$ref": "#/components/schemas/__integer" }
+                    },
+                    "type": "object"
+                  },
+                  "description": { "description": "A short text description of the OriginEndpoint.", "type": "string" },
+                  "hlsPackage": {
+                    "description": "An HTTP Live Streaming (HLS) packaging configuration.",
+                    "properties": {
+                      "AdMarkers": { "$ref": "#/components/schemas/AdMarkers" },
+                      "AdTriggers": { "$ref": "#/components/schemas/AdTriggers" },
+                      "AdsOnDeliveryRestrictions": { "$ref": "#/components/schemas/AdsOnDeliveryRestrictions" },
+                      "Encryption": { "$ref": "#/components/schemas/HlsEncryption" },
+                      "IncludeIframeOnlyStream": { "$ref": "#/components/schemas/__boolean" },
+                      "PlaylistType": { "$ref": "#/components/schemas/PlaylistType" },
+                      "PlaylistWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "ProgramDateTimeIntervalSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" },
+                      "UseAudioRenditionGroup": { "$ref": "#/components/schemas/__boolean" }
+                    },
+                    "type": "object"
+                  },
+                  "manifestName": {
+                    "description": "A short string that will be appended to the end of the Endpoint URL.",
+                    "type": "string"
+                  },
+                  "mssPackage": {
+                    "description": "A Microsoft Smooth Streaming (MSS) packaging configuration.",
+                    "properties": {
+                      "Encryption": { "$ref": "#/components/schemas/MssEncryption" },
+                      "ManifestWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+                    },
+                    "type": "object"
+                  },
+                  "startoverWindowSeconds": {
+                    "description": "Maximum duration (in seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.\n",
+                    "type": "integer"
+                  },
+                  "timeDelaySeconds": {
+                    "description": "Amount of delay (in seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n",
+                    "type": "integer"
+                  },
+                  "whitelist": {
+                    "description": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
+                    "items": { "$ref": "#/components/schemas/__string" },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateOriginEndpointResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/tags/{resource-arn}": {
+      "get": {
+        "description": "",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          { "description": "", "in": "path", "name": "resource-arn", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceResponse" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "",
+        "operationId": "TagResource",
+        "parameters": [
+          { "description": "", "in": "path", "name": "resource-arn", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "",
+                    "type": "object"
+                  }
+                },
+                "required": ["tags"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": { "204": { "description": "Success" } }
+      }
+    },
+    "/tags/{resource-arn}#tagKeys": {
+      "delete": {
+        "description": "",
+        "operationId": "UntagResource",
+        "parameters": [
+          { "description": "", "in": "path", "name": "resource-arn", "required": true, "schema": { "type": "string" } },
+          {
+            "description": "The key(s) of tag to be deleted",
+            "in": "query",
+            "name": "tagKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": { "204": { "description": "Success" } }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    }
+  },
+  "servers": [
+    {
+      "description": "The MediaPackage multi-region endpoint",
+      "url": "http://mediapackage.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The MediaPackage multi-region endpoint",
+      "url": "https://mediapackage.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The MediaPackage endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://mediapackage.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The MediaPackage endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://mediapackage.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AdMarkers": { "enum": ["NONE", "SCTE35_ENHANCED", "PASSTHROUGH"], "type": "string" },
+      "AdTriggers": {
+        "description": "A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no\nad markers are output.  Specify multiple items to create ad markers for all of the included\nmessage types.\n",
+        "items": { "$ref": "#/components/schemas/__AdTriggersElement" },
+        "type": "array"
+      },
+      "AdsOnDeliveryRestrictions": {
+        "description": "This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to\ndetermine whether a message signals an ad.  Choosing \"NONE\" means no SCTE-35 messages become\nads.  Choosing \"RESTRICTED\" means SCTE-35 messages of the types specified in AdTriggers that\ncontain delivery restrictions will be treated as ads.  Choosing \"UNRESTRICTED\" means SCTE-35\nmessages of the types specified in AdTriggers that do not contain delivery restrictions will\nbe treated as ads.  Choosing \"BOTH\" means all SCTE-35 messages of the types specified in\nAdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags\nand are always treated as ads if specified in AdTriggers.\n",
+        "enum": ["NONE", "RESTRICTED", "UNRESTRICTED", "BOTH"],
+        "type": "string"
+      },
+      "Channel": {
+        "description": "A Channel resource configuration.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsIngest": { "$ref": "#/components/schemas/HlsIngest" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "CmafEncryption": {
+        "description": "A Common Media Application Format (CMAF) encryption configuration.",
+        "properties": {
+          "KeyRotationIntervalSeconds": { "$ref": "#/components/schemas/__integer" },
+          "SpekeKeyProvider": { "$ref": "#/components/schemas/SpekeKeyProvider" }
+        },
+        "required": ["SpekeKeyProvider"],
+        "type": "object"
+      },
+      "CmafPackage": {
+        "description": "A Common Media Application Format (CMAF) packaging configuration.",
+        "properties": {
+          "Encryption": { "$ref": "#/components/schemas/CmafEncryption" },
+          "HlsManifests": { "$ref": "#/components/schemas/__listOfHlsManifest" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+          "SegmentPrefix": { "$ref": "#/components/schemas/__string" },
+          "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+        },
+        "type": "object"
+      },
+      "CmafPackageCreateOrUpdateParameters": {
+        "description": "A Common Media Application Format (CMAF) packaging configuration.",
+        "properties": {
+          "Encryption": { "$ref": "#/components/schemas/CmafEncryption" },
+          "HlsManifests": { "$ref": "#/components/schemas/__listOfHlsManifestCreateOrUpdateParameters" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+          "SegmentPrefix": { "$ref": "#/components/schemas/__string" },
+          "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+        },
+        "type": "object"
+      },
+      "CreateChannelRequest": {
+        "description": "A new Channel configuration.",
+        "properties": {
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "CreateChannelResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsIngest": { "$ref": "#/components/schemas/HlsIngest" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "CreateOriginEndpointRequest": {
+        "description": "Configuration parameters used to create a new OriginEndpoint.",
+        "properties": {
+          "ChannelId": { "$ref": "#/components/schemas/__string" },
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackageCreateOrUpdateParameters" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "StartoverWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "Tags": { "$ref": "#/components/schemas/Tags" },
+          "TimeDelaySeconds": { "$ref": "#/components/schemas/__integer" },
+          "Whitelist": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "required": ["ChannelId", "Id"],
+        "type": "object"
+      },
+      "CreateOriginEndpointResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "ChannelId": { "$ref": "#/components/schemas/__string" },
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackage" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "StartoverWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "Tags": { "$ref": "#/components/schemas/Tags" },
+          "TimeDelaySeconds": { "$ref": "#/components/schemas/__integer" },
+          "Url": { "$ref": "#/components/schemas/__string" },
+          "Whitelist": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "type": "object"
+      },
+      "DashEncryption": {
+        "description": "A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.",
+        "properties": {
+          "KeyRotationIntervalSeconds": { "$ref": "#/components/schemas/__integer" },
+          "SpekeKeyProvider": { "$ref": "#/components/schemas/SpekeKeyProvider" }
+        },
+        "required": ["SpekeKeyProvider"],
+        "type": "object"
+      },
+      "DashPackage": {
+        "description": "A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.",
+        "properties": {
+          "AdTriggers": { "$ref": "#/components/schemas/AdTriggers" },
+          "AdsOnDeliveryRestrictions": { "$ref": "#/components/schemas/AdsOnDeliveryRestrictions" },
+          "Encryption": { "$ref": "#/components/schemas/DashEncryption" },
+          "ManifestLayout": { "$ref": "#/components/schemas/ManifestLayout" },
+          "ManifestWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "MinBufferTimeSeconds": { "$ref": "#/components/schemas/__integer" },
+          "MinUpdatePeriodSeconds": { "$ref": "#/components/schemas/__integer" },
+          "PeriodTriggers": { "$ref": "#/components/schemas/__listOf__PeriodTriggersElement" },
+          "Profile": { "$ref": "#/components/schemas/Profile" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+          "SegmentTemplateFormat": { "$ref": "#/components/schemas/SegmentTemplateFormat" },
+          "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" },
+          "SuggestedPresentationDelaySeconds": { "$ref": "#/components/schemas/__integer" }
+        },
+        "type": "object"
+      },
+      "DeleteChannelRequest": { "properties": {}, "type": "object" },
+      "DeleteChannelResponse": { "properties": {}, "type": "object" },
+      "DeleteOriginEndpointRequest": { "properties": {}, "type": "object" },
+      "DeleteOriginEndpointResponse": { "properties": {}, "type": "object" },
+      "DescribeChannelRequest": { "properties": {}, "type": "object" },
+      "DescribeChannelResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsIngest": { "$ref": "#/components/schemas/HlsIngest" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "DescribeOriginEndpointRequest": { "properties": {}, "type": "object" },
+      "DescribeOriginEndpointResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "ChannelId": { "$ref": "#/components/schemas/__string" },
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackage" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "StartoverWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "Tags": { "$ref": "#/components/schemas/Tags" },
+          "TimeDelaySeconds": { "$ref": "#/components/schemas/__integer" },
+          "Url": { "$ref": "#/components/schemas/__string" },
+          "Whitelist": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "type": "object"
+      },
+      "EncryptionMethod": { "enum": ["AES_128", "SAMPLE_AES"], "type": "string" },
+      "ForbiddenException": {},
+      "HlsEncryption": {
+        "description": "An HTTP Live Streaming (HLS) encryption configuration.",
+        "properties": {
+          "ConstantInitializationVector": { "$ref": "#/components/schemas/__string" },
+          "EncryptionMethod": { "$ref": "#/components/schemas/EncryptionMethod" },
+          "KeyRotationIntervalSeconds": { "$ref": "#/components/schemas/__integer" },
+          "RepeatExtXKey": { "$ref": "#/components/schemas/__boolean" },
+          "SpekeKeyProvider": { "$ref": "#/components/schemas/SpekeKeyProvider" }
+        },
+        "required": ["SpekeKeyProvider"],
+        "type": "object"
+      },
+      "HlsIngest": {
+        "description": "An HTTP Live Streaming (HLS) ingest resource configuration.",
+        "properties": { "IngestEndpoints": { "$ref": "#/components/schemas/__listOfIngestEndpoint" } },
+        "type": "object"
+      },
+      "HlsManifest": {
+        "description": "A HTTP Live Streaming (HLS) manifest configuration.",
+        "properties": {
+          "AdMarkers": { "$ref": "#/components/schemas/AdMarkers" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "IncludeIframeOnlyStream": { "$ref": "#/components/schemas/__boolean" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "PlaylistType": { "$ref": "#/components/schemas/PlaylistType" },
+          "PlaylistWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "ProgramDateTimeIntervalSeconds": { "$ref": "#/components/schemas/__integer" },
+          "Url": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "HlsManifestCreateOrUpdateParameters": {
+        "description": "A HTTP Live Streaming (HLS) manifest configuration.",
+        "properties": {
+          "AdMarkers": { "$ref": "#/components/schemas/AdMarkers" },
+          "AdTriggers": { "$ref": "#/components/schemas/AdTriggers" },
+          "AdsOnDeliveryRestrictions": { "$ref": "#/components/schemas/AdsOnDeliveryRestrictions" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "IncludeIframeOnlyStream": { "$ref": "#/components/schemas/__boolean" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "PlaylistType": { "$ref": "#/components/schemas/PlaylistType" },
+          "PlaylistWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "ProgramDateTimeIntervalSeconds": { "$ref": "#/components/schemas/__integer" }
+        },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "HlsPackage": {
+        "description": "An HTTP Live Streaming (HLS) packaging configuration.",
+        "properties": {
+          "AdMarkers": { "$ref": "#/components/schemas/AdMarkers" },
+          "AdTriggers": { "$ref": "#/components/schemas/AdTriggers" },
+          "AdsOnDeliveryRestrictions": { "$ref": "#/components/schemas/AdsOnDeliveryRestrictions" },
+          "Encryption": { "$ref": "#/components/schemas/HlsEncryption" },
+          "IncludeIframeOnlyStream": { "$ref": "#/components/schemas/__boolean" },
+          "PlaylistType": { "$ref": "#/components/schemas/PlaylistType" },
+          "PlaylistWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "ProgramDateTimeIntervalSeconds": { "$ref": "#/components/schemas/__integer" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+          "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" },
+          "UseAudioRenditionGroup": { "$ref": "#/components/schemas/__boolean" }
+        },
+        "type": "object"
+      },
+      "IngestEndpoint": {
+        "description": "An endpoint for ingesting source content for a Channel.",
+        "properties": {
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Password": { "$ref": "#/components/schemas/__string" },
+          "Url": { "$ref": "#/components/schemas/__string" },
+          "Username": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "InternalServerErrorException": {},
+      "ListChannelsRequest": { "properties": {}, "type": "object" },
+      "ListChannelsResponse": {
+        "properties": {
+          "Channels": { "$ref": "#/components/schemas/__listOfChannel" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListOriginEndpointsRequest": { "properties": {}, "type": "object" },
+      "ListOriginEndpointsResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/__string" },
+          "OriginEndpoints": { "$ref": "#/components/schemas/__listOfOriginEndpoint" }
+        },
+        "type": "object"
+      },
+      "ListTagsForResourceRequest": { "properties": {}, "type": "object" },
+      "ListTagsForResourceResponse": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "type": "object"
+      },
+      "ManifestLayout": { "enum": ["FULL", "COMPACT"], "type": "string" },
+      "MaxResults": { "maximum": 1000, "minimum": 1, "type": "integer" },
+      "MssEncryption": {
+        "description": "A Microsoft Smooth Streaming (MSS) encryption configuration.",
+        "properties": { "SpekeKeyProvider": { "$ref": "#/components/schemas/SpekeKeyProvider" } },
+        "required": ["SpekeKeyProvider"],
+        "type": "object"
+      },
+      "MssPackage": {
+        "description": "A Microsoft Smooth Streaming (MSS) packaging configuration.",
+        "properties": {
+          "Encryption": { "$ref": "#/components/schemas/MssEncryption" },
+          "ManifestWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+          "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+        },
+        "type": "object"
+      },
+      "NotFoundException": {},
+      "OriginEndpoint": {
+        "description": "An OriginEndpoint resource configuration.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "ChannelId": { "$ref": "#/components/schemas/__string" },
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackage" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "StartoverWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "Tags": { "$ref": "#/components/schemas/Tags" },
+          "TimeDelaySeconds": { "$ref": "#/components/schemas/__integer" },
+          "Url": { "$ref": "#/components/schemas/__string" },
+          "Whitelist": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "type": "object"
+      },
+      "PlaylistType": { "enum": ["NONE", "EVENT", "VOD"], "type": "string" },
+      "Profile": { "enum": ["NONE", "HBBTV_1_5"], "type": "string" },
+      "RotateChannelCredentialsRequest": { "properties": {}, "type": "object" },
+      "RotateChannelCredentialsResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsIngest": { "$ref": "#/components/schemas/HlsIngest" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "RotateIngestEndpointCredentialsRequest": { "properties": {}, "type": "object" },
+      "RotateIngestEndpointCredentialsResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsIngest": { "$ref": "#/components/schemas/HlsIngest" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "SegmentTemplateFormat": {
+        "enum": ["NUMBER_WITH_TIMELINE", "TIME_WITH_TIMELINE", "NUMBER_WITH_DURATION"],
+        "type": "string"
+      },
+      "ServiceUnavailableException": {},
+      "SpekeKeyProvider": {
+        "description": "A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.",
+        "properties": {
+          "CertificateArn": { "$ref": "#/components/schemas/__string" },
+          "ResourceId": { "$ref": "#/components/schemas/__string" },
+          "RoleArn": { "$ref": "#/components/schemas/__string" },
+          "SystemIds": { "$ref": "#/components/schemas/__listOf__string" },
+          "Url": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["Url", "ResourceId", "RoleArn", "SystemIds"],
+        "type": "object"
+      },
+      "StreamOrder": { "enum": ["ORIGINAL", "VIDEO_BITRATE_ASCENDING", "VIDEO_BITRATE_DESCENDING"], "type": "string" },
+      "StreamSelection": {
+        "description": "A StreamSelection configuration.",
+        "properties": {
+          "MaxVideoBitsPerSecond": { "$ref": "#/components/schemas/__integer" },
+          "MinVideoBitsPerSecond": { "$ref": "#/components/schemas/__integer" },
+          "StreamOrder": { "$ref": "#/components/schemas/StreamOrder" }
+        },
+        "type": "object"
+      },
+      "TagResourceRequest": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "required": ["Tags"],
+        "type": "object"
+      },
+      "Tags": {
+        "additionalProperties": { "$ref": "#/components/schemas/__string" },
+        "description": "A collection of tags associated with a resource",
+        "type": "object"
+      },
+      "TooManyRequestsException": {},
+      "UnprocessableEntityException": {},
+      "UntagResourceRequest": { "properties": {}, "type": "object" },
+      "UpdateChannelRequest": {
+        "description": "Configuration parameters used to update the Channel.",
+        "properties": { "Description": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "UpdateChannelResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsIngest": { "$ref": "#/components/schemas/HlsIngest" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "UpdateOriginEndpointRequest": {
+        "description": "Configuration parameters used to update an existing OriginEndpoint.",
+        "properties": {
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackageCreateOrUpdateParameters" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "StartoverWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "TimeDelaySeconds": { "$ref": "#/components/schemas/__integer" },
+          "Whitelist": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "type": "object"
+      },
+      "UpdateOriginEndpointResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "ChannelId": { "$ref": "#/components/schemas/__string" },
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackage" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "StartoverWindowSeconds": { "$ref": "#/components/schemas/__integer" },
+          "Tags": { "$ref": "#/components/schemas/Tags" },
+          "TimeDelaySeconds": { "$ref": "#/components/schemas/__integer" },
+          "Url": { "$ref": "#/components/schemas/__string" },
+          "Whitelist": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "type": "object"
+      },
+      "__AdTriggersElement": {
+        "enum": [
+          "SPLICE_INSERT",
+          "BREAK",
+          "PROVIDER_ADVERTISEMENT",
+          "DISTRIBUTOR_ADVERTISEMENT",
+          "PROVIDER_PLACEMENT_OPPORTUNITY",
+          "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
+          "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
+          "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
+        ],
+        "type": "string"
+      },
+      "__PeriodTriggersElement": { "enum": ["ADS"], "type": "string" },
+      "__boolean": { "type": "boolean" },
+      "__integer": { "type": "integer" },
+      "__listOfChannel": { "items": { "$ref": "#/components/schemas/Channel" }, "type": "array" },
+      "__listOfHlsManifest": { "items": { "$ref": "#/components/schemas/HlsManifest" }, "type": "array" },
+      "__listOfHlsManifestCreateOrUpdateParameters": {
+        "items": { "$ref": "#/components/schemas/HlsManifestCreateOrUpdateParameters" },
+        "type": "array"
+      },
+      "__listOfIngestEndpoint": { "items": { "$ref": "#/components/schemas/IngestEndpoint" }, "type": "array" },
+      "__listOfOriginEndpoint": { "items": { "$ref": "#/components/schemas/OriginEndpoint" }, "type": "array" },
+      "__listOf__PeriodTriggersElement": {
+        "items": { "$ref": "#/components/schemas/__PeriodTriggersElement" },
+        "type": "array"
+      },
+      "__listOf__string": { "items": { "$ref": "#/components/schemas/__string" }, "type": "array" },
+      "__mapOf__string": { "additionalProperties": { "$ref": "#/components/schemas/__string" }, "type": "object" },
+      "__string": { "type": "string" }
+    }
+  }
+}

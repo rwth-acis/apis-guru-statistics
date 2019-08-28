@@ -1,1 +1,1028 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"Describes all of the AWS IoT 1-Click device-related API operations for the service.\n Also provides sample requests, responses, and errors for the supported web services\n protocols.","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS IoT 1-Click Devices Service","version":"2018-05-14","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot1click-devices-2018-05-14.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"iot1click-devices"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/iot1click/"},"security":[{"hmac":[]}],"paths":{"/claims/{claimCode}":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Adds device(s) to your account (i.e., claim one or more devices) if and only if you\n received a claim code with the device(s).","operationId":"ClaimDevicesByClaimCode","parameters":[{"description":"The claim code, starting with \"C-\", as provided by the device manufacturer.","in":"path","name":"claimCode","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ClaimDevicesByClaimCodeResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}}},"/devices":{"get":{"description":"Lists the 1-Click compatible devices associated with your AWS account.","operationId":"ListDevices","parameters":[{"description":"The type of the device, such as \"button\".","in":"query","name":"deviceType","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results to return per request. If not set, a default value of\n 100 is used.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":250}},{"description":"The token to retrieve the next set of results.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListDevicesResponse"}}}},"480":{"description":"RangeNotSatisfiableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RangeNotSatisfiableException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/devices/{deviceId}":{"get":{"description":"Given a device ID, returns a DescribeDeviceResponse object describing the\n details of the device.","operationId":"DescribeDevice","parameters":[{"description":"The unique identifier of the device.","in":"path","name":"deviceId","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDeviceResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/devices/{deviceId}/events#fromTimeStamp&toTimeStamp":{"get":{"description":"Using a device ID, returns a DeviceEventsResponse object containing an\n array of events for the device.","operationId":"ListDeviceEvents","parameters":[{"description":"The unique identifier of the device.","in":"path","name":"deviceId","required":true,"schema":{"type":"string"}},{"description":"The start date for the device event query, in ISO8061 format. For example,\n 2018-03-28T15:45:12.880Z\n ","in":"query","name":"fromTimeStamp","required":true,"schema":{"type":"string","format":"date-time"}},{"description":"The maximum number of results to return per request. If not set, a default value of\n 100 is used.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":250}},{"description":"The token to retrieve the next set of results.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"The end date for the device event query, in ISO8061 format. For example,\n 2018-03-28T15:45:12.880Z\n ","in":"query","name":"toTimeStamp","required":true,"schema":{"type":"string","format":"date-time"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListDeviceEventsResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"RangeNotSatisfiableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RangeNotSatisfiableException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/devices/{deviceId}/finalize-claim":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"<p>Given a device ID, finalizes the claim request for the associated device.</p><note>\n <p>Claiming a device consists of initiating a claim, then publishing a device event,\n and finalizing the claim. For a device of type button, a device event can\n be published by simply clicking the device.</p>\n </note>","operationId":"FinalizeDeviceClaim","parameters":[{"description":"The unique identifier of the device.","in":"path","name":"deviceId","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>","type":"object"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/FinalizeDeviceClaimResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"PreconditionFailedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PreconditionFailedException"}}}},"484":{"description":"ResourceConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceConflictException"}}}}}}},"/devices/{deviceId}/initiate-claim":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"<p>Given a device ID, initiates a claim request for the associated device.</p><note>\n <p>Claiming a device consists of initiating a claim, then publishing a device event,\n and finalizing the claim. For a device of type button, a device event can\n be published by simply clicking the device.</p>\n </note>","operationId":"InitiateDeviceClaim","parameters":[{"description":"The unique identifier of the device.","in":"path","name":"deviceId","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InitiateDeviceClaimResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ResourceConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceConflictException"}}}}}}},"/devices/{deviceId}/methods":{"get":{"description":"Given a device ID, returns the invokable methods associated with the device.","operationId":"GetDeviceMethods","parameters":[{"description":"The unique identifier of the device.","in":"path","name":"deviceId","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetDeviceMethodsResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Given a device ID, issues a request to invoke a named device method (with possible\n parameters). See the \"Example POST\" code snippet below.","operationId":"InvokeDeviceMethod","parameters":[{"description":"The unique identifier of the device.","in":"path","name":"deviceId","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"deviceMethod":{"description":"The device method to invoke.","properties":{"DeviceType":{"$ref":"#/components/schemas/__string"},"MethodName":{"$ref":"#/components/schemas/__string"}},"type":"object"},"deviceMethodParameters":{"description":"A JSON encoded string containing the device method request parameters.","type":"string"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvokeDeviceMethodResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"PreconditionFailedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PreconditionFailedException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"RangeNotSatisfiableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RangeNotSatisfiableException"}}}},"485":{"description":"ResourceConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceConflictException"}}}}}}},"/devices/{deviceId}/state":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Using a Boolean value (true or false), this operation\n enables or disables the device given a device ID.","operationId":"UpdateDeviceState","parameters":[{"description":"The unique identifier of the device.","in":"path","name":"deviceId","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"enabled":{"description":"If true, the device is enabled. If false, the device is\n disabled.","type":"boolean"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateDeviceStateResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}}},"/devices/{deviceId}/unclaim":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Disassociates a device from your AWS account using its device ID.","operationId":"UnclaimDevice","parameters":[{"description":"The unique identifier of the device.","in":"path","name":"deviceId","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnclaimDeviceResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}}},"/tags/{resource-arn}":{"get":{"description":"Lists the tags associated with the specified resource ARN.","operationId":"ListTagsForResource","parameters":[{"description":"The ARN of the resource.","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds or updates the tags associated with the resource ARN. See <a href=\"https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits\">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per\n resource.","operationId":"TagResource","parameters":[{"description":"The ARN of the resource.","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>","type":"object"}},"required":["tags"],"type":"object"}}},"required":true},"responses":{"204":{"description":"Success"},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}}},"/tags/{resource-arn}#tagKeys":{"delete":{"description":"Using tag keys, deletes the tags (key/value pairs) associated with the specified\n resource ARN.","operationId":"UntagResource","parameters":[{"description":"The ARN of the resource.","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}},{"description":"A collections of tag keys. For example, {\"key1\",\"key2\"}","in":"query","name":"tagKeys","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"204":{"description":"Success"},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]}},"servers":[{"description":"The AWS IoT 1-Click Devices Service multi-region endpoint","url":"http://devices.iot1click.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS IoT 1-Click Devices Service multi-region endpoint","url":"https://devices.iot1click.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS IoT 1-Click Devices Service endpoint for China (Beijing) and China (Ningxia)","url":"http://devices.iot1click.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS IoT 1-Click Devices Service endpoint for China (Beijing) and China (Ningxia)","url":"https://devices.iot1click.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"Attributes":{"properties":{},"type":"object"},"ClaimDevicesByClaimCodeRequest":{"properties":{},"type":"object"},"ClaimDevicesByClaimCodeResponse":{"properties":{"ClaimCode":{"$ref":"#/components/schemas/__stringMin12Max40"},"Total":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"DescribeDeviceRequest":{"properties":{},"type":"object"},"DescribeDeviceResponse":{"properties":{"DeviceDescription":{"$ref":"#/components/schemas/DeviceDescription"}},"type":"object"},"Device":{"properties":{"Attributes":{"$ref":"#/components/schemas/Attributes"},"DeviceId":{"$ref":"#/components/schemas/__string"},"Type":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DeviceAttributes":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"\n DeviceAttributes is a string-to-string map specified by the user.","type":"object"},"DeviceDescription":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Attributes":{"$ref":"#/components/schemas/DeviceAttributes"},"DeviceId":{"$ref":"#/components/schemas/__string"},"Enabled":{"$ref":"#/components/schemas/__boolean"},"RemainingLife":{"$ref":"#/components/schemas/__doubleMin0Max100"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"},"Type":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DeviceEvent":{"properties":{"Device":{"$ref":"#/components/schemas/Device"},"StdEvent":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DeviceMethod":{"properties":{"DeviceType":{"$ref":"#/components/schemas/__string"},"MethodName":{"$ref":"#/components/schemas/__string"}},"type":"object"},"FinalizeDeviceClaimRequest":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"FinalizeDeviceClaimResponse":{"properties":{"State":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ForbiddenException":{},"GetDeviceMethodsRequest":{"properties":{},"type":"object"},"GetDeviceMethodsResponse":{"properties":{"DeviceMethods":{"$ref":"#/components/schemas/__listOfDeviceMethod"}},"type":"object"},"InitiateDeviceClaimRequest":{"properties":{},"type":"object"},"InitiateDeviceClaimResponse":{"properties":{"State":{"$ref":"#/components/schemas/__string"}},"type":"object"},"InternalFailureException":{},"InvalidRequestException":{},"InvokeDeviceMethodRequest":{"properties":{"DeviceMethod":{"$ref":"#/components/schemas/DeviceMethod"},"DeviceMethodParameters":{"$ref":"#/components/schemas/__string"}},"type":"object"},"InvokeDeviceMethodResponse":{"properties":{"DeviceMethodResponse":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListDeviceEventsRequest":{"properties":{},"type":"object"},"ListDeviceEventsResponse":{"properties":{"Events":{"$ref":"#/components/schemas/__listOfDeviceEvent"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListDevicesRequest":{"properties":{},"type":"object"},"ListDevicesResponse":{"properties":{"Devices":{"$ref":"#/components/schemas/__listOfDeviceDescription"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListTagsForResourceRequest":{"properties":{},"type":"object"},"ListTagsForResourceResponse":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"MaxResults":{"maximum":250,"minimum":1,"type":"integer"},"PreconditionFailedException":{},"RangeNotSatisfiableException":{},"ResourceConflictException":{},"ResourceNotFoundException":{},"TagResourceRequest":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"required":["Tags"],"type":"object"},"UnclaimDeviceRequest":{"properties":{},"type":"object"},"UnclaimDeviceResponse":{"properties":{"State":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UntagResourceRequest":{"properties":{},"type":"object"},"UpdateDeviceStateRequest":{"properties":{"Enabled":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"UpdateDeviceStateResponse":{"properties":{},"type":"object"},"__boolean":{"type":"boolean"},"__doubleMin0Max100":{"format":"double","type":"number"},"__integer":{"type":"integer"},"__listOfDeviceDescription":{"items":{"$ref":"#/components/schemas/DeviceDescription"},"type":"array"},"__listOfDeviceEvent":{"items":{"$ref":"#/components/schemas/DeviceEvent"},"type":"array"},"__listOfDeviceMethod":{"items":{"$ref":"#/components/schemas/DeviceMethod"},"type":"array"},"__listOf__string":{"items":{"$ref":"#/components/schemas/__string"},"type":"array"},"__mapOf__string":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"type":"object"},"__string":{"type":"string"},"__stringMin12Max40":{"maxLength":40,"minLength":12,"type":"string"},"__timestampIso8601":{"format":"date-time","type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Describes all of the AWS IoT 1-Click device-related API operations for the service.\n Also provides sample requests, responses, and errors for the supported web services\n protocols.",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT 1-Click Devices Service",
+    "version": "2018-05-14",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot1click-devices-2018-05-14.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iot1click-devices"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iot1click/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/claims/{claimCode}": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Adds device(s) to your account (i.e., claim one or more devices) if and only if you\n received a claim code with the device(s).",
+        "operationId": "ClaimDevicesByClaimCode",
+        "parameters": [
+          {
+            "description": "The claim code, starting with \"C-\", as provided by the device manufacturer.",
+            "in": "path",
+            "name": "claimCode",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ClaimDevicesByClaimCodeResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      }
+    },
+    "/devices": {
+      "get": {
+        "description": "Lists the 1-Click compatible devices associated with your AWS account.",
+        "operationId": "ListDevices",
+        "parameters": [
+          {
+            "description": "The type of the device, such as \"button\".",
+            "in": "query",
+            "name": "deviceType",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The maximum number of results to return per request. If not set, a default value of\n 100 is used.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 250 }
+          },
+          {
+            "description": "The token to retrieve the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListDevicesResponse" } } }
+          },
+          "480": {
+            "description": "RangeNotSatisfiableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/RangeNotSatisfiableException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/devices/{deviceId}": {
+      "get": {
+        "description": "Given a device ID, returns a DescribeDeviceResponse object describing the\n details of the device.",
+        "operationId": "DescribeDevice",
+        "parameters": [
+          {
+            "description": "The unique identifier of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDeviceResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/devices/{deviceId}/events#fromTimeStamp&toTimeStamp": {
+      "get": {
+        "description": "Using a device ID, returns a DeviceEventsResponse object containing an\n array of events for the device.",
+        "operationId": "ListDeviceEvents",
+        "parameters": [
+          {
+            "description": "The unique identifier of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The start date for the device event query, in ISO8061 format. For example,\n 2018-03-28T15:45:12.880Z\n ",
+            "in": "query",
+            "name": "fromTimeStamp",
+            "required": true,
+            "schema": { "type": "string", "format": "date-time" }
+          },
+          {
+            "description": "The maximum number of results to return per request. If not set, a default value of\n 100 is used.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 250 }
+          },
+          {
+            "description": "The token to retrieve the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The end date for the device event query, in ISO8061 format. For example,\n 2018-03-28T15:45:12.880Z\n ",
+            "in": "query",
+            "name": "toTimeStamp",
+            "required": true,
+            "schema": { "type": "string", "format": "date-time" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListDeviceEventsResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "RangeNotSatisfiableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/RangeNotSatisfiableException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/devices/{deviceId}/finalize-claim": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "<p>Given a device ID, finalizes the claim request for the associated device.</p><note>\n <p>Claiming a device consists of initiating a claim, then publishing a device event,\n and finalizing the claim. For a device of type button, a device event can\n be published by simply clicking the device.</p>\n </note>",
+        "operationId": "FinalizeDeviceClaim",
+        "parameters": [
+          {
+            "description": "The unique identifier of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>",
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/FinalizeDeviceClaimResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "PreconditionFailedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PreconditionFailedException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceConflictException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceConflictException" } }
+            }
+          }
+        }
+      }
+    },
+    "/devices/{deviceId}/initiate-claim": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "<p>Given a device ID, initiates a claim request for the associated device.</p><note>\n <p>Claiming a device consists of initiating a claim, then publishing a device event,\n and finalizing the claim. For a device of type button, a device event can\n be published by simply clicking the device.</p>\n </note>",
+        "operationId": "InitiateDeviceClaim",
+        "parameters": [
+          {
+            "description": "The unique identifier of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InitiateDeviceClaimResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ResourceConflictException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceConflictException" } }
+            }
+          }
+        }
+      }
+    },
+    "/devices/{deviceId}/methods": {
+      "get": {
+        "description": "Given a device ID, returns the invokable methods associated with the device.",
+        "operationId": "GetDeviceMethods",
+        "parameters": [
+          {
+            "description": "The unique identifier of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetDeviceMethodsResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Given a device ID, issues a request to invoke a named device method (with possible\n parameters). See the \"Example POST\" code snippet below.",
+        "operationId": "InvokeDeviceMethod",
+        "parameters": [
+          {
+            "description": "The unique identifier of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "deviceMethod": {
+                    "description": "The device method to invoke.",
+                    "properties": {
+                      "DeviceType": { "$ref": "#/components/schemas/__string" },
+                      "MethodName": { "$ref": "#/components/schemas/__string" }
+                    },
+                    "type": "object"
+                  },
+                  "deviceMethodParameters": {
+                    "description": "A JSON encoded string containing the device method request parameters.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvokeDeviceMethodResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "PreconditionFailedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PreconditionFailedException" } }
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "RangeNotSatisfiableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/RangeNotSatisfiableException" } }
+            }
+          },
+          "485": {
+            "description": "ResourceConflictException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceConflictException" } }
+            }
+          }
+        }
+      }
+    },
+    "/devices/{deviceId}/state": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Using a Boolean value (true or false), this operation\n enables or disables the device given a device ID.",
+        "operationId": "UpdateDeviceState",
+        "parameters": [
+          {
+            "description": "The unique identifier of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "enabled": {
+                    "description": "If true, the device is enabled. If false, the device is\n disabled.",
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateDeviceStateResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      }
+    },
+    "/devices/{deviceId}/unclaim": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Disassociates a device from your AWS account using its device ID.",
+        "operationId": "UnclaimDevice",
+        "parameters": [
+          {
+            "description": "The unique identifier of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnclaimDeviceResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      }
+    },
+    "/tags/{resource-arn}": {
+      "get": {
+        "description": "Lists the tags associated with the specified resource ARN.",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds or updates the tags associated with the resource ARN. See <a href=\"https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits\">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per\n resource.",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>",
+                    "type": "object"
+                  }
+                },
+                "required": ["tags"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": { "description": "Success" },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      }
+    },
+    "/tags/{resource-arn}#tagKeys": {
+      "delete": {
+        "description": "Using tag keys, deletes the tags (key/value pairs) associated with the specified\n resource ARN.",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "A collections of tag keys. For example, {\"key1\",\"key2\"}",
+            "in": "query",
+            "name": "tagKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Success" },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS IoT 1-Click Devices Service multi-region endpoint",
+      "url": "http://devices.iot1click.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS IoT 1-Click Devices Service multi-region endpoint",
+      "url": "https://devices.iot1click.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS IoT 1-Click Devices Service endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://devices.iot1click.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS IoT 1-Click Devices Service endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://devices.iot1click.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "Attributes": { "properties": {}, "type": "object" },
+      "ClaimDevicesByClaimCodeRequest": { "properties": {}, "type": "object" },
+      "ClaimDevicesByClaimCodeResponse": {
+        "properties": {
+          "ClaimCode": { "$ref": "#/components/schemas/__stringMin12Max40" },
+          "Total": { "$ref": "#/components/schemas/__integer" }
+        },
+        "type": "object"
+      },
+      "DescribeDeviceRequest": { "properties": {}, "type": "object" },
+      "DescribeDeviceResponse": {
+        "properties": { "DeviceDescription": { "$ref": "#/components/schemas/DeviceDescription" } },
+        "type": "object"
+      },
+      "Device": {
+        "properties": {
+          "Attributes": { "$ref": "#/components/schemas/Attributes" },
+          "DeviceId": { "$ref": "#/components/schemas/__string" },
+          "Type": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DeviceAttributes": {
+        "additionalProperties": { "$ref": "#/components/schemas/__string" },
+        "description": "\n DeviceAttributes is a string-to-string map specified by the user.",
+        "type": "object"
+      },
+      "DeviceDescription": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Attributes": { "$ref": "#/components/schemas/DeviceAttributes" },
+          "DeviceId": { "$ref": "#/components/schemas/__string" },
+          "Enabled": { "$ref": "#/components/schemas/__boolean" },
+          "RemainingLife": { "$ref": "#/components/schemas/__doubleMin0Max100" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" },
+          "Type": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DeviceEvent": {
+        "properties": {
+          "Device": { "$ref": "#/components/schemas/Device" },
+          "StdEvent": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DeviceMethod": {
+        "properties": {
+          "DeviceType": { "$ref": "#/components/schemas/__string" },
+          "MethodName": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "FinalizeDeviceClaimRequest": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "type": "object"
+      },
+      "FinalizeDeviceClaimResponse": {
+        "properties": { "State": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "ForbiddenException": {},
+      "GetDeviceMethodsRequest": { "properties": {}, "type": "object" },
+      "GetDeviceMethodsResponse": {
+        "properties": { "DeviceMethods": { "$ref": "#/components/schemas/__listOfDeviceMethod" } },
+        "type": "object"
+      },
+      "InitiateDeviceClaimRequest": { "properties": {}, "type": "object" },
+      "InitiateDeviceClaimResponse": {
+        "properties": { "State": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "InternalFailureException": {},
+      "InvalidRequestException": {},
+      "InvokeDeviceMethodRequest": {
+        "properties": {
+          "DeviceMethod": { "$ref": "#/components/schemas/DeviceMethod" },
+          "DeviceMethodParameters": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "InvokeDeviceMethodResponse": {
+        "properties": { "DeviceMethodResponse": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "ListDeviceEventsRequest": { "properties": {}, "type": "object" },
+      "ListDeviceEventsResponse": {
+        "properties": {
+          "Events": { "$ref": "#/components/schemas/__listOfDeviceEvent" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListDevicesRequest": { "properties": {}, "type": "object" },
+      "ListDevicesResponse": {
+        "properties": {
+          "Devices": { "$ref": "#/components/schemas/__listOfDeviceDescription" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListTagsForResourceRequest": { "properties": {}, "type": "object" },
+      "ListTagsForResourceResponse": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 250, "minimum": 1, "type": "integer" },
+      "PreconditionFailedException": {},
+      "RangeNotSatisfiableException": {},
+      "ResourceConflictException": {},
+      "ResourceNotFoundException": {},
+      "TagResourceRequest": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "required": ["Tags"],
+        "type": "object"
+      },
+      "UnclaimDeviceRequest": { "properties": {}, "type": "object" },
+      "UnclaimDeviceResponse": {
+        "properties": { "State": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "UntagResourceRequest": { "properties": {}, "type": "object" },
+      "UpdateDeviceStateRequest": {
+        "properties": { "Enabled": { "$ref": "#/components/schemas/__boolean" } },
+        "type": "object"
+      },
+      "UpdateDeviceStateResponse": { "properties": {}, "type": "object" },
+      "__boolean": { "type": "boolean" },
+      "__doubleMin0Max100": { "format": "double", "type": "number" },
+      "__integer": { "type": "integer" },
+      "__listOfDeviceDescription": { "items": { "$ref": "#/components/schemas/DeviceDescription" }, "type": "array" },
+      "__listOfDeviceEvent": { "items": { "$ref": "#/components/schemas/DeviceEvent" }, "type": "array" },
+      "__listOfDeviceMethod": { "items": { "$ref": "#/components/schemas/DeviceMethod" }, "type": "array" },
+      "__listOf__string": { "items": { "$ref": "#/components/schemas/__string" }, "type": "array" },
+      "__mapOf__string": { "additionalProperties": { "$ref": "#/components/schemas/__string" }, "type": "object" },
+      "__string": { "type": "string" },
+      "__stringMin12Max40": { "maxLength": 40, "minLength": 12, "type": "string" },
+      "__timestampIso8601": { "format": "date-time", "type": "string" }
+    }
+  }
+}

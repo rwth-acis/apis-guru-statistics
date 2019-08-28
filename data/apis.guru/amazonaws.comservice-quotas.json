@@ -1,1 +1,1789 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<p> Service Quotas is a web service that you can use to manage many of your AWS service quotas. Quotas, also referred to as limits, are the maximum values for a resource, item, or operation. This guide provide descriptions of the Service Quotas actions that you can call from an API. For the Service Quotas user guide, which explains how to use Service Quotas from the console, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">What is Service Quotas</a>. </p> <note> <p>AWS provides SDKs that consist of libraries and sample code for programming languages and platforms (Java, Ruby, .NET, iOS, Android, etc...,). The SDKs provide a convenient way to create programmatic access to Service Quotas and AWS. For information about the AWS SDKs, including how to download and install them, see the <a href=\"https://docs.aws.amazon.com/aws.amazon.com/tools\">Tools for Amazon Web Services</a> page.</p> </note>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"Service Quotas","version":"2019-06-24","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/service-quotas-2019-06-24.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"service-quotas"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/servicequotas/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=ServiceQuotasV20190624.AssociateServiceQuotaTemplate":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Associates the Service Quotas template with your organization so that when new accounts are created in your organization, the template submits increase requests for the specified service quotas. Use the Service Quotas template to request an increase for any adjustable quota value. After you define the Service Quotas template, use this operation to associate, or enable, the template. ","operationId":"AssociateServiceQuotaTemplate","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.AssociateServiceQuotaTemplate"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateServiceQuotaTemplateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateServiceQuotaTemplateResponse"}}}},"480":{"description":"DependencyAccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DependencyAccessDeniedException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"484":{"description":"AWSServiceAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AWSServiceAccessNotEnabledException"}}}},"485":{"description":"OrganizationNotInAllFeaturesModeException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OrganizationNotInAllFeaturesModeException"}}}},"486":{"description":"TemplatesNotAvailableInRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemplatesNotAvailableInRegionException"}}}},"487":{"description":"NoAvailableOrganizationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAvailableOrganizationException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Removes a service quota increase request from the Service Quotas template. ","operationId":"DeleteServiceQuotaIncreaseRequestFromTemplate","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteServiceQuotaIncreaseRequestFromTemplateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteServiceQuotaIncreaseRequestFromTemplateResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"482":{"description":"DependencyAccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DependencyAccessDeniedException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"484":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"485":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"486":{"description":"AWSServiceAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AWSServiceAccessNotEnabledException"}}}},"487":{"description":"TemplatesNotAvailableInRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemplatesNotAvailableInRegionException"}}}},"488":{"description":"NoAvailableOrganizationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAvailableOrganizationException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.DisassociateServiceQuotaTemplate":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Disables the Service Quotas template. Once the template is disabled, it does not request quota increases for new accounts in your organization. Disabling the quota template does not apply the quota increase requests from the template. </p> <p> <b>Related operations</b> </p> <ul> <li> <p>To enable the quota template, call <a>AssociateServiceQuotaTemplate</a>. </p> </li> <li> <p>To delete a specific service quota from the template, use <a>DeleteServiceQuotaIncreaseRequestFromTemplate</a>.</p> </li> </ul>","operationId":"DisassociateServiceQuotaTemplate","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.DisassociateServiceQuotaTemplate"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateServiceQuotaTemplateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateServiceQuotaTemplateResponse"}}}},"480":{"description":"DependencyAccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DependencyAccessDeniedException"}}}},"481":{"description":"ServiceQuotaTemplateNotInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceQuotaTemplateNotInUseException"}}}},"482":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"483":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"485":{"description":"AWSServiceAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AWSServiceAccessNotEnabledException"}}}},"486":{"description":"TemplatesNotAvailableInRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemplatesNotAvailableInRegionException"}}}},"487":{"description":"NoAvailableOrganizationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAvailableOrganizationException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.GetAWSDefaultServiceQuota":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves the default service quotas values. The Value returned for each quota is the AWS default value, even if the quotas have been increased.. ","operationId":"GetAWSDefaultServiceQuota","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.GetAWSDefaultServiceQuota"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAWSDefaultServiceQuotaRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAWSDefaultServiceQuotaResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"482":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"483":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves the <code>ServiceQuotaTemplateAssociationStatus</code> value from the service. Use this action to determine if the Service Quota template is associated, or enabled. ","operationId":"GetAssociationForServiceQuotaTemplate","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAssociationForServiceQuotaTemplateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAssociationForServiceQuotaTemplateResponse"}}}},"480":{"description":"DependencyAccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DependencyAccessDeniedException"}}}},"481":{"description":"ServiceQuotaTemplateNotInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceQuotaTemplateNotInUseException"}}}},"482":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"483":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"485":{"description":"AWSServiceAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AWSServiceAccessNotEnabledException"}}}},"486":{"description":"TemplatesNotAvailableInRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemplatesNotAvailableInRegionException"}}}},"487":{"description":"NoAvailableOrganizationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAvailableOrganizationException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.GetRequestedServiceQuotaChange":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves the details for a particular increase request. ","operationId":"GetRequestedServiceQuotaChange","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.GetRequestedServiceQuotaChange"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetRequestedServiceQuotaChangeRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetRequestedServiceQuotaChangeResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"482":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"483":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.GetServiceQuota":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns the details for the specified service quota. This operation provides a different Value than the <code>GetAWSDefaultServiceQuota</code> operation. This operation returns the applied value for each quota. <code>GetAWSDefaultServiceQuota</code> returns the default AWS value for each quota. ","operationId":"GetServiceQuota","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.GetServiceQuota"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetServiceQuotaRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetServiceQuotaResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"482":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"483":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns the details of the service quota increase request in your template.","operationId":"GetServiceQuotaIncreaseRequestFromTemplate","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetServiceQuotaIncreaseRequestFromTemplateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetServiceQuotaIncreaseRequestFromTemplateResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"DependencyAccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DependencyAccessDeniedException"}}}},"482":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"484":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"485":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"486":{"description":"AWSServiceAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AWSServiceAccessNotEnabledException"}}}},"487":{"description":"TemplatesNotAvailableInRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemplatesNotAvailableInRegionException"}}}},"488":{"description":"NoAvailableOrganizationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAvailableOrganizationException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.ListAWSDefaultServiceQuotas":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Lists all default service quotas for the specified AWS service or all AWS services. ListAWSDefaultServiceQuotas is similar to <a>ListServiceQuotas</a> except for the Value object. The Value object returned by <code>ListAWSDefaultServiceQuotas</code> is the default value assigned by AWS. This request returns a list of all service quotas for the specified service. The listing of each you'll see the default values are the values that AWS provides for the quotas. </p> <note> <p>Always check the <code>NextToken</code> response parameter when calling any of the <code>List*</code> operations. These operations can return an unexpected list of results, even when there are more results available. When this happens, the <code>NextToken</code> response parameter contains a value to pass the next call to the same API to request the next part of the list.</p> </note>","operationId":"ListAWSDefaultServiceQuotas","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.ListAWSDefaultServiceQuotas"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListAWSDefaultServiceQuotasRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListAWSDefaultServiceQuotasResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"482":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"483":{"description":"InvalidPaginationTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidPaginationTokenException"}}}},"484":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Requests a list of the changes to quotas for a service.","operationId":"ListRequestedServiceQuotaChangeHistory","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListRequestedServiceQuotaChangeHistoryRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListRequestedServiceQuotaChangeHistoryResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"482":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"483":{"description":"InvalidPaginationTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidPaginationTokenException"}}}},"484":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Requests a list of the changes to specific service quotas. This command provides additional granularity over the <code>ListRequestedServiceQuotaChangeHistory</code> command. Once a quota change request has reached <code>CASE_CLOSED, APPROVED,</code> or <code>DENIED</code>, the history has been kept for 90 days.","operationId":"ListRequestedServiceQuotaChangeHistoryByQuota","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListRequestedServiceQuotaChangeHistoryByQuotaRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListRequestedServiceQuotaChangeHistoryByQuotaResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"482":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"483":{"description":"InvalidPaginationTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidPaginationTokenException"}}}},"484":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns a list of the quota increase requests in the template. ","operationId":"ListServiceQuotaIncreaseRequestsInTemplate","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServiceQuotaIncreaseRequestsInTemplateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServiceQuotaIncreaseRequestsInTemplateResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"DependencyAccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DependencyAccessDeniedException"}}}},"482":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"484":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"485":{"description":"AWSServiceAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AWSServiceAccessNotEnabledException"}}}},"486":{"description":"TemplatesNotAvailableInRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemplatesNotAvailableInRegionException"}}}},"487":{"description":"NoAvailableOrganizationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAvailableOrganizationException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.ListServiceQuotas":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Lists all service quotas for the specified AWS service. This request returns a list of the service quotas for the specified service. you'll see the default values are the values that AWS provides for the quotas. </p> <note> <p>Always check the <code>NextToken</code> response parameter when calling any of the <code>List*</code> operations. These operations can return an unexpected list of results, even when there are more results available. When this happens, the <code>NextToken</code> response parameter contains a value to pass the next call to the same API to request the next part of the list.</p> </note>","operationId":"ListServiceQuotas","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.ListServiceQuotas"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServiceQuotasRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServiceQuotasResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"482":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"483":{"description":"InvalidPaginationTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidPaginationTokenException"}}}},"484":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.ListServices":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the AWS services available in Service Quotas. Not all AWS services are available in Service Quotas. To list the see the list of the service quotas for a specific service, use <a>ListServiceQuotas</a>.","operationId":"ListServices","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.ListServices"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServicesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServicesResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"482":{"description":"InvalidPaginationTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidPaginationTokenException"}}}},"483":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Defines and adds a quota to the service quota template. To add a quota to the template, you must provide the <code>ServiceCode</code>, <code>QuotaCode</code>, <code>AwsRegion</code>, and <code>DesiredValue</code>. Once you add a quota to the template, use <a>ListServiceQuotaIncreaseRequestsInTemplate</a> to see the list of quotas in the template.","operationId":"PutServiceQuotaIncreaseRequestIntoTemplate","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutServiceQuotaIncreaseRequestIntoTemplateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutServiceQuotaIncreaseRequestIntoTemplateResponse"}}}},"480":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"481":{"description":"DependencyAccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DependencyAccessDeniedException"}}}},"482":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"484":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"485":{"description":"QuotaExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/QuotaExceededException"}}}},"486":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"487":{"description":"AWSServiceAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AWSServiceAccessNotEnabledException"}}}},"488":{"description":"TemplatesNotAvailableInRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemplatesNotAvailableInRegionException"}}}},"489":{"description":"NoAvailableOrganizationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAvailableOrganizationException"}}}}}}},"/#X-Amz-Target=ServiceQuotasV20190624.RequestServiceQuotaIncrease":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves the details of a service quota increase request. The response to this command provides the details in the <a>RequestedServiceQuotaChange</a> object. ","operationId":"RequestServiceQuotaIncrease","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["ServiceQuotasV20190624.RequestServiceQuotaIncrease"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/RequestServiceQuotaIncreaseRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RequestServiceQuotaIncreaseResponse"}}}},"480":{"description":"DependencyAccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DependencyAccessDeniedException"}}}},"481":{"description":"QuotaExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/QuotaExceededException"}}}},"482":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"483":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"484":{"description":"NoSuchResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoSuchResourceException"}}}},"485":{"description":"IllegalArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalArgumentException"}}}},"486":{"description":"InvalidResourceStateException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidResourceStateException"}}}},"487":{"description":"ServiceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceException"}}}},"488":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}}},"servers":[{"description":"The Service Quotas multi-region endpoint","url":"http://servicequotas.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Service Quotas multi-region endpoint","url":"https://servicequotas.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Service Quotas endpoint for China (Beijing) and China (Ningxia)","url":"http://servicequotas.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The Service Quotas endpoint for China (Beijing) and China (Ningxia)","url":"https://servicequotas.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AWSServiceAccessNotEnabledException":{},"AccessDeniedException":{},"AssociateServiceQuotaTemplateRequest":{"properties":{},"type":"object"},"AssociateServiceQuotaTemplateResponse":{"properties":{},"type":"object"},"AwsRegion":{"maxLength":64,"minLength":1,"pattern":"[a-zA-Z][a-zA-Z0-9-]{1,128}","type":"string"},"CustomerServiceEngagementId":{"type":"string"},"DateTime":{"format":"date-time","type":"string"},"DeleteServiceQuotaIncreaseRequestFromTemplateRequest":{"properties":{"AwsRegion":{"$ref":"#/components/schemas/AwsRegion"},"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"required":["ServiceCode","QuotaCode","AwsRegion"],"type":"object"},"DeleteServiceQuotaIncreaseRequestFromTemplateResponse":{"properties":{},"type":"object"},"DependencyAccessDeniedException":{},"DisassociateServiceQuotaTemplateRequest":{"properties":{},"type":"object"},"DisassociateServiceQuotaTemplateResponse":{"properties":{},"type":"object"},"ErrorCode":{"enum":["DEPENDENCY_ACCESS_DENIED_ERROR","DEPENDENCY_THROTTLING_ERROR","DEPENDENCY_SERVICE_ERROR","SERVICE_QUOTA_NOT_AVAILABLE_ERROR"],"type":"string"},"ErrorMessage":{"type":"string"},"ErrorReason":{"description":"Returns an error that explains why the action did not succeed.","properties":{"ErrorCode":{"$ref":"#/components/schemas/ErrorCode"},"ErrorMessage":{"$ref":"#/components/schemas/ErrorMessage"}},"type":"object"},"GetAWSDefaultServiceQuotaRequest":{"properties":{"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"required":["ServiceCode","QuotaCode"],"type":"object"},"GetAWSDefaultServiceQuotaResponse":{"properties":{"Quota":{"$ref":"#/components/schemas/ServiceQuota"}},"type":"object"},"GetAssociationForServiceQuotaTemplateRequest":{"properties":{},"type":"object"},"GetAssociationForServiceQuotaTemplateResponse":{"properties":{"ServiceQuotaTemplateAssociationStatus":{"$ref":"#/components/schemas/ServiceQuotaTemplateAssociationStatus"}},"type":"object"},"GetRequestedServiceQuotaChangeRequest":{"properties":{"RequestId":{"$ref":"#/components/schemas/RequestId"}},"required":["RequestId"],"type":"object"},"GetRequestedServiceQuotaChangeResponse":{"properties":{"RequestedQuota":{"$ref":"#/components/schemas/RequestedServiceQuotaChange"}},"type":"object"},"GetServiceQuotaIncreaseRequestFromTemplateRequest":{"properties":{"AwsRegion":{"$ref":"#/components/schemas/AwsRegion"},"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"required":["ServiceCode","QuotaCode","AwsRegion"],"type":"object"},"GetServiceQuotaIncreaseRequestFromTemplateResponse":{"properties":{"ServiceQuotaIncreaseRequestInTemplate":{"$ref":"#/components/schemas/ServiceQuotaIncreaseRequestInTemplate"}},"type":"object"},"GetServiceQuotaRequest":{"properties":{"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"required":["ServiceCode","QuotaCode"],"type":"object"},"GetServiceQuotaResponse":{"properties":{"Quota":{"$ref":"#/components/schemas/ServiceQuota"}},"type":"object"},"GlobalQuota":{"type":"boolean"},"IllegalArgumentException":{},"InvalidPaginationTokenException":{},"InvalidResourceStateException":{},"ListAWSDefaultServiceQuotasRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"required":["ServiceCode"],"type":"object"},"ListAWSDefaultServiceQuotasResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Quotas":{"$ref":"#/components/schemas/ServiceQuotaListDefinition"}},"type":"object"},"ListRequestedServiceQuotaChangeHistoryByQuotaRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"},"Status":{"$ref":"#/components/schemas/RequestStatus"}},"required":["ServiceCode","QuotaCode"],"type":"object"},"ListRequestedServiceQuotaChangeHistoryByQuotaResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"RequestedQuotas":{"$ref":"#/components/schemas/RequestedServiceQuotaChangeHistoryListDefinition"}},"type":"object"},"ListRequestedServiceQuotaChangeHistoryRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"},"Status":{"$ref":"#/components/schemas/RequestStatus"}},"type":"object"},"ListRequestedServiceQuotaChangeHistoryResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"RequestedQuotas":{"$ref":"#/components/schemas/RequestedServiceQuotaChangeHistoryListDefinition"}},"type":"object"},"ListServiceQuotaIncreaseRequestsInTemplateRequest":{"properties":{"AwsRegion":{"$ref":"#/components/schemas/AwsRegion"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"type":"object"},"ListServiceQuotaIncreaseRequestsInTemplateResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServiceQuotaIncreaseRequestInTemplateList":{"$ref":"#/components/schemas/ServiceQuotaIncreaseRequestInTemplateList"}},"type":"object"},"ListServiceQuotasRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"required":["ServiceCode"],"type":"object"},"ListServiceQuotasResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Quotas":{"$ref":"#/components/schemas/ServiceQuotaListDefinition"}},"type":"object"},"ListServicesRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListServicesResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Services":{"$ref":"#/components/schemas/ServiceInfoListDefinition"}},"type":"object"},"MaxResults":{"maximum":100,"minimum":1,"type":"integer"},"MetricDimensionName":{"type":"string"},"MetricDimensionValue":{"type":"string"},"MetricDimensionsMapDefinition":{"additionalProperties":{"$ref":"#/components/schemas/MetricDimensionValue"},"maxProperties":10,"type":"object"},"MetricInfo":{"description":"A structure that uses CloudWatch metrics to gather data about the service quota.","properties":{"MetricDimensions":{"$ref":"#/components/schemas/MetricDimensionsMapDefinition"},"MetricName":{"$ref":"#/components/schemas/QuotaMetricName"},"MetricNamespace":{"$ref":"#/components/schemas/QuotaMetricNamespace"},"MetricStatisticRecommendation":{"$ref":"#/components/schemas/Statistic"}},"type":"object"},"NextToken":{"maxLength":2048,"pattern":"^[a-zA-Z0-9/+]*={0,2}$","type":"string"},"NoAvailableOrganizationException":{},"NoSuchResourceException":{},"OrganizationNotInAllFeaturesModeException":{},"PeriodUnit":{"enum":["MICROSECOND","MILLISECOND","SECOND","MINUTE","HOUR","DAY","WEEK"],"type":"string"},"PeriodValue":{"type":"integer"},"PutServiceQuotaIncreaseRequestIntoTemplateRequest":{"properties":{"AwsRegion":{"$ref":"#/components/schemas/AwsRegion"},"DesiredValue":{"$ref":"#/components/schemas/QuotaValue"},"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"required":["QuotaCode","ServiceCode","AwsRegion","DesiredValue"],"type":"object"},"PutServiceQuotaIncreaseRequestIntoTemplateResponse":{"properties":{"ServiceQuotaIncreaseRequestInTemplate":{"$ref":"#/components/schemas/ServiceQuotaIncreaseRequestInTemplate"}},"type":"object"},"QuotaAdjustable":{"type":"boolean"},"QuotaArn":{"type":"string"},"QuotaCode":{"maxLength":128,"minLength":1,"pattern":"[a-zA-Z][a-zA-Z0-9-]{1,128}","type":"string"},"QuotaExceededException":{},"QuotaMetricName":{"type":"string"},"QuotaMetricNamespace":{"type":"string"},"QuotaName":{"type":"string"},"QuotaPeriod":{"description":"A structure that contains information about the quota period.","properties":{"PeriodUnit":{"$ref":"#/components/schemas/PeriodUnit"},"PeriodValue":{"$ref":"#/components/schemas/PeriodValue"}},"type":"object"},"QuotaUnit":{"type":"string"},"QuotaValue":{"format":"double","maximum":10000000000,"minimum":0,"type":"number"},"RequestId":{"maxLength":128,"minLength":1,"pattern":"[0-9a-zA-Z][a-zA-Z0-9-]{1,128}","type":"string"},"RequestServiceQuotaIncreaseRequest":{"properties":{"DesiredValue":{"$ref":"#/components/schemas/QuotaValue"},"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"}},"required":["ServiceCode","QuotaCode","DesiredValue"],"type":"object"},"RequestServiceQuotaIncreaseResponse":{"properties":{"RequestedQuota":{"$ref":"#/components/schemas/RequestedServiceQuotaChange"}},"type":"object"},"RequestStatus":{"enum":["PENDING","CASE_OPENED","APPROVED","DENIED","CASE_CLOSED"],"type":"string"},"RequestedServiceQuotaChange":{"description":"A structure that contains information about a requested change for a quota.","properties":{"CaseId":{"$ref":"#/components/schemas/CustomerServiceEngagementId"},"Created":{"$ref":"#/components/schemas/DateTime"},"DesiredValue":{"$ref":"#/components/schemas/QuotaValue"},"GlobalQuota":{"$ref":"#/components/schemas/GlobalQuota"},"Id":{"$ref":"#/components/schemas/RequestId"},"LastUpdated":{"$ref":"#/components/schemas/DateTime"},"QuotaArn":{"$ref":"#/components/schemas/QuotaArn"},"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"QuotaName":{"$ref":"#/components/schemas/QuotaName"},"Requester":{"$ref":"#/components/schemas/Requester"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"},"ServiceName":{"$ref":"#/components/schemas/ServiceName"},"Status":{"$ref":"#/components/schemas/RequestStatus"},"Unit":{"$ref":"#/components/schemas/QuotaUnit"}},"type":"object"},"RequestedServiceQuotaChangeHistoryListDefinition":{"items":{"$ref":"#/components/schemas/RequestedServiceQuotaChange"},"type":"array"},"Requester":{"type":"string"},"ResourceAlreadyExistsException":{},"ServiceCode":{"maxLength":63,"minLength":1,"pattern":"[a-zA-Z][a-zA-Z0-9-]{1,63}","type":"string"},"ServiceException":{},"ServiceInfo":{"description":"A structure that contains the <code>ServiceName</code> and <code>ServiceCode</code>. It does not include all details of the service quota. To get those values, use the <a>ListServiceQuotas</a> operation. ","properties":{"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"},"ServiceName":{"$ref":"#/components/schemas/ServiceName"}},"type":"object"},"ServiceInfoListDefinition":{"items":{"$ref":"#/components/schemas/ServiceInfo"},"type":"array"},"ServiceName":{"type":"string"},"ServiceQuota":{"description":"A structure that contains the full set of details that define the service quota.","properties":{"Adjustable":{"$ref":"#/components/schemas/QuotaAdjustable"},"ErrorReason":{"$ref":"#/components/schemas/ErrorReason"},"GlobalQuota":{"$ref":"#/components/schemas/GlobalQuota"},"Period":{"$ref":"#/components/schemas/QuotaPeriod"},"QuotaArn":{"$ref":"#/components/schemas/QuotaArn"},"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"QuotaName":{"$ref":"#/components/schemas/QuotaName"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"},"ServiceName":{"$ref":"#/components/schemas/ServiceName"},"Unit":{"$ref":"#/components/schemas/QuotaUnit"},"UsageMetric":{"$ref":"#/components/schemas/MetricInfo"},"Value":{"$ref":"#/components/schemas/QuotaValue"}},"type":"object"},"ServiceQuotaIncreaseRequestInTemplate":{"description":"A structure that contains information about one service quota increase request.","properties":{"AwsRegion":{"$ref":"#/components/schemas/AwsRegion"},"DesiredValue":{"$ref":"#/components/schemas/QuotaValue"},"GlobalQuota":{"$ref":"#/components/schemas/GlobalQuota"},"QuotaCode":{"$ref":"#/components/schemas/QuotaCode"},"QuotaName":{"$ref":"#/components/schemas/QuotaName"},"ServiceCode":{"$ref":"#/components/schemas/ServiceCode"},"ServiceName":{"$ref":"#/components/schemas/ServiceName"},"Unit":{"$ref":"#/components/schemas/QuotaUnit"}},"type":"object"},"ServiceQuotaIncreaseRequestInTemplateList":{"items":{"$ref":"#/components/schemas/ServiceQuotaIncreaseRequestInTemplate"},"type":"array"},"ServiceQuotaListDefinition":{"items":{"$ref":"#/components/schemas/ServiceQuota"},"type":"array"},"ServiceQuotaTemplateAssociationStatus":{"enum":["ASSOCIATED","DISASSOCIATED"],"type":"string"},"ServiceQuotaTemplateNotInUseException":{},"Statistic":{"maxLength":256,"minLength":1,"pattern":"(Sum|Maximum)","type":"string"},"TemplatesNotAvailableInRegionException":{},"TooManyRequestsException":{}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p> Service Quotas is a web service that you can use to manage many of your AWS service quotas. Quotas, also referred to as limits, are the maximum values for a resource, item, or operation. This guide provide descriptions of the Service Quotas actions that you can call from an API. For the Service Quotas user guide, which explains how to use Service Quotas from the console, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">What is Service Quotas</a>. </p> <note> <p>AWS provides SDKs that consist of libraries and sample code for programming languages and platforms (Java, Ruby, .NET, iOS, Android, etc...,). The SDKs provide a convenient way to create programmatic access to Service Quotas and AWS. For information about the AWS SDKs, including how to download and install them, see the <a href=\"https://docs.aws.amazon.com/aws.amazon.com/tools\">Tools for Amazon Web Services</a> page.</p> </note>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Service Quotas",
+    "version": "2019-06-24",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/service-quotas-2019-06-24.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "service-quotas"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/servicequotas/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=ServiceQuotasV20190624.AssociateServiceQuotaTemplate": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Associates the Service Quotas template with your organization so that when new accounts are created in your organization, the template submits increase requests for the specified service quotas. Use the Service Quotas template to request an increase for any adjustable quota value. After you define the Service Quotas template, use this operation to associate, or enable, the template. ",
+        "operationId": "AssociateServiceQuotaTemplate",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.AssociateServiceQuotaTemplate"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/AssociateServiceQuotaTemplateRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AssociateServiceQuotaTemplateResponse" } }
+            }
+          },
+          "480": {
+            "description": "DependencyAccessDeniedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DependencyAccessDeniedException" } }
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "484": {
+            "description": "AWSServiceAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AWSServiceAccessNotEnabledException" } }
+            }
+          },
+          "485": {
+            "description": "OrganizationNotInAllFeaturesModeException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/OrganizationNotInAllFeaturesModeException" }
+              }
+            }
+          },
+          "486": {
+            "description": "TemplatesNotAvailableInRegionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TemplatesNotAvailableInRegionException" }
+              }
+            }
+          },
+          "487": {
+            "description": "NoAvailableOrganizationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAvailableOrganizationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Removes a service quota increase request from the Service Quotas template. ",
+        "operationId": "DeleteServiceQuotaIncreaseRequestFromTemplate",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/DeleteServiceQuotaIncreaseRequestFromTemplateRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DeleteServiceQuotaIncreaseRequestFromTemplateResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "482": {
+            "description": "DependencyAccessDeniedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DependencyAccessDeniedException" } }
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "484": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "485": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "486": {
+            "description": "AWSServiceAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AWSServiceAccessNotEnabledException" } }
+            }
+          },
+          "487": {
+            "description": "TemplatesNotAvailableInRegionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TemplatesNotAvailableInRegionException" }
+              }
+            }
+          },
+          "488": {
+            "description": "NoAvailableOrganizationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAvailableOrganizationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.DisassociateServiceQuotaTemplate": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Disables the Service Quotas template. Once the template is disabled, it does not request quota increases for new accounts in your organization. Disabling the quota template does not apply the quota increase requests from the template. </p> <p> <b>Related operations</b> </p> <ul> <li> <p>To enable the quota template, call <a>AssociateServiceQuotaTemplate</a>. </p> </li> <li> <p>To delete a specific service quota from the template, use <a>DeleteServiceQuotaIncreaseRequestFromTemplate</a>.</p> </li> </ul>",
+        "operationId": "DisassociateServiceQuotaTemplate",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.DisassociateServiceQuotaTemplate"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateServiceQuotaTemplateRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DisassociateServiceQuotaTemplateResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "DependencyAccessDeniedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DependencyAccessDeniedException" } }
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaTemplateNotInUseException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceQuotaTemplateNotInUseException" } }
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "483": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "485": {
+            "description": "AWSServiceAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AWSServiceAccessNotEnabledException" } }
+            }
+          },
+          "486": {
+            "description": "TemplatesNotAvailableInRegionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TemplatesNotAvailableInRegionException" }
+              }
+            }
+          },
+          "487": {
+            "description": "NoAvailableOrganizationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAvailableOrganizationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.GetAWSDefaultServiceQuota": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves the default service quotas values. The Value returned for each quota is the AWS default value, even if the quotas have been increased.. ",
+        "operationId": "GetAWSDefaultServiceQuota",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.GetAWSDefaultServiceQuota"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetAWSDefaultServiceQuotaRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetAWSDefaultServiceQuotaResponse" } }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "482": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "483": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves the <code>ServiceQuotaTemplateAssociationStatus</code> value from the service. Use this action to determine if the Service Quota template is associated, or enabled. ",
+        "operationId": "GetAssociationForServiceQuotaTemplate",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/GetAssociationForServiceQuotaTemplateRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GetAssociationForServiceQuotaTemplateResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "DependencyAccessDeniedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DependencyAccessDeniedException" } }
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaTemplateNotInUseException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceQuotaTemplateNotInUseException" } }
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "483": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "485": {
+            "description": "AWSServiceAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AWSServiceAccessNotEnabledException" } }
+            }
+          },
+          "486": {
+            "description": "TemplatesNotAvailableInRegionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TemplatesNotAvailableInRegionException" }
+              }
+            }
+          },
+          "487": {
+            "description": "NoAvailableOrganizationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAvailableOrganizationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.GetRequestedServiceQuotaChange": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves the details for a particular increase request. ",
+        "operationId": "GetRequestedServiceQuotaChange",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.GetRequestedServiceQuotaChange"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetRequestedServiceQuotaChangeRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GetRequestedServiceQuotaChangeResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "482": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "483": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.GetServiceQuota": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns the details for the specified service quota. This operation provides a different Value than the <code>GetAWSDefaultServiceQuota</code> operation. This operation returns the applied value for each quota. <code>GetAWSDefaultServiceQuota</code> returns the default AWS value for each quota. ",
+        "operationId": "GetServiceQuota",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.GetServiceQuota"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetServiceQuotaRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetServiceQuotaResponse" } } }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "482": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "483": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns the details of the service quota increase request in your template.",
+        "operationId": "GetServiceQuotaIncreaseRequestFromTemplate",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/GetServiceQuotaIncreaseRequestFromTemplateRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GetServiceQuotaIncreaseRequestFromTemplateResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "DependencyAccessDeniedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DependencyAccessDeniedException" } }
+            }
+          },
+          "482": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "484": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "485": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "486": {
+            "description": "AWSServiceAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AWSServiceAccessNotEnabledException" } }
+            }
+          },
+          "487": {
+            "description": "TemplatesNotAvailableInRegionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TemplatesNotAvailableInRegionException" }
+              }
+            }
+          },
+          "488": {
+            "description": "NoAvailableOrganizationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAvailableOrganizationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.ListAWSDefaultServiceQuotas": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Lists all default service quotas for the specified AWS service or all AWS services. ListAWSDefaultServiceQuotas is similar to <a>ListServiceQuotas</a> except for the Value object. The Value object returned by <code>ListAWSDefaultServiceQuotas</code> is the default value assigned by AWS. This request returns a list of all service quotas for the specified service. The listing of each you'll see the default values are the values that AWS provides for the quotas. </p> <note> <p>Always check the <code>NextToken</code> response parameter when calling any of the <code>List*</code> operations. These operations can return an unexpected list of results, even when there are more results available. When this happens, the <code>NextToken</code> response parameter contains a value to pass the next call to the same API to request the next part of the list.</p> </note>",
+        "operationId": "ListAWSDefaultServiceQuotas",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.ListAWSDefaultServiceQuotas"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListAWSDefaultServiceQuotasRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListAWSDefaultServiceQuotasResponse" } }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "482": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "483": {
+            "description": "InvalidPaginationTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidPaginationTokenException" } }
+            }
+          },
+          "484": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Requests a list of the changes to quotas for a service.",
+        "operationId": "ListRequestedServiceQuotaChangeHistory",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ListRequestedServiceQuotaChangeHistoryRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListRequestedServiceQuotaChangeHistoryResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "482": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "483": {
+            "description": "InvalidPaginationTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidPaginationTokenException" } }
+            }
+          },
+          "484": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Requests a list of the changes to specific service quotas. This command provides additional granularity over the <code>ListRequestedServiceQuotaChangeHistory</code> command. Once a quota change request has reached <code>CASE_CLOSED, APPROVED,</code> or <code>DENIED</code>, the history has been kept for 90 days.",
+        "operationId": "ListRequestedServiceQuotaChangeHistoryByQuota",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ListRequestedServiceQuotaChangeHistoryByQuotaRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListRequestedServiceQuotaChangeHistoryByQuotaResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "482": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "483": {
+            "description": "InvalidPaginationTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidPaginationTokenException" } }
+            }
+          },
+          "484": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of the quota increase requests in the template. ",
+        "operationId": "ListServiceQuotaIncreaseRequestsInTemplate",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ListServiceQuotaIncreaseRequestsInTemplateRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListServiceQuotaIncreaseRequestsInTemplateResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "DependencyAccessDeniedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DependencyAccessDeniedException" } }
+            }
+          },
+          "482": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "484": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "485": {
+            "description": "AWSServiceAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AWSServiceAccessNotEnabledException" } }
+            }
+          },
+          "486": {
+            "description": "TemplatesNotAvailableInRegionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TemplatesNotAvailableInRegionException" }
+              }
+            }
+          },
+          "487": {
+            "description": "NoAvailableOrganizationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAvailableOrganizationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.ListServiceQuotas": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Lists all service quotas for the specified AWS service. This request returns a list of the service quotas for the specified service. you'll see the default values are the values that AWS provides for the quotas. </p> <note> <p>Always check the <code>NextToken</code> response parameter when calling any of the <code>List*</code> operations. These operations can return an unexpected list of results, even when there are more results available. When this happens, the <code>NextToken</code> response parameter contains a value to pass the next call to the same API to request the next part of the list.</p> </note>",
+        "operationId": "ListServiceQuotas",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.ListServiceQuotas"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListServiceQuotasRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListServiceQuotasResponse" } }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "482": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "483": {
+            "description": "InvalidPaginationTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidPaginationTokenException" } }
+            }
+          },
+          "484": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.ListServices": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the AWS services available in Service Quotas. Not all AWS services are available in Service Quotas. To list the see the list of the service quotas for a specific service, use <a>ListServiceQuotas</a>.",
+        "operationId": "ListServices",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.ListServices"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListServicesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListServicesResponse" } } }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "482": {
+            "description": "InvalidPaginationTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidPaginationTokenException" } }
+            }
+          },
+          "483": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Defines and adds a quota to the service quota template. To add a quota to the template, you must provide the <code>ServiceCode</code>, <code>QuotaCode</code>, <code>AwsRegion</code>, and <code>DesiredValue</code>. Once you add a quota to the template, use <a>ListServiceQuotaIncreaseRequestsInTemplate</a> to see the list of quotas in the template.",
+        "operationId": "PutServiceQuotaIncreaseRequestIntoTemplate",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PutServiceQuotaIncreaseRequestIntoTemplateRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PutServiceQuotaIncreaseRequestIntoTemplateResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "481": {
+            "description": "DependencyAccessDeniedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DependencyAccessDeniedException" } }
+            }
+          },
+          "482": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "484": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "485": {
+            "description": "QuotaExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/QuotaExceededException" } } }
+          },
+          "486": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "487": {
+            "description": "AWSServiceAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AWSServiceAccessNotEnabledException" } }
+            }
+          },
+          "488": {
+            "description": "TemplatesNotAvailableInRegionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TemplatesNotAvailableInRegionException" }
+              }
+            }
+          },
+          "489": {
+            "description": "NoAvailableOrganizationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAvailableOrganizationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=ServiceQuotasV20190624.RequestServiceQuotaIncrease": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves the details of a service quota increase request. The response to this command provides the details in the <a>RequestedServiceQuotaChange</a> object. ",
+        "operationId": "RequestServiceQuotaIncrease",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ServiceQuotasV20190624.RequestServiceQuotaIncrease"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/RequestServiceQuotaIncreaseRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/RequestServiceQuotaIncreaseResponse" } }
+            }
+          },
+          "480": {
+            "description": "DependencyAccessDeniedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DependencyAccessDeniedException" } }
+            }
+          },
+          "481": {
+            "description": "QuotaExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/QuotaExceededException" } } }
+          },
+          "482": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "484": {
+            "description": "NoSuchResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoSuchResourceException" } } }
+          },
+          "485": {
+            "description": "IllegalArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalArgumentException" } } }
+          },
+          "486": {
+            "description": "InvalidResourceStateException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidResourceStateException" } }
+            }
+          },
+          "487": {
+            "description": "ServiceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceException" } } }
+          },
+          "488": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The Service Quotas multi-region endpoint",
+      "url": "http://servicequotas.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Service Quotas multi-region endpoint",
+      "url": "https://servicequotas.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Service Quotas endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://servicequotas.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The Service Quotas endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://servicequotas.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AWSServiceAccessNotEnabledException": {},
+      "AccessDeniedException": {},
+      "AssociateServiceQuotaTemplateRequest": { "properties": {}, "type": "object" },
+      "AssociateServiceQuotaTemplateResponse": { "properties": {}, "type": "object" },
+      "AwsRegion": { "maxLength": 64, "minLength": 1, "pattern": "[a-zA-Z][a-zA-Z0-9-]{1,128}", "type": "string" },
+      "CustomerServiceEngagementId": { "type": "string" },
+      "DateTime": { "format": "date-time", "type": "string" },
+      "DeleteServiceQuotaIncreaseRequestFromTemplateRequest": {
+        "properties": {
+          "AwsRegion": { "$ref": "#/components/schemas/AwsRegion" },
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "required": ["ServiceCode", "QuotaCode", "AwsRegion"],
+        "type": "object"
+      },
+      "DeleteServiceQuotaIncreaseRequestFromTemplateResponse": { "properties": {}, "type": "object" },
+      "DependencyAccessDeniedException": {},
+      "DisassociateServiceQuotaTemplateRequest": { "properties": {}, "type": "object" },
+      "DisassociateServiceQuotaTemplateResponse": { "properties": {}, "type": "object" },
+      "ErrorCode": {
+        "enum": [
+          "DEPENDENCY_ACCESS_DENIED_ERROR",
+          "DEPENDENCY_THROTTLING_ERROR",
+          "DEPENDENCY_SERVICE_ERROR",
+          "SERVICE_QUOTA_NOT_AVAILABLE_ERROR"
+        ],
+        "type": "string"
+      },
+      "ErrorMessage": { "type": "string" },
+      "ErrorReason": {
+        "description": "Returns an error that explains why the action did not succeed.",
+        "properties": {
+          "ErrorCode": { "$ref": "#/components/schemas/ErrorCode" },
+          "ErrorMessage": { "$ref": "#/components/schemas/ErrorMessage" }
+        },
+        "type": "object"
+      },
+      "GetAWSDefaultServiceQuotaRequest": {
+        "properties": {
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "required": ["ServiceCode", "QuotaCode"],
+        "type": "object"
+      },
+      "GetAWSDefaultServiceQuotaResponse": {
+        "properties": { "Quota": { "$ref": "#/components/schemas/ServiceQuota" } },
+        "type": "object"
+      },
+      "GetAssociationForServiceQuotaTemplateRequest": { "properties": {}, "type": "object" },
+      "GetAssociationForServiceQuotaTemplateResponse": {
+        "properties": {
+          "ServiceQuotaTemplateAssociationStatus": {
+            "$ref": "#/components/schemas/ServiceQuotaTemplateAssociationStatus"
+          }
+        },
+        "type": "object"
+      },
+      "GetRequestedServiceQuotaChangeRequest": {
+        "properties": { "RequestId": { "$ref": "#/components/schemas/RequestId" } },
+        "required": ["RequestId"],
+        "type": "object"
+      },
+      "GetRequestedServiceQuotaChangeResponse": {
+        "properties": { "RequestedQuota": { "$ref": "#/components/schemas/RequestedServiceQuotaChange" } },
+        "type": "object"
+      },
+      "GetServiceQuotaIncreaseRequestFromTemplateRequest": {
+        "properties": {
+          "AwsRegion": { "$ref": "#/components/schemas/AwsRegion" },
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "required": ["ServiceCode", "QuotaCode", "AwsRegion"],
+        "type": "object"
+      },
+      "GetServiceQuotaIncreaseRequestFromTemplateResponse": {
+        "properties": {
+          "ServiceQuotaIncreaseRequestInTemplate": {
+            "$ref": "#/components/schemas/ServiceQuotaIncreaseRequestInTemplate"
+          }
+        },
+        "type": "object"
+      },
+      "GetServiceQuotaRequest": {
+        "properties": {
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "required": ["ServiceCode", "QuotaCode"],
+        "type": "object"
+      },
+      "GetServiceQuotaResponse": {
+        "properties": { "Quota": { "$ref": "#/components/schemas/ServiceQuota" } },
+        "type": "object"
+      },
+      "GlobalQuota": { "type": "boolean" },
+      "IllegalArgumentException": {},
+      "InvalidPaginationTokenException": {},
+      "InvalidResourceStateException": {},
+      "ListAWSDefaultServiceQuotasRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "required": ["ServiceCode"],
+        "type": "object"
+      },
+      "ListAWSDefaultServiceQuotasResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Quotas": { "$ref": "#/components/schemas/ServiceQuotaListDefinition" }
+        },
+        "type": "object"
+      },
+      "ListRequestedServiceQuotaChangeHistoryByQuotaRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" },
+          "Status": { "$ref": "#/components/schemas/RequestStatus" }
+        },
+        "required": ["ServiceCode", "QuotaCode"],
+        "type": "object"
+      },
+      "ListRequestedServiceQuotaChangeHistoryByQuotaResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "RequestedQuotas": { "$ref": "#/components/schemas/RequestedServiceQuotaChangeHistoryListDefinition" }
+        },
+        "type": "object"
+      },
+      "ListRequestedServiceQuotaChangeHistoryRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" },
+          "Status": { "$ref": "#/components/schemas/RequestStatus" }
+        },
+        "type": "object"
+      },
+      "ListRequestedServiceQuotaChangeHistoryResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "RequestedQuotas": { "$ref": "#/components/schemas/RequestedServiceQuotaChangeHistoryListDefinition" }
+        },
+        "type": "object"
+      },
+      "ListServiceQuotaIncreaseRequestsInTemplateRequest": {
+        "properties": {
+          "AwsRegion": { "$ref": "#/components/schemas/AwsRegion" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "type": "object"
+      },
+      "ListServiceQuotaIncreaseRequestsInTemplateResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServiceQuotaIncreaseRequestInTemplateList": {
+            "$ref": "#/components/schemas/ServiceQuotaIncreaseRequestInTemplateList"
+          }
+        },
+        "type": "object"
+      },
+      "ListServiceQuotasRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "required": ["ServiceCode"],
+        "type": "object"
+      },
+      "ListServiceQuotasResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Quotas": { "$ref": "#/components/schemas/ServiceQuotaListDefinition" }
+        },
+        "type": "object"
+      },
+      "ListServicesRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListServicesResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Services": { "$ref": "#/components/schemas/ServiceInfoListDefinition" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "MetricDimensionName": { "type": "string" },
+      "MetricDimensionValue": { "type": "string" },
+      "MetricDimensionsMapDefinition": {
+        "additionalProperties": { "$ref": "#/components/schemas/MetricDimensionValue" },
+        "maxProperties": 10,
+        "type": "object"
+      },
+      "MetricInfo": {
+        "description": "A structure that uses CloudWatch metrics to gather data about the service quota.",
+        "properties": {
+          "MetricDimensions": { "$ref": "#/components/schemas/MetricDimensionsMapDefinition" },
+          "MetricName": { "$ref": "#/components/schemas/QuotaMetricName" },
+          "MetricNamespace": { "$ref": "#/components/schemas/QuotaMetricNamespace" },
+          "MetricStatisticRecommendation": { "$ref": "#/components/schemas/Statistic" }
+        },
+        "type": "object"
+      },
+      "NextToken": { "maxLength": 2048, "pattern": "^[a-zA-Z0-9/+]*={0,2}$", "type": "string" },
+      "NoAvailableOrganizationException": {},
+      "NoSuchResourceException": {},
+      "OrganizationNotInAllFeaturesModeException": {},
+      "PeriodUnit": {
+        "enum": ["MICROSECOND", "MILLISECOND", "SECOND", "MINUTE", "HOUR", "DAY", "WEEK"],
+        "type": "string"
+      },
+      "PeriodValue": { "type": "integer" },
+      "PutServiceQuotaIncreaseRequestIntoTemplateRequest": {
+        "properties": {
+          "AwsRegion": { "$ref": "#/components/schemas/AwsRegion" },
+          "DesiredValue": { "$ref": "#/components/schemas/QuotaValue" },
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "required": ["QuotaCode", "ServiceCode", "AwsRegion", "DesiredValue"],
+        "type": "object"
+      },
+      "PutServiceQuotaIncreaseRequestIntoTemplateResponse": {
+        "properties": {
+          "ServiceQuotaIncreaseRequestInTemplate": {
+            "$ref": "#/components/schemas/ServiceQuotaIncreaseRequestInTemplate"
+          }
+        },
+        "type": "object"
+      },
+      "QuotaAdjustable": { "type": "boolean" },
+      "QuotaArn": { "type": "string" },
+      "QuotaCode": { "maxLength": 128, "minLength": 1, "pattern": "[a-zA-Z][a-zA-Z0-9-]{1,128}", "type": "string" },
+      "QuotaExceededException": {},
+      "QuotaMetricName": { "type": "string" },
+      "QuotaMetricNamespace": { "type": "string" },
+      "QuotaName": { "type": "string" },
+      "QuotaPeriod": {
+        "description": "A structure that contains information about the quota period.",
+        "properties": {
+          "PeriodUnit": { "$ref": "#/components/schemas/PeriodUnit" },
+          "PeriodValue": { "$ref": "#/components/schemas/PeriodValue" }
+        },
+        "type": "object"
+      },
+      "QuotaUnit": { "type": "string" },
+      "QuotaValue": { "format": "double", "maximum": 10000000000, "minimum": 0, "type": "number" },
+      "RequestId": { "maxLength": 128, "minLength": 1, "pattern": "[0-9a-zA-Z][a-zA-Z0-9-]{1,128}", "type": "string" },
+      "RequestServiceQuotaIncreaseRequest": {
+        "properties": {
+          "DesiredValue": { "$ref": "#/components/schemas/QuotaValue" },
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" }
+        },
+        "required": ["ServiceCode", "QuotaCode", "DesiredValue"],
+        "type": "object"
+      },
+      "RequestServiceQuotaIncreaseResponse": {
+        "properties": { "RequestedQuota": { "$ref": "#/components/schemas/RequestedServiceQuotaChange" } },
+        "type": "object"
+      },
+      "RequestStatus": { "enum": ["PENDING", "CASE_OPENED", "APPROVED", "DENIED", "CASE_CLOSED"], "type": "string" },
+      "RequestedServiceQuotaChange": {
+        "description": "A structure that contains information about a requested change for a quota.",
+        "properties": {
+          "CaseId": { "$ref": "#/components/schemas/CustomerServiceEngagementId" },
+          "Created": { "$ref": "#/components/schemas/DateTime" },
+          "DesiredValue": { "$ref": "#/components/schemas/QuotaValue" },
+          "GlobalQuota": { "$ref": "#/components/schemas/GlobalQuota" },
+          "Id": { "$ref": "#/components/schemas/RequestId" },
+          "LastUpdated": { "$ref": "#/components/schemas/DateTime" },
+          "QuotaArn": { "$ref": "#/components/schemas/QuotaArn" },
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "QuotaName": { "$ref": "#/components/schemas/QuotaName" },
+          "Requester": { "$ref": "#/components/schemas/Requester" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" },
+          "ServiceName": { "$ref": "#/components/schemas/ServiceName" },
+          "Status": { "$ref": "#/components/schemas/RequestStatus" },
+          "Unit": { "$ref": "#/components/schemas/QuotaUnit" }
+        },
+        "type": "object"
+      },
+      "RequestedServiceQuotaChangeHistoryListDefinition": {
+        "items": { "$ref": "#/components/schemas/RequestedServiceQuotaChange" },
+        "type": "array"
+      },
+      "Requester": { "type": "string" },
+      "ResourceAlreadyExistsException": {},
+      "ServiceCode": { "maxLength": 63, "minLength": 1, "pattern": "[a-zA-Z][a-zA-Z0-9-]{1,63}", "type": "string" },
+      "ServiceException": {},
+      "ServiceInfo": {
+        "description": "A structure that contains the <code>ServiceName</code> and <code>ServiceCode</code>. It does not include all details of the service quota. To get those values, use the <a>ListServiceQuotas</a> operation. ",
+        "properties": {
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" },
+          "ServiceName": { "$ref": "#/components/schemas/ServiceName" }
+        },
+        "type": "object"
+      },
+      "ServiceInfoListDefinition": { "items": { "$ref": "#/components/schemas/ServiceInfo" }, "type": "array" },
+      "ServiceName": { "type": "string" },
+      "ServiceQuota": {
+        "description": "A structure that contains the full set of details that define the service quota.",
+        "properties": {
+          "Adjustable": { "$ref": "#/components/schemas/QuotaAdjustable" },
+          "ErrorReason": { "$ref": "#/components/schemas/ErrorReason" },
+          "GlobalQuota": { "$ref": "#/components/schemas/GlobalQuota" },
+          "Period": { "$ref": "#/components/schemas/QuotaPeriod" },
+          "QuotaArn": { "$ref": "#/components/schemas/QuotaArn" },
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "QuotaName": { "$ref": "#/components/schemas/QuotaName" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" },
+          "ServiceName": { "$ref": "#/components/schemas/ServiceName" },
+          "Unit": { "$ref": "#/components/schemas/QuotaUnit" },
+          "UsageMetric": { "$ref": "#/components/schemas/MetricInfo" },
+          "Value": { "$ref": "#/components/schemas/QuotaValue" }
+        },
+        "type": "object"
+      },
+      "ServiceQuotaIncreaseRequestInTemplate": {
+        "description": "A structure that contains information about one service quota increase request.",
+        "properties": {
+          "AwsRegion": { "$ref": "#/components/schemas/AwsRegion" },
+          "DesiredValue": { "$ref": "#/components/schemas/QuotaValue" },
+          "GlobalQuota": { "$ref": "#/components/schemas/GlobalQuota" },
+          "QuotaCode": { "$ref": "#/components/schemas/QuotaCode" },
+          "QuotaName": { "$ref": "#/components/schemas/QuotaName" },
+          "ServiceCode": { "$ref": "#/components/schemas/ServiceCode" },
+          "ServiceName": { "$ref": "#/components/schemas/ServiceName" },
+          "Unit": { "$ref": "#/components/schemas/QuotaUnit" }
+        },
+        "type": "object"
+      },
+      "ServiceQuotaIncreaseRequestInTemplateList": {
+        "items": { "$ref": "#/components/schemas/ServiceQuotaIncreaseRequestInTemplate" },
+        "type": "array"
+      },
+      "ServiceQuotaListDefinition": { "items": { "$ref": "#/components/schemas/ServiceQuota" }, "type": "array" },
+      "ServiceQuotaTemplateAssociationStatus": { "enum": ["ASSOCIATED", "DISASSOCIATED"], "type": "string" },
+      "ServiceQuotaTemplateNotInUseException": {},
+      "Statistic": { "maxLength": 256, "minLength": 1, "pattern": "(Sum|Maximum)", "type": "string" },
+      "TemplatesNotAvailableInRegionException": {},
+      "TooManyRequestsException": {}
+    }
+  }
+}

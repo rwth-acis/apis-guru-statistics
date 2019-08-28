@@ -1,1 +1,423 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<p>AWS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running RDS instance. The guide provides detailed information about Performance Insights data types, parameters and errors. For more information about Performance Insights capabilities see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\">Using Amazon RDS Performance Insights </a> in the <i>Amazon RDS User Guide</i>.</p> <p> The AWS Performance Insights API provides visibility into the performance of your RDS instance, when Performance Insights is enabled for supported engine types. While Amazon CloudWatch provides the authoritative source for AWS service vended monitoring metrics, AWS Performance Insights offers a domain-specific view of database load measured as Average Active Sessions and provided to API consumers as a 2-dimensional time-series dataset. The time dimension of the data provides DB load data for each time point in the queried time range, and each time point decomposes overall load in relation to the requested dimensions, such as SQL, Wait-event, User or Host, measured at that time point.</p>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS Performance Insights","version":"2018-02-27","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/pi-2018-02-27.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"pi"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/pi/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=PerformanceInsightsv20180227.DescribeDimensionKeys":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"For a specific time period, retrieve the top <code>N</code> dimension keys for a metric.","operationId":"DescribeDimensionKeys","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["PerformanceInsightsv20180227.DescribeDimensionKeys"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDimensionKeysRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDimensionKeysResponse"}}}},"480":{"description":"InvalidArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidArgumentException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"NotAuthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotAuthorizedException"}}}}}}},"/#X-Amz-Target=PerformanceInsightsv20180227.GetResourceMetrics":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide specific dimension groups and dimensions, and provide aggregation and filtering criteria for each group.","operationId":"GetResourceMetrics","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["PerformanceInsightsv20180227.GetResourceMetrics"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResourceMetricsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResourceMetricsResponse"}}}},"480":{"description":"InvalidArgumentException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidArgumentException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"NotAuthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotAuthorizedException"}}}}}}}},"servers":[{"description":"The AWS PI multi-region endpoint","url":"http://pi.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS PI multi-region endpoint","url":"https://pi.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS PI endpoint for China (Beijing) and China (Ningxia)","url":"http://pi.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS PI endpoint for China (Beijing) and China (Ningxia)","url":"https://pi.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"DataPoint":{"description":"A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.","properties":{"Timestamp":{"$ref":"#/components/schemas/ISOTimestamp"},"Value":{"$ref":"#/components/schemas/Double"}},"required":["Timestamp","Value"],"type":"object"},"DataPointsList":{"items":{"$ref":"#/components/schemas/DataPoint"},"type":"array"},"DescribeDimensionKeysRequest":{"properties":{"EndTime":{"$ref":"#/components/schemas/ISOTimestamp"},"Filter":{"$ref":"#/components/schemas/MetricQueryFilterMap"},"GroupBy":{"$ref":"#/components/schemas/DimensionGroup"},"Identifier":{"$ref":"#/components/schemas/String"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"Metric":{"$ref":"#/components/schemas/String"},"NextToken":{"$ref":"#/components/schemas/String"},"PartitionBy":{"$ref":"#/components/schemas/DimensionGroup"},"PeriodInSeconds":{"$ref":"#/components/schemas/Integer"},"ServiceType":{"$ref":"#/components/schemas/ServiceType"},"StartTime":{"$ref":"#/components/schemas/ISOTimestamp"}},"required":["ServiceType","Identifier","StartTime","EndTime","Metric","GroupBy"],"type":"object"},"DescribeDimensionKeysResponse":{"properties":{"AlignedEndTime":{"$ref":"#/components/schemas/ISOTimestamp"},"AlignedStartTime":{"$ref":"#/components/schemas/ISOTimestamp"},"Keys":{"$ref":"#/components/schemas/DimensionKeyDescriptionList"},"NextToken":{"$ref":"#/components/schemas/String"},"PartitionKeys":{"$ref":"#/components/schemas/ResponsePartitionKeyList"}},"type":"object"},"DimensionGroup":{"description":"A logical grouping of Performance Insights metrics for a related subject area. For example, the <code>db.sql</code> dimension group consists of the following dimensions: <code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>, and <code>db.sql.tokenized_id</code>.","properties":{"Dimensions":{"$ref":"#/components/schemas/StringList"},"Group":{"$ref":"#/components/schemas/String"},"Limit":{"$ref":"#/components/schemas/Limit"}},"required":["Group"],"type":"object"},"DimensionKeyDescription":{"description":"An array of descriptions and aggregated values for each dimension within a dimension group.","properties":{"Dimensions":{"$ref":"#/components/schemas/DimensionMap"},"Partitions":{"$ref":"#/components/schemas/MetricValuesList"},"Total":{"$ref":"#/components/schemas/Double"}},"type":"object"},"DimensionKeyDescriptionList":{"items":{"$ref":"#/components/schemas/DimensionKeyDescription"},"type":"array"},"DimensionMap":{"additionalProperties":{"$ref":"#/components/schemas/String"},"type":"object"},"Double":{"format":"double","type":"number"},"GetResourceMetricsRequest":{"properties":{"EndTime":{"$ref":"#/components/schemas/ISOTimestamp"},"Identifier":{"$ref":"#/components/schemas/String"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"MetricQueries":{"$ref":"#/components/schemas/MetricQueryList"},"NextToken":{"$ref":"#/components/schemas/String"},"PeriodInSeconds":{"$ref":"#/components/schemas/Integer"},"ServiceType":{"$ref":"#/components/schemas/ServiceType"},"StartTime":{"$ref":"#/components/schemas/ISOTimestamp"}},"required":["ServiceType","Identifier","MetricQueries","StartTime","EndTime"],"type":"object"},"GetResourceMetricsResponse":{"properties":{"AlignedEndTime":{"$ref":"#/components/schemas/ISOTimestamp"},"AlignedStartTime":{"$ref":"#/components/schemas/ISOTimestamp"},"Identifier":{"$ref":"#/components/schemas/String"},"MetricList":{"$ref":"#/components/schemas/MetricKeyDataPointsList"},"NextToken":{"$ref":"#/components/schemas/String"}},"type":"object"},"ISOTimestamp":{"format":"date-time","type":"string"},"Integer":{"type":"integer"},"InternalServiceError":{"description":"The request failed due to an unknown error.","properties":{"Message":{"$ref":"#/components/schemas/String"}},"type":"object"},"InvalidArgumentException":{"description":"One of the arguments provided is invalid for this request.","properties":{"Message":{"$ref":"#/components/schemas/String"}},"type":"object"},"Limit":{"maximum":10,"minimum":1,"type":"integer"},"MaxResults":{"maximum":20,"minimum":0,"type":"integer"},"MetricKeyDataPoints":{"description":"A time-ordered series of data points, correpsonding to a dimension of a Performance Insights metric.","properties":{"DataPoints":{"$ref":"#/components/schemas/DataPointsList"},"Key":{"$ref":"#/components/schemas/ResponseResourceMetricKey"}},"type":"object"},"MetricKeyDataPointsList":{"items":{"$ref":"#/components/schemas/MetricKeyDataPoints"},"type":"array"},"MetricQuery":{"description":"A single query to be processed. You must provide the metric to query. If no other parameters are specified, Performance Insights returns all of the data points for that metric. You can optionally request that the data points be aggregated by dimension group ( <code>GroupBy</code>), and return only those data points that match your criteria (<code>Filter</code>).","properties":{"Filter":{"$ref":"#/components/schemas/MetricQueryFilterMap"},"GroupBy":{"$ref":"#/components/schemas/DimensionGroup"},"Metric":{"$ref":"#/components/schemas/String"}},"required":["Metric"],"type":"object"},"MetricQueryFilterMap":{"additionalProperties":{"$ref":"#/components/schemas/String"},"type":"object"},"MetricQueryList":{"items":{"$ref":"#/components/schemas/MetricQuery"},"maxItems":15,"minItems":1,"type":"array"},"MetricValuesList":{"items":{"$ref":"#/components/schemas/Double"},"type":"array"},"NotAuthorizedException":{"description":"The user is not authorized to perform this request.","properties":{"Message":{"$ref":"#/components/schemas/String"}},"type":"object"},"ResponsePartitionKey":{"description":"If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code> request, the dimensions are returned in an array. Each element in the array specifies one dimension. ","properties":{"Dimensions":{"$ref":"#/components/schemas/DimensionMap"}},"required":["Dimensions"],"type":"object"},"ResponsePartitionKeyList":{"items":{"$ref":"#/components/schemas/ResponsePartitionKey"},"type":"array"},"ResponseResourceMetricKey":{"description":"An object describing a Performance Insights metric and one or more dimensions for that metric.","properties":{"Dimensions":{"$ref":"#/components/schemas/DimensionMap"},"Metric":{"$ref":"#/components/schemas/String"}},"required":["Metric"],"type":"object"},"ServiceType":{"enum":["RDS"],"type":"string"},"String":{"type":"string"},"StringList":{"items":{"$ref":"#/components/schemas/String"},"maxItems":10,"minItems":1,"type":"array"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>AWS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running RDS instance. The guide provides detailed information about Performance Insights data types, parameters and errors. For more information about Performance Insights capabilities see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\">Using Amazon RDS Performance Insights </a> in the <i>Amazon RDS User Guide</i>.</p> <p> The AWS Performance Insights API provides visibility into the performance of your RDS instance, when Performance Insights is enabled for supported engine types. While Amazon CloudWatch provides the authoritative source for AWS service vended monitoring metrics, AWS Performance Insights offers a domain-specific view of database load measured as Average Active Sessions and provided to API consumers as a 2-dimensional time-series dataset. The time dimension of the data provides DB load data for each time point in the queried time range, and each time point decomposes overall load in relation to the requested dimensions, such as SQL, Wait-event, User or Host, measured at that time point.</p>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Performance Insights",
+    "version": "2018-02-27",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/pi-2018-02-27.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "pi"
+  },
+  "externalDocs": { "description": "Amazon Web Services documentation", "url": "https://docs.aws.amazon.com/pi/" },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=PerformanceInsightsv20180227.DescribeDimensionKeys": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "For a specific time period, retrieve the top <code>N</code> dimension keys for a metric.",
+        "operationId": "DescribeDimensionKeys",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["PerformanceInsightsv20180227.DescribeDimensionKeys"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDimensionKeysRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDimensionKeysResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidArgumentException" } } }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "NotAuthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotAuthorizedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=PerformanceInsightsv20180227.GetResourceMetrics": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide specific dimension groups and dimensions, and provide aggregation and filtering criteria for each group.",
+        "operationId": "GetResourceMetrics",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["PerformanceInsightsv20180227.GetResourceMetrics"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetResourceMetricsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetResourceMetricsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidArgumentException" } } }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "NotAuthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotAuthorizedException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS PI multi-region endpoint",
+      "url": "http://pi.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS PI multi-region endpoint",
+      "url": "https://pi.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS PI endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://pi.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS PI endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://pi.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "DataPoint": {
+        "description": "A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.",
+        "properties": {
+          "Timestamp": { "$ref": "#/components/schemas/ISOTimestamp" },
+          "Value": { "$ref": "#/components/schemas/Double" }
+        },
+        "required": ["Timestamp", "Value"],
+        "type": "object"
+      },
+      "DataPointsList": { "items": { "$ref": "#/components/schemas/DataPoint" }, "type": "array" },
+      "DescribeDimensionKeysRequest": {
+        "properties": {
+          "EndTime": { "$ref": "#/components/schemas/ISOTimestamp" },
+          "Filter": { "$ref": "#/components/schemas/MetricQueryFilterMap" },
+          "GroupBy": { "$ref": "#/components/schemas/DimensionGroup" },
+          "Identifier": { "$ref": "#/components/schemas/String" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "Metric": { "$ref": "#/components/schemas/String" },
+          "NextToken": { "$ref": "#/components/schemas/String" },
+          "PartitionBy": { "$ref": "#/components/schemas/DimensionGroup" },
+          "PeriodInSeconds": { "$ref": "#/components/schemas/Integer" },
+          "ServiceType": { "$ref": "#/components/schemas/ServiceType" },
+          "StartTime": { "$ref": "#/components/schemas/ISOTimestamp" }
+        },
+        "required": ["ServiceType", "Identifier", "StartTime", "EndTime", "Metric", "GroupBy"],
+        "type": "object"
+      },
+      "DescribeDimensionKeysResponse": {
+        "properties": {
+          "AlignedEndTime": { "$ref": "#/components/schemas/ISOTimestamp" },
+          "AlignedStartTime": { "$ref": "#/components/schemas/ISOTimestamp" },
+          "Keys": { "$ref": "#/components/schemas/DimensionKeyDescriptionList" },
+          "NextToken": { "$ref": "#/components/schemas/String" },
+          "PartitionKeys": { "$ref": "#/components/schemas/ResponsePartitionKeyList" }
+        },
+        "type": "object"
+      },
+      "DimensionGroup": {
+        "description": "A logical grouping of Performance Insights metrics for a related subject area. For example, the <code>db.sql</code> dimension group consists of the following dimensions: <code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>, and <code>db.sql.tokenized_id</code>.",
+        "properties": {
+          "Dimensions": { "$ref": "#/components/schemas/StringList" },
+          "Group": { "$ref": "#/components/schemas/String" },
+          "Limit": { "$ref": "#/components/schemas/Limit" }
+        },
+        "required": ["Group"],
+        "type": "object"
+      },
+      "DimensionKeyDescription": {
+        "description": "An array of descriptions and aggregated values for each dimension within a dimension group.",
+        "properties": {
+          "Dimensions": { "$ref": "#/components/schemas/DimensionMap" },
+          "Partitions": { "$ref": "#/components/schemas/MetricValuesList" },
+          "Total": { "$ref": "#/components/schemas/Double" }
+        },
+        "type": "object"
+      },
+      "DimensionKeyDescriptionList": {
+        "items": { "$ref": "#/components/schemas/DimensionKeyDescription" },
+        "type": "array"
+      },
+      "DimensionMap": { "additionalProperties": { "$ref": "#/components/schemas/String" }, "type": "object" },
+      "Double": { "format": "double", "type": "number" },
+      "GetResourceMetricsRequest": {
+        "properties": {
+          "EndTime": { "$ref": "#/components/schemas/ISOTimestamp" },
+          "Identifier": { "$ref": "#/components/schemas/String" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "MetricQueries": { "$ref": "#/components/schemas/MetricQueryList" },
+          "NextToken": { "$ref": "#/components/schemas/String" },
+          "PeriodInSeconds": { "$ref": "#/components/schemas/Integer" },
+          "ServiceType": { "$ref": "#/components/schemas/ServiceType" },
+          "StartTime": { "$ref": "#/components/schemas/ISOTimestamp" }
+        },
+        "required": ["ServiceType", "Identifier", "MetricQueries", "StartTime", "EndTime"],
+        "type": "object"
+      },
+      "GetResourceMetricsResponse": {
+        "properties": {
+          "AlignedEndTime": { "$ref": "#/components/schemas/ISOTimestamp" },
+          "AlignedStartTime": { "$ref": "#/components/schemas/ISOTimestamp" },
+          "Identifier": { "$ref": "#/components/schemas/String" },
+          "MetricList": { "$ref": "#/components/schemas/MetricKeyDataPointsList" },
+          "NextToken": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "ISOTimestamp": { "format": "date-time", "type": "string" },
+      "Integer": { "type": "integer" },
+      "InternalServiceError": {
+        "description": "The request failed due to an unknown error.",
+        "properties": { "Message": { "$ref": "#/components/schemas/String" } },
+        "type": "object"
+      },
+      "InvalidArgumentException": {
+        "description": "One of the arguments provided is invalid for this request.",
+        "properties": { "Message": { "$ref": "#/components/schemas/String" } },
+        "type": "object"
+      },
+      "Limit": { "maximum": 10, "minimum": 1, "type": "integer" },
+      "MaxResults": { "maximum": 20, "minimum": 0, "type": "integer" },
+      "MetricKeyDataPoints": {
+        "description": "A time-ordered series of data points, correpsonding to a dimension of a Performance Insights metric.",
+        "properties": {
+          "DataPoints": { "$ref": "#/components/schemas/DataPointsList" },
+          "Key": { "$ref": "#/components/schemas/ResponseResourceMetricKey" }
+        },
+        "type": "object"
+      },
+      "MetricKeyDataPointsList": { "items": { "$ref": "#/components/schemas/MetricKeyDataPoints" }, "type": "array" },
+      "MetricQuery": {
+        "description": "A single query to be processed. You must provide the metric to query. If no other parameters are specified, Performance Insights returns all of the data points for that metric. You can optionally request that the data points be aggregated by dimension group ( <code>GroupBy</code>), and return only those data points that match your criteria (<code>Filter</code>).",
+        "properties": {
+          "Filter": { "$ref": "#/components/schemas/MetricQueryFilterMap" },
+          "GroupBy": { "$ref": "#/components/schemas/DimensionGroup" },
+          "Metric": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["Metric"],
+        "type": "object"
+      },
+      "MetricQueryFilterMap": { "additionalProperties": { "$ref": "#/components/schemas/String" }, "type": "object" },
+      "MetricQueryList": {
+        "items": { "$ref": "#/components/schemas/MetricQuery" },
+        "maxItems": 15,
+        "minItems": 1,
+        "type": "array"
+      },
+      "MetricValuesList": { "items": { "$ref": "#/components/schemas/Double" }, "type": "array" },
+      "NotAuthorizedException": {
+        "description": "The user is not authorized to perform this request.",
+        "properties": { "Message": { "$ref": "#/components/schemas/String" } },
+        "type": "object"
+      },
+      "ResponsePartitionKey": {
+        "description": "If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code> request, the dimensions are returned in an array. Each element in the array specifies one dimension. ",
+        "properties": { "Dimensions": { "$ref": "#/components/schemas/DimensionMap" } },
+        "required": ["Dimensions"],
+        "type": "object"
+      },
+      "ResponsePartitionKeyList": { "items": { "$ref": "#/components/schemas/ResponsePartitionKey" }, "type": "array" },
+      "ResponseResourceMetricKey": {
+        "description": "An object describing a Performance Insights metric and one or more dimensions for that metric.",
+        "properties": {
+          "Dimensions": { "$ref": "#/components/schemas/DimensionMap" },
+          "Metric": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["Metric"],
+        "type": "object"
+      },
+      "ServiceType": { "enum": ["RDS"], "type": "string" },
+      "String": { "type": "string" },
+      "StringList": {
+        "items": { "$ref": "#/components/schemas/String" },
+        "maxItems": 10,
+        "minItems": 1,
+        "type": "array"
+      }
+    }
+  }
+}

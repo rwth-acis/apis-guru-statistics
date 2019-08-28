@@ -1,1 +1,1296 @@
-{"openapi":"3.0.0","info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"AWS Elemental MediaPackage VOD","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS Elemental MediaPackage VOD","version":"2018-11-07","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediapackage-vod-2018-11-07.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"mediapackage-vod"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/mediapackage-vod/"},"security":[{"hmac":[]}],"paths":{"/assets":{"get":{"description":"Returns a collection of MediaPackage VOD Asset resources.","operationId":"ListAssets","parameters":[{"description":"Upper bound on number of records to return.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000}},{"description":"A token used to resume pagination from the end of a previous request.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"Returns Assets associated with the specified PackagingGroup.","in":"query","name":"packagingGroupId","required":false,"schema":{"type":"string"}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListAssetsResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new MediaPackage VOD Asset resource.","operationId":"CreateAsset","requestBody":{"content":{"application/json":{"schema":{"properties":{"id":{"description":"The unique identifier for the Asset.","type":"string"},"packagingGroupId":{"description":"The ID of the PackagingGroup for the Asset.","type":"string"},"resourceId":{"description":"The resource ID to include in SPEKE key requests.","type":"string"},"sourceArn":{"description":"ARN of the source object in S3.","type":"string"},"sourceRoleArn":{"description":"The IAM role ARN used to access the source S3 bucket.","type":"string"}},"required":["id","packagingGroupId","sourceArn","sourceRoleArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateAssetResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/assets/{id}":{"delete":{"description":"Deletes an existing MediaPackage VOD Asset resource.","operationId":"DeleteAsset","parameters":[{"description":"The ID of the MediaPackage VOD Asset resource to delete.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteAssetResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"get":{"description":"Returns a description of a MediaPackage VOD Asset resource.","operationId":"DescribeAsset","parameters":[{"description":"The ID of an MediaPackage VOD Asset resource.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeAssetResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/packaging_configurations":{"get":{"description":"Returns a collection of MediaPackage VOD PackagingConfiguration resources.","operationId":"ListPackagingConfigurations","parameters":[{"description":"Upper bound on number of records to return.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000}},{"description":"A token used to resume pagination from the end of a previous request.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.","in":"query","name":"packagingGroupId","required":false,"schema":{"type":"string"}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListPackagingConfigurationsResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new MediaPackage VOD PackagingConfiguration resource.","operationId":"CreatePackagingConfiguration","requestBody":{"content":{"application/json":{"schema":{"properties":{"cmafPackage":{"description":"A CMAF packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/CmafEncryption"},"HlsManifests":{"$ref":"#/components/schemas/__listOfHlsManifest"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"dashPackage":{"description":"A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.","properties":{"DashManifests":{"$ref":"#/components/schemas/__listOfDashManifest"},"Encryption":{"$ref":"#/components/schemas/DashEncryption"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"hlsPackage":{"description":"An HTTP Live Streaming (HLS) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/HlsEncryption"},"HlsManifests":{"$ref":"#/components/schemas/__listOfHlsManifest"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"UseAudioRenditionGroup":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"id":{"description":"The ID of the PackagingConfiguration.","type":"string"},"mssPackage":{"description":"A Microsoft Smooth Streaming (MSS) PackagingConfiguration.","properties":{"Encryption":{"$ref":"#/components/schemas/MssEncryption"},"MssManifests":{"$ref":"#/components/schemas/__listOfMssManifest"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"packagingGroupId":{"description":"The ID of a PackagingGroup.","type":"string"}},"required":["cmafPackage","dashPackage","hlsPackage","id","mssPackage","packagingGroupId"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePackagingConfigurationResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/packaging_configurations/{id}":{"delete":{"description":"Deletes a MediaPackage VOD PackagingConfiguration resource.","operationId":"DeletePackagingConfiguration","parameters":[{"description":"The ID of the MediaPackage VOD PackagingConfiguration resource to delete.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeletePackagingConfigurationResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"get":{"description":"Returns a description of a MediaPackage VOD PackagingConfiguration resource.","operationId":"DescribePackagingConfiguration","parameters":[{"description":"The ID of a MediaPackage VOD PackagingConfiguration resource.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribePackagingConfigurationResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/packaging_groups":{"get":{"description":"Returns a collection of MediaPackage VOD PackagingGroup resources.","operationId":"ListPackagingGroups","parameters":[{"description":"Upper bound on number of records to return.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000}},{"description":"A token used to resume pagination from the end of a previous request.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListPackagingGroupsResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new MediaPackage VOD PackagingGroup resource.","operationId":"CreatePackagingGroup","requestBody":{"content":{"application/json":{"schema":{"properties":{"id":{"description":"The ID of the PackagingGroup.","type":"string"}},"required":["id"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePackagingGroupResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/packaging_groups/{id}":{"delete":{"description":"Deletes a MediaPackage VOD PackagingGroup resource.","operationId":"DeletePackagingGroup","parameters":[{"description":"The ID of the MediaPackage VOD PackagingGroup resource to delete.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeletePackagingGroupResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"get":{"description":"Returns a description of a MediaPackage VOD PackagingGroup resource.","operationId":"DescribePackagingGroup","parameters":[{"description":"The ID of a MediaPackage VOD PackagingGroup resource.","in":"path","name":"id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribePackagingGroupResponse"}}}},"480":{"description":"UnprocessableEntityException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnprocessableEntityException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]}},"servers":[{"description":"The MediaPackage Vod multi-region endpoint","url":"http://mediapackage-vod.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The MediaPackage Vod multi-region endpoint","url":"https://mediapackage-vod.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The MediaPackage Vod endpoint for China (Beijing) and China (Ningxia)","url":"http://mediapackage-vod.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The MediaPackage Vod endpoint for China (Beijing) and China (Ningxia)","url":"https://mediapackage-vod.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AdMarkers":{"enum":["NONE","SCTE35_ENHANCED","PASSTHROUGH"],"type":"string"},"AssetShallow":{"description":"A MediaPackage VOD Asset resource.","properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Id":{"$ref":"#/components/schemas/__string"},"PackagingGroupId":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"SourceArn":{"$ref":"#/components/schemas/__string"},"SourceRoleArn":{"$ref":"#/components/schemas/__string"}},"type":"object"},"CmafEncryption":{"description":"A CMAF encryption configuration.","properties":{"SpekeKeyProvider":{"$ref":"#/components/schemas/SpekeKeyProvider"}},"required":["SpekeKeyProvider"],"type":"object"},"CmafPackage":{"description":"A CMAF packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/CmafEncryption"},"HlsManifests":{"$ref":"#/components/schemas/__listOfHlsManifest"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"}},"required":["HlsManifests"],"type":"object"},"CreateAssetRequest":{"description":"A new MediaPackage VOD Asset configuration.","properties":{"Id":{"$ref":"#/components/schemas/__string"},"PackagingGroupId":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"SourceArn":{"$ref":"#/components/schemas/__string"},"SourceRoleArn":{"$ref":"#/components/schemas/__string"}},"required":["SourceArn","Id","PackagingGroupId","SourceRoleArn"],"type":"object"},"CreateAssetResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"EgressEndpoints":{"$ref":"#/components/schemas/__listOfEgressEndpoint"},"Id":{"$ref":"#/components/schemas/__string"},"PackagingGroupId":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"SourceArn":{"$ref":"#/components/schemas/__string"},"SourceRoleArn":{"$ref":"#/components/schemas/__string"}},"type":"object"},"CreatePackagingConfigurationRequest":{"description":"A new MediaPackage VOD PackagingConfiguration resource configuration.","properties":{"CmafPackage":{"$ref":"#/components/schemas/CmafPackage"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"PackagingGroupId":{"$ref":"#/components/schemas/__string"}},"required":["Id","PackagingGroupId"],"type":"object"},"CreatePackagingConfigurationResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"CmafPackage":{"$ref":"#/components/schemas/CmafPackage"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"PackagingGroupId":{"$ref":"#/components/schemas/__string"}},"type":"object"},"CreatePackagingGroupRequest":{"description":"A new MediaPackage VOD PackagingGroup resource configuration.","properties":{"Id":{"$ref":"#/components/schemas/__string"}},"required":["Id"],"type":"object"},"CreatePackagingGroupResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Id":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DashEncryption":{"description":"A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.","properties":{"SpekeKeyProvider":{"$ref":"#/components/schemas/SpekeKeyProvider"}},"required":["SpekeKeyProvider"],"type":"object"},"DashManifest":{"description":"A DASH manifest configuration.","properties":{"ManifestName":{"$ref":"#/components/schemas/__string"},"MinBufferTimeSeconds":{"$ref":"#/components/schemas/__integer"},"Profile":{"$ref":"#/components/schemas/Profile"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"DashPackage":{"description":"A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.","properties":{"DashManifests":{"$ref":"#/components/schemas/__listOfDashManifest"},"Encryption":{"$ref":"#/components/schemas/DashEncryption"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"}},"required":["DashManifests"],"type":"object"},"DeleteAssetRequest":{"properties":{},"type":"object"},"DeleteAssetResponse":{"properties":{},"type":"object"},"DeletePackagingConfigurationRequest":{"properties":{},"type":"object"},"DeletePackagingConfigurationResponse":{"properties":{},"type":"object"},"DeletePackagingGroupRequest":{"properties":{},"type":"object"},"DeletePackagingGroupResponse":{"properties":{},"type":"object"},"DescribeAssetRequest":{"properties":{},"type":"object"},"DescribeAssetResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"EgressEndpoints":{"$ref":"#/components/schemas/__listOfEgressEndpoint"},"Id":{"$ref":"#/components/schemas/__string"},"PackagingGroupId":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"SourceArn":{"$ref":"#/components/schemas/__string"},"SourceRoleArn":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DescribePackagingConfigurationRequest":{"properties":{},"type":"object"},"DescribePackagingConfigurationResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"CmafPackage":{"$ref":"#/components/schemas/CmafPackage"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"PackagingGroupId":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DescribePackagingGroupRequest":{"properties":{},"type":"object"},"DescribePackagingGroupResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Id":{"$ref":"#/components/schemas/__string"}},"type":"object"},"EgressEndpoint":{"description":"The endpoint URL used to access an Asset using one PackagingConfiguration.","properties":{"PackagingConfigurationId":{"$ref":"#/components/schemas/__string"},"Url":{"$ref":"#/components/schemas/__string"}},"type":"object"},"EncryptionMethod":{"enum":["AES_128","SAMPLE_AES"],"type":"string"},"ForbiddenException":{},"HlsEncryption":{"description":"An HTTP Live Streaming (HLS) encryption configuration.","properties":{"EncryptionMethod":{"$ref":"#/components/schemas/EncryptionMethod"},"SpekeKeyProvider":{"$ref":"#/components/schemas/SpekeKeyProvider"}},"required":["SpekeKeyProvider"],"type":"object"},"HlsManifest":{"description":"An HTTP Live Streaming (HLS) manifest configuration.","properties":{"AdMarkers":{"$ref":"#/components/schemas/AdMarkers"},"IncludeIframeOnlyStream":{"$ref":"#/components/schemas/__boolean"},"ManifestName":{"$ref":"#/components/schemas/__string"},"ProgramDateTimeIntervalSeconds":{"$ref":"#/components/schemas/__integer"},"RepeatExtXKey":{"$ref":"#/components/schemas/__boolean"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"HlsPackage":{"description":"An HTTP Live Streaming (HLS) packaging configuration.","properties":{"Encryption":{"$ref":"#/components/schemas/HlsEncryption"},"HlsManifests":{"$ref":"#/components/schemas/__listOfHlsManifest"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"},"UseAudioRenditionGroup":{"$ref":"#/components/schemas/__boolean"}},"required":["HlsManifests"],"type":"object"},"InternalServerErrorException":{},"ListAssetsRequest":{"properties":{},"type":"object"},"ListAssetsResponse":{"properties":{"Assets":{"$ref":"#/components/schemas/__listOfAssetShallow"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListPackagingConfigurationsRequest":{"properties":{},"type":"object"},"ListPackagingConfigurationsResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/__string"},"PackagingConfigurations":{"$ref":"#/components/schemas/__listOfPackagingConfiguration"}},"type":"object"},"ListPackagingGroupsRequest":{"properties":{},"type":"object"},"ListPackagingGroupsResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/__string"},"PackagingGroups":{"$ref":"#/components/schemas/__listOfPackagingGroup"}},"type":"object"},"MaxResults":{"maximum":1000,"minimum":1,"type":"integer"},"MssEncryption":{"description":"A Microsoft Smooth Streaming (MSS) encryption configuration.","properties":{"SpekeKeyProvider":{"$ref":"#/components/schemas/SpekeKeyProvider"}},"required":["SpekeKeyProvider"],"type":"object"},"MssManifest":{"description":"A Microsoft Smooth Streaming (MSS) manifest configuration.","properties":{"ManifestName":{"$ref":"#/components/schemas/__string"},"StreamSelection":{"$ref":"#/components/schemas/StreamSelection"}},"type":"object"},"MssPackage":{"description":"A Microsoft Smooth Streaming (MSS) PackagingConfiguration.","properties":{"Encryption":{"$ref":"#/components/schemas/MssEncryption"},"MssManifests":{"$ref":"#/components/schemas/__listOfMssManifest"},"SegmentDurationSeconds":{"$ref":"#/components/schemas/__integer"}},"required":["MssManifests"],"type":"object"},"NotFoundException":{},"PackagingConfiguration":{"description":"A MediaPackage VOD PackagingConfiguration resource.","properties":{"Arn":{"$ref":"#/components/schemas/__string"},"CmafPackage":{"$ref":"#/components/schemas/CmafPackage"},"DashPackage":{"$ref":"#/components/schemas/DashPackage"},"HlsPackage":{"$ref":"#/components/schemas/HlsPackage"},"Id":{"$ref":"#/components/schemas/__string"},"MssPackage":{"$ref":"#/components/schemas/MssPackage"},"PackagingGroupId":{"$ref":"#/components/schemas/__string"}},"type":"object"},"PackagingGroup":{"description":"A MediaPackage VOD PackagingGroup resource.","properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Id":{"$ref":"#/components/schemas/__string"}},"type":"object"},"Profile":{"enum":["NONE","HBBTV_1_5"],"type":"string"},"ServiceUnavailableException":{},"SpekeKeyProvider":{"description":"A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.","properties":{"RoleArn":{"$ref":"#/components/schemas/__string"},"SystemIds":{"$ref":"#/components/schemas/__listOf__string"},"Url":{"$ref":"#/components/schemas/__string"}},"required":["SystemIds","Url","RoleArn"],"type":"object"},"StreamOrder":{"enum":["ORIGINAL","VIDEO_BITRATE_ASCENDING","VIDEO_BITRATE_DESCENDING"],"type":"string"},"StreamSelection":{"description":"A StreamSelection configuration.","properties":{"MaxVideoBitsPerSecond":{"$ref":"#/components/schemas/__integer"},"MinVideoBitsPerSecond":{"$ref":"#/components/schemas/__integer"},"StreamOrder":{"$ref":"#/components/schemas/StreamOrder"}},"type":"object"},"TooManyRequestsException":{},"UnprocessableEntityException":{},"__boolean":{"type":"boolean"},"__integer":{"type":"integer"},"__listOfAssetShallow":{"items":{"$ref":"#/components/schemas/AssetShallow"},"type":"array"},"__listOfDashManifest":{"items":{"$ref":"#/components/schemas/DashManifest"},"type":"array"},"__listOfEgressEndpoint":{"items":{"$ref":"#/components/schemas/EgressEndpoint"},"type":"array"},"__listOfHlsManifest":{"items":{"$ref":"#/components/schemas/HlsManifest"},"type":"array"},"__listOfMssManifest":{"items":{"$ref":"#/components/schemas/MssManifest"},"type":"array"},"__listOfPackagingConfiguration":{"items":{"$ref":"#/components/schemas/PackagingConfiguration"},"type":"array"},"__listOfPackagingGroup":{"items":{"$ref":"#/components/schemas/PackagingGroup"},"type":"array"},"__listOf__string":{"items":{"$ref":"#/components/schemas/__string"},"type":"array"},"__string":{"type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Elemental MediaPackage VOD",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Elemental MediaPackage VOD",
+    "version": "2018-11-07",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediapackage-vod-2018-11-07.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mediapackage-vod"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/mediapackage-vod/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/assets": {
+      "get": {
+        "description": "Returns a collection of MediaPackage VOD Asset resources.",
+        "operationId": "ListAssets",
+        "parameters": [
+          {
+            "description": "Upper bound on number of records to return.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          {
+            "description": "A token used to resume pagination from the end of a previous request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Returns Assets associated with the specified PackagingGroup.",
+            "in": "query",
+            "name": "packagingGroupId",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListAssetsResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new MediaPackage VOD Asset resource.",
+        "operationId": "CreateAsset",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "id": { "description": "The unique identifier for the Asset.", "type": "string" },
+                  "packagingGroupId": {
+                    "description": "The ID of the PackagingGroup for the Asset.",
+                    "type": "string"
+                  },
+                  "resourceId": {
+                    "description": "The resource ID to include in SPEKE key requests.",
+                    "type": "string"
+                  },
+                  "sourceArn": { "description": "ARN of the source object in S3.", "type": "string" },
+                  "sourceRoleArn": {
+                    "description": "The IAM role ARN used to access the source S3 bucket.",
+                    "type": "string"
+                  }
+                },
+                "required": ["id", "packagingGroupId", "sourceArn", "sourceRoleArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateAssetResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/assets/{id}": {
+      "delete": {
+        "description": "Deletes an existing MediaPackage VOD Asset resource.",
+        "operationId": "DeleteAsset",
+        "parameters": [
+          {
+            "description": "The ID of the MediaPackage VOD Asset resource to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteAssetResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns a description of a MediaPackage VOD Asset resource.",
+        "operationId": "DescribeAsset",
+        "parameters": [
+          {
+            "description": "The ID of an MediaPackage VOD Asset resource.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeAssetResponse" } } }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/packaging_configurations": {
+      "get": {
+        "description": "Returns a collection of MediaPackage VOD PackagingConfiguration resources.",
+        "operationId": "ListPackagingConfigurations",
+        "parameters": [
+          {
+            "description": "Upper bound on number of records to return.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          {
+            "description": "A token used to resume pagination from the end of a previous request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.",
+            "in": "query",
+            "name": "packagingGroupId",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListPackagingConfigurationsResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new MediaPackage VOD PackagingConfiguration resource.",
+        "operationId": "CreatePackagingConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "cmafPackage": {
+                    "description": "A CMAF packaging configuration.",
+                    "properties": {
+                      "Encryption": { "$ref": "#/components/schemas/CmafEncryption" },
+                      "HlsManifests": { "$ref": "#/components/schemas/__listOfHlsManifest" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" }
+                    },
+                    "type": "object"
+                  },
+                  "dashPackage": {
+                    "description": "A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.",
+                    "properties": {
+                      "DashManifests": { "$ref": "#/components/schemas/__listOfDashManifest" },
+                      "Encryption": { "$ref": "#/components/schemas/DashEncryption" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" }
+                    },
+                    "type": "object"
+                  },
+                  "hlsPackage": {
+                    "description": "An HTTP Live Streaming (HLS) packaging configuration.",
+                    "properties": {
+                      "Encryption": { "$ref": "#/components/schemas/HlsEncryption" },
+                      "HlsManifests": { "$ref": "#/components/schemas/__listOfHlsManifest" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+                      "UseAudioRenditionGroup": { "$ref": "#/components/schemas/__boolean" }
+                    },
+                    "type": "object"
+                  },
+                  "id": { "description": "The ID of the PackagingConfiguration.", "type": "string" },
+                  "mssPackage": {
+                    "description": "A Microsoft Smooth Streaming (MSS) PackagingConfiguration.",
+                    "properties": {
+                      "Encryption": { "$ref": "#/components/schemas/MssEncryption" },
+                      "MssManifests": { "$ref": "#/components/schemas/__listOfMssManifest" },
+                      "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" }
+                    },
+                    "type": "object"
+                  },
+                  "packagingGroupId": { "description": "The ID of a PackagingGroup.", "type": "string" }
+                },
+                "required": ["cmafPackage", "dashPackage", "hlsPackage", "id", "mssPackage", "packagingGroupId"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreatePackagingConfigurationResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/packaging_configurations/{id}": {
+      "delete": {
+        "description": "Deletes a MediaPackage VOD PackagingConfiguration resource.",
+        "operationId": "DeletePackagingConfiguration",
+        "parameters": [
+          {
+            "description": "The ID of the MediaPackage VOD PackagingConfiguration resource to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeletePackagingConfigurationResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns a description of a MediaPackage VOD PackagingConfiguration resource.",
+        "operationId": "DescribePackagingConfiguration",
+        "parameters": [
+          {
+            "description": "The ID of a MediaPackage VOD PackagingConfiguration resource.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DescribePackagingConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/packaging_groups": {
+      "get": {
+        "description": "Returns a collection of MediaPackage VOD PackagingGroup resources.",
+        "operationId": "ListPackagingGroups",
+        "parameters": [
+          {
+            "description": "Upper bound on number of records to return.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          {
+            "description": "A token used to resume pagination from the end of a previous request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListPackagingGroupsResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new MediaPackage VOD PackagingGroup resource.",
+        "operationId": "CreatePackagingGroup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": { "id": { "description": "The ID of the PackagingGroup.", "type": "string" } },
+                "required": ["id"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreatePackagingGroupResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/packaging_groups/{id}": {
+      "delete": {
+        "description": "Deletes a MediaPackage VOD PackagingGroup resource.",
+        "operationId": "DeletePackagingGroup",
+        "parameters": [
+          {
+            "description": "The ID of the MediaPackage VOD PackagingGroup resource to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeletePackagingGroupResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns a description of a MediaPackage VOD PackagingGroup resource.",
+        "operationId": "DescribePackagingGroup",
+        "parameters": [
+          {
+            "description": "The ID of a MediaPackage VOD PackagingGroup resource.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribePackagingGroupResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnprocessableEntityException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    }
+  },
+  "servers": [
+    {
+      "description": "The MediaPackage Vod multi-region endpoint",
+      "url": "http://mediapackage-vod.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The MediaPackage Vod multi-region endpoint",
+      "url": "https://mediapackage-vod.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The MediaPackage Vod endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://mediapackage-vod.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The MediaPackage Vod endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://mediapackage-vod.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AdMarkers": { "enum": ["NONE", "SCTE35_ENHANCED", "PASSTHROUGH"], "type": "string" },
+      "AssetShallow": {
+        "description": "A MediaPackage VOD Asset resource.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "PackagingGroupId": { "$ref": "#/components/schemas/__string" },
+          "ResourceId": { "$ref": "#/components/schemas/__string" },
+          "SourceArn": { "$ref": "#/components/schemas/__string" },
+          "SourceRoleArn": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "CmafEncryption": {
+        "description": "A CMAF encryption configuration.",
+        "properties": { "SpekeKeyProvider": { "$ref": "#/components/schemas/SpekeKeyProvider" } },
+        "required": ["SpekeKeyProvider"],
+        "type": "object"
+      },
+      "CmafPackage": {
+        "description": "A CMAF packaging configuration.",
+        "properties": {
+          "Encryption": { "$ref": "#/components/schemas/CmafEncryption" },
+          "HlsManifests": { "$ref": "#/components/schemas/__listOfHlsManifest" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" }
+        },
+        "required": ["HlsManifests"],
+        "type": "object"
+      },
+      "CreateAssetRequest": {
+        "description": "A new MediaPackage VOD Asset configuration.",
+        "properties": {
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "PackagingGroupId": { "$ref": "#/components/schemas/__string" },
+          "ResourceId": { "$ref": "#/components/schemas/__string" },
+          "SourceArn": { "$ref": "#/components/schemas/__string" },
+          "SourceRoleArn": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["SourceArn", "Id", "PackagingGroupId", "SourceRoleArn"],
+        "type": "object"
+      },
+      "CreateAssetResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "EgressEndpoints": { "$ref": "#/components/schemas/__listOfEgressEndpoint" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "PackagingGroupId": { "$ref": "#/components/schemas/__string" },
+          "ResourceId": { "$ref": "#/components/schemas/__string" },
+          "SourceArn": { "$ref": "#/components/schemas/__string" },
+          "SourceRoleArn": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "CreatePackagingConfigurationRequest": {
+        "description": "A new MediaPackage VOD PackagingConfiguration resource configuration.",
+        "properties": {
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackage" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "PackagingGroupId": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["Id", "PackagingGroupId"],
+        "type": "object"
+      },
+      "CreatePackagingConfigurationResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackage" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "PackagingGroupId": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "CreatePackagingGroupRequest": {
+        "description": "A new MediaPackage VOD PackagingGroup resource configuration.",
+        "properties": { "Id": { "$ref": "#/components/schemas/__string" } },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "CreatePackagingGroupResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Id": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DashEncryption": {
+        "description": "A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.",
+        "properties": { "SpekeKeyProvider": { "$ref": "#/components/schemas/SpekeKeyProvider" } },
+        "required": ["SpekeKeyProvider"],
+        "type": "object"
+      },
+      "DashManifest": {
+        "description": "A DASH manifest configuration.",
+        "properties": {
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "MinBufferTimeSeconds": { "$ref": "#/components/schemas/__integer" },
+          "Profile": { "$ref": "#/components/schemas/Profile" },
+          "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+        },
+        "type": "object"
+      },
+      "DashPackage": {
+        "description": "A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.",
+        "properties": {
+          "DashManifests": { "$ref": "#/components/schemas/__listOfDashManifest" },
+          "Encryption": { "$ref": "#/components/schemas/DashEncryption" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" }
+        },
+        "required": ["DashManifests"],
+        "type": "object"
+      },
+      "DeleteAssetRequest": { "properties": {}, "type": "object" },
+      "DeleteAssetResponse": { "properties": {}, "type": "object" },
+      "DeletePackagingConfigurationRequest": { "properties": {}, "type": "object" },
+      "DeletePackagingConfigurationResponse": { "properties": {}, "type": "object" },
+      "DeletePackagingGroupRequest": { "properties": {}, "type": "object" },
+      "DeletePackagingGroupResponse": { "properties": {}, "type": "object" },
+      "DescribeAssetRequest": { "properties": {}, "type": "object" },
+      "DescribeAssetResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "EgressEndpoints": { "$ref": "#/components/schemas/__listOfEgressEndpoint" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "PackagingGroupId": { "$ref": "#/components/schemas/__string" },
+          "ResourceId": { "$ref": "#/components/schemas/__string" },
+          "SourceArn": { "$ref": "#/components/schemas/__string" },
+          "SourceRoleArn": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DescribePackagingConfigurationRequest": { "properties": {}, "type": "object" },
+      "DescribePackagingConfigurationResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackage" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "PackagingGroupId": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DescribePackagingGroupRequest": { "properties": {}, "type": "object" },
+      "DescribePackagingGroupResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Id": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "EgressEndpoint": {
+        "description": "The endpoint URL used to access an Asset using one PackagingConfiguration.",
+        "properties": {
+          "PackagingConfigurationId": { "$ref": "#/components/schemas/__string" },
+          "Url": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "EncryptionMethod": { "enum": ["AES_128", "SAMPLE_AES"], "type": "string" },
+      "ForbiddenException": {},
+      "HlsEncryption": {
+        "description": "An HTTP Live Streaming (HLS) encryption configuration.",
+        "properties": {
+          "ConstantInitializationVector": { "$ref": "#/components/schemas/__string" },
+          "EncryptionMethod": { "$ref": "#/components/schemas/EncryptionMethod" },
+          "SpekeKeyProvider": { "$ref": "#/components/schemas/SpekeKeyProvider" }
+        },
+        "required": ["SpekeKeyProvider"],
+        "type": "object"
+      },
+      "HlsManifest": {
+        "description": "An HTTP Live Streaming (HLS) manifest configuration.",
+        "properties": {
+          "AdMarkers": { "$ref": "#/components/schemas/AdMarkers" },
+          "IncludeIframeOnlyStream": { "$ref": "#/components/schemas/__boolean" },
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "ProgramDateTimeIntervalSeconds": { "$ref": "#/components/schemas/__integer" },
+          "RepeatExtXKey": { "$ref": "#/components/schemas/__boolean" },
+          "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+        },
+        "type": "object"
+      },
+      "HlsPackage": {
+        "description": "An HTTP Live Streaming (HLS) packaging configuration.",
+        "properties": {
+          "Encryption": { "$ref": "#/components/schemas/HlsEncryption" },
+          "HlsManifests": { "$ref": "#/components/schemas/__listOfHlsManifest" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" },
+          "UseAudioRenditionGroup": { "$ref": "#/components/schemas/__boolean" }
+        },
+        "required": ["HlsManifests"],
+        "type": "object"
+      },
+      "InternalServerErrorException": {},
+      "ListAssetsRequest": { "properties": {}, "type": "object" },
+      "ListAssetsResponse": {
+        "properties": {
+          "Assets": { "$ref": "#/components/schemas/__listOfAssetShallow" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListPackagingConfigurationsRequest": { "properties": {}, "type": "object" },
+      "ListPackagingConfigurationsResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/__string" },
+          "PackagingConfigurations": { "$ref": "#/components/schemas/__listOfPackagingConfiguration" }
+        },
+        "type": "object"
+      },
+      "ListPackagingGroupsRequest": { "properties": {}, "type": "object" },
+      "ListPackagingGroupsResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/__string" },
+          "PackagingGroups": { "$ref": "#/components/schemas/__listOfPackagingGroup" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 1000, "minimum": 1, "type": "integer" },
+      "MssEncryption": {
+        "description": "A Microsoft Smooth Streaming (MSS) encryption configuration.",
+        "properties": { "SpekeKeyProvider": { "$ref": "#/components/schemas/SpekeKeyProvider" } },
+        "required": ["SpekeKeyProvider"],
+        "type": "object"
+      },
+      "MssManifest": {
+        "description": "A Microsoft Smooth Streaming (MSS) manifest configuration.",
+        "properties": {
+          "ManifestName": { "$ref": "#/components/schemas/__string" },
+          "StreamSelection": { "$ref": "#/components/schemas/StreamSelection" }
+        },
+        "type": "object"
+      },
+      "MssPackage": {
+        "description": "A Microsoft Smooth Streaming (MSS) PackagingConfiguration.",
+        "properties": {
+          "Encryption": { "$ref": "#/components/schemas/MssEncryption" },
+          "MssManifests": { "$ref": "#/components/schemas/__listOfMssManifest" },
+          "SegmentDurationSeconds": { "$ref": "#/components/schemas/__integer" }
+        },
+        "required": ["MssManifests"],
+        "type": "object"
+      },
+      "NotFoundException": {},
+      "PackagingConfiguration": {
+        "description": "A MediaPackage VOD PackagingConfiguration resource.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "CmafPackage": { "$ref": "#/components/schemas/CmafPackage" },
+          "DashPackage": { "$ref": "#/components/schemas/DashPackage" },
+          "HlsPackage": { "$ref": "#/components/schemas/HlsPackage" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "MssPackage": { "$ref": "#/components/schemas/MssPackage" },
+          "PackagingGroupId": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "PackagingGroup": {
+        "description": "A MediaPackage VOD PackagingGroup resource.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Id": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "Profile": { "enum": ["NONE", "HBBTV_1_5"], "type": "string" },
+      "ServiceUnavailableException": {},
+      "SpekeKeyProvider": {
+        "description": "A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.",
+        "properties": {
+          "RoleArn": { "$ref": "#/components/schemas/__string" },
+          "SystemIds": { "$ref": "#/components/schemas/__listOf__string" },
+          "Url": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["SystemIds", "Url", "RoleArn"],
+        "type": "object"
+      },
+      "StreamOrder": { "enum": ["ORIGINAL", "VIDEO_BITRATE_ASCENDING", "VIDEO_BITRATE_DESCENDING"], "type": "string" },
+      "StreamSelection": {
+        "description": "A StreamSelection configuration.",
+        "properties": {
+          "MaxVideoBitsPerSecond": { "$ref": "#/components/schemas/__integer" },
+          "MinVideoBitsPerSecond": { "$ref": "#/components/schemas/__integer" },
+          "StreamOrder": { "$ref": "#/components/schemas/StreamOrder" }
+        },
+        "type": "object"
+      },
+      "TooManyRequestsException": {},
+      "UnprocessableEntityException": {},
+      "__boolean": { "type": "boolean" },
+      "__integer": { "type": "integer" },
+      "__listOfAssetShallow": { "items": { "$ref": "#/components/schemas/AssetShallow" }, "type": "array" },
+      "__listOfDashManifest": { "items": { "$ref": "#/components/schemas/DashManifest" }, "type": "array" },
+      "__listOfEgressEndpoint": { "items": { "$ref": "#/components/schemas/EgressEndpoint" }, "type": "array" },
+      "__listOfHlsManifest": { "items": { "$ref": "#/components/schemas/HlsManifest" }, "type": "array" },
+      "__listOfMssManifest": { "items": { "$ref": "#/components/schemas/MssManifest" }, "type": "array" },
+      "__listOfPackagingConfiguration": {
+        "items": { "$ref": "#/components/schemas/PackagingConfiguration" },
+        "type": "array"
+      },
+      "__listOfPackagingGroup": { "items": { "$ref": "#/components/schemas/PackagingGroup" }, "type": "array" },
+      "__listOf__string": { "items": { "$ref": "#/components/schemas/__string" }, "type": "array" },
+      "__string": { "type": "string" }
+    }
+  }
+}

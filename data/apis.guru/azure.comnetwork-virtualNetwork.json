@@ -1,1 +1,2355 @@
-{"openapi":"3.0.0","info":{"description":"The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.","title":"NetworkManagementClient","version":"2018-12-01","x-apisguru-categories":["cloud"],"x-logo":{"url":"https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"},"x-origin":[{"format":"swagger","url":"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-12-01/virtualNetwork.json","version":"2.0"}],"x-preferred":true,"x-providerName":"azure.com","x-serviceName":"network-virtualNetwork","x-tags":["Azure","Microsoft"]},"security":[{"azure_auth":["user_impersonation"]}],"paths":{"/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualNetworks":{"get":{"description":"Gets all virtual networks in a subscription.","operationId":"VirtualNetworks_ListAll","parameters":[{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"List all virtual networks":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"List all virtual networks":{"value":"subid"}}}],"responses":{"200":{"description":"Request successful. The operation returns a list of VirtualNetwork resources.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetworkListResult"},"examples":{"List all virtual networks":{"$ref":"#/components/examples/List_all_virtual_networks"}}}}}},"tags":["VirtualNetworks"],"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks":{"get":{"description":"Gets all virtual networks in a resource group.","operationId":"VirtualNetworks_List","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"List virtual networks in resource group":{"value":"rg1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"List virtual networks in resource group":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"List virtual networks in resource group":{"value":"subid"}}}],"responses":{"200":{"description":"Request successful. The operation returns a list of VirtualNetwork resources.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetworkListResult"},"examples":{"List virtual networks in resource group":{"$ref":"#/components/examples/List_virtual_networks_in_resource_group"}}}}}},"tags":["VirtualNetworks"],"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}":{"delete":{"description":"Deletes the specified virtual network.","operationId":"VirtualNetworks_Delete","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Delete virtual network":{"value":"rg1"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Delete virtual network":{"value":"test-vnet"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Delete virtual network":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Delete virtual network":{"value":"subid"}}}],"responses":{"200":{"description":"Delete successful."},"202":{"description":"Accepted and the operation will complete asynchronously."},"204":{"description":"Delete successful."}},"tags":["VirtualNetworks"],"x-ms-long-running-operation":true},"get":{"description":"Gets the specified virtual network by resource group.","operationId":"VirtualNetworks_Get","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Get virtual network":{"value":"rg1"},"Get virtual network with a delegated subnet":{"value":"rg1"},"Get virtual network with service association links":{"value":"rg1"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Get virtual network":{"value":"test-vnet"},"Get virtual network with a delegated subnet":{"value":"test-vnet"},"Get virtual network with service association links":{"value":"test-vnet"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Get virtual network":{"value":"2018-12-01"},"Get virtual network with a delegated subnet":{"value":"2018-12-01"},"Get virtual network with service association links":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Get virtual network":{"value":"subid"},"Get virtual network with a delegated subnet":{"value":"subId"},"Get virtual network with service association links":{"value":"subId"}}},{"description":"Expands referenced resources.","in":"query","name":"$expand","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Request successful. The operation returns the resulting VirtualNetwork resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetwork"},"examples":{"Get virtual network":{"$ref":"#/components/examples/Get_virtual_network"},"Get virtual network with a delegated subnet":{"$ref":"#/components/examples/Get_virtual_network_with_a_delegated_subnet"},"Get virtual network with service association links":{"$ref":"#/components/examples/Get_virtual_network_with_service_association_links"}}}}}},"tags":["VirtualNetworks"]},"patch":{"description":"Updates a virtual network tags.","operationId":"VirtualNetworks_UpdateTags","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Update virtual network tags":{"value":"rg1"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Update virtual network tags":{"value":"test-vnet"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Update virtual network tags":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Update virtual network tags":{"value":"subid"}}}],"requestBody":{"content":{"application/json":{"schema":{"description":"Tags object for patch operations.","properties":{"tags":{"additionalProperties":{"type":"string"},"description":"Resource tags.","type":"object"}}}}},"description":"Parameters supplied to update virtual network tags.","required":true},"responses":{"200":{"description":"Update successful. The operation returns the resulting VirtualNetwork resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetwork"},"examples":{"Update virtual network tags":{"$ref":"#/components/examples/Update_virtual_network_tags"}}}}}},"tags":["VirtualNetworks"],"x-ms-long-running-operation":true},"put":{"description":"Creates or updates a virtual network in the specified resource group.","operationId":"VirtualNetworks_CreateOrUpdate","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Create virtual network":{"value":"rg1"},"Create virtual network with delegated subnets":{"value":"rg1"},"Create virtual network with service endpoints":{"value":"vnetTest"},"Create virtual network with service endpoints and service endpoint policy":{"value":"vnetTest"},"Create virtual network with subnet":{"value":"rg1"},"Create virtual network with subnet containing address prefixes":{"value":"rg1"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Create virtual network":{"value":"test-vnet"},"Create virtual network with delegated subnets":{"value":"test-vnet"},"Create virtual network with service endpoints":{"value":"vnet1"},"Create virtual network with service endpoints and service endpoint policy":{"value":"vnet1"},"Create virtual network with subnet":{"value":"test-vnet"},"Create virtual network with subnet containing address prefixes":{"value":"test-vnet"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Create virtual network":{"value":"2018-12-01"},"Create virtual network with delegated subnets":{"value":"2018-12-01"},"Create virtual network with service endpoints":{"value":"2018-12-01"},"Create virtual network with service endpoints and service endpoint policy":{"value":"2018-12-01"},"Create virtual network with subnet":{"value":"2018-12-01"},"Create virtual network with subnet containing address prefixes":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Create virtual network":{"value":"subid"},"Create virtual network with delegated subnets":{"value":"subId"},"Create virtual network with service endpoints":{"value":"subid"},"Create virtual network with service endpoints and service endpoint policy":{"value":"subid"},"Create virtual network with subnet":{"value":"subid"},"Create virtual network with subnet containing address prefixes":{"value":"subid"}}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetwork"}}},"description":"Parameters supplied to the create or update virtual network operation","required":true},"responses":{"200":{"description":"Update successful. The operation returns the resulting VirtualNetwork resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetwork"},"examples":{"Create virtual network":{"$ref":"#/components/examples/Create_virtual_network"},"Create virtual network with delegated subnets":{"$ref":"#/components/examples/Create_virtual_network_with_delegated_subnets"},"Create virtual network with service endpoints":{"$ref":"#/components/examples/Create_virtual_network_with_service_endpoints"},"Create virtual network with service endpoints and service endpoint policy":{"$ref":"#/components/examples/Create_virtual_network_with_service_endpoints_and_service_endpoint_policy"},"Create virtual network with subnet":{"$ref":"#/components/examples/Create_virtual_network_with_subnet"},"Create virtual network with subnet containing address prefixes":{"$ref":"#/components/examples/Create_virtual_network_with_subnet_containing_address_prefixes"}}}}},"201":{"description":"Create successful. The operation returns the resulting VirtualNetwork resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetwork"},"examples":{"Create virtual network":{"$ref":"#/components/examples/Create_virtual_network"},"Create virtual network with delegated subnets":{"$ref":"#/components/examples/Create_virtual_network_with_delegated_subnets"},"Create virtual network with service endpoints":{"$ref":"#/components/examples/Create_virtual_network_with_service_endpoints"},"Create virtual network with service endpoints and service endpoint policy":{"$ref":"#/components/examples/Create_virtual_network_with_service_endpoints_and_service_endpoint_policy"},"Create virtual network with subnet":{"$ref":"#/components/examples/Create_virtual_network_with_subnet"},"Create virtual network with subnet containing address prefixes":{"$ref":"#/components/examples/Create_virtual_network_with_subnet_containing_address_prefixes"}}}}}},"tags":["VirtualNetworks"],"x-ms-long-running-operation":true}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/CheckIPAddressAvailability":{"get":{"description":"Checks whether a private IP address is available for use.","operationId":"VirtualNetworks_CheckIPAddressAvailability","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Check IP address availability":{"value":"rg1"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Check IP address availability":{"value":"test-vnet"}}},{"description":"The private IP address to be verified.","in":"query","name":"ipAddress","required":true,"schema":{"type":"string"},"examples":{"Check IP address availability":{"value":"10.0.1.4"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Check IP address availability":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Check IP address availability":{"value":"subid"}}}],"responses":{"200":{"description":"Private IP address availability and list of other free addresses if the requested one is not available.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IPAddressAvailabilityResult"},"examples":{"Check IP address availability":{"$ref":"#/components/examples/Check_IP_address_availability"}}}}}}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets":{"get":{"description":"Gets all subnets in a virtual network.","operationId":"Subnets_List","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"List subnets":{"value":"subnet-test"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"List subnets":{"value":"vnetname"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"List subnets":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"List subnets":{"value":"subid"}}}],"responses":{"200":{"description":"Request successful. The operation returns a list of Subnet resources.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/SubnetListResult"},"examples":{"List subnets":{"$ref":"#/components/examples/List_subnets"}}}}}},"tags":["Subnets"],"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}":{"delete":{"description":"Deletes the specified subnet.","operationId":"Subnets_Delete","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Delete subnet":{"value":"subnet-test"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Delete subnet":{"value":"vnetname"}}},{"description":"The name of the subnet.","in":"path","name":"subnetName","required":true,"schema":{"type":"string"},"examples":{"Delete subnet":{"value":"subnet1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Delete subnet":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Delete subnet":{"value":"subid"}}}],"responses":{"200":{"description":"Delete successful."},"202":{"description":"Accepted and the operation will complete asynchronously."},"204":{"description":"Request successful. Resource does not exist."}},"tags":["Subnets"],"x-ms-long-running-operation":true},"get":{"description":"Gets the specified subnet by virtual network and resource group.","operationId":"Subnets_Get","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Get subnet":{"value":"subnet-test"},"Get subnet with a delegation":{"value":"subnet-test"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Get subnet":{"value":"vnetname"},"Get subnet with a delegation":{"value":"vnetname"}}},{"description":"The name of the subnet.","in":"path","name":"subnetName","required":true,"schema":{"type":"string"},"examples":{"Get subnet":{"value":"subnet1"},"Get subnet with a delegation":{"value":"subnet1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Get subnet":{"value":"2018-12-01"},"Get subnet with a delegation":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Get subnet":{"value":"subid"},"Get subnet with a delegation":{"value":"subId"}}},{"description":"Expands referenced resources.","in":"query","name":"$expand","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Request successful. The operation returns the resulting Subnet resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Subnet"},"examples":{"Get subnet":{"$ref":"#/components/examples/Get_subnet"},"Get subnet with a delegation":{"$ref":"#/components/examples/Get_subnet_with_a_delegation"}}}}}},"tags":["Subnets"]},"put":{"description":"Creates or updates a subnet in the specified virtual network.","operationId":"Subnets_CreateOrUpdate","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Create subnet":{"value":"subnet-test"},"Create subnet with a delegation":{"value":"subnet-test"},"Create subnet with service endpoints":{"value":"subnet-test"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Create subnet":{"value":"vnetname"},"Create subnet with a delegation":{"value":"vnetname"},"Create subnet with service endpoints":{"value":"vnetname"}}},{"description":"The name of the subnet.","in":"path","name":"subnetName","required":true,"schema":{"type":"string"},"examples":{"Create subnet":{"value":"subnet1"},"Create subnet with a delegation":{"value":"subnet1"},"Create subnet with service endpoints":{"value":"subnet1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Create subnet":{"value":"2018-12-01"},"Create subnet with a delegation":{"value":"2018-12-01"},"Create subnet with service endpoints":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Create subnet":{"value":"subid"},"Create subnet with a delegation":{"value":"subId"},"Create subnet with service endpoints":{"value":"subid"}}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/Subnet"}}},"description":"Parameters supplied to the create or update subnet operation.","required":true},"responses":{"200":{"description":"Update successful. The operation returns the resulting Subnet resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Subnet"},"examples":{"Create subnet":{"$ref":"#/components/examples/Create_subnet"},"Create subnet with a delegation":{"$ref":"#/components/examples/Create_subnet_with_a_delegation"},"Create subnet with service endpoints":{"$ref":"#/components/examples/Create_subnet_with_service_endpoints"}}}}},"201":{"description":"Create successful. The operation returns the resulting Subnet resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Subnet"},"examples":{"Create subnet":{"$ref":"#/components/examples/Create_subnet"},"Create subnet with a delegation":{"$ref":"#/components/examples/Create_subnet_with_a_delegation"},"Create subnet with service endpoints":{"$ref":"#/components/examples/Create_subnet_with_service_endpoints"}}}}}},"tags":["Subnets"],"x-ms-long-running-operation":true}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/PrepareNetworkPolicies":{"post":{"description":"Prepares a subnet by applying network intent policies.","operationId":"Subnets_PrepareNetworkPolicies","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Prepare Network Policies":{"value":"rg1"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Prepare Network Policies":{"value":"test-vnet"}}},{"description":"The name of the subnet.","in":"path","name":"subnetName","required":true,"schema":{"type":"string"},"examples":{"Prepare Network Policies":{"value":"subnet1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Prepare Network Policies":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Prepare Network Policies":{"value":"subid"}}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PrepareNetworkPoliciesRequest"}}},"description":"Parameters supplied to prepare subnet by applying network intent policies.","required":true},"responses":{"200":{"description":"Preparing subnet by applying network intent policies is successful."},"202":{"description":"Accepted and the operation will complete asynchronously."}},"x-ms-long-running-operation":true}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/usages":{"get":{"description":"Lists usage stats.","operationId":"VirtualNetworks_ListUsage","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"VnetGetUsage":{"value":"rg1"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"VnetGetUsage":{"value":"vnetName"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"VnetGetUsage":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"VnetGetUsage":{"value":"subid"}}}],"responses":{"200":{"description":"Usage stats for vnet.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetworkListUsageResult"},"examples":{"VnetGetUsage":{"$ref":"#/components/examples/VnetGetUsage"}}}}}},"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings":{"get":{"description":"Gets all virtual network peerings in a virtual network.","operationId":"VirtualNetworkPeerings_List","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"List peerings":{"value":"peerTest"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"List peerings":{"value":"vnet1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"List peerings":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"List peerings":{"value":"subid"}}}],"responses":{"200":{"description":"Request successful. The operation returns a list of VirtualNetworkPeering resources.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetworkPeeringListResult"},"examples":{"List peerings":{"$ref":"#/components/examples/List_peerings"}}}}}},"tags":["VirtualNetworkPeerings"],"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName}":{"delete":{"description":"Deletes the specified virtual network peering.","operationId":"VirtualNetworkPeerings_Delete","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Delete peering":{"value":"peerTest"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Delete peering":{"value":"vnet1"}}},{"description":"The name of the virtual network peering.","in":"path","name":"virtualNetworkPeeringName","required":true,"schema":{"type":"string"},"examples":{"Delete peering":{"value":"peer"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Delete peering":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Delete peering":{"value":"subid"}}}],"responses":{"200":{"description":"Delete successful."},"202":{"description":"Accepted and the operation will complete asynchronously."},"204":{"description":"Delete successful."}},"tags":["VirtualNetworkPeerings"],"x-ms-long-running-operation":true},"get":{"description":"Gets the specified virtual network peering.","operationId":"VirtualNetworkPeerings_Get","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Get peering":{"value":"peerTest"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Get peering":{"value":"vnet1"}}},{"description":"The name of the virtual network peering.","in":"path","name":"virtualNetworkPeeringName","required":true,"schema":{"type":"string"},"examples":{"Get peering":{"value":"peer"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Get peering":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Get peering":{"value":"subid"}}}],"responses":{"200":{"description":"Request successful. The operation returns the resulting VirtualNetworkPeering resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetworkPeering"},"examples":{"Get peering":{"$ref":"#/components/examples/Get_peering"}}}}}},"tags":["VirtualNetworkPeerings"]},"put":{"description":"Creates or updates a peering in the specified virtual network.","operationId":"VirtualNetworkPeerings_CreateOrUpdate","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Create peering":{"value":"peerTest"}}},{"description":"The name of the virtual network.","in":"path","name":"virtualNetworkName","required":true,"schema":{"type":"string"},"examples":{"Create peering":{"value":"vnet1"}}},{"description":"The name of the peering.","in":"path","name":"virtualNetworkPeeringName","required":true,"schema":{"type":"string"},"examples":{"Create peering":{"value":"peer"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Create peering":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Create peering":{"value":"subid"}}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetworkPeering"}}},"description":"Parameters supplied to the create or update virtual network peering operation.","required":true},"responses":{"200":{"description":"Update successful. The operation returns the resulting VirtualNetworkPeering resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetworkPeering"},"examples":{"Create peering":{"$ref":"#/components/examples/Create_peering"}}}}},"201":{"description":"Create successful. The operation returns the resulting VirtualNetworkPeering resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VirtualNetworkPeering"},"examples":{"Create peering":{"$ref":"#/components/examples/Create_peering"}}}}}},"tags":["VirtualNetworkPeerings"],"x-ms-long-running-operation":true}}},"servers":[{"url":"https://management.azure.com"}],"components":{"examples":{"List_all_virtual_networks":{"value":{"value":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1","location":"westus","name":"vnet1","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/8"]},"dhcpOptions":{"dnsServers":[]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/test-1","name":"test-1","properties":{"addressPrefix":"10.0.0.0/24","provisioningState":"Succeeded"}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"},{"id":"/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/vnet2","location":"westus","name":"vnet2","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"dhcpOptions":{"dnsServers":["8.8.8.8"]},"provisioningState":"Succeeded","subnets":[],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}]}},"List_virtual_networks_in_resource_group":{"value":{"value":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1","location":"westus","name":"vnet1","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/8"]},"dhcpOptions":{"dnsServers":[]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/test-1","name":"test-1","properties":{"addressPrefix":"10.0.0.0/24","provisioningState":"Succeeded"}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"},{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2","location":"westus","name":"vnet2","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"dhcpOptions":{"dnsServers":["8.8.8.8"]},"provisioningState":"Succeeded","subnets":[],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}]}},"Get_virtual_network":{"value":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet","location":"westus","name":"test-vnet","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.1.0/24","ipConfigurations":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"}],"provisioningState":"Succeeded"}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Get_virtual_network_with_a_delegated_subnet":{"value":{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet","location":"westus","name":"test-vnet","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.1.0/24","delegations":[{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1/delegations/myDelegation","name":"myDelegation","properties":{"actions":[],"provisioningState":"Succeeded","serviceName":"Microsoft.Provider/resourceType"}}],"ipConfigurations":[{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"}],"provisioningState":"Succeeded","purpose":""}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Get_virtual_network_with_service_association_links":{"value":{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet","location":"westus","name":"test-vnet","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[{"etag":"W/\"4d3e91b4-f67f-48be-880b-e4a8abdd019e\"","id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.214.0/24","delegations":[{"etag":"W/\"4d3e91b4-f67f-48be-880b-e4a8abdd019e\"","id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1/delegations/aciDelegation","name":"aciDelegation","properties":{"actions":["Microsoft.Network/virtualNetworks/subnets/action"],"provisioningState":"Succeeded","serviceName":"Microsoft.Provider/resourceType"}}],"ipConfigurationProfiles":[{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1"}],"provisioningState":"Succeeded","serviceAssociationLinks":[{"etag":"W/\"4d3e91b4-f67f-48be-880b-e4a8abdd019e\"","id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1/serviceAssociationLinks/serviceAssociationLink1","name":"serviceAssociationLink1","properties":{"linkedResourceType":"Microsoft.Provider/resourceType","provisioningState":"Succeeded"}}],"serviceEndpoints":[]}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Update_virtual_network_tags":{"value":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet","location":"westus","name":"test-vnet","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[],"virtualNetworkPeerings":[]},"tags":{"tag1":"value1","tag2":"value2"},"type":"Microsoft.Network/virtualNetworks"}},"Create_virtual_network":{"value":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet","location":"eastus","name":"test-vnet","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Create_virtual_network_with_delegated_subnets":{"value":{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet","location":"eastus","name":"test-vnet","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-1","name":"test-1","properties":{"addressPrefix":"10.0.0.0/24","delegations":[{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-1/delegations/myDelegation","name":"myDelegation","properties":{"actions":[],"provisioningState":"Succeeded","serviceName":"Microsoft.Provider/resourceType"}}],"provisioningState":"Succeeded","purpose":""}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Create_virtual_network_with_service_endpoints":{"value":{"id":"/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/virtualNetworks/vnet1","location":"eastus","name":"vnet1","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/test-1","name":"test-1","properties":{"addressPrefix":"10.0.0.0/16","ipConfigurations":[],"provisioningState":"Succeeded","resourceNavigationLinks":[],"serviceEndpoints":[{"locations":["eastus2(stage)","usnorth(stage)"],"provisioningState":"Succeeded","service":"Microsoft.Storage"}]}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Create_virtual_network_with_service_endpoints_and_service_endpoint_policy":{"value":{"id":"/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/virtualNetworks/vnet1","location":"eastus","name":"vnet1","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/test-1","name":"test-1","properties":{"addressPrefix":"10.0.0.0/16","ipConfigurations":[],"provisioningState":"Succeeded","resourceNavigationLinks":[],"serviceEndpointPolicies":[{"id":"/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/serviceEndpointPolicies/ServiceEndpointPolicy1"}],"serviceEndpoints":[{"locations":["eastus2(stage)","usnorth(stage)"],"provisioningState":"Succeeded","service":"Microsoft.Storage"}]}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Create_virtual_network_with_subnet":{"value":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet","location":"eastus","name":"test-vnet","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-1","name":"test-1","properties":{"addressPrefix":"10.0.0.0/24","provisioningState":"Succeeded"}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Create_virtual_network_with_subnet_containing_address_prefixes":{"value":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet","location":"eastus","name":"test-vnet","properties":{"addressSpace":{"addressPrefixes":["10.0.0.0/16"]},"provisioningState":"Succeeded","subnets":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-2","name":"test-2","properties":{"addressPrefixes":["10.0.0.0/28","10.0.1.0/28"],"provisioningState":"Succeeded"}}],"virtualNetworkPeerings":[]},"type":"Microsoft.Network/virtualNetworks"}},"Check_IP_address_availability":{"value":{"available":false,"availableIPAddresses":["10.0.1.5","10.0.1.6","10.0.1.7","10.0.1.8","10.0.1.9"]}},"List_subnets":{"value":{"value":[{"id":"/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.0.0/16","provisioningState":"Succeeded"}},{"id":"/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet2","name":"subnet2","properties":{"addressPrefix":"10.0.0.0/16","provisioningState":"Succeeded"}}]}},"Get_subnet":{"value":{"id":"/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.0.0/16","provisioningState":"Succeeded"}}},"Get_subnet_with_a_delegation":{"value":{"id":"/subscriptions/subId/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.0.0/16","delegations":[{"id":"/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1/delegations/myDelegation","name":"myDelegation","properties":{"actions":[],"provisioningState":"Succeeded","serviceName":"Microsoft.Provider/resourceType"}}],"provisioningState":"Succeeded","purpose":""}}},"Create_subnet":{"value":{"id":"/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.0.0/16","provisioningState":"Succeeded"}}},"Create_subnet_with_a_delegation":{"value":{"id":"/subscriptions/subId/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.0.0/16","delegations":[{"id":"/subscriptions/subId/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1/delegations/myDelegation","name":"myDelegation","properties":{"actions":[],"provisioningState":"Succeeded","serviceName":"Microsoft.Provider/resourceType"}}],"provisioningState":"Succeeded","purpose":""}}},"Create_subnet_with_service_endpoints":{"value":{"id":"/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1","name":"subnet1","properties":{"addressPrefix":"10.0.0.0/16","provisioningState":"Succeeded","serviceEndpoints":[{"locations":["eastus2(stage)","usnorth(stage)"],"provisioningState":"Succeeded","service":"Microsoft.Storage"}]}}},"VnetGetUsage":{"value":{"value":[{"currentValue":-1,"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/GatewaySubnet","limit":-1,"name":{"localizedValue":"Subnet size and usage","value":"SubnetSpace"},"unit":"Count"},{"currentValue":2,"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/newSubnet","limit":3,"name":{"localizedValue":"Subnet size and usage","value":"SubnetSpace"},"unit":"Count"}]}},"List_peerings":{"value":{"value":[{"id":"/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer","name":"peer","properties":{"allowForwardedTraffic":true,"allowGatewayTransit":false,"allowVirtualNetworkAccess":true,"peeringState":"Initiated","provisioningState":"Succeeded","remoteAddressSpace":{"addressPrefixes":["12.0.0.0/8"]},"remoteVirtualNetwork":{"id":"/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2"},"useRemoteGateways":false}},{"id":"/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2","name":"peer","properties":{"allowForwardedTraffic":false,"allowGatewayTransit":false,"allowVirtualNetworkAccess":true,"peeringState":"Initiated","provisioningState":"Succeeded","remoteAddressSpace":{"addressPrefixes":["13.0.0.0/8"]},"remoteVirtualNetwork":{"id":"/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"},"useRemoteGateways":false}}]}},"Get_peering":{"value":{"id":"/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer","name":"peer","properties":{"allowForwardedTraffic":true,"allowGatewayTransit":false,"allowVirtualNetworkAccess":true,"peeringState":"Initiated","provisioningState":"Succeeded","remoteAddressSpace":{"addressPrefixes":["12.0.0.0/8"]},"remoteVirtualNetwork":{"id":"/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2"},"useRemoteGateways":false}}},"Create_peering":{"value":{"id":"/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer","name":"peer","properties":{"allowForwardedTraffic":true,"allowGatewayTransit":false,"allowVirtualNetworkAccess":true,"peeringState":"Initiated","provisioningState":"Succeeded","remoteAddressSpace":{"addressPrefixes":["12.0.0.0/8"]},"remoteVirtualNetwork":{"id":"/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2"},"useRemoteGateways":false}}}},"securitySchemes":{"azure_auth":{"description":"Azure Active Directory OAuth2 Flow","type":"oauth2","flows":{"implicit":{"authorizationUrl":"https://login.microsoftonline.com/common/oauth2/authorize","scopes":{"user_impersonation":"impersonate your user account"}}}}},"schemas":{"AddressSpace":{"description":"AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.","properties":{"addressPrefixes":{"description":"A list of address blocks reserved for this virtual network in CIDR notation.","items":{"type":"string"},"type":"array"}}},"Delegation":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"Details the service to which the subnet is delegated.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"name":{"description":"The name of the resource that is unique within a subnet. This name can be used to access the resource.","type":"string"},"properties":{"description":"Properties of a service delegation.","properties":{"actions":{"description":"Describes the actions permitted to the service upon delegation","items":{"type":"string"},"type":"array"},"provisioningState":{"description":"The provisioning state of the resource.","readOnly":true,"type":"string"},"serviceName":{"description":"The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers)","type":"string"}}}}},"DhcpOptions":{"description":"DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.","properties":{"dnsServers":{"description":"The list of DNS servers IP addresses.","items":{"type":"string"},"type":"array"}}},"IPAddressAvailabilityResult":{"description":"Response for CheckIPAddressAvailability API service call","properties":{"available":{"description":"Private IP address availability.","type":"boolean"},"availableIPAddresses":{"description":"Contains other available private IP addresses if the asked for address is taken.","items":{"type":"string"},"type":"array"}}},"NetworkIntentPolicy":{"allOf":[{"description":"Common resource representation.","properties":{"id":{"description":"Resource ID.","type":"string"},"location":{"description":"Resource location.","type":"string"},"name":{"description":"Resource name.","readOnly":true,"type":"string"},"tags":{"additionalProperties":{"type":"string"},"description":"Resource tags.","type":"object"},"type":{"description":"Resource type.","readOnly":true,"type":"string"}},"x-ms-azure-resource":true}],"description":"Network Intent Policy resource.","properties":{"etag":{"description":"Gets a unique read-only string that changes whenever the resource is updated.","type":"string"}}},"NetworkIntentPolicyConfiguration":{"properties":{"networkIntentPolicyName":{"description":"The name of the Network Intent Policy for storing in target subscription.","type":"string"},"sourceNetworkIntentPolicy":{"$ref":"#/components/schemas/NetworkIntentPolicy"}}},"PrepareNetworkPoliciesRequest":{"properties":{"networkIntentPolicyConfigurations":{"description":"A list of NetworkIntentPolicyConfiguration.","items":{"$ref":"#/components/schemas/NetworkIntentPolicyConfiguration"},"type":"array"},"resourceGroupName":{"description":"The name of the resource group where the Network Intent Policy will be stored.","type":"string"},"serviceName":{"description":"The name of the service for which subnet is being prepared for.","type":"string"}}},"ResourceNavigationLink":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"ResourceNavigationLink resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","readOnly":true,"type":"string"},"name":{"description":"Name of the resource that is unique within a resource group. This name can be used to access the resource.","type":"string"},"properties":{"description":"Properties of ResourceNavigationLink.","properties":{"link":{"description":"Link to the external resource","type":"string"},"linkedResourceType":{"description":"Resource type of the linked resource.","type":"string"},"provisioningState":{"description":"Provisioning state of the ResourceNavigationLink resource.","readOnly":true,"type":"string"}}}}},"ResourceNavigationLinkFormat":{"description":"Properties of ResourceNavigationLink.","properties":{"link":{"description":"Link to the external resource","type":"string"},"linkedResourceType":{"description":"Resource type of the linked resource.","type":"string"},"provisioningState":{"description":"Provisioning state of the ResourceNavigationLink resource.","readOnly":true,"type":"string"}}},"ServiceAssociationLink":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"ServiceAssociationLink resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","readOnly":true,"type":"string"},"name":{"description":"Name of the resource that is unique within a resource group. This name can be used to access the resource.","type":"string"},"properties":{"description":"Properties of ServiceAssociationLink.","properties":{"link":{"description":"Link to the external resource.","type":"string"},"linkedResourceType":{"description":"Resource type of the linked resource.","type":"string"},"provisioningState":{"description":"Provisioning state of the ServiceAssociationLink resource.","readOnly":true,"type":"string"}}}}},"ServiceAssociationLinkPropertiesFormat":{"description":"Properties of ServiceAssociationLink.","properties":{"link":{"description":"Link to the external resource.","type":"string"},"linkedResourceType":{"description":"Resource type of the linked resource.","type":"string"},"provisioningState":{"description":"Provisioning state of the ServiceAssociationLink resource.","readOnly":true,"type":"string"}}},"ServiceDelegationPropertiesFormat":{"description":"Properties of a service delegation.","properties":{"actions":{"description":"Describes the actions permitted to the service upon delegation","items":{"type":"string"},"type":"array"},"provisioningState":{"description":"The provisioning state of the resource.","readOnly":true,"type":"string"},"serviceName":{"description":"The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers)","type":"string"}}},"ServiceEndpointPropertiesFormat":{"description":"The service endpoint properties.","properties":{"locations":{"description":"A list of locations.","items":{"type":"string"},"type":"array"},"provisioningState":{"description":"The provisioning state of the resource.","type":"string"},"service":{"description":"The type of the endpoint service.","type":"string"}}},"Subnet":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"Subnet in a virtual network resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"name":{"description":"The name of the resource that is unique within a resource group. This name can be used to access the resource.","type":"string"},"properties":{"$ref":"#/components/schemas/SubnetPropertiesFormat"}}},"SubnetListResult":{"description":"Response for ListSubnets API service callRetrieves all subnet that belongs to a virtual network","properties":{"nextLink":{"description":"The URL to get the next set of results.","type":"string"},"value":{"description":"The subnets in a virtual network.","items":{"$ref":"#/components/schemas/Subnet"},"type":"array"}}},"SubnetPropertiesFormat":{"description":"Properties of the subnet.","properties":{"addressPrefix":{"description":"The address prefix for the subnet.","type":"string"},"addressPrefixes":{"description":"List of  address prefixes for the subnet.","items":{"type":"string"},"type":"array"},"delegations":{"description":"Gets an array of references to the delegations on the subnet.","items":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"Details the service to which the subnet is delegated.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"name":{"description":"The name of the resource that is unique within a subnet. This name can be used to access the resource.","type":"string"},"properties":{"description":"Properties of a service delegation.","properties":{"actions":{"description":"Describes the actions permitted to the service upon delegation","items":{"type":"string"},"type":"array"},"provisioningState":{"description":"The provisioning state of the resource.","readOnly":true,"type":"string"},"serviceName":{"description":"The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers)","type":"string"}}}}},"type":"array"},"interfaceEndpoints":{"description":"An array of references to interface endpoints ","items":{"$ref":"./interfaceEndpoint.json#/definitions/InterfaceEndpoint"},"readOnly":true,"type":"array"},"ipConfigurationProfiles":{"description":"Array of IP configuration profiles which reference this subnet.","items":{"$ref":"./networkProfile.json#/definitions/IPConfigurationProfile"},"readOnly":true,"type":"array"},"ipConfigurations":{"description":"Gets an array of references to the network interface IP configurations using subnet.","items":{"$ref":"./networkInterface.json#/definitions/IPConfiguration"},"readOnly":true,"type":"array"},"networkSecurityGroup":{"$ref":"./networkSecurityGroup.json#/definitions/NetworkSecurityGroup"},"provisioningState":{"description":"The provisioning state of the resource.","type":"string"},"purpose":{"description":"A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.","readOnly":true,"type":"string"},"resourceNavigationLinks":{"description":"Gets an array of references to the external resources using subnet.","items":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"ResourceNavigationLink resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","readOnly":true,"type":"string"},"name":{"description":"Name of the resource that is unique within a resource group. This name can be used to access the resource.","type":"string"},"properties":{"description":"Properties of ResourceNavigationLink.","properties":{"link":{"description":"Link to the external resource","type":"string"},"linkedResourceType":{"description":"Resource type of the linked resource.","type":"string"},"provisioningState":{"description":"Provisioning state of the ResourceNavigationLink resource.","readOnly":true,"type":"string"}}}}},"type":"array"},"routeTable":{"$ref":"./routeTable.json#/definitions/RouteTable"},"serviceAssociationLinks":{"description":"Gets an array of references to services injecting into this subnet.","items":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"ServiceAssociationLink resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","readOnly":true,"type":"string"},"name":{"description":"Name of the resource that is unique within a resource group. This name can be used to access the resource.","type":"string"},"properties":{"description":"Properties of ServiceAssociationLink.","properties":{"link":{"description":"Link to the external resource.","type":"string"},"linkedResourceType":{"description":"Resource type of the linked resource.","type":"string"},"provisioningState":{"description":"Provisioning state of the ServiceAssociationLink resource.","readOnly":true,"type":"string"}}}}},"type":"array"},"serviceEndpointPolicies":{"description":"An array of service endpoint policies.","items":{"$ref":"./serviceEndpointPolicy.json#/definitions/ServiceEndpointPolicy"},"type":"array"},"serviceEndpoints":{"description":"An array of service endpoints.","items":{"description":"The service endpoint properties.","properties":{"locations":{"description":"A list of locations.","items":{"type":"string"},"type":"array"},"provisioningState":{"description":"The provisioning state of the resource.","type":"string"},"service":{"description":"The type of the endpoint service.","type":"string"}}},"type":"array"}}},"VirtualNetwork":{"allOf":[{"description":"Common resource representation.","properties":{"id":{"description":"Resource ID.","type":"string"},"location":{"description":"Resource location.","type":"string"},"name":{"description":"Resource name.","readOnly":true,"type":"string"},"tags":{"additionalProperties":{"type":"string"},"description":"Resource tags.","type":"object"},"type":{"description":"Resource type.","readOnly":true,"type":"string"}},"x-ms-azure-resource":true}],"description":"Virtual Network resource.","properties":{"etag":{"description":"Gets a unique read-only string that changes whenever the resource is updated.","type":"string"},"properties":{"$ref":"#/components/schemas/VirtualNetworkPropertiesFormat"}}},"VirtualNetworkListResult":{"description":"Response for the ListVirtualNetworks API service call.","properties":{"nextLink":{"description":"The URL to get the next set of results.","type":"string"},"value":{"description":"Gets a list of VirtualNetwork resources in a resource group.","items":{"$ref":"#/components/schemas/VirtualNetwork"},"type":"array"}}},"VirtualNetworkListUsageResult":{"description":"Response for the virtual networks GetUsage API service call.","properties":{"nextLink":{"description":"The URL to get the next set of results.","type":"string"},"value":{"description":"VirtualNetwork usage stats.","items":{"$ref":"#/components/schemas/VirtualNetworkUsage"},"readOnly":true,"type":"array"}}},"VirtualNetworkPeering":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"Peerings in a virtual network resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"name":{"description":"The name of the resource that is unique within a resource group. This name can be used to access the resource.","type":"string"},"properties":{"$ref":"#/components/schemas/VirtualNetworkPeeringPropertiesFormat"}}},"VirtualNetworkPeeringListResult":{"description":"Response for ListSubnets API service call. Retrieves all subnets that belong to a virtual network.","properties":{"nextLink":{"description":"The URL to get the next set of results.","type":"string"},"value":{"description":"The peerings in a virtual network.","items":{"$ref":"#/components/schemas/VirtualNetworkPeering"},"type":"array"}}},"VirtualNetworkPeeringPropertiesFormat":{"description":"Properties of the virtual network peering.","properties":{"allowForwardedTraffic":{"description":"Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.","type":"boolean"},"allowGatewayTransit":{"description":"If gateway links can be used in remote virtual networking to link to this virtual network.","type":"boolean"},"allowVirtualNetworkAccess":{"description":"Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.","type":"boolean"},"peeringState":{"description":"The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.","enum":["Initiated","Connected","Disconnected"],"type":"string","x-ms-enum":{"modelAsString":true,"name":"VirtualNetworkPeeringState"}},"provisioningState":{"description":"The provisioning state of the resource.","type":"string"},"remoteAddressSpace":{"$ref":"#/components/schemas/AddressSpace"},"remoteVirtualNetwork":{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true},"useRemoteGateways":{"description":"If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.","type":"boolean"}}},"VirtualNetworkPropertiesFormat":{"description":"Properties of the virtual network.","properties":{"addressSpace":{"$ref":"#/components/schemas/AddressSpace"},"ddosProtectionPlan":{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true},"dhcpOptions":{"$ref":"#/components/schemas/DhcpOptions"},"enableDdosProtection":{"default":false,"description":"Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.","type":"boolean"},"enableVmProtection":{"default":false,"description":"Indicates if VM protection is enabled for all the subnets in the virtual network.","type":"boolean"},"provisioningState":{"description":"The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.","type":"string"},"resourceGuid":{"description":"The resourceGuid property of the Virtual Network resource.","type":"string"},"subnets":{"description":"A list of subnets in a Virtual Network.","items":{"$ref":"#/components/schemas/Subnet"},"type":"array"},"virtualNetworkPeerings":{"description":"A list of peerings in a Virtual Network.","items":{"$ref":"#/components/schemas/VirtualNetworkPeering"},"type":"array"}}},"VirtualNetworkUsage":{"description":"Usage details for subnet.","properties":{"currentValue":{"description":"Indicates number of IPs used from the Subnet.","format":"double","readOnly":true,"type":"number"},"id":{"description":"Subnet identifier.","readOnly":true,"type":"string"},"limit":{"description":"Indicates the size of the subnet.","format":"double","readOnly":true,"type":"number"},"name":{"$ref":"#/components/schemas/VirtualNetworkUsageName"},"unit":{"description":"Usage units. Returns 'Count'","readOnly":true,"type":"string"}}},"VirtualNetworkUsageName":{"description":"Usage strings container.","properties":{"localizedValue":{"description":"Localized subnet size and usage string.","readOnly":true,"type":"string"},"value":{"description":"Subnet size and usage string.","readOnly":true,"type":"string"}}}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
+    "title": "NetworkManagementClient",
+    "version": "2018-12-01",
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-12-01/virtualNetwork.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "azure.com",
+    "x-serviceName": "network-virtualNetwork",
+    "x-tags": ["Azure", "Microsoft"]
+  },
+  "security": [{ "azure_auth": ["user_impersonation"] }],
+  "paths": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Network/virtualNetworks": {
+      "get": {
+        "description": "Gets all virtual networks in a subscription.",
+        "operationId": "VirtualNetworks_ListAll",
+        "parameters": [
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List all virtual networks": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List all virtual networks": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of VirtualNetwork resources.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetworkListResult" },
+                "examples": {
+                  "List all virtual networks": { "$ref": "#/components/examples/List_all_virtual_networks" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["VirtualNetworks"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks": {
+      "get": {
+        "description": "Gets all virtual networks in a resource group.",
+        "operationId": "VirtualNetworks_List",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List virtual networks in resource group": { "value": "rg1" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List virtual networks in resource group": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List virtual networks in resource group": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of VirtualNetwork resources.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetworkListResult" },
+                "examples": {
+                  "List virtual networks in resource group": {
+                    "$ref": "#/components/examples/List_virtual_networks_in_resource_group"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["VirtualNetworks"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}": {
+      "delete": {
+        "description": "Deletes the specified virtual network.",
+        "operationId": "VirtualNetworks_Delete",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete virtual network": { "value": "rg1" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete virtual network": { "value": "test-vnet" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete virtual network": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete virtual network": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Delete successful." },
+          "202": { "description": "Accepted and the operation will complete asynchronously." },
+          "204": { "description": "Delete successful." }
+        },
+        "tags": ["VirtualNetworks"],
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets the specified virtual network by resource group.",
+        "operationId": "VirtualNetworks_Get",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get virtual network": { "value": "rg1" },
+              "Get virtual network with a delegated subnet": { "value": "rg1" },
+              "Get virtual network with service association links": { "value": "rg1" }
+            }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get virtual network": { "value": "test-vnet" },
+              "Get virtual network with a delegated subnet": { "value": "test-vnet" },
+              "Get virtual network with service association links": { "value": "test-vnet" }
+            }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get virtual network": { "value": "2018-12-01" },
+              "Get virtual network with a delegated subnet": { "value": "2018-12-01" },
+              "Get virtual network with service association links": { "value": "2018-12-01" }
+            }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get virtual network": { "value": "subid" },
+              "Get virtual network with a delegated subnet": { "value": "subId" },
+              "Get virtual network with service association links": { "value": "subId" }
+            }
+          },
+          {
+            "description": "Expands referenced resources.",
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting VirtualNetwork resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetwork" },
+                "examples": {
+                  "Get virtual network": { "$ref": "#/components/examples/Get_virtual_network" },
+                  "Get virtual network with a delegated subnet": {
+                    "$ref": "#/components/examples/Get_virtual_network_with_a_delegated_subnet"
+                  },
+                  "Get virtual network with service association links": {
+                    "$ref": "#/components/examples/Get_virtual_network_with_service_association_links"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["VirtualNetworks"]
+      },
+      "patch": {
+        "description": "Updates a virtual network tags.",
+        "operationId": "VirtualNetworks_UpdateTags",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update virtual network tags": { "value": "rg1" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update virtual network tags": { "value": "test-vnet" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update virtual network tags": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update virtual network tags": { "value": "subid" } }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Tags object for patch operations.",
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "type": "string" },
+                    "description": "Resource tags.",
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Parameters supplied to update virtual network tags.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting VirtualNetwork resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetwork" },
+                "examples": {
+                  "Update virtual network tags": { "$ref": "#/components/examples/Update_virtual_network_tags" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["VirtualNetworks"],
+        "x-ms-long-running-operation": true
+      },
+      "put": {
+        "description": "Creates or updates a virtual network in the specified resource group.",
+        "operationId": "VirtualNetworks_CreateOrUpdate",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create virtual network": { "value": "rg1" },
+              "Create virtual network with delegated subnets": { "value": "rg1" },
+              "Create virtual network with service endpoints": { "value": "vnetTest" },
+              "Create virtual network with service endpoints and service endpoint policy": { "value": "vnetTest" },
+              "Create virtual network with subnet": { "value": "rg1" },
+              "Create virtual network with subnet containing address prefixes": { "value": "rg1" }
+            }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create virtual network": { "value": "test-vnet" },
+              "Create virtual network with delegated subnets": { "value": "test-vnet" },
+              "Create virtual network with service endpoints": { "value": "vnet1" },
+              "Create virtual network with service endpoints and service endpoint policy": { "value": "vnet1" },
+              "Create virtual network with subnet": { "value": "test-vnet" },
+              "Create virtual network with subnet containing address prefixes": { "value": "test-vnet" }
+            }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create virtual network": { "value": "2018-12-01" },
+              "Create virtual network with delegated subnets": { "value": "2018-12-01" },
+              "Create virtual network with service endpoints": { "value": "2018-12-01" },
+              "Create virtual network with service endpoints and service endpoint policy": { "value": "2018-12-01" },
+              "Create virtual network with subnet": { "value": "2018-12-01" },
+              "Create virtual network with subnet containing address prefixes": { "value": "2018-12-01" }
+            }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create virtual network": { "value": "subid" },
+              "Create virtual network with delegated subnets": { "value": "subId" },
+              "Create virtual network with service endpoints": { "value": "subid" },
+              "Create virtual network with service endpoints and service endpoint policy": { "value": "subid" },
+              "Create virtual network with subnet": { "value": "subid" },
+              "Create virtual network with subnet containing address prefixes": { "value": "subid" }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/VirtualNetwork" } } },
+          "description": "Parameters supplied to the create or update virtual network operation",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting VirtualNetwork resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetwork" },
+                "examples": {
+                  "Create virtual network": { "$ref": "#/components/examples/Create_virtual_network" },
+                  "Create virtual network with delegated subnets": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_delegated_subnets"
+                  },
+                  "Create virtual network with service endpoints": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_service_endpoints"
+                  },
+                  "Create virtual network with service endpoints and service endpoint policy": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_service_endpoints_and_service_endpoint_policy"
+                  },
+                  "Create virtual network with subnet": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_subnet"
+                  },
+                  "Create virtual network with subnet containing address prefixes": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_subnet_containing_address_prefixes"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting VirtualNetwork resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetwork" },
+                "examples": {
+                  "Create virtual network": { "$ref": "#/components/examples/Create_virtual_network" },
+                  "Create virtual network with delegated subnets": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_delegated_subnets"
+                  },
+                  "Create virtual network with service endpoints": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_service_endpoints"
+                  },
+                  "Create virtual network with service endpoints and service endpoint policy": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_service_endpoints_and_service_endpoint_policy"
+                  },
+                  "Create virtual network with subnet": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_subnet"
+                  },
+                  "Create virtual network with subnet containing address prefixes": {
+                    "$ref": "#/components/examples/Create_virtual_network_with_subnet_containing_address_prefixes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["VirtualNetworks"],
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/CheckIPAddressAvailability": {
+      "get": {
+        "description": "Checks whether a private IP address is available for use.",
+        "operationId": "VirtualNetworks_CheckIPAddressAvailability",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Check IP address availability": { "value": "rg1" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Check IP address availability": { "value": "test-vnet" } }
+          },
+          {
+            "description": "The private IP address to be verified.",
+            "in": "query",
+            "name": "ipAddress",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Check IP address availability": { "value": "10.0.1.4" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Check IP address availability": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Check IP address availability": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private IP address availability and list of other free addresses if the requested one is not available.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IPAddressAvailabilityResult" },
+                "examples": {
+                  "Check IP address availability": { "$ref": "#/components/examples/Check_IP_address_availability" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets": {
+      "get": {
+        "description": "Gets all subnets in a virtual network.",
+        "operationId": "Subnets_List",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List subnets": { "value": "subnet-test" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List subnets": { "value": "vnetname" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List subnets": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List subnets": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of Subnet resources.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SubnetListResult" },
+                "examples": { "List subnets": { "$ref": "#/components/examples/List_subnets" } }
+              }
+            }
+          }
+        },
+        "tags": ["Subnets"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}": {
+      "delete": {
+        "description": "Deletes the specified subnet.",
+        "operationId": "Subnets_Delete",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete subnet": { "value": "subnet-test" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete subnet": { "value": "vnetname" } }
+          },
+          {
+            "description": "The name of the subnet.",
+            "in": "path",
+            "name": "subnetName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete subnet": { "value": "subnet1" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete subnet": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete subnet": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Delete successful." },
+          "202": { "description": "Accepted and the operation will complete asynchronously." },
+          "204": { "description": "Request successful. Resource does not exist." }
+        },
+        "tags": ["Subnets"],
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets the specified subnet by virtual network and resource group.",
+        "operationId": "Subnets_Get",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get subnet": { "value": "subnet-test" },
+              "Get subnet with a delegation": { "value": "subnet-test" }
+            }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get subnet": { "value": "vnetname" },
+              "Get subnet with a delegation": { "value": "vnetname" }
+            }
+          },
+          {
+            "description": "The name of the subnet.",
+            "in": "path",
+            "name": "subnetName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get subnet": { "value": "subnet1" }, "Get subnet with a delegation": { "value": "subnet1" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get subnet": { "value": "2018-12-01" },
+              "Get subnet with a delegation": { "value": "2018-12-01" }
+            }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get subnet": { "value": "subid" }, "Get subnet with a delegation": { "value": "subId" } }
+          },
+          {
+            "description": "Expands referenced resources.",
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting Subnet resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Subnet" },
+                "examples": {
+                  "Get subnet": { "$ref": "#/components/examples/Get_subnet" },
+                  "Get subnet with a delegation": { "$ref": "#/components/examples/Get_subnet_with_a_delegation" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Subnets"]
+      },
+      "put": {
+        "description": "Creates or updates a subnet in the specified virtual network.",
+        "operationId": "Subnets_CreateOrUpdate",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create subnet": { "value": "subnet-test" },
+              "Create subnet with a delegation": { "value": "subnet-test" },
+              "Create subnet with service endpoints": { "value": "subnet-test" }
+            }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create subnet": { "value": "vnetname" },
+              "Create subnet with a delegation": { "value": "vnetname" },
+              "Create subnet with service endpoints": { "value": "vnetname" }
+            }
+          },
+          {
+            "description": "The name of the subnet.",
+            "in": "path",
+            "name": "subnetName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create subnet": { "value": "subnet1" },
+              "Create subnet with a delegation": { "value": "subnet1" },
+              "Create subnet with service endpoints": { "value": "subnet1" }
+            }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create subnet": { "value": "2018-12-01" },
+              "Create subnet with a delegation": { "value": "2018-12-01" },
+              "Create subnet with service endpoints": { "value": "2018-12-01" }
+            }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Create subnet": { "value": "subid" },
+              "Create subnet with a delegation": { "value": "subId" },
+              "Create subnet with service endpoints": { "value": "subid" }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Subnet" } } },
+          "description": "Parameters supplied to the create or update subnet operation.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting Subnet resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Subnet" },
+                "examples": {
+                  "Create subnet": { "$ref": "#/components/examples/Create_subnet" },
+                  "Create subnet with a delegation": {
+                    "$ref": "#/components/examples/Create_subnet_with_a_delegation"
+                  },
+                  "Create subnet with service endpoints": {
+                    "$ref": "#/components/examples/Create_subnet_with_service_endpoints"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting Subnet resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Subnet" },
+                "examples": {
+                  "Create subnet": { "$ref": "#/components/examples/Create_subnet" },
+                  "Create subnet with a delegation": {
+                    "$ref": "#/components/examples/Create_subnet_with_a_delegation"
+                  },
+                  "Create subnet with service endpoints": {
+                    "$ref": "#/components/examples/Create_subnet_with_service_endpoints"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Subnets"],
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/PrepareNetworkPolicies": {
+      "post": {
+        "description": "Prepares a subnet by applying network intent policies.",
+        "operationId": "Subnets_PrepareNetworkPolicies",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Prepare Network Policies": { "value": "rg1" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Prepare Network Policies": { "value": "test-vnet" } }
+          },
+          {
+            "description": "The name of the subnet.",
+            "in": "path",
+            "name": "subnetName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Prepare Network Policies": { "value": "subnet1" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Prepare Network Policies": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Prepare Network Policies": { "value": "subid" } }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/PrepareNetworkPoliciesRequest" } }
+          },
+          "description": "Parameters supplied to prepare subnet by applying network intent policies.",
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Preparing subnet by applying network intent policies is successful." },
+          "202": { "description": "Accepted and the operation will complete asynchronously." }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/usages": {
+      "get": {
+        "description": "Lists usage stats.",
+        "operationId": "VirtualNetworks_ListUsage",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "VnetGetUsage": { "value": "rg1" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "VnetGetUsage": { "value": "vnetName" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "VnetGetUsage": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "VnetGetUsage": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usage stats for vnet.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetworkListUsageResult" },
+                "examples": { "VnetGetUsage": { "$ref": "#/components/examples/VnetGetUsage" } }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings": {
+      "get": {
+        "description": "Gets all virtual network peerings in a virtual network.",
+        "operationId": "VirtualNetworkPeerings_List",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List peerings": { "value": "peerTest" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List peerings": { "value": "vnet1" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List peerings": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List peerings": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of VirtualNetworkPeering resources.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetworkPeeringListResult" },
+                "examples": { "List peerings": { "$ref": "#/components/examples/List_peerings" } }
+              }
+            }
+          }
+        },
+        "tags": ["VirtualNetworkPeerings"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName}": {
+      "delete": {
+        "description": "Deletes the specified virtual network peering.",
+        "operationId": "VirtualNetworkPeerings_Delete",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete peering": { "value": "peerTest" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete peering": { "value": "vnet1" } }
+          },
+          {
+            "description": "The name of the virtual network peering.",
+            "in": "path",
+            "name": "virtualNetworkPeeringName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete peering": { "value": "peer" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete peering": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete peering": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Delete successful." },
+          "202": { "description": "Accepted and the operation will complete asynchronously." },
+          "204": { "description": "Delete successful." }
+        },
+        "tags": ["VirtualNetworkPeerings"],
+        "x-ms-long-running-operation": true
+      },
+      "get": {
+        "description": "Gets the specified virtual network peering.",
+        "operationId": "VirtualNetworkPeerings_Get",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get peering": { "value": "peerTest" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get peering": { "value": "vnet1" } }
+          },
+          {
+            "description": "The name of the virtual network peering.",
+            "in": "path",
+            "name": "virtualNetworkPeeringName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get peering": { "value": "peer" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get peering": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get peering": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting VirtualNetworkPeering resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetworkPeering" },
+                "examples": { "Get peering": { "$ref": "#/components/examples/Get_peering" } }
+              }
+            }
+          }
+        },
+        "tags": ["VirtualNetworkPeerings"]
+      },
+      "put": {
+        "description": "Creates or updates a peering in the specified virtual network.",
+        "operationId": "VirtualNetworkPeerings_CreateOrUpdate",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create peering": { "value": "peerTest" } }
+          },
+          {
+            "description": "The name of the virtual network.",
+            "in": "path",
+            "name": "virtualNetworkName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create peering": { "value": "vnet1" } }
+          },
+          {
+            "description": "The name of the peering.",
+            "in": "path",
+            "name": "virtualNetworkPeeringName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create peering": { "value": "peer" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create peering": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create peering": { "value": "subid" } }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/VirtualNetworkPeering" } } },
+          "description": "Parameters supplied to the create or update virtual network peering operation.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting VirtualNetworkPeering resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetworkPeering" },
+                "examples": { "Create peering": { "$ref": "#/components/examples/Create_peering" } }
+              }
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting VirtualNetworkPeering resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VirtualNetworkPeering" },
+                "examples": { "Create peering": { "$ref": "#/components/examples/Create_peering" } }
+              }
+            }
+          }
+        },
+        "tags": ["VirtualNetworkPeerings"],
+        "x-ms-long-running-operation": true
+      }
+    }
+  },
+  "servers": [{ "url": "https://management.azure.com" }],
+  "components": {
+    "examples": {
+      "List_all_virtual_networks": {
+        "value": {
+          "value": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1",
+              "location": "westus",
+              "name": "vnet1",
+              "properties": {
+                "addressSpace": { "addressPrefixes": ["10.0.0.0/8"] },
+                "dhcpOptions": { "dnsServers": [] },
+                "provisioningState": "Succeeded",
+                "subnets": [
+                  {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/test-1",
+                    "name": "test-1",
+                    "properties": { "addressPrefix": "10.0.0.0/24", "provisioningState": "Succeeded" }
+                  }
+                ],
+                "virtualNetworkPeerings": []
+              },
+              "type": "Microsoft.Network/virtualNetworks"
+            },
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/vnet2",
+              "location": "westus",
+              "name": "vnet2",
+              "properties": {
+                "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+                "dhcpOptions": { "dnsServers": ["8.8.8.8"] },
+                "provisioningState": "Succeeded",
+                "subnets": [],
+                "virtualNetworkPeerings": []
+              },
+              "type": "Microsoft.Network/virtualNetworks"
+            }
+          ]
+        }
+      },
+      "List_virtual_networks_in_resource_group": {
+        "value": {
+          "value": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1",
+              "location": "westus",
+              "name": "vnet1",
+              "properties": {
+                "addressSpace": { "addressPrefixes": ["10.0.0.0/8"] },
+                "dhcpOptions": { "dnsServers": [] },
+                "provisioningState": "Succeeded",
+                "subnets": [
+                  {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/test-1",
+                    "name": "test-1",
+                    "properties": { "addressPrefix": "10.0.0.0/24", "provisioningState": "Succeeded" }
+                  }
+                ],
+                "virtualNetworkPeerings": []
+              },
+              "type": "Microsoft.Network/virtualNetworks"
+            },
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2",
+              "location": "westus",
+              "name": "vnet2",
+              "properties": {
+                "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+                "dhcpOptions": { "dnsServers": ["8.8.8.8"] },
+                "provisioningState": "Succeeded",
+                "subnets": [],
+                "virtualNetworkPeerings": []
+              },
+              "type": "Microsoft.Network/virtualNetworks"
+            }
+          ]
+        }
+      },
+      "Get_virtual_network": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+          "location": "westus",
+          "name": "test-vnet",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [
+              {
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+                "name": "subnet1",
+                "properties": {
+                  "addressPrefix": "10.0.1.0/24",
+                  "ipConfigurations": [
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                    }
+                  ],
+                  "provisioningState": "Succeeded"
+                }
+              }
+            ],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Get_virtual_network_with_a_delegated_subnet": {
+        "value": {
+          "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+          "location": "westus",
+          "name": "test-vnet",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [
+              {
+                "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+                "name": "subnet1",
+                "properties": {
+                  "addressPrefix": "10.0.1.0/24",
+                  "delegations": [
+                    {
+                      "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1/delegations/myDelegation",
+                      "name": "myDelegation",
+                      "properties": {
+                        "actions": [],
+                        "provisioningState": "Succeeded",
+                        "serviceName": "Microsoft.Provider/resourceType"
+                      }
+                    }
+                  ],
+                  "ipConfigurations": [
+                    {
+                      "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                    }
+                  ],
+                  "provisioningState": "Succeeded",
+                  "purpose": ""
+                }
+              }
+            ],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Get_virtual_network_with_service_association_links": {
+        "value": {
+          "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+          "location": "westus",
+          "name": "test-vnet",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [
+              {
+                "etag": "W/\"4d3e91b4-f67f-48be-880b-e4a8abdd019e\"",
+                "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+                "name": "subnet1",
+                "properties": {
+                  "addressPrefix": "10.0.214.0/24",
+                  "delegations": [
+                    {
+                      "etag": "W/\"4d3e91b4-f67f-48be-880b-e4a8abdd019e\"",
+                      "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1/delegations/aciDelegation",
+                      "name": "aciDelegation",
+                      "properties": {
+                        "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
+                        "provisioningState": "Succeeded",
+                        "serviceName": "Microsoft.Provider/resourceType"
+                      }
+                    }
+                  ],
+                  "ipConfigurationProfiles": [
+                    {
+                      "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1"
+                    }
+                  ],
+                  "provisioningState": "Succeeded",
+                  "serviceAssociationLinks": [
+                    {
+                      "etag": "W/\"4d3e91b4-f67f-48be-880b-e4a8abdd019e\"",
+                      "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1/serviceAssociationLinks/serviceAssociationLink1",
+                      "name": "serviceAssociationLink1",
+                      "properties": {
+                        "linkedResourceType": "Microsoft.Provider/resourceType",
+                        "provisioningState": "Succeeded"
+                      }
+                    }
+                  ],
+                  "serviceEndpoints": []
+                }
+              }
+            ],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Update_virtual_network_tags": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+          "location": "westus",
+          "name": "test-vnet",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [],
+            "virtualNetworkPeerings": []
+          },
+          "tags": { "tag1": "value1", "tag2": "value2" },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Create_virtual_network": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+          "location": "eastus",
+          "name": "test-vnet",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Create_virtual_network_with_delegated_subnets": {
+        "value": {
+          "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+          "location": "eastus",
+          "name": "test-vnet",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [
+              {
+                "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-1",
+                "name": "test-1",
+                "properties": {
+                  "addressPrefix": "10.0.0.0/24",
+                  "delegations": [
+                    {
+                      "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-1/delegations/myDelegation",
+                      "name": "myDelegation",
+                      "properties": {
+                        "actions": [],
+                        "provisioningState": "Succeeded",
+                        "serviceName": "Microsoft.Provider/resourceType"
+                      }
+                    }
+                  ],
+                  "provisioningState": "Succeeded",
+                  "purpose": ""
+                }
+              }
+            ],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Create_virtual_network_with_service_endpoints": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/virtualNetworks/vnet1",
+          "location": "eastus",
+          "name": "vnet1",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [
+              {
+                "id": "/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/test-1",
+                "name": "test-1",
+                "properties": {
+                  "addressPrefix": "10.0.0.0/16",
+                  "ipConfigurations": [],
+                  "provisioningState": "Succeeded",
+                  "resourceNavigationLinks": [],
+                  "serviceEndpoints": [
+                    {
+                      "locations": ["eastus2(stage)", "usnorth(stage)"],
+                      "provisioningState": "Succeeded",
+                      "service": "Microsoft.Storage"
+                    }
+                  ]
+                }
+              }
+            ],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Create_virtual_network_with_service_endpoints_and_service_endpoint_policy": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/virtualNetworks/vnet1",
+          "location": "eastus",
+          "name": "vnet1",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [
+              {
+                "id": "/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/test-1",
+                "name": "test-1",
+                "properties": {
+                  "addressPrefix": "10.0.0.0/16",
+                  "ipConfigurations": [],
+                  "provisioningState": "Succeeded",
+                  "resourceNavigationLinks": [],
+                  "serviceEndpointPolicies": [
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/serviceEndpointPolicies/ServiceEndpointPolicy1"
+                    }
+                  ],
+                  "serviceEndpoints": [
+                    {
+                      "locations": ["eastus2(stage)", "usnorth(stage)"],
+                      "provisioningState": "Succeeded",
+                      "service": "Microsoft.Storage"
+                    }
+                  ]
+                }
+              }
+            ],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Create_virtual_network_with_subnet": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+          "location": "eastus",
+          "name": "test-vnet",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [
+              {
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-1",
+                "name": "test-1",
+                "properties": { "addressPrefix": "10.0.0.0/24", "provisioningState": "Succeeded" }
+              }
+            ],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Create_virtual_network_with_subnet_containing_address_prefixes": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+          "location": "eastus",
+          "name": "test-vnet",
+          "properties": {
+            "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] },
+            "provisioningState": "Succeeded",
+            "subnets": [
+              {
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-2",
+                "name": "test-2",
+                "properties": { "addressPrefixes": ["10.0.0.0/28", "10.0.1.0/28"], "provisioningState": "Succeeded" }
+              }
+            ],
+            "virtualNetworkPeerings": []
+          },
+          "type": "Microsoft.Network/virtualNetworks"
+        }
+      },
+      "Check_IP_address_availability": {
+        "value": {
+          "available": false,
+          "availableIPAddresses": ["10.0.1.5", "10.0.1.6", "10.0.1.7", "10.0.1.8", "10.0.1.9"]
+        }
+      },
+      "List_subnets": {
+        "value": {
+          "value": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1",
+              "name": "subnet1",
+              "properties": { "addressPrefix": "10.0.0.0/16", "provisioningState": "Succeeded" }
+            },
+            {
+              "id": "/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet2",
+              "name": "subnet2",
+              "properties": { "addressPrefix": "10.0.0.0/16", "provisioningState": "Succeeded" }
+            }
+          ]
+        }
+      },
+      "Get_subnet": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1",
+          "name": "subnet1",
+          "properties": { "addressPrefix": "10.0.0.0/16", "provisioningState": "Succeeded" }
+        }
+      },
+      "Get_subnet_with_a_delegation": {
+        "value": {
+          "id": "/subscriptions/subId/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1",
+          "name": "subnet1",
+          "properties": {
+            "addressPrefix": "10.0.0.0/16",
+            "delegations": [
+              {
+                "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1/delegations/myDelegation",
+                "name": "myDelegation",
+                "properties": {
+                  "actions": [],
+                  "provisioningState": "Succeeded",
+                  "serviceName": "Microsoft.Provider/resourceType"
+                }
+              }
+            ],
+            "provisioningState": "Succeeded",
+            "purpose": ""
+          }
+        }
+      },
+      "Create_subnet": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1",
+          "name": "subnet1",
+          "properties": { "addressPrefix": "10.0.0.0/16", "provisioningState": "Succeeded" }
+        }
+      },
+      "Create_subnet_with_a_delegation": {
+        "value": {
+          "id": "/subscriptions/subId/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1",
+          "name": "subnet1",
+          "properties": {
+            "addressPrefix": "10.0.0.0/16",
+            "delegations": [
+              {
+                "id": "/subscriptions/subId/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1/delegations/myDelegation",
+                "name": "myDelegation",
+                "properties": {
+                  "actions": [],
+                  "provisioningState": "Succeeded",
+                  "serviceName": "Microsoft.Provider/resourceType"
+                }
+              }
+            ],
+            "provisioningState": "Succeeded",
+            "purpose": ""
+          }
+        }
+      },
+      "Create_subnet_with_service_endpoints": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1",
+          "name": "subnet1",
+          "properties": {
+            "addressPrefix": "10.0.0.0/16",
+            "provisioningState": "Succeeded",
+            "serviceEndpoints": [
+              {
+                "locations": ["eastus2(stage)", "usnorth(stage)"],
+                "provisioningState": "Succeeded",
+                "service": "Microsoft.Storage"
+              }
+            ]
+          }
+        }
+      },
+      "VnetGetUsage": {
+        "value": {
+          "value": [
+            {
+              "currentValue": -1,
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/GatewaySubnet",
+              "limit": -1,
+              "name": { "localizedValue": "Subnet size and usage", "value": "SubnetSpace" },
+              "unit": "Count"
+            },
+            {
+              "currentValue": 2,
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/newSubnet",
+              "limit": 3,
+              "name": { "localizedValue": "Subnet size and usage", "value": "SubnetSpace" },
+              "unit": "Count"
+            }
+          ]
+        }
+      },
+      "List_peerings": {
+        "value": {
+          "value": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer",
+              "name": "peer",
+              "properties": {
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "allowVirtualNetworkAccess": true,
+                "peeringState": "Initiated",
+                "provisioningState": "Succeeded",
+                "remoteAddressSpace": { "addressPrefixes": ["12.0.0.0/8"] },
+                "remoteVirtualNetwork": {
+                  "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2"
+                },
+                "useRemoteGateways": false
+              }
+            },
+            {
+              "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+              "name": "peer",
+              "properties": {
+                "allowForwardedTraffic": false,
+                "allowGatewayTransit": false,
+                "allowVirtualNetworkAccess": true,
+                "peeringState": "Initiated",
+                "provisioningState": "Succeeded",
+                "remoteAddressSpace": { "addressPrefixes": ["13.0.0.0/8"] },
+                "remoteVirtualNetwork": {
+                  "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+                },
+                "useRemoteGateways": false
+              }
+            }
+          ]
+        }
+      },
+      "Get_peering": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer",
+          "name": "peer",
+          "properties": {
+            "allowForwardedTraffic": true,
+            "allowGatewayTransit": false,
+            "allowVirtualNetworkAccess": true,
+            "peeringState": "Initiated",
+            "provisioningState": "Succeeded",
+            "remoteAddressSpace": { "addressPrefixes": ["12.0.0.0/8"] },
+            "remoteVirtualNetwork": {
+              "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2"
+            },
+            "useRemoteGateways": false
+          }
+        }
+      },
+      "Create_peering": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer",
+          "name": "peer",
+          "properties": {
+            "allowForwardedTraffic": true,
+            "allowGatewayTransit": false,
+            "allowVirtualNetworkAccess": true,
+            "peeringState": "Initiated",
+            "provisioningState": "Succeeded",
+            "remoteAddressSpace": { "addressPrefixes": ["12.0.0.0/8"] },
+            "remoteVirtualNetwork": {
+              "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2"
+            },
+            "useRemoteGateways": false
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "azure_auth": {
+        "description": "Azure Active Directory OAuth2 Flow",
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "scopes": { "user_impersonation": "impersonate your user account" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "AddressSpace": {
+        "description": "AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.",
+        "properties": {
+          "addressPrefixes": {
+            "description": "A list of address blocks reserved for this virtual network in CIDR notation.",
+            "items": { "type": "string" },
+            "type": "array"
+          }
+        }
+      },
+      "Delegation": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Details the service to which the subnet is delegated.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the resource that is unique within a subnet. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of a service delegation.",
+            "properties": {
+              "actions": {
+                "description": "Describes the actions permitted to the service upon delegation",
+                "items": { "type": "string" },
+                "type": "array"
+              },
+              "provisioningState": {
+                "description": "The provisioning state of the resource.",
+                "readOnly": true,
+                "type": "string"
+              },
+              "serviceName": {
+                "description": "The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers)",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "DhcpOptions": {
+        "description": "DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.",
+        "properties": {
+          "dnsServers": {
+            "description": "The list of DNS servers IP addresses.",
+            "items": { "type": "string" },
+            "type": "array"
+          }
+        }
+      },
+      "IPAddressAvailabilityResult": {
+        "description": "Response for CheckIPAddressAvailability API service call",
+        "properties": {
+          "available": { "description": "Private IP address availability.", "type": "boolean" },
+          "availableIPAddresses": {
+            "description": "Contains other available private IP addresses if the asked for address is taken.",
+            "items": { "type": "string" },
+            "type": "array"
+          }
+        }
+      },
+      "NetworkIntentPolicy": {
+        "allOf": [
+          {
+            "description": "Common resource representation.",
+            "properties": {
+              "id": { "description": "Resource ID.", "type": "string" },
+              "location": { "description": "Resource location.", "type": "string" },
+              "name": { "description": "Resource name.", "readOnly": true, "type": "string" },
+              "tags": {
+                "additionalProperties": { "type": "string" },
+                "description": "Resource tags.",
+                "type": "object"
+              },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
+            },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Network Intent Policy resource.",
+        "properties": {
+          "etag": {
+            "description": "Gets a unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          }
+        }
+      },
+      "NetworkIntentPolicyConfiguration": {
+        "properties": {
+          "networkIntentPolicyName": {
+            "description": "The name of the Network Intent Policy for storing in target subscription.",
+            "type": "string"
+          },
+          "sourceNetworkIntentPolicy": { "$ref": "#/components/schemas/NetworkIntentPolicy" }
+        }
+      },
+      "PrepareNetworkPoliciesRequest": {
+        "properties": {
+          "networkIntentPolicyConfigurations": {
+            "description": "A list of NetworkIntentPolicyConfiguration.",
+            "items": { "$ref": "#/components/schemas/NetworkIntentPolicyConfiguration" },
+            "type": "array"
+          },
+          "resourceGroupName": {
+            "description": "The name of the resource group where the Network Intent Policy will be stored.",
+            "type": "string"
+          },
+          "serviceName": {
+            "description": "The name of the service for which subnet is being prepared for.",
+            "type": "string"
+          }
+        }
+      },
+      "ResourceNavigationLink": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "ResourceNavigationLink resource.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "name": {
+            "description": "Name of the resource that is unique within a resource group. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of ResourceNavigationLink.",
+            "properties": {
+              "link": { "description": "Link to the external resource", "type": "string" },
+              "linkedResourceType": { "description": "Resource type of the linked resource.", "type": "string" },
+              "provisioningState": {
+                "description": "Provisioning state of the ResourceNavigationLink resource.",
+                "readOnly": true,
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ResourceNavigationLinkFormat": {
+        "description": "Properties of ResourceNavigationLink.",
+        "properties": {
+          "link": { "description": "Link to the external resource", "type": "string" },
+          "linkedResourceType": { "description": "Resource type of the linked resource.", "type": "string" },
+          "provisioningState": {
+            "description": "Provisioning state of the ResourceNavigationLink resource.",
+            "readOnly": true,
+            "type": "string"
+          }
+        }
+      },
+      "ServiceAssociationLink": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "ServiceAssociationLink resource.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "name": {
+            "description": "Name of the resource that is unique within a resource group. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of ServiceAssociationLink.",
+            "properties": {
+              "link": { "description": "Link to the external resource.", "type": "string" },
+              "linkedResourceType": { "description": "Resource type of the linked resource.", "type": "string" },
+              "provisioningState": {
+                "description": "Provisioning state of the ServiceAssociationLink resource.",
+                "readOnly": true,
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ServiceAssociationLinkPropertiesFormat": {
+        "description": "Properties of ServiceAssociationLink.",
+        "properties": {
+          "link": { "description": "Link to the external resource.", "type": "string" },
+          "linkedResourceType": { "description": "Resource type of the linked resource.", "type": "string" },
+          "provisioningState": {
+            "description": "Provisioning state of the ServiceAssociationLink resource.",
+            "readOnly": true,
+            "type": "string"
+          }
+        }
+      },
+      "ServiceDelegationPropertiesFormat": {
+        "description": "Properties of a service delegation.",
+        "properties": {
+          "actions": {
+            "description": "Describes the actions permitted to the service upon delegation",
+            "items": { "type": "string" },
+            "type": "array"
+          },
+          "provisioningState": {
+            "description": "The provisioning state of the resource.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "serviceName": {
+            "description": "The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers)",
+            "type": "string"
+          }
+        }
+      },
+      "ServiceEndpointPropertiesFormat": {
+        "description": "The service endpoint properties.",
+        "properties": {
+          "locations": { "description": "A list of locations.", "items": { "type": "string" }, "type": "array" },
+          "provisioningState": { "description": "The provisioning state of the resource.", "type": "string" },
+          "service": { "description": "The type of the endpoint service.", "type": "string" }
+        }
+      },
+      "Subnet": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Subnet in a virtual network resource.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": { "$ref": "#/components/schemas/SubnetPropertiesFormat" }
+        }
+      },
+      "SubnetListResult": {
+        "description": "Response for ListSubnets API service callRetrieves all subnet that belongs to a virtual network",
+        "properties": {
+          "nextLink": { "description": "The URL to get the next set of results.", "type": "string" },
+          "value": {
+            "description": "The subnets in a virtual network.",
+            "items": { "$ref": "#/components/schemas/Subnet" },
+            "type": "array"
+          }
+        }
+      },
+      "SubnetPropertiesFormat": {
+        "description": "Properties of the subnet.",
+        "properties": {
+          "addressPrefix": { "description": "The address prefix for the subnet.", "type": "string" },
+          "addressPrefixes": {
+            "description": "List of  address prefixes for the subnet.",
+            "items": { "type": "string" },
+            "type": "array"
+          },
+          "delegations": {
+            "description": "Gets an array of references to the delegations on the subnet.",
+            "items": {
+              "allOf": [
+                {
+                  "description": "Reference to another subresource.",
+                  "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Details the service to which the subnet is delegated.",
+              "properties": {
+                "etag": {
+                  "description": "A unique read-only string that changes whenever the resource is updated.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource that is unique within a subnet. This name can be used to access the resource.",
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "Properties of a service delegation.",
+                  "properties": {
+                    "actions": {
+                      "description": "Describes the actions permitted to the service upon delegation",
+                      "items": { "type": "string" },
+                      "type": "array"
+                    },
+                    "provisioningState": {
+                      "description": "The provisioning state of the resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "serviceName": {
+                      "description": "The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers)",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "type": "array"
+          },
+          "interfaceEndpoints": {
+            "description": "An array of references to interface endpoints ",
+            "items": { "$ref": "./interfaceEndpoint.json#/definitions/InterfaceEndpoint" },
+            "readOnly": true,
+            "type": "array"
+          },
+          "ipConfigurationProfiles": {
+            "description": "Array of IP configuration profiles which reference this subnet.",
+            "items": { "$ref": "./networkProfile.json#/definitions/IPConfigurationProfile" },
+            "readOnly": true,
+            "type": "array"
+          },
+          "ipConfigurations": {
+            "description": "Gets an array of references to the network interface IP configurations using subnet.",
+            "items": { "$ref": "./networkInterface.json#/definitions/IPConfiguration" },
+            "readOnly": true,
+            "type": "array"
+          },
+          "networkSecurityGroup": { "$ref": "./networkSecurityGroup.json#/definitions/NetworkSecurityGroup" },
+          "provisioningState": { "description": "The provisioning state of the resource.", "type": "string" },
+          "purpose": {
+            "description": "A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "resourceNavigationLinks": {
+            "description": "Gets an array of references to the external resources using subnet.",
+            "items": {
+              "allOf": [
+                {
+                  "description": "Reference to another subresource.",
+                  "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "ResourceNavigationLink resource.",
+              "properties": {
+                "etag": {
+                  "description": "A unique read-only string that changes whenever the resource is updated.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name of the resource that is unique within a resource group. This name can be used to access the resource.",
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "Properties of ResourceNavigationLink.",
+                  "properties": {
+                    "link": { "description": "Link to the external resource", "type": "string" },
+                    "linkedResourceType": { "description": "Resource type of the linked resource.", "type": "string" },
+                    "provisioningState": {
+                      "description": "Provisioning state of the ResourceNavigationLink resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "type": "array"
+          },
+          "routeTable": { "$ref": "./routeTable.json#/definitions/RouteTable" },
+          "serviceAssociationLinks": {
+            "description": "Gets an array of references to services injecting into this subnet.",
+            "items": {
+              "allOf": [
+                {
+                  "description": "Reference to another subresource.",
+                  "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "ServiceAssociationLink resource.",
+              "properties": {
+                "etag": {
+                  "description": "A unique read-only string that changes whenever the resource is updated.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name of the resource that is unique within a resource group. This name can be used to access the resource.",
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "Properties of ServiceAssociationLink.",
+                  "properties": {
+                    "link": { "description": "Link to the external resource.", "type": "string" },
+                    "linkedResourceType": { "description": "Resource type of the linked resource.", "type": "string" },
+                    "provisioningState": {
+                      "description": "Provisioning state of the ServiceAssociationLink resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "type": "array"
+          },
+          "serviceEndpointPolicies": {
+            "description": "An array of service endpoint policies.",
+            "items": { "$ref": "./serviceEndpointPolicy.json#/definitions/ServiceEndpointPolicy" },
+            "type": "array"
+          },
+          "serviceEndpoints": {
+            "description": "An array of service endpoints.",
+            "items": {
+              "description": "The service endpoint properties.",
+              "properties": {
+                "locations": { "description": "A list of locations.", "items": { "type": "string" }, "type": "array" },
+                "provisioningState": { "description": "The provisioning state of the resource.", "type": "string" },
+                "service": { "description": "The type of the endpoint service.", "type": "string" }
+              }
+            },
+            "type": "array"
+          }
+        }
+      },
+      "VirtualNetwork": {
+        "allOf": [
+          {
+            "description": "Common resource representation.",
+            "properties": {
+              "id": { "description": "Resource ID.", "type": "string" },
+              "location": { "description": "Resource location.", "type": "string" },
+              "name": { "description": "Resource name.", "readOnly": true, "type": "string" },
+              "tags": {
+                "additionalProperties": { "type": "string" },
+                "description": "Resource tags.",
+                "type": "object"
+              },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
+            },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Virtual Network resource.",
+        "properties": {
+          "etag": {
+            "description": "Gets a unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "properties": { "$ref": "#/components/schemas/VirtualNetworkPropertiesFormat" }
+        }
+      },
+      "VirtualNetworkListResult": {
+        "description": "Response for the ListVirtualNetworks API service call.",
+        "properties": {
+          "nextLink": { "description": "The URL to get the next set of results.", "type": "string" },
+          "value": {
+            "description": "Gets a list of VirtualNetwork resources in a resource group.",
+            "items": { "$ref": "#/components/schemas/VirtualNetwork" },
+            "type": "array"
+          }
+        }
+      },
+      "VirtualNetworkListUsageResult": {
+        "description": "Response for the virtual networks GetUsage API service call.",
+        "properties": {
+          "nextLink": { "description": "The URL to get the next set of results.", "type": "string" },
+          "value": {
+            "description": "VirtualNetwork usage stats.",
+            "items": { "$ref": "#/components/schemas/VirtualNetworkUsage" },
+            "readOnly": true,
+            "type": "array"
+          }
+        }
+      },
+      "VirtualNetworkPeering": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Peerings in a virtual network resource.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": { "$ref": "#/components/schemas/VirtualNetworkPeeringPropertiesFormat" }
+        }
+      },
+      "VirtualNetworkPeeringListResult": {
+        "description": "Response for ListSubnets API service call. Retrieves all subnets that belong to a virtual network.",
+        "properties": {
+          "nextLink": { "description": "The URL to get the next set of results.", "type": "string" },
+          "value": {
+            "description": "The peerings in a virtual network.",
+            "items": { "$ref": "#/components/schemas/VirtualNetworkPeering" },
+            "type": "array"
+          }
+        }
+      },
+      "VirtualNetworkPeeringPropertiesFormat": {
+        "description": "Properties of the virtual network peering.",
+        "properties": {
+          "allowForwardedTraffic": {
+            "description": "Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.",
+            "type": "boolean"
+          },
+          "allowGatewayTransit": {
+            "description": "If gateway links can be used in remote virtual networking to link to this virtual network.",
+            "type": "boolean"
+          },
+          "allowVirtualNetworkAccess": {
+            "description": "Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.",
+            "type": "boolean"
+          },
+          "peeringState": {
+            "description": "The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.",
+            "enum": ["Initiated", "Connected", "Disconnected"],
+            "type": "string",
+            "x-ms-enum": { "modelAsString": true, "name": "VirtualNetworkPeeringState" }
+          },
+          "provisioningState": { "description": "The provisioning state of the resource.", "type": "string" },
+          "remoteAddressSpace": { "$ref": "#/components/schemas/AddressSpace" },
+          "remoteVirtualNetwork": {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          },
+          "useRemoteGateways": {
+            "description": "If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.",
+            "type": "boolean"
+          }
+        }
+      },
+      "VirtualNetworkPropertiesFormat": {
+        "description": "Properties of the virtual network.",
+        "properties": {
+          "addressSpace": { "$ref": "#/components/schemas/AddressSpace" },
+          "ddosProtectionPlan": {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          },
+          "dhcpOptions": { "$ref": "#/components/schemas/DhcpOptions" },
+          "enableDdosProtection": {
+            "default": false,
+            "description": "Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.",
+            "type": "boolean"
+          },
+          "enableVmProtection": {
+            "default": false,
+            "description": "Indicates if VM protection is enabled for all the subnets in the virtual network.",
+            "type": "boolean"
+          },
+          "provisioningState": {
+            "description": "The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
+            "type": "string"
+          },
+          "resourceGuid": {
+            "description": "The resourceGuid property of the Virtual Network resource.",
+            "type": "string"
+          },
+          "subnets": {
+            "description": "A list of subnets in a Virtual Network.",
+            "items": { "$ref": "#/components/schemas/Subnet" },
+            "type": "array"
+          },
+          "virtualNetworkPeerings": {
+            "description": "A list of peerings in a Virtual Network.",
+            "items": { "$ref": "#/components/schemas/VirtualNetworkPeering" },
+            "type": "array"
+          }
+        }
+      },
+      "VirtualNetworkUsage": {
+        "description": "Usage details for subnet.",
+        "properties": {
+          "currentValue": {
+            "description": "Indicates number of IPs used from the Subnet.",
+            "format": "double",
+            "readOnly": true,
+            "type": "number"
+          },
+          "id": { "description": "Subnet identifier.", "readOnly": true, "type": "string" },
+          "limit": {
+            "description": "Indicates the size of the subnet.",
+            "format": "double",
+            "readOnly": true,
+            "type": "number"
+          },
+          "name": { "$ref": "#/components/schemas/VirtualNetworkUsageName" },
+          "unit": { "description": "Usage units. Returns 'Count'", "readOnly": true, "type": "string" }
+        }
+      },
+      "VirtualNetworkUsageName": {
+        "description": "Usage strings container.",
+        "properties": {
+          "localizedValue": {
+            "description": "Localized subnet size and usage string.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "value": { "description": "Subnet size and usage string.", "readOnly": true, "type": "string" }
+        }
+      }
+    }
+  }
+}

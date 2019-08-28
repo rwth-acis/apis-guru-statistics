@@ -1,1 +1,1777 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"API for AWS Elemental MediaConnect","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS MediaConnect","version":"2018-11-14","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediaconnect-2018-11-14.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"mediaconnect"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/mediaconnect/"},"security":[{"hmac":[]}],"paths":{"/tags/{resourceArn}":{"get":{"description":"List all tags on an AWS Elemental MediaConnect resource","operationId":"ListTagsForResource","parameters":[{"description":"The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.","in":"path","name":"resourceArn","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are deleted as well.","operationId":"TagResource","parameters":[{"description":"The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource to which to add tags.","in":"path","name":"resourceArn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.","type":"object"}},"required":["tags"],"type":"object"}}},"required":true},"responses":{"204":{"description":"Success"},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}}}}},"/tags/{resourceArn}#tagKeys":{"delete":{"description":"Deletes specified tags from a resource.","operationId":"UntagResource","parameters":[{"description":"The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.","in":"path","name":"resourceArn","required":true,"schema":{"type":"string"}},{"description":"The keys of the tags to be removed.","in":"query","name":"tagKeys","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"204":{"description":"Success"},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v1/entitlements":{"get":{"description":"Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.","operationId":"ListEntitlements","parameters":[{"description":"The maximum number of results to return per API request. For example, you submit a ListEntitlements request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 20 results per page.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000}},{"description":"The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListEntitlementsResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"482":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"483":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v1/flows":{"get":{"description":"Displays a list of flows that are associated with this account. This request returns a paginated result.","operationId":"ListFlows","parameters":[{"description":"The maximum number of results to return per API request. For example, you submit a ListFlows request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000}},{"description":"The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListFlowsResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"482":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"483":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50).","operationId":"CreateFlow","requestBody":{"content":{"application/json":{"schema":{"properties":{"availabilityZone":{"description":"The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS Region.","type":"string"},"entitlements":{"description":"The entitlements that you want to grant on a flow.","items":{"$ref":"#/components/schemas/GrantEntitlementRequest"},"type":"array"},"name":{"description":"The name of the flow.","type":"string"},"outputs":{"description":"The outputs that you want to add to this flow.","items":{"$ref":"#/components/schemas/AddOutputRequest"},"type":"array"},"source":{"description":"The settings for the source of the flow.","properties":{"Decryption":{"$ref":"#/components/schemas/Encryption"},"Description":{"$ref":"#/components/schemas/__string"},"EntitlementArn":{"$ref":"#/components/schemas/__string"},"IngestPort":{"$ref":"#/components/schemas/__integer"},"MaxBitrate":{"$ref":"#/components/schemas/__integer"},"MaxLatency":{"$ref":"#/components/schemas/__integer"},"Name":{"$ref":"#/components/schemas/__string"},"Protocol":{"$ref":"#/components/schemas/Protocol"},"StreamId":{"$ref":"#/components/schemas/__string"},"WhitelistCidr":{"$ref":"#/components/schemas/__string"}},"type":"object"}},"required":["name","source"],"type":"object"}}},"required":true},"responses":{"201":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateFlowResponse"}}}},"480":{"description":"CreateFlow420Exception","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateFlow420Exception"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/v1/flows/start/{flowArn}":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Starts a flow.","operationId":"StartFlow","parameters":[{"description":"The ARN of the flow that you want to start.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartFlowResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/v1/flows/stop/{flowArn}":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Stops a flow.","operationId":"StopFlow","parameters":[{"description":"The ARN of the flow that you want to stop.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StopFlowResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/v1/flows/{flowArn}":{"delete":{"description":"Deletes a flow. Before you can delete a flow, you must stop the flow.","operationId":"DeleteFlow","parameters":[{"description":"The ARN of the flow that you want to delete.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteFlowResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"get":{"description":"Displays the details of a flow. The response includes the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements.","operationId":"DescribeFlow","parameters":[{"description":"The ARN of the flow that you want to describe.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeFlowResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v1/flows/{flowArn}/entitlements":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Grants entitlements to an existing flow.","operationId":"GrantFlowEntitlements","parameters":[{"description":"The flow that you want to grant entitlements on.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"entitlements":{"description":"The list of entitlements that you want to grant.","items":{"$ref":"#/components/schemas/GrantEntitlementRequest"},"type":"array"}},"required":["entitlements"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GrantFlowEntitlementsResponse"}}}},"480":{"description":"GrantFlowEntitlements420Exception","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GrantFlowEntitlements420Exception"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"484":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"485":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"486":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/v1/flows/{flowArn}/entitlements/{entitlementArn}":{"delete":{"description":"Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.","operationId":"RevokeFlowEntitlement","parameters":[{"description":"The ARN of the entitlement that you want to revoke.","in":"path","name":"entitlementArn","required":true,"schema":{"type":"string"}},{"description":"The flow that you want to revoke an entitlement from.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RevokeFlowEntitlementResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.","operationId":"UpdateFlowEntitlement","parameters":[{"description":"The ARN of the entitlement that you want to update.","in":"path","name":"entitlementArn","required":true,"schema":{"type":"string"}},{"description":"The flow that is associated with the entitlement that you want to update.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"description":{"description":"A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.","type":"string"},"encryption":{"description":"Information about the encryption of the flow.","properties":{"Algorithm":{"$ref":"#/components/schemas/Algorithm"},"ConstantInitializationVector":{"$ref":"#/components/schemas/__string"},"DeviceId":{"$ref":"#/components/schemas/__string"},"KeyType":{"$ref":"#/components/schemas/KeyType"},"Region":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"RoleArn":{"$ref":"#/components/schemas/__string"},"SecretArn":{"$ref":"#/components/schemas/__string"},"Url":{"$ref":"#/components/schemas/__string"}},"type":"object"},"subscribers":{"description":"The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.","items":{"$ref":"#/components/schemas/__string"},"type":"array"}},"type":"object"}}},"required":true},"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateFlowEntitlementResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/v1/flows/{flowArn}/outputs":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds outputs to an existing flow. You can create up to 20 outputs per flow.","operationId":"AddFlowOutputs","parameters":[{"description":"The flow that you want to add outputs to.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"outputs":{"description":"A list of outputs that you want to add.","items":{"$ref":"#/components/schemas/AddOutputRequest"},"type":"array"}},"required":["outputs"],"type":"object"}}},"required":true},"responses":{"201":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AddFlowOutputsResponse"}}}},"480":{"description":"AddFlowOutputs420Exception","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AddFlowOutputs420Exception"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"484":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"485":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"486":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/v1/flows/{flowArn}/outputs/{outputArn}":{"delete":{"description":"Removes an output from an existing flow. This request can be made only on an output that does not have an entitlement associated with it. If the output has an entitlement, you must revoke the entitlement instead. When an entitlement is revoked from a flow, the service automatically removes the associated output.","operationId":"RemoveFlowOutput","parameters":[{"description":"The flow that you want to remove an output from.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}},{"description":"The ARN of the output that you want to remove.","in":"path","name":"outputArn","required":true,"schema":{"type":"string"}}],"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RemoveFlowOutputResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Updates an existing flow output.","operationId":"UpdateFlowOutput","parameters":[{"description":"The flow that is associated with the output that you want to update.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}},{"description":"The ARN of the output that you want to update.","in":"path","name":"outputArn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"cidrAllowList":{"description":"The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.","items":{"$ref":"#/components/schemas/__string"},"type":"array"},"description":{"description":"A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.","type":"string"},"destination":{"description":"The IP address where you want to send the output.","type":"string"},"encryption":{"description":"Information about the encryption of the flow.","properties":{"Algorithm":{"$ref":"#/components/schemas/Algorithm"},"ConstantInitializationVector":{"$ref":"#/components/schemas/__string"},"DeviceId":{"$ref":"#/components/schemas/__string"},"KeyType":{"$ref":"#/components/schemas/KeyType"},"Region":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"RoleArn":{"$ref":"#/components/schemas/__string"},"SecretArn":{"$ref":"#/components/schemas/__string"},"Url":{"$ref":"#/components/schemas/__string"}},"type":"object"},"maxLatency":{"description":"The maximum latency in milliseconds for Zixi-based streams.","type":"integer"},"port":{"description":"The port to use when content is distributed to this output.","type":"integer"},"protocol":{"description":"The protocol to use for the output.","enum":["zixi-push","rtp-fec","rtp","zixi-pull"],"type":"string"},"remoteId":{"description":"The remote ID for the Zixi-pull stream.","type":"string"},"smoothingLatency":{"description":"The smoothing latency in milliseconds for RTP and RTP-FEC streams.","type":"integer"},"streamId":{"description":"The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.","type":"string"}},"type":"object"}}},"required":true},"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateFlowOutputResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/v1/flows/{flowArn}/source/{sourceArn}":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Updates the source of a flow.","operationId":"UpdateFlowSource","parameters":[{"description":"The flow that is associated with the source that you want to update.","in":"path","name":"flowArn","required":true,"schema":{"type":"string"}},{"description":"The ARN of the source that you want to update.","in":"path","name":"sourceArn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"decryption":{"description":"Information about the encryption of the flow.","properties":{"Algorithm":{"$ref":"#/components/schemas/Algorithm"},"ConstantInitializationVector":{"$ref":"#/components/schemas/__string"},"DeviceId":{"$ref":"#/components/schemas/__string"},"KeyType":{"$ref":"#/components/schemas/KeyType"},"Region":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"RoleArn":{"$ref":"#/components/schemas/__string"},"SecretArn":{"$ref":"#/components/schemas/__string"},"Url":{"$ref":"#/components/schemas/__string"}},"type":"object"},"description":{"description":"A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.","type":"string"},"entitlementArn":{"description":"The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.","type":"string"},"ingestPort":{"description":"The port that the flow will be listening on for incoming content.","type":"integer"},"maxBitrate":{"description":"The smoothing max bitrate for RTP and RTP-FEC streams.","type":"integer"},"maxLatency":{"description":"The maximum latency in milliseconds for Zixi-based streams.","type":"integer"},"protocol":{"description":"The protocol that is used by the source.","enum":["zixi-push","rtp-fec","rtp","zixi-pull"],"type":"string"},"streamId":{"description":"The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.","type":"string"},"whitelistCidr":{"description":"The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.","type":"string"}},"type":"object"}}},"required":true},"responses":{"202":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateFlowSourceResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}}},"servers":[{"description":"The AWS MediaConnect multi-region endpoint","url":"http://mediaconnect.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS MediaConnect multi-region endpoint","url":"https://mediaconnect.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS MediaConnect endpoint for China (Beijing) and China (Ningxia)","url":"http://mediaconnect.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS MediaConnect endpoint for China (Beijing) and China (Ningxia)","url":"https://mediaconnect.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AddFlowOutputs420Exception":{},"AddFlowOutputsRequest":{"description":"A request to add outputs to the specified flow.","properties":{"Outputs":{"$ref":"#/components/schemas/__listOfAddOutputRequest"}},"required":["Outputs"],"type":"object"},"AddFlowOutputsResponse":{"properties":{"FlowArn":{"$ref":"#/components/schemas/__string"},"Outputs":{"$ref":"#/components/schemas/__listOfOutput"}},"type":"object"},"AddOutputRequest":{"description":"The output that you want to add to this flow.","properties":{"CidrAllowList":{"$ref":"#/components/schemas/__listOf__string"},"Description":{"$ref":"#/components/schemas/__string"},"Destination":{"$ref":"#/components/schemas/__string"},"Encryption":{"$ref":"#/components/schemas/Encryption"},"MaxLatency":{"$ref":"#/components/schemas/__integer"},"Name":{"$ref":"#/components/schemas/__string"},"Port":{"$ref":"#/components/schemas/__integer"},"Protocol":{"$ref":"#/components/schemas/Protocol"},"RemoteId":{"$ref":"#/components/schemas/__string"},"SmoothingLatency":{"$ref":"#/components/schemas/__integer"},"StreamId":{"$ref":"#/components/schemas/__string"}},"required":["Protocol"],"type":"object"},"Algorithm":{"enum":["aes128","aes192","aes256"],"type":"string"},"BadRequestException":{},"CreateFlow420Exception":{},"CreateFlowRequest":{"description":"Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50).","properties":{"AvailabilityZone":{"$ref":"#/components/schemas/__string"},"Entitlements":{"$ref":"#/components/schemas/__listOfGrantEntitlementRequest"},"Name":{"$ref":"#/components/schemas/__string"},"Outputs":{"$ref":"#/components/schemas/__listOfAddOutputRequest"},"Source":{"$ref":"#/components/schemas/SetSourceRequest"}},"required":["Source","Name"],"type":"object"},"CreateFlowResponse":{"properties":{"Flow":{"$ref":"#/components/schemas/Flow"}},"type":"object"},"DeleteFlowRequest":{"properties":{},"type":"object"},"DeleteFlowResponse":{"properties":{"FlowArn":{"$ref":"#/components/schemas/__string"},"Status":{"$ref":"#/components/schemas/Status"}},"type":"object"},"DescribeFlowRequest":{"properties":{},"type":"object"},"DescribeFlowResponse":{"properties":{"Flow":{"$ref":"#/components/schemas/Flow"},"Messages":{"$ref":"#/components/schemas/Messages"}},"type":"object"},"Encryption":{"description":"Information about the encryption of the flow.","properties":{"Algorithm":{"$ref":"#/components/schemas/Algorithm"},"ConstantInitializationVector":{"$ref":"#/components/schemas/__string"},"DeviceId":{"$ref":"#/components/schemas/__string"},"KeyType":{"$ref":"#/components/schemas/KeyType"},"Region":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"RoleArn":{"$ref":"#/components/schemas/__string"},"SecretArn":{"$ref":"#/components/schemas/__string"},"Url":{"$ref":"#/components/schemas/__string"}},"required":["Algorithm","RoleArn"],"type":"object"},"Entitlement":{"description":"The settings for a flow entitlement.","properties":{"Description":{"$ref":"#/components/schemas/__string"},"Encryption":{"$ref":"#/components/schemas/Encryption"},"EntitlementArn":{"$ref":"#/components/schemas/__string"},"Name":{"$ref":"#/components/schemas/__string"},"Subscribers":{"$ref":"#/components/schemas/__listOf__string"}},"required":["EntitlementArn","Subscribers","Name"],"type":"object"},"Flow":{"description":"The settings for a flow, including its source, outputs, and entitlements.","properties":{"AvailabilityZone":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"},"EgressIp":{"$ref":"#/components/schemas/__string"},"Entitlements":{"$ref":"#/components/schemas/__listOfEntitlement"},"FlowArn":{"$ref":"#/components/schemas/__string"},"Name":{"$ref":"#/components/schemas/__string"},"Outputs":{"$ref":"#/components/schemas/__listOfOutput"},"Source":{"$ref":"#/components/schemas/Source"},"Status":{"$ref":"#/components/schemas/Status"}},"required":["Status","Entitlements","Outputs","AvailabilityZone","FlowArn","Source","Name"],"type":"object"},"ForbiddenException":{},"GrantEntitlementRequest":{"description":"The entitlements that you want to grant on a flow.","properties":{"Description":{"$ref":"#/components/schemas/__string"},"Encryption":{"$ref":"#/components/schemas/Encryption"},"Name":{"$ref":"#/components/schemas/__string"},"Subscribers":{"$ref":"#/components/schemas/__listOf__string"}},"required":["Subscribers"],"type":"object"},"GrantFlowEntitlements420Exception":{},"GrantFlowEntitlementsRequest":{"description":"A request to grant entitlements on a flow.","properties":{"Entitlements":{"$ref":"#/components/schemas/__listOfGrantEntitlementRequest"}},"required":["Entitlements"],"type":"object"},"GrantFlowEntitlementsResponse":{"properties":{"Entitlements":{"$ref":"#/components/schemas/__listOfEntitlement"},"FlowArn":{"$ref":"#/components/schemas/__string"}},"type":"object"},"InternalServerErrorException":{},"KeyType":{"enum":["speke","static-key"],"type":"string"},"ListEntitlementsRequest":{"properties":{},"type":"object"},"ListEntitlementsResponse":{"properties":{"Entitlements":{"$ref":"#/components/schemas/__listOfListedEntitlement"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListFlowsRequest":{"properties":{},"type":"object"},"ListFlowsResponse":{"properties":{"Flows":{"$ref":"#/components/schemas/__listOfListedFlow"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListTagsForResourceRequest":{"properties":{},"type":"object"},"ListTagsForResourceResponse":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"ListedEntitlement":{"description":"An entitlement that has been granted to you from other AWS accounts.","properties":{"EntitlementArn":{"$ref":"#/components/schemas/__string"},"EntitlementName":{"$ref":"#/components/schemas/__string"}},"required":["EntitlementArn","EntitlementName"],"type":"object"},"ListedFlow":{"description":"Provides a summary of a flow, including its ARN, Availability Zone, and source type.","properties":{"AvailabilityZone":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"},"FlowArn":{"$ref":"#/components/schemas/__string"},"Name":{"$ref":"#/components/schemas/__string"},"SourceType":{"$ref":"#/components/schemas/SourceType"},"Status":{"$ref":"#/components/schemas/Status"}},"required":["Status","Description","SourceType","AvailabilityZone","FlowArn","Name"],"type":"object"},"MaxResults":{"maximum":1000,"minimum":1,"type":"integer"},"Messages":{"description":"Messages that provide the state of the flow.","properties":{"Errors":{"$ref":"#/components/schemas/__listOf__string"}},"required":["Errors"],"type":"object"},"NotFoundException":{},"Output":{"description":"The settings for an output.","properties":{"Description":{"$ref":"#/components/schemas/__string"},"Destination":{"$ref":"#/components/schemas/__string"},"Encryption":{"$ref":"#/components/schemas/Encryption"},"EntitlementArn":{"$ref":"#/components/schemas/__string"},"MediaLiveInputArn":{"$ref":"#/components/schemas/__string"},"Name":{"$ref":"#/components/schemas/__string"},"OutputArn":{"$ref":"#/components/schemas/__string"},"Port":{"$ref":"#/components/schemas/__integer"},"Transport":{"$ref":"#/components/schemas/Transport"}},"required":["OutputArn","Name"],"type":"object"},"Protocol":{"enum":["zixi-push","rtp-fec","rtp","zixi-pull"],"type":"string"},"RemoveFlowOutputRequest":{"properties":{},"type":"object"},"RemoveFlowOutputResponse":{"properties":{"FlowArn":{"$ref":"#/components/schemas/__string"},"OutputArn":{"$ref":"#/components/schemas/__string"}},"type":"object"},"RevokeFlowEntitlementRequest":{"properties":{},"type":"object"},"RevokeFlowEntitlementResponse":{"properties":{"EntitlementArn":{"$ref":"#/components/schemas/__string"},"FlowArn":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ServiceUnavailableException":{},"SetSourceRequest":{"description":"The settings for the source of the flow.","properties":{"Decryption":{"$ref":"#/components/schemas/Encryption"},"Description":{"$ref":"#/components/schemas/__string"},"EntitlementArn":{"$ref":"#/components/schemas/__string"},"IngestPort":{"$ref":"#/components/schemas/__integer"},"MaxBitrate":{"$ref":"#/components/schemas/__integer"},"MaxLatency":{"$ref":"#/components/schemas/__integer"},"Name":{"$ref":"#/components/schemas/__string"},"Protocol":{"$ref":"#/components/schemas/Protocol"},"StreamId":{"$ref":"#/components/schemas/__string"},"WhitelistCidr":{"$ref":"#/components/schemas/__string"}},"type":"object"},"Source":{"description":"The settings for the source of the flow.","properties":{"Decryption":{"$ref":"#/components/schemas/Encryption"},"Description":{"$ref":"#/components/schemas/__string"},"EntitlementArn":{"$ref":"#/components/schemas/__string"},"IngestIp":{"$ref":"#/components/schemas/__string"},"IngestPort":{"$ref":"#/components/schemas/__integer"},"Name":{"$ref":"#/components/schemas/__string"},"SourceArn":{"$ref":"#/components/schemas/__string"},"Transport":{"$ref":"#/components/schemas/Transport"},"WhitelistCidr":{"$ref":"#/components/schemas/__string"}},"required":["SourceArn","Name"],"type":"object"},"SourceType":{"enum":["OWNED","ENTITLED"],"type":"string"},"StartFlowRequest":{"properties":{},"type":"object"},"StartFlowResponse":{"properties":{"FlowArn":{"$ref":"#/components/schemas/__string"},"Status":{"$ref":"#/components/schemas/Status"}},"type":"object"},"Status":{"enum":["STANDBY","ACTIVE","UPDATING","DELETING","STARTING","STOPPING","ERROR"],"type":"string"},"StopFlowRequest":{"properties":{},"type":"object"},"StopFlowResponse":{"properties":{"FlowArn":{"$ref":"#/components/schemas/__string"},"Status":{"$ref":"#/components/schemas/Status"}},"type":"object"},"TagResourceRequest":{"description":"The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.","properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"required":["Tags"],"type":"object"},"TooManyRequestsException":{},"Transport":{"description":"Attributes related to the transport stream that are used in a source or output.","properties":{"CidrAllowList":{"$ref":"#/components/schemas/__listOf__string"},"MaxBitrate":{"$ref":"#/components/schemas/__integer"},"MaxLatency":{"$ref":"#/components/schemas/__integer"},"Protocol":{"$ref":"#/components/schemas/Protocol"},"RemoteId":{"$ref":"#/components/schemas/__string"},"SmoothingLatency":{"$ref":"#/components/schemas/__integer"},"StreamId":{"$ref":"#/components/schemas/__string"}},"required":["Protocol"],"type":"object"},"UntagResourceRequest":{"properties":{},"type":"object"},"UpdateEncryption":{"description":"Information about the encryption of the flow.","properties":{"Algorithm":{"$ref":"#/components/schemas/Algorithm"},"ConstantInitializationVector":{"$ref":"#/components/schemas/__string"},"DeviceId":{"$ref":"#/components/schemas/__string"},"KeyType":{"$ref":"#/components/schemas/KeyType"},"Region":{"$ref":"#/components/schemas/__string"},"ResourceId":{"$ref":"#/components/schemas/__string"},"RoleArn":{"$ref":"#/components/schemas/__string"},"SecretArn":{"$ref":"#/components/schemas/__string"},"Url":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UpdateFlowEntitlementRequest":{"description":"The entitlement fields that you want to update.","properties":{"Description":{"$ref":"#/components/schemas/__string"},"Encryption":{"$ref":"#/components/schemas/UpdateEncryption"},"Subscribers":{"$ref":"#/components/schemas/__listOf__string"}},"type":"object"},"UpdateFlowEntitlementResponse":{"properties":{"Entitlement":{"$ref":"#/components/schemas/Entitlement"},"FlowArn":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UpdateFlowOutputRequest":{"description":"The fields that you want to update in the output.","properties":{"CidrAllowList":{"$ref":"#/components/schemas/__listOf__string"},"Description":{"$ref":"#/components/schemas/__string"},"Destination":{"$ref":"#/components/schemas/__string"},"Encryption":{"$ref":"#/components/schemas/UpdateEncryption"},"MaxLatency":{"$ref":"#/components/schemas/__integer"},"Port":{"$ref":"#/components/schemas/__integer"},"Protocol":{"$ref":"#/components/schemas/Protocol"},"RemoteId":{"$ref":"#/components/schemas/__string"},"SmoothingLatency":{"$ref":"#/components/schemas/__integer"},"StreamId":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UpdateFlowOutputResponse":{"properties":{"FlowArn":{"$ref":"#/components/schemas/__string"},"Output":{"$ref":"#/components/schemas/Output"}},"type":"object"},"UpdateFlowSourceRequest":{"description":"A request to update the source of a flow.","properties":{"Decryption":{"$ref":"#/components/schemas/UpdateEncryption"},"Description":{"$ref":"#/components/schemas/__string"},"EntitlementArn":{"$ref":"#/components/schemas/__string"},"IngestPort":{"$ref":"#/components/schemas/__integer"},"MaxBitrate":{"$ref":"#/components/schemas/__integer"},"MaxLatency":{"$ref":"#/components/schemas/__integer"},"Protocol":{"$ref":"#/components/schemas/Protocol"},"StreamId":{"$ref":"#/components/schemas/__string"},"WhitelistCidr":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UpdateFlowSourceResponse":{"properties":{"FlowArn":{"$ref":"#/components/schemas/__string"},"Source":{"$ref":"#/components/schemas/Source"}},"type":"object"},"__integer":{"type":"integer"},"__listOfAddOutputRequest":{"items":{"$ref":"#/components/schemas/AddOutputRequest"},"type":"array"},"__listOfEntitlement":{"items":{"$ref":"#/components/schemas/Entitlement"},"type":"array"},"__listOfGrantEntitlementRequest":{"items":{"$ref":"#/components/schemas/GrantEntitlementRequest"},"type":"array"},"__listOfListedEntitlement":{"items":{"$ref":"#/components/schemas/ListedEntitlement"},"type":"array"},"__listOfListedFlow":{"items":{"$ref":"#/components/schemas/ListedFlow"},"type":"array"},"__listOfOutput":{"items":{"$ref":"#/components/schemas/Output"},"type":"array"},"__listOf__string":{"items":{"$ref":"#/components/schemas/__string"},"type":"array"},"__mapOf__string":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"type":"object"},"__string":{"type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "API for AWS Elemental MediaConnect",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS MediaConnect",
+    "version": "2018-11-14",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediaconnect-2018-11-14.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mediaconnect"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/mediaconnect/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/tags/{resourceArn}": {
+      "get": {
+        "description": "List all tags on an AWS Elemental MediaConnect resource",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceResponse" } }
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are deleted as well.",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource to which to add tags.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.",
+                    "type": "object"
+                  }
+                },
+                "required": ["tags"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": { "description": "Success" },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          }
+        }
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "delete": {
+        "description": "Deletes specified tags from a resource.",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The keys of the tags to be removed.",
+            "in": "query",
+            "name": "tagKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Success" },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v1/entitlements": {
+      "get": {
+        "description": "Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.",
+        "operationId": "ListEntitlements",
+        "parameters": [
+          {
+            "description": "The maximum number of results to return per API request. For example, you submit a ListEntitlements request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 20 results per page.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          {
+            "description": "The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListEntitlementsResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v1/flows": {
+      "get": {
+        "description": "Displays a list of flows that are associated with this account. This request returns a paginated result.",
+        "operationId": "ListFlows",
+        "parameters": [
+          {
+            "description": "The maximum number of results to return per API request. For example, you submit a ListFlows request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          {
+            "description": "The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListFlowsResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50).",
+        "operationId": "CreateFlow",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "availabilityZone": {
+                    "description": "The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS Region.",
+                    "type": "string"
+                  },
+                  "entitlements": {
+                    "description": "The entitlements that you want to grant on a flow.",
+                    "items": { "$ref": "#/components/schemas/GrantEntitlementRequest" },
+                    "type": "array"
+                  },
+                  "name": { "description": "The name of the flow.", "type": "string" },
+                  "outputs": {
+                    "description": "The outputs that you want to add to this flow.",
+                    "items": { "$ref": "#/components/schemas/AddOutputRequest" },
+                    "type": "array"
+                  },
+                  "source": {
+                    "description": "The settings for the source of the flow.",
+                    "properties": {
+                      "Decryption": { "$ref": "#/components/schemas/Encryption" },
+                      "Description": { "$ref": "#/components/schemas/__string" },
+                      "EntitlementArn": { "$ref": "#/components/schemas/__string" },
+                      "IngestPort": { "$ref": "#/components/schemas/__integer" },
+                      "MaxBitrate": { "$ref": "#/components/schemas/__integer" },
+                      "MaxLatency": { "$ref": "#/components/schemas/__integer" },
+                      "Name": { "$ref": "#/components/schemas/__string" },
+                      "Protocol": { "$ref": "#/components/schemas/Protocol" },
+                      "StreamId": { "$ref": "#/components/schemas/__string" },
+                      "WhitelistCidr": { "$ref": "#/components/schemas/__string" }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": ["name", "source"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateFlowResponse" } } }
+          },
+          "480": {
+            "description": "CreateFlow420Exception",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateFlow420Exception" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/v1/flows/start/{flowArn}": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Starts a flow.",
+        "operationId": "StartFlow",
+        "parameters": [
+          {
+            "description": "The ARN of the flow that you want to start.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StartFlowResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/v1/flows/stop/{flowArn}": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Stops a flow.",
+        "operationId": "StopFlow",
+        "parameters": [
+          {
+            "description": "The ARN of the flow that you want to stop.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StopFlowResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}": {
+      "delete": {
+        "description": "Deletes a flow. Before you can delete a flow, you must stop the flow.",
+        "operationId": "DeleteFlow",
+        "parameters": [
+          {
+            "description": "The ARN of the flow that you want to delete.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteFlowResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Displays the details of a flow. The response includes the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements.",
+        "operationId": "DescribeFlow",
+        "parameters": [
+          {
+            "description": "The ARN of the flow that you want to describe.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeFlowResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v1/flows/{flowArn}/entitlements": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Grants entitlements to an existing flow.",
+        "operationId": "GrantFlowEntitlements",
+        "parameters": [
+          {
+            "description": "The flow that you want to grant entitlements on.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "entitlements": {
+                    "description": "The list of entitlements that you want to grant.",
+                    "items": { "$ref": "#/components/schemas/GrantEntitlementRequest" },
+                    "type": "array"
+                  }
+                },
+                "required": ["entitlements"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GrantFlowEntitlementsResponse" } }
+            }
+          },
+          "480": {
+            "description": "GrantFlowEntitlements420Exception",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GrantFlowEntitlements420Exception" } }
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}/entitlements/{entitlementArn}": {
+      "delete": {
+        "description": "Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.",
+        "operationId": "RevokeFlowEntitlement",
+        "parameters": [
+          {
+            "description": "The ARN of the entitlement that you want to revoke.",
+            "in": "path",
+            "name": "entitlementArn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The flow that you want to revoke an entitlement from.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/RevokeFlowEntitlementResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.",
+        "operationId": "UpdateFlowEntitlement",
+        "parameters": [
+          {
+            "description": "The ARN of the entitlement that you want to update.",
+            "in": "path",
+            "name": "entitlementArn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The flow that is associated with the entitlement that you want to update.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "description": {
+                    "description": "A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.",
+                    "type": "string"
+                  },
+                  "encryption": {
+                    "description": "Information about the encryption of the flow.",
+                    "properties": {
+                      "Algorithm": { "$ref": "#/components/schemas/Algorithm" },
+                      "ConstantInitializationVector": { "$ref": "#/components/schemas/__string" },
+                      "DeviceId": { "$ref": "#/components/schemas/__string" },
+                      "KeyType": { "$ref": "#/components/schemas/KeyType" },
+                      "Region": { "$ref": "#/components/schemas/__string" },
+                      "ResourceId": { "$ref": "#/components/schemas/__string" },
+                      "RoleArn": { "$ref": "#/components/schemas/__string" },
+                      "SecretArn": { "$ref": "#/components/schemas/__string" },
+                      "Url": { "$ref": "#/components/schemas/__string" }
+                    },
+                    "type": "object"
+                  },
+                  "subscribers": {
+                    "description": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.",
+                    "items": { "$ref": "#/components/schemas/__string" },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateFlowEntitlementResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}/outputs": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds outputs to an existing flow. You can create up to 20 outputs per flow.",
+        "operationId": "AddFlowOutputs",
+        "parameters": [
+          {
+            "description": "The flow that you want to add outputs to.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "outputs": {
+                    "description": "A list of outputs that you want to add.",
+                    "items": { "$ref": "#/components/schemas/AddOutputRequest" },
+                    "type": "array"
+                  }
+                },
+                "required": ["outputs"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AddFlowOutputsResponse" } } }
+          },
+          "480": {
+            "description": "AddFlowOutputs420Exception",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AddFlowOutputs420Exception" } }
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}/outputs/{outputArn}": {
+      "delete": {
+        "description": "Removes an output from an existing flow. This request can be made only on an output that does not have an entitlement associated with it. If the output has an entitlement, you must revoke the entitlement instead. When an entitlement is revoked from a flow, the service automatically removes the associated output.",
+        "operationId": "RemoveFlowOutput",
+        "parameters": [
+          {
+            "description": "The flow that you want to remove an output from.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The ARN of the output that you want to remove.",
+            "in": "path",
+            "name": "outputArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RemoveFlowOutputResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Updates an existing flow output.",
+        "operationId": "UpdateFlowOutput",
+        "parameters": [
+          {
+            "description": "The flow that is associated with the output that you want to update.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The ARN of the output that you want to update.",
+            "in": "path",
+            "name": "outputArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "cidrAllowList": {
+                    "description": "The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
+                    "items": { "$ref": "#/components/schemas/__string" },
+                    "type": "array"
+                  },
+                  "description": {
+                    "description": "A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.",
+                    "type": "string"
+                  },
+                  "destination": {
+                    "description": "The IP address where you want to send the output.",
+                    "type": "string"
+                  },
+                  "encryption": {
+                    "description": "Information about the encryption of the flow.",
+                    "properties": {
+                      "Algorithm": { "$ref": "#/components/schemas/Algorithm" },
+                      "ConstantInitializationVector": { "$ref": "#/components/schemas/__string" },
+                      "DeviceId": { "$ref": "#/components/schemas/__string" },
+                      "KeyType": { "$ref": "#/components/schemas/KeyType" },
+                      "Region": { "$ref": "#/components/schemas/__string" },
+                      "ResourceId": { "$ref": "#/components/schemas/__string" },
+                      "RoleArn": { "$ref": "#/components/schemas/__string" },
+                      "SecretArn": { "$ref": "#/components/schemas/__string" },
+                      "Url": { "$ref": "#/components/schemas/__string" }
+                    },
+                    "type": "object"
+                  },
+                  "maxLatency": {
+                    "description": "The maximum latency in milliseconds for Zixi-based streams.",
+                    "type": "integer"
+                  },
+                  "port": {
+                    "description": "The port to use when content is distributed to this output.",
+                    "type": "integer"
+                  },
+                  "protocol": {
+                    "description": "The protocol to use for the output.",
+                    "enum": ["zixi-push", "rtp-fec", "rtp", "zixi-pull"],
+                    "type": "string"
+                  },
+                  "remoteId": { "description": "The remote ID for the Zixi-pull stream.", "type": "string" },
+                  "smoothingLatency": {
+                    "description": "The smoothing latency in milliseconds for RTP and RTP-FEC streams.",
+                    "type": "integer"
+                  },
+                  "streamId": {
+                    "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateFlowOutputResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}/source/{sourceArn}": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Updates the source of a flow.",
+        "operationId": "UpdateFlowSource",
+        "parameters": [
+          {
+            "description": "The flow that is associated with the source that you want to update.",
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The ARN of the source that you want to update.",
+            "in": "path",
+            "name": "sourceArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "decryption": {
+                    "description": "Information about the encryption of the flow.",
+                    "properties": {
+                      "Algorithm": { "$ref": "#/components/schemas/Algorithm" },
+                      "ConstantInitializationVector": { "$ref": "#/components/schemas/__string" },
+                      "DeviceId": { "$ref": "#/components/schemas/__string" },
+                      "KeyType": { "$ref": "#/components/schemas/KeyType" },
+                      "Region": { "$ref": "#/components/schemas/__string" },
+                      "ResourceId": { "$ref": "#/components/schemas/__string" },
+                      "RoleArn": { "$ref": "#/components/schemas/__string" },
+                      "SecretArn": { "$ref": "#/components/schemas/__string" },
+                      "Url": { "$ref": "#/components/schemas/__string" }
+                    },
+                    "type": "object"
+                  },
+                  "description": {
+                    "description": "A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.",
+                    "type": "string"
+                  },
+                  "entitlementArn": {
+                    "description": "The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.",
+                    "type": "string"
+                  },
+                  "ingestPort": {
+                    "description": "The port that the flow will be listening on for incoming content.",
+                    "type": "integer"
+                  },
+                  "maxBitrate": {
+                    "description": "The smoothing max bitrate for RTP and RTP-FEC streams.",
+                    "type": "integer"
+                  },
+                  "maxLatency": {
+                    "description": "The maximum latency in milliseconds for Zixi-based streams.",
+                    "type": "integer"
+                  },
+                  "protocol": {
+                    "description": "The protocol that is used by the source.",
+                    "enum": ["zixi-push", "rtp-fec", "rtp", "zixi-pull"],
+                    "type": "string"
+                  },
+                  "streamId": {
+                    "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
+                    "type": "string"
+                  },
+                  "whitelistCidr": {
+                    "description": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateFlowSourceResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS MediaConnect multi-region endpoint",
+      "url": "http://mediaconnect.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS MediaConnect multi-region endpoint",
+      "url": "https://mediaconnect.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS MediaConnect endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://mediaconnect.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS MediaConnect endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://mediaconnect.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AddFlowOutputs420Exception": {},
+      "AddFlowOutputsRequest": {
+        "description": "A request to add outputs to the specified flow.",
+        "properties": { "Outputs": { "$ref": "#/components/schemas/__listOfAddOutputRequest" } },
+        "required": ["Outputs"],
+        "type": "object"
+      },
+      "AddFlowOutputsResponse": {
+        "properties": {
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "Outputs": { "$ref": "#/components/schemas/__listOfOutput" }
+        },
+        "type": "object"
+      },
+      "AddOutputRequest": {
+        "description": "The output that you want to add to this flow.",
+        "properties": {
+          "CidrAllowList": { "$ref": "#/components/schemas/__listOf__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "Destination": { "$ref": "#/components/schemas/__string" },
+          "Encryption": { "$ref": "#/components/schemas/Encryption" },
+          "MaxLatency": { "$ref": "#/components/schemas/__integer" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Port": { "$ref": "#/components/schemas/__integer" },
+          "Protocol": { "$ref": "#/components/schemas/Protocol" },
+          "RemoteId": { "$ref": "#/components/schemas/__string" },
+          "SmoothingLatency": { "$ref": "#/components/schemas/__integer" },
+          "StreamId": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["Protocol"],
+        "type": "object"
+      },
+      "Algorithm": { "enum": ["aes128", "aes192", "aes256"], "type": "string" },
+      "BadRequestException": {},
+      "CreateFlow420Exception": {},
+      "CreateFlowRequest": {
+        "description": "Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50).",
+        "properties": {
+          "AvailabilityZone": { "$ref": "#/components/schemas/__string" },
+          "Entitlements": { "$ref": "#/components/schemas/__listOfGrantEntitlementRequest" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Outputs": { "$ref": "#/components/schemas/__listOfAddOutputRequest" },
+          "Source": { "$ref": "#/components/schemas/SetSourceRequest" }
+        },
+        "required": ["Source", "Name"],
+        "type": "object"
+      },
+      "CreateFlowResponse": { "properties": { "Flow": { "$ref": "#/components/schemas/Flow" } }, "type": "object" },
+      "DeleteFlowRequest": { "properties": {}, "type": "object" },
+      "DeleteFlowResponse": {
+        "properties": {
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "DescribeFlowRequest": { "properties": {}, "type": "object" },
+      "DescribeFlowResponse": {
+        "properties": {
+          "Flow": { "$ref": "#/components/schemas/Flow" },
+          "Messages": { "$ref": "#/components/schemas/Messages" }
+        },
+        "type": "object"
+      },
+      "Encryption": {
+        "description": "Information about the encryption of the flow.",
+        "properties": {
+          "Algorithm": { "$ref": "#/components/schemas/Algorithm" },
+          "ConstantInitializationVector": { "$ref": "#/components/schemas/__string" },
+          "DeviceId": { "$ref": "#/components/schemas/__string" },
+          "KeyType": { "$ref": "#/components/schemas/KeyType" },
+          "Region": { "$ref": "#/components/schemas/__string" },
+          "ResourceId": { "$ref": "#/components/schemas/__string" },
+          "RoleArn": { "$ref": "#/components/schemas/__string" },
+          "SecretArn": { "$ref": "#/components/schemas/__string" },
+          "Url": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["Algorithm", "RoleArn"],
+        "type": "object"
+      },
+      "Entitlement": {
+        "description": "The settings for a flow entitlement.",
+        "properties": {
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "Encryption": { "$ref": "#/components/schemas/Encryption" },
+          "EntitlementArn": { "$ref": "#/components/schemas/__string" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Subscribers": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "required": ["EntitlementArn", "Subscribers", "Name"],
+        "type": "object"
+      },
+      "Flow": {
+        "description": "The settings for a flow, including its source, outputs, and entitlements.",
+        "properties": {
+          "AvailabilityZone": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "EgressIp": { "$ref": "#/components/schemas/__string" },
+          "Entitlements": { "$ref": "#/components/schemas/__listOfEntitlement" },
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Outputs": { "$ref": "#/components/schemas/__listOfOutput" },
+          "Source": { "$ref": "#/components/schemas/Source" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "required": ["Status", "Entitlements", "Outputs", "AvailabilityZone", "FlowArn", "Source", "Name"],
+        "type": "object"
+      },
+      "ForbiddenException": {},
+      "GrantEntitlementRequest": {
+        "description": "The entitlements that you want to grant on a flow.",
+        "properties": {
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "Encryption": { "$ref": "#/components/schemas/Encryption" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Subscribers": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "required": ["Subscribers"],
+        "type": "object"
+      },
+      "GrantFlowEntitlements420Exception": {},
+      "GrantFlowEntitlementsRequest": {
+        "description": "A request to grant entitlements on a flow.",
+        "properties": { "Entitlements": { "$ref": "#/components/schemas/__listOfGrantEntitlementRequest" } },
+        "required": ["Entitlements"],
+        "type": "object"
+      },
+      "GrantFlowEntitlementsResponse": {
+        "properties": {
+          "Entitlements": { "$ref": "#/components/schemas/__listOfEntitlement" },
+          "FlowArn": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "InternalServerErrorException": {},
+      "KeyType": { "enum": ["speke", "static-key"], "type": "string" },
+      "ListEntitlementsRequest": { "properties": {}, "type": "object" },
+      "ListEntitlementsResponse": {
+        "properties": {
+          "Entitlements": { "$ref": "#/components/schemas/__listOfListedEntitlement" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListFlowsRequest": { "properties": {}, "type": "object" },
+      "ListFlowsResponse": {
+        "properties": {
+          "Flows": { "$ref": "#/components/schemas/__listOfListedFlow" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListTagsForResourceRequest": { "properties": {}, "type": "object" },
+      "ListTagsForResourceResponse": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "type": "object"
+      },
+      "ListedEntitlement": {
+        "description": "An entitlement that has been granted to you from other AWS accounts.",
+        "properties": {
+          "EntitlementArn": { "$ref": "#/components/schemas/__string" },
+          "EntitlementName": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["EntitlementArn", "EntitlementName"],
+        "type": "object"
+      },
+      "ListedFlow": {
+        "description": "Provides a summary of a flow, including its ARN, Availability Zone, and source type.",
+        "properties": {
+          "AvailabilityZone": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "SourceType": { "$ref": "#/components/schemas/SourceType" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "required": ["Status", "Description", "SourceType", "AvailabilityZone", "FlowArn", "Name"],
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 1000, "minimum": 1, "type": "integer" },
+      "Messages": {
+        "description": "Messages that provide the state of the flow.",
+        "properties": { "Errors": { "$ref": "#/components/schemas/__listOf__string" } },
+        "required": ["Errors"],
+        "type": "object"
+      },
+      "NotFoundException": {},
+      "Output": {
+        "description": "The settings for an output.",
+        "properties": {
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "Destination": { "$ref": "#/components/schemas/__string" },
+          "Encryption": { "$ref": "#/components/schemas/Encryption" },
+          "EntitlementArn": { "$ref": "#/components/schemas/__string" },
+          "MediaLiveInputArn": { "$ref": "#/components/schemas/__string" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "OutputArn": { "$ref": "#/components/schemas/__string" },
+          "Port": { "$ref": "#/components/schemas/__integer" },
+          "Transport": { "$ref": "#/components/schemas/Transport" }
+        },
+        "required": ["OutputArn", "Name"],
+        "type": "object"
+      },
+      "Protocol": { "enum": ["zixi-push", "rtp-fec", "rtp", "zixi-pull"], "type": "string" },
+      "RemoveFlowOutputRequest": { "properties": {}, "type": "object" },
+      "RemoveFlowOutputResponse": {
+        "properties": {
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "OutputArn": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "RevokeFlowEntitlementRequest": { "properties": {}, "type": "object" },
+      "RevokeFlowEntitlementResponse": {
+        "properties": {
+          "EntitlementArn": { "$ref": "#/components/schemas/__string" },
+          "FlowArn": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ServiceUnavailableException": {},
+      "SetSourceRequest": {
+        "description": "The settings for the source of the flow.",
+        "properties": {
+          "Decryption": { "$ref": "#/components/schemas/Encryption" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "EntitlementArn": { "$ref": "#/components/schemas/__string" },
+          "IngestPort": { "$ref": "#/components/schemas/__integer" },
+          "MaxBitrate": { "$ref": "#/components/schemas/__integer" },
+          "MaxLatency": { "$ref": "#/components/schemas/__integer" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Protocol": { "$ref": "#/components/schemas/Protocol" },
+          "StreamId": { "$ref": "#/components/schemas/__string" },
+          "WhitelistCidr": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "Source": {
+        "description": "The settings for the source of the flow.",
+        "properties": {
+          "Decryption": { "$ref": "#/components/schemas/Encryption" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "EntitlementArn": { "$ref": "#/components/schemas/__string" },
+          "IngestIp": { "$ref": "#/components/schemas/__string" },
+          "IngestPort": { "$ref": "#/components/schemas/__integer" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "SourceArn": { "$ref": "#/components/schemas/__string" },
+          "Transport": { "$ref": "#/components/schemas/Transport" },
+          "WhitelistCidr": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["SourceArn", "Name"],
+        "type": "object"
+      },
+      "SourceType": { "enum": ["OWNED", "ENTITLED"], "type": "string" },
+      "StartFlowRequest": { "properties": {}, "type": "object" },
+      "StartFlowResponse": {
+        "properties": {
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "Status": {
+        "enum": ["STANDBY", "ACTIVE", "UPDATING", "DELETING", "STARTING", "STOPPING", "ERROR"],
+        "type": "string"
+      },
+      "StopFlowRequest": { "properties": {}, "type": "object" },
+      "StopFlowResponse": {
+        "properties": {
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "TagResourceRequest": {
+        "description": "The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.",
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "required": ["Tags"],
+        "type": "object"
+      },
+      "TooManyRequestsException": {},
+      "Transport": {
+        "description": "Attributes related to the transport stream that are used in a source or output.",
+        "properties": {
+          "CidrAllowList": { "$ref": "#/components/schemas/__listOf__string" },
+          "MaxBitrate": { "$ref": "#/components/schemas/__integer" },
+          "MaxLatency": { "$ref": "#/components/schemas/__integer" },
+          "Protocol": { "$ref": "#/components/schemas/Protocol" },
+          "RemoteId": { "$ref": "#/components/schemas/__string" },
+          "SmoothingLatency": { "$ref": "#/components/schemas/__integer" },
+          "StreamId": { "$ref": "#/components/schemas/__string" }
+        },
+        "required": ["Protocol"],
+        "type": "object"
+      },
+      "UntagResourceRequest": { "properties": {}, "type": "object" },
+      "UpdateEncryption": {
+        "description": "Information about the encryption of the flow.",
+        "properties": {
+          "Algorithm": { "$ref": "#/components/schemas/Algorithm" },
+          "ConstantInitializationVector": { "$ref": "#/components/schemas/__string" },
+          "DeviceId": { "$ref": "#/components/schemas/__string" },
+          "KeyType": { "$ref": "#/components/schemas/KeyType" },
+          "Region": { "$ref": "#/components/schemas/__string" },
+          "ResourceId": { "$ref": "#/components/schemas/__string" },
+          "RoleArn": { "$ref": "#/components/schemas/__string" },
+          "SecretArn": { "$ref": "#/components/schemas/__string" },
+          "Url": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "UpdateFlowEntitlementRequest": {
+        "description": "The entitlement fields that you want to update.",
+        "properties": {
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "Encryption": { "$ref": "#/components/schemas/UpdateEncryption" },
+          "Subscribers": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "type": "object"
+      },
+      "UpdateFlowEntitlementResponse": {
+        "properties": {
+          "Entitlement": { "$ref": "#/components/schemas/Entitlement" },
+          "FlowArn": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "UpdateFlowOutputRequest": {
+        "description": "The fields that you want to update in the output.",
+        "properties": {
+          "CidrAllowList": { "$ref": "#/components/schemas/__listOf__string" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "Destination": { "$ref": "#/components/schemas/__string" },
+          "Encryption": { "$ref": "#/components/schemas/UpdateEncryption" },
+          "MaxLatency": { "$ref": "#/components/schemas/__integer" },
+          "Port": { "$ref": "#/components/schemas/__integer" },
+          "Protocol": { "$ref": "#/components/schemas/Protocol" },
+          "RemoteId": { "$ref": "#/components/schemas/__string" },
+          "SmoothingLatency": { "$ref": "#/components/schemas/__integer" },
+          "StreamId": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "UpdateFlowOutputResponse": {
+        "properties": {
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "Output": { "$ref": "#/components/schemas/Output" }
+        },
+        "type": "object"
+      },
+      "UpdateFlowSourceRequest": {
+        "description": "A request to update the source of a flow.",
+        "properties": {
+          "Decryption": { "$ref": "#/components/schemas/UpdateEncryption" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "EntitlementArn": { "$ref": "#/components/schemas/__string" },
+          "IngestPort": { "$ref": "#/components/schemas/__integer" },
+          "MaxBitrate": { "$ref": "#/components/schemas/__integer" },
+          "MaxLatency": { "$ref": "#/components/schemas/__integer" },
+          "Protocol": { "$ref": "#/components/schemas/Protocol" },
+          "StreamId": { "$ref": "#/components/schemas/__string" },
+          "WhitelistCidr": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "UpdateFlowSourceResponse": {
+        "properties": {
+          "FlowArn": { "$ref": "#/components/schemas/__string" },
+          "Source": { "$ref": "#/components/schemas/Source" }
+        },
+        "type": "object"
+      },
+      "__integer": { "type": "integer" },
+      "__listOfAddOutputRequest": { "items": { "$ref": "#/components/schemas/AddOutputRequest" }, "type": "array" },
+      "__listOfEntitlement": { "items": { "$ref": "#/components/schemas/Entitlement" }, "type": "array" },
+      "__listOfGrantEntitlementRequest": {
+        "items": { "$ref": "#/components/schemas/GrantEntitlementRequest" },
+        "type": "array"
+      },
+      "__listOfListedEntitlement": { "items": { "$ref": "#/components/schemas/ListedEntitlement" }, "type": "array" },
+      "__listOfListedFlow": { "items": { "$ref": "#/components/schemas/ListedFlow" }, "type": "array" },
+      "__listOfOutput": { "items": { "$ref": "#/components/schemas/Output" }, "type": "array" },
+      "__listOf__string": { "items": { "$ref": "#/components/schemas/__string" }, "type": "array" },
+      "__mapOf__string": { "additionalProperties": { "$ref": "#/components/schemas/__string" }, "type": "object" },
+      "__string": { "type": "string" }
+    }
+  }
+}

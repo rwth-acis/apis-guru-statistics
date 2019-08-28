@@ -1,1 +1,216 @@
-{"openapi":"3.0.0","info":{"contact":{"x-twitter":"amentumspace"},"description":"NRLMSISE-00 is an empirical, global reference atmospheric model of the  Earth, from ground to space [1]. It models the temperatures and densities  of the atmosphere's constituents. A primary use of this model is to aid  predictions of satellite orbital decay due to atmospheric drag. <br><br>\nThe NRLMSIS-00 empirical atmosphere model was developed by Mike Picone,  Alan Hedin, and Doug Drob and is based on the MSISE90 model. See the following  refererence for full details including limitations [1] Picone, J. M., et al.  NRLMSISE‐00 empirical model of the atmosphere Statistical comparisons  and scientific issues,  Journal of Geophysical Research Space Physics 107.A12 (2002) <br><br>\nWe provide an open RESTful API to the model that wraps the original code which is available <a href='https://ccmc.gsfc.nasa.gov/modelweb/atmos/nrlmsise00.html'>here</a>.  The API is free but usage is limited to 1000 API calls per day. <br><br>\n<b>Click on a heading below to expand instructions and to try the API.</b> <br><br>\nAmentum Pty Ltd is not responsible nor liable for any loss or damage of any sort incurred as the result of the use of the API. <br><br>\nCopyright <a href='https://amentum.space'>Amentum Pty Ltd</a> 2019.\n","title":"Atmosphere API - calculate composition and density of the  atmosphere \n","version":"0.9.3","x-apisguru-categories":["location","open_data"],"x-logo":{"url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_amentumspace_profile_image.jpeg"},"x-origin":[{"format":"swagger","url":"https://atmosphere.amentum.space/api/swagger.json","version":"2.0"}],"x-preferred":true,"x-providerName":"amentum.space","x-serviceName":"atmosphere"},"paths":{"/sample_atmosphere":{"get":{"description":"Computes \nNumber densities (/cm3) of  He, O, N2, O2, Ar, H, N\nAnomalous oxygen number density (/cm3)\nExospheric temperature (K)\nTemperature at altitude (K)\nTotal mass density (g/cm3)\nTotal mass density is the sum of the masses of the species in  equilibrium at the thermospheric temperature T(z) and the mass  density of the anomalous oxygen component.\n","operationId":"handlers.Atmosphere.sample_atmosphere","parameters":[{"$ref":"#/components/parameters/Year"},{"$ref":"#/components/parameters/Month"},{"$ref":"#/components/parameters/Day"},{"$ref":"#/components/parameters/Altitude"},{"$ref":"#/components/parameters/GeodeticLatitude"},{"$ref":"#/components/parameters/GeodeticLongitude"},{"$ref":"#/components/parameters/UTC"},{"$ref":"#/components/parameters/F107A"},{"$ref":"#/components/parameters/F107"},{"$ref":"#/components/parameters/AP"}],"responses":{"200":{"description":"Successful atmospheric density calculation","content":{"application/json":{"schema":{"properties":{"Ar_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"H_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"He_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"N2_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"N_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"O2_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"O_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"anomalous_O_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"at_alt_temp":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"exospheric_temp":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"},"total_mass":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"}},"type":"object"}}}}},"summary":"Computes the MSIS atmospheric parameters for given conditions","tags":["Sample the atmosphere under given conditions"]}},"/sample_species":{"get":{"description":"Computes \nNumber density (/cm3) of the species\n","operationId":"handlers.Atmosphere.sample_species","parameters":[{"$ref":"#/components/parameters/Year"},{"$ref":"#/components/parameters/Month"},{"$ref":"#/components/parameters/Day"},{"$ref":"#/components/parameters/Altitude"},{"$ref":"#/components/parameters/GeodeticLatitude"},{"$ref":"#/components/parameters/GeodeticLongitude"},{"$ref":"#/components/parameters/UTC"},{"$ref":"#/components/parameters/F107A"},{"$ref":"#/components/parameters/F107"},{"$ref":"#/components/parameters/AP"},{"$ref":"#/components/parameters/Species"}],"responses":{"200":{"description":"Successful atmospheric density calculation","content":{"application/json":{"schema":{"properties":{"num_density":{"properties":{"units":{"type":"string"},"value":{"type":"number"}},"type":"object"}},"type":"object"}}}}},"summary":"Computes the number density for given species","tags":["Sample the number density of a given atmospheric component"]}}},"servers":[{"url":"https://atmosphere.amentum.space/api"}],"components":{"parameters":{"AP":{"description":"The Ap-index provides a daily average level for geomagnetic activity F107, F107A, AP effects can be neglected below 80 km. \n","in":"query","name":"ap","required":true,"schema":{"type":"number"}},"Altitude":{"description":"Altitude in (kms)","in":"query","name":"altitude","required":true,"schema":{"type":"number"}},"Day":{"description":"Day in DD format","in":"query","name":"day","required":true,"schema":{"type":"integer"}},"F107":{"description":"Daily flux for previous day (SFU).  F107 and F107A values correspond to  the 10.7 cm radio flux at the actual distance of Earth from Sun  rather than radio flux at 1AU.  F107, F107A, AP effects can be neglected below 80 km. \n","in":"query","name":"f107","required":true,"schema":{"type":"number"}},"F107A":{"description":"81 day average of F10.7 flux (SFU).  F107 and F107A values correspond to the 10.7 cm radio flux at the actual distance of Earth from Sun rather than radio flux at 1AU.  F107, F107A, AP effects can be neglected below 80 km. \n","in":"query","name":"f107a","required":true,"schema":{"type":"number"}},"GeodeticLatitude":{"description":"GeodeticLatitude (degs)","in":"query","name":"geodetic_latitude","required":true,"schema":{"type":"number"}},"GeodeticLongitude":{"description":"GeodeticLongitude (degs)","in":"query","name":"geodetic_longitude","required":true,"schema":{"type":"number"}},"Month":{"description":"Month in MM format","in":"query","name":"month","required":true,"schema":{"type":"integer"}},"Species":{"description":"The atmospheric component as a string. \n","in":"query","name":"species","required":true,"schema":{"type":"string","enum":["He","O","N2","O2","Ar","H","N"]}},"UTC":{"description":"Coordinated Universal Time (hrs).  The local time is calculated based on this and the longitude according to the following equation Local time = UTC + Longitude (deg) / 15 (deg) This is approximate and does not account for Equation of Time departures. \n","in":"query","name":"utc","required":true,"schema":{"type":"number"}},"Year":{"description":"Year in YYYY format","in":"query","name":"year","required":true,"schema":{"type":"integer"}}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": { "x-twitter": "amentumspace" },
+    "description": "NRLMSISE-00 is an empirical, global reference atmospheric model of the  Earth, from ground to space [1]. It models the temperatures and densities  of the atmosphere's constituents. A primary use of this model is to aid  predictions of satellite orbital decay due to atmospheric drag. <br><br>\nThe NRLMSIS-00 empirical atmosphere model was developed by Mike Picone,  Alan Hedin, and Doug Drob and is based on the MSISE90 model. See the following  refererence for full details including limitations [1] Picone, J. M., et al.  NRLMSISE‐00 empirical model of the atmosphere Statistical comparisons  and scientific issues,  Journal of Geophysical Research Space Physics 107.A12 (2002) <br><br>\nWe provide an open RESTful API to the model that wraps the original code which is available <a href='https://ccmc.gsfc.nasa.gov/modelweb/atmos/nrlmsise00.html'>here</a>.  The API is free but usage is limited to 1000 API calls per day. <br><br>\n<b>Click on a heading below to expand instructions and to try the API.</b> <br><br>\nAmentum Pty Ltd is not responsible nor liable for any loss or damage of any sort incurred as the result of the use of the API. <br><br>\nCopyright <a href='https://amentum.space'>Amentum Pty Ltd</a> 2019.\n",
+    "title": "Atmosphere API - calculate composition and density of the  atmosphere \n",
+    "version": "0.9.3",
+    "x-apisguru-categories": ["location", "open_data"],
+    "x-logo": { "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_amentumspace_profile_image.jpeg" },
+    "x-origin": [{ "format": "swagger", "url": "https://atmosphere.amentum.space/api/swagger.json", "version": "2.0" }],
+    "x-preferred": true,
+    "x-providerName": "amentum.space",
+    "x-serviceName": "atmosphere"
+  },
+  "paths": {
+    "/sample_atmosphere": {
+      "get": {
+        "description": "Computes \nNumber densities (/cm3) of  He, O, N2, O2, Ar, H, N\nAnomalous oxygen number density (/cm3)\nExospheric temperature (K)\nTemperature at altitude (K)\nTotal mass density (g/cm3)\nTotal mass density is the sum of the masses of the species in  equilibrium at the thermospheric temperature T(z) and the mass  density of the anomalous oxygen component.\n",
+        "operationId": "handlers.Atmosphere.sample_atmosphere",
+        "parameters": [
+          { "$ref": "#/components/parameters/Year" },
+          { "$ref": "#/components/parameters/Month" },
+          { "$ref": "#/components/parameters/Day" },
+          { "$ref": "#/components/parameters/Altitude" },
+          { "$ref": "#/components/parameters/GeodeticLatitude" },
+          { "$ref": "#/components/parameters/GeodeticLongitude" },
+          { "$ref": "#/components/parameters/UTC" },
+          { "$ref": "#/components/parameters/F107A" },
+          { "$ref": "#/components/parameters/F107" },
+          { "$ref": "#/components/parameters/AP" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful atmospheric density calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "Ar_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "H_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "He_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "N2_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "N_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "O2_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "O_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "anomalous_O_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "at_alt_temp": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "exospheric_temp": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    },
+                    "total_mass": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Computes the MSIS atmospheric parameters for given conditions",
+        "tags": ["Sample the atmosphere under given conditions"]
+      }
+    },
+    "/sample_species": {
+      "get": {
+        "description": "Computes \nNumber density (/cm3) of the species\n",
+        "operationId": "handlers.Atmosphere.sample_species",
+        "parameters": [
+          { "$ref": "#/components/parameters/Year" },
+          { "$ref": "#/components/parameters/Month" },
+          { "$ref": "#/components/parameters/Day" },
+          { "$ref": "#/components/parameters/Altitude" },
+          { "$ref": "#/components/parameters/GeodeticLatitude" },
+          { "$ref": "#/components/parameters/GeodeticLongitude" },
+          { "$ref": "#/components/parameters/UTC" },
+          { "$ref": "#/components/parameters/F107A" },
+          { "$ref": "#/components/parameters/F107" },
+          { "$ref": "#/components/parameters/AP" },
+          { "$ref": "#/components/parameters/Species" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful atmospheric density calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "num_density": {
+                      "properties": { "units": { "type": "string" }, "value": { "type": "number" } },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Computes the number density for given species",
+        "tags": ["Sample the number density of a given atmospheric component"]
+      }
+    }
+  },
+  "servers": [{ "url": "https://atmosphere.amentum.space/api" }],
+  "components": {
+    "parameters": {
+      "AP": {
+        "description": "The Ap-index provides a daily average level for geomagnetic activity F107, F107A, AP effects can be neglected below 80 km. \n",
+        "in": "query",
+        "name": "ap",
+        "required": true,
+        "schema": { "type": "number" }
+      },
+      "Altitude": {
+        "description": "Altitude in (kms)",
+        "in": "query",
+        "name": "altitude",
+        "required": true,
+        "schema": { "type": "number" }
+      },
+      "Day": {
+        "description": "Day in DD format",
+        "in": "query",
+        "name": "day",
+        "required": true,
+        "schema": { "type": "integer" }
+      },
+      "F107": {
+        "description": "Daily flux for previous day (SFU).  F107 and F107A values correspond to  the 10.7 cm radio flux at the actual distance of Earth from Sun  rather than radio flux at 1AU.  F107, F107A, AP effects can be neglected below 80 km. \n",
+        "in": "query",
+        "name": "f107",
+        "required": true,
+        "schema": { "type": "number" }
+      },
+      "F107A": {
+        "description": "81 day average of F10.7 flux (SFU).  F107 and F107A values correspond to the 10.7 cm radio flux at the actual distance of Earth from Sun rather than radio flux at 1AU.  F107, F107A, AP effects can be neglected below 80 km. \n",
+        "in": "query",
+        "name": "f107a",
+        "required": true,
+        "schema": { "type": "number" }
+      },
+      "GeodeticLatitude": {
+        "description": "GeodeticLatitude (degs)",
+        "in": "query",
+        "name": "geodetic_latitude",
+        "required": true,
+        "schema": { "type": "number" }
+      },
+      "GeodeticLongitude": {
+        "description": "GeodeticLongitude (degs)",
+        "in": "query",
+        "name": "geodetic_longitude",
+        "required": true,
+        "schema": { "type": "number" }
+      },
+      "Month": {
+        "description": "Month in MM format",
+        "in": "query",
+        "name": "month",
+        "required": true,
+        "schema": { "type": "integer" }
+      },
+      "Species": {
+        "description": "The atmospheric component as a string. \n",
+        "in": "query",
+        "name": "species",
+        "required": true,
+        "schema": { "type": "string", "enum": ["He", "O", "N2", "O2", "Ar", "H", "N"] }
+      },
+      "UTC": {
+        "description": "Coordinated Universal Time (hrs).  The local time is calculated based on this and the longitude according to the following equation Local time = UTC + Longitude (deg) / 15 (deg) This is approximate and does not account for Equation of Time departures. \n",
+        "in": "query",
+        "name": "utc",
+        "required": true,
+        "schema": { "type": "number" }
+      },
+      "Year": {
+        "description": "Year in YYYY format",
+        "in": "query",
+        "name": "year",
+        "required": true,
+        "schema": { "type": "integer" }
+      }
+    }
+  }
+}

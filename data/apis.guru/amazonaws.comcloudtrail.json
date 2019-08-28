@@ -1,1 +1,1837 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<fullname>AWS CloudTrail</fullname> <p>This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters, and common errors for CloudTrail.</p> <p>CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.</p> <note> <p>As an alternative to the API, you can use one of the AWS SDKs, which consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to AWSCloudTrail. For example, the SDKs take care of cryptographically signing requests, managing errors, and retrying requests automatically. For information about the AWS SDKs, including how to download and install them, see the <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services page</a>.</p> </note> <p>See the <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html\">AWS CloudTrail User Guide</a> for information about the data that is included with each AWS API call listed in the log files.</p>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS CloudTrail","version":"2013-11-01","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/cloudtrail-2013-11-01.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"cloudtrail"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/cloudtrail/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds one or more tags to a trail, up to a limit of 50. Tags must be unique per trail. Overwrites an existing tag's value when a new value is specified for an existing tag key. If you specify a key without a value, the tag will be created with the specified key and a value of null. You can tag a trail that applies to all regions only from the region in which the trail was created (that is, from its home region).","operationId":"AddTags","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AddTagsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AddTagsResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"CloudTrailARNInvalidException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CloudTrailARNInvalidException"}}}},"482":{"description":"ResourceTypeNotSupportedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceTypeNotSupportedException"}}}},"483":{"description":"TagsLimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagsLimitExceededException"}}}},"484":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"485":{"description":"InvalidTagParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTagParameterException"}}}},"486":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"487":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"488":{"description":"NotOrganizationMasterAccountException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotOrganizationMasterAccountException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CreateTrail":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.","operationId":"CreateTrail","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CreateTrail"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateTrailRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateTrailResponse"}}}},"480":{"description":"MaximumNumberOfTrailsExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MaximumNumberOfTrailsExceededException"}}}},"481":{"description":"TrailAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailAlreadyExistsException"}}}},"482":{"description":"S3BucketDoesNotExistException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/S3BucketDoesNotExistException"}}}},"483":{"description":"InsufficientS3BucketPolicyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientS3BucketPolicyException"}}}},"484":{"description":"InsufficientSnsTopicPolicyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientSnsTopicPolicyException"}}}},"485":{"description":"InsufficientEncryptionPolicyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientEncryptionPolicyException"}}}},"486":{"description":"InvalidS3BucketNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidS3BucketNameException"}}}},"487":{"description":"InvalidS3PrefixException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidS3PrefixException"}}}},"488":{"description":"InvalidSnsTopicNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidSnsTopicNameException"}}}},"489":{"description":"InvalidKmsKeyIdException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidKmsKeyIdException"}}}},"490":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"491":{"description":"TrailNotProvidedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotProvidedException"}}}},"492":{"description":"InvalidParameterCombinationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterCombinationException"}}}},"493":{"description":"KmsKeyNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/KmsKeyNotFoundException"}}}},"494":{"description":"KmsKeyDisabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/KmsKeyDisabledException"}}}},"495":{"description":"KmsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/KmsException"}}}},"496":{"description":"InvalidCloudWatchLogsLogGroupArnException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidCloudWatchLogsLogGroupArnException"}}}},"497":{"description":"InvalidCloudWatchLogsRoleArnException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidCloudWatchLogsRoleArnException"}}}},"498":{"description":"CloudWatchLogsDeliveryUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CloudWatchLogsDeliveryUnavailableException"}}}},"499":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"500":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"501":{"description":"CloudTrailAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CloudTrailAccessNotEnabledException"}}}},"502":{"description":"InsufficientDependencyServiceAccessPermissionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientDependencyServiceAccessPermissionException"}}}},"503":{"description":"NotOrganizationMasterAccountException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotOrganizationMasterAccountException"}}}},"504":{"description":"OrganizationsNotInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OrganizationsNotInUseException"}}}},"505":{"description":"OrganizationNotInAllFeaturesModeException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OrganizationNotInAllFeaturesModeException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DeleteTrail":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a trail. This operation must be called from the region in which the trail was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.","operationId":"DeleteTrail","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DeleteTrail"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteTrailRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteTrailResponse"}}}},"480":{"description":"TrailNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotFoundException"}}}},"481":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"482":{"description":"InvalidHomeRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidHomeRegionException"}}}},"483":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"485":{"description":"NotOrganizationMasterAccountException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotOrganizationMasterAccountException"}}}},"486":{"description":"InsufficientDependencyServiceAccessPermissionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientDependencyServiceAccessPermissionException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves settings for the trail associated with the current region for your account.","operationId":"DescribeTrails","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeTrailsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeTrailsResponse"}}}},"480":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"481":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventSelectors":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Describes the settings for the event selectors that you configured for your trail. The information returned for your event selectors includes the following:</p> <ul> <li> <p>If your event selector includes read-only events, write-only events, or all events. This applies to both management events and data events.</p> </li> <li> <p>If your event selector includes management events.</p> </li> <li> <p>If your event selector includes data events, the Amazon S3 objects or AWS Lambda functions that you are logging for data events.</p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html\">Logging Data and Management Events for Trails </a> in the <i>AWS CloudTrail User Guide</i>.</p>","operationId":"GetEventSelectors","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventSelectors"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetEventSelectorsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetEventSelectorsResponse"}}}},"480":{"description":"TrailNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotFoundException"}}}},"481":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"482":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"483":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrailStatus":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns a JSON-formatted list of information about the specified trail. Fields include information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop logging times for each trail. This operation returns trail status from a single region. To return trail status from all regions, you must call the operation on each region.","operationId":"GetTrailStatus","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrailStatus"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetTrailStatusRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetTrailStatusResponse"}}}},"480":{"description":"TrailNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotFoundException"}}}},"481":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListPublicKeys":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.</p> <note> <p>CloudTrail uses different private/public key pairs per region. Each digest file is signed with a private key unique to its region. Therefore, when you validate a digest file from a particular region, you must look in the same region for its corresponding public key.</p> </note>","operationId":"ListPublicKeys","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListPublicKeys"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListPublicKeysRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListPublicKeysResponse"}}}},"480":{"description":"InvalidTimeRangeException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTimeRangeException"}}}},"481":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"482":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"483":{"description":"InvalidTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTokenException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListTags":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the tags for the trail in the current region.","operationId":"ListTags","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListTags"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"CloudTrailARNInvalidException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CloudTrailARNInvalidException"}}}},"482":{"description":"ResourceTypeNotSupportedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceTypeNotSupportedException"}}}},"483":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"484":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"485":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"486":{"description":"InvalidTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTokenException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.LookupEvents":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Looks up <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events\">management events</a> captured by CloudTrail. Events for a region can be looked up in that region during the last 90 days. Lookup supports the following attributes:</p> <ul> <li> <p>AWS access key</p> </li> <li> <p>Event ID</p> </li> <li> <p>Event name</p> </li> <li> <p>Event source</p> </li> <li> <p>Read only</p> </li> <li> <p>Resource name</p> </li> <li> <p>Resource type</p> </li> <li> <p>User name</p> </li> </ul> <p>All attributes are optional. The default number of results returned is 50, with a maximum of 50 possible. The response includes a token that you can use to get the next page of results.</p> <important> <p>The rate of lookup requests is limited to one per second per account. If this limit is exceeded, a throttling error occurs.</p> </important> <important> <p>Events that occurred during the selected time range will not be available for lookup if CloudTrail logging was not enabled when the events occurred.</p> </important>","operationId":"LookupEvents","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.LookupEvents"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/LookupEventsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LookupEventsResponse"}}}},"480":{"description":"InvalidLookupAttributesException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidLookupAttributesException"}}}},"481":{"description":"InvalidTimeRangeException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTimeRangeException"}}}},"482":{"description":"InvalidMaxResultsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidMaxResultsException"}}}},"483":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutEventSelectors":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Configures an event selector for your trail. Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. </p> <p>When an event occurs in your account, CloudTrail evaluates the event selectors in all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event. </p> <p>Example</p> <ol> <li> <p>You create an event selector for a trail and specify that you want write-only events.</p> </li> <li> <p>The EC2 <code>GetConsoleOutput</code> and <code>RunInstances</code> API operations occur in your account.</p> </li> <li> <p>CloudTrail evaluates whether the events match your event selectors.</p> </li> <li> <p>The <code>RunInstances</code> is a write-only event and it matches your event selector. The trail logs the event.</p> </li> <li> <p>The <code>GetConsoleOutput</code> is a read-only event but it doesn't match your event selector. The trail doesn't log the event. </p> </li> </ol> <p>The <code>PutEventSelectors</code> operation must be called from the region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.</p> <p>You can configure up to five event selectors for each trail. For more information, see <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html\">Logging Data and Management Events for Trails </a> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html\">Limits in AWS CloudTrail</a> in the <i>AWS CloudTrail User Guide</i>.</p>","operationId":"PutEventSelectors","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutEventSelectors"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutEventSelectorsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutEventSelectorsResponse"}}}},"480":{"description":"TrailNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotFoundException"}}}},"481":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"482":{"description":"InvalidHomeRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidHomeRegionException"}}}},"483":{"description":"InvalidEventSelectorsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidEventSelectorsException"}}}},"484":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"485":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"486":{"description":"NotOrganizationMasterAccountException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotOrganizationMasterAccountException"}}}},"487":{"description":"InsufficientDependencyServiceAccessPermissionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientDependencyServiceAccessPermissionException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RemoveTags":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Removes the specified tags from a trail.","operationId":"RemoveTags","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RemoveTags"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/RemoveTagsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RemoveTagsResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"CloudTrailARNInvalidException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CloudTrailARNInvalidException"}}}},"482":{"description":"ResourceTypeNotSupportedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceTypeNotSupportedException"}}}},"483":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"484":{"description":"InvalidTagParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTagParameterException"}}}},"485":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"486":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"487":{"description":"NotOrganizationMasterAccountException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotOrganizationMasterAccountException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Starts the recording of AWS API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.","operationId":"StartLogging","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartLoggingRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartLoggingResponse"}}}},"480":{"description":"TrailNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotFoundException"}}}},"481":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"482":{"description":"InvalidHomeRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidHomeRegionException"}}}},"483":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"485":{"description":"NotOrganizationMasterAccountException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotOrganizationMasterAccountException"}}}},"486":{"description":"InsufficientDependencyServiceAccessPermissionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientDependencyServiceAccessPermissionException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StopLogging":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Suspends the recording of AWS API calls and log file delivery for the specified trail. Under most circumstances, there is no need to use this action. You can update a trail without stopping it first. This action is the only way to stop recording. For a trail enabled in all regions, this operation must be called from the region in which the trail was created, or an <code>InvalidHomeRegionException</code> will occur. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail enabled in all regions.","operationId":"StopLogging","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StopLogging"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StopLoggingRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StopLoggingResponse"}}}},"480":{"description":"TrailNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotFoundException"}}}},"481":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"482":{"description":"InvalidHomeRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidHomeRegionException"}}}},"483":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"485":{"description":"NotOrganizationMasterAccountException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotOrganizationMasterAccountException"}}}},"486":{"description":"InsufficientDependencyServiceAccessPermissionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientDependencyServiceAccessPermissionException"}}}}}}},"/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.UpdateTrail":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the settings that specify delivery of log files. Changes to a trail do not require stopping the CloudTrail service. Use this action to designate an existing bucket for log delivery. If the existing bucket has previously been a target for CloudTrail log files, an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called from the region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.","operationId":"UpdateTrail","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.UpdateTrail"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateTrailRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateTrailResponse"}}}},"480":{"description":"S3BucketDoesNotExistException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/S3BucketDoesNotExistException"}}}},"481":{"description":"InsufficientS3BucketPolicyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientS3BucketPolicyException"}}}},"482":{"description":"InsufficientSnsTopicPolicyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientSnsTopicPolicyException"}}}},"483":{"description":"InsufficientEncryptionPolicyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientEncryptionPolicyException"}}}},"484":{"description":"TrailNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotFoundException"}}}},"485":{"description":"InvalidS3BucketNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidS3BucketNameException"}}}},"486":{"description":"InvalidS3PrefixException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidS3PrefixException"}}}},"487":{"description":"InvalidSnsTopicNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidSnsTopicNameException"}}}},"488":{"description":"InvalidKmsKeyIdException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidKmsKeyIdException"}}}},"489":{"description":"InvalidTrailNameException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTrailNameException"}}}},"490":{"description":"TrailNotProvidedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TrailNotProvidedException"}}}},"491":{"description":"InvalidParameterCombinationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterCombinationException"}}}},"492":{"description":"InvalidHomeRegionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidHomeRegionException"}}}},"493":{"description":"KmsKeyNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/KmsKeyNotFoundException"}}}},"494":{"description":"KmsKeyDisabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/KmsKeyDisabledException"}}}},"495":{"description":"KmsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/KmsException"}}}},"496":{"description":"InvalidCloudWatchLogsLogGroupArnException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidCloudWatchLogsLogGroupArnException"}}}},"497":{"description":"InvalidCloudWatchLogsRoleArnException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidCloudWatchLogsRoleArnException"}}}},"498":{"description":"CloudWatchLogsDeliveryUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CloudWatchLogsDeliveryUnavailableException"}}}},"499":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"500":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"501":{"description":"CloudTrailAccessNotEnabledException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CloudTrailAccessNotEnabledException"}}}},"502":{"description":"InsufficientDependencyServiceAccessPermissionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InsufficientDependencyServiceAccessPermissionException"}}}},"503":{"description":"OrganizationsNotInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OrganizationsNotInUseException"}}}},"504":{"description":"NotOrganizationMasterAccountException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotOrganizationMasterAccountException"}}}},"505":{"description":"OrganizationNotInAllFeaturesModeException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OrganizationNotInAllFeaturesModeException"}}}}}}}},"servers":[{"description":"The CloudTrail multi-region endpoint","url":"http://cloudtrail.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The CloudTrail multi-region endpoint","url":"https://cloudtrail.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The CloudTrail endpoint for China (Beijing) and China (Ningxia)","url":"http://cloudtrail.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The CloudTrail endpoint for China (Beijing) and China (Ningxia)","url":"https://cloudtrail.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AddTagsRequest":{"description":"Specifies the tags to add to a trail.","properties":{"ResourceId":{"$ref":"#/components/schemas/String"},"TagsList":{"$ref":"#/components/schemas/TagsList"}},"required":["ResourceId"],"type":"object"},"AddTagsResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{},"type":"object"},"Boolean":{"type":"boolean"},"ByteBuffer":{"type":"string"},"CloudTrailARNInvalidException":{},"CloudTrailAccessNotEnabledException":{},"CloudWatchLogsDeliveryUnavailableException":{},"CreateTrailRequest":{"description":"Specifies the settings for each trail.","properties":{"CloudWatchLogsLogGroupArn":{"$ref":"#/components/schemas/String"},"CloudWatchLogsRoleArn":{"$ref":"#/components/schemas/String"},"EnableLogFileValidation":{"$ref":"#/components/schemas/Boolean"},"IncludeGlobalServiceEvents":{"$ref":"#/components/schemas/Boolean"},"IsMultiRegionTrail":{"$ref":"#/components/schemas/Boolean"},"IsOrganizationTrail":{"$ref":"#/components/schemas/Boolean"},"KmsKeyId":{"$ref":"#/components/schemas/String"},"Name":{"$ref":"#/components/schemas/String"},"S3BucketName":{"$ref":"#/components/schemas/String"},"S3KeyPrefix":{"$ref":"#/components/schemas/String"},"SnsTopicName":{"$ref":"#/components/schemas/String"}},"required":["Name","S3BucketName"],"type":"object"},"CreateTrailResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{"CloudWatchLogsLogGroupArn":{"$ref":"#/components/schemas/String"},"CloudWatchLogsRoleArn":{"$ref":"#/components/schemas/String"},"IncludeGlobalServiceEvents":{"$ref":"#/components/schemas/Boolean"},"IsMultiRegionTrail":{"$ref":"#/components/schemas/Boolean"},"IsOrganizationTrail":{"$ref":"#/components/schemas/Boolean"},"KmsKeyId":{"$ref":"#/components/schemas/String"},"LogFileValidationEnabled":{"$ref":"#/components/schemas/Boolean"},"Name":{"$ref":"#/components/schemas/String"},"S3BucketName":{"$ref":"#/components/schemas/String"},"S3KeyPrefix":{"$ref":"#/components/schemas/String"},"SnsTopicARN":{"$ref":"#/components/schemas/String"},"SnsTopicName":{"$ref":"#/components/schemas/String"},"TrailARN":{"$ref":"#/components/schemas/String"}},"type":"object"},"DataResource":{"description":"<p>The Amazon S3 buckets or AWS Lambda functions that you specify in your event selectors for your trail to log data events. Data events provide insight into the resource operations performed on or within a resource itself. These are also known as data plane operations. You can specify up to 250 data resources for a trail.</p> <note> <p>The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors.</p> </note> <p>The following example demonstrates how logging works when you configure logging of all data events for an S3 bucket named <code>bucket-1</code>. In this example, the CloudTrail user spcified an empty prefix, and the option to log both <code>Read</code> and <code>Write</code> data events.</p> <ol> <li> <p>A user uploads an image file to <code>bucket-1</code>.</p> </li> <li> <p>The <code>PutObject</code> API operation is an Amazon S3 object-level API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified an S3 bucket with an empty prefix, events that occur on any object in that bucket are logged. The trail processes and logs the event.</p> </li> <li> <p>A user uploads an object to an Amazon S3 bucket named <code>arn:aws:s3:::bucket-2</code>.</p> </li> <li> <p>The <code>PutObject</code> API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event.</p> </li> </ol> <p>The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named <i>MyLambdaFunction</i>, but not for all AWS Lambda functions.</p> <ol> <li> <p>A user runs a script that includes a call to the <i>MyLambdaFunction</i> function and the <i>MyOtherLambdaFunction</i> function.</p> </li> <li> <p>The <code>Invoke</code> API operation on <i>MyLambdaFunction</i> is an AWS Lambda API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified logging data events for <i>MyLambdaFunction</i>, any invocations of that function are logged. The trail processes and logs the event. </p> </li> <li> <p>The <code>Invoke</code> API operation on <i>MyOtherLambdaFunction</i> is an AWS Lambda API. Because the CloudTrail user did not specify logging data events for all Lambda functions, the <code>Invoke</code> operation for <i>MyOtherLambdaFunction</i> does not match the function specified for the trail. The trail doesn’t log the event. </p> </li> </ol>","properties":{"Type":{"$ref":"#/components/schemas/String"},"Values":{"$ref":"#/components/schemas/DataResourceValues"}},"type":"object"},"DataResourceValues":{"items":{"$ref":"#/components/schemas/String"},"type":"array"},"DataResources":{"items":{"$ref":"#/components/schemas/DataResource"},"type":"array"},"Date":{"format":"date-time","type":"string"},"DeleteTrailRequest":{"description":"The request that specifies the name of a trail to delete.","properties":{"Name":{"$ref":"#/components/schemas/String"}},"required":["Name"],"type":"object"},"DeleteTrailResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{},"type":"object"},"DescribeTrailsRequest":{"description":"Returns information about the trail.","properties":{"includeShadowTrails":{"$ref":"#/components/schemas/Boolean"},"trailNameList":{"$ref":"#/components/schemas/TrailNameList"}},"type":"object"},"DescribeTrailsResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{"trailList":{"$ref":"#/components/schemas/TrailList"}},"type":"object"},"Event":{"description":"Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.","properties":{"AccessKeyId":{"$ref":"#/components/schemas/String"},"CloudTrailEvent":{"$ref":"#/components/schemas/String"},"EventId":{"$ref":"#/components/schemas/String"},"EventName":{"$ref":"#/components/schemas/String"},"EventSource":{"$ref":"#/components/schemas/String"},"EventTime":{"$ref":"#/components/schemas/Date"},"ReadOnly":{"$ref":"#/components/schemas/String"},"Resources":{"$ref":"#/components/schemas/ResourceList"},"Username":{"$ref":"#/components/schemas/String"}},"type":"object"},"EventSelector":{"description":"<p>Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.</p> <p>You can configure up to five event selectors for a trail.</p>","properties":{"DataResources":{"$ref":"#/components/schemas/DataResources"},"IncludeManagementEvents":{"$ref":"#/components/schemas/Boolean"},"ReadWriteType":{"$ref":"#/components/schemas/ReadWriteType"}},"type":"object"},"EventSelectors":{"items":{"$ref":"#/components/schemas/EventSelector"},"type":"array"},"EventsList":{"items":{"$ref":"#/components/schemas/Event"},"type":"array"},"GetEventSelectorsRequest":{"properties":{"TrailName":{"$ref":"#/components/schemas/String"}},"required":["TrailName"],"type":"object"},"GetEventSelectorsResponse":{"properties":{"EventSelectors":{"$ref":"#/components/schemas/EventSelectors"},"TrailARN":{"$ref":"#/components/schemas/String"}},"type":"object"},"GetTrailStatusRequest":{"description":"The name of a trail about which you want the current status.","properties":{"Name":{"$ref":"#/components/schemas/String"}},"required":["Name"],"type":"object"},"GetTrailStatusResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{"IsLogging":{"$ref":"#/components/schemas/Boolean"},"LatestCloudWatchLogsDeliveryError":{"$ref":"#/components/schemas/String"},"LatestCloudWatchLogsDeliveryTime":{"$ref":"#/components/schemas/Date"},"LatestDeliveryAttemptSucceeded":{"$ref":"#/components/schemas/String"},"LatestDeliveryAttemptTime":{"$ref":"#/components/schemas/String"},"LatestDeliveryError":{"$ref":"#/components/schemas/String"},"LatestDeliveryTime":{"$ref":"#/components/schemas/Date"},"LatestDigestDeliveryError":{"$ref":"#/components/schemas/String"},"LatestDigestDeliveryTime":{"$ref":"#/components/schemas/Date"},"LatestNotificationAttemptSucceeded":{"$ref":"#/components/schemas/String"},"LatestNotificationAttemptTime":{"$ref":"#/components/schemas/String"},"LatestNotificationError":{"$ref":"#/components/schemas/String"},"LatestNotificationTime":{"$ref":"#/components/schemas/Date"},"StartLoggingTime":{"$ref":"#/components/schemas/Date"},"StopLoggingTime":{"$ref":"#/components/schemas/Date"},"TimeLoggingStarted":{"$ref":"#/components/schemas/String"},"TimeLoggingStopped":{"$ref":"#/components/schemas/String"}},"type":"object"},"InsufficientDependencyServiceAccessPermissionException":{},"InsufficientEncryptionPolicyException":{},"InsufficientS3BucketPolicyException":{},"InsufficientSnsTopicPolicyException":{},"InvalidCloudWatchLogsLogGroupArnException":{},"InvalidCloudWatchLogsRoleArnException":{},"InvalidEventSelectorsException":{},"InvalidHomeRegionException":{},"InvalidKmsKeyIdException":{},"InvalidLookupAttributesException":{},"InvalidMaxResultsException":{},"InvalidNextTokenException":{},"InvalidParameterCombinationException":{},"InvalidS3BucketNameException":{},"InvalidS3PrefixException":{},"InvalidSnsTopicNameException":{},"InvalidTagParameterException":{},"InvalidTimeRangeException":{},"InvalidTokenException":{},"InvalidTrailNameException":{},"KmsException":{},"KmsKeyDisabledException":{},"KmsKeyNotFoundException":{},"ListPublicKeysRequest":{"description":"Requests the public keys for a specified time range.","properties":{"EndTime":{"$ref":"#/components/schemas/Date"},"NextToken":{"$ref":"#/components/schemas/String"},"StartTime":{"$ref":"#/components/schemas/Date"}},"type":"object"},"ListPublicKeysResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{"NextToken":{"$ref":"#/components/schemas/String"},"PublicKeyList":{"$ref":"#/components/schemas/PublicKeyList"}},"type":"object"},"ListTagsRequest":{"description":"Specifies a list of trail tags to return.","properties":{"NextToken":{"$ref":"#/components/schemas/String"},"ResourceIdList":{"$ref":"#/components/schemas/ResourceIdList"}},"required":["ResourceIdList"],"type":"object"},"ListTagsResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{"NextToken":{"$ref":"#/components/schemas/String"},"ResourceTagList":{"$ref":"#/components/schemas/ResourceTagList"}},"type":"object"},"LookupAttribute":{"description":"Specifies an attribute and value that filter the events returned.","properties":{"AttributeKey":{"$ref":"#/components/schemas/LookupAttributeKey"},"AttributeValue":{"$ref":"#/components/schemas/String"}},"required":["AttributeKey","AttributeValue"],"type":"object"},"LookupAttributeKey":{"enum":["EventId","EventName","ReadOnly","Username","ResourceType","ResourceName","EventSource","AccessKeyId"],"type":"string"},"LookupAttributesList":{"items":{"$ref":"#/components/schemas/LookupAttribute"},"type":"array"},"LookupEventsRequest":{"description":"Contains a request for LookupEvents.","properties":{"EndTime":{"$ref":"#/components/schemas/Date"},"LookupAttributes":{"$ref":"#/components/schemas/LookupAttributesList"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"StartTime":{"$ref":"#/components/schemas/Date"}},"type":"object"},"LookupEventsResponse":{"description":"Contains a response to a LookupEvents action.","properties":{"Events":{"$ref":"#/components/schemas/EventsList"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"MaxResults":{"maximum":50,"minimum":1,"type":"integer"},"MaximumNumberOfTrailsExceededException":{},"NextToken":{"type":"string"},"NotOrganizationMasterAccountException":{},"OperationNotPermittedException":{},"OrganizationNotInAllFeaturesModeException":{},"OrganizationsNotInUseException":{},"PublicKey":{"description":"Contains information about a returned public key.","properties":{"Fingerprint":{"$ref":"#/components/schemas/String"},"ValidityEndTime":{"$ref":"#/components/schemas/Date"},"ValidityStartTime":{"$ref":"#/components/schemas/Date"},"Value":{"$ref":"#/components/schemas/ByteBuffer"}},"type":"object"},"PublicKeyList":{"items":{"$ref":"#/components/schemas/PublicKey"},"type":"array"},"PutEventSelectorsRequest":{"properties":{"EventSelectors":{"$ref":"#/components/schemas/EventSelectors"},"TrailName":{"$ref":"#/components/schemas/String"}},"required":["TrailName","EventSelectors"],"type":"object"},"PutEventSelectorsResponse":{"properties":{"EventSelectors":{"$ref":"#/components/schemas/EventSelectors"},"TrailARN":{"$ref":"#/components/schemas/String"}},"type":"object"},"ReadWriteType":{"enum":["ReadOnly","WriteOnly","All"],"type":"string"},"RemoveTagsRequest":{"description":"Specifies the tags to remove from a trail.","properties":{"ResourceId":{"$ref":"#/components/schemas/String"},"TagsList":{"$ref":"#/components/schemas/TagsList"}},"required":["ResourceId"],"type":"object"},"RemoveTagsResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{},"type":"object"},"Resource":{"description":"Specifies the type and name of a resource referenced by an event.","properties":{"ResourceName":{"$ref":"#/components/schemas/String"},"ResourceType":{"$ref":"#/components/schemas/String"}},"type":"object"},"ResourceIdList":{"items":{"$ref":"#/components/schemas/String"},"type":"array"},"ResourceList":{"description":"A list of resources referenced by the event returned.","items":{"$ref":"#/components/schemas/Resource"},"type":"array"},"ResourceNotFoundException":{},"ResourceTag":{"description":"A resource tag.","properties":{"ResourceId":{"$ref":"#/components/schemas/String"},"TagsList":{"$ref":"#/components/schemas/TagsList"}},"type":"object"},"ResourceTagList":{"items":{"$ref":"#/components/schemas/ResourceTag"},"type":"array"},"ResourceTypeNotSupportedException":{},"S3BucketDoesNotExistException":{},"StartLoggingRequest":{"description":"The request to CloudTrail to start logging AWS API calls for an account.","properties":{"Name":{"$ref":"#/components/schemas/String"}},"required":["Name"],"type":"object"},"StartLoggingResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{},"type":"object"},"StopLoggingRequest":{"description":"Passes the request to CloudTrail to stop logging AWS API calls for the specified account.","properties":{"Name":{"$ref":"#/components/schemas/String"}},"required":["Name"],"type":"object"},"StopLoggingResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{},"type":"object"},"String":{"type":"string"},"Tag":{"description":"A custom key-value pair associated with a resource such as a CloudTrail trail.","properties":{"Key":{"$ref":"#/components/schemas/String"},"Value":{"$ref":"#/components/schemas/String"}},"required":["Key"],"type":"object"},"TagsLimitExceededException":{},"TagsList":{"description":"A list of tags.","items":{"$ref":"#/components/schemas/Tag"},"type":"array"},"Trail":{"description":"The settings for a trail.","properties":{"CloudWatchLogsLogGroupArn":{"$ref":"#/components/schemas/String"},"CloudWatchLogsRoleArn":{"$ref":"#/components/schemas/String"},"HasCustomEventSelectors":{"$ref":"#/components/schemas/Boolean"},"HomeRegion":{"$ref":"#/components/schemas/String"},"IncludeGlobalServiceEvents":{"$ref":"#/components/schemas/Boolean"},"IsMultiRegionTrail":{"$ref":"#/components/schemas/Boolean"},"IsOrganizationTrail":{"$ref":"#/components/schemas/Boolean"},"KmsKeyId":{"$ref":"#/components/schemas/String"},"LogFileValidationEnabled":{"$ref":"#/components/schemas/Boolean"},"Name":{"$ref":"#/components/schemas/String"},"S3BucketName":{"$ref":"#/components/schemas/String"},"S3KeyPrefix":{"$ref":"#/components/schemas/String"},"SnsTopicARN":{"$ref":"#/components/schemas/String"},"SnsTopicName":{"$ref":"#/components/schemas/String"},"TrailARN":{"$ref":"#/components/schemas/String"}},"type":"object"},"TrailAlreadyExistsException":{},"TrailList":{"items":{"$ref":"#/components/schemas/Trail"},"type":"array"},"TrailNameList":{"items":{"$ref":"#/components/schemas/String"},"type":"array"},"TrailNotFoundException":{},"TrailNotProvidedException":{},"UnsupportedOperationException":{},"UpdateTrailRequest":{"description":"Specifies settings to update for the trail.","properties":{"CloudWatchLogsLogGroupArn":{"$ref":"#/components/schemas/String"},"CloudWatchLogsRoleArn":{"$ref":"#/components/schemas/String"},"EnableLogFileValidation":{"$ref":"#/components/schemas/Boolean"},"IncludeGlobalServiceEvents":{"$ref":"#/components/schemas/Boolean"},"IsMultiRegionTrail":{"$ref":"#/components/schemas/Boolean"},"IsOrganizationTrail":{"$ref":"#/components/schemas/Boolean"},"KmsKeyId":{"$ref":"#/components/schemas/String"},"Name":{"$ref":"#/components/schemas/String"},"S3BucketName":{"$ref":"#/components/schemas/String"},"S3KeyPrefix":{"$ref":"#/components/schemas/String"},"SnsTopicName":{"$ref":"#/components/schemas/String"}},"required":["Name"],"type":"object"},"UpdateTrailResponse":{"description":"Returns the objects or data listed below if successful. Otherwise, returns an error.","properties":{"CloudWatchLogsLogGroupArn":{"$ref":"#/components/schemas/String"},"CloudWatchLogsRoleArn":{"$ref":"#/components/schemas/String"},"IncludeGlobalServiceEvents":{"$ref":"#/components/schemas/Boolean"},"IsMultiRegionTrail":{"$ref":"#/components/schemas/Boolean"},"IsOrganizationTrail":{"$ref":"#/components/schemas/Boolean"},"KmsKeyId":{"$ref":"#/components/schemas/String"},"LogFileValidationEnabled":{"$ref":"#/components/schemas/Boolean"},"Name":{"$ref":"#/components/schemas/String"},"S3BucketName":{"$ref":"#/components/schemas/String"},"S3KeyPrefix":{"$ref":"#/components/schemas/String"},"SnsTopicARN":{"$ref":"#/components/schemas/String"},"SnsTopicName":{"$ref":"#/components/schemas/String"},"TrailARN":{"$ref":"#/components/schemas/String"}},"type":"object"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS CloudTrail</fullname> <p>This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters, and common errors for CloudTrail.</p> <p>CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.</p> <note> <p>As an alternative to the API, you can use one of the AWS SDKs, which consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to AWSCloudTrail. For example, the SDKs take care of cryptographically signing requests, managing errors, and retrying requests automatically. For information about the AWS SDKs, including how to download and install them, see the <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services page</a>.</p> </note> <p>See the <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html\">AWS CloudTrail User Guide</a> for information about the data that is included with each AWS API call listed in the log files.</p>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS CloudTrail",
+    "version": "2013-11-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/cloudtrail-2013-11-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "cloudtrail"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/cloudtrail/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds one or more tags to a trail, up to a limit of 50. Tags must be unique per trail. Overwrites an existing tag's value when a new value is specified for an existing tag key. If you specify a key without a value, the tag will be created with the specified key and a value of null. You can tag a trail that applies to all regions only from the region in which the trail was created (that is, from its home region).",
+        "operationId": "AddTags",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AddTagsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AddTagsResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "CloudTrailARNInvalidException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CloudTrailARNInvalidException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceTypeNotSupportedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceTypeNotSupportedException" } }
+            }
+          },
+          "483": {
+            "description": "TagsLimitExceededException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TagsLimitExceededException" } }
+            }
+          },
+          "484": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "485": {
+            "description": "InvalidTagParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTagParameterException" } }
+            }
+          },
+          "486": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "487": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "488": {
+            "description": "NotOrganizationMasterAccountException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NotOrganizationMasterAccountException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CreateTrail": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.",
+        "operationId": "CreateTrail",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CreateTrail"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateTrailRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateTrailResponse" } } }
+          },
+          "480": {
+            "description": "MaximumNumberOfTrailsExceededException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MaximumNumberOfTrailsExceededException" }
+              }
+            }
+          },
+          "481": {
+            "description": "TrailAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TrailAlreadyExistsException" } }
+            }
+          },
+          "482": {
+            "description": "S3BucketDoesNotExistException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/S3BucketDoesNotExistException" } }
+            }
+          },
+          "483": {
+            "description": "InsufficientS3BucketPolicyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InsufficientS3BucketPolicyException" } }
+            }
+          },
+          "484": {
+            "description": "InsufficientSnsTopicPolicyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InsufficientSnsTopicPolicyException" } }
+            }
+          },
+          "485": {
+            "description": "InsufficientEncryptionPolicyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InsufficientEncryptionPolicyException" } }
+            }
+          },
+          "486": {
+            "description": "InvalidS3BucketNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidS3BucketNameException" } }
+            }
+          },
+          "487": {
+            "description": "InvalidS3PrefixException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidS3PrefixException" } } }
+          },
+          "488": {
+            "description": "InvalidSnsTopicNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidSnsTopicNameException" } }
+            }
+          },
+          "489": {
+            "description": "InvalidKmsKeyIdException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidKmsKeyIdException" } } }
+          },
+          "490": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "491": {
+            "description": "TrailNotProvidedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotProvidedException" } }
+            }
+          },
+          "492": {
+            "description": "InvalidParameterCombinationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterCombinationException" } }
+            }
+          },
+          "493": {
+            "description": "KmsKeyNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/KmsKeyNotFoundException" } } }
+          },
+          "494": {
+            "description": "KmsKeyDisabledException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/KmsKeyDisabledException" } } }
+          },
+          "495": {
+            "description": "KmsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/KmsException" } } }
+          },
+          "496": {
+            "description": "InvalidCloudWatchLogsLogGroupArnException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/InvalidCloudWatchLogsLogGroupArnException" }
+              }
+            }
+          },
+          "497": {
+            "description": "InvalidCloudWatchLogsRoleArnException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidCloudWatchLogsRoleArnException" } }
+            }
+          },
+          "498": {
+            "description": "CloudWatchLogsDeliveryUnavailableException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CloudWatchLogsDeliveryUnavailableException" }
+              }
+            }
+          },
+          "499": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "500": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "501": {
+            "description": "CloudTrailAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CloudTrailAccessNotEnabledException" } }
+            }
+          },
+          "502": {
+            "description": "InsufficientDependencyServiceAccessPermissionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/InsufficientDependencyServiceAccessPermissionException" }
+              }
+            }
+          },
+          "503": {
+            "description": "NotOrganizationMasterAccountException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NotOrganizationMasterAccountException" } }
+            }
+          },
+          "504": {
+            "description": "OrganizationsNotInUseException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OrganizationsNotInUseException" } }
+            }
+          },
+          "505": {
+            "description": "OrganizationNotInAllFeaturesModeException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/OrganizationNotInAllFeaturesModeException" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DeleteTrail": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a trail. This operation must be called from the region in which the trail was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.",
+        "operationId": "DeleteTrail",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DeleteTrail"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteTrailRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteTrailResponse" } } }
+          },
+          "480": {
+            "description": "TrailNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotFoundException" } } }
+          },
+          "481": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidHomeRegionException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidHomeRegionException" } }
+            }
+          },
+          "483": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "485": {
+            "description": "NotOrganizationMasterAccountException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NotOrganizationMasterAccountException" } }
+            }
+          },
+          "486": {
+            "description": "InsufficientDependencyServiceAccessPermissionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/InsufficientDependencyServiceAccessPermissionException" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves settings for the trail associated with the current region for your account.",
+        "operationId": "DescribeTrails",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeTrailsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeTrailsResponse" } } }
+          },
+          "480": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventSelectors": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes the settings for the event selectors that you configured for your trail. The information returned for your event selectors includes the following:</p> <ul> <li> <p>If your event selector includes read-only events, write-only events, or all events. This applies to both management events and data events.</p> </li> <li> <p>If your event selector includes management events.</p> </li> <li> <p>If your event selector includes data events, the Amazon S3 objects or AWS Lambda functions that you are logging for data events.</p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html\">Logging Data and Management Events for Trails </a> in the <i>AWS CloudTrail User Guide</i>.</p>",
+        "operationId": "GetEventSelectors",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventSelectors"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetEventSelectorsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetEventSelectorsResponse" } }
+            }
+          },
+          "480": {
+            "description": "TrailNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotFoundException" } } }
+          },
+          "481": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "482": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "483": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrailStatus": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a JSON-formatted list of information about the specified trail. Fields include information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop logging times for each trail. This operation returns trail status from a single region. To return trail status from all regions, you must call the operation on each region.",
+        "operationId": "GetTrailStatus",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrailStatus"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetTrailStatusRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetTrailStatusResponse" } } }
+          },
+          "480": {
+            "description": "TrailNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotFoundException" } } }
+          },
+          "481": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListPublicKeys": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.</p> <note> <p>CloudTrail uses different private/public key pairs per region. Each digest file is signed with a private key unique to its region. Therefore, when you validate a digest file from a particular region, you must look in the same region for its corresponding public key.</p> </note>",
+        "operationId": "ListPublicKeys",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListPublicKeys"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListPublicKeysRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListPublicKeysResponse" } } }
+          },
+          "480": {
+            "description": "InvalidTimeRangeException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTimeRangeException" } }
+            }
+          },
+          "481": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "482": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidTokenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTokenException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListTags": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the tags for the trail in the current region.",
+        "operationId": "ListTags",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListTags"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "CloudTrailARNInvalidException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CloudTrailARNInvalidException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceTypeNotSupportedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceTypeNotSupportedException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "484": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "485": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "486": {
+            "description": "InvalidTokenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTokenException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.LookupEvents": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Looks up <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events\">management events</a> captured by CloudTrail. Events for a region can be looked up in that region during the last 90 days. Lookup supports the following attributes:</p> <ul> <li> <p>AWS access key</p> </li> <li> <p>Event ID</p> </li> <li> <p>Event name</p> </li> <li> <p>Event source</p> </li> <li> <p>Read only</p> </li> <li> <p>Resource name</p> </li> <li> <p>Resource type</p> </li> <li> <p>User name</p> </li> </ul> <p>All attributes are optional. The default number of results returned is 50, with a maximum of 50 possible. The response includes a token that you can use to get the next page of results.</p> <important> <p>The rate of lookup requests is limited to one per second per account. If this limit is exceeded, a throttling error occurs.</p> </important> <important> <p>Events that occurred during the selected time range will not be available for lookup if CloudTrail logging was not enabled when the events occurred.</p> </important>",
+        "operationId": "LookupEvents",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.LookupEvents"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LookupEventsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LookupEventsResponse" } } }
+          },
+          "480": {
+            "description": "InvalidLookupAttributesException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidLookupAttributesException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidTimeRangeException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTimeRangeException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidMaxResultsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidMaxResultsException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutEventSelectors": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Configures an event selector for your trail. Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. </p> <p>When an event occurs in your account, CloudTrail evaluates the event selectors in all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event. </p> <p>Example</p> <ol> <li> <p>You create an event selector for a trail and specify that you want write-only events.</p> </li> <li> <p>The EC2 <code>GetConsoleOutput</code> and <code>RunInstances</code> API operations occur in your account.</p> </li> <li> <p>CloudTrail evaluates whether the events match your event selectors.</p> </li> <li> <p>The <code>RunInstances</code> is a write-only event and it matches your event selector. The trail logs the event.</p> </li> <li> <p>The <code>GetConsoleOutput</code> is a read-only event but it doesn't match your event selector. The trail doesn't log the event. </p> </li> </ol> <p>The <code>PutEventSelectors</code> operation must be called from the region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.</p> <p>You can configure up to five event selectors for each trail. For more information, see <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html\">Logging Data and Management Events for Trails </a> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html\">Limits in AWS CloudTrail</a> in the <i>AWS CloudTrail User Guide</i>.</p>",
+        "operationId": "PutEventSelectors",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutEventSelectors"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PutEventSelectorsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PutEventSelectorsResponse" } }
+            }
+          },
+          "480": {
+            "description": "TrailNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotFoundException" } } }
+          },
+          "481": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidHomeRegionException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidHomeRegionException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidEventSelectorsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidEventSelectorsException" } }
+            }
+          },
+          "484": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "485": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "486": {
+            "description": "NotOrganizationMasterAccountException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NotOrganizationMasterAccountException" } }
+            }
+          },
+          "487": {
+            "description": "InsufficientDependencyServiceAccessPermissionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/InsufficientDependencyServiceAccessPermissionException" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RemoveTags": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Removes the specified tags from a trail.",
+        "operationId": "RemoveTags",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RemoveTags"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RemoveTagsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RemoveTagsResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "CloudTrailARNInvalidException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CloudTrailARNInvalidException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceTypeNotSupportedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceTypeNotSupportedException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "484": {
+            "description": "InvalidTagParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTagParameterException" } }
+            }
+          },
+          "485": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "486": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "487": {
+            "description": "NotOrganizationMasterAccountException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NotOrganizationMasterAccountException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Starts the recording of AWS API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.",
+        "operationId": "StartLogging",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StartLoggingRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StartLoggingResponse" } } }
+          },
+          "480": {
+            "description": "TrailNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotFoundException" } } }
+          },
+          "481": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidHomeRegionException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidHomeRegionException" } }
+            }
+          },
+          "483": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "485": {
+            "description": "NotOrganizationMasterAccountException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NotOrganizationMasterAccountException" } }
+            }
+          },
+          "486": {
+            "description": "InsufficientDependencyServiceAccessPermissionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/InsufficientDependencyServiceAccessPermissionException" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StopLogging": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Suspends the recording of AWS API calls and log file delivery for the specified trail. Under most circumstances, there is no need to use this action. You can update a trail without stopping it first. This action is the only way to stop recording. For a trail enabled in all regions, this operation must be called from the region in which the trail was created, or an <code>InvalidHomeRegionException</code> will occur. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail enabled in all regions.",
+        "operationId": "StopLogging",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StopLogging"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StopLoggingRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StopLoggingResponse" } } }
+          },
+          "480": {
+            "description": "TrailNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotFoundException" } } }
+          },
+          "481": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidHomeRegionException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidHomeRegionException" } }
+            }
+          },
+          "483": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "485": {
+            "description": "NotOrganizationMasterAccountException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NotOrganizationMasterAccountException" } }
+            }
+          },
+          "486": {
+            "description": "InsufficientDependencyServiceAccessPermissionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/InsufficientDependencyServiceAccessPermissionException" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.UpdateTrail": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the settings that specify delivery of log files. Changes to a trail do not require stopping the CloudTrail service. Use this action to designate an existing bucket for log delivery. If the existing bucket has previously been a target for CloudTrail log files, an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called from the region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.",
+        "operationId": "UpdateTrail",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.UpdateTrail"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateTrailRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateTrailResponse" } } }
+          },
+          "480": {
+            "description": "S3BucketDoesNotExistException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/S3BucketDoesNotExistException" } }
+            }
+          },
+          "481": {
+            "description": "InsufficientS3BucketPolicyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InsufficientS3BucketPolicyException" } }
+            }
+          },
+          "482": {
+            "description": "InsufficientSnsTopicPolicyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InsufficientSnsTopicPolicyException" } }
+            }
+          },
+          "483": {
+            "description": "InsufficientEncryptionPolicyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InsufficientEncryptionPolicyException" } }
+            }
+          },
+          "484": {
+            "description": "TrailNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotFoundException" } } }
+          },
+          "485": {
+            "description": "InvalidS3BucketNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidS3BucketNameException" } }
+            }
+          },
+          "486": {
+            "description": "InvalidS3PrefixException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidS3PrefixException" } } }
+          },
+          "487": {
+            "description": "InvalidSnsTopicNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidSnsTopicNameException" } }
+            }
+          },
+          "488": {
+            "description": "InvalidKmsKeyIdException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidKmsKeyIdException" } } }
+          },
+          "489": {
+            "description": "InvalidTrailNameException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTrailNameException" } }
+            }
+          },
+          "490": {
+            "description": "TrailNotProvidedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TrailNotProvidedException" } }
+            }
+          },
+          "491": {
+            "description": "InvalidParameterCombinationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterCombinationException" } }
+            }
+          },
+          "492": {
+            "description": "InvalidHomeRegionException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidHomeRegionException" } }
+            }
+          },
+          "493": {
+            "description": "KmsKeyNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/KmsKeyNotFoundException" } } }
+          },
+          "494": {
+            "description": "KmsKeyDisabledException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/KmsKeyDisabledException" } } }
+          },
+          "495": {
+            "description": "KmsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/KmsException" } } }
+          },
+          "496": {
+            "description": "InvalidCloudWatchLogsLogGroupArnException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/InvalidCloudWatchLogsLogGroupArnException" }
+              }
+            }
+          },
+          "497": {
+            "description": "InvalidCloudWatchLogsRoleArnException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidCloudWatchLogsRoleArnException" } }
+            }
+          },
+          "498": {
+            "description": "CloudWatchLogsDeliveryUnavailableException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CloudWatchLogsDeliveryUnavailableException" }
+              }
+            }
+          },
+          "499": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "500": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "501": {
+            "description": "CloudTrailAccessNotEnabledException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CloudTrailAccessNotEnabledException" } }
+            }
+          },
+          "502": {
+            "description": "InsufficientDependencyServiceAccessPermissionException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/InsufficientDependencyServiceAccessPermissionException" }
+              }
+            }
+          },
+          "503": {
+            "description": "OrganizationsNotInUseException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OrganizationsNotInUseException" } }
+            }
+          },
+          "504": {
+            "description": "NotOrganizationMasterAccountException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NotOrganizationMasterAccountException" } }
+            }
+          },
+          "505": {
+            "description": "OrganizationNotInAllFeaturesModeException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/OrganizationNotInAllFeaturesModeException" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The CloudTrail multi-region endpoint",
+      "url": "http://cloudtrail.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The CloudTrail multi-region endpoint",
+      "url": "https://cloudtrail.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The CloudTrail endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://cloudtrail.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The CloudTrail endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://cloudtrail.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AddTagsRequest": {
+        "description": "Specifies the tags to add to a trail.",
+        "properties": {
+          "ResourceId": { "$ref": "#/components/schemas/String" },
+          "TagsList": { "$ref": "#/components/schemas/TagsList" }
+        },
+        "required": ["ResourceId"],
+        "type": "object"
+      },
+      "AddTagsResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {},
+        "type": "object"
+      },
+      "Boolean": { "type": "boolean" },
+      "ByteBuffer": { "type": "string" },
+      "CloudTrailARNInvalidException": {},
+      "CloudTrailAccessNotEnabledException": {},
+      "CloudWatchLogsDeliveryUnavailableException": {},
+      "CreateTrailRequest": {
+        "description": "Specifies the settings for each trail.",
+        "properties": {
+          "CloudWatchLogsLogGroupArn": { "$ref": "#/components/schemas/String" },
+          "CloudWatchLogsRoleArn": { "$ref": "#/components/schemas/String" },
+          "EnableLogFileValidation": { "$ref": "#/components/schemas/Boolean" },
+          "IncludeGlobalServiceEvents": { "$ref": "#/components/schemas/Boolean" },
+          "IsMultiRegionTrail": { "$ref": "#/components/schemas/Boolean" },
+          "IsOrganizationTrail": { "$ref": "#/components/schemas/Boolean" },
+          "KmsKeyId": { "$ref": "#/components/schemas/String" },
+          "Name": { "$ref": "#/components/schemas/String" },
+          "S3BucketName": { "$ref": "#/components/schemas/String" },
+          "S3KeyPrefix": { "$ref": "#/components/schemas/String" },
+          "SnsTopicName": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["Name", "S3BucketName"],
+        "type": "object"
+      },
+      "CreateTrailResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {
+          "CloudWatchLogsLogGroupArn": { "$ref": "#/components/schemas/String" },
+          "CloudWatchLogsRoleArn": { "$ref": "#/components/schemas/String" },
+          "IncludeGlobalServiceEvents": { "$ref": "#/components/schemas/Boolean" },
+          "IsMultiRegionTrail": { "$ref": "#/components/schemas/Boolean" },
+          "IsOrganizationTrail": { "$ref": "#/components/schemas/Boolean" },
+          "KmsKeyId": { "$ref": "#/components/schemas/String" },
+          "LogFileValidationEnabled": { "$ref": "#/components/schemas/Boolean" },
+          "Name": { "$ref": "#/components/schemas/String" },
+          "S3BucketName": { "$ref": "#/components/schemas/String" },
+          "S3KeyPrefix": { "$ref": "#/components/schemas/String" },
+          "SnsTopicARN": { "$ref": "#/components/schemas/String" },
+          "SnsTopicName": { "$ref": "#/components/schemas/String" },
+          "TrailARN": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "DataResource": {
+        "description": "<p>The Amazon S3 buckets or AWS Lambda functions that you specify in your event selectors for your trail to log data events. Data events provide insight into the resource operations performed on or within a resource itself. These are also known as data plane operations. You can specify up to 250 data resources for a trail.</p> <note> <p>The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors.</p> </note> <p>The following example demonstrates how logging works when you configure logging of all data events for an S3 bucket named <code>bucket-1</code>. In this example, the CloudTrail user spcified an empty prefix, and the option to log both <code>Read</code> and <code>Write</code> data events.</p> <ol> <li> <p>A user uploads an image file to <code>bucket-1</code>.</p> </li> <li> <p>The <code>PutObject</code> API operation is an Amazon S3 object-level API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified an S3 bucket with an empty prefix, events that occur on any object in that bucket are logged. The trail processes and logs the event.</p> </li> <li> <p>A user uploads an object to an Amazon S3 bucket named <code>arn:aws:s3:::bucket-2</code>.</p> </li> <li> <p>The <code>PutObject</code> API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event.</p> </li> </ol> <p>The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named <i>MyLambdaFunction</i>, but not for all AWS Lambda functions.</p> <ol> <li> <p>A user runs a script that includes a call to the <i>MyLambdaFunction</i> function and the <i>MyOtherLambdaFunction</i> function.</p> </li> <li> <p>The <code>Invoke</code> API operation on <i>MyLambdaFunction</i> is an AWS Lambda API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified logging data events for <i>MyLambdaFunction</i>, any invocations of that function are logged. The trail processes and logs the event. </p> </li> <li> <p>The <code>Invoke</code> API operation on <i>MyOtherLambdaFunction</i> is an AWS Lambda API. Because the CloudTrail user did not specify logging data events for all Lambda functions, the <code>Invoke</code> operation for <i>MyOtherLambdaFunction</i> does not match the function specified for the trail. The trail doesn’t log the event. </p> </li> </ol>",
+        "properties": {
+          "Type": { "$ref": "#/components/schemas/String" },
+          "Values": { "$ref": "#/components/schemas/DataResourceValues" }
+        },
+        "type": "object"
+      },
+      "DataResourceValues": { "items": { "$ref": "#/components/schemas/String" }, "type": "array" },
+      "DataResources": { "items": { "$ref": "#/components/schemas/DataResource" }, "type": "array" },
+      "Date": { "format": "date-time", "type": "string" },
+      "DeleteTrailRequest": {
+        "description": "The request that specifies the name of a trail to delete.",
+        "properties": { "Name": { "$ref": "#/components/schemas/String" } },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "DeleteTrailResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {},
+        "type": "object"
+      },
+      "DescribeTrailsRequest": {
+        "description": "Returns information about the trail.",
+        "properties": {
+          "includeShadowTrails": { "$ref": "#/components/schemas/Boolean" },
+          "trailNameList": { "$ref": "#/components/schemas/TrailNameList" }
+        },
+        "type": "object"
+      },
+      "DescribeTrailsResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": { "trailList": { "$ref": "#/components/schemas/TrailList" } },
+        "type": "object"
+      },
+      "Event": {
+        "description": "Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.",
+        "properties": {
+          "AccessKeyId": { "$ref": "#/components/schemas/String" },
+          "CloudTrailEvent": { "$ref": "#/components/schemas/String" },
+          "EventId": { "$ref": "#/components/schemas/String" },
+          "EventName": { "$ref": "#/components/schemas/String" },
+          "EventSource": { "$ref": "#/components/schemas/String" },
+          "EventTime": { "$ref": "#/components/schemas/Date" },
+          "ReadOnly": { "$ref": "#/components/schemas/String" },
+          "Resources": { "$ref": "#/components/schemas/ResourceList" },
+          "Username": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "EventSelector": {
+        "description": "<p>Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.</p> <p>You can configure up to five event selectors for a trail.</p>",
+        "properties": {
+          "DataResources": { "$ref": "#/components/schemas/DataResources" },
+          "IncludeManagementEvents": { "$ref": "#/components/schemas/Boolean" },
+          "ReadWriteType": { "$ref": "#/components/schemas/ReadWriteType" }
+        },
+        "type": "object"
+      },
+      "EventSelectors": { "items": { "$ref": "#/components/schemas/EventSelector" }, "type": "array" },
+      "EventsList": { "items": { "$ref": "#/components/schemas/Event" }, "type": "array" },
+      "GetEventSelectorsRequest": {
+        "properties": { "TrailName": { "$ref": "#/components/schemas/String" } },
+        "required": ["TrailName"],
+        "type": "object"
+      },
+      "GetEventSelectorsResponse": {
+        "properties": {
+          "EventSelectors": { "$ref": "#/components/schemas/EventSelectors" },
+          "TrailARN": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "GetTrailStatusRequest": {
+        "description": "The name of a trail about which you want the current status.",
+        "properties": { "Name": { "$ref": "#/components/schemas/String" } },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "GetTrailStatusResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {
+          "IsLogging": { "$ref": "#/components/schemas/Boolean" },
+          "LatestCloudWatchLogsDeliveryError": { "$ref": "#/components/schemas/String" },
+          "LatestCloudWatchLogsDeliveryTime": { "$ref": "#/components/schemas/Date" },
+          "LatestDeliveryAttemptSucceeded": { "$ref": "#/components/schemas/String" },
+          "LatestDeliveryAttemptTime": { "$ref": "#/components/schemas/String" },
+          "LatestDeliveryError": { "$ref": "#/components/schemas/String" },
+          "LatestDeliveryTime": { "$ref": "#/components/schemas/Date" },
+          "LatestDigestDeliveryError": { "$ref": "#/components/schemas/String" },
+          "LatestDigestDeliveryTime": { "$ref": "#/components/schemas/Date" },
+          "LatestNotificationAttemptSucceeded": { "$ref": "#/components/schemas/String" },
+          "LatestNotificationAttemptTime": { "$ref": "#/components/schemas/String" },
+          "LatestNotificationError": { "$ref": "#/components/schemas/String" },
+          "LatestNotificationTime": { "$ref": "#/components/schemas/Date" },
+          "StartLoggingTime": { "$ref": "#/components/schemas/Date" },
+          "StopLoggingTime": { "$ref": "#/components/schemas/Date" },
+          "TimeLoggingStarted": { "$ref": "#/components/schemas/String" },
+          "TimeLoggingStopped": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "InsufficientDependencyServiceAccessPermissionException": {},
+      "InsufficientEncryptionPolicyException": {},
+      "InsufficientS3BucketPolicyException": {},
+      "InsufficientSnsTopicPolicyException": {},
+      "InvalidCloudWatchLogsLogGroupArnException": {},
+      "InvalidCloudWatchLogsRoleArnException": {},
+      "InvalidEventSelectorsException": {},
+      "InvalidHomeRegionException": {},
+      "InvalidKmsKeyIdException": {},
+      "InvalidLookupAttributesException": {},
+      "InvalidMaxResultsException": {},
+      "InvalidNextTokenException": {},
+      "InvalidParameterCombinationException": {},
+      "InvalidS3BucketNameException": {},
+      "InvalidS3PrefixException": {},
+      "InvalidSnsTopicNameException": {},
+      "InvalidTagParameterException": {},
+      "InvalidTimeRangeException": {},
+      "InvalidTokenException": {},
+      "InvalidTrailNameException": {},
+      "KmsException": {},
+      "KmsKeyDisabledException": {},
+      "KmsKeyNotFoundException": {},
+      "ListPublicKeysRequest": {
+        "description": "Requests the public keys for a specified time range.",
+        "properties": {
+          "EndTime": { "$ref": "#/components/schemas/Date" },
+          "NextToken": { "$ref": "#/components/schemas/String" },
+          "StartTime": { "$ref": "#/components/schemas/Date" }
+        },
+        "type": "object"
+      },
+      "ListPublicKeysResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/String" },
+          "PublicKeyList": { "$ref": "#/components/schemas/PublicKeyList" }
+        },
+        "type": "object"
+      },
+      "ListTagsRequest": {
+        "description": "Specifies a list of trail tags to return.",
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/String" },
+          "ResourceIdList": { "$ref": "#/components/schemas/ResourceIdList" }
+        },
+        "required": ["ResourceIdList"],
+        "type": "object"
+      },
+      "ListTagsResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/String" },
+          "ResourceTagList": { "$ref": "#/components/schemas/ResourceTagList" }
+        },
+        "type": "object"
+      },
+      "LookupAttribute": {
+        "description": "Specifies an attribute and value that filter the events returned.",
+        "properties": {
+          "AttributeKey": { "$ref": "#/components/schemas/LookupAttributeKey" },
+          "AttributeValue": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["AttributeKey", "AttributeValue"],
+        "type": "object"
+      },
+      "LookupAttributeKey": {
+        "enum": [
+          "EventId",
+          "EventName",
+          "ReadOnly",
+          "Username",
+          "ResourceType",
+          "ResourceName",
+          "EventSource",
+          "AccessKeyId"
+        ],
+        "type": "string"
+      },
+      "LookupAttributesList": { "items": { "$ref": "#/components/schemas/LookupAttribute" }, "type": "array" },
+      "LookupEventsRequest": {
+        "description": "Contains a request for LookupEvents.",
+        "properties": {
+          "EndTime": { "$ref": "#/components/schemas/Date" },
+          "LookupAttributes": { "$ref": "#/components/schemas/LookupAttributesList" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "StartTime": { "$ref": "#/components/schemas/Date" }
+        },
+        "type": "object"
+      },
+      "LookupEventsResponse": {
+        "description": "Contains a response to a LookupEvents action.",
+        "properties": {
+          "Events": { "$ref": "#/components/schemas/EventsList" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 50, "minimum": 1, "type": "integer" },
+      "MaximumNumberOfTrailsExceededException": {},
+      "NextToken": { "type": "string" },
+      "NotOrganizationMasterAccountException": {},
+      "OperationNotPermittedException": {},
+      "OrganizationNotInAllFeaturesModeException": {},
+      "OrganizationsNotInUseException": {},
+      "PublicKey": {
+        "description": "Contains information about a returned public key.",
+        "properties": {
+          "Fingerprint": { "$ref": "#/components/schemas/String" },
+          "ValidityEndTime": { "$ref": "#/components/schemas/Date" },
+          "ValidityStartTime": { "$ref": "#/components/schemas/Date" },
+          "Value": { "$ref": "#/components/schemas/ByteBuffer" }
+        },
+        "type": "object"
+      },
+      "PublicKeyList": { "items": { "$ref": "#/components/schemas/PublicKey" }, "type": "array" },
+      "PutEventSelectorsRequest": {
+        "properties": {
+          "EventSelectors": { "$ref": "#/components/schemas/EventSelectors" },
+          "TrailName": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["TrailName", "EventSelectors"],
+        "type": "object"
+      },
+      "PutEventSelectorsResponse": {
+        "properties": {
+          "EventSelectors": { "$ref": "#/components/schemas/EventSelectors" },
+          "TrailARN": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "ReadWriteType": { "enum": ["ReadOnly", "WriteOnly", "All"], "type": "string" },
+      "RemoveTagsRequest": {
+        "description": "Specifies the tags to remove from a trail.",
+        "properties": {
+          "ResourceId": { "$ref": "#/components/schemas/String" },
+          "TagsList": { "$ref": "#/components/schemas/TagsList" }
+        },
+        "required": ["ResourceId"],
+        "type": "object"
+      },
+      "RemoveTagsResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {},
+        "type": "object"
+      },
+      "Resource": {
+        "description": "Specifies the type and name of a resource referenced by an event.",
+        "properties": {
+          "ResourceName": { "$ref": "#/components/schemas/String" },
+          "ResourceType": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "ResourceIdList": { "items": { "$ref": "#/components/schemas/String" }, "type": "array" },
+      "ResourceList": {
+        "description": "A list of resources referenced by the event returned.",
+        "items": { "$ref": "#/components/schemas/Resource" },
+        "type": "array"
+      },
+      "ResourceNotFoundException": {},
+      "ResourceTag": {
+        "description": "A resource tag.",
+        "properties": {
+          "ResourceId": { "$ref": "#/components/schemas/String" },
+          "TagsList": { "$ref": "#/components/schemas/TagsList" }
+        },
+        "type": "object"
+      },
+      "ResourceTagList": { "items": { "$ref": "#/components/schemas/ResourceTag" }, "type": "array" },
+      "ResourceTypeNotSupportedException": {},
+      "S3BucketDoesNotExistException": {},
+      "StartLoggingRequest": {
+        "description": "The request to CloudTrail to start logging AWS API calls for an account.",
+        "properties": { "Name": { "$ref": "#/components/schemas/String" } },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "StartLoggingResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {},
+        "type": "object"
+      },
+      "StopLoggingRequest": {
+        "description": "Passes the request to CloudTrail to stop logging AWS API calls for the specified account.",
+        "properties": { "Name": { "$ref": "#/components/schemas/String" } },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "StopLoggingResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {},
+        "type": "object"
+      },
+      "String": { "type": "string" },
+      "Tag": {
+        "description": "A custom key-value pair associated with a resource such as a CloudTrail trail.",
+        "properties": {
+          "Key": { "$ref": "#/components/schemas/String" },
+          "Value": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["Key"],
+        "type": "object"
+      },
+      "TagsLimitExceededException": {},
+      "TagsList": {
+        "description": "A list of tags.",
+        "items": { "$ref": "#/components/schemas/Tag" },
+        "type": "array"
+      },
+      "Trail": {
+        "description": "The settings for a trail.",
+        "properties": {
+          "CloudWatchLogsLogGroupArn": { "$ref": "#/components/schemas/String" },
+          "CloudWatchLogsRoleArn": { "$ref": "#/components/schemas/String" },
+          "HasCustomEventSelectors": { "$ref": "#/components/schemas/Boolean" },
+          "HomeRegion": { "$ref": "#/components/schemas/String" },
+          "IncludeGlobalServiceEvents": { "$ref": "#/components/schemas/Boolean" },
+          "IsMultiRegionTrail": { "$ref": "#/components/schemas/Boolean" },
+          "IsOrganizationTrail": { "$ref": "#/components/schemas/Boolean" },
+          "KmsKeyId": { "$ref": "#/components/schemas/String" },
+          "LogFileValidationEnabled": { "$ref": "#/components/schemas/Boolean" },
+          "Name": { "$ref": "#/components/schemas/String" },
+          "S3BucketName": { "$ref": "#/components/schemas/String" },
+          "S3KeyPrefix": { "$ref": "#/components/schemas/String" },
+          "SnsTopicARN": { "$ref": "#/components/schemas/String" },
+          "SnsTopicName": { "$ref": "#/components/schemas/String" },
+          "TrailARN": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "TrailAlreadyExistsException": {},
+      "TrailList": { "items": { "$ref": "#/components/schemas/Trail" }, "type": "array" },
+      "TrailNameList": { "items": { "$ref": "#/components/schemas/String" }, "type": "array" },
+      "TrailNotFoundException": {},
+      "TrailNotProvidedException": {},
+      "UnsupportedOperationException": {},
+      "UpdateTrailRequest": {
+        "description": "Specifies settings to update for the trail.",
+        "properties": {
+          "CloudWatchLogsLogGroupArn": { "$ref": "#/components/schemas/String" },
+          "CloudWatchLogsRoleArn": { "$ref": "#/components/schemas/String" },
+          "EnableLogFileValidation": { "$ref": "#/components/schemas/Boolean" },
+          "IncludeGlobalServiceEvents": { "$ref": "#/components/schemas/Boolean" },
+          "IsMultiRegionTrail": { "$ref": "#/components/schemas/Boolean" },
+          "IsOrganizationTrail": { "$ref": "#/components/schemas/Boolean" },
+          "KmsKeyId": { "$ref": "#/components/schemas/String" },
+          "Name": { "$ref": "#/components/schemas/String" },
+          "S3BucketName": { "$ref": "#/components/schemas/String" },
+          "S3KeyPrefix": { "$ref": "#/components/schemas/String" },
+          "SnsTopicName": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "UpdateTrailResponse": {
+        "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
+        "properties": {
+          "CloudWatchLogsLogGroupArn": { "$ref": "#/components/schemas/String" },
+          "CloudWatchLogsRoleArn": { "$ref": "#/components/schemas/String" },
+          "IncludeGlobalServiceEvents": { "$ref": "#/components/schemas/Boolean" },
+          "IsMultiRegionTrail": { "$ref": "#/components/schemas/Boolean" },
+          "IsOrganizationTrail": { "$ref": "#/components/schemas/Boolean" },
+          "KmsKeyId": { "$ref": "#/components/schemas/String" },
+          "LogFileValidationEnabled": { "$ref": "#/components/schemas/Boolean" },
+          "Name": { "$ref": "#/components/schemas/String" },
+          "S3BucketName": { "$ref": "#/components/schemas/String" },
+          "S3KeyPrefix": { "$ref": "#/components/schemas/String" },
+          "SnsTopicARN": { "$ref": "#/components/schemas/String" },
+          "SnsTopicName": { "$ref": "#/components/schemas/String" },
+          "TrailARN": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

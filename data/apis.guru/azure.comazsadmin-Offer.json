@@ -1,1 +1,241 @@
-{"openapi":"3.0.0","info":{"description":"The User Subscription Management Client.","title":"SubscriptionClient","version":"2015-11-01","x-apisguru-categories":["cloud"],"x-logo":{"url":"https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"},"x-origin":[{"format":"swagger","url":"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/azsadmin/resource-manager/user-subscriptions/Microsoft.Subscriptions/preview/2015-11-01/Offer.json","version":"2.0"}],"x-preferred":true,"x-providerName":"azure.com","x-serviceName":"azsadmin-Offer","x-tags":["Azure","Microsoft"]},"security":[{"azure_auth":["user_impersonation"]}],"paths":{"/delegatedProviders/{delegatedProviderId}/offers":{"get":{"description":"Get the list of offers for the specified delegated provider.","operationId":"DelegatedProviderOffers_List","parameters":[{"description":"Id of the delegated provider.","in":"path","name":"delegatedProviderId","required":true,"schema":{"type":"string"},"examples":{"Get the list of offers.":{"value":"0af9c33b-f7ac-4161-add5-17b2f0b6a669"}}},{"description":"Client Api Version.","in":"query","name":"api-version","required":true,"schema":{"type":"string","default":"2015-11-01"},"examples":{"Get the list of offers.":{"value":"2015-11-01"}}}],"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OfferList"},"examples":{"Get the list of offers.":{"$ref":"#/components/examples/Get_the_list_of_offers."}}}}}},"tags":["DelegatedProviderOffers"],"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/delegatedProviders/{delegatedProviderId}/offers/{offerName}":{"get":{"description":"Get the specified offer for the delegated provider.","operationId":"DelegatedProviderOffers_Get","parameters":[{"description":"Id of the delegated provider.","in":"path","name":"delegatedProviderId","required":true,"schema":{"type":"string"},"examples":{"Get the specified offer name.":{"value":"0af9c33b-f7ac-4161-add5-17b2f0b6a669"}}},{"description":"Name of the offer.","in":"path","name":"offerName","required":true,"schema":{"type":"string"},"examples":{"Get the specified offer name.":{"value":"TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b"}}},{"description":"Client Api Version.","in":"query","name":"api-version","required":true,"schema":{"type":"string","default":"2015-11-01"},"examples":{"Get the specified offer name.":{"value":"2015-11-01"}}}],"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Offer"},"examples":{"Get the specified offer name.":{"$ref":"#/components/examples/Get_the_specified_offer_name."}}}}}},"tags":["DelegatedProviderOffers"]}},"/offers":{"get":{"description":"Get the list of public offers for the root provider.","operationId":"Offers_List","parameters":[{"description":"Client Api Version.","in":"query","name":"api-version","required":true,"schema":{"type":"string","default":"2015-11-01"},"examples":{"Get the list of public offers for the root provider.":{"value":"2015-11-01"}}}],"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OfferList"},"examples":{"Get the list of public offers for the root provider.":{"$ref":"#/components/examples/Get_the_list_of_public_offers_for_the_root_provider."}}}}}},"tags":["Offers"],"x-ms-pageable":{"nextLinkName":"nextLink"}}}},"servers":[{"url":"https://management.local.azurestack.external"}],"components":{"examples":{"Get_the_list_of_offers.":{"value":{"value":[{"description":"","displayName":"TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b","id":"/delegatedProviders/default/offers/TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b","name":"TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b"},{"description":"","displayName":"TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525","id":"/delegatedProviders/default/offers/TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525","name":"TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525"},{"description":"","displayName":"TestOffer-37097402-a512-40c2-b779-f0b3a54e5596","id":"/delegatedProviders/default/offers/TestOffer-37097402-a512-40c2-b779-f0b3a54e5596","name":"TestOffer-37097402-a512-40c2-b779-f0b3a54e5596"}]}},"Get_the_specified_offer_name.":{"value":{"description":"","displayName":"TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b","id":"/delegatedProviders/default/offers/TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b","name":"TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b"}},"Get_the_list_of_public_offers_for_the_root_provider.":{"value":{"value":[{"description":"","displayName":"TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b","id":"/delegatedProviders/default/offers/TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b","name":"TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b"},{"description":"","displayName":"TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525","id":"/delegatedProviders/default/offers/TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525","name":"TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525"},{"description":"","displayName":"TestOffer-37097402-a512-40c2-b779-f0b3a54e5596","id":"/delegatedProviders/default/offers/TestOffer-37097402-a512-40c2-b779-f0b3a54e5596","name":"TestOffer-37097402-a512-40c2-b779-f0b3a54e5596"}]}}},"securitySchemes":{"azure_auth":{"description":"Azure Active Directory OAuth2 flow","type":"oauth2","flows":{"implicit":{"authorizationUrl":"https://login.microsoftonline.com/common/oauth2/authorize","scopes":{"user_impersonation":"impersonate your user account"}}}}},"schemas":{"Offer":{"description":"Represents an offering of services against which a subscription can be created.","properties":{"description":{"description":"Description of offer.","type":"string"},"displayName":{"description":"Display name of offer.","type":"string"},"id":{"description":"The offer ID","type":"string"},"name":{"description":"The name of the offer.","type":"string"}},"type":"object"},"OfferList":{"description":"List of public offers.","properties":{"nextLink":{"description":"URI to next page.","type":"string"},"value":{"description":"List of public offers.","items":{"$ref":"#/components/schemas/Offer"},"type":"array"}},"type":"object"}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "The User Subscription Management Client.",
+    "title": "SubscriptionClient",
+    "version": "2015-11-01",
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/azsadmin/resource-manager/user-subscriptions/Microsoft.Subscriptions/preview/2015-11-01/Offer.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "azure.com",
+    "x-serviceName": "azsadmin-Offer",
+    "x-tags": ["Azure", "Microsoft"]
+  },
+  "security": [{ "azure_auth": ["user_impersonation"] }],
+  "paths": {
+    "/delegatedProviders/{delegatedProviderId}/offers": {
+      "get": {
+        "description": "Get the list of offers for the specified delegated provider.",
+        "operationId": "DelegatedProviderOffers_List",
+        "parameters": [
+          {
+            "description": "Id of the delegated provider.",
+            "in": "path",
+            "name": "delegatedProviderId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get the list of offers.": { "value": "0af9c33b-f7ac-4161-add5-17b2f0b6a669" } }
+          },
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string", "default": "2015-11-01" },
+            "examples": { "Get the list of offers.": { "value": "2015-11-01" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/OfferList" },
+                "examples": { "Get the list of offers.": { "$ref": "#/components/examples/Get_the_list_of_offers." } }
+              }
+            }
+          }
+        },
+        "tags": ["DelegatedProviderOffers"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/delegatedProviders/{delegatedProviderId}/offers/{offerName}": {
+      "get": {
+        "description": "Get the specified offer for the delegated provider.",
+        "operationId": "DelegatedProviderOffers_Get",
+        "parameters": [
+          {
+            "description": "Id of the delegated provider.",
+            "in": "path",
+            "name": "delegatedProviderId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get the specified offer name.": { "value": "0af9c33b-f7ac-4161-add5-17b2f0b6a669" } }
+          },
+          {
+            "description": "Name of the offer.",
+            "in": "path",
+            "name": "offerName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get the specified offer name.": { "value": "TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b" }
+            }
+          },
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string", "default": "2015-11-01" },
+            "examples": { "Get the specified offer name.": { "value": "2015-11-01" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Offer" },
+                "examples": {
+                  "Get the specified offer name.": { "$ref": "#/components/examples/Get_the_specified_offer_name." }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["DelegatedProviderOffers"]
+      }
+    },
+    "/offers": {
+      "get": {
+        "description": "Get the list of public offers for the root provider.",
+        "operationId": "Offers_List",
+        "parameters": [
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string", "default": "2015-11-01" },
+            "examples": { "Get the list of public offers for the root provider.": { "value": "2015-11-01" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/OfferList" },
+                "examples": {
+                  "Get the list of public offers for the root provider.": {
+                    "$ref": "#/components/examples/Get_the_list_of_public_offers_for_the_root_provider."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Offers"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    }
+  },
+  "servers": [{ "url": "https://management.local.azurestack.external" }],
+  "components": {
+    "examples": {
+      "Get_the_list_of_offers.": {
+        "value": {
+          "value": [
+            {
+              "description": "",
+              "displayName": "TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b",
+              "id": "/delegatedProviders/default/offers/TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b",
+              "name": "TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b"
+            },
+            {
+              "description": "",
+              "displayName": "TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525",
+              "id": "/delegatedProviders/default/offers/TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525",
+              "name": "TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525"
+            },
+            {
+              "description": "",
+              "displayName": "TestOffer-37097402-a512-40c2-b779-f0b3a54e5596",
+              "id": "/delegatedProviders/default/offers/TestOffer-37097402-a512-40c2-b779-f0b3a54e5596",
+              "name": "TestOffer-37097402-a512-40c2-b779-f0b3a54e5596"
+            }
+          ]
+        }
+      },
+      "Get_the_specified_offer_name.": {
+        "value": {
+          "description": "",
+          "displayName": "TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b",
+          "id": "/delegatedProviders/default/offers/TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b",
+          "name": "TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b"
+        }
+      },
+      "Get_the_list_of_public_offers_for_the_root_provider.": {
+        "value": {
+          "value": [
+            {
+              "description": "",
+              "displayName": "TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b",
+              "id": "/delegatedProviders/default/offers/TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b",
+              "name": "TestOffer-def2432b-81ef-4480-9211-c18e808c3d1b"
+            },
+            {
+              "description": "",
+              "displayName": "TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525",
+              "id": "/delegatedProviders/default/offers/TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525",
+              "name": "TestOffer-c2e9d93a-d8a2-4ec9-970e-3dcd8c47c525"
+            },
+            {
+              "description": "",
+              "displayName": "TestOffer-37097402-a512-40c2-b779-f0b3a54e5596",
+              "id": "/delegatedProviders/default/offers/TestOffer-37097402-a512-40c2-b779-f0b3a54e5596",
+              "name": "TestOffer-37097402-a512-40c2-b779-f0b3a54e5596"
+            }
+          ]
+        }
+      }
+    },
+    "securitySchemes": {
+      "azure_auth": {
+        "description": "Azure Active Directory OAuth2 flow",
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "scopes": { "user_impersonation": "impersonate your user account" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Offer": {
+        "description": "Represents an offering of services against which a subscription can be created.",
+        "properties": {
+          "description": { "description": "Description of offer.", "type": "string" },
+          "displayName": { "description": "Display name of offer.", "type": "string" },
+          "id": { "description": "The offer ID", "type": "string" },
+          "name": { "description": "The name of the offer.", "type": "string" }
+        },
+        "type": "object"
+      },
+      "OfferList": {
+        "description": "List of public offers.",
+        "properties": {
+          "nextLink": { "description": "URI to next page.", "type": "string" },
+          "value": {
+            "description": "List of public offers.",
+            "items": { "$ref": "#/components/schemas/Offer" },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

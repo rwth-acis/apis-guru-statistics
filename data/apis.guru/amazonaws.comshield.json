@@ -1,1 +1,1485 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<fullname>AWS Shield Advanced</fullname> <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>.</p>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS Shield","version":"2016-06-02","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/shield-2016-06-02.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"shield"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/shield/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=AWSShield_20160616.AssociateDRTLogBucket":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Authorizes the DDoS Response team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p> <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>","operationId":"AssociateDRTLogBucket","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.AssociateDRTLogBucket"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateDRTLogBucketRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateDRTLogBucketResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"InvalidOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidOperationException"}}}},"482":{"description":"NoAssociatedRoleException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAssociatedRoleException"}}}},"483":{"description":"LimitsExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitsExceededException"}}}},"484":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"485":{"description":"AccessDeniedForDependencyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedForDependencyException"}}}},"486":{"description":"OptimisticLockException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OptimisticLockException"}}}},"487":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.AssociateDRTRole":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Authorizes the DDoS Response team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p> <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p> <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON Policy Elements: Principal</a>.</p> <p>The DRT will have access only to your AWS WAF and Shield resources. By submitting this request, you authorize the DRT to inspect your AWS WAF and Shield configuration and create and update AWS WAF rules and web ACLs on your behalf. The DRT takes these actions only if explicitly authorized by you.</p> <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p> <p>To use the services of the DRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>","operationId":"AssociateDRTRole","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.AssociateDRTRole"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateDRTRoleRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateDRTRoleResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"InvalidOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidOperationException"}}}},"482":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"483":{"description":"AccessDeniedForDependencyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedForDependencyException"}}}},"484":{"description":"OptimisticLockException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OptimisticLockException"}}}},"485":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.CreateProtection":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p> <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href=\"https://console.aws.amazon.com/waf/\">AWS WAF console</a>. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with AWS Shield Advanced</a> and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Add AWS Shield Advanced Protection to more AWS Resources</a>.</p>","operationId":"CreateProtection","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.CreateProtection"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateProtectionRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateProtectionResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"InvalidResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidResourceException"}}}},"482":{"description":"InvalidOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidOperationException"}}}},"483":{"description":"LimitsExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitsExceededException"}}}},"484":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"485":{"description":"OptimisticLockException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OptimisticLockException"}}}},"486":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.CreateSubscription":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Activates AWS Shield Advanced for an account.</p> <p>As part of this request you can specify <code>EmergencySettings</code> that automaticaly grant the DDoS response team (DRT) needed permissions to assist you during a suspected DDoS attack. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/authorize-DRT.html\">Authorize the DDoS Response Team to Create Rules and Web ACLs on Your Behalf</a>.</p> <p>To use the services of the DRT, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p> <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. </p>","operationId":"CreateSubscription","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.CreateSubscription"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateSubscriptionRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateSubscriptionResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DeleteProtection":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes an AWS Shield Advanced <a>Protection</a>.","operationId":"DeleteProtection","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DeleteProtection"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteProtectionRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteProtectionResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"OptimisticLockException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OptimisticLockException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DeleteSubscription":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"deprecated":true,"description":"Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. ","operationId":"DeleteSubscription","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DeleteSubscription"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteSubscriptionRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteSubscriptionResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"LockedSubscriptionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LockedSubscriptionException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DescribeAttack":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes the details of a DDoS attack. ","operationId":"DescribeAttack","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DescribeAttack"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeAttackRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeAttackResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DescribeDRTAccess":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns the current role and list of Amazon S3 log buckets used by the DDoS Response team (DRT) to access your AWS account while assisting with attack mitigation.","operationId":"DescribeDRTAccess","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DescribeDRTAccess"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDRTAccessRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDRTAccessResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DescribeEmergencyContactSettings":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the email addresses that the DRT can use to contact you during a suspected attack.","operationId":"DescribeEmergencyContactSettings","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DescribeEmergencyContactSettings"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeEmergencyContactSettingsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeEmergencyContactSettingsResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DescribeProtection":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the details of a <a>Protection</a> object.","operationId":"DescribeProtection","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DescribeProtection"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeProtectionRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeProtectionResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DescribeSubscription":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Provides details about the AWS Shield Advanced subscription for an account.","operationId":"DescribeSubscription","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DescribeSubscription"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeSubscriptionRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeSubscriptionResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DisassociateDRTLogBucket":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Removes the DDoS Response team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p> <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>","operationId":"DisassociateDRTLogBucket","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DisassociateDRTLogBucket"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateDRTLogBucketRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateDRTLogBucketResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"InvalidOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidOperationException"}}}},"482":{"description":"NoAssociatedRoleException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoAssociatedRoleException"}}}},"483":{"description":"AccessDeniedForDependencyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedForDependencyException"}}}},"484":{"description":"OptimisticLockException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OptimisticLockException"}}}},"485":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.DisassociateDRTRole":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Removes the DDoS Response team's (DRT) access to your AWS account.</p> <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>","operationId":"DisassociateDRTRole","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.DisassociateDRTRole"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateDRTRoleRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateDRTRoleResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"InvalidOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidOperationException"}}}},"482":{"description":"OptimisticLockException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OptimisticLockException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.GetSubscriptionState":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.","operationId":"GetSubscriptionState","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.GetSubscriptionState"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetSubscriptionStateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetSubscriptionStateResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.ListAttacks":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.","operationId":"ListAttacks","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.ListAttacks"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListAttacksRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListAttacksResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InvalidOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidOperationException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.ListProtections":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists all <a>Protection</a> objects for the account.","operationId":"ListProtections","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.ListProtections"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListProtectionsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListProtectionsResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"InvalidPaginationTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidPaginationTokenException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.UpdateEmergencyContactSettings":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the details of the list of email addresses that the DRT can use to contact you during a suspected attack.","operationId":"UpdateEmergencyContactSettings","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.UpdateEmergencyContactSettings"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateEmergencyContactSettingsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateEmergencyContactSettingsResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"OptimisticLockException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OptimisticLockException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AWSShield_20160616.UpdateSubscription":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.","operationId":"UpdateSubscription","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShield_20160616.UpdateSubscription"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateSubscriptionRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateSubscriptionResponse"}}}},"480":{"description":"InternalErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalErrorException"}}}},"481":{"description":"LockedSubscriptionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LockedSubscriptionException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"484":{"description":"OptimisticLockException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OptimisticLockException"}}}}}}}},"servers":[{"description":"The AWS Shield multi-region endpoint","url":"http://shield.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS Shield multi-region endpoint","url":"https://shield.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS Shield endpoint for China (Beijing) and China (Ningxia)","url":"http://shield.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS Shield endpoint for China (Beijing) and China (Ningxia)","url":"https://shield.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AccessDeniedException":{},"AccessDeniedForDependencyException":{},"AssociateDRTLogBucketRequest":{"properties":{"LogBucket":{"$ref":"#/components/schemas/LogBucket"}},"required":["LogBucket"],"type":"object"},"AssociateDRTLogBucketResponse":{"properties":{},"type":"object"},"AssociateDRTRoleRequest":{"properties":{"RoleArn":{"$ref":"#/components/schemas/RoleArn"}},"required":["RoleArn"],"type":"object"},"AssociateDRTRoleResponse":{"properties":{},"type":"object"},"AttackDetail":{"description":"The details of a DDoS attack.","properties":{"AttackCounters":{"$ref":"#/components/schemas/SummarizedCounterList"},"AttackId":{"$ref":"#/components/schemas/AttackId"},"AttackProperties":{"$ref":"#/components/schemas/AttackProperties"},"EndTime":{"$ref":"#/components/schemas/AttackTimestamp"},"Mitigations":{"$ref":"#/components/schemas/MitigationList"},"ResourceArn":{"$ref":"#/components/schemas/ResourceArn"},"StartTime":{"$ref":"#/components/schemas/AttackTimestamp"},"SubResources":{"$ref":"#/components/schemas/SubResourceSummaryList"}},"type":"object"},"AttackId":{"maxLength":128,"minLength":1,"pattern":"[a-zA-Z0-9\\\\-]*","type":"string"},"AttackLayer":{"enum":["NETWORK","APPLICATION"],"type":"string"},"AttackProperties":{"items":{"$ref":"#/components/schemas/AttackProperty"},"type":"array"},"AttackProperty":{"description":"Details of the described attack.","properties":{"AttackLayer":{"$ref":"#/components/schemas/AttackLayer"},"AttackPropertyIdentifier":{"$ref":"#/components/schemas/AttackPropertyIdentifier"},"TopContributors":{"$ref":"#/components/schemas/TopContributors"},"Total":{"$ref":"#/components/schemas/Long"},"Unit":{"$ref":"#/components/schemas/Unit"}},"type":"object"},"AttackPropertyIdentifier":{"enum":["DESTINATION_URL","REFERRER","SOURCE_ASN","SOURCE_COUNTRY","SOURCE_IP_ADDRESS","SOURCE_USER_AGENT","WORDPRESS_PINGBACK_REFLECTOR","WORDPRESS_PINGBACK_SOURCE"],"type":"string"},"AttackSummaries":{"items":{"$ref":"#/components/schemas/AttackSummary"},"type":"array"},"AttackSummary":{"description":"Summarizes all DDoS attacks for a specified time period.","properties":{"AttackId":{"$ref":"#/components/schemas/String"},"AttackVectors":{"$ref":"#/components/schemas/AttackVectorDescriptionList"},"EndTime":{"$ref":"#/components/schemas/AttackTimestamp"},"ResourceArn":{"$ref":"#/components/schemas/String"},"StartTime":{"$ref":"#/components/schemas/AttackTimestamp"}},"type":"object"},"AttackTimestamp":{"format":"date-time","type":"string"},"AttackVectorDescription":{"description":"Describes the attack.","properties":{"VectorType":{"$ref":"#/components/schemas/String"}},"required":["VectorType"],"type":"object"},"AttackVectorDescriptionList":{"items":{"$ref":"#/components/schemas/AttackVectorDescription"},"type":"array"},"AutoRenew":{"enum":["ENABLED","DISABLED"],"type":"string"},"Contributor":{"description":"A contributor to the attack and their contribution.","properties":{"Name":{"$ref":"#/components/schemas/String"},"Value":{"$ref":"#/components/schemas/Long"}},"type":"object"},"CreateProtectionRequest":{"properties":{"Name":{"$ref":"#/components/schemas/ProtectionName"},"ResourceArn":{"$ref":"#/components/schemas/ResourceArn"}},"required":["Name","ResourceArn"],"type":"object"},"CreateProtectionResponse":{"properties":{"ProtectionId":{"$ref":"#/components/schemas/ProtectionId"}},"type":"object"},"CreateSubscriptionRequest":{"properties":{},"type":"object"},"CreateSubscriptionResponse":{"properties":{},"type":"object"},"DeleteProtectionRequest":{"properties":{"ProtectionId":{"$ref":"#/components/schemas/ProtectionId"}},"required":["ProtectionId"],"type":"object"},"DeleteProtectionResponse":{"properties":{},"type":"object"},"DeleteSubscriptionRequest":{"properties":{},"type":"object"},"DeleteSubscriptionResponse":{"properties":{},"type":"object"},"DescribeAttackRequest":{"properties":{"AttackId":{"$ref":"#/components/schemas/AttackId"}},"required":["AttackId"],"type":"object"},"DescribeAttackResponse":{"properties":{"Attack":{"$ref":"#/components/schemas/AttackDetail"}},"type":"object"},"DescribeDRTAccessRequest":{"properties":{},"type":"object"},"DescribeDRTAccessResponse":{"properties":{"LogBucketList":{"$ref":"#/components/schemas/LogBucketList"},"RoleArn":{"$ref":"#/components/schemas/RoleArn"}},"type":"object"},"DescribeEmergencyContactSettingsRequest":{"properties":{},"type":"object"},"DescribeEmergencyContactSettingsResponse":{"properties":{"EmergencyContactList":{"$ref":"#/components/schemas/EmergencyContactList"}},"type":"object"},"DescribeProtectionRequest":{"properties":{"ProtectionId":{"$ref":"#/components/schemas/ProtectionId"},"ResourceArn":{"$ref":"#/components/schemas/ResourceArn"}},"type":"object"},"DescribeProtectionResponse":{"properties":{"Protection":{"$ref":"#/components/schemas/Protection"}},"type":"object"},"DescribeSubscriptionRequest":{"properties":{},"type":"object"},"DescribeSubscriptionResponse":{"properties":{"Subscription":{"$ref":"#/components/schemas/Subscription"}},"type":"object"},"DisassociateDRTLogBucketRequest":{"properties":{"LogBucket":{"$ref":"#/components/schemas/LogBucket"}},"required":["LogBucket"],"type":"object"},"DisassociateDRTLogBucketResponse":{"properties":{},"type":"object"},"DisassociateDRTRoleRequest":{"properties":{},"type":"object"},"DisassociateDRTRoleResponse":{"properties":{},"type":"object"},"Double":{"format":"double","type":"number"},"DurationInSeconds":{"minimum":0,"type":"integer"},"EmailAddress":{"maxLength":150,"minLength":1,"pattern":"^\\S+@\\S+\\.\\S+$","type":"string"},"EmergencyContact":{"description":"Contact information that the DRT can use to contact you during a suspected attack.","properties":{"EmailAddress":{"$ref":"#/components/schemas/EmailAddress"}},"required":["EmailAddress"],"type":"object"},"EmergencyContactList":{"items":{"$ref":"#/components/schemas/EmergencyContact"},"maxItems":10,"minItems":0,"type":"array"},"GetSubscriptionStateRequest":{"properties":{},"type":"object"},"GetSubscriptionStateResponse":{"properties":{"SubscriptionState":{"$ref":"#/components/schemas/SubscriptionState"}},"required":["SubscriptionState"],"type":"object"},"Integer":{"type":"integer"},"InternalErrorException":{},"InvalidOperationException":{},"InvalidPaginationTokenException":{},"InvalidParameterException":{},"InvalidResourceException":{},"Limit":{"description":"Specifies how many protections of a given type you can create.","properties":{"Max":{"$ref":"#/components/schemas/Long"},"Type":{"$ref":"#/components/schemas/String"}},"type":"object"},"Limits":{"items":{"$ref":"#/components/schemas/Limit"},"type":"array"},"LimitsExceededException":{},"ListAttacksRequest":{"properties":{"EndTime":{"$ref":"#/components/schemas/TimeRange"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/Token"},"ResourceArns":{"$ref":"#/components/schemas/ResourceArnFilterList"},"StartTime":{"$ref":"#/components/schemas/TimeRange"}},"type":"object"},"ListAttacksResponse":{"properties":{"AttackSummaries":{"$ref":"#/components/schemas/AttackSummaries"},"NextToken":{"$ref":"#/components/schemas/Token"}},"type":"object"},"ListProtectionsRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/Token"}},"type":"object"},"ListProtectionsResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/Token"},"Protections":{"$ref":"#/components/schemas/Protections"}},"type":"object"},"LockedSubscriptionException":{},"LogBucket":{"maxLength":63,"minLength":3,"pattern":"^([a-z]|(\\d(?!\\d{0,2}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})))([a-z\\d]|(\\.(?!(\\.|-)))|(-(?!\\.))){1,61}[a-z\\d]$","type":"string"},"LogBucketList":{"items":{"$ref":"#/components/schemas/LogBucket"},"maxItems":10,"minItems":0,"type":"array"},"Long":{"type":"integer"},"MaxResults":{"maximum":10000,"minimum":0,"type":"integer"},"Mitigation":{"description":"The mitigation applied to a DDoS attack.","properties":{"MitigationName":{"$ref":"#/components/schemas/String"}},"type":"object"},"MitigationList":{"items":{"$ref":"#/components/schemas/Mitigation"},"type":"array"},"NoAssociatedRoleException":{},"OptimisticLockException":{},"Protection":{"description":"An object that represents a resource that is under DDoS protection.","properties":{"Id":{"$ref":"#/components/schemas/ProtectionId"},"Name":{"$ref":"#/components/schemas/ProtectionName"},"ResourceArn":{"$ref":"#/components/schemas/ResourceArn"}},"type":"object"},"ProtectionId":{"maxLength":36,"minLength":1,"pattern":"[a-zA-Z0-9\\\\-]*","type":"string"},"ProtectionName":{"maxLength":128,"minLength":1,"pattern":"[ a-zA-Z0-9_\\\\.\\\\-]*","type":"string"},"Protections":{"items":{"$ref":"#/components/schemas/Protection"},"type":"array"},"ResourceAlreadyExistsException":{},"ResourceArn":{"maxLength":2048,"minLength":1,"pattern":"^arn:aws.*","type":"string"},"ResourceArnFilterList":{"items":{"$ref":"#/components/schemas/ResourceArn"},"type":"array"},"ResourceNotFoundException":{},"RoleArn":{"maxLength":2048,"minLength":1,"pattern":"^arn:aws:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+","type":"string"},"String":{"type":"string"},"SubResourceSummary":{"description":"The attack information for the specified SubResource.","properties":{"AttackVectors":{"$ref":"#/components/schemas/SummarizedAttackVectorList"},"Counters":{"$ref":"#/components/schemas/SummarizedCounterList"},"Id":{"$ref":"#/components/schemas/String"},"Type":{"$ref":"#/components/schemas/SubResourceType"}},"type":"object"},"SubResourceSummaryList":{"items":{"$ref":"#/components/schemas/SubResourceSummary"},"type":"array"},"SubResourceType":{"enum":["IP","URL"],"type":"string"},"Subscription":{"description":"Information about the AWS Shield Advanced subscription for an account.","properties":{"AutoRenew":{"$ref":"#/components/schemas/AutoRenew"},"EndTime":{"$ref":"#/components/schemas/Timestamp"},"Limits":{"$ref":"#/components/schemas/Limits"},"StartTime":{"$ref":"#/components/schemas/Timestamp"},"TimeCommitmentInSeconds":{"$ref":"#/components/schemas/DurationInSeconds"}},"type":"object"},"SubscriptionState":{"enum":["ACTIVE","INACTIVE"],"type":"string"},"SummarizedAttackVector":{"description":"A summary of information about the attack.","properties":{"VectorCounters":{"$ref":"#/components/schemas/SummarizedCounterList"},"VectorType":{"$ref":"#/components/schemas/String"}},"required":["VectorType"],"type":"object"},"SummarizedAttackVectorList":{"items":{"$ref":"#/components/schemas/SummarizedAttackVector"},"type":"array"},"SummarizedCounter":{"description":"The counter that describes a DDoS attack.","properties":{"Average":{"$ref":"#/components/schemas/Double"},"Max":{"$ref":"#/components/schemas/Double"},"N":{"$ref":"#/components/schemas/Integer"},"Name":{"$ref":"#/components/schemas/String"},"Sum":{"$ref":"#/components/schemas/Double"},"Unit":{"$ref":"#/components/schemas/String"}},"type":"object"},"SummarizedCounterList":{"items":{"$ref":"#/components/schemas/SummarizedCounter"},"type":"array"},"TimeRange":{"description":"The time range.","properties":{"FromInclusive":{"$ref":"#/components/schemas/AttackTimestamp"},"ToExclusive":{"$ref":"#/components/schemas/AttackTimestamp"}},"type":"object"},"Timestamp":{"format":"date-time","type":"string"},"Token":{"maxLength":4096,"minLength":1,"pattern":"^.*$","type":"string"},"TopContributors":{"items":{"$ref":"#/components/schemas/Contributor"},"type":"array"},"Unit":{"enum":["BITS","BYTES","PACKETS","REQUESTS"],"type":"string"},"UpdateEmergencyContactSettingsRequest":{"properties":{"EmergencyContactList":{"$ref":"#/components/schemas/EmergencyContactList"}},"type":"object"},"UpdateEmergencyContactSettingsResponse":{"properties":{},"type":"object"},"UpdateSubscriptionRequest":{"properties":{"AutoRenew":{"$ref":"#/components/schemas/AutoRenew"}},"type":"object"},"UpdateSubscriptionResponse":{"properties":{},"type":"object"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS Shield Advanced</fullname> <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>.</p>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Shield",
+    "version": "2016-06-02",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/shield-2016-06-02.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "shield"
+  },
+  "externalDocs": { "description": "Amazon Web Services documentation", "url": "https://docs.aws.amazon.com/shield/" },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=AWSShield_20160616.AssociateDRTLogBucket": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Authorizes the DDoS Response team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p> <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>",
+        "operationId": "AssociateDRTLogBucket",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.AssociateDRTLogBucket"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/AssociateDRTLogBucketRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AssociateDRTLogBucketResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidOperationException" } }
+            }
+          },
+          "482": {
+            "description": "NoAssociatedRoleException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAssociatedRoleException" } }
+            }
+          },
+          "483": {
+            "description": "LimitsExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitsExceededException" } } }
+          },
+          "484": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "485": {
+            "description": "AccessDeniedForDependencyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedForDependencyException" } }
+            }
+          },
+          "486": {
+            "description": "OptimisticLockException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OptimisticLockException" } } }
+          },
+          "487": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.AssociateDRTRole": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Authorizes the DDoS Response team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p> <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p> <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON Policy Elements: Principal</a>.</p> <p>The DRT will have access only to your AWS WAF and Shield resources. By submitting this request, you authorize the DRT to inspect your AWS WAF and Shield configuration and create and update AWS WAF rules and web ACLs on your behalf. The DRT takes these actions only if explicitly authorized by you.</p> <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p> <p>To use the services of the DRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>",
+        "operationId": "AssociateDRTRole",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.AssociateDRTRole"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AssociateDRTRoleRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AssociateDRTRoleResponse" } } }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidOperationException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "483": {
+            "description": "AccessDeniedForDependencyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedForDependencyException" } }
+            }
+          },
+          "484": {
+            "description": "OptimisticLockException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OptimisticLockException" } } }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.CreateProtection": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p> <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href=\"https://console.aws.amazon.com/waf/\">AWS WAF console</a>. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with AWS Shield Advanced</a> and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Add AWS Shield Advanced Protection to more AWS Resources</a>.</p>",
+        "operationId": "CreateProtection",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.CreateProtection"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateProtectionRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateProtectionResponse" } } }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "InvalidResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidResourceException" } } }
+          },
+          "482": {
+            "description": "InvalidOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidOperationException" } }
+            }
+          },
+          "483": {
+            "description": "LimitsExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitsExceededException" } } }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "485": {
+            "description": "OptimisticLockException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OptimisticLockException" } } }
+          },
+          "486": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.CreateSubscription": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Activates AWS Shield Advanced for an account.</p> <p>As part of this request you can specify <code>EmergencySettings</code> that automaticaly grant the DDoS response team (DRT) needed permissions to assist you during a suspected DDoS attack. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/authorize-DRT.html\">Authorize the DDoS Response Team to Create Rules and Web ACLs on Your Behalf</a>.</p> <p>To use the services of the DRT, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p> <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. </p>",
+        "operationId": "CreateSubscription",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.CreateSubscription"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateSubscriptionRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateSubscriptionResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DeleteProtection": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes an AWS Shield Advanced <a>Protection</a>.",
+        "operationId": "DeleteProtection",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DeleteProtection"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteProtectionRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteProtectionResponse" } } }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "OptimisticLockException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OptimisticLockException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DeleteSubscription": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "deprecated": true,
+        "description": "Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. ",
+        "operationId": "DeleteSubscription",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DeleteSubscription"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteSubscriptionRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeleteSubscriptionResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "LockedSubscriptionException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/LockedSubscriptionException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DescribeAttack": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes the details of a DDoS attack. ",
+        "operationId": "DescribeAttack",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DescribeAttack"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeAttackRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeAttackResponse" } } }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DescribeDRTAccess": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns the current role and list of Amazon S3 log buckets used by the DDoS Response team (DRT) to access your AWS account while assisting with attack mitigation.",
+        "operationId": "DescribeDRTAccess",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DescribeDRTAccess"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDRTAccessRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDRTAccessResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DescribeEmergencyContactSettings": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the email addresses that the DRT can use to contact you during a suspected attack.",
+        "operationId": "DescribeEmergencyContactSettings",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DescribeEmergencyContactSettings"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DescribeEmergencyContactSettingsRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DescribeEmergencyContactSettingsResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DescribeProtection": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the details of a <a>Protection</a> object.",
+        "operationId": "DescribeProtection",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DescribeProtection"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeProtectionRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeProtectionResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DescribeSubscription": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Provides details about the AWS Shield Advanced subscription for an account.",
+        "operationId": "DescribeSubscription",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DescribeSubscription"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DescribeSubscriptionRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeSubscriptionResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DisassociateDRTLogBucket": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Removes the DDoS Response team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p> <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>",
+        "operationId": "DisassociateDRTLogBucket",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DisassociateDRTLogBucket"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateDRTLogBucketRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateDRTLogBucketResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidOperationException" } }
+            }
+          },
+          "482": {
+            "description": "NoAssociatedRoleException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoAssociatedRoleException" } }
+            }
+          },
+          "483": {
+            "description": "AccessDeniedForDependencyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedForDependencyException" } }
+            }
+          },
+          "484": {
+            "description": "OptimisticLockException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OptimisticLockException" } } }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.DisassociateDRTRole": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Removes the DDoS Response team's (DRT) access to your AWS account.</p> <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>",
+        "operationId": "DisassociateDRTRole",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.DisassociateDRTRole"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateDRTRoleRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateDRTRoleResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "InvalidOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidOperationException" } }
+            }
+          },
+          "482": {
+            "description": "OptimisticLockException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OptimisticLockException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.GetSubscriptionState": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.",
+        "operationId": "GetSubscriptionState",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.GetSubscriptionState"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetSubscriptionStateRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetSubscriptionStateResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.ListAttacks": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.",
+        "operationId": "ListAttacks",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.ListAttacks"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListAttacksRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListAttacksResponse" } } }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidOperationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.ListProtections": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists all <a>Protection</a> objects for the account.",
+        "operationId": "ListProtections",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.ListProtections"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListProtectionsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListProtectionsResponse" } } }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidPaginationTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidPaginationTokenException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.UpdateEmergencyContactSettings": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the details of the list of email addresses that the DRT can use to contact you during a suspected attack.",
+        "operationId": "UpdateEmergencyContactSettings",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.UpdateEmergencyContactSettings"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/UpdateEmergencyContactSettingsRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UpdateEmergencyContactSettingsResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "OptimisticLockException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OptimisticLockException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShield_20160616.UpdateSubscription": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.",
+        "operationId": "UpdateSubscription",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShield_20160616.UpdateSubscription"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateSubscriptionRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateSubscriptionResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalErrorException" } } }
+          },
+          "481": {
+            "description": "LockedSubscriptionException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/LockedSubscriptionException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "484": {
+            "description": "OptimisticLockException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OptimisticLockException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS Shield multi-region endpoint",
+      "url": "http://shield.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS Shield multi-region endpoint",
+      "url": "https://shield.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS Shield endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://shield.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS Shield endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://shield.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AccessDeniedException": {},
+      "AccessDeniedForDependencyException": {},
+      "AssociateDRTLogBucketRequest": {
+        "properties": { "LogBucket": { "$ref": "#/components/schemas/LogBucket" } },
+        "required": ["LogBucket"],
+        "type": "object"
+      },
+      "AssociateDRTLogBucketResponse": { "properties": {}, "type": "object" },
+      "AssociateDRTRoleRequest": {
+        "properties": { "RoleArn": { "$ref": "#/components/schemas/RoleArn" } },
+        "required": ["RoleArn"],
+        "type": "object"
+      },
+      "AssociateDRTRoleResponse": { "properties": {}, "type": "object" },
+      "AttackDetail": {
+        "description": "The details of a DDoS attack.",
+        "properties": {
+          "AttackCounters": { "$ref": "#/components/schemas/SummarizedCounterList" },
+          "AttackId": { "$ref": "#/components/schemas/AttackId" },
+          "AttackProperties": { "$ref": "#/components/schemas/AttackProperties" },
+          "EndTime": { "$ref": "#/components/schemas/AttackTimestamp" },
+          "Mitigations": { "$ref": "#/components/schemas/MitigationList" },
+          "ResourceArn": { "$ref": "#/components/schemas/ResourceArn" },
+          "StartTime": { "$ref": "#/components/schemas/AttackTimestamp" },
+          "SubResources": { "$ref": "#/components/schemas/SubResourceSummaryList" }
+        },
+        "type": "object"
+      },
+      "AttackId": { "maxLength": 128, "minLength": 1, "pattern": "[a-zA-Z0-9\\\\-]*", "type": "string" },
+      "AttackLayer": { "enum": ["NETWORK", "APPLICATION"], "type": "string" },
+      "AttackProperties": { "items": { "$ref": "#/components/schemas/AttackProperty" }, "type": "array" },
+      "AttackProperty": {
+        "description": "Details of the described attack.",
+        "properties": {
+          "AttackLayer": { "$ref": "#/components/schemas/AttackLayer" },
+          "AttackPropertyIdentifier": { "$ref": "#/components/schemas/AttackPropertyIdentifier" },
+          "TopContributors": { "$ref": "#/components/schemas/TopContributors" },
+          "Total": { "$ref": "#/components/schemas/Long" },
+          "Unit": { "$ref": "#/components/schemas/Unit" }
+        },
+        "type": "object"
+      },
+      "AttackPropertyIdentifier": {
+        "enum": [
+          "DESTINATION_URL",
+          "REFERRER",
+          "SOURCE_ASN",
+          "SOURCE_COUNTRY",
+          "SOURCE_IP_ADDRESS",
+          "SOURCE_USER_AGENT",
+          "WORDPRESS_PINGBACK_REFLECTOR",
+          "WORDPRESS_PINGBACK_SOURCE"
+        ],
+        "type": "string"
+      },
+      "AttackSummaries": { "items": { "$ref": "#/components/schemas/AttackSummary" }, "type": "array" },
+      "AttackSummary": {
+        "description": "Summarizes all DDoS attacks for a specified time period.",
+        "properties": {
+          "AttackId": { "$ref": "#/components/schemas/String" },
+          "AttackVectors": { "$ref": "#/components/schemas/AttackVectorDescriptionList" },
+          "EndTime": { "$ref": "#/components/schemas/AttackTimestamp" },
+          "ResourceArn": { "$ref": "#/components/schemas/String" },
+          "StartTime": { "$ref": "#/components/schemas/AttackTimestamp" }
+        },
+        "type": "object"
+      },
+      "AttackTimestamp": { "format": "date-time", "type": "string" },
+      "AttackVectorDescription": {
+        "description": "Describes the attack.",
+        "properties": { "VectorType": { "$ref": "#/components/schemas/String" } },
+        "required": ["VectorType"],
+        "type": "object"
+      },
+      "AttackVectorDescriptionList": {
+        "items": { "$ref": "#/components/schemas/AttackVectorDescription" },
+        "type": "array"
+      },
+      "AutoRenew": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
+      "Contributor": {
+        "description": "A contributor to the attack and their contribution.",
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/String" },
+          "Value": { "$ref": "#/components/schemas/Long" }
+        },
+        "type": "object"
+      },
+      "CreateProtectionRequest": {
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/ProtectionName" },
+          "ResourceArn": { "$ref": "#/components/schemas/ResourceArn" }
+        },
+        "required": ["Name", "ResourceArn"],
+        "type": "object"
+      },
+      "CreateProtectionResponse": {
+        "properties": { "ProtectionId": { "$ref": "#/components/schemas/ProtectionId" } },
+        "type": "object"
+      },
+      "CreateSubscriptionRequest": { "properties": {}, "type": "object" },
+      "CreateSubscriptionResponse": { "properties": {}, "type": "object" },
+      "DeleteProtectionRequest": {
+        "properties": { "ProtectionId": { "$ref": "#/components/schemas/ProtectionId" } },
+        "required": ["ProtectionId"],
+        "type": "object"
+      },
+      "DeleteProtectionResponse": { "properties": {}, "type": "object" },
+      "DeleteSubscriptionRequest": { "properties": {}, "type": "object" },
+      "DeleteSubscriptionResponse": { "properties": {}, "type": "object" },
+      "DescribeAttackRequest": {
+        "properties": { "AttackId": { "$ref": "#/components/schemas/AttackId" } },
+        "required": ["AttackId"],
+        "type": "object"
+      },
+      "DescribeAttackResponse": {
+        "properties": { "Attack": { "$ref": "#/components/schemas/AttackDetail" } },
+        "type": "object"
+      },
+      "DescribeDRTAccessRequest": { "properties": {}, "type": "object" },
+      "DescribeDRTAccessResponse": {
+        "properties": {
+          "LogBucketList": { "$ref": "#/components/schemas/LogBucketList" },
+          "RoleArn": { "$ref": "#/components/schemas/RoleArn" }
+        },
+        "type": "object"
+      },
+      "DescribeEmergencyContactSettingsRequest": { "properties": {}, "type": "object" },
+      "DescribeEmergencyContactSettingsResponse": {
+        "properties": { "EmergencyContactList": { "$ref": "#/components/schemas/EmergencyContactList" } },
+        "type": "object"
+      },
+      "DescribeProtectionRequest": {
+        "properties": {
+          "ProtectionId": { "$ref": "#/components/schemas/ProtectionId" },
+          "ResourceArn": { "$ref": "#/components/schemas/ResourceArn" }
+        },
+        "type": "object"
+      },
+      "DescribeProtectionResponse": {
+        "properties": { "Protection": { "$ref": "#/components/schemas/Protection" } },
+        "type": "object"
+      },
+      "DescribeSubscriptionRequest": { "properties": {}, "type": "object" },
+      "DescribeSubscriptionResponse": {
+        "properties": { "Subscription": { "$ref": "#/components/schemas/Subscription" } },
+        "type": "object"
+      },
+      "DisassociateDRTLogBucketRequest": {
+        "properties": { "LogBucket": { "$ref": "#/components/schemas/LogBucket" } },
+        "required": ["LogBucket"],
+        "type": "object"
+      },
+      "DisassociateDRTLogBucketResponse": { "properties": {}, "type": "object" },
+      "DisassociateDRTRoleRequest": { "properties": {}, "type": "object" },
+      "DisassociateDRTRoleResponse": { "properties": {}, "type": "object" },
+      "Double": { "format": "double", "type": "number" },
+      "DurationInSeconds": { "minimum": 0, "type": "integer" },
+      "EmailAddress": { "maxLength": 150, "minLength": 1, "pattern": "^\\S+@\\S+\\.\\S+$", "type": "string" },
+      "EmergencyContact": {
+        "description": "Contact information that the DRT can use to contact you during a suspected attack.",
+        "properties": { "EmailAddress": { "$ref": "#/components/schemas/EmailAddress" } },
+        "required": ["EmailAddress"],
+        "type": "object"
+      },
+      "EmergencyContactList": {
+        "items": { "$ref": "#/components/schemas/EmergencyContact" },
+        "maxItems": 10,
+        "minItems": 0,
+        "type": "array"
+      },
+      "GetSubscriptionStateRequest": { "properties": {}, "type": "object" },
+      "GetSubscriptionStateResponse": {
+        "properties": { "SubscriptionState": { "$ref": "#/components/schemas/SubscriptionState" } },
+        "required": ["SubscriptionState"],
+        "type": "object"
+      },
+      "Integer": { "type": "integer" },
+      "InternalErrorException": {},
+      "InvalidOperationException": {},
+      "InvalidPaginationTokenException": {},
+      "InvalidParameterException": {},
+      "InvalidResourceException": {},
+      "Limit": {
+        "description": "Specifies how many protections of a given type you can create.",
+        "properties": {
+          "Max": { "$ref": "#/components/schemas/Long" },
+          "Type": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "Limits": { "items": { "$ref": "#/components/schemas/Limit" }, "type": "array" },
+      "LimitsExceededException": {},
+      "ListAttacksRequest": {
+        "properties": {
+          "EndTime": { "$ref": "#/components/schemas/TimeRange" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "ResourceArns": { "$ref": "#/components/schemas/ResourceArnFilterList" },
+          "StartTime": { "$ref": "#/components/schemas/TimeRange" }
+        },
+        "type": "object"
+      },
+      "ListAttacksResponse": {
+        "properties": {
+          "AttackSummaries": { "$ref": "#/components/schemas/AttackSummaries" },
+          "NextToken": { "$ref": "#/components/schemas/Token" }
+        },
+        "type": "object"
+      },
+      "ListProtectionsRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/Token" }
+        },
+        "type": "object"
+      },
+      "ListProtectionsResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "Protections": { "$ref": "#/components/schemas/Protections" }
+        },
+        "type": "object"
+      },
+      "LockedSubscriptionException": {},
+      "LogBucket": {
+        "maxLength": 63,
+        "minLength": 3,
+        "pattern": "^([a-z]|(\\d(?!\\d{0,2}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})))([a-z\\d]|(\\.(?!(\\.|-)))|(-(?!\\.))){1,61}[a-z\\d]$",
+        "type": "string"
+      },
+      "LogBucketList": {
+        "items": { "$ref": "#/components/schemas/LogBucket" },
+        "maxItems": 10,
+        "minItems": 0,
+        "type": "array"
+      },
+      "Long": { "type": "integer" },
+      "MaxResults": { "maximum": 10000, "minimum": 0, "type": "integer" },
+      "Mitigation": {
+        "description": "The mitigation applied to a DDoS attack.",
+        "properties": { "MitigationName": { "$ref": "#/components/schemas/String" } },
+        "type": "object"
+      },
+      "MitigationList": { "items": { "$ref": "#/components/schemas/Mitigation" }, "type": "array" },
+      "NoAssociatedRoleException": {},
+      "OptimisticLockException": {},
+      "Protection": {
+        "description": "An object that represents a resource that is under DDoS protection.",
+        "properties": {
+          "Id": { "$ref": "#/components/schemas/ProtectionId" },
+          "Name": { "$ref": "#/components/schemas/ProtectionName" },
+          "ResourceArn": { "$ref": "#/components/schemas/ResourceArn" }
+        },
+        "type": "object"
+      },
+      "ProtectionId": { "maxLength": 36, "minLength": 1, "pattern": "[a-zA-Z0-9\\\\-]*", "type": "string" },
+      "ProtectionName": { "maxLength": 128, "minLength": 1, "pattern": "[ a-zA-Z0-9_\\\\.\\\\-]*", "type": "string" },
+      "Protections": { "items": { "$ref": "#/components/schemas/Protection" }, "type": "array" },
+      "ResourceAlreadyExistsException": {},
+      "ResourceArn": { "maxLength": 2048, "minLength": 1, "pattern": "^arn:aws.*", "type": "string" },
+      "ResourceArnFilterList": { "items": { "$ref": "#/components/schemas/ResourceArn" }, "type": "array" },
+      "ResourceNotFoundException": {},
+      "RoleArn": {
+        "maxLength": 2048,
+        "minLength": 1,
+        "pattern": "^arn:aws:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
+        "type": "string"
+      },
+      "String": { "type": "string" },
+      "SubResourceSummary": {
+        "description": "The attack information for the specified SubResource.",
+        "properties": {
+          "AttackVectors": { "$ref": "#/components/schemas/SummarizedAttackVectorList" },
+          "Counters": { "$ref": "#/components/schemas/SummarizedCounterList" },
+          "Id": { "$ref": "#/components/schemas/String" },
+          "Type": { "$ref": "#/components/schemas/SubResourceType" }
+        },
+        "type": "object"
+      },
+      "SubResourceSummaryList": { "items": { "$ref": "#/components/schemas/SubResourceSummary" }, "type": "array" },
+      "SubResourceType": { "enum": ["IP", "URL"], "type": "string" },
+      "Subscription": {
+        "description": "Information about the AWS Shield Advanced subscription for an account.",
+        "properties": {
+          "AutoRenew": { "$ref": "#/components/schemas/AutoRenew" },
+          "EndTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Limits": { "$ref": "#/components/schemas/Limits" },
+          "StartTime": { "$ref": "#/components/schemas/Timestamp" },
+          "TimeCommitmentInSeconds": { "$ref": "#/components/schemas/DurationInSeconds" }
+        },
+        "type": "object"
+      },
+      "SubscriptionState": { "enum": ["ACTIVE", "INACTIVE"], "type": "string" },
+      "SummarizedAttackVector": {
+        "description": "A summary of information about the attack.",
+        "properties": {
+          "VectorCounters": { "$ref": "#/components/schemas/SummarizedCounterList" },
+          "VectorType": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["VectorType"],
+        "type": "object"
+      },
+      "SummarizedAttackVectorList": {
+        "items": { "$ref": "#/components/schemas/SummarizedAttackVector" },
+        "type": "array"
+      },
+      "SummarizedCounter": {
+        "description": "The counter that describes a DDoS attack.",
+        "properties": {
+          "Average": { "$ref": "#/components/schemas/Double" },
+          "Max": { "$ref": "#/components/schemas/Double" },
+          "N": { "$ref": "#/components/schemas/Integer" },
+          "Name": { "$ref": "#/components/schemas/String" },
+          "Sum": { "$ref": "#/components/schemas/Double" },
+          "Unit": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "SummarizedCounterList": { "items": { "$ref": "#/components/schemas/SummarizedCounter" }, "type": "array" },
+      "TimeRange": {
+        "description": "The time range.",
+        "properties": {
+          "FromInclusive": { "$ref": "#/components/schemas/AttackTimestamp" },
+          "ToExclusive": { "$ref": "#/components/schemas/AttackTimestamp" }
+        },
+        "type": "object"
+      },
+      "Timestamp": { "format": "date-time", "type": "string" },
+      "Token": { "maxLength": 4096, "minLength": 1, "pattern": "^.*$", "type": "string" },
+      "TopContributors": { "items": { "$ref": "#/components/schemas/Contributor" }, "type": "array" },
+      "Unit": { "enum": ["BITS", "BYTES", "PACKETS", "REQUESTS"], "type": "string" },
+      "UpdateEmergencyContactSettingsRequest": {
+        "properties": { "EmergencyContactList": { "$ref": "#/components/schemas/EmergencyContactList" } },
+        "type": "object"
+      },
+      "UpdateEmergencyContactSettingsResponse": { "properties": {}, "type": "object" },
+      "UpdateSubscriptionRequest": {
+        "properties": { "AutoRenew": { "$ref": "#/components/schemas/AutoRenew" } },
+        "type": "object"
+      },
+      "UpdateSubscriptionResponse": { "properties": {}, "type": "object" }
+    }
+  }
+}

@@ -4,9 +4,7 @@
     "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to manage role definitions and role assignments. A role definition describes the set of actions that can be performed on resources. A role assignment grants access to Azure Active Directory users.",
     "title": "AuthorizationManagementClient",
     "version": "2015-07-01",
-    "x-apisguru-categories": [
-      "cloud"
-    ],
+    "x-apisguru-categories": ["cloud"],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
@@ -20,36 +18,17 @@
     "x-preferred": true,
     "x-providerName": "azure.com",
     "x-serviceName": "authorization",
-    "x-tags": [
-      "Azure",
-      "Microsoft"
-    ]
+    "x-tags": ["Azure", "Microsoft"]
   },
-  "security": [
-    {
-      "azure_auth": [
-        "user_impersonation"
-      ]
-    }
-  ],
+  "security": [{ "azure_auth": ["user_impersonation"] }],
   "paths": {
     "/providers/Microsoft.Authorization/elevateAccess": {
       "post": {
         "description": "Elevates access for a Global Administrator.",
         "operationId": "ElevateAccess_Post",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK - Returns an HttpResponseMessage with HttpStatusCode 200."
-          }
-        },
-        "tags": [
-          "ElevateAccess"
-        ]
+        "parameters": [{ "$ref": "#/components/parameters/ApiVersionParameter" }],
+        "responses": { "200": { "description": "OK - Returns an HttpResponseMessage with HttpStatusCode 200." } },
+        "tags": ["ElevateAccess"]
       }
     },
     "/providers/Microsoft.Authorization/providerOperations": {
@@ -62,24 +41,15 @@
             "in": "query",
             "name": "api-version",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "2015-07-01"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "2015-07-01" } }
           },
           {
             "description": "Specifies whether to expand the values.",
             "in": "query",
             "name": "$expand",
             "required": false,
-            "schema": {
-              "type": "string",
-              "default": "resourceTypes"
-            }
+            "schema": { "type": "string", "default": "resourceTypes" }
           }
         ],
         "responses": {
@@ -87,34 +57,18 @@
             "description": "OK - Returns an array of the operations metadata.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProviderOperationsMetadataListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/ProviderOperationsMetadataListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProviderOperationsMetadataListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/ProviderOperationsMetadataListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "ProviderOperationsMetadata"
-        ],
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "tags": ["ProviderOperationsMetadata"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/providers/Microsoft.Authorization/providerOperations/{resourceProviderNamespace}": {
@@ -127,38 +81,23 @@
             "in": "path",
             "name": "resourceProviderNamespace",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "resourceProviderNamespace"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "resourceProviderNamespace" } }
           },
           {
             "description": "The API version to use for the operation.",
             "in": "query",
             "name": "api-version",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "2015-07-01"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "2015-07-01" } }
           },
           {
             "description": "Specifies whether to expand the values.",
             "in": "query",
             "name": "$expand",
             "required": false,
-            "schema": {
-              "type": "string",
-              "default": "resourceTypes"
-            }
+            "schema": { "type": "string", "default": "resourceTypes" }
           }
         ],
         "responses": {
@@ -166,31 +105,17 @@
             "description": "OK - Returns the operations metadata.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProviderOperationsMetadata"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/ProviderOperationsMetadata" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProviderOperationsMetadata"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/ProviderOperationsMetadata" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "ProviderOperationsMetadata"
-        ]
+        "tags": ["ProviderOperationsMetadata"]
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleAssignments": {
@@ -203,51 +128,29 @@
             "in": "query",
             "name": "$filter",
             "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/components/parameters/SubscriptionIdParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" },
+          { "$ref": "#/components/parameters/SubscriptionIdParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns an array of role assignments.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignmentListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignmentListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignmentListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignmentListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ],
+        "tags": ["RoleAssignments"],
         "x-ms-odata": "#/components/schemas/RoleAssignmentFilter",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments": {
@@ -260,65 +163,37 @@
             "in": "path",
             "name": "resourceGroupName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "rgname"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "rgname" } }
           },
           {
             "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.",
             "in": "query",
             "name": "$filter",
             "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/components/parameters/SubscriptionIdParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" },
+          { "$ref": "#/components/parameters/SubscriptionIdParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns an array of role assignments.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignmentListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignmentListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignmentListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignmentListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ],
+        "tags": ["RoleAssignments"],
         "x-ms-odata": "#/components/schemas/RoleAssignmentFilter",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/permissions": {
@@ -331,55 +206,29 @@
             "in": "path",
             "name": "resourceGroupName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "rgname"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "rgname" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/components/parameters/SubscriptionIdParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" },
+          { "$ref": "#/components/parameters/SubscriptionIdParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns an array of permissions.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionGetResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/PermissionGetResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionGetResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/PermissionGetResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "Permissions"
-        ],
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "tags": ["Permissions"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/permissions": {
@@ -392,28 +241,16 @@
             "in": "path",
             "name": "resourceGroupName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "rgname"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "rgname" } }
           },
           {
             "description": "The namespace of the resource provider.",
             "in": "path",
             "name": "resourceProviderNamespace",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "rpnamespace"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "rpnamespace" } }
           },
           {
             "description": "The parent resource identity.",
@@ -421,14 +258,8 @@
             "name": "parentResourcePath",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "parentResourcePath"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "parentResourcePath" } }
           },
           {
             "description": "The resource type of the resource.",
@@ -436,69 +267,37 @@
             "name": "resourceType",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "resourceType"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "resourceType" } }
           },
           {
             "description": "The name of the resource to get the permissions for.",
             "in": "path",
             "name": "resourceName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "resourceName"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "resourceName" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/components/parameters/SubscriptionIdParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" },
+          { "$ref": "#/components/parameters/SubscriptionIdParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns an array of permissions.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionGetResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/PermissionGetResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionGetResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/PermissionGetResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "Permissions"
-        ],
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "tags": ["Permissions"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/roleAssignments": {
@@ -511,28 +310,16 @@
             "in": "path",
             "name": "resourceGroupName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "rgname"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "rgname" } }
           },
           {
             "description": "The namespace of the resource provider.",
             "in": "path",
             "name": "resourceProviderNamespace",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "resourceProviderNamespace"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "resourceProviderNamespace" } }
           },
           {
             "description": "The parent resource identity.",
@@ -540,14 +327,8 @@
             "name": "parentResourcePath",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "parentResourcePath"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "parentResourcePath" } }
           },
           {
             "description": "The resource type of the resource.",
@@ -555,79 +336,45 @@
             "name": "resourceType",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "resourceType"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "resourceType" } }
           },
           {
             "description": "The name of the resource to get role assignments for.",
             "in": "path",
             "name": "resourceName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "resourceName"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "resourceName" } }
           },
           {
             "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.",
             "in": "query",
             "name": "$filter",
             "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/components/parameters/SubscriptionIdParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" },
+          { "$ref": "#/components/parameters/SubscriptionIdParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns an array of role assignments.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignmentListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignmentListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignmentListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignmentListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ],
+        "tags": ["RoleAssignments"],
         "x-ms-odata": "#/components/schemas/RoleAssignmentFilter",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/{roleAssignmentId}": {
@@ -641,49 +388,27 @@
             "name": "roleAssignmentId",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleAssignmentId"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleAssignmentId" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns information about the role assignment.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ]
+        "tags": ["RoleAssignments"]
       },
       "get": {
         "description": "Gets a role assignment by ID.",
@@ -695,49 +420,27 @@
             "name": "roleAssignmentId",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleassignmentId"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleassignmentId" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns the role assignment.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ]
+        "tags": ["RoleAssignments"]
       },
       "put": {
         "description": "Creates a role assignment by ID.",
@@ -749,52 +452,28 @@
             "name": "roleAssignmentId",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleAssignmentId"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleAssignmentId" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/RoleAssignmentCreateParameters"
-        },
+        "requestBody": { "$ref": "#/components/requestBodies/RoleAssignmentCreateParameters" },
         "responses": {
           "201": {
             "description": "Created - Returns the role assignment.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ]
+        "tags": ["RoleAssignments"]
       }
     },
     "/{scope}/providers/Microsoft.Authorization/roleAssignments": {
@@ -808,62 +487,36 @@
             "name": "scope",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "scope"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "scope" } }
           },
           {
             "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.",
             "in": "query",
             "name": "$filter",
             "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns an array of role assignments.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignmentListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignmentListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignmentListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignmentListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ],
+        "tags": ["RoleAssignments"],
         "x-ms-odata": "#/components/schemas/RoleAssignmentFilter",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}": {
@@ -877,63 +530,35 @@
             "name": "scope",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "scope"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "scope" } }
           },
           {
             "description": "The name of the role assignment to delete.",
             "in": "path",
             "name": "roleAssignmentName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleAssignmentName"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleAssignmentName" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns information about the role assignment.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ]
+        "tags": ["RoleAssignments"]
       },
       "get": {
         "description": "Get the specified role assignment.",
@@ -945,63 +570,35 @@
             "name": "scope",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "scope"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "scope" } }
           },
           {
             "description": "The name of the role assignment to get.",
             "in": "path",
             "name": "roleAssignmentName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleAssignmentName"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleAssignmentName" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns information about the role assignment.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ]
+        "tags": ["RoleAssignments"]
       },
       "put": {
         "description": "Creates a role assignment.",
@@ -1013,66 +610,36 @@
             "name": "scope",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "scope"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "scope" } }
           },
           {
             "description": "The name of the role assignment to create. It can be any valid GUID.",
             "in": "path",
             "name": "roleAssignmentName",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleAssignmentName"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleAssignmentName" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/RoleAssignmentCreateParameters"
-        },
+        "requestBody": { "$ref": "#/components/requestBodies/RoleAssignmentCreateParameters" },
         "responses": {
           "201": {
             "description": "Created - Returns information about the role assignment.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleAssignment"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleAssignment" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleAssignments"
-        ]
+        "tags": ["RoleAssignments"]
       }
     },
     "/{scope}/providers/Microsoft.Authorization/roleDefinitions": {
@@ -1086,62 +653,36 @@
             "name": "scope",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "scope"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "scope" } }
           },
           {
             "description": "The filter to apply on the operation. Use atScopeAndBelow filter to search below the given scope as well.",
             "in": "query",
             "name": "$filter",
             "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns an array of role definitions.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinitionListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinitionListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinitionListResult"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinitionListResult" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleDefinitions"
-        ],
+        "tags": ["RoleDefinitions"],
         "x-ms-odata": "#/components/schemas/RoleDefinitionFilter",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}": {
@@ -1155,63 +696,35 @@
             "name": "scope",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "scope"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "scope" } }
           },
           {
             "description": "The ID of the role definition to delete.",
             "in": "path",
             "name": "roleDefinitionId",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleDefinitionId"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleDefinitionId" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns information about the role definition.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinition"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinition" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinition"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinition" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleDefinitions"
-        ]
+        "tags": ["RoleDefinitions"]
       },
       "get": {
         "description": "Get role definition by name (GUID).",
@@ -1223,63 +736,35 @@
             "name": "scope",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "scope"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "scope" } }
           },
           {
             "description": "The ID of the role definition.",
             "in": "path",
             "name": "roleDefinitionId",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleDefinitionId"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleDefinitionId" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns information about the role definition.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinition"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinition" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinition"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinition" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleDefinitions"
-        ]
+        "tags": ["RoleDefinitions"]
       },
       "put": {
         "description": "Creates or updates a role definition.",
@@ -1291,45 +776,23 @@
             "name": "scope",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "scope"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "scope" } }
           },
           {
             "description": "The ID of the role definition.",
             "in": "path",
             "name": "roleDefinitionId",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleDefinitionId"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleDefinitionId" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RoleDefinition"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RoleDefinition"
-              }
-            }
+            "application/json": { "schema": { "$ref": "#/components/schemas/RoleDefinition" } },
+            "text/json": { "schema": { "$ref": "#/components/schemas/RoleDefinition" } }
           },
           "description": "The values for the role definition.",
           "required": true
@@ -1339,31 +802,17 @@
             "description": "OK - Returns information about the role definition.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinition"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinition" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinition"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinition" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleDefinitions"
-        ]
+        "tags": ["RoleDefinitions"]
       }
     }
   },
@@ -1379,57 +828,31 @@
             "name": "roleDefinitionId",
             "required": true,
             "x-ms-skip-url-encoding": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "GetConfigurations": {
-                "value": "roleDefinitionId"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "GetConfigurations": { "value": "roleDefinitionId" } }
           },
-          {
-            "$ref": "#/components/parameters/ApiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/ApiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK - Returns information about the role definition.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinition"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinition" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               },
               "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDefinition"
-                },
-                "examples": {
-                  "GetConfigurations": {
-                    "$ref": "#/components/examples/GetConfigurations"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/RoleDefinition" },
+                "examples": { "GetConfigurations": { "$ref": "#/components/examples/GetConfigurations" } }
               }
             }
           }
         },
-        "tags": [
-          "RoleDefinitions"
-        ]
+        "tags": ["RoleDefinitions"]
       }
     }
   },
-  "servers": [
-    {
-      "url": "https://management.azure.com"
-    }
-  ],
+  "servers": [{ "url": "https://management.azure.com" }],
   "components": {
     "examples": {
       "GetConfigurations": {
@@ -1437,18 +860,9 @@
           "id": "/subscriptions/subID/providers/Microsoft.Authorization/roleDefinitions/roleDefinitionId",
           "name": "roleDefinitionId",
           "properties": {
-            "assignableScopes": [
-              "/subscriptions/subId"
-            ],
+            "assignableScopes": ["/subscriptions/subId"],
             "description": "Role description",
-            "permissions": [
-              {
-                "actions": [
-                  "action"
-                ],
-                "notActions": []
-              }
-            ],
+            "permissions": [{ "actions": ["action"], "notActions": [] }],
             "roleName": "Role name",
             "type": "roletype"
           },
@@ -1462,43 +876,23 @@
         "in": "query",
         "name": "api-version",
         "required": true,
-        "schema": {
-          "type": "string"
-        },
-        "examples": {
-          "GetConfigurations": {
-            "value": "2015-07-01"
-          }
-        }
+        "schema": { "type": "string" },
+        "examples": { "GetConfigurations": { "value": "2015-07-01" } }
       },
       "SubscriptionIdParameter": {
         "description": "The ID of the target subscription.",
         "in": "path",
         "name": "subscriptionId",
         "required": true,
-        "schema": {
-          "type": "string"
-        },
-        "examples": {
-          "GetConfigurations": {
-            "value": "subId"
-          }
-        }
+        "schema": { "type": "string" },
+        "examples": { "GetConfigurations": { "value": "subId" } }
       }
     },
     "requestBodies": {
       "RoleAssignmentCreateParameters": {
         "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/RoleAssignmentCreateParameters"
-            }
-          },
-          "text/json": {
-            "schema": {
-              "$ref": "#/components/schemas/RoleAssignmentCreateParameters"
-            }
-          }
+          "application/json": { "schema": { "$ref": "#/components/schemas/RoleAssignmentCreateParameters" } },
+          "text/json": { "schema": { "$ref": "#/components/schemas/RoleAssignmentCreateParameters" } }
         },
         "description": "Parameters for the role assignment.",
         "required": true
@@ -1511,9 +905,7 @@
         "flows": {
           "implicit": {
             "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-            "scopes": {
-              "user_impersonation": "impersonate your user account"
-            }
+            "scopes": { "user_impersonation": "impersonate your user account" }
           }
         }
       }
@@ -1522,34 +914,17 @@
       "Permission": {
         "description": "Role definition permissions.",
         "properties": {
-          "actions": {
-            "description": "Allowed actions.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "notActions": {
-            "description": "Denied actions.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
+          "actions": { "description": "Allowed actions.", "items": { "type": "string" }, "type": "array" },
+          "notActions": { "description": "Denied actions.", "items": { "type": "string" }, "type": "array" }
         }
       },
       "PermissionGetResult": {
         "description": "Permissions information.",
         "properties": {
-          "nextLink": {
-            "description": "The URL to use for getting the next set of results.",
-            "type": "string"
-          },
+          "nextLink": { "description": "The URL to use for getting the next set of results.", "type": "string" },
           "value": {
             "description": "An array of permissions.",
-            "items": {
-              "$ref": "#/components/schemas/Permission"
-            },
+            "items": { "$ref": "#/components/schemas/Permission" },
             "type": "array"
           }
         }
@@ -1557,75 +932,39 @@
       "ProviderOperation": {
         "description": "Operation",
         "properties": {
-          "description": {
-            "description": "The operation description.",
-            "type": "string"
-          },
-          "displayName": {
-            "description": "The operation display name.",
-            "type": "string"
-          },
-          "name": {
-            "description": "The operation name.",
-            "type": "string"
-          },
-          "origin": {
-            "description": "The operation origin.",
-            "type": "string"
-          },
-          "properties": {
-            "description": "The operation properties.",
-            "type": "object"
-          }
+          "description": { "description": "The operation description.", "type": "string" },
+          "displayName": { "description": "The operation display name.", "type": "string" },
+          "name": { "description": "The operation name.", "type": "string" },
+          "origin": { "description": "The operation origin.", "type": "string" },
+          "properties": { "description": "The operation properties.", "type": "object" }
         }
       },
       "ProviderOperationsMetadata": {
         "description": "Provider Operations metadata",
         "properties": {
-          "displayName": {
-            "description": "The provider display name.",
-            "type": "string"
-          },
-          "id": {
-            "description": "The provider id.",
-            "type": "string"
-          },
-          "name": {
-            "description": "The provider name.",
-            "type": "string"
-          },
+          "displayName": { "description": "The provider display name.", "type": "string" },
+          "id": { "description": "The provider id.", "type": "string" },
+          "name": { "description": "The provider name.", "type": "string" },
           "operations": {
             "description": "The provider operations.",
-            "items": {
-              "$ref": "#/components/schemas/ProviderOperation"
-            },
+            "items": { "$ref": "#/components/schemas/ProviderOperation" },
             "type": "array"
           },
           "resourceTypes": {
             "description": "The provider resource types",
-            "items": {
-              "$ref": "#/components/schemas/ResourceType"
-            },
+            "items": { "$ref": "#/components/schemas/ResourceType" },
             "type": "array"
           },
-          "type": {
-            "description": "The provider type.",
-            "type": "string"
-          }
+          "type": { "description": "The provider type.", "type": "string" }
         }
       },
       "ProviderOperationsMetadataListResult": {
         "description": "Provider operations metadata list",
         "properties": {
-          "nextLink": {
-            "description": "The URL to use for getting the next set of results.",
-            "type": "string"
-          },
+          "nextLink": { "description": "The URL to use for getting the next set of results.", "type": "string" },
           "value": {
             "description": "The list of providers.",
-            "items": {
-              "$ref": "#/components/schemas/ProviderOperationsMetadata"
-            },
+            "items": { "$ref": "#/components/schemas/ProviderOperationsMetadata" },
             "type": "array"
           }
         }
@@ -1633,19 +972,11 @@
       "ResourceType": {
         "description": "Resource Type",
         "properties": {
-          "displayName": {
-            "description": "The resource type display name.",
-            "type": "string"
-          },
-          "name": {
-            "description": "The resource type name.",
-            "type": "string"
-          },
+          "displayName": { "description": "The resource type display name.", "type": "string" },
+          "name": { "description": "The resource type name.", "type": "string" },
           "operations": {
             "description": "The resource type operations.",
-            "items": {
-              "$ref": "#/components/schemas/ProviderOperation"
-            },
+            "items": { "$ref": "#/components/schemas/ProviderOperation" },
             "type": "array"
           }
         }
@@ -1653,58 +984,30 @@
       "RoleAssignment": {
         "description": "Role Assignments",
         "properties": {
-          "id": {
-            "description": "The role assignment ID.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "name": {
-            "description": "The role assignment name.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "properties": {
-            "$ref": "#/components/schemas/RoleAssignmentPropertiesWithScope"
-          },
-          "type": {
-            "description": "The role assignment type.",
-            "readOnly": true,
-            "type": "string"
-          }
+          "id": { "description": "The role assignment ID.", "readOnly": true, "type": "string" },
+          "name": { "description": "The role assignment name.", "readOnly": true, "type": "string" },
+          "properties": { "$ref": "#/components/schemas/RoleAssignmentPropertiesWithScope" },
+          "type": { "description": "The role assignment type.", "readOnly": true, "type": "string" }
         }
       },
       "RoleAssignmentCreateParameters": {
         "description": "Role assignment create parameters.",
-        "properties": {
-          "properties": {
-            "$ref": "#/components/schemas/RoleAssignmentProperties"
-          }
-        },
-        "required": [
-          "properties"
-        ]
+        "properties": { "properties": { "$ref": "#/components/schemas/RoleAssignmentProperties" } },
+        "required": ["properties"]
       },
       "RoleAssignmentFilter": {
         "description": "Role Assignments filter",
         "properties": {
-          "principalId": {
-            "description": "Returns role assignment of the specific principal.",
-            "type": "string"
-          }
+          "principalId": { "description": "Returns role assignment of the specific principal.", "type": "string" }
         }
       },
       "RoleAssignmentListResult": {
         "description": "Role assignment list operation result.",
         "properties": {
-          "nextLink": {
-            "description": "The URL to use for getting the next set of results.",
-            "type": "string"
-          },
+          "nextLink": { "description": "The URL to use for getting the next set of results.", "type": "string" },
           "value": {
             "description": "Role assignment list.",
-            "items": {
-              "$ref": "#/components/schemas/RoleAssignment"
-            },
+            "items": { "$ref": "#/components/schemas/RoleAssignment" },
             "type": "array"
           }
         }
@@ -1716,77 +1019,40 @@
             "description": "The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.",
             "type": "string"
           },
-          "roleDefinitionId": {
-            "description": "The role definition ID used in the role assignment.",
-            "type": "string"
-          }
+          "roleDefinitionId": { "description": "The role definition ID used in the role assignment.", "type": "string" }
         },
-        "required": [
-          "roleDefinitionId",
-          "principalId"
-        ]
+        "required": ["roleDefinitionId", "principalId"]
       },
       "RoleAssignmentPropertiesWithScope": {
         "description": "Role assignment properties with scope.",
         "properties": {
-          "principalId": {
-            "description": "The principal ID.",
-            "type": "string"
-          },
-          "roleDefinitionId": {
-            "description": "The role definition ID.",
-            "type": "string"
-          },
-          "scope": {
-            "description": "The role assignment scope.",
-            "type": "string"
-          }
+          "principalId": { "description": "The principal ID.", "type": "string" },
+          "roleDefinitionId": { "description": "The role definition ID.", "type": "string" },
+          "scope": { "description": "The role assignment scope.", "type": "string" }
         }
       },
       "RoleDefinition": {
         "description": "Role definition.",
         "properties": {
-          "id": {
-            "description": "The role definition ID.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "name": {
-            "description": "The role definition name.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "properties": {
-            "$ref": "#/components/schemas/RoleDefinitionProperties"
-          },
-          "type": {
-            "description": "The role definition type.",
-            "readOnly": true,
-            "type": "string"
-          }
+          "id": { "description": "The role definition ID.", "readOnly": true, "type": "string" },
+          "name": { "description": "The role definition name.", "readOnly": true, "type": "string" },
+          "properties": { "$ref": "#/components/schemas/RoleDefinitionProperties" },
+          "type": { "description": "The role definition type.", "readOnly": true, "type": "string" }
         }
       },
       "RoleDefinitionFilter": {
         "description": "Role Definitions filter",
         "properties": {
-          "roleName": {
-            "description": "Returns role definition with the specific name.",
-            "type": "string"
-          }
+          "roleName": { "description": "Returns role definition with the specific name.", "type": "string" }
         }
       },
       "RoleDefinitionListResult": {
         "description": "Role definition list operation result.",
         "properties": {
-          "nextLink": {
-            "description": "The URL to use for getting the next set of results.",
-            "type": "string"
-          },
+          "nextLink": { "description": "The URL to use for getting the next set of results.", "type": "string" },
           "value": {
             "description": "Role definition list.",
-            "items": {
-              "$ref": "#/components/schemas/RoleDefinition"
-            },
+            "items": { "$ref": "#/components/schemas/RoleDefinition" },
             "type": "array"
           }
         }
@@ -1796,30 +1062,17 @@
         "properties": {
           "assignableScopes": {
             "description": "Role definition assignable scopes.",
-            "items": {
-              "type": "string"
-            },
+            "items": { "type": "string" },
             "type": "array"
           },
-          "description": {
-            "description": "The role definition description.",
-            "type": "string"
-          },
+          "description": { "description": "The role definition description.", "type": "string" },
           "permissions": {
             "description": "Role definition permissions.",
-            "items": {
-              "$ref": "#/components/schemas/Permission"
-            },
+            "items": { "$ref": "#/components/schemas/Permission" },
             "type": "array"
           },
-          "roleName": {
-            "description": "The role name.",
-            "type": "string"
-          },
-          "type": {
-            "description": "The role type.",
-            "type": "string"
-          }
+          "roleName": { "description": "The role name.", "type": "string" },
+          "type": { "description": "The role type.", "type": "string" }
         }
       }
     }

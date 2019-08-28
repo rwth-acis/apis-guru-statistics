@@ -3,9 +3,7 @@
   "info": {
     "title": " API Client",
     "version": "2018-02-01",
-    "x-apisguru-categories": [
-      "cloud"
-    ],
+    "x-apisguru-categories": ["cloud"],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
@@ -19,28 +17,15 @@
     "x-preferred": true,
     "x-providerName": "azure.com",
     "x-serviceName": "web-ResourceProvider",
-    "x-tags": [
-      "Azure",
-      "Microsoft"
-    ]
+    "x-tags": ["Azure", "Microsoft"]
   },
-  "security": [
-    {
-      "azure_auth": [
-        "user_impersonation"
-      ]
-    }
-  ],
+  "security": [{ "azure_auth": ["user_impersonation"] }],
   "paths": {
     "/providers/Microsoft.Web/publishingUsers/web": {
       "get": {
         "description": "Gets publishing user",
         "operationId": "GetPublishingUser",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
-        ],
+        "parameters": [{ "$ref": "#/components/parameters/apiVersionParameter" }],
         "responses": {
           "200": {
             "description": "OK",
@@ -51,25 +36,10 @@
                     {
                       "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
                       "properties": {
-                        "id": {
-                          "description": "Resource Id.",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "kind": {
-                          "description": "Kind of resource.",
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "Resource Name.",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "Resource type.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
+                        "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+                        "kind": { "description": "Kind of resource.", "type": "string" },
+                        "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+                        "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
                       },
                       "x-ms-azure-resource": true
                     }
@@ -94,18 +64,10 @@
                           "format": "password",
                           "type": "string"
                         },
-                        "publishingUserName": {
-                          "description": "Username used for publishing.",
-                          "type": "string"
-                        },
-                        "scmUri": {
-                          "description": "Url of SCM site.",
-                          "type": "string"
-                        }
+                        "publishingUserName": { "description": "Username used for publishing.", "type": "string" },
+                        "scmUri": { "description": "Url of SCM site.", "type": "string" }
                       },
-                      "required": [
-                        "publishingUserName"
-                      ],
+                      "required": ["publishingUserName"],
                       "x-ms-client-flatten": true
                     }
                   },
@@ -184,11 +146,7 @@
       "put": {
         "description": "Updates publishing user",
         "operationId": "UpdatePublishingUser",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
-        ],
+        "parameters": [{ "$ref": "#/components/parameters/apiVersionParameter" }],
         "requestBody": {
           "content": {
             "application/json": {
@@ -197,25 +155,10 @@
                   {
                     "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
                     "properties": {
-                      "id": {
-                        "description": "Resource Id.",
-                        "readOnly": true,
-                        "type": "string"
-                      },
-                      "kind": {
-                        "description": "Kind of resource.",
-                        "type": "string"
-                      },
-                      "name": {
-                        "description": "Resource Name.",
-                        "readOnly": true,
-                        "type": "string"
-                      },
-                      "type": {
-                        "description": "Resource type.",
-                        "readOnly": true,
-                        "type": "string"
-                      }
+                      "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+                      "kind": { "description": "Kind of resource.", "type": "string" },
+                      "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+                      "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
                     },
                     "x-ms-azure-resource": true
                   }
@@ -240,18 +183,10 @@
                         "format": "password",
                         "type": "string"
                       },
-                      "publishingUserName": {
-                        "description": "Username used for publishing.",
-                        "type": "string"
-                      },
-                      "scmUri": {
-                        "description": "Url of SCM site.",
-                        "type": "string"
-                      }
+                      "publishingUserName": { "description": "Username used for publishing.", "type": "string" },
+                      "scmUri": { "description": "Url of SCM site.", "type": "string" }
                     },
-                    "required": [
-                      "publishingUserName"
-                    ],
+                    "required": ["publishingUserName"],
                     "x-ms-client-flatten": true
                   }
                 },
@@ -272,25 +207,10 @@
                     {
                       "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
                       "properties": {
-                        "id": {
-                          "description": "Resource Id.",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "kind": {
-                          "description": "Kind of resource.",
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "Resource Name.",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "Resource type.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
+                        "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+                        "kind": { "description": "Kind of resource.", "type": "string" },
+                        "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+                        "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
                       },
                       "x-ms-azure-resource": true
                     }
@@ -315,18 +235,10 @@
                           "format": "password",
                           "type": "string"
                         },
-                        "publishingUserName": {
-                          "description": "Username used for publishing.",
-                          "type": "string"
-                        },
-                        "scmUri": {
-                          "description": "Url of SCM site.",
-                          "type": "string"
-                        }
+                        "publishingUserName": { "description": "Username used for publishing.", "type": "string" },
+                        "scmUri": { "description": "Url of SCM site.", "type": "string" }
                       },
-                      "required": [
-                        "publishingUserName"
-                      ],
+                      "required": ["publishingUserName"],
                       "x-ms-client-flatten": true
                     }
                   },
@@ -407,21 +319,11 @@
       "get": {
         "description": "Gets the source controls available for Azure websites.",
         "operationId": "ListSourceControls",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
-        ],
+        "parameters": [{ "$ref": "#/components/parameters/apiVersionParameter" }],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SourceControlCollection"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SourceControlCollection" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -489,9 +391,7 @@
           }
         },
         "summary": "Gets the source controls available for Azure websites.",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/providers/Microsoft.Web/sourcecontrols/{sourceControlType}": {
@@ -504,24 +404,14 @@
             "in": "path",
             "name": "sourceControlType",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SourceControl"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SourceControl" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -599,35 +489,19 @@
             "in": "path",
             "name": "sourceControlType",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SourceControl"
-              }
-            }
-          },
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SourceControl" } } },
           "description": "Source control token information",
           "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SourceControl"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SourceControl" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -706,35 +580,21 @@
             "description": "Azure Location of billable resource",
             "in": "query",
             "name": "billingLocation",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
           {
             "description": "App Service OS type meters used for",
             "in": "query",
             "name": "osType",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BillingMeterCollection"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BillingMeterCollection" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -802,9 +662,7 @@
           }
         },
         "summary": "Gets a list of meters for a given location.",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/checknameavailability": {
@@ -812,20 +670,12 @@
         "description": "Check if a resource name is available.",
         "operationId": "CheckNameAvailability",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResourceNameAvailabilityRequest"
-              }
-            }
+            "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNameAvailabilityRequest" } }
           },
           "description": "Name availability request.",
           "required": true,
@@ -834,13 +684,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceNameAvailability"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNameAvailability" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -915,23 +759,13 @@
         "description": "Gets list of available geo regions plus ministamps",
         "operationId": "GetSubscriptionDeploymentLocations",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeploymentLocations"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeploymentLocations" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -1010,10 +844,7 @@
             "description": "Name of SKU used to filter the regions.",
             "in": "query",
             "name": "sku",
-            "x-ms-enum": {
-              "modelAsString": true,
-              "name": "SkuName"
-            },
+            "x-ms-enum": { "modelAsString": true, "name": "SkuName" },
             "schema": {
               "type": "string",
               "enum": [
@@ -1034,43 +865,27 @@
             "description": "Specify <code>true</code> if you want to filter to only regions that support Linux workers.",
             "in": "query",
             "name": "linuxWorkersEnabled",
-            "schema": {
-              "type": "boolean"
-            }
+            "schema": { "type": "boolean" }
           },
           {
             "description": "Specify <code>true</code> if you want to filter to only regions that support Xenon workers.",
             "in": "query",
             "name": "xenonWorkersEnabled",
-            "schema": {
-              "type": "boolean"
-            }
+            "schema": { "type": "boolean" }
           },
           {
             "description": "Specify <code>true</code> if you want to filter to only regions that support Linux Consumption Workers.",
             "in": "query",
             "name": "linuxDynamicWorkersEnabled",
-            "schema": {
-              "type": "boolean"
-            }
+            "schema": { "type": "boolean" }
           },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GeoRegionCollection"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GeoRegionCollection" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -1138,9 +953,7 @@
           }
         },
         "summary": "Get a list of available geographical regions.",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/listSitesAssignedToHostName": {
@@ -1148,24 +961,15 @@
         "description": "List all apps that are assigned to a hostname.",
         "operationId": "ListSiteIdentifiersAssignedToHostName",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "description": "Identifies an object.",
-                "properties": {
-                  "name": {
-                    "description": "Name of the object.",
-                    "type": "string"
-                  }
-                },
+                "properties": { "name": { "description": "Name of the object.", "type": "string" } },
                 "type": "object"
               }
             }
@@ -1193,25 +997,10 @@
                           {
                             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
                             "properties": {
-                              "id": {
-                                "description": "Resource Id.",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "kind": {
-                                "description": "Kind of resource.",
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "Resource Name.",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "type": {
-                                "description": "Resource type.",
-                                "readOnly": true,
-                                "type": "string"
-                              }
+                              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+                              "kind": { "description": "Kind of resource.", "type": "string" },
+                              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+                              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
                             },
                             "x-ms-azure-resource": true
                           }
@@ -1221,10 +1010,7 @@
                           "properties": {
                             "description": "Identifier resource specific properties",
                             "properties": {
-                              "id": {
-                                "description": "String representation of the identity.",
-                                "type": "string"
-                              }
+                              "id": { "description": "String representation of the identity.", "type": "string" }
                             },
                             "x-ms-client-flatten": true
                           }
@@ -1234,9 +1020,7 @@
                       "type": "array"
                     }
                   },
-                  "required": [
-                    "value"
-                  ],
+                  "required": ["value"],
                   "type": "object"
                 }
               }
@@ -1308,9 +1092,7 @@
           }
         },
         "summary": "List all apps that are assigned to a hostname.",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/premieraddonoffers": {
@@ -1318,22 +1100,14 @@
         "description": "List all premier add-on offers.",
         "operationId": "ListPremierAddOnOffers",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PremierAddOnOfferCollection"
-                }
-              }
+              "application/json": { "schema": { "$ref": "#/components/schemas/PremierAddOnOfferCollection" } }
             }
           },
           "default": {
@@ -1402,9 +1176,7 @@
           }
         },
         "summary": "List all premier add-on offers.",
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/skus": {
@@ -1412,23 +1184,13 @@
         "description": "List all SKUs.",
         "operationId": "ListSkus",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SkuInfos"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SkuInfos" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -1503,21 +1265,11 @@
         "description": "Verifies if this VNET is compatible with an App Service Environment by analyzing the Network Security Group rules.",
         "operationId": "VerifyHostingEnvironmentVnet",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VnetParameters"
-              }
-            }
-          },
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/VnetParameters" } } },
           "description": "VNET information",
           "required": true
         },
@@ -1526,13 +1278,9 @@
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VnetValidationFailureDetails"
-                },
+                "schema": { "$ref": "#/components/schemas/VnetValidationFailureDetails" },
                 "examples": {
-                  "VerifyHostingEnvironmentVnet": {
-                    "$ref": "#/components/examples/VerifyHostingEnvironmentVnet"
-                  }
+                  "VerifyHostingEnvironmentVnet": { "$ref": "#/components/examples/VerifyHostingEnvironmentVnet" }
                 }
               }
             }
@@ -1610,24 +1358,12 @@
         "description": "Move resources between resource groups.",
         "operationId": "Move",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CsmMoveResourceEnvelope"
-        },
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
+        "requestBody": { "$ref": "#/components/requestBodies/CsmMoveResourceEnvelope" },
+        "responses": { "204": { "description": "No Content" } },
         "summary": "Move resources between resource groups."
       }
     },
@@ -1636,37 +1372,19 @@
         "description": "Validate if a resource can be created.",
         "operationId": "Validate",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ValidateRequest"
-              }
-            }
-          },
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidateRequest" } } },
           "description": "Request with the resources to validate.",
           "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidateResponse"
-                }
-              }
-            }
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidateResponse" } } }
           },
           "default": {
             "description": "App Service error response.",
@@ -1741,37 +1459,18 @@
         "description": "Validate if the container settings are correct.",
         "operationId": "ValidateContainerSettings",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ValidateContainerSettingsRequest"
-              }
-            }
+            "application/json": { "schema": { "$ref": "#/components/schemas/ValidateContainerSettingsRequest" } }
           },
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          },
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object" } } } },
           "default": {
             "description": "App Service error response.",
             "content": {
@@ -1845,42 +1544,23 @@
         "description": "Validate whether a resource can be moved.",
         "operationId": "ValidateMove",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CsmMoveResourceEnvelope"
-        },
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
+        "requestBody": { "$ref": "#/components/requestBodies/CsmMoveResourceEnvelope" },
+        "responses": { "204": { "description": "No Content" } },
         "summary": "Validate whether a resource can be moved."
       }
     }
   },
-  "servers": [
-    {
-      "url": "https://management.azure.com"
-    }
-  ],
+  "servers": [{ "url": "https://management.azure.com" }],
   "components": {
     "examples": {
       "VerifyHostingEnvironmentVnet": {
         "value": {
           "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/verifyHostingEnvironmentVnet",
-          "properties": {
-            "failed": false,
-            "failedTests": []
-          }
+          "properties": { "failed": false, "failedTests": [] }
         }
       }
     },
@@ -1890,14 +1570,8 @@
         "in": "query",
         "name": "api-version",
         "required": true,
-        "schema": {
-          "type": "string"
-        },
-        "examples": {
-          "VerifyHostingEnvironmentVnet": {
-            "value": "2018-02-01"
-          }
-        }
+        "schema": { "type": "string" },
+        "examples": { "VerifyHostingEnvironmentVnet": { "value": "2018-02-01" } }
       },
       "resourceGroupNameParameter": {
         "description": "Name of the resource group to which the resource belongs.",
@@ -1905,37 +1579,20 @@
         "name": "resourceGroupName",
         "required": true,
         "x-ms-parameter-location": "method",
-        "schema": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 90,
-          "pattern": "^[-\\w\\._\\(\\)]+[^\\.]$"
-        }
+        "schema": { "type": "string", "minLength": 1, "maxLength": 90, "pattern": "^[-\\w\\._\\(\\)]+[^\\.]$" }
       },
       "subscriptionIdParameter": {
         "description": "Your Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).",
         "in": "path",
         "name": "subscriptionId",
         "required": true,
-        "schema": {
-          "type": "string"
-        },
-        "examples": {
-          "VerifyHostingEnvironmentVnet": {
-            "value": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"
-          }
-        }
+        "schema": { "type": "string" },
+        "examples": { "VerifyHostingEnvironmentVnet": { "value": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345" } }
       }
     },
     "requestBodies": {
       "CsmMoveResourceEnvelope": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/CsmMoveResourceEnvelope"
-            }
-          }
-        },
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CsmMoveResourceEnvelope" } } },
         "description": "Object that represents the resource to move.",
         "required": true
       }
@@ -1947,9 +1604,7 @@
         "flows": {
           "implicit": {
             "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-            "scopes": {
-              "user_impersonation": "impersonate your user account"
-            }
+            "scopes": { "user_impersonation": "impersonate your user account" }
           }
         }
       }
@@ -1960,25 +1615,10 @@
           {
             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
             "properties": {
-              "id": {
-                "description": "Resource Id.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "kind": {
-                "description": "Kind of resource.",
-                "type": "string"
-              },
-              "name": {
-                "description": "Resource Name.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "type": {
-                "description": "Resource type.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+              "kind": { "description": "Kind of resource.", "type": "string" },
+              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
             },
             "x-ms-azure-resource": true
           }
@@ -1988,30 +1628,12 @@
           "properties": {
             "description": "BillingMeter resource specific properties",
             "properties": {
-              "billingLocation": {
-                "description": "Azure Location of billable resource",
-                "type": "string"
-              },
-              "friendlyName": {
-                "description": "Friendly name of the meter",
-                "type": "string"
-              },
-              "meterId": {
-                "description": "Meter GUID onboarded in Commerce",
-                "type": "string"
-              },
-              "osType": {
-                "description": "App Service OS type meter used for",
-                "type": "string"
-              },
-              "resourceType": {
-                "description": "App Service ResourceType meter used for",
-                "type": "string"
-              },
-              "shortName": {
-                "description": "Short Name from App Service Azure pricing Page",
-                "type": "string"
-              }
+              "billingLocation": { "description": "Azure Location of billable resource", "type": "string" },
+              "friendlyName": { "description": "Friendly name of the meter", "type": "string" },
+              "meterId": { "description": "Meter GUID onboarded in Commerce", "type": "string" },
+              "osType": { "description": "App Service OS type meter used for", "type": "string" },
+              "resourceType": { "description": "App Service ResourceType meter used for", "type": "string" },
+              "shortName": { "description": "Short Name from App Service Azure pricing Page", "type": "string" }
             },
             "x-ms-client-flatten": true
           }
@@ -2021,33 +1643,20 @@
       "BillingMeterCollection": {
         "description": "Collection of Billing Meters",
         "properties": {
-          "nextLink": {
-            "description": "Link to next page of resources.",
-            "readOnly": true,
-            "type": "string"
-          },
+          "nextLink": { "description": "Link to next page of resources.", "readOnly": true, "type": "string" },
           "value": {
             "description": "Collection of resources.",
-            "items": {
-              "$ref": "#/components/schemas/BillingMeter"
-            },
+            "items": { "$ref": "#/components/schemas/BillingMeter" },
             "type": "array"
           }
         },
-        "required": [
-          "value"
-        ],
+        "required": ["value"],
         "type": "object"
       },
       "CsmMoveResourceEnvelope": {
         "description": "Object with a list of the resources that need to be moved and the resource group they should be moved to.",
         "properties": {
-          "resources": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
+          "resources": { "items": { "type": "string" }, "type": "array" },
           "targetResourceGroup": {
             "maxLength": 90,
             "minLength": 1,
@@ -2062,9 +1671,7 @@
         "properties": {
           "hostingEnvironmentDeploymentInfos": {
             "description": "Available App Service Environments with basic information.",
-            "items": {
-              "$ref": "#/components/schemas/HostingEnvironmentDeploymentInfo"
-            },
+            "items": { "$ref": "#/components/schemas/HostingEnvironmentDeploymentInfo" },
             "type": "array"
           },
           "hostingEnvironments": {
@@ -2091,14 +1698,8 @@
                   "items": {
                     "description": "Name value pair.",
                     "properties": {
-                      "name": {
-                        "description": "Pair name.",
-                        "type": "string"
-                      },
-                      "value": {
-                        "description": "Pair value.",
-                        "type": "string"
-                      }
+                      "name": { "description": "Pair name.", "type": "string" },
+                      "value": { "description": "Pair value.", "type": "string" }
                     },
                     "type": "object"
                   },
@@ -2120,10 +1721,7 @@
                   "readOnly": true,
                   "type": "integer"
                 },
-                "dnsSuffix": {
-                  "description": "DNS suffix of the App Service Environment.",
-                  "type": "string"
-                },
+                "dnsSuffix": { "description": "DNS suffix of the App Service Environment.", "type": "string" },
                 "dynamicCacheEnabled": {
                   "description": "True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available\n(most likely because NSG blocked the incoming traffic).",
                   "type": "boolean"
@@ -2140,16 +1738,9 @@
                       },
                       "computeMode": {
                         "description": "Shared/dedicated workers.",
-                        "enum": [
-                          "Shared",
-                          "Dedicated",
-                          "Dynamic"
-                        ],
+                        "enum": ["Shared", "Dedicated", "Dynamic"],
                         "type": "string",
-                        "x-ms-enum": {
-                          "modelAsString": false,
-                          "name": "ComputeModeOptions"
-                        }
+                        "x-ms-enum": { "modelAsString": false, "name": "ComputeModeOptions" }
                       },
                       "excludeFromCapacityAllocation": {
                         "description": "If <code>true</code>, it includes basic apps.\nBasic apps are not used for capacity allocation.",
@@ -2159,43 +1750,20 @@
                         "description": "<code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.",
                         "type": "boolean"
                       },
-                      "isLinux": {
-                        "description": "Is this a linux stamp capacity",
-                        "type": "boolean"
-                      },
-                      "name": {
-                        "description": "Name of the stamp.",
-                        "type": "string"
-                      },
-                      "siteMode": {
-                        "description": "Shared or Dedicated.",
-                        "type": "string"
-                      },
+                      "isLinux": { "description": "Is this a linux stamp capacity", "type": "boolean" },
+                      "name": { "description": "Name of the stamp.", "type": "string" },
+                      "siteMode": { "description": "Shared or Dedicated.", "type": "string" },
                       "totalCapacity": {
                         "description": "Total capacity (# of machines, bytes of storage etc...).",
                         "format": "int64",
                         "type": "integer"
                       },
-                      "unit": {
-                        "description": "Name of the unit.",
-                        "type": "string"
-                      },
+                      "unit": { "description": "Name of the unit.", "type": "string" },
                       "workerSize": {
                         "description": "Size of the machines.",
-                        "enum": [
-                          "Small",
-                          "Medium",
-                          "Large",
-                          "D1",
-                          "D2",
-                          "D3",
-                          "Default"
-                        ],
+                        "enum": ["Small", "Medium", "Large", "D1", "D2", "D3", "Default"],
                         "type": "string",
-                        "x-ms-enum": {
-                          "modelAsString": false,
-                          "name": "WorkerSizeOptions"
-                        }
+                        "x-ms-enum": { "modelAsString": false, "name": "WorkerSizeOptions" }
                       },
                       "workerSizeId": {
                         "description": "Size ID of machines: \n0 - Small\n1 - Medium\n2 - Large",
@@ -2229,16 +1797,9 @@
                 },
                 "internalLoadBalancingMode": {
                   "description": "Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.",
-                  "enum": [
-                    "None",
-                    "Web",
-                    "Publishing"
-                  ],
+                  "enum": ["None", "Web", "Publishing"],
                   "type": "string",
-                  "x-ms-enum": {
-                    "modelAsString": false,
-                    "name": "InternalLoadBalancingMode"
-                  }
+                  "x-ms-enum": { "modelAsString": false, "name": "InternalLoadBalancingMode" }
                 },
                 "ipsslAddressCount": {
                   "description": "Number of IP SSL addresses reserved for the App Service Environment.",
@@ -2270,14 +1831,8 @@
                   "format": "int32",
                   "type": "integer"
                 },
-                "multiSize": {
-                  "description": "Front-end VM size, e.g. \"Medium\", \"Large\".",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Name of the App Service Environment.",
-                  "type": "string"
-                },
+                "multiSize": { "description": "Front-end VM size, e.g. \"Medium\", \"Large\".", "type": "string" },
+                "name": { "description": "Name of the App Service Environment.", "type": "string" },
                 "networkAccessControlList": {
                   "description": "Access control list for controlling traffic to the App Service Environment.",
                   "items": {
@@ -2285,29 +1840,16 @@
                     "properties": {
                       "action": {
                         "description": "Action object.",
-                        "enum": [
-                          "Permit",
-                          "Deny"
-                        ],
+                        "enum": ["Permit", "Deny"],
                         "type": "string",
-                        "x-ms-enum": {
-                          "modelAsString": false,
-                          "name": "AccessControlEntryAction"
-                        }
+                        "x-ms-enum": { "modelAsString": false, "name": "AccessControlEntryAction" }
                       },
                       "description": {
                         "description": "Description of network access control entry.",
                         "type": "string"
                       },
-                      "order": {
-                        "description": "Order of precedence.",
-                        "format": "int32",
-                        "type": "integer"
-                      },
-                      "remoteSubnet": {
-                        "description": "Remote subnet.",
-                        "type": "string"
-                      }
+                      "order": { "description": "Order of precedence.", "format": "int32", "type": "integer" },
+                      "remoteSubnet": { "description": "Remote subnet.", "type": "string" }
                     },
                     "type": "object"
                   },
@@ -2315,19 +1857,10 @@
                 },
                 "provisioningState": {
                   "description": "Provisioning state of the App Service Environment.",
-                  "enum": [
-                    "Succeeded",
-                    "Failed",
-                    "Canceled",
-                    "InProgress",
-                    "Deleting"
-                  ],
+                  "enum": ["Succeeded", "Failed", "Canceled", "InProgress", "Deleting"],
                   "readOnly": true,
                   "type": "string",
-                  "x-ms-enum": {
-                    "modelAsString": false,
-                    "name": "ProvisioningState"
-                  }
+                  "x-ms-enum": { "modelAsString": false, "name": "ProvisioningState" }
                 },
                 "resourceGroup": {
                   "description": "Resource group of the App Service Environment.",
@@ -2344,18 +1877,10 @@
                 },
                 "status": {
                   "description": "Current status of the App Service Environment.",
-                  "enum": [
-                    "Preparing",
-                    "Ready",
-                    "Scaling",
-                    "Deleting"
-                  ],
+                  "enum": ["Preparing", "Ready", "Scaling", "Deleting"],
                   "readOnly": true,
                   "type": "string",
-                  "x-ms-enum": {
-                    "modelAsString": false,
-                    "name": "HostingEnvironmentStatus"
-                  }
+                  "x-ms-enum": { "modelAsString": false, "name": "HostingEnvironmentStatus" }
                 },
                 "subscriptionId": {
                   "description": "Subscription of the App Service Environment.",
@@ -2374,9 +1899,7 @@
                 },
                 "userWhitelistedIpRanges": {
                   "description": "User added ip ranges to whitelist on ASE db",
-                  "items": {
-                    "type": "string"
-                  },
+                  "items": { "type": "string" },
                   "type": "array"
                 },
                 "vipMappings": {
@@ -2384,10 +1907,7 @@
                   "items": {
                     "description": "Virtual IP mapping.",
                     "properties": {
-                      "inUse": {
-                        "description": "Is virtual IP mapping in use.",
-                        "type": "boolean"
-                      },
+                      "inUse": { "description": "Is virtual IP mapping in use.", "type": "boolean" },
                       "internalHttpPort": {
                         "description": "Internal HTTP port.",
                         "format": "int32",
@@ -2398,10 +1918,7 @@
                         "format": "int32",
                         "type": "integer"
                       },
-                      "virtualIP": {
-                        "description": "Virtual IP address.",
-                        "type": "string"
-                      }
+                      "virtualIP": { "description": "Virtual IP address.", "type": "string" }
                     },
                     "type": "object"
                   },
@@ -2411,19 +1928,13 @@
                 "virtualNetwork": {
                   "description": "Specification for using a Virtual Network.",
                   "properties": {
-                    "id": {
-                      "description": "Resource id of the Virtual Network.",
-                      "type": "string"
-                    },
+                    "id": { "description": "Resource id of the Virtual Network.", "type": "string" },
                     "name": {
                       "description": "Name of the Virtual Network (read-only).",
                       "readOnly": true,
                       "type": "string"
                     },
-                    "subnet": {
-                      "description": "Subnet within the Virtual Network.",
-                      "type": "string"
-                    },
+                    "subnet": { "description": "Subnet within the Virtual Network.", "type": "string" },
                     "type": {
                       "description": "Resource type of the Virtual Network (read-only).",
                       "readOnly": true,
@@ -2436,14 +1947,8 @@
                   "description": "Name of the Virtual Network for the App Service Environment.",
                   "type": "string"
                 },
-                "vnetResourceGroupName": {
-                  "description": "Resource group of the Virtual Network.",
-                  "type": "string"
-                },
-                "vnetSubnetName": {
-                  "description": "Subnet of the Virtual Network.",
-                  "type": "string"
-                },
+                "vnetResourceGroupName": { "description": "Resource group of the Virtual Network.", "type": "string" },
+                "vnetSubnetName": { "description": "Subnet of the Virtual Network.", "type": "string" },
                 "workerPools": {
                   "description": "Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.",
                   "items": {
@@ -2451,22 +1956,13 @@
                     "properties": {
                       "computeMode": {
                         "description": "Shared or dedicated app hosting.",
-                        "enum": [
-                          "Shared",
-                          "Dedicated",
-                          "Dynamic"
-                        ],
+                        "enum": ["Shared", "Dedicated", "Dynamic"],
                         "type": "string",
-                        "x-ms-enum": {
-                          "modelAsString": false,
-                          "name": "ComputeModeOptions"
-                        }
+                        "x-ms-enum": { "modelAsString": false, "name": "ComputeModeOptions" }
                       },
                       "instanceNames": {
                         "description": "Names of all instances in the worker pool (read only).",
-                        "items": {
-                          "type": "string"
-                        },
+                        "items": { "type": "string" },
                         "readOnly": true,
                         "type": "array"
                       },
@@ -2475,10 +1971,7 @@
                         "format": "int32",
                         "type": "integer"
                       },
-                      "workerSize": {
-                        "description": "VM size of the worker pool instances.",
-                        "type": "string"
-                      },
+                      "workerSize": { "description": "VM size of the worker pool instances.", "type": "string" },
                       "workerSizeId": {
                         "description": "Worker size ID for referencing this worker pool.",
                         "format": "int32",
@@ -2490,21 +1983,14 @@
                   "type": "array"
                 }
               },
-              "required": [
-                "name",
-                "location",
-                "virtualNetwork",
-                "workerPools"
-              ],
+              "required": ["name", "location", "virtualNetwork", "workerPools"],
               "type": "object"
             },
             "type": "array"
           },
           "locations": {
             "description": "Available regions.",
-            "items": {
-              "$ref": "#/components/schemas/GeoRegion"
-            },
+            "items": { "$ref": "#/components/schemas/GeoRegion" },
             "type": "array"
           }
         },
@@ -2515,25 +2001,10 @@
           {
             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
             "properties": {
-              "id": {
-                "description": "Resource Id.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "kind": {
-                "description": "Kind of resource.",
-                "type": "string"
-              },
-              "name": {
-                "description": "Resource Name.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "type": {
-                "description": "Resource type.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+              "kind": { "description": "Kind of resource.", "type": "string" },
+              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
             },
             "x-ms-azure-resource": true
           }
@@ -2543,16 +2014,8 @@
           "properties": {
             "description": "GeoRegion resource specific properties",
             "properties": {
-              "description": {
-                "description": "Region description.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "displayName": {
-                "description": "Display name for region.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "description": { "description": "Region description.", "readOnly": true, "type": "string" },
+              "displayName": { "description": "Display name for region.", "readOnly": true, "type": "string" }
             },
             "x-ms-client-flatten": true
           }
@@ -2562,22 +2025,14 @@
       "GeoRegionCollection": {
         "description": "Collection of geographical regions.",
         "properties": {
-          "nextLink": {
-            "description": "Link to next page of resources.",
-            "readOnly": true,
-            "type": "string"
-          },
+          "nextLink": { "description": "Link to next page of resources.", "readOnly": true, "type": "string" },
           "value": {
             "description": "Collection of resources.",
-            "items": {
-              "$ref": "#/components/schemas/GeoRegion"
-            },
+            "items": { "$ref": "#/components/schemas/GeoRegion" },
             "type": "array"
           }
         },
-        "required": [
-          "value"
-        ],
+        "required": ["value"],
         "type": "object"
       },
       "GlobalCsmSkuDescription": {
@@ -2588,18 +2043,9 @@
             "items": {
               "description": "Describes the capabilities/features allowed for a specific SKU.",
               "properties": {
-                "name": {
-                  "description": "Name of the SKU capability.",
-                  "type": "string"
-                },
-                "reason": {
-                  "description": "Reason of the SKU capability.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "Value of the SKU capability.",
-                  "type": "string"
-                }
+                "name": { "description": "Name of the SKU capability.", "type": "string" },
+                "reason": { "description": "Reason of the SKU capability.", "type": "string" },
+                "value": { "description": "Value of the SKU capability.", "type": "string" }
               },
               "type": "object"
             },
@@ -2630,43 +2076,19 @@
             },
             "type": "object"
           },
-          "family": {
-            "description": "Family code of the resource SKU.",
-            "type": "string"
-          },
-          "locations": {
-            "description": "Locations of the SKU.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "name": {
-            "description": "Name of the resource SKU.",
-            "type": "string"
-          },
-          "size": {
-            "description": "Size specifier of the resource SKU.",
-            "type": "string"
-          },
-          "tier": {
-            "description": "Service Tier of the resource SKU.",
-            "type": "string"
-          }
+          "family": { "description": "Family code of the resource SKU.", "type": "string" },
+          "locations": { "description": "Locations of the SKU.", "items": { "type": "string" }, "type": "array" },
+          "name": { "description": "Name of the resource SKU.", "type": "string" },
+          "size": { "description": "Size specifier of the resource SKU.", "type": "string" },
+          "tier": { "description": "Service Tier of the resource SKU.", "type": "string" }
         },
         "type": "object"
       },
       "HostingEnvironmentDeploymentInfo": {
         "description": "Information needed to create resources on an App Service Environment.",
         "properties": {
-          "location": {
-            "description": "Location of the App Service Environment.",
-            "type": "string"
-          },
-          "name": {
-            "description": "Name of the App Service Environment.",
-            "type": "string"
-          }
+          "location": { "description": "Location of the App Service Environment.", "type": "string" },
+          "name": { "description": "Name of the App Service Environment.", "type": "string" }
         },
         "type": "object"
       },
@@ -2675,25 +2097,10 @@
           {
             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
             "properties": {
-              "id": {
-                "description": "Resource Id.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "kind": {
-                "description": "Kind of resource.",
-                "type": "string"
-              },
-              "name": {
-                "description": "Resource Name.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "type": {
-                "description": "Resource type.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+              "kind": { "description": "Kind of resource.", "type": "string" },
+              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
             },
             "x-ms-azure-resource": true
           }
@@ -2703,58 +2110,23 @@
           "properties": {
             "description": "PremierAddOnOffer resource specific properties",
             "properties": {
-              "legalTermsUrl": {
-                "description": "Legal terms URL.",
-                "type": "string"
-              },
-              "marketplaceOffer": {
-                "description": "Marketplace offer.",
-                "type": "string"
-              },
-              "marketplacePublisher": {
-                "description": "Marketplace publisher.",
-                "type": "string"
-              },
-              "privacyPolicyUrl": {
-                "description": "Privacy policy URL.",
-                "type": "string"
-              },
-              "product": {
-                "description": "Premier add on offer Product.",
-                "type": "string"
-              },
+              "legalTermsUrl": { "description": "Legal terms URL.", "type": "string" },
+              "marketplaceOffer": { "description": "Marketplace offer.", "type": "string" },
+              "marketplacePublisher": { "description": "Marketplace publisher.", "type": "string" },
+              "privacyPolicyUrl": { "description": "Privacy policy URL.", "type": "string" },
+              "product": { "description": "Premier add on offer Product.", "type": "string" },
               "promoCodeRequired": {
                 "description": "<code>true</code> if promotion code is required; otherwise, <code>false</code>.",
                 "type": "boolean"
               },
-              "quota": {
-                "description": "Premier add on offer Quota.",
-                "format": "int32",
-                "type": "integer"
-              },
-              "sku": {
-                "description": "Premier add on SKU.",
-                "type": "string"
-              },
-              "vendor": {
-                "description": "Premier add on offer Vendor.",
-                "type": "string"
-              },
+              "quota": { "description": "Premier add on offer Quota.", "format": "int32", "type": "integer" },
+              "sku": { "description": "Premier add on SKU.", "type": "string" },
+              "vendor": { "description": "Premier add on offer Vendor.", "type": "string" },
               "webHostingPlanRestrictions": {
                 "description": "App Service plans this offer is restricted to.",
-                "enum": [
-                  "None",
-                  "Free",
-                  "Shared",
-                  "Basic",
-                  "Standard",
-                  "Premium"
-                ],
+                "enum": ["None", "Free", "Shared", "Basic", "Standard", "Premium"],
                 "type": "string",
-                "x-ms-enum": {
-                  "modelAsString": false,
-                  "name": "AppServicePlanRestrictions"
-                }
+                "x-ms-enum": { "modelAsString": false, "name": "AppServicePlanRestrictions" }
               }
             },
             "x-ms-client-flatten": true
@@ -2765,22 +2137,14 @@
       "PremierAddOnOfferCollection": {
         "description": "Collection of premier add-on offers.",
         "properties": {
-          "nextLink": {
-            "description": "Link to next page of resources.",
-            "readOnly": true,
-            "type": "string"
-          },
+          "nextLink": { "description": "Link to next page of resources.", "readOnly": true, "type": "string" },
           "value": {
             "description": "Collection of resources.",
-            "items": {
-              "$ref": "#/components/schemas/PremierAddOnOffer"
-            },
+            "items": { "$ref": "#/components/schemas/PremierAddOnOffer" },
             "type": "array"
           }
         },
-        "required": [
-          "value"
-        ],
+        "required": ["value"],
         "type": "object"
       },
       "ResourceNameAvailability": {
@@ -2796,15 +2160,9 @@
           },
           "reason": {
             "description": "<code>Invalid</code> indicates the name provided does not match Azure App Service naming requirements. <code>AlreadyExists</code> indicates that the name is already in use and is therefore unavailable.",
-            "enum": [
-              "Invalid",
-              "AlreadyExists"
-            ],
+            "enum": ["Invalid", "AlreadyExists"],
             "type": "string",
-            "x-ms-enum": {
-              "modelAsString": true,
-              "name": "InAvailabilityReasonType"
-            }
+            "x-ms-enum": { "modelAsString": true, "name": "InAvailabilityReasonType" }
           }
         },
         "type": "object"
@@ -2812,14 +2170,8 @@
       "ResourceNameAvailabilityRequest": {
         "description": "Resource name availability request content.",
         "properties": {
-          "isFqdn": {
-            "description": "Is fully qualified domain name.",
-            "type": "boolean"
-          },
-          "name": {
-            "description": "Resource name to verify.",
-            "type": "string"
-          },
+          "isFqdn": { "description": "Is fully qualified domain name.", "type": "boolean" },
+          "name": { "description": "Resource name to verify.", "type": "string" },
           "type": {
             "description": "Resource type used for verification.",
             "enum": [
@@ -2833,30 +2185,19 @@
               "Microsoft.Web/publishingUsers"
             ],
             "type": "string",
-            "x-ms-enum": {
-              "modelAsString": true,
-              "name": "CheckNameResourceTypes"
-            }
+            "x-ms-enum": { "modelAsString": true, "name": "CheckNameResourceTypes" }
           }
         },
-        "required": [
-          "name",
-          "type"
-        ],
+        "required": ["name", "type"],
         "type": "object"
       },
       "SkuInfos": {
         "description": "Collection of SKU information.",
         "properties": {
-          "resourceType": {
-            "description": "Resource type that this SKU applies to.",
-            "type": "string"
-          },
+          "resourceType": { "description": "Resource type that this SKU applies to.", "type": "string" },
           "skus": {
             "description": "List of SKUs the subscription is able to use.",
-            "items": {
-              "$ref": "#/components/schemas/GlobalCsmSkuDescription"
-            },
+            "items": { "$ref": "#/components/schemas/GlobalCsmSkuDescription" },
             "type": "array"
           }
         },
@@ -2867,25 +2208,10 @@
           {
             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
             "properties": {
-              "id": {
-                "description": "Resource Id.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "kind": {
-                "description": "Kind of resource.",
-                "type": "string"
-              },
-              "name": {
-                "description": "Resource Name.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "type": {
-                "description": "Resource type.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+              "kind": { "description": "Kind of resource.", "type": "string" },
+              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
             },
             "x-ms-azure-resource": true
           }
@@ -2895,23 +2221,10 @@
           "properties": {
             "description": "SourceControl resource specific properties",
             "properties": {
-              "expirationTime": {
-                "description": "OAuth token expiration.",
-                "format": "date-time",
-                "type": "string"
-              },
-              "refreshToken": {
-                "description": "OAuth refresh token.",
-                "type": "string"
-              },
-              "token": {
-                "description": "OAuth access token.",
-                "type": "string"
-              },
-              "tokenSecret": {
-                "description": "OAuth access token secret.",
-                "type": "string"
-              }
+              "expirationTime": { "description": "OAuth token expiration.", "format": "date-time", "type": "string" },
+              "refreshToken": { "description": "OAuth refresh token.", "type": "string" },
+              "token": { "description": "OAuth access token.", "type": "string" },
+              "tokenSecret": { "description": "OAuth access token secret.", "type": "string" }
             },
             "x-ms-client-flatten": true
           }
@@ -2921,51 +2234,25 @@
       "SourceControlCollection": {
         "description": "Collection of source controls.",
         "properties": {
-          "nextLink": {
-            "description": "Link to next page of resources.",
-            "readOnly": true,
-            "type": "string"
-          },
+          "nextLink": { "description": "Link to next page of resources.", "readOnly": true, "type": "string" },
           "value": {
             "description": "Collection of resources.",
-            "items": {
-              "$ref": "#/components/schemas/SourceControl"
-            },
+            "items": { "$ref": "#/components/schemas/SourceControl" },
             "type": "array"
           }
         },
-        "required": [
-          "value"
-        ],
+        "required": ["value"],
         "type": "object"
       },
       "ValidateContainerSettingsRequest": {
         "description": "Container settings validation request context",
         "properties": {
-          "baseUrl": {
-            "description": "Base URL of the container registry",
-            "type": "string"
-          },
-          "password": {
-            "description": "Password for to access the container registry",
-            "type": "string"
-          },
-          "platform": {
-            "description": "Platform (windows or linux)",
-            "type": "string"
-          },
-          "repository": {
-            "description": "Repository name (image name)",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Image tag",
-            "type": "string"
-          },
-          "username": {
-            "description": "Username for to access the container registry",
-            "type": "string"
-          }
+          "baseUrl": { "description": "Base URL of the container registry", "type": "string" },
+          "password": { "description": "Password for to access the container registry", "type": "string" },
+          "platform": { "description": "Platform (windows or linux)", "type": "string" },
+          "repository": { "description": "Repository name (image name)", "type": "string" },
+          "tag": { "description": "Image tag", "type": "string" },
+          "username": { "description": "Username for to access the container registry", "type": "string" }
         },
         "type": "object"
       },
@@ -2998,72 +2285,39 @@
             "description": "ARM resource ID of an App Service plan that would host the app.",
             "type": "string"
           },
-          "skuName": {
-            "description": "Name of the target SKU for the App Service plan.",
-            "type": "string"
-          }
+          "skuName": { "description": "Name of the target SKU for the App Service plan.", "type": "string" }
         },
         "type": "object"
       },
       "ValidateRequest": {
         "description": "Resource validation request content.",
         "properties": {
-          "location": {
-            "description": "Expected location of the resource.",
-            "type": "string"
-          },
-          "name": {
-            "description": "Resource name to verify.",
-            "type": "string"
-          },
-          "properties": {
-            "$ref": "#/components/schemas/ValidateProperties"
-          },
+          "location": { "description": "Expected location of the resource.", "type": "string" },
+          "name": { "description": "Resource name to verify.", "type": "string" },
+          "properties": { "$ref": "#/components/schemas/ValidateProperties" },
           "type": {
             "description": "Resource type used for verification.",
-            "enum": [
-              "ServerFarm",
-              "Site"
-            ],
+            "enum": ["ServerFarm", "Site"],
             "type": "string",
-            "x-ms-enum": {
-              "modelAsString": true,
-              "name": "ValidateResourceTypes"
-            }
+            "x-ms-enum": { "modelAsString": true, "name": "ValidateResourceTypes" }
           }
         },
-        "required": [
-          "name",
-          "type",
-          "location",
-          "properties"
-        ],
+        "required": ["name", "type", "location", "properties"],
         "type": "object"
       },
       "ValidateResponse": {
         "description": "Describes the result of resource validation.",
         "properties": {
-          "error": {
-            "$ref": "#/components/schemas/ValidateResponseError"
-          },
-          "status": {
-            "description": "Result of validation.",
-            "type": "string"
-          }
+          "error": { "$ref": "#/components/schemas/ValidateResponseError" },
+          "status": { "description": "Result of validation.", "type": "string" }
         },
         "type": "object"
       },
       "ValidateResponseError": {
         "description": "Error details for when validation fails.",
         "properties": {
-          "code": {
-            "description": "Validation error code.",
-            "type": "string"
-          },
-          "message": {
-            "description": "Validation error message.",
-            "type": "string"
-          }
+          "code": { "description": "Validation error code.", "type": "string" },
+          "message": { "description": "Validation error message.", "type": "string" }
         },
         "type": "object"
       },
@@ -3072,25 +2326,10 @@
           {
             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
             "properties": {
-              "id": {
-                "description": "Resource Id.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "kind": {
-                "description": "Kind of resource.",
-                "type": "string"
-              },
-              "name": {
-                "description": "Resource Name.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "type": {
-                "description": "Resource type.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+              "kind": { "description": "Kind of resource.", "type": "string" },
+              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
             },
             "x-ms-azure-resource": true
           }
@@ -3100,18 +2339,12 @@
           "properties": {
             "description": "VnetParameters resource specific properties",
             "properties": {
-              "vnetName": {
-                "description": "The name of the VNET to be validated",
-                "type": "string"
-              },
+              "vnetName": { "description": "The name of the VNET to be validated", "type": "string" },
               "vnetResourceGroup": {
                 "description": "The Resource Group of the VNET to be validated",
                 "type": "string"
               },
-              "vnetSubnetName": {
-                "description": "The subnet name to be validated",
-                "type": "string"
-              }
+              "vnetSubnetName": { "description": "The subnet name to be validated", "type": "string" }
             },
             "x-ms-client-flatten": true
           }
@@ -3123,25 +2356,10 @@
           {
             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
             "properties": {
-              "id": {
-                "description": "Resource Id.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "kind": {
-                "description": "Kind of resource.",
-                "type": "string"
-              },
-              "name": {
-                "description": "Resource Name.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "type": {
-                "description": "Resource type.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+              "kind": { "description": "Kind of resource.", "type": "string" },
+              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
             },
             "x-ms-azure-resource": true
           }
@@ -3151,15 +2369,10 @@
           "properties": {
             "description": "VnetValidationFailureDetails resource specific properties",
             "properties": {
-              "failed": {
-                "description": "A flag describing whether or not validation failed.",
-                "type": "boolean"
-              },
+              "failed": { "description": "A flag describing whether or not validation failed.", "type": "boolean" },
               "failedTests": {
                 "description": "A list of tests that failed in the validation.",
-                "items": {
-                  "$ref": "#/components/schemas/VnetValidationTestFailure"
-                },
+                "items": { "$ref": "#/components/schemas/VnetValidationTestFailure" },
                 "type": "array"
               }
             },
@@ -3173,25 +2386,10 @@
           {
             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
             "properties": {
-              "id": {
-                "description": "Resource Id.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "kind": {
-                "description": "Kind of resource.",
-                "type": "string"
-              },
-              "name": {
-                "description": "Resource Name.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "type": {
-                "description": "Resource type.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+              "kind": { "description": "Kind of resource.", "type": "string" },
+              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
             },
             "x-ms-azure-resource": true
           }
@@ -3205,10 +2403,7 @@
                 "description": "The details of what caused the failure, e.g. the blocking rule name, etc.",
                 "type": "string"
               },
-              "testName": {
-                "description": "The name of the test that failed.",
-                "type": "string"
-              }
+              "testName": { "description": "The name of the test that failed.", "type": "string" }
             },
             "x-ms-client-flatten": true
           }

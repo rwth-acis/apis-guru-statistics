@@ -1,1 +1,876 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"Operations and objects for transcribing speech to text.","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"Amazon Transcribe Service","version":"2017-10-26","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/transcribe-2017-10-26.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"transcribe"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/transcribe/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=Transcribe.CreateVocabulary":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. ","operationId":"CreateVocabulary","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.CreateVocabulary"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateVocabularyRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateVocabularyResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}}}}},"/#X-Amz-Target=Transcribe.DeleteTranscriptionJob":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a previously submitted transcription job along with any other generated results such as the transcription, models, and so on.","operationId":"DeleteTranscriptionJob","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.DeleteTranscriptionJob"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteTranscriptionJobRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}}},"/#X-Amz-Target=Transcribe.DeleteVocabulary":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a vocabulary from Amazon Transcribe. ","operationId":"DeleteVocabulary","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.DeleteVocabulary"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteVocabularyRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"483":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}}},"/#X-Amz-Target=Transcribe.GetTranscriptionJob":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns information about a transcription job. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code> field.","operationId":"GetTranscriptionJob","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.GetTranscriptionJob"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetTranscriptionJobRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetTranscriptionJobResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}}}}},"/#X-Amz-Target=Transcribe.GetVocabulary":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets information about a vocabulary. ","operationId":"GetVocabulary","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.GetVocabulary"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetVocabularyRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetVocabularyResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}}}}},"/#X-Amz-Target=Transcribe.ListTranscriptionJobs":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists transcription jobs with the specified status.","operationId":"ListTranscriptionJobs","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.ListTranscriptionJobs"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTranscriptionJobsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTranscriptionJobsResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}}},"/#X-Amz-Target=Transcribe.ListVocabularies":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns a list of vocabularies that match the specified criteria. If no criteria are specified, returns the entire list of vocabularies.","operationId":"ListVocabularies","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.ListVocabularies"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListVocabulariesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListVocabulariesResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}}},"/#X-Amz-Target=Transcribe.StartTranscriptionJob":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Starts an asynchronous job to transcribe speech to text. ","operationId":"StartTranscriptionJob","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.StartTranscriptionJob"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartTranscriptionJobRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartTranscriptionJobResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}}}}},"/#X-Amz-Target=Transcribe.UpdateVocabulary":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. ","operationId":"UpdateVocabulary","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Transcribe.UpdateVocabulary"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateVocabularyRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateVocabularyResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"484":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}}}}}},"servers":[{"description":"The Amazon Transcribe Service multi-region endpoint","url":"http://transcribe.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Amazon Transcribe Service multi-region endpoint","url":"https://transcribe.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Amazon Transcribe Service endpoint for China (Beijing) and China (Ningxia)","url":"http://transcribe.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The Amazon Transcribe Service endpoint for China (Beijing) and China (Ningxia)","url":"https://transcribe.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"BadRequestException":{},"Boolean":{"type":"boolean"},"ConflictException":{},"CreateVocabularyRequest":{"properties":{"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"Phrases":{"$ref":"#/components/schemas/Phrases"},"VocabularyFileUri":{"$ref":"#/components/schemas/Uri"},"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"}},"required":["VocabularyName","LanguageCode"],"type":"object"},"CreateVocabularyResponse":{"properties":{"FailureReason":{"$ref":"#/components/schemas/FailureReason"},"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"LastModifiedTime":{"$ref":"#/components/schemas/DateTime"},"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"},"VocabularyState":{"$ref":"#/components/schemas/VocabularyState"}},"type":"object"},"DateTime":{"format":"date-time","type":"string"},"DeleteTranscriptionJobRequest":{"properties":{"TranscriptionJobName":{"$ref":"#/components/schemas/TranscriptionJobName"}},"required":["TranscriptionJobName"],"type":"object"},"DeleteVocabularyRequest":{"properties":{"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"}},"required":["VocabularyName"],"type":"object"},"FailureReason":{"type":"string"},"GetTranscriptionJobRequest":{"properties":{"TranscriptionJobName":{"$ref":"#/components/schemas/TranscriptionJobName"}},"required":["TranscriptionJobName"],"type":"object"},"GetTranscriptionJobResponse":{"properties":{"TranscriptionJob":{"$ref":"#/components/schemas/TranscriptionJob"}},"type":"object"},"GetVocabularyRequest":{"properties":{"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"}},"required":["VocabularyName"],"type":"object"},"GetVocabularyResponse":{"properties":{"DownloadUri":{"$ref":"#/components/schemas/Uri"},"FailureReason":{"$ref":"#/components/schemas/FailureReason"},"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"LastModifiedTime":{"$ref":"#/components/schemas/DateTime"},"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"},"VocabularyState":{"$ref":"#/components/schemas/VocabularyState"}},"type":"object"},"InternalFailureException":{},"LanguageCode":{"enum":["en-US","es-US","en-AU","fr-CA","en-GB","de-DE","pt-BR","fr-FR","it-IT","ko-KR","es-ES","en-IN","hi-IN","ar-SA"],"type":"string"},"LimitExceededException":{},"ListTranscriptionJobsRequest":{"properties":{"JobNameContains":{"$ref":"#/components/schemas/TranscriptionJobName"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"Status":{"$ref":"#/components/schemas/TranscriptionJobStatus"}},"type":"object"},"ListTranscriptionJobsResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Status":{"$ref":"#/components/schemas/TranscriptionJobStatus"},"TranscriptionJobSummaries":{"$ref":"#/components/schemas/TranscriptionJobSummaries"}},"type":"object"},"ListVocabulariesRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NameContains":{"$ref":"#/components/schemas/VocabularyName"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"StateEquals":{"$ref":"#/components/schemas/VocabularyState"}},"type":"object"},"ListVocabulariesResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Status":{"$ref":"#/components/schemas/TranscriptionJobStatus"},"Vocabularies":{"$ref":"#/components/schemas/Vocabularies"}},"type":"object"},"MaxResults":{"maximum":100,"minimum":1,"type":"integer"},"MaxSpeakers":{"maximum":10,"minimum":2,"type":"integer"},"Media":{"description":"Describes the input media file in a transcription request.","properties":{"MediaFileUri":{"$ref":"#/components/schemas/Uri"}},"type":"object"},"MediaFormat":{"enum":["mp3","mp4","wav","flac"],"type":"string"},"MediaSampleRateHertz":{"maximum":48000,"minimum":8000,"type":"integer"},"NextToken":{"maxLength":8192,"type":"string"},"NotFoundException":{},"OutputBucketName":{"pattern":"[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]","type":"string"},"OutputLocationType":{"enum":["CUSTOMER_BUCKET","SERVICE_BUCKET"],"type":"string"},"Phrase":{"maxLength":256,"minLength":0,"type":"string"},"Phrases":{"items":{"$ref":"#/components/schemas/Phrase"},"type":"array"},"Settings":{"description":"Provides optional settings for the <code>StartTranscriptionJob</code> operation.","properties":{"ChannelIdentification":{"$ref":"#/components/schemas/Boolean"},"MaxSpeakerLabels":{"$ref":"#/components/schemas/MaxSpeakers"},"ShowSpeakerLabels":{"$ref":"#/components/schemas/Boolean"},"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"}},"type":"object"},"StartTranscriptionJobRequest":{"properties":{"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"Media":{"$ref":"#/components/schemas/Media"},"MediaFormat":{"$ref":"#/components/schemas/MediaFormat"},"MediaSampleRateHertz":{"$ref":"#/components/schemas/MediaSampleRateHertz"},"OutputBucketName":{"$ref":"#/components/schemas/OutputBucketName"},"Settings":{"$ref":"#/components/schemas/Settings"},"TranscriptionJobName":{"$ref":"#/components/schemas/TranscriptionJobName"}},"required":["TranscriptionJobName","LanguageCode","MediaFormat","Media"],"type":"object"},"StartTranscriptionJobResponse":{"properties":{"TranscriptionJob":{"$ref":"#/components/schemas/TranscriptionJob"}},"type":"object"},"Transcript":{"description":"Identifies the location of a transcription.","properties":{"TranscriptFileUri":{"$ref":"#/components/schemas/Uri"}},"type":"object"},"TranscriptionJob":{"description":"Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. ","properties":{"CompletionTime":{"$ref":"#/components/schemas/DateTime"},"CreationTime":{"$ref":"#/components/schemas/DateTime"},"FailureReason":{"$ref":"#/components/schemas/FailureReason"},"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"Media":{"$ref":"#/components/schemas/Media"},"MediaFormat":{"$ref":"#/components/schemas/MediaFormat"},"MediaSampleRateHertz":{"$ref":"#/components/schemas/MediaSampleRateHertz"},"Settings":{"$ref":"#/components/schemas/Settings"},"Transcript":{"$ref":"#/components/schemas/Transcript"},"TranscriptionJobName":{"$ref":"#/components/schemas/TranscriptionJobName"},"TranscriptionJobStatus":{"$ref":"#/components/schemas/TranscriptionJobStatus"}},"type":"object"},"TranscriptionJobName":{"maxLength":200,"minLength":1,"pattern":"^[0-9a-zA-Z._-]+","type":"string"},"TranscriptionJobStatus":{"enum":["IN_PROGRESS","FAILED","COMPLETED"],"type":"string"},"TranscriptionJobSummaries":{"items":{"$ref":"#/components/schemas/TranscriptionJobSummary"},"type":"array"},"TranscriptionJobSummary":{"description":"Provides a summary of information about a transcription job. .","properties":{"CompletionTime":{"$ref":"#/components/schemas/DateTime"},"CreationTime":{"$ref":"#/components/schemas/DateTime"},"FailureReason":{"$ref":"#/components/schemas/FailureReason"},"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"OutputLocationType":{"$ref":"#/components/schemas/OutputLocationType"},"TranscriptionJobName":{"$ref":"#/components/schemas/TranscriptionJobName"},"TranscriptionJobStatus":{"$ref":"#/components/schemas/TranscriptionJobStatus"}},"type":"object"},"UpdateVocabularyRequest":{"properties":{"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"Phrases":{"$ref":"#/components/schemas/Phrases"},"VocabularyFileUri":{"$ref":"#/components/schemas/Uri"},"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"}},"required":["VocabularyName","LanguageCode"],"type":"object"},"UpdateVocabularyResponse":{"properties":{"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"LastModifiedTime":{"$ref":"#/components/schemas/DateTime"},"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"},"VocabularyState":{"$ref":"#/components/schemas/VocabularyState"}},"type":"object"},"Uri":{"maxLength":2000,"minLength":1,"type":"string"},"Vocabularies":{"items":{"$ref":"#/components/schemas/VocabularyInfo"},"type":"array"},"VocabularyInfo":{"description":"Provides information about a custom vocabulary. ","properties":{"LanguageCode":{"$ref":"#/components/schemas/LanguageCode"},"LastModifiedTime":{"$ref":"#/components/schemas/DateTime"},"VocabularyName":{"$ref":"#/components/schemas/VocabularyName"},"VocabularyState":{"$ref":"#/components/schemas/VocabularyState"}},"type":"object"},"VocabularyName":{"maxLength":200,"minLength":1,"pattern":"^[0-9a-zA-Z._-]+","type":"string"},"VocabularyState":{"enum":["PENDING","READY","FAILED"],"type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Operations and objects for transcribing speech to text.",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Transcribe Service",
+    "version": "2017-10-26",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/transcribe-2017-10-26.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "transcribe"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/transcribe/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=Transcribe.CreateVocabulary": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. ",
+        "operationId": "CreateVocabulary",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.CreateVocabulary"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateVocabularyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateVocabularyResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Transcribe.DeleteTranscriptionJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a previously submitted transcription job along with any other generated results such as the transcription, models, and so on.",
+        "operationId": "DeleteTranscriptionJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.DeleteTranscriptionJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DeleteTranscriptionJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Transcribe.DeleteVocabulary": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a vocabulary from Amazon Transcribe. ",
+        "operationId": "DeleteVocabulary",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.DeleteVocabulary"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteVocabularyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Transcribe.GetTranscriptionJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns information about a transcription job. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code> field.",
+        "operationId": "GetTranscriptionJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.GetTranscriptionJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetTranscriptionJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetTranscriptionJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Transcribe.GetVocabulary": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets information about a vocabulary. ",
+        "operationId": "GetVocabulary",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.GetVocabulary"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetVocabularyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetVocabularyResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Transcribe.ListTranscriptionJobs": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists transcription jobs with the specified status.",
+        "operationId": "ListTranscriptionJobs",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.ListTranscriptionJobs"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListTranscriptionJobsRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTranscriptionJobsResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Transcribe.ListVocabularies": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of vocabularies that match the specified criteria. If no criteria are specified, returns the entire list of vocabularies.",
+        "operationId": "ListVocabularies",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.ListVocabularies"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListVocabulariesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListVocabulariesResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Transcribe.StartTranscriptionJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Starts an asynchronous job to transcribe speech to text. ",
+        "operationId": "StartTranscriptionJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.StartTranscriptionJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/StartTranscriptionJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/StartTranscriptionJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Transcribe.UpdateVocabulary": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. ",
+        "operationId": "UpdateVocabulary",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Transcribe.UpdateVocabulary"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateVocabularyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateVocabularyResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "484": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The Amazon Transcribe Service multi-region endpoint",
+      "url": "http://transcribe.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Amazon Transcribe Service multi-region endpoint",
+      "url": "https://transcribe.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Amazon Transcribe Service endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://transcribe.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The Amazon Transcribe Service endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://transcribe.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "BadRequestException": {},
+      "Boolean": { "type": "boolean" },
+      "ConflictException": {},
+      "CreateVocabularyRequest": {
+        "properties": {
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "Phrases": { "$ref": "#/components/schemas/Phrases" },
+          "VocabularyFileUri": { "$ref": "#/components/schemas/Uri" },
+          "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" }
+        },
+        "required": ["VocabularyName", "LanguageCode"],
+        "type": "object"
+      },
+      "CreateVocabularyResponse": {
+        "properties": {
+          "FailureReason": { "$ref": "#/components/schemas/FailureReason" },
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "LastModifiedTime": { "$ref": "#/components/schemas/DateTime" },
+          "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" },
+          "VocabularyState": { "$ref": "#/components/schemas/VocabularyState" }
+        },
+        "type": "object"
+      },
+      "DateTime": { "format": "date-time", "type": "string" },
+      "DeleteTranscriptionJobRequest": {
+        "properties": { "TranscriptionJobName": { "$ref": "#/components/schemas/TranscriptionJobName" } },
+        "required": ["TranscriptionJobName"],
+        "type": "object"
+      },
+      "DeleteVocabularyRequest": {
+        "properties": { "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" } },
+        "required": ["VocabularyName"],
+        "type": "object"
+      },
+      "FailureReason": { "type": "string" },
+      "GetTranscriptionJobRequest": {
+        "properties": { "TranscriptionJobName": { "$ref": "#/components/schemas/TranscriptionJobName" } },
+        "required": ["TranscriptionJobName"],
+        "type": "object"
+      },
+      "GetTranscriptionJobResponse": {
+        "properties": { "TranscriptionJob": { "$ref": "#/components/schemas/TranscriptionJob" } },
+        "type": "object"
+      },
+      "GetVocabularyRequest": {
+        "properties": { "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" } },
+        "required": ["VocabularyName"],
+        "type": "object"
+      },
+      "GetVocabularyResponse": {
+        "properties": {
+          "DownloadUri": { "$ref": "#/components/schemas/Uri" },
+          "FailureReason": { "$ref": "#/components/schemas/FailureReason" },
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "LastModifiedTime": { "$ref": "#/components/schemas/DateTime" },
+          "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" },
+          "VocabularyState": { "$ref": "#/components/schemas/VocabularyState" }
+        },
+        "type": "object"
+      },
+      "InternalFailureException": {},
+      "LanguageCode": {
+        "enum": [
+          "en-US",
+          "es-US",
+          "en-AU",
+          "fr-CA",
+          "en-GB",
+          "de-DE",
+          "pt-BR",
+          "fr-FR",
+          "it-IT",
+          "ko-KR",
+          "es-ES",
+          "en-IN",
+          "hi-IN",
+          "ar-SA",
+          "ru-RU",
+          "zh-CN"
+        ],
+        "type": "string"
+      },
+      "LimitExceededException": {},
+      "ListTranscriptionJobsRequest": {
+        "properties": {
+          "JobNameContains": { "$ref": "#/components/schemas/TranscriptionJobName" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Status": { "$ref": "#/components/schemas/TranscriptionJobStatus" }
+        },
+        "type": "object"
+      },
+      "ListTranscriptionJobsResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Status": { "$ref": "#/components/schemas/TranscriptionJobStatus" },
+          "TranscriptionJobSummaries": { "$ref": "#/components/schemas/TranscriptionJobSummaries" }
+        },
+        "type": "object"
+      },
+      "ListVocabulariesRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NameContains": { "$ref": "#/components/schemas/VocabularyName" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "StateEquals": { "$ref": "#/components/schemas/VocabularyState" }
+        },
+        "type": "object"
+      },
+      "ListVocabulariesResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Status": { "$ref": "#/components/schemas/TranscriptionJobStatus" },
+          "Vocabularies": { "$ref": "#/components/schemas/Vocabularies" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "MaxSpeakers": { "maximum": 10, "minimum": 2, "type": "integer" },
+      "Media": {
+        "description": "Describes the input media file in a transcription request.",
+        "properties": { "MediaFileUri": { "$ref": "#/components/schemas/Uri" } },
+        "type": "object"
+      },
+      "MediaFormat": { "enum": ["mp3", "mp4", "wav", "flac"], "type": "string" },
+      "MediaSampleRateHertz": { "maximum": 48000, "minimum": 8000, "type": "integer" },
+      "NextToken": { "maxLength": 8192, "type": "string" },
+      "NotFoundException": {},
+      "OutputBucketName": { "pattern": "[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]", "type": "string" },
+      "OutputLocationType": { "enum": ["CUSTOMER_BUCKET", "SERVICE_BUCKET"], "type": "string" },
+      "Phrase": { "maxLength": 256, "minLength": 0, "type": "string" },
+      "Phrases": { "items": { "$ref": "#/components/schemas/Phrase" }, "type": "array" },
+      "Settings": {
+        "description": "Provides optional settings for the <code>StartTranscriptionJob</code> operation.",
+        "properties": {
+          "ChannelIdentification": { "$ref": "#/components/schemas/Boolean" },
+          "MaxSpeakerLabels": { "$ref": "#/components/schemas/MaxSpeakers" },
+          "ShowSpeakerLabels": { "$ref": "#/components/schemas/Boolean" },
+          "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" }
+        },
+        "type": "object"
+      },
+      "StartTranscriptionJobRequest": {
+        "properties": {
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "Media": { "$ref": "#/components/schemas/Media" },
+          "MediaFormat": { "$ref": "#/components/schemas/MediaFormat" },
+          "MediaSampleRateHertz": { "$ref": "#/components/schemas/MediaSampleRateHertz" },
+          "OutputBucketName": { "$ref": "#/components/schemas/OutputBucketName" },
+          "Settings": { "$ref": "#/components/schemas/Settings" },
+          "TranscriptionJobName": { "$ref": "#/components/schemas/TranscriptionJobName" }
+        },
+        "required": ["TranscriptionJobName", "LanguageCode", "MediaFormat", "Media"],
+        "type": "object"
+      },
+      "StartTranscriptionJobResponse": {
+        "properties": { "TranscriptionJob": { "$ref": "#/components/schemas/TranscriptionJob" } },
+        "type": "object"
+      },
+      "Transcript": {
+        "description": "Identifies the location of a transcription.",
+        "properties": { "TranscriptFileUri": { "$ref": "#/components/schemas/Uri" } },
+        "type": "object"
+      },
+      "TranscriptionJob": {
+        "description": "Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. ",
+        "properties": {
+          "CompletionTime": { "$ref": "#/components/schemas/DateTime" },
+          "CreationTime": { "$ref": "#/components/schemas/DateTime" },
+          "FailureReason": { "$ref": "#/components/schemas/FailureReason" },
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "Media": { "$ref": "#/components/schemas/Media" },
+          "MediaFormat": { "$ref": "#/components/schemas/MediaFormat" },
+          "MediaSampleRateHertz": { "$ref": "#/components/schemas/MediaSampleRateHertz" },
+          "Settings": { "$ref": "#/components/schemas/Settings" },
+          "Transcript": { "$ref": "#/components/schemas/Transcript" },
+          "TranscriptionJobName": { "$ref": "#/components/schemas/TranscriptionJobName" },
+          "TranscriptionJobStatus": { "$ref": "#/components/schemas/TranscriptionJobStatus" }
+        },
+        "type": "object"
+      },
+      "TranscriptionJobName": { "maxLength": 200, "minLength": 1, "pattern": "^[0-9a-zA-Z._-]+", "type": "string" },
+      "TranscriptionJobStatus": { "enum": ["IN_PROGRESS", "FAILED", "COMPLETED"], "type": "string" },
+      "TranscriptionJobSummaries": {
+        "items": { "$ref": "#/components/schemas/TranscriptionJobSummary" },
+        "type": "array"
+      },
+      "TranscriptionJobSummary": {
+        "description": "Provides a summary of information about a transcription job. .",
+        "properties": {
+          "CompletionTime": { "$ref": "#/components/schemas/DateTime" },
+          "CreationTime": { "$ref": "#/components/schemas/DateTime" },
+          "FailureReason": { "$ref": "#/components/schemas/FailureReason" },
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "OutputLocationType": { "$ref": "#/components/schemas/OutputLocationType" },
+          "TranscriptionJobName": { "$ref": "#/components/schemas/TranscriptionJobName" },
+          "TranscriptionJobStatus": { "$ref": "#/components/schemas/TranscriptionJobStatus" }
+        },
+        "type": "object"
+      },
+      "UpdateVocabularyRequest": {
+        "properties": {
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "Phrases": { "$ref": "#/components/schemas/Phrases" },
+          "VocabularyFileUri": { "$ref": "#/components/schemas/Uri" },
+          "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" }
+        },
+        "required": ["VocabularyName", "LanguageCode"],
+        "type": "object"
+      },
+      "UpdateVocabularyResponse": {
+        "properties": {
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "LastModifiedTime": { "$ref": "#/components/schemas/DateTime" },
+          "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" },
+          "VocabularyState": { "$ref": "#/components/schemas/VocabularyState" }
+        },
+        "type": "object"
+      },
+      "Uri": { "maxLength": 2000, "minLength": 1, "type": "string" },
+      "Vocabularies": { "items": { "$ref": "#/components/schemas/VocabularyInfo" }, "type": "array" },
+      "VocabularyInfo": {
+        "description": "Provides information about a custom vocabulary. ",
+        "properties": {
+          "LanguageCode": { "$ref": "#/components/schemas/LanguageCode" },
+          "LastModifiedTime": { "$ref": "#/components/schemas/DateTime" },
+          "VocabularyName": { "$ref": "#/components/schemas/VocabularyName" },
+          "VocabularyState": { "$ref": "#/components/schemas/VocabularyState" }
+        },
+        "type": "object"
+      },
+      "VocabularyName": { "maxLength": 200, "minLength": 1, "pattern": "^[0-9a-zA-Z._-]+", "type": "string" },
+      "VocabularyState": { "enum": ["PENDING", "READY", "FAILED"], "type": "string" }
+    }
+  }
+}

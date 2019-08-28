@@ -1,1 +1,1275 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"The AWS IoT 1-Click Projects API Reference","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS IoT 1-Click Projects Service","version":"2018-05-14","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot1click-projects-2018-05-14.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"iot1click-projects"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/iot1click/"},"security":[{"hmac":[]}],"paths":{"/projects":{"get":{"description":"Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.","operationId":"ListProjects","parameters":[{"description":"The token to retrieve the next set of results.","in":"query","name":"nextToken","required":false,"schema":{"type":"string","minLength":1,"maxLength":1024}},{"description":"The maximum number of results to return per request. If not set, a default value of 100 is used.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":250}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListProjectsResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates an empty project with a placement template. A project contains zero or more placements that adhere to the placement template defined in the project.","operationId":"CreateProject","requestBody":{"content":{"application/json":{"schema":{"properties":{"description":{"description":"An optional description for the project.","maxLength":500,"minLength":0,"type":"string"},"placementTemplate":{"description":"An object defining the template for a placement.","properties":{"defaultAttributes":{"$ref":"#/components/schemas/DefaultPlacementAttributeMap"},"deviceTemplates":{"$ref":"#/components/schemas/DeviceTemplateMap"}},"type":"object"},"projectName":{"description":"The name of the project to create.","maxLength":128,"minLength":1,"pattern":"^[0-9A-Za-z_-]+$","type":"string"},"tags":{"additionalProperties":{"$ref":"#/components/schemas/TagValue"},"description":"Optional tags (metadata key/value pairs) to be associated with the project. For example, <code>{ {\"key1\": \"value1\", \"key2\": \"value2\"} }</code>. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>.","maxProperties":50,"minProperties":1,"type":"object"}},"required":["projectName"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateProjectResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceConflictException"}}}}}}},"/projects/{projectName}":{"delete":{"description":"<p>Deletes a project. To delete a project, it must not have any placements associated with it.</p> <note> <p>When you delete a project, all associated data becomes irretrievable.</p> </note>","operationId":"DeleteProject","parameters":[{"description":"The name of the empty project to delete.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteProjectResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"get":{"description":"Returns an object describing a project.","operationId":"DescribeProject","parameters":[{"description":"The name of the project to be described.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeProjectResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Updates a project associated with your AWS account and region. With the exception of device template names, you can pass just the values that need to be updated because the update request will change only the values that are provided. To clear a value, pass the empty string (i.e., <code>\"\"</code>).","operationId":"UpdateProject","parameters":[{"description":"The name of the project to be updated.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"description":{"description":"An optional user-defined description for the project.","maxLength":500,"minLength":0,"type":"string"},"placementTemplate":{"description":"An object defining the template for a placement.","properties":{"defaultAttributes":{"$ref":"#/components/schemas/DefaultPlacementAttributeMap"},"deviceTemplates":{"$ref":"#/components/schemas/DeviceTemplateMap"}},"type":"object"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateProjectResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/projects/{projectName}/placements":{"get":{"description":"Lists the placement(s) of a project.","operationId":"ListPlacements","parameters":[{"description":"The project containing the placements to be listed.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}},{"description":"The token to retrieve the next set of results.","in":"query","name":"nextToken","required":false,"schema":{"type":"string","minLength":1,"maxLength":1024}},{"description":"The maximum number of results to return per request. If not set, a default value of 100 is used.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":250}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListPlacementsResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates an empty placement.","operationId":"CreatePlacement","parameters":[{"description":"The name of the project in which to create the placement.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"attributes":{"additionalProperties":{"$ref":"#/components/schemas/AttributeValue"},"description":"Optional user-defined key/value pairs providing contextual data (such as location or function) for the placement.","type":"object"},"placementName":{"description":"The name of the placement to be created.","maxLength":128,"minLength":1,"pattern":"^[a-zA-Z0-9_-]+$","type":"string"}},"required":["placementName"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePlacementResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceConflictException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/projects/{projectName}/placements/{placementName}":{"delete":{"description":"<p>Deletes a placement. To delete a placement, it must not have any devices associated with it.</p> <note> <p>When you delete a placement, all associated data becomes irretrievable.</p> </note>","operationId":"DeletePlacement","parameters":[{"description":"The name of the empty placement to delete.","in":"path","name":"placementName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}},{"description":"The project containing the empty placement to delete.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeletePlacementResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"get":{"description":"Describes a placement in a project.","operationId":"DescribePlacement","parameters":[{"description":"The name of the placement within a project.","in":"path","name":"placementName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}},{"description":"The project containing the placement to be described.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribePlacementResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Updates a placement with the given attributes. To clear an attribute, pass an empty value (i.e., \"\").","operationId":"UpdatePlacement","parameters":[{"description":"The name of the placement to update.","in":"path","name":"placementName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}},{"description":"The name of the project containing the placement to be updated.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"attributes":{"additionalProperties":{"$ref":"#/components/schemas/AttributeValue"},"description":"The user-defined object of attributes used to update the placement. The maximum number of key/value pairs is 50.","type":"object"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdatePlacementResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/projects/{projectName}/placements/{placementName}/devices":{"get":{"description":"Returns an object enumerating the devices in a placement.","operationId":"GetDevicesInPlacement","parameters":[{"description":"The name of the project containing the placement.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}},{"description":"The name of the placement to get the devices from.","in":"path","name":"placementName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetDevicesInPlacementResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}":{"delete":{"description":"Removes a physical device from a placement.","operationId":"DisassociateDeviceFromPlacement","parameters":[{"description":"The name of the project that contains the placement.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}},{"description":"The name of the placement that the device should be removed from.","in":"path","name":"placementName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}},{"description":"The device ID that should be removed from the placement.","in":"path","name":"deviceTemplateName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateDeviceFromPlacementResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Associates a physical device with a placement.","operationId":"AssociateDeviceWithPlacement","parameters":[{"description":"The name of the project containing the placement in which to associate the device.","in":"path","name":"projectName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[0-9A-Za-z_-]+$"}},{"description":"The name of the placement in which to associate the device.","in":"path","name":"placementName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}},{"description":"The device template name to associate with the device ID.","in":"path","name":"deviceTemplateName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"deviceId":{"description":"The ID of the physical device to be associated with the given placement in the project. Note that a mandatory 4 character prefix is required for all <code>deviceId</code> values.","maxLength":32,"minLength":1,"type":"string"}},"required":["deviceId"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateDeviceWithPlacementResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceConflictException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/tags/{resourceArn}":{"get":{"description":"Lists the tags (metadata key/value pairs) which you have assigned to the resource.","operationId":"ListTagsForResource","parameters":[{"description":"The ARN of the resource whose tags you want to list.","in":"path","name":"resourceArn","required":true,"schema":{"type":"string","pattern":"^arn:aws:iot1click:[A-Za-z0-9_/.-]{0,63}:\\d+:projects/[0-9A-Za-z_-]{1,128}$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates or modifies tags for a resource. Tags are key/value pairs (metadata) that can be used to manage a resource. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>.","operationId":"TagResource","parameters":[{"description":"The ARN of the resouce for which tag(s) should be added or modified.","in":"path","name":"resourceArn","required":true,"schema":{"type":"string","pattern":"^arn:aws:iot1click:[A-Za-z0-9_/.-]{0,63}:\\d+:projects/[0-9A-Za-z_-]{1,128}$"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"tags":{"additionalProperties":{"$ref":"#/components/schemas/TagValue"},"description":"The new or modifying tag(s) for the resource. See <a href=\"https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits\">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per resource.","maxProperties":50,"minProperties":1,"type":"object"}},"required":["tags"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagResourceResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/tags/{resourceArn}#tagKeys":{"delete":{"description":"Removes one or more tags (metadata key/value pairs) from a resource.","operationId":"UntagResource","parameters":[{"description":"The ARN of the resource whose tag you want to remove.","in":"path","name":"resourceArn","required":true,"schema":{"type":"string","pattern":"^arn:aws:iot1click:[A-Za-z0-9_/.-]{0,63}:\\d+:projects/[0-9A-Za-z_-]{1,128}$"}},{"description":"The keys of those tags which you want to remove.","in":"query","name":"tagKeys","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagResourceResponse"}}}},"480":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]}},"servers":[{"description":"The AWS IoT 1-Click Projects multi-region endpoint","url":"http://projects.iot1click.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS IoT 1-Click Projects multi-region endpoint","url":"https://projects.iot1click.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS IoT 1-Click Projects endpoint for China (Beijing) and China (Ningxia)","url":"http://projects.iot1click.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS IoT 1-Click Projects endpoint for China (Beijing) and China (Ningxia)","url":"https://projects.iot1click.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AssociateDeviceWithPlacementRequest":{"properties":{"deviceId":{"$ref":"#/components/schemas/DeviceId"}},"required":["deviceId"],"type":"object"},"AssociateDeviceWithPlacementResponse":{"properties":{},"type":"object"},"AttributeDefaultValue":{"maxLength":800,"type":"string"},"AttributeName":{"maxLength":128,"minLength":1,"type":"string"},"AttributeValue":{"maxLength":800,"type":"string"},"CreatePlacementRequest":{"properties":{"attributes":{"$ref":"#/components/schemas/PlacementAttributeMap"},"placementName":{"$ref":"#/components/schemas/PlacementName"}},"required":["placementName"],"type":"object"},"CreatePlacementResponse":{"properties":{},"type":"object"},"CreateProjectRequest":{"properties":{"description":{"$ref":"#/components/schemas/Description"},"placementTemplate":{"$ref":"#/components/schemas/PlacementTemplate"},"projectName":{"$ref":"#/components/schemas/ProjectName"},"tags":{"$ref":"#/components/schemas/TagMap"}},"required":["projectName"],"type":"object"},"CreateProjectResponse":{"properties":{},"type":"object"},"DefaultPlacementAttributeMap":{"additionalProperties":{"$ref":"#/components/schemas/AttributeDefaultValue"},"type":"object"},"DeletePlacementRequest":{"properties":{},"type":"object"},"DeletePlacementResponse":{"properties":{},"type":"object"},"DeleteProjectRequest":{"properties":{},"type":"object"},"DeleteProjectResponse":{"properties":{},"type":"object"},"DescribePlacementRequest":{"properties":{},"type":"object"},"DescribePlacementResponse":{"properties":{"placement":{"$ref":"#/components/schemas/PlacementDescription"}},"required":["placement"],"type":"object"},"DescribeProjectRequest":{"properties":{},"type":"object"},"DescribeProjectResponse":{"properties":{"project":{"$ref":"#/components/schemas/ProjectDescription"}},"required":["project"],"type":"object"},"Description":{"maxLength":500,"minLength":0,"type":"string"},"DeviceCallbackKey":{"maxLength":128,"minLength":1,"type":"string"},"DeviceCallbackOverrideMap":{"additionalProperties":{"$ref":"#/components/schemas/DeviceCallbackValue"},"type":"object"},"DeviceCallbackValue":{"maxLength":200,"type":"string"},"DeviceId":{"maxLength":32,"minLength":1,"type":"string"},"DeviceMap":{"additionalProperties":{"$ref":"#/components/schemas/DeviceId"},"type":"object"},"DeviceTemplate":{"description":"An object representing a device for a placement template (see <a>PlacementTemplate</a>).","properties":{"callbackOverrides":{"$ref":"#/components/schemas/DeviceCallbackOverrideMap"},"deviceType":{"$ref":"#/components/schemas/DeviceType"}},"type":"object"},"DeviceTemplateMap":{"additionalProperties":{"$ref":"#/components/schemas/DeviceTemplate"},"type":"object"},"DeviceTemplateName":{"maxLength":128,"minLength":1,"pattern":"^[a-zA-Z0-9_-]+$","type":"string"},"DeviceType":{"maxLength":128,"type":"string"},"DisassociateDeviceFromPlacementRequest":{"properties":{},"type":"object"},"DisassociateDeviceFromPlacementResponse":{"properties":{},"type":"object"},"GetDevicesInPlacementRequest":{"properties":{},"type":"object"},"GetDevicesInPlacementResponse":{"properties":{"devices":{"$ref":"#/components/schemas/DeviceMap"}},"required":["devices"],"type":"object"},"InternalFailureException":{},"InvalidRequestException":{},"ListPlacementsRequest":{"properties":{},"type":"object"},"ListPlacementsResponse":{"properties":{"nextToken":{"$ref":"#/components/schemas/NextToken"},"placements":{"$ref":"#/components/schemas/PlacementSummaryList"}},"required":["placements"],"type":"object"},"ListProjectsRequest":{"properties":{},"type":"object"},"ListProjectsResponse":{"properties":{"nextToken":{"$ref":"#/components/schemas/NextToken"},"projects":{"$ref":"#/components/schemas/ProjectSummaryList"}},"required":["projects"],"type":"object"},"ListTagsForResourceRequest":{"properties":{},"type":"object"},"ListTagsForResourceResponse":{"properties":{"tags":{"$ref":"#/components/schemas/TagMap"}},"type":"object"},"MaxResults":{"maximum":250,"minimum":1,"type":"integer"},"NextToken":{"maxLength":1024,"minLength":1,"type":"string"},"PlacementAttributeMap":{"additionalProperties":{"$ref":"#/components/schemas/AttributeValue"},"type":"object"},"PlacementDescription":{"description":"An object describing a project's placement.","properties":{"attributes":{"$ref":"#/components/schemas/PlacementAttributeMap"},"createdDate":{"$ref":"#/components/schemas/Time"},"placementName":{"$ref":"#/components/schemas/PlacementName"},"projectName":{"$ref":"#/components/schemas/ProjectName"},"updatedDate":{"$ref":"#/components/schemas/Time"}},"required":["projectName","placementName","attributes","createdDate","updatedDate"],"type":"object"},"PlacementName":{"maxLength":128,"minLength":1,"pattern":"^[a-zA-Z0-9_-]+$","type":"string"},"PlacementSummary":{"description":"An object providing summary information for a particular placement.","properties":{"createdDate":{"$ref":"#/components/schemas/Time"},"placementName":{"$ref":"#/components/schemas/PlacementName"},"projectName":{"$ref":"#/components/schemas/ProjectName"},"updatedDate":{"$ref":"#/components/schemas/Time"}},"required":["projectName","placementName","createdDate","updatedDate"],"type":"object"},"PlacementSummaryList":{"items":{"$ref":"#/components/schemas/PlacementSummary"},"type":"array"},"PlacementTemplate":{"description":"An object defining the template for a placement.","properties":{"defaultAttributes":{"$ref":"#/components/schemas/DefaultPlacementAttributeMap"},"deviceTemplates":{"$ref":"#/components/schemas/DeviceTemplateMap"}},"type":"object"},"ProjectArn":{"pattern":"^arn:aws:iot1click:[A-Za-z0-9_/.-]{0,63}:\\d+:projects/[0-9A-Za-z_-]{1,128}$","type":"string"},"ProjectDescription":{"description":"An object providing detailed information for a particular project associated with an AWS account and region.","properties":{"arn":{"$ref":"#/components/schemas/ProjectArn"},"createdDate":{"$ref":"#/components/schemas/Time"},"description":{"$ref":"#/components/schemas/Description"},"placementTemplate":{"$ref":"#/components/schemas/PlacementTemplate"},"projectName":{"$ref":"#/components/schemas/ProjectName"},"tags":{"$ref":"#/components/schemas/TagMap"},"updatedDate":{"$ref":"#/components/schemas/Time"}},"required":["projectName","createdDate","updatedDate"],"type":"object"},"ProjectName":{"maxLength":128,"minLength":1,"pattern":"^[0-9A-Za-z_-]+$","type":"string"},"ProjectSummary":{"description":"An object providing summary information for a particular project for an associated AWS account and region.","properties":{"arn":{"$ref":"#/components/schemas/ProjectArn"},"createdDate":{"$ref":"#/components/schemas/Time"},"projectName":{"$ref":"#/components/schemas/ProjectName"},"tags":{"$ref":"#/components/schemas/TagMap"},"updatedDate":{"$ref":"#/components/schemas/Time"}},"required":["projectName","createdDate","updatedDate"],"type":"object"},"ProjectSummaryList":{"items":{"$ref":"#/components/schemas/ProjectSummary"},"type":"array"},"ResourceConflictException":{},"ResourceNotFoundException":{},"TagKey":{"maxLength":128,"minLength":1,"pattern":"^(?!aws:)[a-zA-Z+-=._:/]+$","type":"string"},"TagKeyList":{"items":{"$ref":"#/components/schemas/TagKey"},"maxItems":50,"minItems":1,"type":"array"},"TagMap":{"additionalProperties":{"$ref":"#/components/schemas/TagValue"},"maxProperties":50,"minProperties":1,"type":"object"},"TagResourceRequest":{"properties":{"tags":{"$ref":"#/components/schemas/TagMap"}},"required":["tags"],"type":"object"},"TagResourceResponse":{"properties":{},"type":"object"},"TagValue":{"maxLength":256,"type":"string"},"Time":{"format":"date-time","type":"string"},"TooManyRequestsException":{},"UntagResourceRequest":{"properties":{},"type":"object"},"UntagResourceResponse":{"properties":{},"type":"object"},"UpdatePlacementRequest":{"properties":{"attributes":{"$ref":"#/components/schemas/PlacementAttributeMap"}},"type":"object"},"UpdatePlacementResponse":{"properties":{},"type":"object"},"UpdateProjectRequest":{"properties":{"description":{"$ref":"#/components/schemas/Description"},"placementTemplate":{"$ref":"#/components/schemas/PlacementTemplate"}},"type":"object"},"UpdateProjectResponse":{"properties":{},"type":"object"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "The AWS IoT 1-Click Projects API Reference",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT 1-Click Projects Service",
+    "version": "2018-05-14",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot1click-projects-2018-05-14.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iot1click-projects"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iot1click/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/projects": {
+      "get": {
+        "description": "Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.",
+        "operationId": "ListProjects",
+        "parameters": [
+          {
+            "description": "The token to retrieve the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 1024 }
+          },
+          {
+            "description": "The maximum number of results to return per request. If not set, a default value of 100 is used.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 250 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListProjectsResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates an empty project with a placement template. A project contains zero or more placements that adhere to the placement template defined in the project.",
+        "operationId": "CreateProject",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "description": {
+                    "description": "An optional description for the project.",
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "placementTemplate": {
+                    "description": "An object defining the template for a placement.",
+                    "properties": {
+                      "defaultAttributes": { "$ref": "#/components/schemas/DefaultPlacementAttributeMap" },
+                      "deviceTemplates": { "$ref": "#/components/schemas/DeviceTemplateMap" }
+                    },
+                    "type": "object"
+                  },
+                  "projectName": {
+                    "description": "The name of the project to create.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "^[0-9A-Za-z_-]+$",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/TagValue" },
+                    "description": "Optional tags (metadata key/value pairs) to be associated with the project. For example, <code>{ {\"key1\": \"value1\", \"key2\": \"value2\"} }</code>. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>.",
+                    "maxProperties": 50,
+                    "minProperties": 1,
+                    "type": "object"
+                  }
+                },
+                "required": ["projectName"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateProjectResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceConflictException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceConflictException" } }
+            }
+          }
+        }
+      }
+    },
+    "/projects/{projectName}": {
+      "delete": {
+        "description": "<p>Deletes a project. To delete a project, it must not have any placements associated with it.</p> <note> <p>When you delete a project, all associated data becomes irretrievable.</p> </note>",
+        "operationId": "DeleteProject",
+        "parameters": [
+          {
+            "description": "The name of the empty project to delete.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteProjectResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns an object describing a project.",
+        "operationId": "DescribeProject",
+        "parameters": [
+          {
+            "description": "The name of the project to be described.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeProjectResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Updates a project associated with your AWS account and region. With the exception of device template names, you can pass just the values that need to be updated because the update request will change only the values that are provided. To clear a value, pass the empty string (i.e., <code>\"\"</code>).",
+        "operationId": "UpdateProject",
+        "parameters": [
+          {
+            "description": "The name of the project to be updated.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "description": {
+                    "description": "An optional user-defined description for the project.",
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "placementTemplate": {
+                    "description": "An object defining the template for a placement.",
+                    "properties": {
+                      "defaultAttributes": { "$ref": "#/components/schemas/DefaultPlacementAttributeMap" },
+                      "deviceTemplates": { "$ref": "#/components/schemas/DeviceTemplateMap" }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateProjectResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/projects/{projectName}/placements": {
+      "get": {
+        "description": "Lists the placement(s) of a project.",
+        "operationId": "ListPlacements",
+        "parameters": [
+          {
+            "description": "The project containing the placements to be listed.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          },
+          {
+            "description": "The token to retrieve the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 1024 }
+          },
+          {
+            "description": "The maximum number of results to return per request. If not set, a default value of 100 is used.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 250 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListPlacementsResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates an empty placement.",
+        "operationId": "CreatePlacement",
+        "parameters": [
+          {
+            "description": "The name of the project in which to create the placement.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "attributes": {
+                    "additionalProperties": { "$ref": "#/components/schemas/AttributeValue" },
+                    "description": "Optional user-defined key/value pairs providing contextual data (such as location or function) for the placement.",
+                    "type": "object"
+                  },
+                  "placementName": {
+                    "description": "The name of the placement to be created.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z0-9_-]+$",
+                    "type": "string"
+                  }
+                },
+                "required": ["placementName"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreatePlacementResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceConflictException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceConflictException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/projects/{projectName}/placements/{placementName}": {
+      "delete": {
+        "description": "<p>Deletes a placement. To delete a placement, it must not have any devices associated with it.</p> <note> <p>When you delete a placement, all associated data becomes irretrievable.</p> </note>",
+        "operationId": "DeletePlacement",
+        "parameters": [
+          {
+            "description": "The name of the empty placement to delete.",
+            "in": "path",
+            "name": "placementName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          },
+          {
+            "description": "The project containing the empty placement to delete.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeletePlacementResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Describes a placement in a project.",
+        "operationId": "DescribePlacement",
+        "parameters": [
+          {
+            "description": "The name of the placement within a project.",
+            "in": "path",
+            "name": "placementName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          },
+          {
+            "description": "The project containing the placement to be described.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribePlacementResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Updates a placement with the given attributes. To clear an attribute, pass an empty value (i.e., \"\").",
+        "operationId": "UpdatePlacement",
+        "parameters": [
+          {
+            "description": "The name of the placement to update.",
+            "in": "path",
+            "name": "placementName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          },
+          {
+            "description": "The name of the project containing the placement to be updated.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "attributes": {
+                    "additionalProperties": { "$ref": "#/components/schemas/AttributeValue" },
+                    "description": "The user-defined object of attributes used to update the placement. The maximum number of key/value pairs is 50.",
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdatePlacementResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/projects/{projectName}/placements/{placementName}/devices": {
+      "get": {
+        "description": "Returns an object enumerating the devices in a placement.",
+        "operationId": "GetDevicesInPlacement",
+        "parameters": [
+          {
+            "description": "The name of the project containing the placement.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          },
+          {
+            "description": "The name of the placement to get the devices from.",
+            "in": "path",
+            "name": "placementName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetDevicesInPlacementResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}": {
+      "delete": {
+        "description": "Removes a physical device from a placement.",
+        "operationId": "DisassociateDeviceFromPlacement",
+        "parameters": [
+          {
+            "description": "The name of the project that contains the placement.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          },
+          {
+            "description": "The name of the placement that the device should be removed from.",
+            "in": "path",
+            "name": "placementName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          },
+          {
+            "description": "The device ID that should be removed from the placement.",
+            "in": "path",
+            "name": "deviceTemplateName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DisassociateDeviceFromPlacementResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Associates a physical device with a placement.",
+        "operationId": "AssociateDeviceWithPlacement",
+        "parameters": [
+          {
+            "description": "The name of the project containing the placement in which to associate the device.",
+            "in": "path",
+            "name": "projectName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[0-9A-Za-z_-]+$" }
+          },
+          {
+            "description": "The name of the placement in which to associate the device.",
+            "in": "path",
+            "name": "placementName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          },
+          {
+            "description": "The device template name to associate with the device ID.",
+            "in": "path",
+            "name": "deviceTemplateName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "deviceId": {
+                    "description": "The ID of the physical device to be associated with the given placement in the project. Note that a mandatory 4 character prefix is required for all <code>deviceId</code> values.",
+                    "maxLength": 32,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": ["deviceId"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AssociateDeviceWithPlacementResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceConflictException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceConflictException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/tags/{resourceArn}": {
+      "get": {
+        "description": "Lists the tags (metadata key/value pairs) which you have assigned to the resource.",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resource whose tags you want to list.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^arn:aws:iot1click:[A-Za-z0-9_/.-]{0,63}:\\d+:projects/[0-9A-Za-z_-]{1,128}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceResponse" } }
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates or modifies tags for a resource. Tags are key/value pairs (metadata) that can be used to manage a resource. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>.",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resouce for which tag(s) should be added or modified.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^arn:aws:iot1click:[A-Za-z0-9_/.-]{0,63}:\\d+:projects/[0-9A-Za-z_-]{1,128}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/TagValue" },
+                    "description": "The new or modifying tag(s) for the resource. See <a href=\"https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits\">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per resource.",
+                    "maxProperties": 50,
+                    "minProperties": 1,
+                    "type": "object"
+                  }
+                },
+                "required": ["tags"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagResourceResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "delete": {
+        "description": "Removes one or more tags (metadata key/value pairs) from a resource.",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resource whose tag you want to remove.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^arn:aws:iot1click:[A-Za-z0-9_/.-]{0,63}:\\d+:projects/[0-9A-Za-z_-]{1,128}$"
+            }
+          },
+          {
+            "description": "The keys of those tags which you want to remove.",
+            "in": "query",
+            "name": "tagKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagResourceResponse" } } }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS IoT 1-Click Projects multi-region endpoint",
+      "url": "http://projects.iot1click.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS IoT 1-Click Projects multi-region endpoint",
+      "url": "https://projects.iot1click.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS IoT 1-Click Projects endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://projects.iot1click.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS IoT 1-Click Projects endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://projects.iot1click.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AssociateDeviceWithPlacementRequest": {
+        "properties": { "deviceId": { "$ref": "#/components/schemas/DeviceId" } },
+        "required": ["deviceId"],
+        "type": "object"
+      },
+      "AssociateDeviceWithPlacementResponse": { "properties": {}, "type": "object" },
+      "AttributeDefaultValue": { "maxLength": 800, "type": "string" },
+      "AttributeName": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "AttributeValue": { "maxLength": 800, "type": "string" },
+      "CreatePlacementRequest": {
+        "properties": {
+          "attributes": { "$ref": "#/components/schemas/PlacementAttributeMap" },
+          "placementName": { "$ref": "#/components/schemas/PlacementName" }
+        },
+        "required": ["placementName"],
+        "type": "object"
+      },
+      "CreatePlacementResponse": { "properties": {}, "type": "object" },
+      "CreateProjectRequest": {
+        "properties": {
+          "description": { "$ref": "#/components/schemas/Description" },
+          "placementTemplate": { "$ref": "#/components/schemas/PlacementTemplate" },
+          "projectName": { "$ref": "#/components/schemas/ProjectName" },
+          "tags": { "$ref": "#/components/schemas/TagMap" }
+        },
+        "required": ["projectName"],
+        "type": "object"
+      },
+      "CreateProjectResponse": { "properties": {}, "type": "object" },
+      "DefaultPlacementAttributeMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/AttributeDefaultValue" },
+        "type": "object"
+      },
+      "DeletePlacementRequest": { "properties": {}, "type": "object" },
+      "DeletePlacementResponse": { "properties": {}, "type": "object" },
+      "DeleteProjectRequest": { "properties": {}, "type": "object" },
+      "DeleteProjectResponse": { "properties": {}, "type": "object" },
+      "DescribePlacementRequest": { "properties": {}, "type": "object" },
+      "DescribePlacementResponse": {
+        "properties": { "placement": { "$ref": "#/components/schemas/PlacementDescription" } },
+        "required": ["placement"],
+        "type": "object"
+      },
+      "DescribeProjectRequest": { "properties": {}, "type": "object" },
+      "DescribeProjectResponse": {
+        "properties": { "project": { "$ref": "#/components/schemas/ProjectDescription" } },
+        "required": ["project"],
+        "type": "object"
+      },
+      "Description": { "maxLength": 500, "minLength": 0, "type": "string" },
+      "DeviceCallbackKey": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "DeviceCallbackOverrideMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/DeviceCallbackValue" },
+        "type": "object"
+      },
+      "DeviceCallbackValue": { "maxLength": 200, "type": "string" },
+      "DeviceId": { "maxLength": 32, "minLength": 1, "type": "string" },
+      "DeviceMap": { "additionalProperties": { "$ref": "#/components/schemas/DeviceId" }, "type": "object" },
+      "DeviceTemplate": {
+        "description": "An object representing a device for a placement template (see <a>PlacementTemplate</a>).",
+        "properties": {
+          "callbackOverrides": { "$ref": "#/components/schemas/DeviceCallbackOverrideMap" },
+          "deviceType": { "$ref": "#/components/schemas/DeviceType" }
+        },
+        "type": "object"
+      },
+      "DeviceTemplateMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/DeviceTemplate" },
+        "type": "object"
+      },
+      "DeviceTemplateName": { "maxLength": 128, "minLength": 1, "pattern": "^[a-zA-Z0-9_-]+$", "type": "string" },
+      "DeviceType": { "maxLength": 128, "type": "string" },
+      "DisassociateDeviceFromPlacementRequest": { "properties": {}, "type": "object" },
+      "DisassociateDeviceFromPlacementResponse": { "properties": {}, "type": "object" },
+      "GetDevicesInPlacementRequest": { "properties": {}, "type": "object" },
+      "GetDevicesInPlacementResponse": {
+        "properties": { "devices": { "$ref": "#/components/schemas/DeviceMap" } },
+        "required": ["devices"],
+        "type": "object"
+      },
+      "InternalFailureException": {},
+      "InvalidRequestException": {},
+      "ListPlacementsRequest": { "properties": {}, "type": "object" },
+      "ListPlacementsResponse": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/NextToken" },
+          "placements": { "$ref": "#/components/schemas/PlacementSummaryList" }
+        },
+        "required": ["placements"],
+        "type": "object"
+      },
+      "ListProjectsRequest": { "properties": {}, "type": "object" },
+      "ListProjectsResponse": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/NextToken" },
+          "projects": { "$ref": "#/components/schemas/ProjectSummaryList" }
+        },
+        "required": ["projects"],
+        "type": "object"
+      },
+      "ListTagsForResourceRequest": { "properties": {}, "type": "object" },
+      "ListTagsForResourceResponse": {
+        "properties": { "tags": { "$ref": "#/components/schemas/TagMap" } },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 250, "minimum": 1, "type": "integer" },
+      "NextToken": { "maxLength": 1024, "minLength": 1, "type": "string" },
+      "PlacementAttributeMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/AttributeValue" },
+        "type": "object"
+      },
+      "PlacementDescription": {
+        "description": "An object describing a project's placement.",
+        "properties": {
+          "attributes": { "$ref": "#/components/schemas/PlacementAttributeMap" },
+          "createdDate": { "$ref": "#/components/schemas/Time" },
+          "placementName": { "$ref": "#/components/schemas/PlacementName" },
+          "projectName": { "$ref": "#/components/schemas/ProjectName" },
+          "updatedDate": { "$ref": "#/components/schemas/Time" }
+        },
+        "required": ["projectName", "placementName", "attributes", "createdDate", "updatedDate"],
+        "type": "object"
+      },
+      "PlacementName": { "maxLength": 128, "minLength": 1, "pattern": "^[a-zA-Z0-9_-]+$", "type": "string" },
+      "PlacementSummary": {
+        "description": "An object providing summary information for a particular placement.",
+        "properties": {
+          "createdDate": { "$ref": "#/components/schemas/Time" },
+          "placementName": { "$ref": "#/components/schemas/PlacementName" },
+          "projectName": { "$ref": "#/components/schemas/ProjectName" },
+          "updatedDate": { "$ref": "#/components/schemas/Time" }
+        },
+        "required": ["projectName", "placementName", "createdDate", "updatedDate"],
+        "type": "object"
+      },
+      "PlacementSummaryList": { "items": { "$ref": "#/components/schemas/PlacementSummary" }, "type": "array" },
+      "PlacementTemplate": {
+        "description": "An object defining the template for a placement.",
+        "properties": {
+          "defaultAttributes": { "$ref": "#/components/schemas/DefaultPlacementAttributeMap" },
+          "deviceTemplates": { "$ref": "#/components/schemas/DeviceTemplateMap" }
+        },
+        "type": "object"
+      },
+      "ProjectArn": {
+        "pattern": "^arn:aws:iot1click:[A-Za-z0-9_/.-]{0,63}:\\d+:projects/[0-9A-Za-z_-]{1,128}$",
+        "type": "string"
+      },
+      "ProjectDescription": {
+        "description": "An object providing detailed information for a particular project associated with an AWS account and region.",
+        "properties": {
+          "arn": { "$ref": "#/components/schemas/ProjectArn" },
+          "createdDate": { "$ref": "#/components/schemas/Time" },
+          "description": { "$ref": "#/components/schemas/Description" },
+          "placementTemplate": { "$ref": "#/components/schemas/PlacementTemplate" },
+          "projectName": { "$ref": "#/components/schemas/ProjectName" },
+          "tags": { "$ref": "#/components/schemas/TagMap" },
+          "updatedDate": { "$ref": "#/components/schemas/Time" }
+        },
+        "required": ["projectName", "createdDate", "updatedDate"],
+        "type": "object"
+      },
+      "ProjectName": { "maxLength": 128, "minLength": 1, "pattern": "^[0-9A-Za-z_-]+$", "type": "string" },
+      "ProjectSummary": {
+        "description": "An object providing summary information for a particular project for an associated AWS account and region.",
+        "properties": {
+          "arn": { "$ref": "#/components/schemas/ProjectArn" },
+          "createdDate": { "$ref": "#/components/schemas/Time" },
+          "projectName": { "$ref": "#/components/schemas/ProjectName" },
+          "tags": { "$ref": "#/components/schemas/TagMap" },
+          "updatedDate": { "$ref": "#/components/schemas/Time" }
+        },
+        "required": ["projectName", "createdDate", "updatedDate"],
+        "type": "object"
+      },
+      "ProjectSummaryList": { "items": { "$ref": "#/components/schemas/ProjectSummary" }, "type": "array" },
+      "ResourceConflictException": {},
+      "ResourceNotFoundException": {},
+      "TagKey": { "maxLength": 128, "minLength": 1, "pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$", "type": "string" },
+      "TagKeyList": {
+        "items": { "$ref": "#/components/schemas/TagKey" },
+        "maxItems": 50,
+        "minItems": 1,
+        "type": "array"
+      },
+      "TagMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/TagValue" },
+        "maxProperties": 50,
+        "minProperties": 1,
+        "type": "object"
+      },
+      "TagResourceRequest": {
+        "properties": { "tags": { "$ref": "#/components/schemas/TagMap" } },
+        "required": ["tags"],
+        "type": "object"
+      },
+      "TagResourceResponse": { "properties": {}, "type": "object" },
+      "TagValue": { "maxLength": 256, "type": "string" },
+      "Time": { "format": "date-time", "type": "string" },
+      "TooManyRequestsException": {},
+      "UntagResourceRequest": { "properties": {}, "type": "object" },
+      "UntagResourceResponse": { "properties": {}, "type": "object" },
+      "UpdatePlacementRequest": {
+        "properties": { "attributes": { "$ref": "#/components/schemas/PlacementAttributeMap" } },
+        "type": "object"
+      },
+      "UpdatePlacementResponse": { "properties": {}, "type": "object" },
+      "UpdateProjectRequest": {
+        "properties": {
+          "description": { "$ref": "#/components/schemas/Description" },
+          "placementTemplate": { "$ref": "#/components/schemas/PlacementTemplate" }
+        },
+        "type": "object"
+      },
+      "UpdateProjectResponse": { "properties": {}, "type": "object" }
+    }
+  }
+}

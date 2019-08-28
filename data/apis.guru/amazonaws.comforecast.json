@@ -1,0 +1,2229 @@
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Provides APIs for creating and managing Amazon Forecast resources.",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Forecast Service",
+    "version": "2018-06-26",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/forecast-2018-06-26.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "forecast"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/forecast/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=AmazonForecast.CreateDataset": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps Forecast understand how to consume the data for model training. This includes the following:</p> <ul> <li> <p> <i> <code>DataFrequency</code> </i> - How frequently your historical time-series data is collected. Amazon Forecast uses this information when training the model and generating a forecast.</p> </li> <li> <p> <i> <code>Domain</code> </i> and <i> <code>DatasetType</code> </i> - Each dataset has an associated dataset domain and a type within the domain. Amazon Forecast provides a list of predefined domains and types within each domain. For each unique dataset domain and type within the domain, Amazon Forecast requires your data to include a minimum set of predefined fields.</p> </li> <li> <p> <i> <code>Schema</code> </i> - A schema specifies the fields of the dataset, including the field name and data type.</p> </li> </ul> <p>After creating a dataset, you import your training data into the dataset and add the dataset to a dataset group. You then use the dataset group to create a predictor. For more information, see <a>howitworks-datasets-groups</a>.</p> <p>To get a list of all your datasets, use the <a>ListDatasets</a> operation.</p> <note> <p>The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import training data. Use the <a>DescribeDataset</a> operation to get the status.</p> </note>",
+        "operationId": "CreateDataset",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.CreateDataset"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateDatasetRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateDatasetResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.CreateDatasetGroup": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates an Amazon Forecast dataset group, which holds a collection of related datasets. You can add datasets to the dataset group when you create the dataset group, or you can add datasets later with the <a>UpdateDatasetGroup</a> operation.</p> <p>After creating a dataset group and adding datasets, you use the dataset group when you create a predictor. For more information, see <a>howitworks-datasets-groups</a>.</p> <p>To get a list of all your datasets groups, use the <a>ListDatasetGroups</a> operation.</p> <note> <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can create a predictor using the dataset group. Use the <a>DescribeDatasetGroup</a> operation to get the status.</p> </note>",
+        "operationId": "CreateDatasetGroup",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.CreateDatasetGroup"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateDatasetGroupRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateDatasetGroupResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.CreateDatasetImportJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Imports your training data to an Amazon Forecast dataset. You provide the location of your training data in an Amazon Simple Storage Service (Amazon S3) bucket and the Amazon Resource Name (ARN) of the dataset that you want to import the data to.</p> <p>You must specify a <a>DataSource</a> object that includes an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data. For more information, see <a>aws-forecast-iam-roles</a>.</p> <p>Two properties of the training data are optionally specified:</p> <ul> <li> <p>The delimiter that separates the data fields.</p> <p>The default delimiter is a comma (,), which is the only supported delimiter in this release.</p> </li> <li> <p>The format of timestamps.</p> <p>If the format is not specified, Amazon Forecast expects the format to be \"yyyy-MM-dd HH:mm:ss\".</p> </li> </ul> <p>When Amazon Forecast uploads your training data, it verifies that the data was collected at the <code>DataFrequency</code> specified when the target dataset was created. For more information, see <a>CreateDataset</a> and <a>howitworks-datasets-groups</a>. Amazon Forecast also verifies the delimiter and timestamp format.</p> <p>You can use the <a>ListDatasetImportJobs</a> operation to get a list of all your dataset import jobs, filtered by specified criteria.</p> <p>To get a list of all your dataset import jobs, filtered by the specified criteria, use the <a>ListDatasetGroups</a> operation.</p>",
+        "operationId": "CreateDatasetImportJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.CreateDatasetImportJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CreateDatasetImportJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateDatasetImportJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.CreateForecast": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was used to train the predictor. This is known as inference. To retrieve the forecast for a single item at low latency, use the operation. To export the complete forecast into your Amazon Simple Storage Service (Amazon S3), use the <a>CreateForecastExportJob</a> operation.</p> <p>The range of the forecast is determined by the <code>ForecastHorizon</code>, specified in the <a>CreatePredictor</a> request, multiplied by the <code>DataFrequency</code>, specified in the <a>CreateDataset</a> request. When you query a forecast, you can request a specific date range within the complete forecast.</p> <p>To get a list of all your forecasts, use the <a>ListForecasts</a> operation.</p> <note> <p>The forecasts generated by Amazon Forecast are in the same timezone as the dataset that was used to create the predictor.</p> </note> <p>For more information, see <a>howitworks-forecast</a>.</p> <note> <p>The <code>Status</code> of the forecast must be <code>ACTIVE</code> before you can query or export the forecast. Use the <a>DescribeForecast</a> operation to get the status.</p> </note>",
+        "operationId": "CreateForecast",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.CreateForecast"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateForecastRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateForecastResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.CreateForecastExportJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Exports a forecast created by the <a>CreateForecast</a> operation to your Amazon Simple Storage Service (Amazon S3) bucket.</p> <p>You must specify a <a>DataDestination</a> object that includes an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see <a>aws-forecast-iam-roles</a>.</p> <p>For more information, see <a>howitworks-forecast</a>.</p> <p>To get a list of all your forecast export jobs, use the <a>ListForecastExportJobs</a> operation.</p> <note> <p>The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before you can access the forecast in your Amazon S3 bucket. Use the <a>DescribeForecastExportJob</a> operation to get the status.</p> </note>",
+        "operationId": "CreateForecastExportJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.CreateForecastExportJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CreateForecastExportJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateForecastExportJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.CreatePredictor": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates an Amazon Forecast predictor.</p> <p>In the request, you provide a dataset group and either specify an algorithm or let Amazon Forecast choose the algorithm for you using AutoML. If you specify an algorithm, you also can override algorithm-specific hyperparameters.</p> <p>Amazon Forecast uses the chosen algorithm to train a model using the latest version of the datasets in the specified dataset group. The result is called a predictor. You then generate a forecast using the <a>CreateForecast</a> operation.</p> <p>After training a model, the <code>CreatePredictor</code> operation also evaluates it. To see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation. Always review the evaluation metrics before deciding to use the predictor to generate a forecast.</p> <p>Optionally, you can specify a featurization configuration to fill and aggragate the data fields in the <code>TARGET_TIME_SERIES</code> dataset to improve model training. For more information, see <a>FeaturizationConfig</a>.</p> <p> <b>AutoML</b> </p> <p>If you set <code>PerformAutoML</code> to <code>true</code>, Amazon Forecast evaluates each algorithm and chooses the one that minimizes the <code>objective function</code>. The <code>objective function</code> is defined as the mean of the weighted p10, p50, and p90 quantile losses. For more information, see <a>EvaluationResult</a>.</p> <p>When AutoML is enabled, the following properties are disallowed:</p> <ul> <li> <p> <code>AlgorithmArn</code> </p> </li> <li> <p> <code>HPOConfig</code> </p> </li> <li> <p> <code>PerformHPO</code> </p> </li> <li> <p> <code>TrainingParameters</code> </p> </li> </ul> <p>To get a list of all your predictors, use the <a>ListPredictors</a> operation.</p> <note> <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code>, signifying that training has completed, before you can use the predictor to create a forecast. Use the <a>DescribePredictor</a> operation to get the status.</p> </note>",
+        "operationId": "CreatePredictor",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.CreatePredictor"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreatePredictorRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreatePredictorResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DeleteDataset": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes an Amazon Forecast dataset created using the <a>CreateDataset</a> operation. To be deleted, the dataset must have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. Use the <a>DescribeDataset</a> operation to get the status.",
+        "operationId": "DeleteDataset",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DeleteDataset"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteDatasetRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DeleteDatasetGroup": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes a dataset group created using the <a>CreateDatasetGroup</a> operation. To be deleted, the dataset group must have a status of <code>ACTIVE</code>, <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. Use the <a>DescribeDatasetGroup</a> operation to get the status.</p> <p>The operation deletes only the dataset group, not the datasets in the group.</p>",
+        "operationId": "DeleteDatasetGroup",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DeleteDatasetGroup"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteDatasetGroupRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DeleteDatasetImportJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a dataset import job created using the <a>CreateDatasetImportJob</a> operation. To be deleted, the import job must have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. Use the <a>DescribeDatasetImportJob</a> operation to get the status.",
+        "operationId": "DeleteDatasetImportJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DeleteDatasetImportJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DeleteDatasetImportJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DeleteForecast": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes a forecast created using the <a>CreateForecast</a> operation. To be deleted, the forecast must have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. Use the <a>DescribeForecast</a> operation to get the status.</p> <p>You can't delete a forecast while it is being exported.</p>",
+        "operationId": "DeleteForecast",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DeleteForecast"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteForecastRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DeleteForecastExportJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a forecast export job created using the <a>CreateForecastExportJob</a> operation. To be deleted, the export job must have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. Use the <a>DescribeForecastExportJob</a> operation to get the status.",
+        "operationId": "DeleteForecastExportJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DeleteForecastExportJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DeleteForecastExportJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DeletePredictor": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes a predictor created using the <a>CreatePredictor</a> operation. To be deleted, the predictor must have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. Use the <a>DescribePredictor</a> operation to get the status.</p> <p>Any forecasts generated by the predictor will no longer be available.</p>",
+        "operationId": "DeletePredictor",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DeletePredictor"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeletePredictorRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DescribeDataset": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes an Amazon Forecast dataset created using the <a>CreateDataset</a> operation.</p> <p>In addition to listing the properties provided by the user in the <code>CreateDataset</code> request, this operation includes the following properties:</p> <ul> <li> <p> <code>CreationTime</code> </p> </li> <li> <p> <code>LastModificationTime</code> </p> </li> <li> <p> <code>Status</code> </p> </li> </ul>",
+        "operationId": "DescribeDataset",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DescribeDataset"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDatasetRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDatasetResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DescribeDatasetGroup": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes a dataset group created using the <a>CreateDatasetGroup</a> operation.</p> <p>In addition to listing the properties provided by the user in the <code>CreateDatasetGroup</code> request, this operation includes the following properties:</p> <ul> <li> <p> <code>DatasetArns</code> - The datasets belonging to the group.</p> </li> <li> <p> <code>CreationTime</code> </p> </li> <li> <p> <code>LastModificationTime</code> </p> </li> <li> <p> <code>Status</code> </p> </li> </ul>",
+        "operationId": "DescribeDatasetGroup",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DescribeDatasetGroup"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDatasetGroupRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDatasetGroupResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DescribeDatasetImportJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes a dataset import job created using the <a>CreateDatasetImportJob</a> operation.</p> <p>In addition to listing the properties provided by the user in the <code>CreateDatasetImportJob</code> request, this operation includes the following properties:</p> <ul> <li> <p> <code>CreationTime</code> </p> </li> <li> <p> <code>LastModificationTime</code> </p> </li> <li> <p> <code>DataSize</code> </p> </li> <li> <p> <code>FieldStatistics</code> </p> </li> <li> <p> <code>Status</code> </p> </li> <li> <p> <code>Message</code> - If an error occurred, information about the error.</p> </li> </ul>",
+        "operationId": "DescribeDatasetImportJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DescribeDatasetImportJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDatasetImportJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDatasetImportJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DescribeForecast": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes a forecast created using the <a>CreateForecast</a> operation.</p> <p>In addition to listing the properties provided by the user in the <code>CreateForecast</code> request, this operation includes the following properties:</p> <ul> <li> <p> <code>DatasetGroupArn</code> - The dataset group that provided the training data.</p> </li> <li> <p> <code>CreationTime</code> </p> </li> <li> <p> <code>LastModificationTime</code> </p> </li> <li> <p> <code>Status</code> </p> </li> <li> <p> <code>Message</code> - If an error occurred, information about the error.</p> </li> </ul>",
+        "operationId": "DescribeForecast",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DescribeForecast"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeForecastRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeForecastResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DescribeForecastExportJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes a forecast export job created using the <a>CreateForecastExportJob</a> operation.</p> <p>In addition to listing the properties provided by the user in the <code>CreateForecastExportJob</code> request, this operation includes the following properties:</p> <ul> <li> <p> <code>CreationTime</code> </p> </li> <li> <p> <code>LastModificationTime</code> </p> </li> <li> <p> <code>Status</code> </p> </li> <li> <p> <code>Message</code> - If an error occurred, information about the error.</p> </li> </ul>",
+        "operationId": "DescribeForecastExportJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DescribeForecastExportJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DescribeForecastExportJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeForecastExportJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.DescribePredictor": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes a predictor created using the <a>CreatePredictor</a> operation.</p> <p>In addition to listing the properties provided by the user in the <code>CreatePredictor</code> request, this operation includes the following properties:</p> <ul> <li> <p> <code>DatasetImportJobArns</code> - The dataset import jobs used to import training data.</p> </li> <li> <p> <code>AutoMLAlgorithmArns</code> - If AutoML is performed, the algorithms evaluated.</p> </li> <li> <p> <code>CreationTime</code> </p> </li> <li> <p> <code>LastModificationTime</code> </p> </li> <li> <p> <code>Status</code> </p> </li> <li> <p> <code>Message</code> - If an error occurred, information about the error.</p> </li> </ul>",
+        "operationId": "DescribePredictor",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.DescribePredictor"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribePredictorRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribePredictorResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.GetAccuracyMetrics": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Provides metrics on the accuracy of the models that were trained by the <a>CreatePredictor</a> operation. Use metrics to see how well the model performed and to decide whether to use the predictor to generate a forecast.</p> <p>Metrics are generated for each backtest window evaluated. For more information, see <a>EvaluationParameters</a>.</p> <p>The parameters of the <code>filling</code> method determine which items contribute to the metrics. If <code>zero</code> is specified, all items contribute. If <code>nan</code> is specified, only those items that have complete data in the range being evaluated contribute. For more information, see <a>FeaturizationMethod</a>.</p> <p>For an example of how to train a model and review metrics, see <a>getting-started</a>.</p>",
+        "operationId": "GetAccuracyMetrics",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.GetAccuracyMetrics"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetAccuracyMetricsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetAccuracyMetricsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.ListDatasetGroups": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of dataset groups created using the <a>CreateDatasetGroup</a> operation. For each dataset group, a summary of its properties, including its Amazon Resource Name (ARN), is returned. You can retrieve the complete set of properties by using the ARN with the <a>DescribeDatasetGroup</a> operation.",
+        "operationId": "ListDatasetGroups",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.ListDatasetGroups"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListDatasetGroupsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListDatasetGroupsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.ListDatasetImportJobs": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of dataset import jobs created using the <a>CreateDatasetImportJob</a> operation. For each import job, a summary of its properties, including its Amazon Resource Name (ARN), is returned. You can retrieve the complete set of properties by using the ARN with the <a>DescribeDatasetImportJob</a> operation. You can filter the list by providing an array of <a>Filter</a> objects.",
+        "operationId": "ListDatasetImportJobs",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.ListDatasetImportJobs"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListDatasetImportJobsRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListDatasetImportJobsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.ListDatasets": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of datasets created using the <a>CreateDataset</a> operation. For each dataset, a summary of its properties, including its Amazon Resource Name (ARN), is returned. You can retrieve the complete set of properties by using the ARN with the <a>DescribeDataset</a> operation.",
+        "operationId": "ListDatasets",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.ListDatasets"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListDatasetsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListDatasetsResponse" } } }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.ListForecastExportJobs": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of forecast export jobs created using the <a>CreateForecastExportJob</a> operation. For each forecast export job, a summary of its properties, including its Amazon Resource Name (ARN), is returned. You can retrieve the complete set of properties by using the ARN with the <a>DescribeForecastExportJob</a> operation. The list can be filtered using an array of <a>Filter</a> objects.",
+        "operationId": "ListForecastExportJobs",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.ListForecastExportJobs"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListForecastExportJobsRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListForecastExportJobsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.ListForecasts": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of forecasts created using the <a>CreateForecast</a> operation. For each forecast, a summary of its properties, including its Amazon Resource Name (ARN), is returned. You can retrieve the complete set of properties by using the ARN with the <a>DescribeForecast</a> operation. The list can be filtered using an array of <a>Filter</a> objects.",
+        "operationId": "ListForecasts",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.ListForecasts"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListForecastsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListForecastsResponse" } } }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.ListPredictors": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of predictors created using the <a>CreatePredictor</a> operation. For each predictor, a summary of its properties, including its Amazon Resource Name (ARN), is returned. You can retrieve the complete set of properties by using the ARN with the <a>DescribePredictor</a> operation. The list can be filtered using an array of <a>Filter</a> objects.",
+        "operationId": "ListPredictors",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.ListPredictors"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListPredictorsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListPredictorsResponse" } } }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonForecast.UpdateDatasetGroup": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Replaces any existing datasets in the dataset group with the specified datasets.</p> <note> <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before creating a predictor using the dataset group. Use the <a>DescribeDatasetGroup</a> operation to get the status.</p> </note>",
+        "operationId": "UpdateDatasetGroup",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonForecast.UpdateDatasetGroup"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateDatasetGroupRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateDatasetGroupResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInputException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The Amazon Forecast Service multi-region endpoint",
+      "url": "http://forecast.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Amazon Forecast Service multi-region endpoint",
+      "url": "https://forecast.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Amazon Forecast Service endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://forecast.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The Amazon Forecast Service endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://forecast.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "Arn": { "maxLength": 256, "pattern": "^[a-zA-Z0-9\\-\\_\\.\\/\\:]+$", "type": "string" },
+      "ArnList": { "items": { "$ref": "#/components/schemas/Arn" }, "type": "array" },
+      "AttributeType": { "enum": ["string", "integer", "float", "timestamp"], "type": "string" },
+      "Boolean": { "type": "boolean" },
+      "CategoricalParameterRange": {
+        "description": "Specifies a categorical hyperparameter and it's range of tunable values. This object is part of the <a>ParameterRanges</a> object.",
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "Values": { "$ref": "#/components/schemas/Values" }
+        },
+        "required": ["Name", "Values"],
+        "type": "object"
+      },
+      "CategoricalParameterRanges": {
+        "items": { "$ref": "#/components/schemas/CategoricalParameterRange" },
+        "maxItems": 20,
+        "minItems": 1,
+        "type": "array"
+      },
+      "ContinuousParameterRange": {
+        "description": "Specifies a continuous hyperparameter and it's range of tunable values. This object is part of the <a>ParameterRanges</a> object.",
+        "properties": {
+          "MaxValue": { "$ref": "#/components/schemas/Double" },
+          "MinValue": { "$ref": "#/components/schemas/Double" },
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "ScalingType": { "$ref": "#/components/schemas/ScalingType" }
+        },
+        "required": ["Name", "MaxValue", "MinValue"],
+        "type": "object"
+      },
+      "ContinuousParameterRanges": {
+        "items": { "$ref": "#/components/schemas/ContinuousParameterRange" },
+        "maxItems": 20,
+        "minItems": 1,
+        "type": "array"
+      },
+      "CreateDatasetGroupRequest": {
+        "properties": {
+          "DatasetArns": { "$ref": "#/components/schemas/ArnList" },
+          "DatasetGroupName": { "$ref": "#/components/schemas/Name" },
+          "Domain": { "$ref": "#/components/schemas/Domain" }
+        },
+        "required": ["DatasetGroupName", "Domain"],
+        "type": "object"
+      },
+      "CreateDatasetGroupResponse": {
+        "properties": { "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" } },
+        "type": "object"
+      },
+      "CreateDatasetImportJobRequest": {
+        "properties": {
+          "DataSource": { "$ref": "#/components/schemas/DataSource" },
+          "DatasetArn": { "$ref": "#/components/schemas/Arn" },
+          "DatasetImportJobName": { "$ref": "#/components/schemas/Name" },
+          "TimestampFormat": { "$ref": "#/components/schemas/TimestampFormat" }
+        },
+        "required": ["DatasetImportJobName", "DatasetArn", "DataSource"],
+        "type": "object"
+      },
+      "CreateDatasetImportJobResponse": {
+        "properties": { "DatasetImportJobArn": { "$ref": "#/components/schemas/Arn" } },
+        "type": "object"
+      },
+      "CreateDatasetRequest": {
+        "properties": {
+          "DataFrequency": { "$ref": "#/components/schemas/Frequency" },
+          "DatasetName": { "$ref": "#/components/schemas/Name" },
+          "DatasetType": { "$ref": "#/components/schemas/DatasetType" },
+          "Domain": { "$ref": "#/components/schemas/Domain" },
+          "EncryptionConfig": { "$ref": "#/components/schemas/EncryptionConfig" },
+          "Schema": { "$ref": "#/components/schemas/Schema" }
+        },
+        "required": ["DatasetName", "Domain", "DatasetType", "Schema"],
+        "type": "object"
+      },
+      "CreateDatasetResponse": {
+        "properties": { "DatasetArn": { "$ref": "#/components/schemas/Arn" } },
+        "type": "object"
+      },
+      "CreateForecastExportJobRequest": {
+        "properties": {
+          "Destination": { "$ref": "#/components/schemas/DataDestination" },
+          "ForecastArn": { "$ref": "#/components/schemas/Arn" },
+          "ForecastExportJobName": { "$ref": "#/components/schemas/Name" }
+        },
+        "required": ["ForecastExportJobName", "ForecastArn", "Destination"],
+        "type": "object"
+      },
+      "CreateForecastExportJobResponse": {
+        "properties": { "ForecastExportJobArn": { "$ref": "#/components/schemas/Arn" } },
+        "type": "object"
+      },
+      "CreateForecastRequest": {
+        "properties": {
+          "ForecastName": { "$ref": "#/components/schemas/Name" },
+          "PredictorArn": { "$ref": "#/components/schemas/Arn" }
+        },
+        "required": ["ForecastName", "PredictorArn"],
+        "type": "object"
+      },
+      "CreateForecastResponse": {
+        "properties": { "ForecastArn": { "$ref": "#/components/schemas/Arn" } },
+        "type": "object"
+      },
+      "CreatePredictorRequest": {
+        "properties": {
+          "AlgorithmArn": { "$ref": "#/components/schemas/Arn" },
+          "EncryptionConfig": { "$ref": "#/components/schemas/EncryptionConfig" },
+          "EvaluationParameters": { "$ref": "#/components/schemas/EvaluationParameters" },
+          "FeaturizationConfig": { "$ref": "#/components/schemas/FeaturizationConfig" },
+          "ForecastHorizon": { "$ref": "#/components/schemas/Integer" },
+          "HPOConfig": { "$ref": "#/components/schemas/HyperParameterTuningJobConfig" },
+          "InputDataConfig": { "$ref": "#/components/schemas/InputDataConfig" },
+          "PerformAutoML": { "$ref": "#/components/schemas/Boolean" },
+          "PerformHPO": { "$ref": "#/components/schemas/Boolean" },
+          "PredictorName": { "$ref": "#/components/schemas/Name" },
+          "TrainingParameters": { "$ref": "#/components/schemas/TrainingParameters" }
+        },
+        "required": ["PredictorName", "ForecastHorizon", "InputDataConfig", "FeaturizationConfig"],
+        "type": "object"
+      },
+      "CreatePredictorResponse": {
+        "properties": { "PredictorArn": { "$ref": "#/components/schemas/Arn" } },
+        "type": "object"
+      },
+      "DataDestination": {
+        "description": "The destination of an exported forecast and credentials to access the location. This object is submitted in the <a>CreateForecastExportJob</a> request.",
+        "properties": { "S3Config": { "$ref": "#/components/schemas/S3Config" } },
+        "required": ["S3Config"],
+        "type": "object"
+      },
+      "DataSource": {
+        "description": "The source of your training data and credentials to access the data. This object is submitted in the <a>CreateDatasetImportJob</a> request.",
+        "properties": { "S3Config": { "$ref": "#/components/schemas/S3Config" } },
+        "required": ["S3Config"],
+        "type": "object"
+      },
+      "DatasetGroupSummary": {
+        "description": "Provides a summary of the dataset group properties used in the <a>ListDatasetGroups</a> operation. To get the complete set of properties, call the <a>DescribeDatasetGroup</a> operation, and provide the listed <code>DatasetGroupArn</code>.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" },
+          "DatasetGroupName": { "$ref": "#/components/schemas/Name" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" }
+        },
+        "type": "object"
+      },
+      "DatasetGroups": { "items": { "$ref": "#/components/schemas/DatasetGroupSummary" }, "type": "array" },
+      "DatasetImportJobSummary": {
+        "description": "Provides a summary of the dataset import job properties used in the <a>ListDatasetImportJobs</a> operation. To get the complete set of properties, call the <a>DescribeDatasetImportJob</a> operation, and provide the listed <code>DatasetImportJobArn</code>.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DataSource": { "$ref": "#/components/schemas/DataSource" },
+          "DatasetImportJobArn": { "$ref": "#/components/schemas/Arn" },
+          "DatasetImportJobName": { "$ref": "#/components/schemas/Name" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Message": { "$ref": "#/components/schemas/ErrorMessage" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "DatasetImportJobs": { "items": { "$ref": "#/components/schemas/DatasetImportJobSummary" }, "type": "array" },
+      "DatasetSummary": {
+        "description": "Provides a summary of the dataset properties used in the <a>ListDatasets</a> operation. To get the complete set of properties, call the <a>DescribeDataset</a> operation, and provide the listed <code>DatasetArn</code>.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DatasetArn": { "$ref": "#/components/schemas/Arn" },
+          "DatasetName": { "$ref": "#/components/schemas/Name" },
+          "DatasetType": { "$ref": "#/components/schemas/DatasetType" },
+          "Domain": { "$ref": "#/components/schemas/Domain" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" }
+        },
+        "type": "object"
+      },
+      "DatasetType": { "enum": ["TARGET_TIME_SERIES", "RELATED_TIME_SERIES", "ITEM_METADATA"], "type": "string" },
+      "Datasets": { "items": { "$ref": "#/components/schemas/DatasetSummary" }, "type": "array" },
+      "DeleteDatasetGroupRequest": {
+        "properties": { "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["DatasetGroupArn"],
+        "type": "object"
+      },
+      "DeleteDatasetImportJobRequest": {
+        "properties": { "DatasetImportJobArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["DatasetImportJobArn"],
+        "type": "object"
+      },
+      "DeleteDatasetRequest": {
+        "properties": { "DatasetArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["DatasetArn"],
+        "type": "object"
+      },
+      "DeleteForecastExportJobRequest": {
+        "properties": { "ForecastExportJobArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["ForecastExportJobArn"],
+        "type": "object"
+      },
+      "DeleteForecastRequest": {
+        "properties": { "ForecastArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["ForecastArn"],
+        "type": "object"
+      },
+      "DeletePredictorRequest": {
+        "properties": { "PredictorArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["PredictorArn"],
+        "type": "object"
+      },
+      "DescribeDatasetGroupRequest": {
+        "properties": { "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["DatasetGroupArn"],
+        "type": "object"
+      },
+      "DescribeDatasetGroupResponse": {
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DatasetArns": { "$ref": "#/components/schemas/ArnList" },
+          "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" },
+          "DatasetGroupName": { "$ref": "#/components/schemas/Name" },
+          "Domain": { "$ref": "#/components/schemas/Domain" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "DescribeDatasetImportJobRequest": {
+        "properties": { "DatasetImportJobArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["DatasetImportJobArn"],
+        "type": "object"
+      },
+      "DescribeDatasetImportJobResponse": {
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DataSize": { "$ref": "#/components/schemas/Double" },
+          "DataSource": { "$ref": "#/components/schemas/DataSource" },
+          "DatasetArn": { "$ref": "#/components/schemas/Arn" },
+          "DatasetImportJobArn": { "$ref": "#/components/schemas/Arn" },
+          "DatasetImportJobName": { "$ref": "#/components/schemas/Name" },
+          "FieldStatistics": { "$ref": "#/components/schemas/FieldStatistics" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Message": { "$ref": "#/components/schemas/Message" },
+          "Status": { "$ref": "#/components/schemas/Status" },
+          "TimestampFormat": { "$ref": "#/components/schemas/TimestampFormat" }
+        },
+        "type": "object"
+      },
+      "DescribeDatasetRequest": {
+        "properties": { "DatasetArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["DatasetArn"],
+        "type": "object"
+      },
+      "DescribeDatasetResponse": {
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DataFrequency": { "$ref": "#/components/schemas/Frequency" },
+          "DatasetArn": { "$ref": "#/components/schemas/Arn" },
+          "DatasetName": { "$ref": "#/components/schemas/Name" },
+          "DatasetType": { "$ref": "#/components/schemas/DatasetType" },
+          "Domain": { "$ref": "#/components/schemas/Domain" },
+          "EncryptionConfig": { "$ref": "#/components/schemas/EncryptionConfig" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Schema": { "$ref": "#/components/schemas/Schema" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "DescribeForecastExportJobRequest": {
+        "properties": { "ForecastExportJobArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["ForecastExportJobArn"],
+        "type": "object"
+      },
+      "DescribeForecastExportJobResponse": {
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Destination": { "$ref": "#/components/schemas/DataDestination" },
+          "ForecastArn": { "$ref": "#/components/schemas/Arn" },
+          "ForecastExportJobArn": { "$ref": "#/components/schemas/Arn" },
+          "ForecastExportJobName": { "$ref": "#/components/schemas/Name" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Message": { "$ref": "#/components/schemas/Message" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "DescribeForecastRequest": {
+        "properties": { "ForecastArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["ForecastArn"],
+        "type": "object"
+      },
+      "DescribeForecastResponse": {
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" },
+          "ForecastArn": { "$ref": "#/components/schemas/Arn" },
+          "ForecastName": { "$ref": "#/components/schemas/Name" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Message": { "$ref": "#/components/schemas/ErrorMessage" },
+          "PredictorArn": { "$ref": "#/components/schemas/Arn" },
+          "Status": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "DescribePredictorRequest": {
+        "properties": { "PredictorArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["PredictorArn"],
+        "type": "object"
+      },
+      "DescribePredictorResponse": {
+        "properties": {
+          "AlgorithmArn": { "$ref": "#/components/schemas/Arn" },
+          "AutoMLAlgorithmArns": { "$ref": "#/components/schemas/ArnList" },
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DatasetImportJobArns": { "$ref": "#/components/schemas/ArnList" },
+          "EncryptionConfig": { "$ref": "#/components/schemas/EncryptionConfig" },
+          "EvaluationParameters": { "$ref": "#/components/schemas/EvaluationParameters" },
+          "FeaturizationConfig": { "$ref": "#/components/schemas/FeaturizationConfig" },
+          "ForecastHorizon": { "$ref": "#/components/schemas/Integer" },
+          "HPOConfig": { "$ref": "#/components/schemas/HyperParameterTuningJobConfig" },
+          "InputDataConfig": { "$ref": "#/components/schemas/InputDataConfig" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Message": { "$ref": "#/components/schemas/Message" },
+          "PerformAutoML": { "$ref": "#/components/schemas/Boolean" },
+          "PerformHPO": { "$ref": "#/components/schemas/Boolean" },
+          "PredictorArn": { "$ref": "#/components/schemas/Name" },
+          "PredictorName": { "$ref": "#/components/schemas/Name" },
+          "Status": { "$ref": "#/components/schemas/Status" },
+          "TrainingParameters": { "$ref": "#/components/schemas/TrainingParameters" }
+        },
+        "type": "object"
+      },
+      "Domain": {
+        "enum": ["RETAIL", "CUSTOM", "INVENTORY_PLANNING", "EC2_CAPACITY", "WORK_FORCE", "WEB_TRAFFIC", "METRICS"],
+        "type": "string"
+      },
+      "Double": { "format": "double", "type": "number" },
+      "EncryptionConfig": {
+        "description": "An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key. This object is optionally submitted in the <a>CreateDataset</a> and <a>CreatePredictor</a> requests.",
+        "properties": {
+          "KMSKeyArn": { "$ref": "#/components/schemas/KMSKeyArn" },
+          "RoleArn": { "$ref": "#/components/schemas/Arn" }
+        },
+        "required": ["RoleArn", "KMSKeyArn"],
+        "type": "object"
+      },
+      "ErrorMessage": { "type": "string" },
+      "EvaluationParameters": {
+        "description": "<p>Parameters that define how to split a dataset into training data and testing data, and the number of iterations to perform. These parameters are specified in the predefined algorithms and can be overridden in the <a>CreatePredictor</a> request.</p> <p>For example, suppose that you have a dataset with data collection frequency set to every day and you have 200 days worth of data (that is, 200 data points). Now suppose that you set the <code>NumberOfBacktestWindows</code> to 2 and the <code>BackTestWindowOffset</code> parameter to 20. The algorithm splits the data twice. The first time, the algorithm trains the model using the first 180 data points and uses the last 20 data points for evaluation. The second time, the algorithm trains the model using the first 160 data points and uses the last 40 data points for evaluation.</p>",
+        "properties": {
+          "BackTestWindowOffset": { "$ref": "#/components/schemas/Integer" },
+          "NumberOfBacktestWindows": { "$ref": "#/components/schemas/Integer" }
+        },
+        "type": "object"
+      },
+      "EvaluationResult": {
+        "description": "The results of evaluating an algorithm. Returned as part of the <a>GetAccuracyMetrics</a> response.",
+        "properties": {
+          "AlgorithmArn": { "$ref": "#/components/schemas/Arn" },
+          "TestWindows": { "$ref": "#/components/schemas/TestWindows" }
+        },
+        "type": "object"
+      },
+      "EvaluationType": { "enum": ["SUMMARY", "COMPUTED"], "type": "string" },
+      "Featurization": {
+        "description": "<p>Provides featurization (transformation) information for a dataset field. This object is part of the <a>FeaturizationConfig</a> object.</p> <p>For example:</p> <p> <code>{</code> </p> <p> <code>\"AttributeName\": \"demand\",</code> </p> <p> <code>FeaturizationPipeline [ {</code> </p> <p> <code>\"FeaturizationMethodName\": \"filling\",</code> </p> <p> <code>\"FeaturizationMethodParameters\": {\"aggregation\": \"avg\", \"backfill\": \"nan\"}</code> </p> <p> <code>} ]</code> </p> <p> <code>}</code> </p>",
+        "properties": {
+          "AttributeName": { "$ref": "#/components/schemas/Name" },
+          "FeaturizationPipeline": { "$ref": "#/components/schemas/FeaturizationPipeline" }
+        },
+        "required": ["AttributeName"],
+        "type": "object"
+      },
+      "FeaturizationConfig": {
+        "description": "<p>In a <a>CreatePredictor</a> operation, the specified algorithm trains a model using the specified dataset group. You can optionally tell the operation to modify data fields prior to training a model. These modifications are referred to as <i>featurization</i>.</p> <p>You define featurization using the <code>FeaturizationConfig</code> object. You specify an array of transformations, one for each field that you want to featurize. You then include the <code>FeaturizationConfig</code> in your <code>CreatePredictor</code> request. Amazon Forecast applies the featurization to the <code>TARGET_TIME_SERIES</code> dataset before model training.</p> <p>You can create multiple featurization configurations. For example, you might call the <code>CreatePredictor</code> operation twice by specifying different featurization configurations.</p>",
+        "properties": {
+          "Featurizations": { "$ref": "#/components/schemas/Featurizations" },
+          "ForecastDimensions": { "$ref": "#/components/schemas/ForecastDimensions" },
+          "ForecastFrequency": { "$ref": "#/components/schemas/Frequency" }
+        },
+        "required": ["ForecastFrequency"],
+        "type": "object"
+      },
+      "FeaturizationMethod": {
+        "description": "<p>Provides information about a method that featurizes (transforms) a dataset field. The method is part of the <code>FeaturizationPipeline</code> of the <a>Featurization</a> object. If <code>FeaturizationMethodParameters</code> isn't specified, Amazon Forecast uses default parameters.</p> <p>For example:</p> <p> <code>{</code> </p> <p> <code>\"FeaturizationMethodName\": \"filling\",</code> </p> <p> <code>\"FeaturizationMethodParameters\": {\"aggregation\": \"avg\", \"backfill\": \"nan\"}</code> </p> <p> <code>}</code> </p>",
+        "properties": {
+          "FeaturizationMethodName": { "$ref": "#/components/schemas/FeaturizationMethodName" },
+          "FeaturizationMethodParameters": { "$ref": "#/components/schemas/FeaturizationMethodParameters" }
+        },
+        "required": ["FeaturizationMethodName"],
+        "type": "object"
+      },
+      "FeaturizationMethodName": { "enum": ["filling"], "type": "string" },
+      "FeaturizationMethodParameters": {
+        "additionalProperties": { "$ref": "#/components/schemas/ParameterValue" },
+        "maxProperties": 20,
+        "minProperties": 1,
+        "type": "object"
+      },
+      "FeaturizationPipeline": {
+        "items": { "$ref": "#/components/schemas/FeaturizationMethod" },
+        "maxItems": 1,
+        "minItems": 1,
+        "type": "array"
+      },
+      "Featurizations": {
+        "items": { "$ref": "#/components/schemas/Featurization" },
+        "maxItems": 1,
+        "minItems": 1,
+        "type": "array"
+      },
+      "FieldStatistics": { "additionalProperties": { "$ref": "#/components/schemas/Statistics" }, "type": "object" },
+      "Filter": {
+        "description": "Describes a filter for choosing a subset of objects. Each filter consists of a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude, respectively, the objects that match the statement. The match statement consists of a key and a value.",
+        "properties": {
+          "Condition": { "$ref": "#/components/schemas/FilterConditionString" },
+          "Key": { "$ref": "#/components/schemas/String" },
+          "Value": { "$ref": "#/components/schemas/Arn" }
+        },
+        "required": ["Key", "Value", "Condition"],
+        "type": "object"
+      },
+      "FilterConditionString": { "enum": ["IS", "IS_NOT"], "type": "string" },
+      "Filters": { "items": { "$ref": "#/components/schemas/Filter" }, "type": "array" },
+      "ForecastDimensions": {
+        "items": { "$ref": "#/components/schemas/Name" },
+        "maxItems": 5,
+        "minItems": 1,
+        "type": "array"
+      },
+      "ForecastExportJobSummary": {
+        "description": "Provides a summary of the forecast export job properties used in the <a>ListForecastExportJobs</a> operation. To get the complete set of properties, call the <a>DescribeForecastExportJob</a> operation, and provide the listed <code>ForecastExportJobArn</code>.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Destination": { "$ref": "#/components/schemas/DataDestination" },
+          "ForecastExportJobArn": { "$ref": "#/components/schemas/Arn" },
+          "ForecastExportJobName": { "$ref": "#/components/schemas/Name" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Message": { "$ref": "#/components/schemas/ErrorMessage" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "ForecastExportJobs": { "items": { "$ref": "#/components/schemas/ForecastExportJobSummary" }, "type": "array" },
+      "ForecastSummary": {
+        "description": "Provides a summary of the forecast properties used in the <a>ListForecasts</a> operation. To get the complete set of properties, call the <a>DescribeForecast</a> operation, and provide the listed <code>ForecastArn</code>.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DatasetGroupArn": { "$ref": "#/components/schemas/String" },
+          "ForecastArn": { "$ref": "#/components/schemas/Arn" },
+          "ForecastName": { "$ref": "#/components/schemas/Name" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Message": { "$ref": "#/components/schemas/ErrorMessage" },
+          "PredictorArn": { "$ref": "#/components/schemas/String" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "Forecasts": { "items": { "$ref": "#/components/schemas/ForecastSummary" }, "type": "array" },
+      "Frequency": { "pattern": "^Y|M|W|D|H|30min|15min|10min|5min|1min$", "type": "string" },
+      "GetAccuracyMetricsRequest": {
+        "properties": { "PredictorArn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["PredictorArn"],
+        "type": "object"
+      },
+      "GetAccuracyMetricsResponse": {
+        "properties": { "PredictorEvaluationResults": { "$ref": "#/components/schemas/PredictorEvaluationResults" } },
+        "type": "object"
+      },
+      "HyperParameterTuningJobConfig": {
+        "description": "<p>Configuration information for a hyperparameter tuning job. This object is specified in the <a>CreatePredictor</a> request.</p> <p>A hyperparameter is a parameter that governs the model training process and is set before training starts. This is as opposed to a model parameter that is determined during training. The values of the hyperparameters have an effect on the chosen model parameters.</p> <p>A hyperparameter tuning job is the process of choosing the optimum set of hyperparameter values that optimize a specified metric. This is accomplished by running many training jobs over a range of hyperparameter values. The optimum set of values is dependent on the algorithm, the training data, and the given metric objective.</p>",
+        "properties": { "ParameterRanges": { "$ref": "#/components/schemas/ParameterRanges" } },
+        "type": "object"
+      },
+      "InputDataConfig": {
+        "description": "The data used to train a predictor. The data includes a dataset group and any supplementary features. This object is specified in the <a>CreatePredictor</a> request.",
+        "properties": {
+          "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" },
+          "SupplementaryFeatures": { "$ref": "#/components/schemas/SupplementaryFeatures" }
+        },
+        "required": ["DatasetGroupArn"],
+        "type": "object"
+      },
+      "Integer": { "type": "integer" },
+      "IntegerParameterRange": {
+        "description": "Specifies an integer hyperparameter and it's range of tunable values. This object is part of the <a>ParameterRanges</a> object.",
+        "properties": {
+          "MaxValue": { "$ref": "#/components/schemas/Integer" },
+          "MinValue": { "$ref": "#/components/schemas/Integer" },
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "ScalingType": { "$ref": "#/components/schemas/ScalingType" }
+        },
+        "required": ["Name", "MaxValue", "MinValue"],
+        "type": "object"
+      },
+      "IntegerParameterRanges": {
+        "items": { "$ref": "#/components/schemas/IntegerParameterRange" },
+        "maxItems": 20,
+        "minItems": 1,
+        "type": "array"
+      },
+      "InvalidInputException": {},
+      "InvalidNextTokenException": {},
+      "KMSKeyArn": { "maxLength": 256, "pattern": "arn:aws:kms:.*:key/.*", "type": "string" },
+      "LimitExceededException": {},
+      "ListDatasetGroupsRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListDatasetGroupsResponse": {
+        "properties": {
+          "DatasetGroups": { "$ref": "#/components/schemas/DatasetGroups" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListDatasetImportJobsRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/Filters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListDatasetImportJobsResponse": {
+        "properties": {
+          "DatasetImportJobs": { "$ref": "#/components/schemas/DatasetImportJobs" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListDatasetsRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListDatasetsResponse": {
+        "properties": {
+          "Datasets": { "$ref": "#/components/schemas/Datasets" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListForecastExportJobsRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/Filters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListForecastExportJobsResponse": {
+        "properties": {
+          "ForecastExportJobs": { "$ref": "#/components/schemas/ForecastExportJobs" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListForecastsRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/Filters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListForecastsResponse": {
+        "properties": {
+          "Forecasts": { "$ref": "#/components/schemas/Forecasts" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListPredictorsRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/Filters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListPredictorsResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Predictors": { "$ref": "#/components/schemas/Predictors" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "Message": { "type": "string" },
+      "Metrics": {
+        "description": "Provides metrics used to evaluate the performance of a predictor. This object is part of the <a>WindowSummary</a> object.",
+        "properties": {
+          "RMSE": { "$ref": "#/components/schemas/Double" },
+          "WeightedQuantileLosses": { "$ref": "#/components/schemas/WeightedQuantileLosses" }
+        },
+        "type": "object"
+      },
+      "Name": { "maxLength": 63, "minLength": 1, "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_]*", "type": "string" },
+      "NextToken": { "maxLength": 3000, "minLength": 1, "type": "string" },
+      "ParameterKey": { "maxLength": 256, "pattern": "^[a-zA-Z0-9\\-\\_\\.\\/\\[\\]\\,\\\\]+$", "type": "string" },
+      "ParameterRanges": {
+        "description": "Specifies the categorical, continuous, and integer hyperparameters, and their ranges of tunable values. The range of tunable values determines which values that a hyperparameter tuning job can choose for the specified hyperparameter. This object is part of the <a>HyperParameterTuningJobConfig</a> object.",
+        "properties": {
+          "CategoricalParameterRanges": { "$ref": "#/components/schemas/CategoricalParameterRanges" },
+          "ContinuousParameterRanges": { "$ref": "#/components/schemas/ContinuousParameterRanges" },
+          "IntegerParameterRanges": { "$ref": "#/components/schemas/IntegerParameterRanges" }
+        },
+        "type": "object"
+      },
+      "ParameterValue": {
+        "maxLength": 256,
+        "pattern": "^[a-zA-Z0-9\\-\\_\\.\\/\\[\\]\\,\\\"\\\\\\s]+$",
+        "type": "string"
+      },
+      "PredictorEvaluationResults": { "items": { "$ref": "#/components/schemas/EvaluationResult" }, "type": "array" },
+      "PredictorSummary": {
+        "description": "Provides a summary of the predictor properties used in the <a>ListPredictors</a> operation. To get the complete set of properties, call the <a>DescribePredictor</a> operation, and provide the listed <code>PredictorArn</code>.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" },
+          "LastModificationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "Message": { "$ref": "#/components/schemas/ErrorMessage" },
+          "PredictorArn": { "$ref": "#/components/schemas/Arn" },
+          "PredictorName": { "$ref": "#/components/schemas/Name" },
+          "Status": { "$ref": "#/components/schemas/Status" }
+        },
+        "type": "object"
+      },
+      "Predictors": { "items": { "$ref": "#/components/schemas/PredictorSummary" }, "type": "array" },
+      "ResourceAlreadyExistsException": {},
+      "ResourceInUseException": {},
+      "ResourceNotFoundException": {},
+      "S3Config": {
+        "description": "The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the file(s). Optionally, includes an AWS Key Management Service (KMS) key. This object is submitted in the <a>CreateDatasetImportJob</a> and <a>CreateForecastExportJob</a> requests.",
+        "properties": {
+          "KMSKeyArn": { "$ref": "#/components/schemas/KMSKeyArn" },
+          "Path": { "$ref": "#/components/schemas/S3Path" },
+          "RoleArn": { "$ref": "#/components/schemas/Arn" }
+        },
+        "required": ["Path", "RoleArn"],
+        "type": "object"
+      },
+      "S3Path": { "pattern": "^s3://.+$", "type": "string" },
+      "ScalingType": { "enum": ["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"], "type": "string" },
+      "Schema": {
+        "description": "Defines the fields of a dataset. This object is specified in the <a>CreateDataset</a> request.",
+        "properties": { "Attributes": { "$ref": "#/components/schemas/SchemaAttributes" } },
+        "type": "object"
+      },
+      "SchemaAttribute": {
+        "description": "An attribute of a schema, which defines a field of a dataset. A schema attribute is required for every field in a dataset. The <a>Schema</a> object contains an array of <code>SchemaAttribute</code> objects.",
+        "properties": {
+          "AttributeName": { "$ref": "#/components/schemas/Name" },
+          "AttributeType": { "$ref": "#/components/schemas/AttributeType" }
+        },
+        "type": "object"
+      },
+      "SchemaAttributes": { "items": { "$ref": "#/components/schemas/SchemaAttribute" }, "type": "array" },
+      "Statistics": {
+        "description": "Provides statistics for each data field imported to an Amazon Forecast dataset with the <a>CreateDatasetImportJob</a> operation.",
+        "properties": {
+          "Avg": { "$ref": "#/components/schemas/Double" },
+          "Count": { "$ref": "#/components/schemas/Integer" },
+          "CountDistinct": { "$ref": "#/components/schemas/Integer" },
+          "CountNan": { "$ref": "#/components/schemas/Integer" },
+          "CountNull": { "$ref": "#/components/schemas/Integer" },
+          "Max": { "$ref": "#/components/schemas/String" },
+          "Min": { "$ref": "#/components/schemas/String" },
+          "Stddev": { "$ref": "#/components/schemas/Double" }
+        },
+        "type": "object"
+      },
+      "Status": { "maxLength": 256, "type": "string" },
+      "String": { "maxLength": 256, "pattern": "^[a-zA-Z0-9\\_]+$", "type": "string" },
+      "SupplementaryFeature": {
+        "description": "<p>Describes a supplementary feature of a dataset group. This object is part of the <a>InputDataConfig</a> object.</p> <p>For this release, the only supported feature is a holiday calendar. If the calendar is used, all data should belong to the same country as the calendar. For the calendar data, see <a href=\"http://jollyday.sourceforge.net/data.html\">http://jollyday.sourceforge.net/data.html</a>.</p>",
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "Value": { "$ref": "#/components/schemas/Value" }
+        },
+        "required": ["Name", "Value"],
+        "type": "object"
+      },
+      "SupplementaryFeatures": {
+        "items": { "$ref": "#/components/schemas/SupplementaryFeature" },
+        "maxItems": 1,
+        "minItems": 1,
+        "type": "array"
+      },
+      "TestWindows": { "items": { "$ref": "#/components/schemas/WindowSummary" }, "type": "array" },
+      "Timestamp": { "format": "date-time", "type": "string" },
+      "TimestampFormat": { "maxLength": 256, "pattern": "^[a-zA-Z0-9\\-\\:\\.\\,\\'\\s]+$", "type": "string" },
+      "TrainingParameters": {
+        "additionalProperties": { "$ref": "#/components/schemas/ParameterValue" },
+        "maxProperties": 100,
+        "minProperties": 0,
+        "type": "object"
+      },
+      "UpdateDatasetGroupRequest": {
+        "properties": {
+          "DatasetArns": { "$ref": "#/components/schemas/ArnList" },
+          "DatasetGroupArn": { "$ref": "#/components/schemas/Arn" }
+        },
+        "required": ["DatasetGroupArn", "DatasetArns"],
+        "type": "object"
+      },
+      "UpdateDatasetGroupResponse": { "properties": {}, "type": "object" },
+      "Value": { "maxLength": 256, "pattern": "^[a-zA-Z0-9\\_\\-]+$", "type": "string" },
+      "Values": { "items": { "$ref": "#/components/schemas/Value" }, "maxItems": 20, "minItems": 1, "type": "array" },
+      "WeightedQuantileLoss": {
+        "description": "The weighted loss value for a quantile. This object is part of the <a>Metrics</a> object.",
+        "properties": {
+          "LossValue": { "$ref": "#/components/schemas/Double" },
+          "Quantile": { "$ref": "#/components/schemas/Double" }
+        },
+        "type": "object"
+      },
+      "WeightedQuantileLosses": { "items": { "$ref": "#/components/schemas/WeightedQuantileLoss" }, "type": "array" },
+      "WindowSummary": {
+        "description": "<p>The metrics for a time range within the evaluation portion of a dataset. This object is part of the <a>EvaluationResult</a> object.</p> <p>The <code>TestWindowStart</code> and <code>TestWindowEnd</code> parameters are determined by the <code>BackTestWindowOffset</code> parameter of the <a>EvaluationParameters</a> object.</p>",
+        "properties": {
+          "EvaluationType": { "$ref": "#/components/schemas/EvaluationType" },
+          "ItemCount": { "$ref": "#/components/schemas/Integer" },
+          "Metrics": { "$ref": "#/components/schemas/Metrics" },
+          "TestWindowEnd": { "$ref": "#/components/schemas/Timestamp" },
+          "TestWindowStart": { "$ref": "#/components/schemas/Timestamp" }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

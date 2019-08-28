@@ -1,201 +1,335 @@
-"""No description available."""
+"""
+No description available.
+"""
 type Attachment {
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   creator: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   description: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   fileUrl: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   identifier: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   mimeType: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   name: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   requirementId: Int
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 input AttachmentInput {
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   creator: UserInput
 
-  """No description available."""
+  """
+  No description available.
+  """
   description: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   fileUrl: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   identifier: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   mimeType: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   name: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   requirementId: Int
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type Category {
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   description: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   isFollower: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   leader: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   name: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfFollowers: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfRequirements: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   projectId: Int
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type CategoryContributors {
-  """No description available."""
+  """
+  No description available.
+  """
   attachmentCreator: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   commentCreator: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   developers: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   leadDeveloper: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   leader: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   requirementCreator: [User]
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 input CategoryInput {
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   description: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   isFollower: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   leader: UserInput
 
-  """No description available."""
+  """
+  No description available.
+  """
   name: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfFollowers: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfRequirements: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   projectId: Int
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type Comment {
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   creator: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   message: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   replyToComment: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   requirementId: Int
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 input CommentInput {
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   creator: UserInput
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   message: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   replyToComment: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   requirementId: Int
 }
 
@@ -204,7 +338,9 @@ enum Direction {
   down
 }
 
-"""The start of any mutation"""
+"""
+The start of any mutation
+"""
 type Mutation {
   """
   This method allows to create a new attachment.
@@ -212,7 +348,9 @@ type Mutation {
   Equivalent to POST /attachments
   """
   createAttachment(
-    """No description available."""
+    """
+    No description available.
+    """
     attachmentInput: AttachmentInput!
   ): Attachment
 
@@ -222,7 +360,9 @@ type Mutation {
   Equivalent to POST /categories
   """
   createCategory(
-    """No description available."""
+    """
+    No description available.
+    """
     categoryInput: CategoryInput!
   ): Category
 
@@ -232,7 +372,9 @@ type Mutation {
   Equivalent to POST /comments
   """
   createComment(
-    """No description available."""
+    """
+    No description available.
+    """
     commentInput: CommentInput!
   ): Comment
 
@@ -242,7 +384,9 @@ type Mutation {
   Equivalent to POST /projects
   """
   createProject(
-    """No description available."""
+    """
+    No description available.
+    """
     projectInput: ProjectInput!
   ): Project
 
@@ -252,7 +396,9 @@ type Mutation {
   Equivalent to POST /requirements
   """
   createRequirement(
-    """No description available."""
+    """
+    No description available.
+    """
     requirementInput: RequirementInput!
   ): Requirement
 
@@ -383,7 +529,9 @@ type Mutation {
   updateCategory(
     categoryId: Int!
 
-    """No description available."""
+    """
+    No description available.
+    """
     categoryInput: CategoryInput!
   ): Category
 
@@ -395,7 +543,9 @@ type Mutation {
   updateProject(
     projectId: Int!
 
-    """No description available."""
+    """
+    No description available.
+    """
     projectInput: ProjectInput!
   ): Project
 
@@ -407,7 +557,9 @@ type Mutation {
   updateRequirement(
     requirementId: Int!
 
-    """No description available."""
+    """
+    No description available.
+    """
     requirementInput: RequirementInput!
   ): Requirement
 
@@ -419,7 +571,9 @@ type Mutation {
   updateUser(
     userId: Int!
 
-    """No description available."""
+    """
+    No description available.
+    """
     userInput: UserInput!
   ): User
 
@@ -429,115 +583,187 @@ type Mutation {
   Equivalent to POST /requirements/{requirementId}/votes
   """
   vote(
-    """Vote direction"""
+    """
+    Vote direction
+    """
     direction: Direction
     requirementId: Int!
   ): Requirement
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type Project {
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   defaultCategoryId: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   description: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   isFollower: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   leader: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   name: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfCategories: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfFollowers: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfRequirements: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   visibility: Boolean
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type ProjectContributors {
-  """No description available."""
+  """
+  No description available.
+  """
   attachmentCreator: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   categoryLeader: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   commentCreator: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   developers: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   leadDeveloper: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   leader: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   requirementCreator: [User]
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 input ProjectInput {
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   defaultCategoryId: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   description: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   isFollower: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   leader: UserInput
 
-  """No description available."""
+  """
+  No description available.
+  """
   name: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfCategories: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfFollowers: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfRequirements: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   visibility: Boolean
 }
 
-"""The start of any query"""
+"""
+The start of any query
+"""
 type Query {
   """
   This method allows to retrieve a certain attachment
@@ -554,10 +780,14 @@ type Query {
   categoriesFollowers(
     categoryId: Int!
 
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of comments by page"""
+    """
+    Elements of comments by page
+    """
     perPage: Int
   ): [User]
 
@@ -569,19 +799,29 @@ type Query {
   categoriesRequirements(
     categoryId: Int!
 
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of requirements by page"""
+    """
+    Elements of requirements by page
+    """
     perPage: Int
 
-    """Search filter"""
+    """
+    Search filter
+    """
     search: String
 
-    """Sort"""
+    """
+    Sort
+    """
     sort: [SortListItem]
 
-    """State filter"""
+    """
+    State filter
+    """
     state: State
   ): [Category]
 
@@ -612,7 +852,9 @@ type Query {
   Equivalent to GET /statistics
   """
   getStatistics(
-    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    """
+    Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z
+    """
     since: String
   ): Statistic
 
@@ -624,7 +866,9 @@ type Query {
   getStatisticsForProject(
     projectId: Int!
 
-    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    """
+    Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z
+    """
     since: String
   ): Statistic
 
@@ -636,7 +880,9 @@ type Query {
   getStatisticsForRequirement(
     requirementId: Int!
 
-    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    """
+    Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z
+    """
     since: String
   ): Statistic
 
@@ -667,16 +913,24 @@ type Query {
   Equivalent to GET /projects
   """
   projects(
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of project by page"""
+    """
+    Elements of project by page
+    """
     perPage: Int
 
-    """Search filter"""
+    """
+    Search filter
+    """
     search: String
 
-    """Sort"""
+    """
+    Sort
+    """
     sort: [Sort2ListItem]
   ): [Project]
 
@@ -686,17 +940,25 @@ type Query {
   Equivalent to GET /projects/{projectId}/categories
   """
   projectsCategories(
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of categories by page"""
+    """
+    Elements of categories by page
+    """
     perPage: Int
     projectId: Int!
 
-    """Search filter"""
+    """
+    Search filter
+    """
     search: String
 
-    """Sort"""
+    """
+    Sort
+    """
     sort: [Sort2ListItem]
   ): [Category]
 
@@ -706,10 +968,14 @@ type Query {
   Equivalent to GET /projects/{projectId}/followers
   """
   projectsFollowers(
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of comments by page"""
+    """
+    Elements of comments by page
+    """
     perPage: Int
     projectId: Int!
   ): [User]
@@ -720,20 +986,30 @@ type Query {
   Equivalent to GET /projects/{projectId}/requirements
   """
   projectsRequirements(
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of requirements by page"""
+    """
+    Elements of requirements by page
+    """
     perPage: Int
     projectId: Int!
 
-    """Search filter"""
+    """
+    Search filter
+    """
     search: String
 
-    """Sort"""
+    """
+    Sort
+    """
     sort: [SortListItem]
 
-    """State filter"""
+    """
+    State filter
+    """
     state: State
   ): [Requirement]
 
@@ -757,10 +1033,14 @@ type Query {
   Equivalent to GET /requirements/{requirementId}/attachments
   """
   requirementsAttachments(
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of comments by page"""
+    """
+    Elements of comments by page
+    """
     perPage: Int
     requirementId: Int!
   ): [Attachment]
@@ -771,10 +1051,14 @@ type Query {
   Equivalent to GET /requirements/{requirementId}/comments
   """
   requirementsComments(
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of comments by page"""
+    """
+    Elements of comments by page
+    """
     perPage: Int
     requirementId: Int!
   ): [Comment]
@@ -785,10 +1069,14 @@ type Query {
   Equivalent to GET /requirements/{requirementId}/developers
   """
   requirementsDevelopers(
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of comments by page"""
+    """
+    Elements of comments by page
+    """
     perPage: Int
     requirementId: Int!
   ): [User]
@@ -799,10 +1087,14 @@ type Query {
   Equivalent to GET /requirements/{requirementId}/followers
   """
   requirementsFollowers(
-    """Page number"""
+    """
+    Page number
+    """
     page: Int
 
-    """Elements of comments by page"""
+    """
+    Elements of comments by page
+    """
     perPage: Int
     requirementId: Int!
   ): [User]
@@ -815,7 +1107,9 @@ type Query {
   statistic(
     categoryId: Int!
 
-    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    """
+    Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z
+    """
     since: String
   ): Statistic
 
@@ -827,147 +1121,243 @@ type Query {
   user: User
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type Requirement {
-  """No description available."""
+  """
+  No description available.
+  """
   attachments: [Attachment]
 
-  """No description available."""
+  """
+  No description available.
+  """
   categories: [Category]
 
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   creator: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   description: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   downVotes: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   isContributor: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   isDeveloper: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   isFollower: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   leadDeveloper: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   name: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfAttachments: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfComments: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfFollowers: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   projectId: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   realized: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   upVotes: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   userVoted: UserVoted
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type RequirementContributors {
-  """No description available."""
+  """
+  No description available.
+  """
   attachmentCreator: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   commentCreator: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   creator: User
 
-  """No description available."""
+  """
+  No description available.
+  """
   developers: [User]
 
-  """No description available."""
+  """
+  No description available.
+  """
   leadDeveloper: User
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 input RequirementInput {
-  """No description available."""
+  """
+  No description available.
+  """
   attachments: [AttachmentInput]
 
-  """No description available."""
+  """
+  No description available.
+  """
   categories: [CategoryInput]
 
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   creator: UserInput
 
-  """No description available."""
+  """
+  No description available.
+  """
   description: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   downVotes: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   isContributor: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   isDeveloper: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   isFollower: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   leadDeveloper: UserInput
 
-  """No description available."""
+  """
+  No description available.
+  """
   name: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfAttachments: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfComments: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfFollowers: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   projectId: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   realized: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   upVotes: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   userVoted: UserVoted
 }
 
@@ -995,102 +1385,168 @@ enum State {
   realized
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type Statistic {
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfAttachments: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfCategories: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfComments: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfProjects: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfRequirements: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   numberOfVotes: Int
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 type User {
-  """No description available."""
+  """
+  No description available.
+  """
   admin: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   emailFollowSubscription: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   emailLeadSubscription: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   firstName: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   las2peerId: Float
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastLoginDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastName: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   profileImage: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   userName: String
 }
 
-"""No description available."""
+"""
+No description available.
+"""
 input UserInput {
-  """No description available."""
+  """
+  No description available.
+  """
   admin: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   creationDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   emailFollowSubscription: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   emailLeadSubscription: Boolean
 
-  """No description available."""
+  """
+  No description available.
+  """
   firstName: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   id: Int
 
-  """No description available."""
+  """
+  No description available.
+  """
   las2peerId: Float
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastLoginDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastName: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   lastUpdatedDate: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   profileImage: String
 
-  """No description available."""
+  """
+  No description available.
+  """
   userName: String
 }
 
@@ -1099,4 +1555,3 @@ enum UserVoted {
   DOWNVOTE
   NOVOTE
 }
-

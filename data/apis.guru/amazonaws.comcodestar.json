@@ -1,1 +1,1592 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<fullname>AWS CodeStar</fullname> <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data types for the AWS CodeStar API along with usage examples.</p> <p>You can use the AWS CodeStar API to work with:</p> <p>Projects and their resources, by calling the following:</p> <ul> <li> <p> <code>DeleteProject</code>, which deletes a project.</p> </li> <li> <p> <code>DescribeProject</code>, which lists the attributes of a project.</p> </li> <li> <p> <code>ListProjects</code>, which lists all projects associated with your AWS account.</p> </li> <li> <p> <code>ListResources</code>, which lists the resources associated with a project.</p> </li> <li> <p> <code>ListTagsForProject</code>, which lists the tags associated with a project.</p> </li> <li> <p> <code>TagProject</code>, which adds tags to a project.</p> </li> <li> <p> <code>UntagProject</code>, which removes tags from a project.</p> </li> <li> <p> <code>UpdateProject</code>, which updates the attributes of a project.</p> </li> </ul> <p>Teams and team members, by calling the following:</p> <ul> <li> <p> <code>AssociateTeamMember</code>, which adds an IAM user to the team for a project.</p> </li> <li> <p> <code>DisassociateTeamMember</code>, which removes an IAM user from the team for a project.</p> </li> <li> <p> <code>ListTeamMembers</code>, which lists all the IAM users in the team for a project, including their roles and attributes.</p> </li> <li> <p> <code>UpdateTeamMember</code>, which updates a team member's attributes in a project.</p> </li> </ul> <p>Users, by calling the following:</p> <ul> <li> <p> <code>CreateUserProfile</code>, which creates a user profile that contains data associated with the user across all projects.</p> </li> <li> <p> <code>DeleteUserProfile</code>, which deletes all user profile information across all projects.</p> </li> <li> <p> <code>DescribeUserProfile</code>, which describes the profile of a user.</p> </li> <li> <p> <code>ListUserProfiles</code>, which lists all user profiles.</p> </li> <li> <p> <code>UpdateUserProfile</code>, which updates the profile for a user.</p> </li> </ul>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS CodeStar","version":"2017-04-19","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/codestar-2017-04-19.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"codestar"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/codestar/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=CodeStar_20170419.AssociateTeamMember":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds an IAM user to the team for an AWS CodeStar project.","operationId":"AssociateTeamMember","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.AssociateTeamMember"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateTeamMemberRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateTeamMemberResult"}}}},"480":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"481":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"482":{"description":"TeamMemberAlreadyAssociatedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TeamMemberAlreadyAssociatedException"}}}},"483":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"484":{"description":"InvalidServiceRoleException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidServiceRoleException"}}}},"485":{"description":"ProjectConfigurationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectConfigurationException"}}}},"486":{"description":"ConcurrentModificationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConcurrentModificationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.CreateProject":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a project, including project resources. This action creates a project based on a submitted project request. A set of source code files and a toolchain template file can be included with the project request. If these are not provided, an empty project is created.","operationId":"CreateProject","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.CreateProject"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateProjectRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateProjectResult"}}}},"480":{"description":"ProjectAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectAlreadyExistsException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"483":{"description":"ProjectCreationFailedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectCreationFailedException"}}}},"484":{"description":"InvalidServiceRoleException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidServiceRoleException"}}}},"485":{"description":"ProjectConfigurationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectConfigurationException"}}}},"486":{"description":"ConcurrentModificationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConcurrentModificationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.CreateUserProfile":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a profile for a user that includes user preferences, such as the display name and email address assocciated with the user, in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar.","operationId":"CreateUserProfile","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.CreateUserProfile"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateUserProfileRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateUserProfileResult"}}}},"480":{"description":"UserProfileAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserProfileAlreadyExistsException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.DeleteProject":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a project, including project resources. Does not delete users associated with the project, but does delete the IAM roles that allowed access to the project.","operationId":"DeleteProject","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.DeleteProject"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteProjectRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteProjectResult"}}}},"480":{"description":"ConcurrentModificationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConcurrentModificationException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"482":{"description":"InvalidServiceRoleException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidServiceRoleException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.DeleteUserProfile":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a user profile in AWS CodeStar, including all personal preference data associated with that profile, such as display name and email address. It does not delete the history of that user, for example the history of commits made by that user.","operationId":"DeleteUserProfile","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.DeleteUserProfile"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteUserProfileRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteUserProfileResult"}}}},"480":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.DescribeProject":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes a project and its resources.","operationId":"DescribeProject","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.DescribeProject"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeProjectRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeProjectResult"}}}},"480":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"482":{"description":"InvalidServiceRoleException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidServiceRoleException"}}}},"483":{"description":"ProjectConfigurationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectConfigurationException"}}}},"484":{"description":"ConcurrentModificationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConcurrentModificationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.DescribeUserProfile":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes a user in AWS CodeStar and the user attributes across all projects.","operationId":"DescribeUserProfile","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.DescribeUserProfile"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeUserProfileRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeUserProfileResult"}}}},"480":{"description":"UserProfileNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserProfileNotFoundException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.DisassociateTeamMember":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Removes a user from a project. Removing a user from a project also removes the IAM policies from that user that allowed access to the project and its resources. Disassociating a team member does not remove that user's profile from AWS CodeStar. It does not remove the user from IAM.","operationId":"DisassociateTeamMember","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.DisassociateTeamMember"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateTeamMemberRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateTeamMemberResult"}}}},"480":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"482":{"description":"InvalidServiceRoleException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidServiceRoleException"}}}},"483":{"description":"ConcurrentModificationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConcurrentModificationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.ListProjects":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists all projects in AWS CodeStar associated with your AWS account.","operationId":"ListProjects","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.ListProjects"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListProjectsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListProjectsResult"}}}},"480":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.ListResources":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists resources associated with a project in AWS CodeStar.","operationId":"ListResources","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.ListResources"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResourcesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResourcesResult"}}}},"480":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"481":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"482":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.ListTagsForProject":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets the tags for a project.","operationId":"ListTagsForProject","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.ListTagsForProject"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForProjectRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForProjectResult"}}}},"480":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"482":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.ListTeamMembers":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists all team members associated with a project.","operationId":"ListTeamMembers","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.ListTeamMembers"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTeamMembersRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTeamMembersResult"}}}},"480":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"481":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"482":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.ListUserProfiles":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists all the user profiles configured for your AWS account in AWS CodeStar.","operationId":"ListUserProfiles","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.ListUserProfiles"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListUserProfilesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListUserProfilesResult"}}}},"480":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.TagProject":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds tags to a project.","operationId":"TagProject","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.TagProject"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagProjectRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagProjectResult"}}}},"480":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"482":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"483":{"description":"ConcurrentModificationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConcurrentModificationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.UntagProject":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Removes tags from a project.","operationId":"UntagProject","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.UntagProject"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagProjectRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagProjectResult"}}}},"480":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"482":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"483":{"description":"ConcurrentModificationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConcurrentModificationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.UpdateProject":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates a project in AWS CodeStar.","operationId":"UpdateProject","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.UpdateProject"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateProjectRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateProjectResult"}}}},"480":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.UpdateTeamMember":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates a team member's attributes in an AWS CodeStar project. For example, you can change a team member's role in the project, or change whether they have remote access to project resources.","operationId":"UpdateTeamMember","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.UpdateTeamMember"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateTeamMemberRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateTeamMemberResult"}}}},"480":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"481":{"description":"ProjectNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectNotFoundException"}}}},"482":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}},"483":{"description":"InvalidServiceRoleException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidServiceRoleException"}}}},"484":{"description":"ProjectConfigurationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProjectConfigurationException"}}}},"485":{"description":"ConcurrentModificationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConcurrentModificationException"}}}},"486":{"description":"TeamMemberNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TeamMemberNotFoundException"}}}}}}},"/#X-Amz-Target=CodeStar_20170419.UpdateUserProfile":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates a user's profile in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar. ","operationId":"UpdateUserProfile","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["CodeStar_20170419.UpdateUserProfile"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateUserProfileRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateUserProfileResult"}}}},"480":{"description":"UserProfileNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserProfileNotFoundException"}}}},"481":{"description":"ValidationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidationException"}}}}}}}},"servers":[{"description":"The CodeStar multi-region endpoint","url":"http://codestar.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The CodeStar multi-region endpoint","url":"https://codestar.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The CodeStar endpoint for China (Beijing) and China (Ningxia)","url":"http://codestar.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The CodeStar endpoint for China (Beijing) and China (Ningxia)","url":"https://codestar.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AssociateTeamMemberRequest":{"properties":{"clientRequestToken":{"$ref":"#/components/schemas/ClientRequestToken"},"projectId":{"$ref":"#/components/schemas/ProjectId"},"projectRole":{"$ref":"#/components/schemas/Role"},"remoteAccessAllowed":{"$ref":"#/components/schemas/RemoteAccessAllowed"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["projectId","userArn","projectRole"],"type":"object"},"AssociateTeamMemberResult":{"properties":{"clientRequestToken":{"$ref":"#/components/schemas/ClientRequestToken"}},"type":"object"},"BucketKey":{"type":"string"},"BucketName":{"maxLength":63,"minLength":3,"type":"string"},"ClientRequestToken":{"maxLength":256,"minLength":1,"pattern":"^[\\w:/-]+$","type":"string"},"Code":{"description":"Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.","properties":{"destination":{"$ref":"#/components/schemas/CodeDestination"},"source":{"$ref":"#/components/schemas/CodeSource"}},"required":["source","destination"],"type":"object"},"CodeCommitCodeDestination":{"description":"Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.","properties":{"name":{"$ref":"#/components/schemas/RepositoryName"}},"required":["name"],"type":"object"},"CodeDestination":{"description":"The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.","properties":{"codeCommit":{"$ref":"#/components/schemas/CodeCommitCodeDestination"},"gitHub":{"$ref":"#/components/schemas/GitHubCodeDestination"}},"type":"object"},"CodeSource":{"description":"The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.","properties":{"s3":{"$ref":"#/components/schemas/S3Location"}},"required":["s3"],"type":"object"},"ConcurrentModificationException":{},"CreateProjectRequest":{"properties":{"clientRequestToken":{"$ref":"#/components/schemas/ClientRequestToken"},"description":{"$ref":"#/components/schemas/ProjectDescription"},"id":{"$ref":"#/components/schemas/ProjectId"},"name":{"$ref":"#/components/schemas/ProjectName"},"sourceCode":{"$ref":"#/components/schemas/SourceCode"},"tags":{"$ref":"#/components/schemas/Tags"},"toolchain":{"$ref":"#/components/schemas/Toolchain"}},"required":["name","id"],"type":"object"},"CreateProjectResult":{"properties":{"arn":{"$ref":"#/components/schemas/ProjectArn"},"clientRequestToken":{"$ref":"#/components/schemas/ClientRequestToken"},"id":{"$ref":"#/components/schemas/ProjectId"},"projectTemplateId":{"$ref":"#/components/schemas/ProjectTemplateId"}},"required":["id","arn"],"type":"object"},"CreateUserProfileRequest":{"properties":{"displayName":{"$ref":"#/components/schemas/UserProfileDisplayName"},"emailAddress":{"$ref":"#/components/schemas/Email"},"sshPublicKey":{"$ref":"#/components/schemas/SshPublicKey"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn","displayName","emailAddress"],"type":"object"},"CreateUserProfileResult":{"properties":{"createdTimestamp":{"$ref":"#/components/schemas/CreatedTimestamp"},"displayName":{"$ref":"#/components/schemas/UserProfileDisplayName"},"emailAddress":{"$ref":"#/components/schemas/Email"},"lastModifiedTimestamp":{"$ref":"#/components/schemas/LastModifiedTimestamp"},"sshPublicKey":{"$ref":"#/components/schemas/SshPublicKey"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn"],"type":"object"},"CreatedTimestamp":{"format":"date-time","type":"string"},"DeleteProjectRequest":{"properties":{"clientRequestToken":{"$ref":"#/components/schemas/ClientRequestToken"},"deleteStack":{"$ref":"#/components/schemas/DeleteStack"},"id":{"$ref":"#/components/schemas/ProjectId"}},"required":["id"],"type":"object"},"DeleteProjectResult":{"properties":{"projectArn":{"$ref":"#/components/schemas/ProjectArn"},"stackId":{"$ref":"#/components/schemas/StackId"}},"type":"object"},"DeleteStack":{"type":"boolean"},"DeleteUserProfileRequest":{"properties":{"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn"],"type":"object"},"DeleteUserProfileResult":{"properties":{"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn"],"type":"object"},"DescribeProjectRequest":{"properties":{"id":{"$ref":"#/components/schemas/ProjectId"}},"required":["id"],"type":"object"},"DescribeProjectResult":{"properties":{"arn":{"$ref":"#/components/schemas/ProjectArn"},"clientRequestToken":{"$ref":"#/components/schemas/ClientRequestToken"},"createdTimeStamp":{"$ref":"#/components/schemas/CreatedTimestamp"},"description":{"$ref":"#/components/schemas/ProjectDescription"},"id":{"$ref":"#/components/schemas/ProjectId"},"name":{"$ref":"#/components/schemas/ProjectName"},"projectTemplateId":{"$ref":"#/components/schemas/ProjectTemplateId"},"stackId":{"$ref":"#/components/schemas/StackId"},"status":{"$ref":"#/components/schemas/ProjectStatus"}},"type":"object"},"DescribeUserProfileRequest":{"properties":{"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn"],"type":"object"},"DescribeUserProfileResult":{"properties":{"createdTimestamp":{"$ref":"#/components/schemas/CreatedTimestamp"},"displayName":{"$ref":"#/components/schemas/UserProfileDisplayName"},"emailAddress":{"$ref":"#/components/schemas/Email"},"lastModifiedTimestamp":{"$ref":"#/components/schemas/LastModifiedTimestamp"},"sshPublicKey":{"$ref":"#/components/schemas/SshPublicKey"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn","createdTimestamp","lastModifiedTimestamp"],"type":"object"},"DisassociateTeamMemberRequest":{"properties":{"projectId":{"$ref":"#/components/schemas/ProjectId"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["projectId","userArn"],"type":"object"},"DisassociateTeamMemberResult":{"properties":{},"type":"object"},"Email":{"format":"password","maxLength":128,"minLength":3,"pattern":"^[\\w-.+]+@[\\w-.+]+$","type":"string"},"GitHubCodeDestination":{"description":"Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.","properties":{"description":{"$ref":"#/components/schemas/RepositoryDescription"},"issuesEnabled":{"$ref":"#/components/schemas/RepositoryEnableIssues"},"name":{"$ref":"#/components/schemas/RepositoryName"},"owner":{"$ref":"#/components/schemas/RepositoryOwner"},"privateRepository":{"$ref":"#/components/schemas/RepositoryIsPrivate"},"token":{"$ref":"#/components/schemas/GitHubPersonalToken"},"type":{"$ref":"#/components/schemas/RepositoryType"}},"required":["name","type","owner","privateRepository","issuesEnabled","token"],"type":"object"},"GitHubPersonalToken":{"format":"password","minLength":1,"type":"string"},"InvalidNextTokenException":{},"InvalidServiceRoleException":{},"LastModifiedTimestamp":{"format":"date-time","type":"string"},"LimitExceededException":{},"ListProjectsRequest":{"properties":{"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/PaginationToken"}},"type":"object"},"ListProjectsResult":{"properties":{"nextToken":{"$ref":"#/components/schemas/PaginationToken"},"projects":{"$ref":"#/components/schemas/ProjectsList"}},"required":["projects"],"type":"object"},"ListResourcesRequest":{"properties":{"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/PaginationToken"},"projectId":{"$ref":"#/components/schemas/ProjectId"}},"required":["projectId"],"type":"object"},"ListResourcesResult":{"properties":{"nextToken":{"$ref":"#/components/schemas/PaginationToken"},"resources":{"$ref":"#/components/schemas/ResourcesResult"}},"type":"object"},"ListTagsForProjectRequest":{"properties":{"id":{"$ref":"#/components/schemas/ProjectId"},"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/PaginationToken"}},"required":["id"],"type":"object"},"ListTagsForProjectResult":{"properties":{"nextToken":{"$ref":"#/components/schemas/PaginationToken"},"tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"ListTeamMembersRequest":{"properties":{"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/PaginationToken"},"projectId":{"$ref":"#/components/schemas/ProjectId"}},"required":["projectId"],"type":"object"},"ListTeamMembersResult":{"properties":{"nextToken":{"$ref":"#/components/schemas/PaginationToken"},"teamMembers":{"$ref":"#/components/schemas/TeamMemberResult"}},"required":["teamMembers"],"type":"object"},"ListUserProfilesRequest":{"properties":{"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/PaginationToken"}},"type":"object"},"ListUserProfilesResult":{"properties":{"nextToken":{"$ref":"#/components/schemas/PaginationToken"},"userProfiles":{"$ref":"#/components/schemas/UserProfilesList"}},"required":["userProfiles"],"type":"object"},"MaxResults":{"maximum":100,"minimum":1,"type":"integer"},"PaginationToken":{"maxLength":512,"minLength":1,"pattern":"^[\\w/+=]+$","type":"string"},"ProjectAlreadyExistsException":{},"ProjectArn":{"pattern":"^arn:aws[^:\\s]*:codestar:[^:\\s]+:[0-9]{12}:project\\/[a-z]([a-z0-9|-])+$","type":"string"},"ProjectConfigurationException":{},"ProjectCreationFailedException":{},"ProjectDescription":{"format":"password","maxLength":1024,"pattern":"^$|^\\S(.*\\S)?$","type":"string"},"ProjectId":{"maxLength":15,"minLength":2,"pattern":"^[a-z][a-z0-9-]+$","type":"string"},"ProjectName":{"format":"password","maxLength":100,"minLength":1,"pattern":"^\\S(.*\\S)?$","type":"string"},"ProjectNotFoundException":{},"ProjectStatus":{"description":"An indication of whether a project creation or deletion is failed or successful.","properties":{"reason":{"$ref":"#/components/schemas/Reason"},"state":{"$ref":"#/components/schemas/State"}},"required":["state"],"type":"object"},"ProjectSummary":{"description":"Information about the metadata for a project.","properties":{"projectArn":{"$ref":"#/components/schemas/ProjectArn"},"projectId":{"$ref":"#/components/schemas/ProjectId"}},"type":"object"},"ProjectTemplateId":{"minLength":1,"pattern":"^arn:aws[^:\\s]{0,5}:codestar:[^:\\s]+::project-template(\\/(github|codecommit))?\\/[a-z0-9-]+$","type":"string"},"ProjectsList":{"items":{"$ref":"#/components/schemas/ProjectSummary"},"type":"array"},"Reason":{"maxLength":1024,"pattern":"^$|^\\S(.*\\S)?$","type":"string"},"RemoteAccessAllowed":{"type":"boolean"},"RepositoryDescription":{"maxLength":1000,"minLength":1,"pattern":"^\\S(.*\\S)?$","type":"string"},"RepositoryEnableIssues":{"type":"boolean"},"RepositoryIsPrivate":{"type":"boolean"},"RepositoryName":{"maxLength":100,"minLength":1,"pattern":"^\\S[\\w.-]*$","type":"string"},"RepositoryOwner":{"maxLength":100,"minLength":1,"pattern":"^\\S(.*\\S)?$","type":"string"},"RepositoryType":{"pattern":"^(user|organization|User|Organization)$","type":"string"},"Resource":{"description":"Information about a resource for a project.","properties":{"id":{"$ref":"#/components/schemas/ResourceId"}},"required":["id"],"type":"object"},"ResourceId":{"minLength":11,"pattern":"^arn\\:aws\\:\\S.*\\:.*","type":"string"},"ResourcesResult":{"items":{"$ref":"#/components/schemas/Resource"},"type":"array"},"Role":{"pattern":"^(Owner|Viewer|Contributor)$","type":"string"},"RoleArn":{"maxLength":1224,"minLength":1,"type":"string"},"S3Location":{"description":"The Amazon S3 location where the source code files provided with the project request are stored.","properties":{"bucketKey":{"$ref":"#/components/schemas/BucketKey"},"bucketName":{"$ref":"#/components/schemas/BucketName"}},"type":"object"},"SourceCode":{"items":{"$ref":"#/components/schemas/Code"},"type":"array"},"SshPublicKey":{"maxLength":16384,"pattern":"^[\\t\\r\\n\\u0020-\\u00FF]*$","type":"string"},"StackId":{"pattern":"^arn:aws[^:\\s]*:cloudformation:[^:\\s]+:[0-9]{12}:stack\\/[^:\\s]+\\/[^:\\s]+$","type":"string"},"State":{"pattern":"^(CreateInProgress|CreateComplete|CreateFailed|DeleteComplete|DeleteFailed|DeleteInProgress|UpdateComplete|UpdateInProgress|UpdateFailed|Unknown)$","type":"string"},"TagKey":{"maxLength":128,"minLength":1,"pattern":"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$","type":"string"},"TagKeys":{"items":{"$ref":"#/components/schemas/TagKey"},"type":"array"},"TagProjectRequest":{"properties":{"id":{"$ref":"#/components/schemas/ProjectId"},"tags":{"$ref":"#/components/schemas/Tags"}},"required":["id","tags"],"type":"object"},"TagProjectResult":{"properties":{"tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"TagValue":{"maxLength":256,"pattern":"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$","type":"string"},"Tags":{"additionalProperties":{"$ref":"#/components/schemas/TagValue"},"type":"object"},"TeamMember":{"description":"Information about a team member in a project.","properties":{"projectRole":{"$ref":"#/components/schemas/Role"},"remoteAccessAllowed":{"$ref":"#/components/schemas/RemoteAccessAllowed"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn","projectRole"],"type":"object"},"TeamMemberAlreadyAssociatedException":{},"TeamMemberNotFoundException":{},"TeamMemberResult":{"items":{"$ref":"#/components/schemas/TeamMember"},"type":"array"},"TemplateParameterKey":{"maxLength":30,"minLength":1,"pattern":"^\\S(.*\\S)?$","type":"string"},"TemplateParameterMap":{"additionalProperties":{"$ref":"#/components/schemas/TemplateParameterValue"},"maxProperties":25,"type":"object"},"TemplateParameterValue":{"format":"password","maxLength":100,"minLength":1,"pattern":"^\\S(.*\\S)?$","type":"string"},"Toolchain":{"description":"The toolchain template file provided with the project request. AWS CodeStar uses the template to provision the toolchain stack in AWS CloudFormation.","properties":{"roleArn":{"$ref":"#/components/schemas/RoleArn"},"source":{"$ref":"#/components/schemas/ToolchainSource"},"stackParameters":{"$ref":"#/components/schemas/TemplateParameterMap"}},"required":["source"],"type":"object"},"ToolchainSource":{"description":"The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.","properties":{"s3":{"$ref":"#/components/schemas/S3Location"}},"required":["s3"],"type":"object"},"UntagProjectRequest":{"properties":{"id":{"$ref":"#/components/schemas/ProjectId"},"tags":{"$ref":"#/components/schemas/TagKeys"}},"required":["id","tags"],"type":"object"},"UntagProjectResult":{"properties":{},"type":"object"},"UpdateProjectRequest":{"properties":{"description":{"$ref":"#/components/schemas/ProjectDescription"},"id":{"$ref":"#/components/schemas/ProjectId"},"name":{"$ref":"#/components/schemas/ProjectName"}},"required":["id"],"type":"object"},"UpdateProjectResult":{"properties":{},"type":"object"},"UpdateTeamMemberRequest":{"properties":{"projectId":{"$ref":"#/components/schemas/ProjectId"},"projectRole":{"$ref":"#/components/schemas/Role"},"remoteAccessAllowed":{"$ref":"#/components/schemas/RemoteAccessAllowed"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["projectId","userArn"],"type":"object"},"UpdateTeamMemberResult":{"properties":{"projectRole":{"$ref":"#/components/schemas/Role"},"remoteAccessAllowed":{"$ref":"#/components/schemas/RemoteAccessAllowed"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"type":"object"},"UpdateUserProfileRequest":{"properties":{"displayName":{"$ref":"#/components/schemas/UserProfileDisplayName"},"emailAddress":{"$ref":"#/components/schemas/Email"},"sshPublicKey":{"$ref":"#/components/schemas/SshPublicKey"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn"],"type":"object"},"UpdateUserProfileResult":{"properties":{"createdTimestamp":{"$ref":"#/components/schemas/CreatedTimestamp"},"displayName":{"$ref":"#/components/schemas/UserProfileDisplayName"},"emailAddress":{"$ref":"#/components/schemas/Email"},"lastModifiedTimestamp":{"$ref":"#/components/schemas/LastModifiedTimestamp"},"sshPublicKey":{"$ref":"#/components/schemas/SshPublicKey"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"required":["userArn"],"type":"object"},"UserArn":{"maxLength":95,"minLength":32,"pattern":"^arn:aws:iam::\\d{12}:user(?:(\\u002F)|(\\u002F[\\u0021-\\u007E]+\\u002F))[\\w+=,.@-]+$","type":"string"},"UserProfileAlreadyExistsException":{},"UserProfileDisplayName":{"format":"password","maxLength":64,"minLength":1,"pattern":"^\\S(.*\\S)?$","type":"string"},"UserProfileNotFoundException":{},"UserProfileSummary":{"description":"Information about a user's profile in AWS CodeStar.","properties":{"displayName":{"$ref":"#/components/schemas/UserProfileDisplayName"},"emailAddress":{"$ref":"#/components/schemas/Email"},"sshPublicKey":{"$ref":"#/components/schemas/SshPublicKey"},"userArn":{"$ref":"#/components/schemas/UserArn"}},"type":"object"},"UserProfilesList":{"items":{"$ref":"#/components/schemas/UserProfileSummary"},"type":"array"},"ValidationException":{}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS CodeStar</fullname> <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data types for the AWS CodeStar API along with usage examples.</p> <p>You can use the AWS CodeStar API to work with:</p> <p>Projects and their resources, by calling the following:</p> <ul> <li> <p> <code>DeleteProject</code>, which deletes a project.</p> </li> <li> <p> <code>DescribeProject</code>, which lists the attributes of a project.</p> </li> <li> <p> <code>ListProjects</code>, which lists all projects associated with your AWS account.</p> </li> <li> <p> <code>ListResources</code>, which lists the resources associated with a project.</p> </li> <li> <p> <code>ListTagsForProject</code>, which lists the tags associated with a project.</p> </li> <li> <p> <code>TagProject</code>, which adds tags to a project.</p> </li> <li> <p> <code>UntagProject</code>, which removes tags from a project.</p> </li> <li> <p> <code>UpdateProject</code>, which updates the attributes of a project.</p> </li> </ul> <p>Teams and team members, by calling the following:</p> <ul> <li> <p> <code>AssociateTeamMember</code>, which adds an IAM user to the team for a project.</p> </li> <li> <p> <code>DisassociateTeamMember</code>, which removes an IAM user from the team for a project.</p> </li> <li> <p> <code>ListTeamMembers</code>, which lists all the IAM users in the team for a project, including their roles and attributes.</p> </li> <li> <p> <code>UpdateTeamMember</code>, which updates a team member's attributes in a project.</p> </li> </ul> <p>Users, by calling the following:</p> <ul> <li> <p> <code>CreateUserProfile</code>, which creates a user profile that contains data associated with the user across all projects.</p> </li> <li> <p> <code>DeleteUserProfile</code>, which deletes all user profile information across all projects.</p> </li> <li> <p> <code>DescribeUserProfile</code>, which describes the profile of a user.</p> </li> <li> <p> <code>ListUserProfiles</code>, which lists all user profiles.</p> </li> <li> <p> <code>UpdateUserProfile</code>, which updates the profile for a user.</p> </li> </ul>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS CodeStar",
+    "version": "2017-04-19",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/codestar-2017-04-19.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "codestar"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/codestar/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=CodeStar_20170419.AssociateTeamMember": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds an IAM user to the team for an AWS CodeStar project.",
+        "operationId": "AssociateTeamMember",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.AssociateTeamMember"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/AssociateTeamMemberRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AssociateTeamMemberResult" } }
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "481": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "482": {
+            "description": "TeamMemberAlreadyAssociatedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TeamMemberAlreadyAssociatedException" } }
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "484": {
+            "description": "InvalidServiceRoleException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidServiceRoleException" } }
+            }
+          },
+          "485": {
+            "description": "ProjectConfigurationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ProjectConfigurationException" } }
+            }
+          },
+          "486": {
+            "description": "ConcurrentModificationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ConcurrentModificationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.CreateProject": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a project, including project resources. This action creates a project based on a submitted project request. A set of source code files and a toolchain template file can be included with the project request. If these are not provided, an empty project is created.",
+        "operationId": "CreateProject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.CreateProject"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateProjectRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateProjectResult" } } }
+          },
+          "480": {
+            "description": "ProjectAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ProjectAlreadyExistsException" } }
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "483": {
+            "description": "ProjectCreationFailedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ProjectCreationFailedException" } }
+            }
+          },
+          "484": {
+            "description": "InvalidServiceRoleException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidServiceRoleException" } }
+            }
+          },
+          "485": {
+            "description": "ProjectConfigurationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ProjectConfigurationException" } }
+            }
+          },
+          "486": {
+            "description": "ConcurrentModificationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ConcurrentModificationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.CreateUserProfile": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a profile for a user that includes user preferences, such as the display name and email address assocciated with the user, in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar.",
+        "operationId": "CreateUserProfile",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.CreateUserProfile"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateUserProfileRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateUserProfileResult" } } }
+          },
+          "480": {
+            "description": "UserProfileAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UserProfileAlreadyExistsException" } }
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.DeleteProject": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a project, including project resources. Does not delete users associated with the project, but does delete the IAM roles that allowed access to the project.",
+        "operationId": "DeleteProject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.DeleteProject"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteProjectRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteProjectResult" } } }
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ConcurrentModificationException" } }
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "482": {
+            "description": "InvalidServiceRoleException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidServiceRoleException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.DeleteUserProfile": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a user profile in AWS CodeStar, including all personal preference data associated with that profile, such as display name and email address. It does not delete the history of that user, for example the history of commits made by that user.",
+        "operationId": "DeleteUserProfile",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.DeleteUserProfile"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteUserProfileRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteUserProfileResult" } } }
+          },
+          "480": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.DescribeProject": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes a project and its resources.",
+        "operationId": "DescribeProject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.DescribeProject"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeProjectRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeProjectResult" } } }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "482": {
+            "description": "InvalidServiceRoleException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidServiceRoleException" } }
+            }
+          },
+          "483": {
+            "description": "ProjectConfigurationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ProjectConfigurationException" } }
+            }
+          },
+          "484": {
+            "description": "ConcurrentModificationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ConcurrentModificationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.DescribeUserProfile": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes a user in AWS CodeStar and the user attributes across all projects.",
+        "operationId": "DescribeUserProfile",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.DescribeUserProfile"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DescribeUserProfileRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeUserProfileResult" } }
+            }
+          },
+          "480": {
+            "description": "UserProfileNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UserProfileNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.DisassociateTeamMember": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Removes a user from a project. Removing a user from a project also removes the IAM policies from that user that allowed access to the project and its resources. Disassociating a team member does not remove that user's profile from AWS CodeStar. It does not remove the user from IAM.",
+        "operationId": "DisassociateTeamMember",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.DisassociateTeamMember"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateTeamMemberRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateTeamMemberResult" } }
+            }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "482": {
+            "description": "InvalidServiceRoleException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidServiceRoleException" } }
+            }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ConcurrentModificationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.ListProjects": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists all projects in AWS CodeStar associated with your AWS account.",
+        "operationId": "ListProjects",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.ListProjects"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListProjectsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListProjectsResult" } } }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.ListResources": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists resources associated with a project in AWS CodeStar.",
+        "operationId": "ListResources",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.ListResources"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListResourcesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListResourcesResult" } } }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "481": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.ListTagsForProject": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets the tags for a project.",
+        "operationId": "ListTagsForProject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.ListTagsForProject"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForProjectRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForProjectResult" } } }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.ListTeamMembers": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists all team members associated with a project.",
+        "operationId": "ListTeamMembers",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.ListTeamMembers"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTeamMembersRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTeamMembersResult" } } }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "481": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.ListUserProfiles": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists all the user profiles configured for your AWS account in AWS CodeStar.",
+        "operationId": "ListUserProfiles",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.ListUserProfiles"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListUserProfilesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListUserProfilesResult" } } }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.TagProject": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds tags to a project.",
+        "operationId": "TagProject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.TagProject"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagProjectRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagProjectResult" } } }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ConcurrentModificationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.UntagProject": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Removes tags from a project.",
+        "operationId": "UntagProject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.UntagProject"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagProjectRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagProjectResult" } } }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ConcurrentModificationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.UpdateProject": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates a project in AWS CodeStar.",
+        "operationId": "UpdateProject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.UpdateProject"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateProjectRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateProjectResult" } } }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.UpdateTeamMember": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates a team member's attributes in an AWS CodeStar project. For example, you can change a team member's role in the project, or change whether they have remote access to project resources.",
+        "operationId": "UpdateTeamMember",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.UpdateTeamMember"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateTeamMemberRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateTeamMemberResult" } } }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "481": {
+            "description": "ProjectNotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProjectNotFoundException" } } }
+          },
+          "482": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          },
+          "483": {
+            "description": "InvalidServiceRoleException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidServiceRoleException" } }
+            }
+          },
+          "484": {
+            "description": "ProjectConfigurationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ProjectConfigurationException" } }
+            }
+          },
+          "485": {
+            "description": "ConcurrentModificationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ConcurrentModificationException" } }
+            }
+          },
+          "486": {
+            "description": "TeamMemberNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TeamMemberNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=CodeStar_20170419.UpdateUserProfile": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates a user's profile in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar. ",
+        "operationId": "UpdateUserProfile",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["CodeStar_20170419.UpdateUserProfile"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateUserProfileRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateUserProfileResult" } } }
+          },
+          "480": {
+            "description": "UserProfileNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UserProfileNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ValidationException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The CodeStar multi-region endpoint",
+      "url": "http://codestar.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The CodeStar multi-region endpoint",
+      "url": "https://codestar.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The CodeStar endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://codestar.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The CodeStar endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://codestar.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AssociateTeamMemberRequest": {
+        "properties": {
+          "clientRequestToken": { "$ref": "#/components/schemas/ClientRequestToken" },
+          "projectId": { "$ref": "#/components/schemas/ProjectId" },
+          "projectRole": { "$ref": "#/components/schemas/Role" },
+          "remoteAccessAllowed": { "$ref": "#/components/schemas/RemoteAccessAllowed" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["projectId", "userArn", "projectRole"],
+        "type": "object"
+      },
+      "AssociateTeamMemberResult": {
+        "properties": { "clientRequestToken": { "$ref": "#/components/schemas/ClientRequestToken" } },
+        "type": "object"
+      },
+      "BucketKey": { "type": "string" },
+      "BucketName": { "maxLength": 63, "minLength": 3, "type": "string" },
+      "ClientRequestToken": { "maxLength": 256, "minLength": 1, "pattern": "^[\\w:/-]+$", "type": "string" },
+      "Code": {
+        "description": "Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.",
+        "properties": {
+          "destination": { "$ref": "#/components/schemas/CodeDestination" },
+          "source": { "$ref": "#/components/schemas/CodeSource" }
+        },
+        "required": ["source", "destination"],
+        "type": "object"
+      },
+      "CodeCommitCodeDestination": {
+        "description": "Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.",
+        "properties": { "name": { "$ref": "#/components/schemas/RepositoryName" } },
+        "required": ["name"],
+        "type": "object"
+      },
+      "CodeDestination": {
+        "description": "The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.",
+        "properties": {
+          "codeCommit": { "$ref": "#/components/schemas/CodeCommitCodeDestination" },
+          "gitHub": { "$ref": "#/components/schemas/GitHubCodeDestination" }
+        },
+        "type": "object"
+      },
+      "CodeSource": {
+        "description": "The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.",
+        "properties": { "s3": { "$ref": "#/components/schemas/S3Location" } },
+        "required": ["s3"],
+        "type": "object"
+      },
+      "ConcurrentModificationException": {},
+      "CreateProjectRequest": {
+        "properties": {
+          "clientRequestToken": { "$ref": "#/components/schemas/ClientRequestToken" },
+          "description": { "$ref": "#/components/schemas/ProjectDescription" },
+          "id": { "$ref": "#/components/schemas/ProjectId" },
+          "name": { "$ref": "#/components/schemas/ProjectName" },
+          "sourceCode": { "$ref": "#/components/schemas/SourceCode" },
+          "tags": { "$ref": "#/components/schemas/Tags" },
+          "toolchain": { "$ref": "#/components/schemas/Toolchain" }
+        },
+        "required": ["name", "id"],
+        "type": "object"
+      },
+      "CreateProjectResult": {
+        "properties": {
+          "arn": { "$ref": "#/components/schemas/ProjectArn" },
+          "clientRequestToken": { "$ref": "#/components/schemas/ClientRequestToken" },
+          "id": { "$ref": "#/components/schemas/ProjectId" },
+          "projectTemplateId": { "$ref": "#/components/schemas/ProjectTemplateId" }
+        },
+        "required": ["id", "arn"],
+        "type": "object"
+      },
+      "CreateUserProfileRequest": {
+        "properties": {
+          "displayName": { "$ref": "#/components/schemas/UserProfileDisplayName" },
+          "emailAddress": { "$ref": "#/components/schemas/Email" },
+          "sshPublicKey": { "$ref": "#/components/schemas/SshPublicKey" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["userArn", "displayName", "emailAddress"],
+        "type": "object"
+      },
+      "CreateUserProfileResult": {
+        "properties": {
+          "createdTimestamp": { "$ref": "#/components/schemas/CreatedTimestamp" },
+          "displayName": { "$ref": "#/components/schemas/UserProfileDisplayName" },
+          "emailAddress": { "$ref": "#/components/schemas/Email" },
+          "lastModifiedTimestamp": { "$ref": "#/components/schemas/LastModifiedTimestamp" },
+          "sshPublicKey": { "$ref": "#/components/schemas/SshPublicKey" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["userArn"],
+        "type": "object"
+      },
+      "CreatedTimestamp": { "format": "date-time", "type": "string" },
+      "DeleteProjectRequest": {
+        "properties": {
+          "clientRequestToken": { "$ref": "#/components/schemas/ClientRequestToken" },
+          "deleteStack": { "$ref": "#/components/schemas/DeleteStack" },
+          "id": { "$ref": "#/components/schemas/ProjectId" }
+        },
+        "required": ["id"],
+        "type": "object"
+      },
+      "DeleteProjectResult": {
+        "properties": {
+          "projectArn": { "$ref": "#/components/schemas/ProjectArn" },
+          "stackId": { "$ref": "#/components/schemas/StackId" }
+        },
+        "type": "object"
+      },
+      "DeleteStack": { "type": "boolean" },
+      "DeleteUserProfileRequest": {
+        "properties": { "userArn": { "$ref": "#/components/schemas/UserArn" } },
+        "required": ["userArn"],
+        "type": "object"
+      },
+      "DeleteUserProfileResult": {
+        "properties": { "userArn": { "$ref": "#/components/schemas/UserArn" } },
+        "required": ["userArn"],
+        "type": "object"
+      },
+      "DescribeProjectRequest": {
+        "properties": { "id": { "$ref": "#/components/schemas/ProjectId" } },
+        "required": ["id"],
+        "type": "object"
+      },
+      "DescribeProjectResult": {
+        "properties": {
+          "arn": { "$ref": "#/components/schemas/ProjectArn" },
+          "clientRequestToken": { "$ref": "#/components/schemas/ClientRequestToken" },
+          "createdTimeStamp": { "$ref": "#/components/schemas/CreatedTimestamp" },
+          "description": { "$ref": "#/components/schemas/ProjectDescription" },
+          "id": { "$ref": "#/components/schemas/ProjectId" },
+          "name": { "$ref": "#/components/schemas/ProjectName" },
+          "projectTemplateId": { "$ref": "#/components/schemas/ProjectTemplateId" },
+          "stackId": { "$ref": "#/components/schemas/StackId" },
+          "status": { "$ref": "#/components/schemas/ProjectStatus" }
+        },
+        "type": "object"
+      },
+      "DescribeUserProfileRequest": {
+        "properties": { "userArn": { "$ref": "#/components/schemas/UserArn" } },
+        "required": ["userArn"],
+        "type": "object"
+      },
+      "DescribeUserProfileResult": {
+        "properties": {
+          "createdTimestamp": { "$ref": "#/components/schemas/CreatedTimestamp" },
+          "displayName": { "$ref": "#/components/schemas/UserProfileDisplayName" },
+          "emailAddress": { "$ref": "#/components/schemas/Email" },
+          "lastModifiedTimestamp": { "$ref": "#/components/schemas/LastModifiedTimestamp" },
+          "sshPublicKey": { "$ref": "#/components/schemas/SshPublicKey" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["userArn", "createdTimestamp", "lastModifiedTimestamp"],
+        "type": "object"
+      },
+      "DisassociateTeamMemberRequest": {
+        "properties": {
+          "projectId": { "$ref": "#/components/schemas/ProjectId" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["projectId", "userArn"],
+        "type": "object"
+      },
+      "DisassociateTeamMemberResult": { "properties": {}, "type": "object" },
+      "Email": {
+        "format": "password",
+        "maxLength": 128,
+        "minLength": 3,
+        "pattern": "^[\\w-.+]+@[\\w-.+]+$",
+        "type": "string"
+      },
+      "GitHubCodeDestination": {
+        "description": "Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.",
+        "properties": {
+          "description": { "$ref": "#/components/schemas/RepositoryDescription" },
+          "issuesEnabled": { "$ref": "#/components/schemas/RepositoryEnableIssues" },
+          "name": { "$ref": "#/components/schemas/RepositoryName" },
+          "owner": { "$ref": "#/components/schemas/RepositoryOwner" },
+          "privateRepository": { "$ref": "#/components/schemas/RepositoryIsPrivate" },
+          "token": { "$ref": "#/components/schemas/GitHubPersonalToken" },
+          "type": { "$ref": "#/components/schemas/RepositoryType" }
+        },
+        "required": ["name", "type", "owner", "privateRepository", "issuesEnabled", "token"],
+        "type": "object"
+      },
+      "GitHubPersonalToken": { "format": "password", "minLength": 1, "type": "string" },
+      "InvalidNextTokenException": {},
+      "InvalidServiceRoleException": {},
+      "LastModifiedTimestamp": { "format": "date-time", "type": "string" },
+      "LimitExceededException": {},
+      "ListProjectsRequest": {
+        "properties": {
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" }
+        },
+        "type": "object"
+      },
+      "ListProjectsResult": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "projects": { "$ref": "#/components/schemas/ProjectsList" }
+        },
+        "required": ["projects"],
+        "type": "object"
+      },
+      "ListResourcesRequest": {
+        "properties": {
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "projectId": { "$ref": "#/components/schemas/ProjectId" }
+        },
+        "required": ["projectId"],
+        "type": "object"
+      },
+      "ListResourcesResult": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "resources": { "$ref": "#/components/schemas/ResourcesResult" }
+        },
+        "type": "object"
+      },
+      "ListTagsForProjectRequest": {
+        "properties": {
+          "id": { "$ref": "#/components/schemas/ProjectId" },
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" }
+        },
+        "required": ["id"],
+        "type": "object"
+      },
+      "ListTagsForProjectResult": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "ListTeamMembersRequest": {
+        "properties": {
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "projectId": { "$ref": "#/components/schemas/ProjectId" }
+        },
+        "required": ["projectId"],
+        "type": "object"
+      },
+      "ListTeamMembersResult": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "teamMembers": { "$ref": "#/components/schemas/TeamMemberResult" }
+        },
+        "required": ["teamMembers"],
+        "type": "object"
+      },
+      "ListUserProfilesRequest": {
+        "properties": {
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" }
+        },
+        "type": "object"
+      },
+      "ListUserProfilesResult": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "userProfiles": { "$ref": "#/components/schemas/UserProfilesList" }
+        },
+        "required": ["userProfiles"],
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "PaginationToken": { "maxLength": 512, "minLength": 1, "pattern": "^[\\w/+=]+$", "type": "string" },
+      "ProjectAlreadyExistsException": {},
+      "ProjectArn": {
+        "pattern": "^arn:aws[^:\\s]*:codestar:[^:\\s]+:[0-9]{12}:project\\/[a-z]([a-z0-9|-])+$",
+        "type": "string"
+      },
+      "ProjectConfigurationException": {},
+      "ProjectCreationFailedException": {},
+      "ProjectDescription": {
+        "format": "password",
+        "maxLength": 1024,
+        "pattern": "^$|^\\S(.*\\S)?$",
+        "type": "string"
+      },
+      "ProjectId": { "maxLength": 15, "minLength": 2, "pattern": "^[a-z][a-z0-9-]+$", "type": "string" },
+      "ProjectName": {
+        "format": "password",
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^\\S(.*\\S)?$",
+        "type": "string"
+      },
+      "ProjectNotFoundException": {},
+      "ProjectStatus": {
+        "description": "An indication of whether a project creation or deletion is failed or successful.",
+        "properties": {
+          "reason": { "$ref": "#/components/schemas/Reason" },
+          "state": { "$ref": "#/components/schemas/State" }
+        },
+        "required": ["state"],
+        "type": "object"
+      },
+      "ProjectSummary": {
+        "description": "Information about the metadata for a project.",
+        "properties": {
+          "projectArn": { "$ref": "#/components/schemas/ProjectArn" },
+          "projectId": { "$ref": "#/components/schemas/ProjectId" }
+        },
+        "type": "object"
+      },
+      "ProjectTemplateId": {
+        "minLength": 1,
+        "pattern": "^arn:aws[^:\\s]{0,5}:codestar:[^:\\s]+::project-template(\\/(github|codecommit))?\\/[a-z0-9-]+$",
+        "type": "string"
+      },
+      "ProjectsList": { "items": { "$ref": "#/components/schemas/ProjectSummary" }, "type": "array" },
+      "Reason": { "maxLength": 1024, "pattern": "^$|^\\S(.*\\S)?$", "type": "string" },
+      "RemoteAccessAllowed": { "type": "boolean" },
+      "RepositoryDescription": { "maxLength": 1000, "minLength": 1, "pattern": "^\\S(.*\\S)?$", "type": "string" },
+      "RepositoryEnableIssues": { "type": "boolean" },
+      "RepositoryIsPrivate": { "type": "boolean" },
+      "RepositoryName": { "maxLength": 100, "minLength": 1, "pattern": "^\\S[\\w.-]*$", "type": "string" },
+      "RepositoryOwner": { "maxLength": 100, "minLength": 1, "pattern": "^\\S(.*\\S)?$", "type": "string" },
+      "RepositoryType": { "pattern": "^(user|organization|User|Organization)$", "type": "string" },
+      "Resource": {
+        "description": "Information about a resource for a project.",
+        "properties": { "id": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["id"],
+        "type": "object"
+      },
+      "ResourceId": { "minLength": 11, "pattern": "^arn\\:aws\\:\\S.*\\:.*", "type": "string" },
+      "ResourcesResult": { "items": { "$ref": "#/components/schemas/Resource" }, "type": "array" },
+      "Role": { "pattern": "^(Owner|Viewer|Contributor)$", "type": "string" },
+      "RoleArn": { "maxLength": 1224, "minLength": 1, "type": "string" },
+      "S3Location": {
+        "description": "The Amazon S3 location where the source code files provided with the project request are stored.",
+        "properties": {
+          "bucketKey": { "$ref": "#/components/schemas/BucketKey" },
+          "bucketName": { "$ref": "#/components/schemas/BucketName" }
+        },
+        "type": "object"
+      },
+      "SourceCode": { "items": { "$ref": "#/components/schemas/Code" }, "type": "array" },
+      "SshPublicKey": { "maxLength": 16384, "pattern": "^[\\t\\r\\n\\u0020-\\u00FF]*$", "type": "string" },
+      "StackId": {
+        "pattern": "^arn:aws[^:\\s]*:cloudformation:[^:\\s]+:[0-9]{12}:stack\\/[^:\\s]+\\/[^:\\s]+$",
+        "type": "string"
+      },
+      "State": {
+        "pattern": "^(CreateInProgress|CreateComplete|CreateFailed|DeleteComplete|DeleteFailed|DeleteInProgress|UpdateComplete|UpdateInProgress|UpdateFailed|Unknown)$",
+        "type": "string"
+      },
+      "TagKey": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "type": "string"
+      },
+      "TagKeys": { "items": { "$ref": "#/components/schemas/TagKey" }, "type": "array" },
+      "TagProjectRequest": {
+        "properties": {
+          "id": { "$ref": "#/components/schemas/ProjectId" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "required": ["id", "tags"],
+        "type": "object"
+      },
+      "TagProjectResult": { "properties": { "tags": { "$ref": "#/components/schemas/Tags" } }, "type": "object" },
+      "TagValue": { "maxLength": 256, "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$", "type": "string" },
+      "Tags": { "additionalProperties": { "$ref": "#/components/schemas/TagValue" }, "type": "object" },
+      "TeamMember": {
+        "description": "Information about a team member in a project.",
+        "properties": {
+          "projectRole": { "$ref": "#/components/schemas/Role" },
+          "remoteAccessAllowed": { "$ref": "#/components/schemas/RemoteAccessAllowed" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["userArn", "projectRole"],
+        "type": "object"
+      },
+      "TeamMemberAlreadyAssociatedException": {},
+      "TeamMemberNotFoundException": {},
+      "TeamMemberResult": { "items": { "$ref": "#/components/schemas/TeamMember" }, "type": "array" },
+      "TemplateParameterKey": { "maxLength": 30, "minLength": 1, "pattern": "^\\S(.*\\S)?$", "type": "string" },
+      "TemplateParameterMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/TemplateParameterValue" },
+        "maxProperties": 25,
+        "type": "object"
+      },
+      "TemplateParameterValue": {
+        "format": "password",
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^\\S(.*\\S)?$",
+        "type": "string"
+      },
+      "Toolchain": {
+        "description": "The toolchain template file provided with the project request. AWS CodeStar uses the template to provision the toolchain stack in AWS CloudFormation.",
+        "properties": {
+          "roleArn": { "$ref": "#/components/schemas/RoleArn" },
+          "source": { "$ref": "#/components/schemas/ToolchainSource" },
+          "stackParameters": { "$ref": "#/components/schemas/TemplateParameterMap" }
+        },
+        "required": ["source"],
+        "type": "object"
+      },
+      "ToolchainSource": {
+        "description": "The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.",
+        "properties": { "s3": { "$ref": "#/components/schemas/S3Location" } },
+        "required": ["s3"],
+        "type": "object"
+      },
+      "UntagProjectRequest": {
+        "properties": {
+          "id": { "$ref": "#/components/schemas/ProjectId" },
+          "tags": { "$ref": "#/components/schemas/TagKeys" }
+        },
+        "required": ["id", "tags"],
+        "type": "object"
+      },
+      "UntagProjectResult": { "properties": {}, "type": "object" },
+      "UpdateProjectRequest": {
+        "properties": {
+          "description": { "$ref": "#/components/schemas/ProjectDescription" },
+          "id": { "$ref": "#/components/schemas/ProjectId" },
+          "name": { "$ref": "#/components/schemas/ProjectName" }
+        },
+        "required": ["id"],
+        "type": "object"
+      },
+      "UpdateProjectResult": { "properties": {}, "type": "object" },
+      "UpdateTeamMemberRequest": {
+        "properties": {
+          "projectId": { "$ref": "#/components/schemas/ProjectId" },
+          "projectRole": { "$ref": "#/components/schemas/Role" },
+          "remoteAccessAllowed": { "$ref": "#/components/schemas/RemoteAccessAllowed" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["projectId", "userArn"],
+        "type": "object"
+      },
+      "UpdateTeamMemberResult": {
+        "properties": {
+          "projectRole": { "$ref": "#/components/schemas/Role" },
+          "remoteAccessAllowed": { "$ref": "#/components/schemas/RemoteAccessAllowed" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "type": "object"
+      },
+      "UpdateUserProfileRequest": {
+        "properties": {
+          "displayName": { "$ref": "#/components/schemas/UserProfileDisplayName" },
+          "emailAddress": { "$ref": "#/components/schemas/Email" },
+          "sshPublicKey": { "$ref": "#/components/schemas/SshPublicKey" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["userArn"],
+        "type": "object"
+      },
+      "UpdateUserProfileResult": {
+        "properties": {
+          "createdTimestamp": { "$ref": "#/components/schemas/CreatedTimestamp" },
+          "displayName": { "$ref": "#/components/schemas/UserProfileDisplayName" },
+          "emailAddress": { "$ref": "#/components/schemas/Email" },
+          "lastModifiedTimestamp": { "$ref": "#/components/schemas/LastModifiedTimestamp" },
+          "sshPublicKey": { "$ref": "#/components/schemas/SshPublicKey" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "required": ["userArn"],
+        "type": "object"
+      },
+      "UserArn": {
+        "maxLength": 95,
+        "minLength": 32,
+        "pattern": "^arn:aws:iam::\\d{12}:user(?:(\\u002F)|(\\u002F[\\u0021-\\u007E]+\\u002F))[\\w+=,.@-]+$",
+        "type": "string"
+      },
+      "UserProfileAlreadyExistsException": {},
+      "UserProfileDisplayName": {
+        "format": "password",
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^\\S(.*\\S)?$",
+        "type": "string"
+      },
+      "UserProfileNotFoundException": {},
+      "UserProfileSummary": {
+        "description": "Information about a user's profile in AWS CodeStar.",
+        "properties": {
+          "displayName": { "$ref": "#/components/schemas/UserProfileDisplayName" },
+          "emailAddress": { "$ref": "#/components/schemas/Email" },
+          "sshPublicKey": { "$ref": "#/components/schemas/SshPublicKey" },
+          "userArn": { "$ref": "#/components/schemas/UserArn" }
+        },
+        "type": "object"
+      },
+      "UserProfilesList": { "items": { "$ref": "#/components/schemas/UserProfileSummary" }, "type": "array" },
+      "ValidationException": {}
+    }
+  }
+}

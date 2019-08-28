@@ -1,1 +1,578 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<p>Use the AWS Elemental MediaTailor SDK to configure scalable ad insertion for your live and VOD content. With AWS Elemental MediaTailor, you can serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the AWS Elemental MediaTailor User Guide.<p>Through the SDK, you manage AWS Elemental MediaTailor configurations the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS MediaTailor","version":"2018-04-23","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediatailor-2018-04-23.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"mediatailor"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/mediatailor/"},"security":[{"hmac":[]}],"paths":{"/playbackConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Adds a new playback configuration to AWS Elemental MediaTailor. ","operationId":"PutPlaybackConfiguration","requestBody":{"content":{"application/json":{"schema":{"properties":{"AdDecisionServerUrl":{"description":"The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.","type":"string"},"CdnConfiguration":{"description":"The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. ","properties":{"AdSegmentUrlPrefix":{"$ref":"#/components/schemas/__string"},"ContentSegmentUrlPrefix":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DashConfiguration":{"description":"The configuration for DASH PUT operations. ","properties":{"MpdLocation":{"$ref":"#/components/schemas/__string"},"OriginManifestType":{"$ref":"#/components/schemas/OriginManifestType"}},"type":"object"},"Name":{"description":"The identifier for the playback configuration.","type":"string"},"SlateAdUrl":{"description":"The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. ","type":"string"},"TranscodeProfileName":{"description":"The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.","type":"string"},"VideoContentSourceUrl":{"description":"The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.","type":"string"},"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"The tags to assign to the playback configuration. ","type":"object"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutPlaybackConfigurationResponse"}}}}}}},"/playbackConfiguration/{Name}":{"delete":{"description":"Deletes the playback configuration for the specified name. ","operationId":"DeletePlaybackConfiguration","parameters":[{"description":"The identifier for the playback configuration.","in":"path","name":"Name","required":true,"schema":{"type":"string"}}],"responses":{"204":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeletePlaybackConfigurationResponse"}}}}}},"get":{"description":"Returns the playback configuration for the specified name. ","operationId":"GetPlaybackConfiguration","parameters":[{"description":"The identifier for the playback configuration.","in":"path","name":"Name","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetPlaybackConfigurationResponse"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/playbackConfigurations":{"get":{"description":"Returns a list of the playback configurations defined in AWS Elemental MediaTailor. You can specify a maximum number of configurations to return at a time. The default maximum is 50. Results are returned in pagefuls. If MediaTailor has more configurations than the specified maximum, it provides parameters in the response that you can use to retrieve the next pageful. ","operationId":"ListPlaybackConfigurations","parameters":[{"description":"Maximum number of records to return. ","in":"query","name":"MaxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":"Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListPlaybackConfigurationsResponse"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/tags/{ResourceArn}":{"get":{"description":"Returns a list of the tags assigned to the specified playback configuration resource. ","operationId":"ListTagsForResource","parameters":[{"description":"The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. ","in":"path","name":"ResourceArn","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds tags to the specified playback configuration resource. You can specify one or more tags to add. ","operationId":"TagResource","parameters":[{"description":"The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. ","in":"path","name":"ResourceArn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"A comma-separated list of tag key:value pairs. For example: \n {\n \"Key1\": \"Value1\",\n \"Key2\": \"Value2\"\n }\n ","type":"object"}},"required":["tags"],"type":"object"}}},"required":true},"responses":{"204":{"description":"Success"},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}}}}},"/tags/{ResourceArn}#tagKeys":{"delete":{"description":"Removes tags from the specified playback configuration resource. You can specify one or more tags to remove. ","operationId":"UntagResource","parameters":[{"description":"The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. ","in":"path","name":"ResourceArn","required":true,"schema":{"type":"string"}},{"description":"A comma-separated list of the tag keys to remove from the playback configuration. ","in":"query","name":"tagKeys","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"204":{"description":"Success"},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]}},"servers":[{"description":"The MediaTailor multi-region endpoint","url":"http://api.mediatailor.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The MediaTailor multi-region endpoint","url":"https://api.mediatailor.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The MediaTailor endpoint for China (Beijing) and China (Ningxia)","url":"http://api.mediatailor.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The MediaTailor endpoint for China (Beijing) and China (Ningxia)","url":"https://api.mediatailor.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"BadRequestException":{},"CdnConfiguration":{"description":"The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. ","properties":{"AdSegmentUrlPrefix":{"$ref":"#/components/schemas/__string"},"ContentSegmentUrlPrefix":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DashConfiguration":{"description":"The configuration for DASH content. ","properties":{"ManifestEndpointPrefix":{"$ref":"#/components/schemas/__string"},"MpdLocation":{"$ref":"#/components/schemas/__string"},"OriginManifestType":{"$ref":"#/components/schemas/OriginManifestType"}},"type":"object"},"DashConfigurationForPut":{"description":"The configuration for DASH PUT operations. ","properties":{"MpdLocation":{"$ref":"#/components/schemas/__string"},"OriginManifestType":{"$ref":"#/components/schemas/OriginManifestType"}},"type":"object"},"DeletePlaybackConfigurationRequest":{"properties":{},"type":"object"},"DeletePlaybackConfigurationResponse":{"properties":{},"type":"object"},"GetPlaybackConfigurationRequest":{"properties":{},"type":"object"},"GetPlaybackConfigurationResponse":{"properties":{"AdDecisionServerUrl":{"$ref":"#/components/schemas/__string"},"CdnConfiguration":{"$ref":"#/components/schemas/CdnConfiguration"},"DashConfiguration":{"$ref":"#/components/schemas/DashConfiguration"},"HlsConfiguration":{"$ref":"#/components/schemas/HlsConfiguration"},"Name":{"$ref":"#/components/schemas/__string"},"PlaybackConfigurationArn":{"$ref":"#/components/schemas/__string"},"PlaybackEndpointPrefix":{"$ref":"#/components/schemas/__string"},"SessionInitializationEndpointPrefix":{"$ref":"#/components/schemas/__string"},"SlateAdUrl":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"},"TranscodeProfileName":{"$ref":"#/components/schemas/__string"},"VideoContentSourceUrl":{"$ref":"#/components/schemas/__string"}},"type":"object"},"HlsConfiguration":{"description":"The configuration for HLS content. ","properties":{"ManifestEndpointPrefix":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListPlaybackConfigurationsRequest":{"properties":{},"type":"object"},"ListPlaybackConfigurationsResponse":{"properties":{"Items":{"$ref":"#/components/schemas/__listOfPlaybackConfigurations"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListTagsForResourceRequest":{"properties":{},"type":"object"},"ListTagsForResourceResponse":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"OriginManifestType":{"enum":["SINGLE_PERIOD","MULTI_PERIOD"],"type":"string"},"PlaybackConfiguration":{"description":"The AWSMediaTailor configuration.","properties":{"AdDecisionServerUrl":{"$ref":"#/components/schemas/__string"},"CdnConfiguration":{"$ref":"#/components/schemas/CdnConfiguration"},"DashConfiguration":{"$ref":"#/components/schemas/DashConfiguration"},"HlsConfiguration":{"$ref":"#/components/schemas/HlsConfiguration"},"Name":{"$ref":"#/components/schemas/__string"},"PlaybackConfigurationArn":{"$ref":"#/components/schemas/__string"},"PlaybackEndpointPrefix":{"$ref":"#/components/schemas/__string"},"SessionInitializationEndpointPrefix":{"$ref":"#/components/schemas/__string"},"SlateAdUrl":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"},"TranscodeProfileName":{"$ref":"#/components/schemas/__string"},"VideoContentSourceUrl":{"$ref":"#/components/schemas/__string"}},"type":"object"},"PutPlaybackConfigurationRequest":{"properties":{"AdDecisionServerUrl":{"$ref":"#/components/schemas/__string"},"CdnConfiguration":{"$ref":"#/components/schemas/CdnConfiguration"},"DashConfiguration":{"$ref":"#/components/schemas/DashConfigurationForPut"},"Name":{"$ref":"#/components/schemas/__string"},"SlateAdUrl":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"},"TranscodeProfileName":{"$ref":"#/components/schemas/__string"},"VideoContentSourceUrl":{"$ref":"#/components/schemas/__string"}},"type":"object"},"PutPlaybackConfigurationResponse":{"properties":{"AdDecisionServerUrl":{"$ref":"#/components/schemas/__string"},"CdnConfiguration":{"$ref":"#/components/schemas/CdnConfiguration"},"DashConfiguration":{"$ref":"#/components/schemas/DashConfiguration"},"HlsConfiguration":{"$ref":"#/components/schemas/HlsConfiguration"},"Name":{"$ref":"#/components/schemas/__string"},"PlaybackConfigurationArn":{"$ref":"#/components/schemas/__string"},"PlaybackEndpointPrefix":{"$ref":"#/components/schemas/__string"},"SessionInitializationEndpointPrefix":{"$ref":"#/components/schemas/__string"},"SlateAdUrl":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"},"TranscodeProfileName":{"$ref":"#/components/schemas/__string"},"VideoContentSourceUrl":{"$ref":"#/components/schemas/__string"}},"type":"object"},"TagResourceRequest":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"required":["Tags"],"type":"object"},"UntagResourceRequest":{"properties":{},"type":"object"},"__integerMin1Max100":{"maximum":100,"minimum":1,"type":"integer"},"__listOfPlaybackConfigurations":{"items":{"$ref":"#/components/schemas/PlaybackConfiguration"},"type":"array"},"__listOf__string":{"items":{"$ref":"#/components/schemas/__string"},"type":"array"},"__mapOf__string":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"type":"object"},"__string":{"type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Use the AWS Elemental MediaTailor SDK to configure scalable ad insertion for your live and VOD content. With AWS Elemental MediaTailor, you can serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the AWS Elemental MediaTailor User Guide.<p>Through the SDK, you manage AWS Elemental MediaTailor configurations the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS MediaTailor",
+    "version": "2018-04-23",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediatailor-2018-04-23.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mediatailor"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/mediatailor/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/playbackConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Adds a new playback configuration to AWS Elemental MediaTailor. ",
+        "operationId": "PutPlaybackConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "AdDecisionServerUrl": {
+                    "description": "The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.",
+                    "type": "string"
+                  },
+                  "CdnConfiguration": {
+                    "description": "The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. ",
+                    "properties": {
+                      "AdSegmentUrlPrefix": { "$ref": "#/components/schemas/__string" },
+                      "ContentSegmentUrlPrefix": { "$ref": "#/components/schemas/__string" }
+                    },
+                    "type": "object"
+                  },
+                  "DashConfiguration": {
+                    "description": "The configuration for DASH PUT operations. ",
+                    "properties": {
+                      "MpdLocation": { "$ref": "#/components/schemas/__string" },
+                      "OriginManifestType": { "$ref": "#/components/schemas/OriginManifestType" }
+                    },
+                    "type": "object"
+                  },
+                  "Name": { "description": "The identifier for the playback configuration.", "type": "string" },
+                  "SlateAdUrl": {
+                    "description": "The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. ",
+                    "type": "string"
+                  },
+                  "TranscodeProfileName": {
+                    "description": "The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.",
+                    "type": "string"
+                  },
+                  "VideoContentSourceUrl": {
+                    "description": "The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "The tags to assign to the playback configuration. ",
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PutPlaybackConfigurationResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/playbackConfiguration/{Name}": {
+      "delete": {
+        "description": "Deletes the playback configuration for the specified name. ",
+        "operationId": "DeletePlaybackConfiguration",
+        "parameters": [
+          {
+            "description": "The identifier for the playback configuration.",
+            "in": "path",
+            "name": "Name",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeletePlaybackConfigurationResponse" } }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns the playback configuration for the specified name. ",
+        "operationId": "GetPlaybackConfiguration",
+        "parameters": [
+          {
+            "description": "The identifier for the playback configuration.",
+            "in": "path",
+            "name": "Name",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetPlaybackConfigurationResponse" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/playbackConfigurations": {
+      "get": {
+        "description": "Returns a list of the playback configurations defined in AWS Elemental MediaTailor. You can specify a maximum number of configurations to return at a time. The default maximum is 50. Results are returned in pagefuls. If MediaTailor has more configurations than the specified maximum, it provides parameters in the response that you can use to retrieve the next pageful. ",
+        "operationId": "ListPlaybackConfigurations",
+        "parameters": [
+          {
+            "description": "Maximum number of records to return. ",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": "Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListPlaybackConfigurationsResponse" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/tags/{ResourceArn}": {
+      "get": {
+        "description": "Returns a list of the tags assigned to the specified playback configuration resource. ",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. ",
+            "in": "path",
+            "name": "ResourceArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds tags to the specified playback configuration resource. You can specify one or more tags to add. ",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. ",
+            "in": "path",
+            "name": "ResourceArn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "A comma-separated list of tag key:value pairs. For example: \n {\n \"Key1\": \"Value1\",\n \"Key2\": \"Value2\"\n }\n ",
+                    "type": "object"
+                  }
+                },
+                "required": ["tags"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": { "description": "Success" },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          }
+        }
+      }
+    },
+    "/tags/{ResourceArn}#tagKeys": {
+      "delete": {
+        "description": "Removes tags from the specified playback configuration resource. You can specify one or more tags to remove. ",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. ",
+            "in": "path",
+            "name": "ResourceArn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "A comma-separated list of the tag keys to remove from the playback configuration. ",
+            "in": "query",
+            "name": "tagKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Success" },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    }
+  },
+  "servers": [
+    {
+      "description": "The MediaTailor multi-region endpoint",
+      "url": "http://api.mediatailor.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The MediaTailor multi-region endpoint",
+      "url": "https://api.mediatailor.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The MediaTailor endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://api.mediatailor.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The MediaTailor endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://api.mediatailor.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "BadRequestException": {},
+      "CdnConfiguration": {
+        "description": "The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. ",
+        "properties": {
+          "AdSegmentUrlPrefix": { "$ref": "#/components/schemas/__string" },
+          "ContentSegmentUrlPrefix": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DashConfiguration": {
+        "description": "The configuration for DASH content. ",
+        "properties": {
+          "ManifestEndpointPrefix": { "$ref": "#/components/schemas/__string" },
+          "MpdLocation": { "$ref": "#/components/schemas/__string" },
+          "OriginManifestType": { "$ref": "#/components/schemas/OriginManifestType" }
+        },
+        "type": "object"
+      },
+      "DashConfigurationForPut": {
+        "description": "The configuration for DASH PUT operations. ",
+        "properties": {
+          "MpdLocation": { "$ref": "#/components/schemas/__string" },
+          "OriginManifestType": { "$ref": "#/components/schemas/OriginManifestType" }
+        },
+        "type": "object"
+      },
+      "DeletePlaybackConfigurationRequest": { "properties": {}, "type": "object" },
+      "DeletePlaybackConfigurationResponse": { "properties": {}, "type": "object" },
+      "GetPlaybackConfigurationRequest": { "properties": {}, "type": "object" },
+      "GetPlaybackConfigurationResponse": {
+        "properties": {
+          "AdDecisionServerUrl": { "$ref": "#/components/schemas/__string" },
+          "CdnConfiguration": { "$ref": "#/components/schemas/CdnConfiguration" },
+          "DashConfiguration": { "$ref": "#/components/schemas/DashConfiguration" },
+          "HlsConfiguration": { "$ref": "#/components/schemas/HlsConfiguration" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "PlaybackConfigurationArn": { "$ref": "#/components/schemas/__string" },
+          "PlaybackEndpointPrefix": { "$ref": "#/components/schemas/__string" },
+          "SessionInitializationEndpointPrefix": { "$ref": "#/components/schemas/__string" },
+          "SlateAdUrl": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" },
+          "TranscodeProfileName": { "$ref": "#/components/schemas/__string" },
+          "VideoContentSourceUrl": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "HlsConfiguration": {
+        "description": "The configuration for HLS content. ",
+        "properties": { "ManifestEndpointPrefix": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "ListPlaybackConfigurationsRequest": { "properties": {}, "type": "object" },
+      "ListPlaybackConfigurationsResponse": {
+        "properties": {
+          "Items": { "$ref": "#/components/schemas/__listOfPlaybackConfigurations" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListTagsForResourceRequest": { "properties": {}, "type": "object" },
+      "ListTagsForResourceResponse": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "type": "object"
+      },
+      "OriginManifestType": { "enum": ["SINGLE_PERIOD", "MULTI_PERIOD"], "type": "string" },
+      "PlaybackConfiguration": {
+        "description": "The AWSMediaTailor configuration.",
+        "properties": {
+          "AdDecisionServerUrl": { "$ref": "#/components/schemas/__string" },
+          "CdnConfiguration": { "$ref": "#/components/schemas/CdnConfiguration" },
+          "DashConfiguration": { "$ref": "#/components/schemas/DashConfiguration" },
+          "HlsConfiguration": { "$ref": "#/components/schemas/HlsConfiguration" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "PlaybackConfigurationArn": { "$ref": "#/components/schemas/__string" },
+          "PlaybackEndpointPrefix": { "$ref": "#/components/schemas/__string" },
+          "SessionInitializationEndpointPrefix": { "$ref": "#/components/schemas/__string" },
+          "SlateAdUrl": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" },
+          "TranscodeProfileName": { "$ref": "#/components/schemas/__string" },
+          "VideoContentSourceUrl": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "PutPlaybackConfigurationRequest": {
+        "properties": {
+          "AdDecisionServerUrl": { "$ref": "#/components/schemas/__string" },
+          "CdnConfiguration": { "$ref": "#/components/schemas/CdnConfiguration" },
+          "DashConfiguration": { "$ref": "#/components/schemas/DashConfigurationForPut" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "SlateAdUrl": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" },
+          "TranscodeProfileName": { "$ref": "#/components/schemas/__string" },
+          "VideoContentSourceUrl": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "PutPlaybackConfigurationResponse": {
+        "properties": {
+          "AdDecisionServerUrl": { "$ref": "#/components/schemas/__string" },
+          "CdnConfiguration": { "$ref": "#/components/schemas/CdnConfiguration" },
+          "DashConfiguration": { "$ref": "#/components/schemas/DashConfiguration" },
+          "HlsConfiguration": { "$ref": "#/components/schemas/HlsConfiguration" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "PlaybackConfigurationArn": { "$ref": "#/components/schemas/__string" },
+          "PlaybackEndpointPrefix": { "$ref": "#/components/schemas/__string" },
+          "SessionInitializationEndpointPrefix": { "$ref": "#/components/schemas/__string" },
+          "SlateAdUrl": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" },
+          "TranscodeProfileName": { "$ref": "#/components/schemas/__string" },
+          "VideoContentSourceUrl": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "TagResourceRequest": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "required": ["Tags"],
+        "type": "object"
+      },
+      "UntagResourceRequest": { "properties": {}, "type": "object" },
+      "__integerMin1Max100": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "__listOfPlaybackConfigurations": {
+        "items": { "$ref": "#/components/schemas/PlaybackConfiguration" },
+        "type": "array"
+      },
+      "__listOf__string": { "items": { "$ref": "#/components/schemas/__string" }, "type": "array" },
+      "__mapOf__string": { "additionalProperties": { "$ref": "#/components/schemas/__string" }, "type": "object" },
+      "__string": { "type": "string" }
+    }
+  }
+}

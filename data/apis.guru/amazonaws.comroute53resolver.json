@@ -1,1 +1,2097 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<p>Here's how you set up to query an Amazon Route 53 private hosted zone from your network:</p> <ol> <li> <p>Connect your network to a VPC using AWS Direct Connect or a VPN.</p> </li> <li> <p>Run the following AWS CLI command to create a Resolver endpoint:</p> <p> <code>create-resolver-endpoint --name [endpoint_name] --direction INBOUND --creator-request-id [unique_string] --security-group-ids [security_group_with_inbound_rules] --ip-addresses SubnetId=[subnet_id] SubnetId=[subnet_id_in_different_AZ]</code> </p> <p>Note the resolver endpoint ID that appears in the response. You'll use it in step 3.</p> </li> <li> <p>Get the IP addresses for the Resolver endpoints:</p> <p> <code>get-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code> </p> </li> <li> <p>In your network configuration, define the IP addresses that you got in step 3 as DNS servers.</p> <p>You can now query instance names in your VPCs and the names of records in your private hosted zone.</p> </li> </ol> <p>You can also perform the following operations using the AWS CLI:</p> <ul> <li> <p> <code>list-resolver-endpoints</code>: List all endpoints. The syntax includes options for pagination and filtering.</p> </li> <li> <p> <code>update-resolver-endpoints</code>: Add IP addresses to an endpoint or remove IP addresses from an endpoint. </p> </li> </ul> <p>To delete an endpoint, use the following AWS CLI command:</p> <p> <code>delete-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code> </p>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"Amazon Route 53 Resolver","version":"2018-04-01","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/route53resolver-2018-04-01.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"route53resolver"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/route53resolver/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=Route53Resolver.AssociateResolverEndpointIpAddress":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Adds IP addresses to an inbound or an outbound resolver endpoint. If you want to adding more than one IP address, submit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p> <p>To remove an IP address from an endpoint, see <a>DisassociateResolverEndpointIpAddress</a>.</p>","operationId":"AssociateResolverEndpointIpAddress","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.AssociateResolverEndpointIpAddress"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateResolverEndpointIpAddressRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateResolverEndpointIpAddressResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceExistsException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"485":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"486":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.AssociateResolverRule":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Associates a resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see <a>CreateResolverRule</a>. ","operationId":"AssociateResolverRule","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.AssociateResolverRule"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateResolverRuleRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateResolverRuleResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"483":{"description":"ResourceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceUnavailableException"}}}},"484":{"description":"ResourceExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceExistsException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"486":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.CreateResolverEndpoint":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Creates a resolver endpoint. There are two types of resolver endpoints, inbound and outbound:</p> <ul> <li> <p>An <i>inbound resolver endpoint</i> forwards DNS queries to the DNS service for a VPC from your network or another VPC.</p> </li> <li> <p>An <i>outbound resolver endpoint</i> forwards DNS queries from the DNS service for a VPC to your network or another VPC.</p> </li> </ul>","operationId":"CreateResolverEndpoint","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.CreateResolverEndpoint"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateResolverEndpointRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateResolverEndpointResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceExistsException"}}}},"484":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"486":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.CreateResolverRule":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"For DNS queries that originate in your VPCs, specifies which resolver endpoint the queries pass through, one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.","operationId":"CreateResolverRule","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.CreateResolverRule"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateResolverRuleRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateResolverRuleResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ResourceExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceExistsException"}}}},"485":{"description":"ResourceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceUnavailableException"}}}},"486":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"487":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.DeleteResolverEndpoint":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Deletes a resolver endpoint. The effect of deleting a resolver endpoint depends on whether it's an inbound or an outbound resolver endpoint:</p> <ul> <li> <p> <b>Inbound</b>: DNS queries from your network or another VPC are no longer routed to the DNS service for the specified VPC.</p> </li> <li> <p> <b>Outbound</b>: DNS queries from a VPC are no longer routed to your network or to another VPC.</p> </li> </ul>","operationId":"DeleteResolverEndpoint","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.DeleteResolverEndpoint"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteResolverEndpointRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteResolverEndpointResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.DeleteResolverRule":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a resolver rule. Before you can delete a resolver rule, you must disassociate it from all the VPCs that you associated the resolver rule with. For more infomation, see <a>DisassociateResolverRule</a>.","operationId":"DeleteResolverRule","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.DeleteResolverRule"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteResolverRuleRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteResolverRuleResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.DisassociateResolverEndpointIpAddress":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Removes IP addresses from an inbound or an outbound resolver endpoint. If you want to remove more than one IP address, submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p> <p>To add an IP address to an endpoint, see <a>AssociateResolverEndpointIpAddress</a>.</p>","operationId":"DisassociateResolverEndpointIpAddress","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.DisassociateResolverEndpointIpAddress"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateResolverEndpointIpAddressRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateResolverEndpointIpAddressResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceExistsException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"485":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.DisassociateResolverRule":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Removes the association between a specified resolver rule and a specified VPC.</p> <important> <p>If you disassociate a resolver rule from a VPC, Resolver stops forwarding DNS queries for the domain name that you specified in the resolver rule. </p> </important>","operationId":"DisassociateResolverRule","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.DisassociateResolverRule"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateResolverRuleRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateResolverRuleResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.GetResolverEndpoint":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets information about a specified resolver endpoint, such as whether it's an inbound or an outbound resolver endpoint, and the current status of the endpoint.","operationId":"GetResolverEndpoint","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.GetResolverEndpoint"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResolverEndpointRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResolverEndpointResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.GetResolverRule":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets information about a specified resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the outbound resolver endpoint that the rule is associated with.","operationId":"GetResolverRule","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.GetResolverRule"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResolverRuleRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResolverRuleResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.GetResolverRuleAssociation":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets information about an association between a specified resolver rule and a VPC. You associate a resolver rule and a VPC using <a>AssociateResolverRule</a>. ","operationId":"GetResolverRuleAssociation","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.GetResolverRuleAssociation"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResolverRuleAssociationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResolverRuleAssociationResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.GetResolverRulePolicy":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets information about a resolver rule policy. A resolver rule policy specifies the Resolver operations and resources that you want to allow another AWS account to be able to use. ","operationId":"GetResolverRulePolicy","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.GetResolverRulePolicy"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResolverRulePolicyRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetResolverRulePolicyResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"UnknownResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnknownResourceException"}}}},"482":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}}},"/#X-Amz-Target=Route53Resolver.ListResolverEndpointIpAddresses":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets the IP addresses for a specified resolver endpoint.","operationId":"ListResolverEndpointIpAddresses","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.ListResolverEndpointIpAddresses"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResolverEndpointIpAddressesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResolverEndpointIpAddressesResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"483":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.ListResolverEndpoints":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists all the resolver endpoints that were created using the current AWS account.","operationId":"ListResolverEndpoints","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.ListResolverEndpoints"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResolverEndpointsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResolverEndpointsResponse"}}}},"480":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.ListResolverRuleAssociations":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the associations that were created between resolver rules and VPCs using the current AWS account.","operationId":"ListResolverRuleAssociations","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.ListResolverRuleAssociations"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResolverRuleAssociationsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResolverRuleAssociationsResponse"}}}},"480":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.ListResolverRules":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the resolver rules that were created using the current AWS account.","operationId":"ListResolverRules","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.ListResolverRules"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResolverRulesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListResolverRulesResponse"}}}},"480":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.ListTagsForResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the tags that you associated with the specified resource.","operationId":"ListTagsForResource","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.ListTagsForResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"483":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"485":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.PutResolverRulePolicy":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Specifies the Resolver operations and resources that you want to allow another AWS account to be able to use.","operationId":"PutResolverRulePolicy","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.PutResolverRulePolicy"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutResolverRulePolicyRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutResolverRulePolicyResponse"}}}},"480":{"description":"InvalidPolicyDocument","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidPolicyDocument"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"UnknownResourceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnknownResourceException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}}},"/#X-Amz-Target=Route53Resolver.TagResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds one or more tags to a specified resource.","operationId":"TagResource","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.TagResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagResourceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagResourceResponse"}}}},"480":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"483":{"description":"InvalidTagException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidTagException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"485":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.UntagResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Removes one or more tags from a specified resource.","operationId":"UntagResource","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.UntagResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagResourceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagResourceResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.UpdateResolverEndpoint":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the name of an inbound or an outbound resolver endpoint. ","operationId":"UpdateResolverEndpoint","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.UpdateResolverEndpoint"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateResolverEndpointRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateResolverEndpointResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}},"/#X-Amz-Target=Route53Resolver.UpdateResolverRule":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates settings for a specified resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional. If you don't specify a parameter, it retains its current value.","operationId":"UpdateResolverRule","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53Resolver.UpdateResolverRule"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateResolverRuleRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateResolverRuleResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ResourceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceUnavailableException"}}}},"484":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}},"486":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}}}}}},"servers":[{"description":"The Route53Resolver multi-region endpoint","url":"http://route53resolver.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Route53Resolver multi-region endpoint","url":"https://route53resolver.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Route53Resolver endpoint for China (Beijing) and China (Ningxia)","url":"http://route53resolver.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The Route53Resolver endpoint for China (Beijing) and China (Ningxia)","url":"https://route53resolver.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AccountId":{"maxLength":32,"minLength":12,"type":"string"},"Arn":{"maxLength":255,"minLength":1,"type":"string"},"AssociateResolverEndpointIpAddressRequest":{"properties":{"IpAddress":{"$ref":"#/components/schemas/IpAddressUpdate"},"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverEndpointId","IpAddress"],"type":"object"},"AssociateResolverEndpointIpAddressResponse":{"properties":{"ResolverEndpoint":{"$ref":"#/components/schemas/ResolverEndpoint"}},"type":"object"},"AssociateResolverRuleRequest":{"properties":{"Name":{"$ref":"#/components/schemas/Name"},"ResolverRuleId":{"$ref":"#/components/schemas/ResourceId"},"VPCId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverRuleId","VPCId"],"type":"object"},"AssociateResolverRuleResponse":{"properties":{"ResolverRuleAssociation":{"$ref":"#/components/schemas/ResolverRuleAssociation"}},"type":"object"},"Boolean":{"type":"boolean"},"CreateResolverEndpointRequest":{"properties":{"CreatorRequestId":{"$ref":"#/components/schemas/CreatorRequestId"},"Direction":{"$ref":"#/components/schemas/ResolverEndpointDirection"},"IpAddresses":{"$ref":"#/components/schemas/IpAddressesRequest"},"Name":{"$ref":"#/components/schemas/Name"},"SecurityGroupIds":{"$ref":"#/components/schemas/SecurityGroupIds"},"Tags":{"$ref":"#/components/schemas/TagList"}},"required":["CreatorRequestId","SecurityGroupIds","Direction","IpAddresses"],"type":"object"},"CreateResolverEndpointResponse":{"properties":{"ResolverEndpoint":{"$ref":"#/components/schemas/ResolverEndpoint"}},"type":"object"},"CreateResolverRuleRequest":{"properties":{"CreatorRequestId":{"$ref":"#/components/schemas/CreatorRequestId"},"DomainName":{"$ref":"#/components/schemas/DomainName"},"Name":{"$ref":"#/components/schemas/Name"},"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"},"RuleType":{"$ref":"#/components/schemas/RuleTypeOption"},"Tags":{"$ref":"#/components/schemas/TagList"},"TargetIps":{"$ref":"#/components/schemas/TargetList"}},"required":["CreatorRequestId","RuleType","DomainName"],"type":"object"},"CreateResolverRuleResponse":{"properties":{"ResolverRule":{"$ref":"#/components/schemas/ResolverRule"}},"type":"object"},"CreatorRequestId":{"maxLength":255,"minLength":1,"type":"string"},"DeleteResolverEndpointRequest":{"properties":{"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverEndpointId"],"type":"object"},"DeleteResolverEndpointResponse":{"properties":{"ResolverEndpoint":{"$ref":"#/components/schemas/ResolverEndpoint"}},"type":"object"},"DeleteResolverRuleRequest":{"properties":{"ResolverRuleId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverRuleId"],"type":"object"},"DeleteResolverRuleResponse":{"properties":{"ResolverRule":{"$ref":"#/components/schemas/ResolverRule"}},"type":"object"},"DisassociateResolverEndpointIpAddressRequest":{"properties":{"IpAddress":{"$ref":"#/components/schemas/IpAddressUpdate"},"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverEndpointId","IpAddress"],"type":"object"},"DisassociateResolverEndpointIpAddressResponse":{"properties":{"ResolverEndpoint":{"$ref":"#/components/schemas/ResolverEndpoint"}},"type":"object"},"DisassociateResolverRuleRequest":{"properties":{"ResolverRuleId":{"$ref":"#/components/schemas/ResourceId"},"VPCId":{"$ref":"#/components/schemas/ResourceId"}},"required":["VPCId","ResolverRuleId"],"type":"object"},"DisassociateResolverRuleResponse":{"properties":{"ResolverRuleAssociation":{"$ref":"#/components/schemas/ResolverRuleAssociation"}},"type":"object"},"DomainName":{"maxLength":256,"minLength":1,"type":"string"},"Filter":{"description":"For <code>List</code> operations, an optional specification to return a subset of objects, such as resolver endpoints or resolver rules.","properties":{"Name":{"$ref":"#/components/schemas/FilterName"},"Values":{"$ref":"#/components/schemas/FilterValues"}},"type":"object"},"FilterName":{"maxLength":64,"minLength":1,"type":"string"},"FilterValue":{"maxLength":64,"minLength":1,"type":"string"},"FilterValues":{"items":{"$ref":"#/components/schemas/FilterValue"},"type":"array"},"Filters":{"items":{"$ref":"#/components/schemas/Filter"},"type":"array"},"GetResolverEndpointRequest":{"properties":{"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverEndpointId"],"type":"object"},"GetResolverEndpointResponse":{"properties":{"ResolverEndpoint":{"$ref":"#/components/schemas/ResolverEndpoint"}},"type":"object"},"GetResolverRuleAssociationRequest":{"properties":{"ResolverRuleAssociationId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverRuleAssociationId"],"type":"object"},"GetResolverRuleAssociationResponse":{"properties":{"ResolverRuleAssociation":{"$ref":"#/components/schemas/ResolverRuleAssociation"}},"type":"object"},"GetResolverRulePolicyRequest":{"properties":{"Arn":{"$ref":"#/components/schemas/Arn"}},"required":["Arn"],"type":"object"},"GetResolverRulePolicyResponse":{"properties":{"ResolverRulePolicy":{"$ref":"#/components/schemas/ResolverRulePolicy"}},"type":"object"},"GetResolverRuleRequest":{"properties":{"ResolverRuleId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverRuleId"],"type":"object"},"GetResolverRuleResponse":{"properties":{"ResolverRule":{"$ref":"#/components/schemas/ResolverRule"}},"type":"object"},"InternalServiceErrorException":{},"InvalidNextTokenException":{},"InvalidParameterException":{},"InvalidPolicyDocument":{},"InvalidRequestException":{},"InvalidTagException":{},"Ip":{"maxLength":36,"minLength":7,"type":"string"},"IpAddressCount":{"type":"integer"},"IpAddressRequest":{"description":"In an <a>CreateResolverEndpoint</a> request, a subnet and IP address that you want to use for DNS queries.","properties":{"Ip":{"$ref":"#/components/schemas/Ip"},"SubnetId":{"$ref":"#/components/schemas/SubnetId"}},"required":["SubnetId"],"type":"object"},"IpAddressResponse":{"description":"In the response to a <a>GetResolverEndpoint</a> request, information about the IP addresses that the resolver endpoint uses for DNS queries.","properties":{"CreationTime":{"$ref":"#/components/schemas/Rfc3339TimeString"},"Ip":{"$ref":"#/components/schemas/Ip"},"IpId":{"$ref":"#/components/schemas/ResourceId"},"ModificationTime":{"$ref":"#/components/schemas/Rfc3339TimeString"},"Status":{"$ref":"#/components/schemas/IpAddressStatus"},"StatusMessage":{"$ref":"#/components/schemas/StatusMessage"},"SubnetId":{"$ref":"#/components/schemas/SubnetId"}},"type":"object"},"IpAddressStatus":{"enum":["CREATING","FAILED_CREATION","ATTACHING","ATTACHED","REMAP_DETACHING","REMAP_ATTACHING","DETACHING","FAILED_RESOURCE_GONE","DELETING","DELETE_FAILED_FAS_EXPIRED"],"type":"string"},"IpAddressUpdate":{"description":"In an <a>UpdateResolverEndpoint</a> request, information about an IP address to update.","properties":{"Ip":{"$ref":"#/components/schemas/Ip"},"IpId":{"$ref":"#/components/schemas/ResourceId"},"SubnetId":{"$ref":"#/components/schemas/SubnetId"}},"type":"object"},"IpAddressesRequest":{"items":{"$ref":"#/components/schemas/IpAddressRequest"},"maxItems":10,"minItems":1,"type":"array"},"IpAddressesResponse":{"items":{"$ref":"#/components/schemas/IpAddressResponse"},"type":"array"},"LimitExceededException":{},"ListResolverEndpointIpAddressesRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverEndpointId"],"type":"object"},"ListResolverEndpointIpAddressesResponse":{"properties":{"IpAddresses":{"$ref":"#/components/schemas/IpAddressesResponse"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListResolverEndpointsRequest":{"properties":{"Filters":{"$ref":"#/components/schemas/Filters"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListResolverEndpointsResponse":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ResolverEndpoints":{"$ref":"#/components/schemas/ResolverEndpoints"}},"type":"object"},"ListResolverRuleAssociationsRequest":{"properties":{"Filters":{"$ref":"#/components/schemas/Filters"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListResolverRuleAssociationsResponse":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ResolverRuleAssociations":{"$ref":"#/components/schemas/ResolverRuleAssociations"}},"type":"object"},"ListResolverRulesRequest":{"properties":{"Filters":{"$ref":"#/components/schemas/Filters"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListResolverRulesResponse":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ResolverRules":{"$ref":"#/components/schemas/ResolverRules"}},"type":"object"},"ListTagsForResourceRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ResourceArn":{"$ref":"#/components/schemas/Arn"}},"required":["ResourceArn"],"type":"object"},"ListTagsForResourceResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Tags":{"$ref":"#/components/schemas/TagList"}},"type":"object"},"MaxResults":{"maximum":100,"minimum":1,"type":"integer"},"Name":{"maxLength":64,"pattern":"(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)","type":"string"},"NextToken":{"type":"string"},"Port":{"maximum":65535,"minimum":0,"type":"integer"},"PutResolverRulePolicyRequest":{"properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"ResolverRulePolicy":{"$ref":"#/components/schemas/ResolverRulePolicy"}},"required":["Arn","ResolverRulePolicy"],"type":"object"},"PutResolverRulePolicyResponse":{"description":"The response to a <code>PutResolverRulePolicy</code> request.","properties":{"ReturnValue":{"$ref":"#/components/schemas/Boolean"}},"type":"object"},"ResolverEndpoint":{"description":"In the response to a <a>CreateResolverEndpoint</a>, <a>DeleteResolverEndpoint</a>, <a>GetResolverEndpoint</a>, <a>ListResolverEndpoints</a>, or <a>UpdateResolverEndpoint</a> request, a complex type that contains settings for an existing inbound or outbound resolver endpoint.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"CreationTime":{"$ref":"#/components/schemas/Rfc3339TimeString"},"CreatorRequestId":{"$ref":"#/components/schemas/CreatorRequestId"},"Direction":{"$ref":"#/components/schemas/ResolverEndpointDirection"},"HostVPCId":{"$ref":"#/components/schemas/ResourceId"},"Id":{"$ref":"#/components/schemas/ResourceId"},"IpAddressCount":{"$ref":"#/components/schemas/IpAddressCount"},"ModificationTime":{"$ref":"#/components/schemas/Rfc3339TimeString"},"Name":{"$ref":"#/components/schemas/Name"},"SecurityGroupIds":{"$ref":"#/components/schemas/SecurityGroupIds"},"Status":{"$ref":"#/components/schemas/ResolverEndpointStatus"},"StatusMessage":{"$ref":"#/components/schemas/StatusMessage"}},"type":"object"},"ResolverEndpointDirection":{"enum":["INBOUND","OUTBOUND"],"type":"string"},"ResolverEndpointStatus":{"enum":["CREATING","OPERATIONAL","UPDATING","AUTO_RECOVERING","ACTION_NEEDED","DELETING"],"type":"string"},"ResolverEndpoints":{"items":{"$ref":"#/components/schemas/ResolverEndpoint"},"type":"array"},"ResolverRule":{"description":"For queries that originate in your VPC, detailed information about a resolver rule, which specifies how to route DNS queries out of the VPC. The <code>ResolverRule</code> parameter appears in the response to a <a>CreateResolverRule</a>, <a>DeleteResolverRule</a>, <a>GetResolverRule</a>, <a>ListResolverRules</a>, or <a>UpdateResolverRule</a> request.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"CreatorRequestId":{"$ref":"#/components/schemas/CreatorRequestId"},"DomainName":{"$ref":"#/components/schemas/DomainName"},"Id":{"$ref":"#/components/schemas/ResourceId"},"Name":{"$ref":"#/components/schemas/Name"},"OwnerId":{"$ref":"#/components/schemas/AccountId"},"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"},"RuleType":{"$ref":"#/components/schemas/RuleTypeOption"},"ShareStatus":{"$ref":"#/components/schemas/ShareStatus"},"Status":{"$ref":"#/components/schemas/ResolverRuleStatus"},"StatusMessage":{"$ref":"#/components/schemas/StatusMessage"},"TargetIps":{"$ref":"#/components/schemas/TargetList"}},"type":"object"},"ResolverRuleAssociation":{"description":"In the response to an <a>AssociateResolverRule</a>, <a>DisassociateResolverRule</a>, or <a>ListResolverRuleAssociations</a> request, information about an association between a resolver rule and a VPC.","properties":{"Id":{"$ref":"#/components/schemas/ResourceId"},"Name":{"$ref":"#/components/schemas/Name"},"ResolverRuleId":{"$ref":"#/components/schemas/ResourceId"},"Status":{"$ref":"#/components/schemas/ResolverRuleAssociationStatus"},"StatusMessage":{"$ref":"#/components/schemas/StatusMessage"},"VPCId":{"$ref":"#/components/schemas/ResourceId"}},"type":"object"},"ResolverRuleAssociationStatus":{"enum":["CREATING","COMPLETE","DELETING","FAILED","OVERRIDDEN"],"type":"string"},"ResolverRuleAssociations":{"items":{"$ref":"#/components/schemas/ResolverRuleAssociation"},"type":"array"},"ResolverRuleConfig":{"description":"In an <a>UpdateResolverRule</a> request, information about the changes that you want to make.","properties":{"Name":{"$ref":"#/components/schemas/Name"},"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"},"TargetIps":{"$ref":"#/components/schemas/TargetList"}},"type":"object"},"ResolverRulePolicy":{"maxLength":5000,"type":"string"},"ResolverRuleStatus":{"enum":["COMPLETE","DELETING","UPDATING","FAILED"],"type":"string"},"ResolverRules":{"items":{"$ref":"#/components/schemas/ResolverRule"},"type":"array"},"ResourceExistsException":{},"ResourceId":{"maxLength":64,"minLength":1,"type":"string"},"ResourceInUseException":{},"ResourceNotFoundException":{},"ResourceUnavailableException":{},"Rfc3339TimeString":{"maxLength":40,"minLength":20,"type":"string"},"RuleTypeOption":{"enum":["FORWARD","SYSTEM","RECURSIVE"],"type":"string"},"SecurityGroupIds":{"items":{"$ref":"#/components/schemas/ResourceId"},"type":"array"},"ShareStatus":{"enum":["NOT_SHARED","SHARED_WITH_ME","SHARED_BY_ME"],"type":"string"},"StatusMessage":{"maxLength":255,"type":"string"},"SubnetId":{"maxLength":32,"minLength":1,"type":"string"},"Tag":{"description":"One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.","properties":{"Key":{"$ref":"#/components/schemas/TagKey"},"Value":{"$ref":"#/components/schemas/TagValue"}},"type":"object"},"TagKey":{"type":"string"},"TagKeyList":{"items":{"$ref":"#/components/schemas/TagKey"},"type":"array"},"TagList":{"items":{"$ref":"#/components/schemas/Tag"},"type":"array"},"TagResourceRequest":{"properties":{"ResourceArn":{"$ref":"#/components/schemas/Arn"},"Tags":{"$ref":"#/components/schemas/TagList"}},"required":["ResourceArn","Tags"],"type":"object"},"TagResourceResponse":{"properties":{},"type":"object"},"TagValue":{"type":"string"},"TargetAddress":{"description":"In a <a>CreateResolverRule</a> request, an array of the IPs that you want to forward DNS queries to.","properties":{"Ip":{"$ref":"#/components/schemas/Ip"},"Port":{"$ref":"#/components/schemas/Port"}},"required":["Ip"],"type":"object"},"TargetList":{"items":{"$ref":"#/components/schemas/TargetAddress"},"minItems":1,"type":"array"},"ThrottlingException":{},"UnknownResourceException":{},"UntagResourceRequest":{"properties":{"ResourceArn":{"$ref":"#/components/schemas/Arn"},"TagKeys":{"$ref":"#/components/schemas/TagKeyList"}},"required":["ResourceArn","TagKeys"],"type":"object"},"UntagResourceResponse":{"properties":{},"type":"object"},"UpdateResolverEndpointRequest":{"properties":{"Name":{"$ref":"#/components/schemas/Name"},"ResolverEndpointId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverEndpointId"],"type":"object"},"UpdateResolverEndpointResponse":{"properties":{"ResolverEndpoint":{"$ref":"#/components/schemas/ResolverEndpoint"}},"type":"object"},"UpdateResolverRuleRequest":{"properties":{"Config":{"$ref":"#/components/schemas/ResolverRuleConfig"},"ResolverRuleId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ResolverRuleId","Config"],"type":"object"},"UpdateResolverRuleResponse":{"properties":{"ResolverRule":{"$ref":"#/components/schemas/ResolverRule"}},"type":"object"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Here's how you set up to query an Amazon Route 53 private hosted zone from your network:</p> <ol> <li> <p>Connect your network to a VPC using AWS Direct Connect or a VPN.</p> </li> <li> <p>Run the following AWS CLI command to create a Resolver endpoint:</p> <p> <code>create-resolver-endpoint --name [endpoint_name] --direction INBOUND --creator-request-id [unique_string] --security-group-ids [security_group_with_inbound_rules] --ip-addresses SubnetId=[subnet_id] SubnetId=[subnet_id_in_different_AZ]</code> </p> <p>Note the resolver endpoint ID that appears in the response. You'll use it in step 3.</p> </li> <li> <p>Get the IP addresses for the Resolver endpoints:</p> <p> <code>get-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code> </p> </li> <li> <p>In your network configuration, define the IP addresses that you got in step 3 as DNS servers.</p> <p>You can now query instance names in your VPCs and the names of records in your private hosted zone.</p> </li> </ol> <p>You can also perform the following operations using the AWS CLI:</p> <ul> <li> <p> <code>list-resolver-endpoints</code>: List all endpoints. The syntax includes options for pagination and filtering.</p> </li> <li> <p> <code>update-resolver-endpoints</code>: Add IP addresses to an endpoint or remove IP addresses from an endpoint. </p> </li> </ul> <p>To delete an endpoint, use the following AWS CLI command:</p> <p> <code>delete-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code> </p>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Route 53 Resolver",
+    "version": "2018-04-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/route53resolver-2018-04-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "route53resolver"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/route53resolver/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=Route53Resolver.AssociateResolverEndpointIpAddress": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Adds IP addresses to an inbound or an outbound resolver endpoint. If you want to adding more than one IP address, submit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p> <p>To remove an IP address from an endpoint, see <a>DisassociateResolverEndpointIpAddress</a>.</p>",
+        "operationId": "AssociateResolverEndpointIpAddress",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.AssociateResolverEndpointIpAddress"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AssociateResolverEndpointIpAddressRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AssociateResolverEndpointIpAddressResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceExistsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceExistsException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "485": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.AssociateResolverRule": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Associates a resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see <a>CreateResolverRule</a>. ",
+        "operationId": "AssociateResolverRule",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.AssociateResolverRule"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/AssociateResolverRuleRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/AssociateResolverRuleResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceUnavailableException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceExistsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceExistsException" } } }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.CreateResolverEndpoint": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates a resolver endpoint. There are two types of resolver endpoints, inbound and outbound:</p> <ul> <li> <p>An <i>inbound resolver endpoint</i> forwards DNS queries to the DNS service for a VPC from your network or another VPC.</p> </li> <li> <p>An <i>outbound resolver endpoint</i> forwards DNS queries from the DNS service for a VPC to your network or another VPC.</p> </li> </ul>",
+        "operationId": "CreateResolverEndpoint",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.CreateResolverEndpoint"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CreateResolverEndpointRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateResolverEndpointResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceExistsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceExistsException" } } }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.CreateResolverRule": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "For DNS queries that originate in your VPCs, specifies which resolver endpoint the queries pass through, one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.",
+        "operationId": "CreateResolverRule",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.CreateResolverRule"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateResolverRuleRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateResolverRuleResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceExistsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceExistsException" } } }
+          },
+          "485": {
+            "description": "ResourceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceUnavailableException" } }
+            }
+          },
+          "486": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "487": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.DeleteResolverEndpoint": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes a resolver endpoint. The effect of deleting a resolver endpoint depends on whether it's an inbound or an outbound resolver endpoint:</p> <ul> <li> <p> <b>Inbound</b>: DNS queries from your network or another VPC are no longer routed to the DNS service for the specified VPC.</p> </li> <li> <p> <b>Outbound</b>: DNS queries from a VPC are no longer routed to your network or to another VPC.</p> </li> </ul>",
+        "operationId": "DeleteResolverEndpoint",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.DeleteResolverEndpoint"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DeleteResolverEndpointRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeleteResolverEndpointResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.DeleteResolverRule": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a resolver rule. Before you can delete a resolver rule, you must disassociate it from all the VPCs that you associated the resolver rule with. For more infomation, see <a>DisassociateResolverRule</a>.",
+        "operationId": "DeleteResolverRule",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.DeleteResolverRule"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteResolverRuleRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeleteResolverRuleResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.DisassociateResolverEndpointIpAddress": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Removes IP addresses from an inbound or an outbound resolver endpoint. If you want to remove more than one IP address, submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p> <p>To add an IP address to an endpoint, see <a>AssociateResolverEndpointIpAddress</a>.</p>",
+        "operationId": "DisassociateResolverEndpointIpAddress",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.DisassociateResolverEndpointIpAddress"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/DisassociateResolverEndpointIpAddressRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DisassociateResolverEndpointIpAddressResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceExistsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceExistsException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.DisassociateResolverRule": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Removes the association between a specified resolver rule and a specified VPC.</p> <important> <p>If you disassociate a resolver rule from a VPC, Resolver stops forwarding DNS queries for the domain name that you specified in the resolver rule. </p> </important>",
+        "operationId": "DisassociateResolverRule",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.DisassociateResolverRule"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateResolverRuleRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateResolverRuleResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.GetResolverEndpoint": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets information about a specified resolver endpoint, such as whether it's an inbound or an outbound resolver endpoint, and the current status of the endpoint.",
+        "operationId": "GetResolverEndpoint",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.GetResolverEndpoint"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetResolverEndpointRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetResolverEndpointResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.GetResolverRule": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets information about a specified resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the outbound resolver endpoint that the rule is associated with.",
+        "operationId": "GetResolverRule",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.GetResolverRule"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetResolverRuleRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetResolverRuleResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.GetResolverRuleAssociation": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets information about an association between a specified resolver rule and a VPC. You associate a resolver rule and a VPC using <a>AssociateResolverRule</a>. ",
+        "operationId": "GetResolverRuleAssociation",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.GetResolverRuleAssociation"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetResolverRuleAssociationRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetResolverRuleAssociationResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.GetResolverRulePolicy": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets information about a resolver rule policy. A resolver rule policy specifies the Resolver operations and resources that you want to allow another AWS account to be able to use. ",
+        "operationId": "GetResolverRulePolicy",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.GetResolverRulePolicy"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetResolverRulePolicyRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetResolverRulePolicyResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "UnknownResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnknownResourceException" } } }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.ListResolverEndpointIpAddresses": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets the IP addresses for a specified resolver endpoint.",
+        "operationId": "ListResolverEndpointIpAddresses",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.ListResolverEndpointIpAddresses"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListResolverEndpointIpAddressesRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListResolverEndpointIpAddressesResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.ListResolverEndpoints": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists all the resolver endpoints that were created using the current AWS account.",
+        "operationId": "ListResolverEndpoints",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.ListResolverEndpoints"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListResolverEndpointsRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListResolverEndpointsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.ListResolverRuleAssociations": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the associations that were created between resolver rules and VPCs using the current AWS account.",
+        "operationId": "ListResolverRuleAssociations",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.ListResolverRuleAssociations"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListResolverRuleAssociationsRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListResolverRuleAssociationsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.ListResolverRules": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the resolver rules that were created using the current AWS account.",
+        "operationId": "ListResolverRules",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.ListResolverRules"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListResolverRulesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListResolverRulesResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.ListTagsForResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the tags that you associated with the specified resource.",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.ListTagsForResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.PutResolverRulePolicy": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Specifies the Resolver operations and resources that you want to allow another AWS account to be able to use.",
+        "operationId": "PutResolverRulePolicy",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.PutResolverRulePolicy"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/PutResolverRulePolicyRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PutResolverRulePolicyResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidPolicyDocument",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidPolicyDocument" } } }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "UnknownResourceException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnknownResourceException" } } }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.TagResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds one or more tags to a specified resource.",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.TagResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagResourceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagResourceResponse" } } }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidTagException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidTagException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.UntagResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Removes one or more tags from a specified resource.",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.UntagResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagResourceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagResourceResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.UpdateResolverEndpoint": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the name of an inbound or an outbound resolver endpoint. ",
+        "operationId": "UpdateResolverEndpoint",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.UpdateResolverEndpoint"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/UpdateResolverEndpointRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateResolverEndpointResponse" } }
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53Resolver.UpdateResolverRule": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates settings for a specified resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional. If you don't specify a parameter, it retains its current value.",
+        "operationId": "UpdateResolverRule",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53Resolver.UpdateResolverRule"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateResolverRuleRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateResolverRuleResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceUnavailableException" } }
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The Route53Resolver multi-region endpoint",
+      "url": "http://route53resolver.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Route53Resolver multi-region endpoint",
+      "url": "https://route53resolver.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Route53Resolver endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://route53resolver.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The Route53Resolver endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://route53resolver.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AccountId": { "maxLength": 32, "minLength": 12, "type": "string" },
+      "Arn": { "maxLength": 255, "minLength": 1, "type": "string" },
+      "AssociateResolverEndpointIpAddressRequest": {
+        "properties": {
+          "IpAddress": { "$ref": "#/components/schemas/IpAddressUpdate" },
+          "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ResolverEndpointId", "IpAddress"],
+        "type": "object"
+      },
+      "AssociateResolverEndpointIpAddressResponse": {
+        "properties": { "ResolverEndpoint": { "$ref": "#/components/schemas/ResolverEndpoint" } },
+        "type": "object"
+      },
+      "AssociateResolverRuleRequest": {
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "ResolverRuleId": { "$ref": "#/components/schemas/ResourceId" },
+          "VPCId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ResolverRuleId", "VPCId"],
+        "type": "object"
+      },
+      "AssociateResolverRuleResponse": {
+        "properties": { "ResolverRuleAssociation": { "$ref": "#/components/schemas/ResolverRuleAssociation" } },
+        "type": "object"
+      },
+      "Boolean": { "type": "boolean" },
+      "CreateResolverEndpointRequest": {
+        "properties": {
+          "CreatorRequestId": { "$ref": "#/components/schemas/CreatorRequestId" },
+          "Direction": { "$ref": "#/components/schemas/ResolverEndpointDirection" },
+          "IpAddresses": { "$ref": "#/components/schemas/IpAddressesRequest" },
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "SecurityGroupIds": { "$ref": "#/components/schemas/SecurityGroupIds" },
+          "Tags": { "$ref": "#/components/schemas/TagList" }
+        },
+        "required": ["CreatorRequestId", "SecurityGroupIds", "Direction", "IpAddresses"],
+        "type": "object"
+      },
+      "CreateResolverEndpointResponse": {
+        "properties": { "ResolverEndpoint": { "$ref": "#/components/schemas/ResolverEndpoint" } },
+        "type": "object"
+      },
+      "CreateResolverRuleRequest": {
+        "properties": {
+          "CreatorRequestId": { "$ref": "#/components/schemas/CreatorRequestId" },
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" },
+          "RuleType": { "$ref": "#/components/schemas/RuleTypeOption" },
+          "Tags": { "$ref": "#/components/schemas/TagList" },
+          "TargetIps": { "$ref": "#/components/schemas/TargetList" }
+        },
+        "required": ["CreatorRequestId", "RuleType", "DomainName"],
+        "type": "object"
+      },
+      "CreateResolverRuleResponse": {
+        "properties": { "ResolverRule": { "$ref": "#/components/schemas/ResolverRule" } },
+        "type": "object"
+      },
+      "CreatorRequestId": { "maxLength": 255, "minLength": 1, "type": "string" },
+      "DeleteResolverEndpointRequest": {
+        "properties": { "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["ResolverEndpointId"],
+        "type": "object"
+      },
+      "DeleteResolverEndpointResponse": {
+        "properties": { "ResolverEndpoint": { "$ref": "#/components/schemas/ResolverEndpoint" } },
+        "type": "object"
+      },
+      "DeleteResolverRuleRequest": {
+        "properties": { "ResolverRuleId": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["ResolverRuleId"],
+        "type": "object"
+      },
+      "DeleteResolverRuleResponse": {
+        "properties": { "ResolverRule": { "$ref": "#/components/schemas/ResolverRule" } },
+        "type": "object"
+      },
+      "DisassociateResolverEndpointIpAddressRequest": {
+        "properties": {
+          "IpAddress": { "$ref": "#/components/schemas/IpAddressUpdate" },
+          "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ResolverEndpointId", "IpAddress"],
+        "type": "object"
+      },
+      "DisassociateResolverEndpointIpAddressResponse": {
+        "properties": { "ResolverEndpoint": { "$ref": "#/components/schemas/ResolverEndpoint" } },
+        "type": "object"
+      },
+      "DisassociateResolverRuleRequest": {
+        "properties": {
+          "ResolverRuleId": { "$ref": "#/components/schemas/ResourceId" },
+          "VPCId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["VPCId", "ResolverRuleId"],
+        "type": "object"
+      },
+      "DisassociateResolverRuleResponse": {
+        "properties": { "ResolverRuleAssociation": { "$ref": "#/components/schemas/ResolverRuleAssociation" } },
+        "type": "object"
+      },
+      "DomainName": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "Filter": {
+        "description": "For <code>List</code> operations, an optional specification to return a subset of objects, such as resolver endpoints or resolver rules.",
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/FilterName" },
+          "Values": { "$ref": "#/components/schemas/FilterValues" }
+        },
+        "type": "object"
+      },
+      "FilterName": { "maxLength": 64, "minLength": 1, "type": "string" },
+      "FilterValue": { "maxLength": 64, "minLength": 1, "type": "string" },
+      "FilterValues": { "items": { "$ref": "#/components/schemas/FilterValue" }, "type": "array" },
+      "Filters": { "items": { "$ref": "#/components/schemas/Filter" }, "type": "array" },
+      "GetResolverEndpointRequest": {
+        "properties": { "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["ResolverEndpointId"],
+        "type": "object"
+      },
+      "GetResolverEndpointResponse": {
+        "properties": { "ResolverEndpoint": { "$ref": "#/components/schemas/ResolverEndpoint" } },
+        "type": "object"
+      },
+      "GetResolverRuleAssociationRequest": {
+        "properties": { "ResolverRuleAssociationId": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["ResolverRuleAssociationId"],
+        "type": "object"
+      },
+      "GetResolverRuleAssociationResponse": {
+        "properties": { "ResolverRuleAssociation": { "$ref": "#/components/schemas/ResolverRuleAssociation" } },
+        "type": "object"
+      },
+      "GetResolverRulePolicyRequest": {
+        "properties": { "Arn": { "$ref": "#/components/schemas/Arn" } },
+        "required": ["Arn"],
+        "type": "object"
+      },
+      "GetResolverRulePolicyResponse": {
+        "properties": { "ResolverRulePolicy": { "$ref": "#/components/schemas/ResolverRulePolicy" } },
+        "type": "object"
+      },
+      "GetResolverRuleRequest": {
+        "properties": { "ResolverRuleId": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["ResolverRuleId"],
+        "type": "object"
+      },
+      "GetResolverRuleResponse": {
+        "properties": { "ResolverRule": { "$ref": "#/components/schemas/ResolverRule" } },
+        "type": "object"
+      },
+      "InternalServiceErrorException": {},
+      "InvalidNextTokenException": {},
+      "InvalidParameterException": {},
+      "InvalidPolicyDocument": {},
+      "InvalidRequestException": {},
+      "InvalidTagException": {},
+      "Ip": { "maxLength": 36, "minLength": 7, "type": "string" },
+      "IpAddressCount": { "type": "integer" },
+      "IpAddressRequest": {
+        "description": "In an <a>CreateResolverEndpoint</a> request, a subnet and IP address that you want to use for DNS queries.",
+        "properties": {
+          "Ip": { "$ref": "#/components/schemas/Ip" },
+          "SubnetId": { "$ref": "#/components/schemas/SubnetId" }
+        },
+        "required": ["SubnetId"],
+        "type": "object"
+      },
+      "IpAddressResponse": {
+        "description": "In the response to a <a>GetResolverEndpoint</a> request, information about the IP addresses that the resolver endpoint uses for DNS queries.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Rfc3339TimeString" },
+          "Ip": { "$ref": "#/components/schemas/Ip" },
+          "IpId": { "$ref": "#/components/schemas/ResourceId" },
+          "ModificationTime": { "$ref": "#/components/schemas/Rfc3339TimeString" },
+          "Status": { "$ref": "#/components/schemas/IpAddressStatus" },
+          "StatusMessage": { "$ref": "#/components/schemas/StatusMessage" },
+          "SubnetId": { "$ref": "#/components/schemas/SubnetId" }
+        },
+        "type": "object"
+      },
+      "IpAddressStatus": {
+        "enum": [
+          "CREATING",
+          "FAILED_CREATION",
+          "ATTACHING",
+          "ATTACHED",
+          "REMAP_DETACHING",
+          "REMAP_ATTACHING",
+          "DETACHING",
+          "FAILED_RESOURCE_GONE",
+          "DELETING",
+          "DELETE_FAILED_FAS_EXPIRED"
+        ],
+        "type": "string"
+      },
+      "IpAddressUpdate": {
+        "description": "In an <a>UpdateResolverEndpoint</a> request, information about an IP address to update.",
+        "properties": {
+          "Ip": { "$ref": "#/components/schemas/Ip" },
+          "IpId": { "$ref": "#/components/schemas/ResourceId" },
+          "SubnetId": { "$ref": "#/components/schemas/SubnetId" }
+        },
+        "type": "object"
+      },
+      "IpAddressesRequest": {
+        "items": { "$ref": "#/components/schemas/IpAddressRequest" },
+        "maxItems": 10,
+        "minItems": 1,
+        "type": "array"
+      },
+      "IpAddressesResponse": { "items": { "$ref": "#/components/schemas/IpAddressResponse" }, "type": "array" },
+      "LimitExceededException": {},
+      "ListResolverEndpointIpAddressesRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ResolverEndpointId"],
+        "type": "object"
+      },
+      "ListResolverEndpointIpAddressesResponse": {
+        "properties": {
+          "IpAddresses": { "$ref": "#/components/schemas/IpAddressesResponse" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListResolverEndpointsRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/Filters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListResolverEndpointsResponse": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ResolverEndpoints": { "$ref": "#/components/schemas/ResolverEndpoints" }
+        },
+        "type": "object"
+      },
+      "ListResolverRuleAssociationsRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/Filters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListResolverRuleAssociationsResponse": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ResolverRuleAssociations": { "$ref": "#/components/schemas/ResolverRuleAssociations" }
+        },
+        "type": "object"
+      },
+      "ListResolverRulesRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/Filters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListResolverRulesResponse": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ResolverRules": { "$ref": "#/components/schemas/ResolverRules" }
+        },
+        "type": "object"
+      },
+      "ListTagsForResourceRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ResourceArn": { "$ref": "#/components/schemas/Arn" }
+        },
+        "required": ["ResourceArn"],
+        "type": "object"
+      },
+      "ListTagsForResourceResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Tags": { "$ref": "#/components/schemas/TagList" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "Name": { "maxLength": 64, "pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)", "type": "string" },
+      "NextToken": { "type": "string" },
+      "Port": { "maximum": 65535, "minimum": 0, "type": "integer" },
+      "PutResolverRulePolicyRequest": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "ResolverRulePolicy": { "$ref": "#/components/schemas/ResolverRulePolicy" }
+        },
+        "required": ["Arn", "ResolverRulePolicy"],
+        "type": "object"
+      },
+      "PutResolverRulePolicyResponse": {
+        "description": "The response to a <code>PutResolverRulePolicy</code> request.",
+        "properties": { "ReturnValue": { "$ref": "#/components/schemas/Boolean" } },
+        "type": "object"
+      },
+      "ResolverEndpoint": {
+        "description": "In the response to a <a>CreateResolverEndpoint</a>, <a>DeleteResolverEndpoint</a>, <a>GetResolverEndpoint</a>, <a>ListResolverEndpoints</a>, or <a>UpdateResolverEndpoint</a> request, a complex type that contains settings for an existing inbound or outbound resolver endpoint.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "CreationTime": { "$ref": "#/components/schemas/Rfc3339TimeString" },
+          "CreatorRequestId": { "$ref": "#/components/schemas/CreatorRequestId" },
+          "Direction": { "$ref": "#/components/schemas/ResolverEndpointDirection" },
+          "HostVPCId": { "$ref": "#/components/schemas/ResourceId" },
+          "Id": { "$ref": "#/components/schemas/ResourceId" },
+          "IpAddressCount": { "$ref": "#/components/schemas/IpAddressCount" },
+          "ModificationTime": { "$ref": "#/components/schemas/Rfc3339TimeString" },
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "SecurityGroupIds": { "$ref": "#/components/schemas/SecurityGroupIds" },
+          "Status": { "$ref": "#/components/schemas/ResolverEndpointStatus" },
+          "StatusMessage": { "$ref": "#/components/schemas/StatusMessage" }
+        },
+        "type": "object"
+      },
+      "ResolverEndpointDirection": { "enum": ["INBOUND", "OUTBOUND"], "type": "string" },
+      "ResolverEndpointStatus": {
+        "enum": ["CREATING", "OPERATIONAL", "UPDATING", "AUTO_RECOVERING", "ACTION_NEEDED", "DELETING"],
+        "type": "string"
+      },
+      "ResolverEndpoints": { "items": { "$ref": "#/components/schemas/ResolverEndpoint" }, "type": "array" },
+      "ResolverRule": {
+        "description": "For queries that originate in your VPC, detailed information about a resolver rule, which specifies how to route DNS queries out of the VPC. The <code>ResolverRule</code> parameter appears in the response to a <a>CreateResolverRule</a>, <a>DeleteResolverRule</a>, <a>GetResolverRule</a>, <a>ListResolverRules</a>, or <a>UpdateResolverRule</a> request.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "CreatorRequestId": { "$ref": "#/components/schemas/CreatorRequestId" },
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "Id": { "$ref": "#/components/schemas/ResourceId" },
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "OwnerId": { "$ref": "#/components/schemas/AccountId" },
+          "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" },
+          "RuleType": { "$ref": "#/components/schemas/RuleTypeOption" },
+          "ShareStatus": { "$ref": "#/components/schemas/ShareStatus" },
+          "Status": { "$ref": "#/components/schemas/ResolverRuleStatus" },
+          "StatusMessage": { "$ref": "#/components/schemas/StatusMessage" },
+          "TargetIps": { "$ref": "#/components/schemas/TargetList" }
+        },
+        "type": "object"
+      },
+      "ResolverRuleAssociation": {
+        "description": "In the response to an <a>AssociateResolverRule</a>, <a>DisassociateResolverRule</a>, or <a>ListResolverRuleAssociations</a> request, information about an association between a resolver rule and a VPC.",
+        "properties": {
+          "Id": { "$ref": "#/components/schemas/ResourceId" },
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "ResolverRuleId": { "$ref": "#/components/schemas/ResourceId" },
+          "Status": { "$ref": "#/components/schemas/ResolverRuleAssociationStatus" },
+          "StatusMessage": { "$ref": "#/components/schemas/StatusMessage" },
+          "VPCId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "type": "object"
+      },
+      "ResolverRuleAssociationStatus": {
+        "enum": ["CREATING", "COMPLETE", "DELETING", "FAILED", "OVERRIDDEN"],
+        "type": "string"
+      },
+      "ResolverRuleAssociations": {
+        "items": { "$ref": "#/components/schemas/ResolverRuleAssociation" },
+        "type": "array"
+      },
+      "ResolverRuleConfig": {
+        "description": "In an <a>UpdateResolverRule</a> request, information about the changes that you want to make.",
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" },
+          "TargetIps": { "$ref": "#/components/schemas/TargetList" }
+        },
+        "type": "object"
+      },
+      "ResolverRulePolicy": { "maxLength": 5000, "type": "string" },
+      "ResolverRuleStatus": { "enum": ["COMPLETE", "DELETING", "UPDATING", "FAILED"], "type": "string" },
+      "ResolverRules": { "items": { "$ref": "#/components/schemas/ResolverRule" }, "type": "array" },
+      "ResourceExistsException": {},
+      "ResourceId": { "maxLength": 64, "minLength": 1, "type": "string" },
+      "ResourceInUseException": {},
+      "ResourceNotFoundException": {},
+      "ResourceUnavailableException": {},
+      "Rfc3339TimeString": { "maxLength": 40, "minLength": 20, "type": "string" },
+      "RuleTypeOption": { "enum": ["FORWARD", "SYSTEM", "RECURSIVE"], "type": "string" },
+      "SecurityGroupIds": { "items": { "$ref": "#/components/schemas/ResourceId" }, "type": "array" },
+      "ShareStatus": { "enum": ["NOT_SHARED", "SHARED_WITH_ME", "SHARED_BY_ME"], "type": "string" },
+      "StatusMessage": { "maxLength": 255, "type": "string" },
+      "SubnetId": { "maxLength": 32, "minLength": 1, "type": "string" },
+      "Tag": {
+        "description": "One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.",
+        "properties": {
+          "Key": { "$ref": "#/components/schemas/TagKey" },
+          "Value": { "$ref": "#/components/schemas/TagValue" }
+        },
+        "type": "object"
+      },
+      "TagKey": { "type": "string" },
+      "TagKeyList": { "items": { "$ref": "#/components/schemas/TagKey" }, "type": "array" },
+      "TagList": { "items": { "$ref": "#/components/schemas/Tag" }, "type": "array" },
+      "TagResourceRequest": {
+        "properties": {
+          "ResourceArn": { "$ref": "#/components/schemas/Arn" },
+          "Tags": { "$ref": "#/components/schemas/TagList" }
+        },
+        "required": ["ResourceArn", "Tags"],
+        "type": "object"
+      },
+      "TagResourceResponse": { "properties": {}, "type": "object" },
+      "TagValue": { "type": "string" },
+      "TargetAddress": {
+        "description": "In a <a>CreateResolverRule</a> request, an array of the IPs that you want to forward DNS queries to.",
+        "properties": { "Ip": { "$ref": "#/components/schemas/Ip" }, "Port": { "$ref": "#/components/schemas/Port" } },
+        "required": ["Ip"],
+        "type": "object"
+      },
+      "TargetList": { "items": { "$ref": "#/components/schemas/TargetAddress" }, "minItems": 1, "type": "array" },
+      "ThrottlingException": {},
+      "UnknownResourceException": {},
+      "UntagResourceRequest": {
+        "properties": {
+          "ResourceArn": { "$ref": "#/components/schemas/Arn" },
+          "TagKeys": { "$ref": "#/components/schemas/TagKeyList" }
+        },
+        "required": ["ResourceArn", "TagKeys"],
+        "type": "object"
+      },
+      "UntagResourceResponse": { "properties": {}, "type": "object" },
+      "UpdateResolverEndpointRequest": {
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/Name" },
+          "ResolverEndpointId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ResolverEndpointId"],
+        "type": "object"
+      },
+      "UpdateResolverEndpointResponse": {
+        "properties": { "ResolverEndpoint": { "$ref": "#/components/schemas/ResolverEndpoint" } },
+        "type": "object"
+      },
+      "UpdateResolverRuleRequest": {
+        "properties": {
+          "Config": { "$ref": "#/components/schemas/ResolverRuleConfig" },
+          "ResolverRuleId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ResolverRuleId", "Config"],
+        "type": "object"
+      },
+      "UpdateResolverRuleResponse": {
+        "properties": { "ResolverRule": { "$ref": "#/components/schemas/ResolverRule" } },
+        "type": "object"
+      }
+    }
+  }
+}

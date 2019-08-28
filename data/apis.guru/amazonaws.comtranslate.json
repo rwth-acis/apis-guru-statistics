@@ -1,1 +1,624 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"Provides translation between one source language and another of the same set of languages.","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"Amazon Translate","version":"2017-07-01","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/translate-2017-07-01.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"translate"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/translate/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=AWSShineFrontendService_20170701.DeleteTerminology":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"A synchronous action that deletes a custom terminology.","operationId":"DeleteTerminology","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShineFrontendService_20170701.DeleteTerminology"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteTerminologyRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"482":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}}}}},"/#X-Amz-Target=AWSShineFrontendService_20170701.GetTerminology":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves a custom terminology.","operationId":"GetTerminology","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShineFrontendService_20170701.GetTerminology"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetTerminologyRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetTerminologyResponse"}}}},"480":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"481":{"description":"InvalidParameterValueException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterValueException"}}}},"482":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"483":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}}}}},"/#X-Amz-Target=AWSShineFrontendService_20170701.ImportTerminology":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Creates or updates a custom terminology, depending on whether or not one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. Currently, the only supported merge strategy is OVERWRITE, and so the imported terminology will overwrite an existing terminology of the same name.</p> <p>If you import a terminology that overwrites an existing one, the new terminology take up to 10 minutes to fully propagate and be available for use in a translation due to cache policies with the DataPlane service that performs the translations.</p>","operationId":"ImportTerminology","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShineFrontendService_20170701.ImportTerminology"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ImportTerminologyRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ImportTerminologyResponse"}}}},"480":{"description":"InvalidParameterValueException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterValueException"}}}},"481":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"482":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"483":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}}}}},"/#X-Amz-Target=AWSShineFrontendService_20170701.ListTerminologies":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Provides a list of custom terminologies associated with your account.","operationId":"ListTerminologies","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShineFrontendService_20170701.ListTerminologies"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTerminologiesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTerminologiesResponse"}}}},"480":{"description":"InvalidParameterValueException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterValueException"}}}},"481":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"482":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}}}}},"/#X-Amz-Target=AWSShineFrontendService_20170701.TranslateText":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Translates input text from the source language to the target language. It is not necessary to use English (en) as either the source or the target language but not all language combinations are supported by Amazon Translate. For more information, see <a href=\"http://docs.aws.amazon.com/translate/latest/dg/pairs.html\">Supported Language Pairs</a>.</p> <ul> <li> <p>Arabic (ar)</p> </li> <li> <p>Chinese (Simplified) (zh)</p> </li> <li> <p>Chinese (Traditional) (zh-TW)</p> </li> <li> <p>Czech (cs)</p> </li> <li> <p>Danish (da)</p> </li> <li> <p>Dutch (nl)</p> </li> <li> <p>English (en)</p> </li> <li> <p>Finnish (fi)</p> </li> <li> <p>French (fr)</p> </li> <li> <p>German (de)</p> </li> <li> <p>Hebrew (he)</p> </li> <li> <p>Indonesian (id)</p> </li> <li> <p>Italian (it)</p> </li> <li> <p>Japanese (ja)</p> </li> <li> <p>Korean (ko)</p> </li> <li> <p>Polish (pl)</p> </li> <li> <p>Portuguese (pt)</p> </li> <li> <p>Russian (ru)</p> </li> <li> <p>Spanish (es)</p> </li> <li> <p>Swedish (sv)</p> </li> <li> <p>Turkish (tr)</p> </li> </ul> <p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>","operationId":"TranslateText","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSShineFrontendService_20170701.TranslateText"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TranslateTextRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TranslateTextResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"TextSizeLimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TextSizeLimitExceededException"}}}},"482":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"483":{"description":"UnsupportedLanguagePairException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedLanguagePairException"}}}},"484":{"description":"DetectedLanguageLowConfidenceException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DetectedLanguageLowConfidenceException"}}}},"485":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"486":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"487":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}}}},"servers":[{"description":"The Amazon Translate multi-region endpoint","url":"http://translate.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Amazon Translate multi-region endpoint","url":"https://translate.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Amazon Translate endpoint for China (Beijing) and China (Ningxia)","url":"http://translate.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The Amazon Translate endpoint for China (Beijing) and China (Ningxia)","url":"https://translate.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AppliedTerminology":{"description":"The custom terminology applied to the input text by Amazon Translate for the translated text response. This is optional in the response and will only be present if you specified terminology input in the request. Currently, only one terminology can be applied per TranslateText request.","properties":{"Name":{"$ref":"#/components/schemas/ResourceName"},"Terms":{"$ref":"#/components/schemas/TermList"}},"type":"object"},"AppliedTerminologyList":{"items":{"$ref":"#/components/schemas/AppliedTerminology"},"type":"array"},"BoundedLengthString":{"maxLength":5000,"minLength":1,"pattern":"[\\P{M}\\p{M}]{1,5000}","type":"string"},"DeleteTerminologyRequest":{"properties":{"Name":{"$ref":"#/components/schemas/ResourceName"}},"required":["Name"],"type":"object"},"Description":{"maxLength":256,"pattern":"[\\P{M}\\p{M}]{0,256}","type":"string"},"DetectedLanguageLowConfidenceException":{},"EncryptionKey":{"description":"The encryption key used to encrypt the custom terminologies used by Amazon Translate.","properties":{"Id":{"$ref":"#/components/schemas/EncryptionKeyID"},"Type":{"$ref":"#/components/schemas/EncryptionKeyType"}},"required":["Type","Id"],"type":"object"},"EncryptionKeyID":{"maxLength":400,"minLength":1,"pattern":"(arn:aws((-us-gov)|(-cn))?:kms:)?([a-z]{2}-[a-z]+-\\d:)?(\\d{12}:)?(((key/)?[a-zA-Z0-9-_]+)|(alias/[a-zA-Z0-9:/_-]+))","type":"string"},"EncryptionKeyType":{"enum":["KMS"],"type":"string"},"GetTerminologyRequest":{"properties":{"Name":{"$ref":"#/components/schemas/ResourceName"},"TerminologyDataFormat":{"$ref":"#/components/schemas/TerminologyDataFormat"}},"required":["Name","TerminologyDataFormat"],"type":"object"},"GetTerminologyResponse":{"properties":{"TerminologyDataLocation":{"$ref":"#/components/schemas/TerminologyDataLocation"},"TerminologyProperties":{"$ref":"#/components/schemas/TerminologyProperties"}},"type":"object"},"ImportTerminologyRequest":{"properties":{"Description":{"$ref":"#/components/schemas/Description"},"EncryptionKey":{"$ref":"#/components/schemas/EncryptionKey"},"MergeStrategy":{"$ref":"#/components/schemas/MergeStrategy"},"Name":{"$ref":"#/components/schemas/ResourceName"},"TerminologyData":{"$ref":"#/components/schemas/TerminologyData"}},"required":["Name","MergeStrategy","TerminologyData"],"type":"object"},"ImportTerminologyResponse":{"properties":{"TerminologyProperties":{"$ref":"#/components/schemas/TerminologyProperties"}},"type":"object"},"Integer":{"type":"integer"},"InternalServerException":{},"InvalidParameterValueException":{},"InvalidRequestException":{},"LanguageCodeString":{"maxLength":5,"minLength":2,"type":"string"},"LanguageCodeStringList":{"items":{"$ref":"#/components/schemas/LanguageCodeString"},"type":"array"},"LimitExceededException":{},"ListTerminologiesRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResultsInteger"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListTerminologiesResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"TerminologyPropertiesList":{"$ref":"#/components/schemas/TerminologyPropertiesList"}},"type":"object"},"MaxResultsInteger":{"maximum":500,"minimum":1,"type":"integer"},"MergeStrategy":{"enum":["OVERWRITE"],"type":"string"},"NextToken":{"maxLength":8192,"pattern":"\\p{ASCII}{0,8192}","type":"string"},"ResourceName":{"maxLength":256,"minLength":1,"pattern":"^([A-Za-z0-9-]_?)+$","type":"string"},"ResourceNameList":{"items":{"$ref":"#/components/schemas/ResourceName"},"type":"array"},"ResourceNotFoundException":{},"ServiceUnavailableException":{},"String":{"maxLength":10000,"pattern":"[\\P{M}\\p{M}]{0,10000}","type":"string"},"Term":{"description":"The term being translated by the custom terminology.","properties":{"SourceText":{"$ref":"#/components/schemas/String"},"TargetText":{"$ref":"#/components/schemas/String"}},"type":"object"},"TermList":{"items":{"$ref":"#/components/schemas/Term"},"type":"array"},"TerminologyArn":{"pattern":"^arn:aws((-us-gov)|(-cn))?:translate:[a-zA-Z0-9-]+:[0-9]{12}:terminology/.+?/.+?$","type":"string"},"TerminologyData":{"description":"The data associated with the custom terminology.","properties":{"File":{"$ref":"#/components/schemas/TerminologyFile"},"Format":{"$ref":"#/components/schemas/TerminologyDataFormat"}},"required":["File","Format"],"type":"object"},"TerminologyDataFormat":{"enum":["CSV","TMX"],"type":"string"},"TerminologyDataLocation":{"description":"The location of the custom terminology data.","properties":{"Location":{"$ref":"#/components/schemas/String"},"RepositoryType":{"$ref":"#/components/schemas/String"}},"required":["RepositoryType","Location"],"type":"object"},"TerminologyFile":{"format":"password","maxLength":10485760,"type":"string"},"TerminologyProperties":{"description":"The properties of the custom terminology.","properties":{"Arn":{"$ref":"#/components/schemas/TerminologyArn"},"CreatedAt":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/Description"},"EncryptionKey":{"$ref":"#/components/schemas/EncryptionKey"},"LastUpdatedAt":{"$ref":"#/components/schemas/Timestamp"},"Name":{"$ref":"#/components/schemas/ResourceName"},"SizeBytes":{"$ref":"#/components/schemas/Integer"},"SourceLanguageCode":{"$ref":"#/components/schemas/LanguageCodeString"},"TargetLanguageCodes":{"$ref":"#/components/schemas/LanguageCodeStringList"},"TermCount":{"$ref":"#/components/schemas/Integer"}},"type":"object"},"TerminologyPropertiesList":{"items":{"$ref":"#/components/schemas/TerminologyProperties"},"type":"array"},"TextSizeLimitExceededException":{},"Timestamp":{"format":"date-time","type":"string"},"TooManyRequestsException":{},"TranslateTextRequest":{"properties":{"SourceLanguageCode":{"$ref":"#/components/schemas/LanguageCodeString"},"TargetLanguageCode":{"$ref":"#/components/schemas/LanguageCodeString"},"TerminologyNames":{"$ref":"#/components/schemas/ResourceNameList"},"Text":{"$ref":"#/components/schemas/BoundedLengthString"}},"required":["Text","SourceLanguageCode","TargetLanguageCode"],"type":"object"},"TranslateTextResponse":{"properties":{"AppliedTerminologies":{"$ref":"#/components/schemas/AppliedTerminologyList"},"SourceLanguageCode":{"$ref":"#/components/schemas/LanguageCodeString"},"TargetLanguageCode":{"$ref":"#/components/schemas/LanguageCodeString"},"TranslatedText":{"$ref":"#/components/schemas/String"}},"required":["TranslatedText","SourceLanguageCode","TargetLanguageCode"],"type":"object"},"UnsupportedLanguagePairException":{}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Provides translation between one source language and another of the same set of languages.",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Translate",
+    "version": "2017-07-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/translate-2017-07-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "translate"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/translate/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=AWSShineFrontendService_20170701.DeleteTerminology": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "A synchronous action that deletes a custom terminology.",
+        "operationId": "DeleteTerminology",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShineFrontendService_20170701.DeleteTerminology"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteTerminologyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShineFrontendService_20170701.GetTerminology": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves a custom terminology.",
+        "operationId": "GetTerminology",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShineFrontendService_20170701.GetTerminology"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetTerminologyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetTerminologyResponse" } } }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterValueException" } }
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShineFrontendService_20170701.ImportTerminology": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates or updates a custom terminology, depending on whether or not one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. Currently, the only supported merge strategy is OVERWRITE, and so the imported terminology will overwrite an existing terminology of the same name.</p> <p>If you import a terminology that overwrites an existing one, the new terminology take up to 10 minutes to fully propagate and be available for use in a translation due to cache policies with the DataPlane service that performs the translations.</p>",
+        "operationId": "ImportTerminology",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShineFrontendService_20170701.ImportTerminology"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportTerminologyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ImportTerminologyResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValueException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterValueException" } }
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShineFrontendService_20170701.ListTerminologies": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Provides a list of custom terminologies associated with your account.",
+        "operationId": "ListTerminologies",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShineFrontendService_20170701.ListTerminologies"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTerminologiesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTerminologiesResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValueException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterValueException" } }
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSShineFrontendService_20170701.TranslateText": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Translates input text from the source language to the target language. It is not necessary to use English (en) as either the source or the target language but not all language combinations are supported by Amazon Translate. For more information, see <a href=\"http://docs.aws.amazon.com/translate/latest/dg/pairs.html\">Supported Language Pairs</a>.</p> <ul> <li> <p>Arabic (ar)</p> </li> <li> <p>Chinese (Simplified) (zh)</p> </li> <li> <p>Chinese (Traditional) (zh-TW)</p> </li> <li> <p>Czech (cs)</p> </li> <li> <p>Danish (da)</p> </li> <li> <p>Dutch (nl)</p> </li> <li> <p>English (en)</p> </li> <li> <p>Finnish (fi)</p> </li> <li> <p>French (fr)</p> </li> <li> <p>German (de)</p> </li> <li> <p>Hebrew (he)</p> </li> <li> <p>Indonesian (id)</p> </li> <li> <p>Italian (it)</p> </li> <li> <p>Japanese (ja)</p> </li> <li> <p>Korean (ko)</p> </li> <li> <p>Polish (pl)</p> </li> <li> <p>Portuguese (pt)</p> </li> <li> <p>Russian (ru)</p> </li> <li> <p>Spanish (es)</p> </li> <li> <p>Swedish (sv)</p> </li> <li> <p>Turkish (tr)</p> </li> </ul> <p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>",
+        "operationId": "TranslateText",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSShineFrontendService_20170701.TranslateText"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TranslateTextRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TranslateTextResponse" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "TextSizeLimitExceededException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TextSizeLimitExceededException" } }
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "483": {
+            "description": "UnsupportedLanguagePairException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedLanguagePairException" } }
+            }
+          },
+          "484": {
+            "description": "DetectedLanguageLowConfidenceException",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DetectedLanguageLowConfidenceException" }
+              }
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "487": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The Amazon Translate multi-region endpoint",
+      "url": "http://translate.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Amazon Translate multi-region endpoint",
+      "url": "https://translate.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Amazon Translate endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://translate.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The Amazon Translate endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://translate.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AppliedTerminology": {
+        "description": "The custom terminology applied to the input text by Amazon Translate for the translated text response. This is optional in the response and will only be present if you specified terminology input in the request. Currently, only one terminology can be applied per TranslateText request.",
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/ResourceName" },
+          "Terms": { "$ref": "#/components/schemas/TermList" }
+        },
+        "type": "object"
+      },
+      "AppliedTerminologyList": { "items": { "$ref": "#/components/schemas/AppliedTerminology" }, "type": "array" },
+      "BoundedLengthString": {
+        "maxLength": 5000,
+        "minLength": 1,
+        "pattern": "[\\P{M}\\p{M}]{1,5000}",
+        "type": "string"
+      },
+      "DeleteTerminologyRequest": {
+        "properties": { "Name": { "$ref": "#/components/schemas/ResourceName" } },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "Description": { "maxLength": 256, "pattern": "[\\P{M}\\p{M}]{0,256}", "type": "string" },
+      "DetectedLanguageLowConfidenceException": {},
+      "EncryptionKey": {
+        "description": "The encryption key used to encrypt the custom terminologies used by Amazon Translate.",
+        "properties": {
+          "Id": { "$ref": "#/components/schemas/EncryptionKeyID" },
+          "Type": { "$ref": "#/components/schemas/EncryptionKeyType" }
+        },
+        "required": ["Type", "Id"],
+        "type": "object"
+      },
+      "EncryptionKeyID": {
+        "maxLength": 400,
+        "minLength": 1,
+        "pattern": "(arn:aws((-us-gov)|(-cn))?:kms:)?([a-z]{2}-[a-z]+-\\d:)?(\\d{12}:)?(((key/)?[a-zA-Z0-9-_]+)|(alias/[a-zA-Z0-9:/_-]+))",
+        "type": "string"
+      },
+      "EncryptionKeyType": { "enum": ["KMS"], "type": "string" },
+      "GetTerminologyRequest": {
+        "properties": {
+          "Name": { "$ref": "#/components/schemas/ResourceName" },
+          "TerminologyDataFormat": { "$ref": "#/components/schemas/TerminologyDataFormat" }
+        },
+        "required": ["Name", "TerminologyDataFormat"],
+        "type": "object"
+      },
+      "GetTerminologyResponse": {
+        "properties": {
+          "TerminologyDataLocation": { "$ref": "#/components/schemas/TerminologyDataLocation" },
+          "TerminologyProperties": { "$ref": "#/components/schemas/TerminologyProperties" }
+        },
+        "type": "object"
+      },
+      "ImportTerminologyRequest": {
+        "properties": {
+          "Description": { "$ref": "#/components/schemas/Description" },
+          "EncryptionKey": { "$ref": "#/components/schemas/EncryptionKey" },
+          "MergeStrategy": { "$ref": "#/components/schemas/MergeStrategy" },
+          "Name": { "$ref": "#/components/schemas/ResourceName" },
+          "TerminologyData": { "$ref": "#/components/schemas/TerminologyData" }
+        },
+        "required": ["Name", "MergeStrategy", "TerminologyData"],
+        "type": "object"
+      },
+      "ImportTerminologyResponse": {
+        "properties": { "TerminologyProperties": { "$ref": "#/components/schemas/TerminologyProperties" } },
+        "type": "object"
+      },
+      "Integer": { "type": "integer" },
+      "InternalServerException": {},
+      "InvalidParameterValueException": {},
+      "InvalidRequestException": {},
+      "LanguageCodeString": { "maxLength": 5, "minLength": 2, "type": "string" },
+      "LanguageCodeStringList": { "items": { "$ref": "#/components/schemas/LanguageCodeString" }, "type": "array" },
+      "LimitExceededException": {},
+      "ListTerminologiesRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResultsInteger" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListTerminologiesResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "TerminologyPropertiesList": { "$ref": "#/components/schemas/TerminologyPropertiesList" }
+        },
+        "type": "object"
+      },
+      "MaxResultsInteger": { "maximum": 500, "minimum": 1, "type": "integer" },
+      "MergeStrategy": { "enum": ["OVERWRITE"], "type": "string" },
+      "NextToken": { "maxLength": 8192, "pattern": "\\p{ASCII}{0,8192}", "type": "string" },
+      "ResourceName": { "maxLength": 256, "minLength": 1, "pattern": "^([A-Za-z0-9-]_?)+$", "type": "string" },
+      "ResourceNameList": { "items": { "$ref": "#/components/schemas/ResourceName" }, "type": "array" },
+      "ResourceNotFoundException": {},
+      "ServiceUnavailableException": {},
+      "String": { "maxLength": 10000, "pattern": "[\\P{M}\\p{M}]{0,10000}", "type": "string" },
+      "Term": {
+        "description": "The term being translated by the custom terminology.",
+        "properties": {
+          "SourceText": { "$ref": "#/components/schemas/String" },
+          "TargetText": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "TermList": { "items": { "$ref": "#/components/schemas/Term" }, "type": "array" },
+      "TerminologyArn": {
+        "pattern": "^arn:aws((-us-gov)|(-cn))?:translate:[a-zA-Z0-9-]+:[0-9]{12}:terminology/.+?/.+?$",
+        "type": "string"
+      },
+      "TerminologyData": {
+        "description": "The data associated with the custom terminology.",
+        "properties": {
+          "File": { "$ref": "#/components/schemas/TerminologyFile" },
+          "Format": { "$ref": "#/components/schemas/TerminologyDataFormat" }
+        },
+        "required": ["File", "Format"],
+        "type": "object"
+      },
+      "TerminologyDataFormat": { "enum": ["CSV", "TMX"], "type": "string" },
+      "TerminologyDataLocation": {
+        "description": "The location of the custom terminology data.",
+        "properties": {
+          "Location": { "$ref": "#/components/schemas/String" },
+          "RepositoryType": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["RepositoryType", "Location"],
+        "type": "object"
+      },
+      "TerminologyFile": { "format": "password", "maxLength": 10485760, "type": "string" },
+      "TerminologyProperties": {
+        "description": "The properties of the custom terminology.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/TerminologyArn" },
+          "CreatedAt": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/Description" },
+          "EncryptionKey": { "$ref": "#/components/schemas/EncryptionKey" },
+          "LastUpdatedAt": { "$ref": "#/components/schemas/Timestamp" },
+          "Name": { "$ref": "#/components/schemas/ResourceName" },
+          "SizeBytes": { "$ref": "#/components/schemas/Integer" },
+          "SourceLanguageCode": { "$ref": "#/components/schemas/LanguageCodeString" },
+          "TargetLanguageCodes": { "$ref": "#/components/schemas/LanguageCodeStringList" },
+          "TermCount": { "$ref": "#/components/schemas/Integer" }
+        },
+        "type": "object"
+      },
+      "TerminologyPropertiesList": {
+        "items": { "$ref": "#/components/schemas/TerminologyProperties" },
+        "type": "array"
+      },
+      "TextSizeLimitExceededException": {},
+      "Timestamp": { "format": "date-time", "type": "string" },
+      "TooManyRequestsException": {},
+      "TranslateTextRequest": {
+        "properties": {
+          "SourceLanguageCode": { "$ref": "#/components/schemas/LanguageCodeString" },
+          "TargetLanguageCode": { "$ref": "#/components/schemas/LanguageCodeString" },
+          "TerminologyNames": { "$ref": "#/components/schemas/ResourceNameList" },
+          "Text": { "$ref": "#/components/schemas/BoundedLengthString" }
+        },
+        "required": ["Text", "SourceLanguageCode", "TargetLanguageCode"],
+        "type": "object"
+      },
+      "TranslateTextResponse": {
+        "properties": {
+          "AppliedTerminologies": { "$ref": "#/components/schemas/AppliedTerminologyList" },
+          "SourceLanguageCode": { "$ref": "#/components/schemas/LanguageCodeString" },
+          "TargetLanguageCode": { "$ref": "#/components/schemas/LanguageCodeString" },
+          "TranslatedText": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["TranslatedText", "SourceLanguageCode", "TargetLanguageCode"],
+        "type": "object"
+      },
+      "UnsupportedLanguagePairException": {}
+    }
+  }
+}

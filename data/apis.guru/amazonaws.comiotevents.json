@@ -1,1 +1,1624 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and triggers actions when such events occur. AWS IoT Events API commands enable you to create, read, update and delete inputs and detector models, and to list their versions.","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS IoT Events","version":"2018-07-27","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iotevents-2018-07-27.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"iotevents"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/iotevents/"},"security":[{"hmac":[]}],"paths":{"/detector-models":{"get":{"description":"Lists the detector models you have created. Only the metadata associated with each detector model is returned.","operationId":"ListDetectorModels","parameters":[{"description":"The token for the next set of results.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results to return at one time.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":250}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListDetectorModelsResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a detector model.","operationId":"CreateDetectorModel","requestBody":{"content":{"application/json":{"schema":{"properties":{"detectorModelDefinition":{"description":"Information that defines how a detector operates.","properties":{"initialStateName":{"$ref":"#/components/schemas/StateName"},"states":{"$ref":"#/components/schemas/States"}},"type":"object"},"detectorModelDescription":{"description":"A brief description of the detector model.","maxLength":128,"type":"string"},"detectorModelName":{"description":"The name of the detector model.","maxLength":128,"minLength":1,"pattern":"^[a-zA-Z0-9_-]+$","type":"string"},"key":{"description":"The input attribute key used to identify a device or system in order to create a detector (an instance of the detector model) and then to route each input received to the appropriate detector (instance). This parameter uses a JSON-path expression to specify the attribute-value pair in the message payload of each input that is used to identify the device associated with the input.","maxLength":128,"minLength":1,"pattern":"^((`[\\w\\- ]+`)|([\\w\\-]+))(\\.((`[\\w- ]+`)|([\\w\\-]+)))*$","type":"string"},"roleArn":{"description":"The ARN of the role that grants permission to AWS IoT Events to perform its operations.","maxLength":2048,"minLength":1,"type":"string"},"tags":{"description":"Metadata that can be used to manage the detector model.","items":{"$ref":"#/components/schemas/Tag"},"type":"array"}},"required":["detectorModelName","detectorModelDefinition","roleArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateDetectorModelResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}},"482":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"483":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"485":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"486":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}}},"/detector-models/{detectorModelName}":{"delete":{"description":"Deletes a detector model. Any active instances of the detector model are also deleted.","operationId":"DeleteDetectorModel","parameters":[{"description":"The name of the detector model to be deleted.","in":"path","name":"detectorModelName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}}],"responses":{"204":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteDetectorModelResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"485":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}},"get":{"description":"Describes a detector model. If the <code>\"version\"</code> parameter is not specified, information about the latest version is returned.","operationId":"DescribeDetectorModel","parameters":[{"description":"The name of the detector model.","in":"path","name":"detectorModelName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}},{"description":"The version of the detector model.","in":"query","name":"version","required":false,"schema":{"type":"string","minLength":1,"maxLength":128}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDetectorModelResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"483":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates a detector model. Detectors (instances) spawned by the previous version are deleted and then re-created as new inputs arrive.","operationId":"UpdateDetectorModel","parameters":[{"description":"The name of the detector model that is updated.","in":"path","name":"detectorModelName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"detectorModelDefinition":{"description":"Information that defines how a detector operates.","properties":{"initialStateName":{"$ref":"#/components/schemas/StateName"},"states":{"$ref":"#/components/schemas/States"}},"type":"object"},"detectorModelDescription":{"description":"A brief description of the detector model.","maxLength":128,"type":"string"},"roleArn":{"description":"The ARN of the role that grants permission to AWS IoT Events to perform its operations.","maxLength":2048,"minLength":1,"type":"string"}},"required":["detectorModelDefinition","roleArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateDetectorModelResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"485":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}}},"/detector-models/{detectorModelName}/versions":{"get":{"description":"Lists all the versions of a detector model. Only the metadata associated with each detector model version is returned.","operationId":"ListDetectorModelVersions","parameters":[{"description":"The name of the detector model whose versions are returned.","in":"path","name":"detectorModelName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z0-9_-]+$"}},{"description":"The token for the next set of results.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results to return at one time.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":250}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListDetectorModelVersionsResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"483":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/inputs":{"get":{"description":"Lists the inputs you have created.","operationId":"ListInputs","parameters":[{"description":"The token for the next set of results.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results to return at one time.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":250}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListInputsResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates an input.","operationId":"CreateInput","requestBody":{"content":{"application/json":{"schema":{"properties":{"inputDefinition":{"description":"The definition of the input.","properties":{"attributes":{"$ref":"#/components/schemas/Attributes"}},"type":"object"},"inputDescription":{"description":"A brief description of the input.","maxLength":128,"type":"string"},"inputName":{"description":"The name you want to give to the input.","maxLength":128,"minLength":1,"pattern":"^[a-zA-Z][a-zA-Z0-9_]*$","type":"string"},"tags":{"description":"Metadata that can be used to manage the input.","items":{"$ref":"#/components/schemas/Tag"},"type":"array"}},"required":["inputName","inputDefinition"],"type":"object"}}},"required":true},"responses":{"201":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateInputResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"484":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}}}}},"/inputs/{inputName}":{"delete":{"description":"Deletes an input.","operationId":"DeleteInput","parameters":[{"description":"The name of the input to delete.","in":"path","name":"inputName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z][a-zA-Z0-9_]*$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteInputResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"483":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}}}},"get":{"description":"Describes an input.","operationId":"DescribeInput","parameters":[{"description":"The name of the input.","in":"path","name":"inputName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z][a-zA-Z0-9_]*$"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeInputResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"483":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Updates an input.","operationId":"UpdateInput","parameters":[{"description":"The name of the input you want to update.","in":"path","name":"inputName","required":true,"schema":{"type":"string","minLength":1,"maxLength":128,"pattern":"^[a-zA-Z][a-zA-Z0-9_]*$"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"inputDefinition":{"description":"The definition of the input.","properties":{"attributes":{"$ref":"#/components/schemas/Attributes"}},"type":"object"},"inputDescription":{"description":"A brief description of the input.","maxLength":128,"type":"string"}},"required":["inputDefinition"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateInputResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}}}}},"/logging":{"get":{"description":"Retrieves the current settings of the AWS IoT Events logging options.","operationId":"DescribeLoggingOptions","responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeLoggingOptionsResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"485":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"<p>Sets or updates the AWS IoT Events logging options.</p> <p>If you update the value of any <code>\"loggingOptions\"</code> field, it takes up to one minute for the change to take effect. Also, if you change the policy attached to the role you specified in the <code>\"roleArn\"</code> field (for example, to correct an invalid policy) it takes up to five minutes for that change to take effect.</p>","operationId":"PutLoggingOptions","requestBody":{"content":{"application/json":{"schema":{"properties":{"loggingOptions":{"description":"The values of the AWS IoT Events logging options.","properties":{"detectorDebugOptions":{"$ref":"#/components/schemas/DetectorDebugOptions"},"enabled":{"$ref":"#/components/schemas/LoggingEnabled"},"level":{"$ref":"#/components/schemas/LoggingLevel"},"roleArn":{"$ref":"#/components/schemas/AmazonResourceName"}},"type":"object"}},"required":["loggingOptions"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"482":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}},"483":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"484":{"description":"UnsupportedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnsupportedOperationException"}}}},"485":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}}}}},"/tags#resourceArn":{"get":{"description":"Lists the tags (metadata) you have assigned to the resource.","operationId":"ListTagsForResource","parameters":[{"description":"The ARN of the resource.","in":"query","name":"resourceArn","required":true,"schema":{"type":"string","minLength":1,"maxLength":2048}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds to or modifies the tags of the given resource. Tags are metadata that can be used to manage a resource.","operationId":"TagResource","parameters":[{"description":"The ARN of the resource.","in":"query","name":"resourceArn","required":true,"schema":{"type":"string","minLength":1,"maxLength":2048}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"tags":{"description":"The new or modified tags for the resource.","items":{"$ref":"#/components/schemas/Tag"},"type":"array"}},"required":["tags"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagResourceResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"LimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LimitExceededException"}}}},"485":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}}},"/tags#resourceArn&tagKeys":{"delete":{"description":"Removes the given tags (metadata) from the resource.","operationId":"UntagResource","parameters":[{"description":"The ARN of the resource.","in":"query","name":"resourceArn","required":true,"schema":{"type":"string","minLength":1,"maxLength":2048}},{"description":"A list of the keys of the tags to be removed from the resource.","in":"query","name":"tagKeys","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagResourceResponse"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"ResourceInUseException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUseException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalFailureException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalFailureException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]}},"servers":[{"description":"The AWS IoT Events multi-region endpoint","url":"http://iotevents.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS IoT Events multi-region endpoint","url":"https://iotevents.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS IoT Events endpoint for China (Beijing) and China (Ningxia)","url":"http://iotevents.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS IoT Events endpoint for China (Beijing) and China (Ningxia)","url":"https://iotevents.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"Action":{"description":"An action to be performed when the <code>\"condition\"</code> is TRUE.","properties":{"clearTimer":{"$ref":"#/components/schemas/ClearTimerAction"},"firehose":{"$ref":"#/components/schemas/FirehoseAction"},"iotEvents":{"$ref":"#/components/schemas/IotEventsAction"},"iotTopicPublish":{"$ref":"#/components/schemas/IotTopicPublishAction"},"lambda":{"$ref":"#/components/schemas/LambdaAction"},"resetTimer":{"$ref":"#/components/schemas/ResetTimerAction"},"setTimer":{"$ref":"#/components/schemas/SetTimerAction"},"setVariable":{"$ref":"#/components/schemas/SetVariableAction"},"sns":{"$ref":"#/components/schemas/SNSTopicPublishAction"},"sqs":{"$ref":"#/components/schemas/SqsAction"}},"type":"object"},"Actions":{"items":{"$ref":"#/components/schemas/Action"},"type":"array"},"AmazonResourceName":{"maxLength":2048,"minLength":1,"type":"string"},"Attribute":{"description":"The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the <code>condition</code> expressions used by detectors. ","properties":{"jsonPath":{"$ref":"#/components/schemas/AttributeJsonPath"}},"required":["jsonPath"],"type":"object"},"AttributeJsonPath":{"maxLength":128,"minLength":1,"pattern":"^((`[\\w\\- ]+`)|([\\w\\-]+))(\\.((`[\\w- ]+`)|([\\w\\-]+)))*$","type":"string"},"Attributes":{"items":{"$ref":"#/components/schemas/Attribute"},"maxItems":200,"minItems":1,"type":"array"},"ClearTimerAction":{"description":"Information needed to clear the timer.","properties":{"timerName":{"$ref":"#/components/schemas/TimerName"}},"required":["timerName"],"type":"object"},"Condition":{"maxLength":512,"type":"string"},"CreateDetectorModelRequest":{"properties":{"detectorModelDefinition":{"$ref":"#/components/schemas/DetectorModelDefinition"},"detectorModelDescription":{"$ref":"#/components/schemas/DetectorModelDescription"},"detectorModelName":{"$ref":"#/components/schemas/DetectorModelName"},"key":{"$ref":"#/components/schemas/AttributeJsonPath"},"roleArn":{"$ref":"#/components/schemas/AmazonResourceName"},"tags":{"$ref":"#/components/schemas/Tags"}},"required":["detectorModelName","detectorModelDefinition","roleArn"],"type":"object"},"CreateDetectorModelResponse":{"properties":{"detectorModelConfiguration":{"$ref":"#/components/schemas/DetectorModelConfiguration"}},"type":"object"},"CreateInputRequest":{"properties":{"inputDefinition":{"$ref":"#/components/schemas/InputDefinition"},"inputDescription":{"$ref":"#/components/schemas/InputDescription"},"inputName":{"$ref":"#/components/schemas/InputName"},"tags":{"$ref":"#/components/schemas/Tags"}},"required":["inputName","inputDefinition"],"type":"object"},"CreateInputResponse":{"properties":{"inputConfiguration":{"$ref":"#/components/schemas/InputConfiguration"}},"type":"object"},"DeleteDetectorModelRequest":{"properties":{},"type":"object"},"DeleteDetectorModelResponse":{"properties":{},"type":"object"},"DeleteInputRequest":{"properties":{},"type":"object"},"DeleteInputResponse":{"properties":{},"type":"object"},"DeliveryStreamName":{"type":"string"},"DescribeDetectorModelRequest":{"properties":{},"type":"object"},"DescribeDetectorModelResponse":{"properties":{"detectorModel":{"$ref":"#/components/schemas/DetectorModel"}},"type":"object"},"DescribeInputRequest":{"properties":{},"type":"object"},"DescribeInputResponse":{"properties":{"input":{"$ref":"#/components/schemas/Input"}},"type":"object"},"DescribeLoggingOptionsRequest":{"properties":{},"type":"object"},"DescribeLoggingOptionsResponse":{"properties":{"loggingOptions":{"$ref":"#/components/schemas/LoggingOptions"}},"type":"object"},"DetectorDebugOption":{"description":"The detector model and the specific detectors (instances) for which the logging level is given.","properties":{"detectorModelName":{"$ref":"#/components/schemas/DetectorModelName"},"keyValue":{"$ref":"#/components/schemas/KeyValue"}},"required":["detectorModelName"],"type":"object"},"DetectorDebugOptions":{"items":{"$ref":"#/components/schemas/DetectorDebugOption"},"minItems":1,"type":"array"},"DetectorModel":{"description":"Information about the detector model.","properties":{"detectorModelConfiguration":{"$ref":"#/components/schemas/DetectorModelConfiguration"},"detectorModelDefinition":{"$ref":"#/components/schemas/DetectorModelDefinition"}},"type":"object"},"DetectorModelArn":{"type":"string"},"DetectorModelConfiguration":{"description":"Information about how the detector model is configured.","properties":{"creationTime":{"$ref":"#/components/schemas/Timestamp"},"detectorModelArn":{"$ref":"#/components/schemas/DetectorModelArn"},"detectorModelDescription":{"$ref":"#/components/schemas/DetectorModelDescription"},"detectorModelName":{"$ref":"#/components/schemas/DetectorModelName"},"detectorModelVersion":{"$ref":"#/components/schemas/DetectorModelVersion"},"key":{"$ref":"#/components/schemas/AttributeJsonPath"},"lastUpdateTime":{"$ref":"#/components/schemas/Timestamp"},"roleArn":{"$ref":"#/components/schemas/AmazonResourceName"},"status":{"$ref":"#/components/schemas/DetectorModelVersionStatus"}},"type":"object"},"DetectorModelDefinition":{"description":"Information that defines how a detector operates.","properties":{"initialStateName":{"$ref":"#/components/schemas/StateName"},"states":{"$ref":"#/components/schemas/States"}},"required":["states","initialStateName"],"type":"object"},"DetectorModelDescription":{"maxLength":128,"type":"string"},"DetectorModelName":{"maxLength":128,"minLength":1,"pattern":"^[a-zA-Z0-9_-]+$","type":"string"},"DetectorModelSummaries":{"items":{"$ref":"#/components/schemas/DetectorModelSummary"},"type":"array"},"DetectorModelSummary":{"description":"Information about the detector model.","properties":{"creationTime":{"$ref":"#/components/schemas/Timestamp"},"detectorModelDescription":{"$ref":"#/components/schemas/DetectorModelDescription"},"detectorModelName":{"$ref":"#/components/schemas/DetectorModelName"}},"type":"object"},"DetectorModelVersion":{"maxLength":128,"minLength":1,"type":"string"},"DetectorModelVersionStatus":{"enum":["ACTIVE","ACTIVATING","INACTIVE","DEPRECATED","DRAFT","PAUSED","FAILED"],"type":"string"},"DetectorModelVersionSummaries":{"items":{"$ref":"#/components/schemas/DetectorModelVersionSummary"},"type":"array"},"DetectorModelVersionSummary":{"description":"Information about the detector model version.","properties":{"creationTime":{"$ref":"#/components/schemas/Timestamp"},"detectorModelArn":{"$ref":"#/components/schemas/DetectorModelArn"},"detectorModelName":{"$ref":"#/components/schemas/DetectorModelName"},"detectorModelVersion":{"$ref":"#/components/schemas/DetectorModelVersion"},"lastUpdateTime":{"$ref":"#/components/schemas/Timestamp"},"roleArn":{"$ref":"#/components/schemas/AmazonResourceName"},"status":{"$ref":"#/components/schemas/DetectorModelVersionStatus"}},"type":"object"},"Event":{"description":"Specifies the <code>\"actions\"</code> to be performed when the <code>\"condition\"</code> evaluates to TRUE.","properties":{"actions":{"$ref":"#/components/schemas/Actions"},"condition":{"$ref":"#/components/schemas/Condition"},"eventName":{"$ref":"#/components/schemas/EventName"}},"required":["eventName"],"type":"object"},"EventName":{"maxLength":128,"type":"string"},"Events":{"items":{"$ref":"#/components/schemas/Event"},"type":"array"},"FirehoseAction":{"description":"Sends information about the detector model instance and the event which triggered the action to a Kinesis Data Firehose stream.","properties":{"deliveryStreamName":{"$ref":"#/components/schemas/DeliveryStreamName"},"separator":{"$ref":"#/components/schemas/FirehoseSeparator"}},"required":["deliveryStreamName"],"type":"object"},"FirehoseSeparator":{"pattern":"([\\n\\t])|(\\r\\n)|(,)","type":"string"},"Input":{"description":"Information about the input.","properties":{"inputConfiguration":{"$ref":"#/components/schemas/InputConfiguration"},"inputDefinition":{"$ref":"#/components/schemas/InputDefinition"}},"type":"object"},"InputArn":{"type":"string"},"InputConfiguration":{"description":"Information about the configuration of an input.","properties":{"creationTime":{"$ref":"#/components/schemas/Timestamp"},"inputArn":{"$ref":"#/components/schemas/InputArn"},"inputDescription":{"$ref":"#/components/schemas/InputDescription"},"inputName":{"$ref":"#/components/schemas/InputName"},"lastUpdateTime":{"$ref":"#/components/schemas/Timestamp"},"status":{"$ref":"#/components/schemas/InputStatus"}},"required":["inputName","inputArn","creationTime","lastUpdateTime","status"],"type":"object"},"InputDefinition":{"description":"The definition of the input.","properties":{"attributes":{"$ref":"#/components/schemas/Attributes"}},"required":["attributes"],"type":"object"},"InputDescription":{"maxLength":128,"type":"string"},"InputName":{"maxLength":128,"minLength":1,"pattern":"^[a-zA-Z][a-zA-Z0-9_]*$","type":"string"},"InputStatus":{"enum":["CREATING","UPDATING","ACTIVE","DELETING"],"type":"string"},"InputSummaries":{"items":{"$ref":"#/components/schemas/InputSummary"},"type":"array"},"InputSummary":{"description":"Information about the input.","properties":{"creationTime":{"$ref":"#/components/schemas/Timestamp"},"inputArn":{"$ref":"#/components/schemas/InputArn"},"inputDescription":{"$ref":"#/components/schemas/InputDescription"},"inputName":{"$ref":"#/components/schemas/InputName"},"lastUpdateTime":{"$ref":"#/components/schemas/Timestamp"},"status":{"$ref":"#/components/schemas/InputStatus"}},"type":"object"},"InternalFailureException":{},"InvalidRequestException":{},"IotEventsAction":{"description":"Sends an IoT Events input, passing in information about the detector model instance and the event which triggered the action.","properties":{"inputName":{"$ref":"#/components/schemas/InputName"}},"required":["inputName"],"type":"object"},"IotTopicPublishAction":{"description":"Information required to publish the MQTT message via the AWS IoT message broker.","properties":{"mqttTopic":{"$ref":"#/components/schemas/MQTTTopic"}},"required":["mqttTopic"],"type":"object"},"KeyValue":{"maxLength":128,"minLength":1,"pattern":"^[a-zA-Z0-9\\-_:]+$","type":"string"},"LambdaAction":{"description":"Calls a Lambda function, passing in information about the detector model instance and the event which triggered the action.","properties":{"functionArn":{"$ref":"#/components/schemas/AmazonResourceName"}},"required":["functionArn"],"type":"object"},"LimitExceededException":{},"ListDetectorModelVersionsRequest":{"properties":{},"type":"object"},"ListDetectorModelVersionsResponse":{"properties":{"detectorModelVersionSummaries":{"$ref":"#/components/schemas/DetectorModelVersionSummaries"},"nextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListDetectorModelsRequest":{"properties":{},"type":"object"},"ListDetectorModelsResponse":{"properties":{"detectorModelSummaries":{"$ref":"#/components/schemas/DetectorModelSummaries"},"nextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListInputsRequest":{"properties":{},"type":"object"},"ListInputsResponse":{"properties":{"inputSummaries":{"$ref":"#/components/schemas/InputSummaries"},"nextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListTagsForResourceRequest":{"properties":{},"type":"object"},"ListTagsForResourceResponse":{"properties":{"tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"LoggingEnabled":{"type":"boolean"},"LoggingLevel":{"enum":["ERROR","INFO","DEBUG"],"type":"string"},"LoggingOptions":{"description":"The values of the AWS IoT Events logging options.","properties":{"detectorDebugOptions":{"$ref":"#/components/schemas/DetectorDebugOptions"},"enabled":{"$ref":"#/components/schemas/LoggingEnabled"},"level":{"$ref":"#/components/schemas/LoggingLevel"},"roleArn":{"$ref":"#/components/schemas/AmazonResourceName"}},"required":["roleArn","level","enabled"],"type":"object"},"MQTTTopic":{"maxLength":128,"minLength":1,"type":"string"},"MaxResults":{"maximum":250,"minimum":1,"type":"integer"},"NextToken":{"type":"string"},"OnEnterLifecycle":{"description":"When entering this state, perform these <code>actions</code> if the <code>condition</code> is TRUE.","properties":{"events":{"$ref":"#/components/schemas/Events"}},"type":"object"},"OnExitLifecycle":{"description":"When exiting this state, perform these <code>\"actions\"</code> if the specified <code>\"condition\"</code> is TRUE.","properties":{"events":{"$ref":"#/components/schemas/Events"}},"type":"object"},"OnInputLifecycle":{"description":"Specifies the actions performed when the <code>\"condition\"</code> evaluates to TRUE.","properties":{"events":{"$ref":"#/components/schemas/Events"},"transitionEvents":{"$ref":"#/components/schemas/TransitionEvents"}},"type":"object"},"PutLoggingOptionsRequest":{"properties":{"loggingOptions":{"$ref":"#/components/schemas/LoggingOptions"}},"required":["loggingOptions"],"type":"object"},"QueueUrl":{"type":"string"},"ResetTimerAction":{"description":"Information needed to reset the timer.","properties":{"timerName":{"$ref":"#/components/schemas/TimerName"}},"required":["timerName"],"type":"object"},"ResourceAlreadyExistsException":{},"ResourceInUseException":{},"ResourceNotFoundException":{},"SNSTopicPublishAction":{"description":"Information required to publish the Amazon SNS message.","properties":{"targetArn":{"$ref":"#/components/schemas/AmazonResourceName"}},"required":["targetArn"],"type":"object"},"Seconds":{"type":"integer"},"ServiceUnavailableException":{},"SetTimerAction":{"description":"Information needed to set the timer.","properties":{"seconds":{"$ref":"#/components/schemas/Seconds"},"timerName":{"$ref":"#/components/schemas/TimerName"}},"required":["timerName","seconds"],"type":"object"},"SetVariableAction":{"description":"Information about the variable and its new value.","properties":{"value":{"$ref":"#/components/schemas/VariableValue"},"variableName":{"$ref":"#/components/schemas/VariableName"}},"required":["variableName","value"],"type":"object"},"SqsAction":{"description":"Sends information about the detector model instance and the event which triggered the action to an AWS SQS queue.","properties":{"queueUrl":{"$ref":"#/components/schemas/QueueUrl"},"useBase64":{"$ref":"#/components/schemas/UseBase64"}},"required":["queueUrl"],"type":"object"},"State":{"description":"Information that defines a state of a detector.","properties":{"onEnter":{"$ref":"#/components/schemas/OnEnterLifecycle"},"onExit":{"$ref":"#/components/schemas/OnExitLifecycle"},"onInput":{"$ref":"#/components/schemas/OnInputLifecycle"},"stateName":{"$ref":"#/components/schemas/StateName"}},"required":["stateName"],"type":"object"},"StateName":{"maxLength":128,"minLength":1,"type":"string"},"States":{"items":{"$ref":"#/components/schemas/State"},"minItems":1,"type":"array"},"Tag":{"description":"Metadata that can be used to manage the resource.","properties":{"key":{"$ref":"#/components/schemas/TagKey"},"value":{"$ref":"#/components/schemas/TagValue"}},"required":["key","value"],"type":"object"},"TagKey":{"maxLength":128,"minLength":1,"type":"string"},"TagKeys":{"items":{"$ref":"#/components/schemas/TagKey"},"type":"array"},"TagResourceRequest":{"properties":{"tags":{"$ref":"#/components/schemas/Tags"}},"required":["tags"],"type":"object"},"TagResourceResponse":{"properties":{},"type":"object"},"TagValue":{"maxLength":256,"minLength":0,"type":"string"},"Tags":{"items":{"$ref":"#/components/schemas/Tag"},"type":"array"},"ThrottlingException":{},"TimerName":{"maxLength":128,"minLength":1,"type":"string"},"Timestamp":{"format":"date-time","type":"string"},"TransitionEvent":{"description":"Specifies the actions performed and the next state entered when a <code>\"condition\"</code> evaluates to TRUE.","properties":{"actions":{"$ref":"#/components/schemas/Actions"},"condition":{"$ref":"#/components/schemas/Condition"},"eventName":{"$ref":"#/components/schemas/EventName"},"nextState":{"$ref":"#/components/schemas/StateName"}},"required":["eventName","condition","nextState"],"type":"object"},"TransitionEvents":{"items":{"$ref":"#/components/schemas/TransitionEvent"},"type":"array"},"UnsupportedOperationException":{},"UntagResourceRequest":{"properties":{},"type":"object"},"UntagResourceResponse":{"properties":{},"type":"object"},"UpdateDetectorModelRequest":{"properties":{"detectorModelDefinition":{"$ref":"#/components/schemas/DetectorModelDefinition"},"detectorModelDescription":{"$ref":"#/components/schemas/DetectorModelDescription"},"roleArn":{"$ref":"#/components/schemas/AmazonResourceName"}},"required":["detectorModelDefinition","roleArn"],"type":"object"},"UpdateDetectorModelResponse":{"properties":{"detectorModelConfiguration":{"$ref":"#/components/schemas/DetectorModelConfiguration"}},"type":"object"},"UpdateInputRequest":{"properties":{"inputDefinition":{"$ref":"#/components/schemas/InputDefinition"},"inputDescription":{"$ref":"#/components/schemas/InputDescription"}},"required":["inputDefinition"],"type":"object"},"UpdateInputResponse":{"properties":{"inputConfiguration":{"$ref":"#/components/schemas/InputConfiguration"}},"type":"object"},"UseBase64":{"type":"boolean"},"VariableName":{"maxLength":128,"minLength":1,"pattern":"^[a-zA-Z][a-zA-Z0-9_]*$","type":"string"},"VariableValue":{"maxLength":1024,"minLength":1,"type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and triggers actions when such events occur. AWS IoT Events API commands enable you to create, read, update and delete inputs and detector models, and to list their versions.",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT Events",
+    "version": "2018-07-27",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iotevents-2018-07-27.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iotevents"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iotevents/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/detector-models": {
+      "get": {
+        "description": "Lists the detector models you have created. Only the metadata associated with each detector model is returned.",
+        "operationId": "ListDetectorModels",
+        "parameters": [
+          {
+            "description": "The token for the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The maximum number of results to return at one time.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 250 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListDetectorModelsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a detector model.",
+        "operationId": "CreateDetectorModel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detectorModelDefinition": {
+                    "description": "Information that defines how a detector operates.",
+                    "properties": {
+                      "initialStateName": { "$ref": "#/components/schemas/StateName" },
+                      "states": { "$ref": "#/components/schemas/States" }
+                    },
+                    "type": "object"
+                  },
+                  "detectorModelDescription": {
+                    "description": "A brief description of the detector model.",
+                    "maxLength": 128,
+                    "type": "string"
+                  },
+                  "detectorModelName": {
+                    "description": "The name of the detector model.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z0-9_-]+$",
+                    "type": "string"
+                  },
+                  "key": {
+                    "description": "The input attribute key used to identify a device or system in order to create a detector (an instance of the detector model) and then to route each input received to the appropriate detector (instance). This parameter uses a JSON-path expression to specify the attribute-value pair in the message payload of each input that is used to identify the device associated with the input.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "^((`[\\w\\- ]+`)|([\\w\\-]+))(\\.((`[\\w- ]+`)|([\\w\\-]+)))*$",
+                    "type": "string"
+                  },
+                  "roleArn": {
+                    "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations.",
+                    "maxLength": 2048,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "tags": {
+                    "description": "Metadata that can be used to manage the detector model.",
+                    "items": { "$ref": "#/components/schemas/Tag" },
+                    "type": "array"
+                  }
+                },
+                "required": ["detectorModelName", "detectorModelDefinition", "roleArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateDetectorModelResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "482": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      }
+    },
+    "/detector-models/{detectorModelName}": {
+      "delete": {
+        "description": "Deletes a detector model. Any active instances of the detector model are also deleted.",
+        "operationId": "DeleteDetectorModel",
+        "parameters": [
+          {
+            "description": "The name of the detector model to be deleted.",
+            "in": "path",
+            "name": "detectorModelName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeleteDetectorModelResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Describes a detector model. If the <code>\"version\"</code> parameter is not specified, information about the latest version is returned.",
+        "operationId": "DescribeDetectorModel",
+        "parameters": [
+          {
+            "description": "The name of the detector model.",
+            "in": "path",
+            "name": "detectorModelName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          },
+          {
+            "description": "The version of the detector model.",
+            "in": "query",
+            "name": "version",
+            "required": false,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDetectorModelResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates a detector model. Detectors (instances) spawned by the previous version are deleted and then re-created as new inputs arrive.",
+        "operationId": "UpdateDetectorModel",
+        "parameters": [
+          {
+            "description": "The name of the detector model that is updated.",
+            "in": "path",
+            "name": "detectorModelName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detectorModelDefinition": {
+                    "description": "Information that defines how a detector operates.",
+                    "properties": {
+                      "initialStateName": { "$ref": "#/components/schemas/StateName" },
+                      "states": { "$ref": "#/components/schemas/States" }
+                    },
+                    "type": "object"
+                  },
+                  "detectorModelDescription": {
+                    "description": "A brief description of the detector model.",
+                    "maxLength": 128,
+                    "type": "string"
+                  },
+                  "roleArn": {
+                    "description": "The ARN of the role that grants permission to AWS IoT Events to perform its operations.",
+                    "maxLength": 2048,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": ["detectorModelDefinition", "roleArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateDetectorModelResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      }
+    },
+    "/detector-models/{detectorModelName}/versions": {
+      "get": {
+        "description": "Lists all the versions of a detector model. Only the metadata associated with each detector model version is returned.",
+        "operationId": "ListDetectorModelVersions",
+        "parameters": [
+          {
+            "description": "The name of the detector model whose versions are returned.",
+            "in": "path",
+            "name": "detectorModelName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_-]+$" }
+          },
+          {
+            "description": "The token for the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The maximum number of results to return at one time.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 250 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListDetectorModelVersionsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/inputs": {
+      "get": {
+        "description": "Lists the inputs you have created.",
+        "operationId": "ListInputs",
+        "parameters": [
+          {
+            "description": "The token for the next set of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The maximum number of results to return at one time.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 250 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListInputsResponse" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates an input.",
+        "operationId": "CreateInput",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "inputDefinition": {
+                    "description": "The definition of the input.",
+                    "properties": { "attributes": { "$ref": "#/components/schemas/Attributes" } },
+                    "type": "object"
+                  },
+                  "inputDescription": {
+                    "description": "A brief description of the input.",
+                    "maxLength": 128,
+                    "type": "string"
+                  },
+                  "inputName": {
+                    "description": "The name you want to give to the input.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "description": "Metadata that can be used to manage the input.",
+                    "items": { "$ref": "#/components/schemas/Tag" },
+                    "type": "array"
+                  }
+                },
+                "required": ["inputName", "inputDefinition"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateInputResponse" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          }
+        }
+      }
+    },
+    "/inputs/{inputName}": {
+      "delete": {
+        "description": "Deletes an input.",
+        "operationId": "DeleteInput",
+        "parameters": [
+          {
+            "description": "The name of the input to delete.",
+            "in": "path",
+            "name": "inputName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteInputResponse" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Describes an input.",
+        "operationId": "DescribeInput",
+        "parameters": [
+          {
+            "description": "The name of the input.",
+            "in": "path",
+            "name": "inputName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeInputResponse" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Updates an input.",
+        "operationId": "UpdateInput",
+        "parameters": [
+          {
+            "description": "The name of the input you want to update.",
+            "in": "path",
+            "name": "inputName",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "inputDefinition": {
+                    "description": "The definition of the input.",
+                    "properties": { "attributes": { "$ref": "#/components/schemas/Attributes" } },
+                    "type": "object"
+                  },
+                  "inputDescription": {
+                    "description": "A brief description of the input.",
+                    "maxLength": 128,
+                    "type": "string"
+                  }
+                },
+                "required": ["inputDefinition"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateInputResponse" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/logging": {
+      "get": {
+        "description": "Retrieves the current settings of the AWS IoT Events logging options.",
+        "operationId": "DescribeLoggingOptions",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeLoggingOptionsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "485": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "<p>Sets or updates the AWS IoT Events logging options.</p> <p>If you update the value of any <code>\"loggingOptions\"</code> field, it takes up to one minute for the change to take effect. Also, if you change the policy attached to the role you specified in the <code>\"roleArn\"</code> field (for example, to correct an invalid policy) it takes up to five minutes for that change to take effect.</p>",
+        "operationId": "PutLoggingOptions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "loggingOptions": {
+                    "description": "The values of the AWS IoT Events logging options.",
+                    "properties": {
+                      "detectorDebugOptions": { "$ref": "#/components/schemas/DetectorDebugOptions" },
+                      "enabled": { "$ref": "#/components/schemas/LoggingEnabled" },
+                      "level": { "$ref": "#/components/schemas/LoggingLevel" },
+                      "roleArn": { "$ref": "#/components/schemas/AmazonResourceName" }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": ["loggingOptions"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "484": {
+            "description": "UnsupportedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnsupportedOperationException" } }
+            }
+          },
+          "485": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          }
+        }
+      }
+    },
+    "/tags#resourceArn": {
+      "get": {
+        "description": "Lists the tags (metadata) you have assigned to the resource.",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "query",
+            "name": "resourceArn",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 2048 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds to or modifies the tags of the given resource. Tags are metadata that can be used to manage a resource.",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "query",
+            "name": "resourceArn",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 2048 }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tags": {
+                    "description": "The new or modified tags for the resource.",
+                    "items": { "$ref": "#/components/schemas/Tag" },
+                    "type": "array"
+                  }
+                },
+                "required": ["tags"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagResourceResponse" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LimitExceededException" } } }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      }
+    },
+    "/tags#resourceArn&tagKeys": {
+      "delete": {
+        "description": "Removes the given tags (metadata) from the resource.",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "description": "The ARN of the resource.",
+            "in": "query",
+            "name": "resourceArn",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 2048 }
+          },
+          {
+            "description": "A list of the keys of the tags to be removed from the resource.",
+            "in": "query",
+            "name": "tagKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagResourceResponse" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "ResourceInUseException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUseException" } } }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalFailureException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS IoT Events multi-region endpoint",
+      "url": "http://iotevents.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS IoT Events multi-region endpoint",
+      "url": "https://iotevents.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS IoT Events endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://iotevents.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS IoT Events endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://iotevents.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "Action": {
+        "description": "An action to be performed when the <code>\"condition\"</code> is TRUE.",
+        "properties": {
+          "clearTimer": { "$ref": "#/components/schemas/ClearTimerAction" },
+          "firehose": { "$ref": "#/components/schemas/FirehoseAction" },
+          "iotEvents": { "$ref": "#/components/schemas/IotEventsAction" },
+          "iotTopicPublish": { "$ref": "#/components/schemas/IotTopicPublishAction" },
+          "lambda": { "$ref": "#/components/schemas/LambdaAction" },
+          "resetTimer": { "$ref": "#/components/schemas/ResetTimerAction" },
+          "setTimer": { "$ref": "#/components/schemas/SetTimerAction" },
+          "setVariable": { "$ref": "#/components/schemas/SetVariableAction" },
+          "sns": { "$ref": "#/components/schemas/SNSTopicPublishAction" },
+          "sqs": { "$ref": "#/components/schemas/SqsAction" }
+        },
+        "type": "object"
+      },
+      "Actions": { "items": { "$ref": "#/components/schemas/Action" }, "type": "array" },
+      "AmazonResourceName": { "maxLength": 2048, "minLength": 1, "type": "string" },
+      "Attribute": {
+        "description": "The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the <code>condition</code> expressions used by detectors. ",
+        "properties": { "jsonPath": { "$ref": "#/components/schemas/AttributeJsonPath" } },
+        "required": ["jsonPath"],
+        "type": "object"
+      },
+      "AttributeJsonPath": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^((`[\\w\\- ]+`)|([\\w\\-]+))(\\.((`[\\w- ]+`)|([\\w\\-]+)))*$",
+        "type": "string"
+      },
+      "Attributes": {
+        "items": { "$ref": "#/components/schemas/Attribute" },
+        "maxItems": 200,
+        "minItems": 1,
+        "type": "array"
+      },
+      "ClearTimerAction": {
+        "description": "Information needed to clear the timer.",
+        "properties": { "timerName": { "$ref": "#/components/schemas/TimerName" } },
+        "required": ["timerName"],
+        "type": "object"
+      },
+      "Condition": { "maxLength": 512, "type": "string" },
+      "CreateDetectorModelRequest": {
+        "properties": {
+          "detectorModelDefinition": { "$ref": "#/components/schemas/DetectorModelDefinition" },
+          "detectorModelDescription": { "$ref": "#/components/schemas/DetectorModelDescription" },
+          "detectorModelName": { "$ref": "#/components/schemas/DetectorModelName" },
+          "key": { "$ref": "#/components/schemas/AttributeJsonPath" },
+          "roleArn": { "$ref": "#/components/schemas/AmazonResourceName" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "required": ["detectorModelName", "detectorModelDefinition", "roleArn"],
+        "type": "object"
+      },
+      "CreateDetectorModelResponse": {
+        "properties": { "detectorModelConfiguration": { "$ref": "#/components/schemas/DetectorModelConfiguration" } },
+        "type": "object"
+      },
+      "CreateInputRequest": {
+        "properties": {
+          "inputDefinition": { "$ref": "#/components/schemas/InputDefinition" },
+          "inputDescription": { "$ref": "#/components/schemas/InputDescription" },
+          "inputName": { "$ref": "#/components/schemas/InputName" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "required": ["inputName", "inputDefinition"],
+        "type": "object"
+      },
+      "CreateInputResponse": {
+        "properties": { "inputConfiguration": { "$ref": "#/components/schemas/InputConfiguration" } },
+        "type": "object"
+      },
+      "DeleteDetectorModelRequest": { "properties": {}, "type": "object" },
+      "DeleteDetectorModelResponse": { "properties": {}, "type": "object" },
+      "DeleteInputRequest": { "properties": {}, "type": "object" },
+      "DeleteInputResponse": { "properties": {}, "type": "object" },
+      "DeliveryStreamName": { "type": "string" },
+      "DescribeDetectorModelRequest": { "properties": {}, "type": "object" },
+      "DescribeDetectorModelResponse": {
+        "properties": { "detectorModel": { "$ref": "#/components/schemas/DetectorModel" } },
+        "type": "object"
+      },
+      "DescribeInputRequest": { "properties": {}, "type": "object" },
+      "DescribeInputResponse": {
+        "properties": { "input": { "$ref": "#/components/schemas/Input" } },
+        "type": "object"
+      },
+      "DescribeLoggingOptionsRequest": { "properties": {}, "type": "object" },
+      "DescribeLoggingOptionsResponse": {
+        "properties": { "loggingOptions": { "$ref": "#/components/schemas/LoggingOptions" } },
+        "type": "object"
+      },
+      "DetectorDebugOption": {
+        "description": "The detector model and the specific detectors (instances) for which the logging level is given.",
+        "properties": {
+          "detectorModelName": { "$ref": "#/components/schemas/DetectorModelName" },
+          "keyValue": { "$ref": "#/components/schemas/KeyValue" }
+        },
+        "required": ["detectorModelName"],
+        "type": "object"
+      },
+      "DetectorDebugOptions": {
+        "items": { "$ref": "#/components/schemas/DetectorDebugOption" },
+        "minItems": 1,
+        "type": "array"
+      },
+      "DetectorModel": {
+        "description": "Information about the detector model.",
+        "properties": {
+          "detectorModelConfiguration": { "$ref": "#/components/schemas/DetectorModelConfiguration" },
+          "detectorModelDefinition": { "$ref": "#/components/schemas/DetectorModelDefinition" }
+        },
+        "type": "object"
+      },
+      "DetectorModelArn": { "type": "string" },
+      "DetectorModelConfiguration": {
+        "description": "Information about how the detector model is configured.",
+        "properties": {
+          "creationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "detectorModelArn": { "$ref": "#/components/schemas/DetectorModelArn" },
+          "detectorModelDescription": { "$ref": "#/components/schemas/DetectorModelDescription" },
+          "detectorModelName": { "$ref": "#/components/schemas/DetectorModelName" },
+          "detectorModelVersion": { "$ref": "#/components/schemas/DetectorModelVersion" },
+          "key": { "$ref": "#/components/schemas/AttributeJsonPath" },
+          "lastUpdateTime": { "$ref": "#/components/schemas/Timestamp" },
+          "roleArn": { "$ref": "#/components/schemas/AmazonResourceName" },
+          "status": { "$ref": "#/components/schemas/DetectorModelVersionStatus" }
+        },
+        "type": "object"
+      },
+      "DetectorModelDefinition": {
+        "description": "Information that defines how a detector operates.",
+        "properties": {
+          "initialStateName": { "$ref": "#/components/schemas/StateName" },
+          "states": { "$ref": "#/components/schemas/States" }
+        },
+        "required": ["states", "initialStateName"],
+        "type": "object"
+      },
+      "DetectorModelDescription": { "maxLength": 128, "type": "string" },
+      "DetectorModelName": { "maxLength": 128, "minLength": 1, "pattern": "^[a-zA-Z0-9_-]+$", "type": "string" },
+      "DetectorModelSummaries": { "items": { "$ref": "#/components/schemas/DetectorModelSummary" }, "type": "array" },
+      "DetectorModelSummary": {
+        "description": "Information about the detector model.",
+        "properties": {
+          "creationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "detectorModelDescription": { "$ref": "#/components/schemas/DetectorModelDescription" },
+          "detectorModelName": { "$ref": "#/components/schemas/DetectorModelName" }
+        },
+        "type": "object"
+      },
+      "DetectorModelVersion": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "DetectorModelVersionStatus": {
+        "enum": ["ACTIVE", "ACTIVATING", "INACTIVE", "DEPRECATED", "DRAFT", "PAUSED", "FAILED"],
+        "type": "string"
+      },
+      "DetectorModelVersionSummaries": {
+        "items": { "$ref": "#/components/schemas/DetectorModelVersionSummary" },
+        "type": "array"
+      },
+      "DetectorModelVersionSummary": {
+        "description": "Information about the detector model version.",
+        "properties": {
+          "creationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "detectorModelArn": { "$ref": "#/components/schemas/DetectorModelArn" },
+          "detectorModelName": { "$ref": "#/components/schemas/DetectorModelName" },
+          "detectorModelVersion": { "$ref": "#/components/schemas/DetectorModelVersion" },
+          "lastUpdateTime": { "$ref": "#/components/schemas/Timestamp" },
+          "roleArn": { "$ref": "#/components/schemas/AmazonResourceName" },
+          "status": { "$ref": "#/components/schemas/DetectorModelVersionStatus" }
+        },
+        "type": "object"
+      },
+      "Event": {
+        "description": "Specifies the <code>\"actions\"</code> to be performed when the <code>\"condition\"</code> evaluates to TRUE.",
+        "properties": {
+          "actions": { "$ref": "#/components/schemas/Actions" },
+          "condition": { "$ref": "#/components/schemas/Condition" },
+          "eventName": { "$ref": "#/components/schemas/EventName" }
+        },
+        "required": ["eventName"],
+        "type": "object"
+      },
+      "EventName": { "maxLength": 128, "type": "string" },
+      "Events": { "items": { "$ref": "#/components/schemas/Event" }, "type": "array" },
+      "FirehoseAction": {
+        "description": "Sends information about the detector model instance and the event which triggered the action to a Kinesis Data Firehose stream.",
+        "properties": {
+          "deliveryStreamName": { "$ref": "#/components/schemas/DeliveryStreamName" },
+          "separator": { "$ref": "#/components/schemas/FirehoseSeparator" }
+        },
+        "required": ["deliveryStreamName"],
+        "type": "object"
+      },
+      "FirehoseSeparator": { "pattern": "([\\n\\t])|(\\r\\n)|(,)", "type": "string" },
+      "Input": {
+        "description": "Information about the input.",
+        "properties": {
+          "inputConfiguration": { "$ref": "#/components/schemas/InputConfiguration" },
+          "inputDefinition": { "$ref": "#/components/schemas/InputDefinition" }
+        },
+        "type": "object"
+      },
+      "InputArn": { "type": "string" },
+      "InputConfiguration": {
+        "description": "Information about the configuration of an input.",
+        "properties": {
+          "creationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "inputArn": { "$ref": "#/components/schemas/InputArn" },
+          "inputDescription": { "$ref": "#/components/schemas/InputDescription" },
+          "inputName": { "$ref": "#/components/schemas/InputName" },
+          "lastUpdateTime": { "$ref": "#/components/schemas/Timestamp" },
+          "status": { "$ref": "#/components/schemas/InputStatus" }
+        },
+        "required": ["inputName", "inputArn", "creationTime", "lastUpdateTime", "status"],
+        "type": "object"
+      },
+      "InputDefinition": {
+        "description": "The definition of the input.",
+        "properties": { "attributes": { "$ref": "#/components/schemas/Attributes" } },
+        "required": ["attributes"],
+        "type": "object"
+      },
+      "InputDescription": { "maxLength": 128, "type": "string" },
+      "InputName": { "maxLength": 128, "minLength": 1, "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$", "type": "string" },
+      "InputStatus": { "enum": ["CREATING", "UPDATING", "ACTIVE", "DELETING"], "type": "string" },
+      "InputSummaries": { "items": { "$ref": "#/components/schemas/InputSummary" }, "type": "array" },
+      "InputSummary": {
+        "description": "Information about the input.",
+        "properties": {
+          "creationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "inputArn": { "$ref": "#/components/schemas/InputArn" },
+          "inputDescription": { "$ref": "#/components/schemas/InputDescription" },
+          "inputName": { "$ref": "#/components/schemas/InputName" },
+          "lastUpdateTime": { "$ref": "#/components/schemas/Timestamp" },
+          "status": { "$ref": "#/components/schemas/InputStatus" }
+        },
+        "type": "object"
+      },
+      "InternalFailureException": {},
+      "InvalidRequestException": {},
+      "IotEventsAction": {
+        "description": "Sends an IoT Events input, passing in information about the detector model instance and the event which triggered the action.",
+        "properties": { "inputName": { "$ref": "#/components/schemas/InputName" } },
+        "required": ["inputName"],
+        "type": "object"
+      },
+      "IotTopicPublishAction": {
+        "description": "Information required to publish the MQTT message via the AWS IoT message broker.",
+        "properties": { "mqttTopic": { "$ref": "#/components/schemas/MQTTTopic" } },
+        "required": ["mqttTopic"],
+        "type": "object"
+      },
+      "KeyValue": { "maxLength": 128, "minLength": 1, "pattern": "^[a-zA-Z0-9\\-_:]+$", "type": "string" },
+      "LambdaAction": {
+        "description": "Calls a Lambda function, passing in information about the detector model instance and the event which triggered the action.",
+        "properties": { "functionArn": { "$ref": "#/components/schemas/AmazonResourceName" } },
+        "required": ["functionArn"],
+        "type": "object"
+      },
+      "LimitExceededException": {},
+      "ListDetectorModelVersionsRequest": { "properties": {}, "type": "object" },
+      "ListDetectorModelVersionsResponse": {
+        "properties": {
+          "detectorModelVersionSummaries": { "$ref": "#/components/schemas/DetectorModelVersionSummaries" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListDetectorModelsRequest": { "properties": {}, "type": "object" },
+      "ListDetectorModelsResponse": {
+        "properties": {
+          "detectorModelSummaries": { "$ref": "#/components/schemas/DetectorModelSummaries" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListInputsRequest": { "properties": {}, "type": "object" },
+      "ListInputsResponse": {
+        "properties": {
+          "inputSummaries": { "$ref": "#/components/schemas/InputSummaries" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListTagsForResourceRequest": { "properties": {}, "type": "object" },
+      "ListTagsForResourceResponse": {
+        "properties": { "tags": { "$ref": "#/components/schemas/Tags" } },
+        "type": "object"
+      },
+      "LoggingEnabled": { "type": "boolean" },
+      "LoggingLevel": { "enum": ["ERROR", "INFO", "DEBUG"], "type": "string" },
+      "LoggingOptions": {
+        "description": "The values of the AWS IoT Events logging options.",
+        "properties": {
+          "detectorDebugOptions": { "$ref": "#/components/schemas/DetectorDebugOptions" },
+          "enabled": { "$ref": "#/components/schemas/LoggingEnabled" },
+          "level": { "$ref": "#/components/schemas/LoggingLevel" },
+          "roleArn": { "$ref": "#/components/schemas/AmazonResourceName" }
+        },
+        "required": ["roleArn", "level", "enabled"],
+        "type": "object"
+      },
+      "MQTTTopic": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "MaxResults": { "maximum": 250, "minimum": 1, "type": "integer" },
+      "NextToken": { "type": "string" },
+      "OnEnterLifecycle": {
+        "description": "When entering this state, perform these <code>actions</code> if the <code>condition</code> is TRUE.",
+        "properties": { "events": { "$ref": "#/components/schemas/Events" } },
+        "type": "object"
+      },
+      "OnExitLifecycle": {
+        "description": "When exiting this state, perform these <code>\"actions\"</code> if the specified <code>\"condition\"</code> is TRUE.",
+        "properties": { "events": { "$ref": "#/components/schemas/Events" } },
+        "type": "object"
+      },
+      "OnInputLifecycle": {
+        "description": "Specifies the actions performed when the <code>\"condition\"</code> evaluates to TRUE.",
+        "properties": {
+          "events": { "$ref": "#/components/schemas/Events" },
+          "transitionEvents": { "$ref": "#/components/schemas/TransitionEvents" }
+        },
+        "type": "object"
+      },
+      "PutLoggingOptionsRequest": {
+        "properties": { "loggingOptions": { "$ref": "#/components/schemas/LoggingOptions" } },
+        "required": ["loggingOptions"],
+        "type": "object"
+      },
+      "QueueUrl": { "type": "string" },
+      "ResetTimerAction": {
+        "description": "Information needed to reset the timer.",
+        "properties": { "timerName": { "$ref": "#/components/schemas/TimerName" } },
+        "required": ["timerName"],
+        "type": "object"
+      },
+      "ResourceAlreadyExistsException": {},
+      "ResourceInUseException": {},
+      "ResourceNotFoundException": {},
+      "SNSTopicPublishAction": {
+        "description": "Information required to publish the Amazon SNS message.",
+        "properties": { "targetArn": { "$ref": "#/components/schemas/AmazonResourceName" } },
+        "required": ["targetArn"],
+        "type": "object"
+      },
+      "Seconds": { "type": "integer" },
+      "ServiceUnavailableException": {},
+      "SetTimerAction": {
+        "description": "Information needed to set the timer.",
+        "properties": {
+          "seconds": { "$ref": "#/components/schemas/Seconds" },
+          "timerName": { "$ref": "#/components/schemas/TimerName" }
+        },
+        "required": ["timerName", "seconds"],
+        "type": "object"
+      },
+      "SetVariableAction": {
+        "description": "Information about the variable and its new value.",
+        "properties": {
+          "value": { "$ref": "#/components/schemas/VariableValue" },
+          "variableName": { "$ref": "#/components/schemas/VariableName" }
+        },
+        "required": ["variableName", "value"],
+        "type": "object"
+      },
+      "SqsAction": {
+        "description": "Sends information about the detector model instance and the event which triggered the action to an AWS SQS queue.",
+        "properties": {
+          "queueUrl": { "$ref": "#/components/schemas/QueueUrl" },
+          "useBase64": { "$ref": "#/components/schemas/UseBase64" }
+        },
+        "required": ["queueUrl"],
+        "type": "object"
+      },
+      "State": {
+        "description": "Information that defines a state of a detector.",
+        "properties": {
+          "onEnter": { "$ref": "#/components/schemas/OnEnterLifecycle" },
+          "onExit": { "$ref": "#/components/schemas/OnExitLifecycle" },
+          "onInput": { "$ref": "#/components/schemas/OnInputLifecycle" },
+          "stateName": { "$ref": "#/components/schemas/StateName" }
+        },
+        "required": ["stateName"],
+        "type": "object"
+      },
+      "StateName": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "States": { "items": { "$ref": "#/components/schemas/State" }, "minItems": 1, "type": "array" },
+      "Tag": {
+        "description": "Metadata that can be used to manage the resource.",
+        "properties": {
+          "key": { "$ref": "#/components/schemas/TagKey" },
+          "value": { "$ref": "#/components/schemas/TagValue" }
+        },
+        "required": ["key", "value"],
+        "type": "object"
+      },
+      "TagKey": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "TagKeys": { "items": { "$ref": "#/components/schemas/TagKey" }, "type": "array" },
+      "TagResourceRequest": {
+        "properties": { "tags": { "$ref": "#/components/schemas/Tags" } },
+        "required": ["tags"],
+        "type": "object"
+      },
+      "TagResourceResponse": { "properties": {}, "type": "object" },
+      "TagValue": { "maxLength": 256, "minLength": 0, "type": "string" },
+      "Tags": { "items": { "$ref": "#/components/schemas/Tag" }, "type": "array" },
+      "ThrottlingException": {},
+      "TimerName": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "Timestamp": { "format": "date-time", "type": "string" },
+      "TransitionEvent": {
+        "description": "Specifies the actions performed and the next state entered when a <code>\"condition\"</code> evaluates to TRUE.",
+        "properties": {
+          "actions": { "$ref": "#/components/schemas/Actions" },
+          "condition": { "$ref": "#/components/schemas/Condition" },
+          "eventName": { "$ref": "#/components/schemas/EventName" },
+          "nextState": { "$ref": "#/components/schemas/StateName" }
+        },
+        "required": ["eventName", "condition", "nextState"],
+        "type": "object"
+      },
+      "TransitionEvents": { "items": { "$ref": "#/components/schemas/TransitionEvent" }, "type": "array" },
+      "UnsupportedOperationException": {},
+      "UntagResourceRequest": { "properties": {}, "type": "object" },
+      "UntagResourceResponse": { "properties": {}, "type": "object" },
+      "UpdateDetectorModelRequest": {
+        "properties": {
+          "detectorModelDefinition": { "$ref": "#/components/schemas/DetectorModelDefinition" },
+          "detectorModelDescription": { "$ref": "#/components/schemas/DetectorModelDescription" },
+          "roleArn": { "$ref": "#/components/schemas/AmazonResourceName" }
+        },
+        "required": ["detectorModelDefinition", "roleArn"],
+        "type": "object"
+      },
+      "UpdateDetectorModelResponse": {
+        "properties": { "detectorModelConfiguration": { "$ref": "#/components/schemas/DetectorModelConfiguration" } },
+        "type": "object"
+      },
+      "UpdateInputRequest": {
+        "properties": {
+          "inputDefinition": { "$ref": "#/components/schemas/InputDefinition" },
+          "inputDescription": { "$ref": "#/components/schemas/InputDescription" }
+        },
+        "required": ["inputDefinition"],
+        "type": "object"
+      },
+      "UpdateInputResponse": {
+        "properties": { "inputConfiguration": { "$ref": "#/components/schemas/InputConfiguration" } },
+        "type": "object"
+      },
+      "UseBase64": { "type": "boolean" },
+      "VariableName": { "maxLength": 128, "minLength": 1, "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$", "type": "string" },
+      "VariableValue": { "maxLength": 1024, "minLength": 1, "type": "string" }
+    }
+  }
+}

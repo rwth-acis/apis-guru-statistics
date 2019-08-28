@@ -1,1 +1,1696 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to eight healthy records. ","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS Cloud Map","version":"2017-03-14","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/servicediscovery-2017-03-14.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"servicediscovery"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/servicediscovery/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=Route53AutoNaming_v20170314.CreateHttpNamespace":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a <code>DiscoverInstances</code> request but can't be discovered using DNS. </p> <p>For the current limit on the number of namespaces that you can create using the same AWS account, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>","operationId":"CreateHttpNamespace","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.CreateHttpNamespace"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateHttpNamespaceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateHttpNamespaceResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"NamespaceAlreadyExists","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NamespaceAlreadyExists"}}}},"482":{"description":"ResourceLimitExceeded","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceeded"}}}},"483":{"description":"DuplicateRequest","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DuplicateRequest"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.CreatePrivateDnsNamespace":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for the service will be <code>backend.example.com</code>. For the current limit on the number of namespaces that you can create using the same AWS account, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.","operationId":"CreatePrivateDnsNamespace","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.CreatePrivateDnsNamespace"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePrivateDnsNamespaceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePrivateDnsNamespaceResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"NamespaceAlreadyExists","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NamespaceAlreadyExists"}}}},"482":{"description":"ResourceLimitExceeded","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceeded"}}}},"483":{"description":"DuplicateRequest","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DuplicateRequest"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.CreatePublicDnsNamespace":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for the service will be <code>backend.example.com</code>. For the current limit on the number of namespaces that you can create using the same AWS account, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.","operationId":"CreatePublicDnsNamespace","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.CreatePublicDnsNamespace"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePublicDnsNamespaceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePublicDnsNamespaceResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"NamespaceAlreadyExists","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NamespaceAlreadyExists"}}}},"482":{"description":"ResourceLimitExceeded","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceeded"}}}},"483":{"description":"DuplicateRequest","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DuplicateRequest"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.CreateService":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Creates a service, which defines the configuration for the following entities:</p> <ul> <li> <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p> <ul> <li> <p>A</p> </li> <li> <p>AAAA</p> </li> <li> <p>A and AAAA</p> </li> <li> <p>SRV</p> </li> <li> <p>CNAME</p> </li> </ul> </li> <li> <p>Optionally, a health check</p> </li> </ul> <p>After you create the service, you can submit a <a>RegisterInstance</a> request, and AWS Cloud Map uses the values in the configuration to create the specified entities.</p> <p>For the current limit on the number of instances that you can register using the same namespace and using the same service, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>","operationId":"CreateService","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.CreateService"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateServiceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateServiceResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"ResourceLimitExceeded","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceeded"}}}},"482":{"description":"NamespaceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NamespaceNotFound"}}}},"483":{"description":"ServiceAlreadyExists","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceAlreadyExists"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.DeleteNamespace":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a namespace from the current account. If the namespace still contains one or more services, the request fails.","operationId":"DeleteNamespace","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.DeleteNamespace"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteNamespaceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteNamespaceResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"NamespaceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NamespaceNotFound"}}}},"482":{"description":"ResourceInUse","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUse"}}}},"483":{"description":"DuplicateRequest","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DuplicateRequest"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.DeleteService":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a specified service. If the service still contains one or more registered instances, the request fails.","operationId":"DeleteService","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.DeleteService"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteServiceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteServiceResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}},"482":{"description":"ResourceInUse","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUse"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.DeregisterInstance":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified instance.","operationId":"DeregisterInstance","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.DeregisterInstance"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeregisterInstanceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeregisterInstanceResponse"}}}},"480":{"description":"DuplicateRequest","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DuplicateRequest"}}}},"481":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"482":{"description":"InstanceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InstanceNotFound"}}}},"483":{"description":"ResourceInUse","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUse"}}}},"484":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.DiscoverInstances":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Discovers registered instances for a specified namespace and service.","operationId":"DiscoverInstances","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.DiscoverInstances"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DiscoverInstancesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DiscoverInstancesResponse"}}}},"480":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}},"481":{"description":"NamespaceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NamespaceNotFound"}}}},"482":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.GetInstance":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets information about a specified instance.","operationId":"GetInstance","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.GetInstance"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetInstanceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetInstanceResponse"}}}},"480":{"description":"InstanceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InstanceNotFound"}}}},"481":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"482":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.GetInstancesHealthStatus":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or more instances that are associated with a specified service.</p> <note> <p>There is a brief delay between when you register an instance and when the health status for the instance is available. </p> </note>","operationId":"GetInstancesHealthStatus","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.GetInstancesHealthStatus"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetInstancesHealthStatusRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetInstancesHealthStatusResponse"}}}},"480":{"description":"InstanceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InstanceNotFound"}}}},"481":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"482":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.GetNamespace":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets information about a namespace.","operationId":"GetNamespace","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.GetNamespace"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetNamespaceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetNamespaceResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"NamespaceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NamespaceNotFound"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.GetOperation":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Gets information about any operation that returns an operation ID in the response, such as a <code>CreateService</code> request.</p> <note> <p>To get a list of operations that match specified criteria, see <a>ListOperations</a>.</p> </note>","operationId":"GetOperation","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.GetOperation"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetOperationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetOperationResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"OperationNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotFound"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.GetService":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets the settings for a specified service.","operationId":"GetService","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.GetService"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetServiceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetServiceResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"481":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.ListInstances":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists summary information about the instances that you registered by using a specified service.","operationId":"ListInstances","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.ListInstances"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListInstancesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListInstancesResponse"}}}},"480":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}},"481":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.ListNamespaces":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists summary information about the namespaces that were created by the current AWS account.","operationId":"ListNamespaces","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.ListNamespaces"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListNamespacesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListNamespacesResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.ListOperations":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists operations that match the criteria that you specify.","operationId":"ListOperations","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.ListOperations"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListOperationsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListOperationsResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.ListServices":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists summary information for all the services that are associated with one or more specified namespaces.","operationId":"ListServices","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.ListServices"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServicesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServicesResponse"}}}},"480":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.RegisterInstance":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a specified service. When you submit a <code>RegisterInstance</code> request, the following occurs:</p> <ul> <li> <p>For each DNS record that you define in the service that is specified by <code>ServiceId</code>, a record is created or updated in the hosted zone that is associated with the corresponding namespace.</p> </li> <li> <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings in the health check configuration.</p> </li> <li> <p>The health check, if any, is associated with each of the new or updated records.</p> </li> </ul> <important> <p>One <code>RegisterInstance</code> request must complete before you can submit another request and specify the same service ID and instance ID.</p> </important> <p>For more information, see <a>CreateService</a>.</p> <p>When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p> <ul> <li> <p> <b>If the health check is healthy</b>: returns all the records</p> </li> <li> <p> <b>If the health check is unhealthy</b>: returns the applicable value for the last healthy instance</p> </li> <li> <p> <b>If you didn't specify a health check configuration</b>: returns all the records</p> </li> </ul> <p>For the current limit on the number of instances that you can register using the same namespace and using the same service, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>","operationId":"RegisterInstance","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.RegisterInstance"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/RegisterInstanceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RegisterInstanceResponse"}}}},"480":{"description":"DuplicateRequest","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DuplicateRequest"}}}},"481":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"482":{"description":"ResourceInUse","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceInUse"}}}},"483":{"description":"ResourceLimitExceeded","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceeded"}}}},"484":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p> <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks, which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p> <p>For more information, see <a>HealthCheckCustomConfig</a>.</p>","operationId":"UpdateInstanceCustomHealthStatus","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateInstanceCustomHealthStatusRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"InstanceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InstanceNotFound"}}}},"481":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}},"482":{"description":"CustomHealthNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CustomHealthNotFound"}}}},"483":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}}}}},"/#X-Amz-Target=Route53AutoNaming_v20170314.UpdateService":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Submits a request to perform the following operations:</p> <ul> <li> <p>Add or delete <code>DnsRecords</code> configurations</p> </li> <li> <p>Update the TTL setting for existing <code>DnsRecords</code> configurations</p> </li> <li> <p>Add, update, or delete <code>HealthCheckConfig</code> for a specified service</p> </li> </ul> <p>For public and private DNS namespaces, you must specify all <code>DnsRecords</code> configurations (and, optionally, <code>HealthCheckConfig</code>) that you want to appear in the updated service. Any current configurations that don't appear in an <code>UpdateService</code> request are deleted.</p> <p>When you update the TTL setting for a service, AWS Cloud Map also updates the corresponding settings in all the records and health checks that were created by using the specified service.</p>","operationId":"UpdateService","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["Route53AutoNaming_v20170314.UpdateService"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateServiceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateServiceResponse"}}}},"480":{"description":"DuplicateRequest","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DuplicateRequest"}}}},"481":{"description":"InvalidInput","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidInput"}}}},"482":{"description":"ServiceNotFound","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceNotFound"}}}}}}}},"servers":[{"description":"The ServiceDiscovery multi-region endpoint","url":"http://servicediscovery.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The ServiceDiscovery multi-region endpoint","url":"https://servicediscovery.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The ServiceDiscovery endpoint for China (Beijing) and China (Ningxia)","url":"http://servicediscovery.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The ServiceDiscovery endpoint for China (Beijing) and China (Ningxia)","url":"https://servicediscovery.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"Arn":{"maxLength":255,"type":"string"},"AttrKey":{"maxLength":255,"type":"string"},"AttrValue":{"maxLength":1024,"type":"string"},"Attributes":{"additionalProperties":{"$ref":"#/components/schemas/AttrValue"},"type":"object"},"Code":{"type":"string"},"CreateHttpNamespaceRequest":{"properties":{"CreatorRequestId":{"$ref":"#/components/schemas/ResourceId"},"Description":{"$ref":"#/components/schemas/ResourceDescription"},"Name":{"$ref":"#/components/schemas/NamespaceName"}},"required":["Name"],"type":"object"},"CreateHttpNamespaceResponse":{"properties":{"OperationId":{"$ref":"#/components/schemas/OperationId"}},"type":"object"},"CreatePrivateDnsNamespaceRequest":{"properties":{"CreatorRequestId":{"$ref":"#/components/schemas/ResourceId"},"Description":{"$ref":"#/components/schemas/ResourceDescription"},"Name":{"$ref":"#/components/schemas/NamespaceName"},"Vpc":{"$ref":"#/components/schemas/ResourceId"}},"required":["Name","Vpc"],"type":"object"},"CreatePrivateDnsNamespaceResponse":{"properties":{"OperationId":{"$ref":"#/components/schemas/OperationId"}},"type":"object"},"CreatePublicDnsNamespaceRequest":{"properties":{"CreatorRequestId":{"$ref":"#/components/schemas/ResourceId"},"Description":{"$ref":"#/components/schemas/ResourceDescription"},"Name":{"$ref":"#/components/schemas/NamespaceName"}},"required":["Name"],"type":"object"},"CreatePublicDnsNamespaceResponse":{"properties":{"OperationId":{"$ref":"#/components/schemas/OperationId"}},"type":"object"},"CreateServiceRequest":{"properties":{"CreatorRequestId":{"$ref":"#/components/schemas/ResourceId"},"Description":{"$ref":"#/components/schemas/ResourceDescription"},"DnsConfig":{"$ref":"#/components/schemas/DnsConfig"},"HealthCheckConfig":{"$ref":"#/components/schemas/HealthCheckConfig"},"HealthCheckCustomConfig":{"$ref":"#/components/schemas/HealthCheckCustomConfig"},"Name":{"$ref":"#/components/schemas/ServiceName"},"NamespaceId":{"$ref":"#/components/schemas/ResourceId"}},"required":["Name"],"type":"object"},"CreateServiceResponse":{"properties":{"Service":{"$ref":"#/components/schemas/Service"}},"type":"object"},"CustomHealthNotFound":{},"CustomHealthStatus":{"enum":["HEALTHY","UNHEALTHY"],"type":"string"},"DeleteNamespaceRequest":{"properties":{"Id":{"$ref":"#/components/schemas/ResourceId"}},"required":["Id"],"type":"object"},"DeleteNamespaceResponse":{"properties":{"OperationId":{"$ref":"#/components/schemas/OperationId"}},"type":"object"},"DeleteServiceRequest":{"properties":{"Id":{"$ref":"#/components/schemas/ResourceId"}},"required":["Id"],"type":"object"},"DeleteServiceResponse":{"properties":{},"type":"object"},"DeregisterInstanceRequest":{"properties":{"InstanceId":{"$ref":"#/components/schemas/ResourceId"},"ServiceId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ServiceId","InstanceId"],"type":"object"},"DeregisterInstanceResponse":{"properties":{"OperationId":{"$ref":"#/components/schemas/OperationId"}},"type":"object"},"DiscoverInstancesRequest":{"properties":{"HealthStatus":{"$ref":"#/components/schemas/HealthStatusFilter"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NamespaceName":{"$ref":"#/components/schemas/NamespaceName"},"QueryParameters":{"$ref":"#/components/schemas/Attributes"},"ServiceName":{"$ref":"#/components/schemas/ServiceName"}},"required":["NamespaceName","ServiceName"],"type":"object"},"DiscoverInstancesResponse":{"properties":{"Instances":{"$ref":"#/components/schemas/HttpInstanceSummaryList"}},"type":"object"},"DnsConfig":{"description":"A complex type that contains information about the Amazon Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.","properties":{"DnsRecords":{"$ref":"#/components/schemas/DnsRecordList"},"NamespaceId":{"$ref":"#/components/schemas/ResourceId"},"RoutingPolicy":{"$ref":"#/components/schemas/RoutingPolicy"}},"required":["DnsRecords"],"type":"object"},"DnsConfigChange":{"description":"A complex type that contains information about changes to the Route 53 DNS records that AWS Cloud Map creates when you register an instance.","properties":{"DnsRecords":{"$ref":"#/components/schemas/DnsRecordList"}},"required":["DnsRecords"],"type":"object"},"DnsProperties":{"description":"A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.","properties":{"HostedZoneId":{"$ref":"#/components/schemas/ResourceId"}},"type":"object"},"DnsRecord":{"description":"A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.","properties":{"TTL":{"$ref":"#/components/schemas/RecordTTL"},"Type":{"$ref":"#/components/schemas/RecordType"}},"required":["Type","TTL"],"type":"object"},"DnsRecordList":{"items":{"$ref":"#/components/schemas/DnsRecord"},"type":"array"},"DuplicateRequest":{},"FailureThreshold":{"maximum":10,"minimum":1,"type":"integer"},"FilterCondition":{"enum":["EQ","IN","BETWEEN"],"type":"string"},"FilterValue":{"maxLength":255,"minLength":1,"type":"string"},"FilterValues":{"items":{"$ref":"#/components/schemas/FilterValue"},"type":"array"},"GetInstanceRequest":{"properties":{"InstanceId":{"$ref":"#/components/schemas/ResourceId"},"ServiceId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ServiceId","InstanceId"],"type":"object"},"GetInstanceResponse":{"properties":{"Instance":{"$ref":"#/components/schemas/Instance"}},"type":"object"},"GetInstancesHealthStatusRequest":{"properties":{"Instances":{"$ref":"#/components/schemas/InstanceIdList"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServiceId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ServiceId"],"type":"object"},"GetInstancesHealthStatusResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Status":{"$ref":"#/components/schemas/InstanceHealthStatusMap"}},"type":"object"},"GetNamespaceRequest":{"properties":{"Id":{"$ref":"#/components/schemas/ResourceId"}},"required":["Id"],"type":"object"},"GetNamespaceResponse":{"properties":{"Namespace":{"$ref":"#/components/schemas/Namespace"}},"type":"object"},"GetOperationRequest":{"properties":{"OperationId":{"$ref":"#/components/schemas/ResourceId"}},"required":["OperationId"],"type":"object"},"GetOperationResponse":{"properties":{"Operation":{"$ref":"#/components/schemas/Operation"}},"type":"object"},"GetServiceRequest":{"properties":{"Id":{"$ref":"#/components/schemas/ResourceId"}},"required":["Id"],"type":"object"},"GetServiceResponse":{"properties":{"Service":{"$ref":"#/components/schemas/Service"}},"type":"object"},"HealthCheckConfig":{"description":"<p> <i>Public DNS namespaces only.</i> A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in <code>DnsConfig</code>.</p> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important> <p>Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see <a href=\"http://aws.amazon.com/route53/pricing/\">Amazon Route 53 Pricing</a>.</p> <p>Note the following about configuring health checks.</p> <p> <b>A and AAAA records</b> </p> <p>If <code>DnsConfig</code> includes configurations for both A and AAAA records, AWS Cloud Map creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint that is specified by the IPv4 address is unhealthy, Route 53 considers both the A and AAAA records to be unhealthy. </p> <p> <b>CNAME records</b> </p> <p>You can't specify settings for <code>HealthCheckConfig</code> when the <code>DNSConfig</code> includes <code>CNAME</code> for the value of <code>Type</code>. If you do, the <code>CreateService</code> request will fail with an <code>InvalidInput</code> error.</p> <p> <b>Request interval</b> </p> <p>A Route 53 health checker in each health-checking region sends a health check request to an endpoint every 30 seconds. On average, your endpoint receives a health check request about every two seconds. However, health checkers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few seconds with no health checks at all.</p> <p> <b>Health checking regions</b> </p> <p>Health checkers perform checks from all Route 53 health-checking regions. For a list of the current regions, see <a href=\"http://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions\">Regions</a>.</p> <p> <b>Alias records</b> </p> <p>When you register an instance, if you include the <code>AWS_ALIAS_DNS_NAME</code> attribute, AWS Cloud Map creates a Route 53 alias record. Note the following:</p> <ul> <li> <p>Route 53 automatically sets <code>EvaluateTargetHealth</code> to true for alias records. When <code>EvaluateTargetHealth</code> is true, the alias record inherits the health of the referenced AWS resource. such as an ELB load balancer. For more information, see <a href=\"http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth\">EvaluateTargetHealth</a>.</p> </li> <li> <p>If you include <code>HealthCheckConfig</code> and then use the service to register an instance that creates an alias record, Route 53 doesn't create the health check.</p> </li> </ul> <p> <b>Charges for health checks</b> </p> <p>Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see <a href=\"http://aws.amazon.com/route53/pricing/\">Amazon Route 53 Pricing</a>.</p>","properties":{"FailureThreshold":{"$ref":"#/components/schemas/FailureThreshold"},"ResourcePath":{"$ref":"#/components/schemas/ResourcePath"},"Type":{"$ref":"#/components/schemas/HealthCheckType"}},"required":["Type"],"type":"object"},"HealthCheckCustomConfig":{"description":"<p>A complex type that contains information about an optional custom health check. A custom health check, which requires that you use a third-party health checker to evaluate the health of your resources, is useful in the following circumstances:</p> <ul> <li> <p>You can't use a health check that is defined by <code>HealthCheckConfig</code> because the resource isn't available over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC. (To check the health of resources in a VPC, the health checker must also be in the VPC.)</p> </li> <li> <p>You want to use a third-party health checker regardless of where your resources are.</p> </li> </ul> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important> <p>To change the status of a custom health check, submit an <code>UpdateInstanceCustomHealthStatus</code> request. Cloud Map doesn't monitor the status of the resource, it just keeps a record of the status specified in the most recent <code>UpdateInstanceCustomHealthStatus</code> request.</p> <p>Here's how custom health checks work:</p> <ol> <li> <p>You create a service and specify a value for <code>FailureThreshold</code>. </p> <p>The failure threshold indicates the number of 30-second intervals you want AWS Cloud Map to wait between the time that your application sends an <a>UpdateInstanceCustomHealthStatus</a> request and the time that AWS Cloud Map stops routing internet traffic to the corresponding resource.</p> </li> <li> <p>You register an instance.</p> </li> <li> <p>You configure a third-party health checker to monitor the resource that is associated with the new instance. </p> <note> <p>AWS Cloud Map doesn't check the health of the resource directly. </p> </note> </li> <li> <p>The third-party health-checker determines that the resource is unhealthy and notifies your application.</p> </li> <li> <p>Your application submits an <code>UpdateInstanceCustomHealthStatus</code> request.</p> </li> <li> <p>AWS Cloud Map waits for (<code>FailureThreshold</code> x 30) seconds.</p> </li> <li> <p>If another <code>UpdateInstanceCustomHealthStatus</code> request doesn't arrive during that time to change the status back to healthy, AWS Cloud Map stops routing traffic to the resource.</p> </li> </ol> <p>Note the following about configuring custom health checks.</p>","properties":{"FailureThreshold":{"$ref":"#/components/schemas/FailureThreshold"}},"type":"object"},"HealthCheckType":{"enum":["HTTP","HTTPS","TCP"],"type":"string"},"HealthStatus":{"enum":["HEALTHY","UNHEALTHY","UNKNOWN"],"type":"string"},"HealthStatusFilter":{"enum":["HEALTHY","UNHEALTHY","ALL"],"type":"string"},"HttpInstanceSummary":{"description":"In a response to a <a>DiscoverInstance</a> request, <code>HttpInstanceSummary</code> contains information about one instance that matches the values that you specified in the request.","properties":{"Attributes":{"$ref":"#/components/schemas/Attributes"},"HealthStatus":{"$ref":"#/components/schemas/HealthStatus"},"InstanceId":{"$ref":"#/components/schemas/ResourceId"},"NamespaceName":{"$ref":"#/components/schemas/NamespaceName"},"ServiceName":{"$ref":"#/components/schemas/ServiceName"}},"type":"object"},"HttpInstanceSummaryList":{"items":{"$ref":"#/components/schemas/HttpInstanceSummary"},"type":"array"},"HttpProperties":{"description":"A complex type that contains the name of an HTTP namespace.","properties":{"HttpName":{"$ref":"#/components/schemas/NamespaceName"}},"type":"object"},"Instance":{"description":"A complex type that contains information about an instance that AWS Cloud Map creates when you submit a <code>RegisterInstance</code> request.","properties":{"Attributes":{"$ref":"#/components/schemas/Attributes"},"CreatorRequestId":{"$ref":"#/components/schemas/ResourceId"},"Id":{"$ref":"#/components/schemas/ResourceId"}},"required":["Id"],"type":"object"},"InstanceHealthStatusMap":{"additionalProperties":{"$ref":"#/components/schemas/HealthStatus"},"type":"object"},"InstanceIdList":{"items":{"$ref":"#/components/schemas/ResourceId"},"minItems":1,"type":"array"},"InstanceNotFound":{},"InstanceSummary":{"description":"A complex type that contains information about the instances that you registered by using a specified service.","properties":{"Attributes":{"$ref":"#/components/schemas/Attributes"},"Id":{"$ref":"#/components/schemas/ResourceId"}},"type":"object"},"InstanceSummaryList":{"items":{"$ref":"#/components/schemas/InstanceSummary"},"type":"array"},"InvalidInput":{},"ListInstancesRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServiceId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ServiceId"],"type":"object"},"ListInstancesResponse":{"properties":{"Instances":{"$ref":"#/components/schemas/InstanceSummaryList"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListNamespacesRequest":{"properties":{"Filters":{"$ref":"#/components/schemas/NamespaceFilters"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListNamespacesResponse":{"properties":{"Namespaces":{"$ref":"#/components/schemas/NamespaceSummariesList"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListOperationsRequest":{"properties":{"Filters":{"$ref":"#/components/schemas/OperationFilters"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListOperationsResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Operations":{"$ref":"#/components/schemas/OperationSummaryList"}},"type":"object"},"ListServicesRequest":{"properties":{"Filters":{"$ref":"#/components/schemas/ServiceFilters"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListServicesResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Services":{"$ref":"#/components/schemas/ServiceSummariesList"}},"type":"object"},"MaxResults":{"maximum":100,"minimum":1,"type":"integer"},"Message":{"type":"string"},"Namespace":{"description":"A complex type that contains information about a specified namespace.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"CreateDate":{"$ref":"#/components/schemas/Timestamp"},"CreatorRequestId":{"$ref":"#/components/schemas/ResourceId"},"Description":{"$ref":"#/components/schemas/ResourceDescription"},"Id":{"$ref":"#/components/schemas/ResourceId"},"Name":{"$ref":"#/components/schemas/NamespaceName"},"Properties":{"$ref":"#/components/schemas/NamespaceProperties"},"ServiceCount":{"$ref":"#/components/schemas/ResourceCount"},"Type":{"$ref":"#/components/schemas/NamespaceType"}},"type":"object"},"NamespaceAlreadyExists":{},"NamespaceFilter":{"description":"A complex type that identifies the namespaces that you want to list. You can choose to list public or private namespaces.","properties":{"Condition":{"$ref":"#/components/schemas/FilterCondition"},"Name":{"$ref":"#/components/schemas/NamespaceFilterName"},"Values":{"$ref":"#/components/schemas/FilterValues"}},"required":["Name","Values"],"type":"object"},"NamespaceFilterName":{"enum":["TYPE"],"type":"string"},"NamespaceFilters":{"items":{"$ref":"#/components/schemas/NamespaceFilter"},"type":"array"},"NamespaceName":{"maxLength":1024,"type":"string"},"NamespaceNotFound":{},"NamespaceProperties":{"description":"A complex type that contains information that is specific to the namespace type.","properties":{"DnsProperties":{"$ref":"#/components/schemas/DnsProperties"},"HttpProperties":{"$ref":"#/components/schemas/HttpProperties"}},"type":"object"},"NamespaceSummariesList":{"items":{"$ref":"#/components/schemas/NamespaceSummary"},"type":"array"},"NamespaceSummary":{"description":"A complex type that contains information about a namespace.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"CreateDate":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/ResourceDescription"},"Id":{"$ref":"#/components/schemas/ResourceId"},"Name":{"$ref":"#/components/schemas/NamespaceName"},"Properties":{"$ref":"#/components/schemas/NamespaceProperties"},"ServiceCount":{"$ref":"#/components/schemas/ResourceCount"},"Type":{"$ref":"#/components/schemas/NamespaceType"}},"type":"object"},"NamespaceType":{"enum":["DNS_PUBLIC","DNS_PRIVATE","HTTP"],"type":"string"},"NextToken":{"maxLength":4096,"type":"string"},"Operation":{"description":"A complex type that contains information about a specified operation.","properties":{"CreateDate":{"$ref":"#/components/schemas/Timestamp"},"ErrorCode":{"$ref":"#/components/schemas/Code"},"ErrorMessage":{"$ref":"#/components/schemas/Message"},"Id":{"$ref":"#/components/schemas/OperationId"},"Status":{"$ref":"#/components/schemas/OperationStatus"},"Targets":{"$ref":"#/components/schemas/OperationTargetsMap"},"Type":{"$ref":"#/components/schemas/OperationType"},"UpdateDate":{"$ref":"#/components/schemas/Timestamp"}},"type":"object"},"OperationFilter":{"description":"A complex type that lets you select the operations that you want to list.","properties":{"Condition":{"$ref":"#/components/schemas/FilterCondition"},"Name":{"$ref":"#/components/schemas/OperationFilterName"},"Values":{"$ref":"#/components/schemas/FilterValues"}},"required":["Name","Values"],"type":"object"},"OperationFilterName":{"enum":["NAMESPACE_ID","SERVICE_ID","STATUS","TYPE","UPDATE_DATE"],"type":"string"},"OperationFilters":{"items":{"$ref":"#/components/schemas/OperationFilter"},"type":"array"},"OperationId":{"maxLength":255,"type":"string"},"OperationNotFound":{},"OperationStatus":{"enum":["SUBMITTED","PENDING","SUCCESS","FAIL"],"type":"string"},"OperationSummary":{"description":"A complex type that contains information about an operation that matches the criteria that you specified in a <a>ListOperations</a> request.","properties":{"Id":{"$ref":"#/components/schemas/OperationId"},"Status":{"$ref":"#/components/schemas/OperationStatus"}},"type":"object"},"OperationSummaryList":{"items":{"$ref":"#/components/schemas/OperationSummary"},"type":"array"},"OperationTargetType":{"enum":["NAMESPACE","SERVICE","INSTANCE"],"type":"string"},"OperationTargetsMap":{"additionalProperties":{"$ref":"#/components/schemas/ResourceId"},"type":"object"},"OperationType":{"enum":["CREATE_NAMESPACE","DELETE_NAMESPACE","UPDATE_SERVICE","REGISTER_INSTANCE","DEREGISTER_INSTANCE"],"type":"string"},"RecordTTL":{"maximum":2147483647,"minimum":0,"type":"integer"},"RecordType":{"enum":["SRV","A","AAAA","CNAME"],"type":"string"},"RegisterInstanceRequest":{"properties":{"Attributes":{"$ref":"#/components/schemas/Attributes"},"CreatorRequestId":{"$ref":"#/components/schemas/ResourceId"},"InstanceId":{"$ref":"#/components/schemas/ResourceId"},"ServiceId":{"$ref":"#/components/schemas/ResourceId"}},"required":["ServiceId","InstanceId","Attributes"],"type":"object"},"RegisterInstanceResponse":{"properties":{"OperationId":{"$ref":"#/components/schemas/OperationId"}},"type":"object"},"ResourceCount":{"type":"integer"},"ResourceDescription":{"maxLength":1024,"type":"string"},"ResourceId":{"maxLength":64,"type":"string"},"ResourceInUse":{},"ResourceLimitExceeded":{},"ResourcePath":{"maxLength":255,"type":"string"},"RoutingPolicy":{"enum":["MULTIVALUE","WEIGHTED"],"type":"string"},"Service":{"description":"A complex type that contains information about the specified service.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"CreateDate":{"$ref":"#/components/schemas/Timestamp"},"CreatorRequestId":{"$ref":"#/components/schemas/ResourceId"},"Description":{"$ref":"#/components/schemas/ResourceDescription"},"DnsConfig":{"$ref":"#/components/schemas/DnsConfig"},"HealthCheckConfig":{"$ref":"#/components/schemas/HealthCheckConfig"},"HealthCheckCustomConfig":{"$ref":"#/components/schemas/HealthCheckCustomConfig"},"Id":{"$ref":"#/components/schemas/ResourceId"},"InstanceCount":{"$ref":"#/components/schemas/ResourceCount"},"Name":{"$ref":"#/components/schemas/ServiceName"},"NamespaceId":{"$ref":"#/components/schemas/ResourceId"}},"type":"object"},"ServiceAlreadyExists":{},"ServiceChange":{"description":"A complex type that contains changes to an existing service.","properties":{"Description":{"$ref":"#/components/schemas/ResourceDescription"},"DnsConfig":{"$ref":"#/components/schemas/DnsConfigChange"},"HealthCheckConfig":{"$ref":"#/components/schemas/HealthCheckConfig"}},"required":["DnsConfig"],"type":"object"},"ServiceFilter":{"description":"A complex type that lets you specify the namespaces that you want to list services for.","properties":{"Condition":{"$ref":"#/components/schemas/FilterCondition"},"Name":{"$ref":"#/components/schemas/ServiceFilterName"},"Values":{"$ref":"#/components/schemas/FilterValues"}},"required":["Name","Values"],"type":"object"},"ServiceFilterName":{"enum":["NAMESPACE_ID"],"type":"string"},"ServiceFilters":{"items":{"$ref":"#/components/schemas/ServiceFilter"},"type":"array"},"ServiceName":{"pattern":"((?=^.{1,127}$)^([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9]))*$)|(^\\.$)","type":"string"},"ServiceNotFound":{},"ServiceSummariesList":{"items":{"$ref":"#/components/schemas/ServiceSummary"},"type":"array"},"ServiceSummary":{"description":"A complex type that contains information about a specified service.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"CreateDate":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/ResourceDescription"},"DnsConfig":{"$ref":"#/components/schemas/DnsConfig"},"HealthCheckConfig":{"$ref":"#/components/schemas/HealthCheckConfig"},"HealthCheckCustomConfig":{"$ref":"#/components/schemas/HealthCheckCustomConfig"},"Id":{"$ref":"#/components/schemas/ResourceId"},"InstanceCount":{"$ref":"#/components/schemas/ResourceCount"},"Name":{"$ref":"#/components/schemas/ServiceName"}},"type":"object"},"Timestamp":{"format":"date-time","type":"string"},"UpdateInstanceCustomHealthStatusRequest":{"properties":{"InstanceId":{"$ref":"#/components/schemas/ResourceId"},"ServiceId":{"$ref":"#/components/schemas/ResourceId"},"Status":{"$ref":"#/components/schemas/CustomHealthStatus"}},"required":["ServiceId","InstanceId","Status"],"type":"object"},"UpdateServiceRequest":{"properties":{"Id":{"$ref":"#/components/schemas/ResourceId"},"Service":{"$ref":"#/components/schemas/ServiceChange"}},"required":["Id","Service"],"type":"object"},"UpdateServiceResponse":{"properties":{"OperationId":{"$ref":"#/components/schemas/OperationId"}},"type":"object"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to eight healthy records. ",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Cloud Map",
+    "version": "2017-03-14",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/servicediscovery-2017-03-14.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "servicediscovery"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/servicediscovery/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.CreateHttpNamespace": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a <code>DiscoverInstances</code> request but can't be discovered using DNS. </p> <p>For the current limit on the number of namespaces that you can create using the same AWS account, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>",
+        "operationId": "CreateHttpNamespace",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.CreateHttpNamespace"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CreateHttpNamespaceRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateHttpNamespaceResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "NamespaceAlreadyExists",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NamespaceAlreadyExists" } } }
+          },
+          "482": {
+            "description": "ResourceLimitExceeded",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceeded" } } }
+          },
+          "483": {
+            "description": "DuplicateRequest",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DuplicateRequest" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.CreatePrivateDnsNamespace": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for the service will be <code>backend.example.com</code>. For the current limit on the number of namespaces that you can create using the same AWS account, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.",
+        "operationId": "CreatePrivateDnsNamespace",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.CreatePrivateDnsNamespace"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CreatePrivateDnsNamespaceRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreatePrivateDnsNamespaceResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "NamespaceAlreadyExists",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NamespaceAlreadyExists" } } }
+          },
+          "482": {
+            "description": "ResourceLimitExceeded",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceeded" } } }
+          },
+          "483": {
+            "description": "DuplicateRequest",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DuplicateRequest" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.CreatePublicDnsNamespace": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for the service will be <code>backend.example.com</code>. For the current limit on the number of namespaces that you can create using the same AWS account, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.",
+        "operationId": "CreatePublicDnsNamespace",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.CreatePublicDnsNamespace"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CreatePublicDnsNamespaceRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreatePublicDnsNamespaceResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "NamespaceAlreadyExists",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NamespaceAlreadyExists" } } }
+          },
+          "482": {
+            "description": "ResourceLimitExceeded",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceeded" } } }
+          },
+          "483": {
+            "description": "DuplicateRequest",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DuplicateRequest" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.CreateService": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates a service, which defines the configuration for the following entities:</p> <ul> <li> <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p> <ul> <li> <p>A</p> </li> <li> <p>AAAA</p> </li> <li> <p>A and AAAA</p> </li> <li> <p>SRV</p> </li> <li> <p>CNAME</p> </li> </ul> </li> <li> <p>Optionally, a health check</p> </li> </ul> <p>After you create the service, you can submit a <a>RegisterInstance</a> request, and AWS Cloud Map uses the values in the configuration to create the specified entities.</p> <p>For the current limit on the number of instances that you can register using the same namespace and using the same service, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>",
+        "operationId": "CreateService",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.CreateService"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateServiceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateServiceResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "ResourceLimitExceeded",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceeded" } } }
+          },
+          "482": {
+            "description": "NamespaceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NamespaceNotFound" } } }
+          },
+          "483": {
+            "description": "ServiceAlreadyExists",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceAlreadyExists" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.DeleteNamespace": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a namespace from the current account. If the namespace still contains one or more services, the request fails.",
+        "operationId": "DeleteNamespace",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.DeleteNamespace"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteNamespaceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteNamespaceResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "NamespaceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NamespaceNotFound" } } }
+          },
+          "482": {
+            "description": "ResourceInUse",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUse" } } }
+          },
+          "483": {
+            "description": "DuplicateRequest",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DuplicateRequest" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.DeleteService": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a specified service. If the service still contains one or more registered instances, the request fails.",
+        "operationId": "DeleteService",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.DeleteService"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteServiceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteServiceResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          },
+          "482": {
+            "description": "ResourceInUse",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUse" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.DeregisterInstance": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified instance.",
+        "operationId": "DeregisterInstance",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.DeregisterInstance"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeregisterInstanceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeregisterInstanceResponse" } }
+            }
+          },
+          "480": {
+            "description": "DuplicateRequest",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DuplicateRequest" } } }
+          },
+          "481": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "482": {
+            "description": "InstanceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InstanceNotFound" } } }
+          },
+          "483": {
+            "description": "ResourceInUse",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUse" } } }
+          },
+          "484": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.DiscoverInstances": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Discovers registered instances for a specified namespace and service.",
+        "operationId": "DiscoverInstances",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.DiscoverInstances"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DiscoverInstancesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DiscoverInstancesResponse" } }
+            }
+          },
+          "480": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          },
+          "481": {
+            "description": "NamespaceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NamespaceNotFound" } } }
+          },
+          "482": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.GetInstance": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets information about a specified instance.",
+        "operationId": "GetInstance",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.GetInstance"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetInstanceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetInstanceResponse" } } }
+          },
+          "480": {
+            "description": "InstanceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InstanceNotFound" } } }
+          },
+          "481": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "482": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.GetInstancesHealthStatus": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or more instances that are associated with a specified service.</p> <note> <p>There is a brief delay between when you register an instance and when the health status for the instance is available. </p> </note>",
+        "operationId": "GetInstancesHealthStatus",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.GetInstancesHealthStatus"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetInstancesHealthStatusRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetInstancesHealthStatusResponse" } }
+            }
+          },
+          "480": {
+            "description": "InstanceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InstanceNotFound" } } }
+          },
+          "481": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "482": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.GetNamespace": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets information about a namespace.",
+        "operationId": "GetNamespace",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.GetNamespace"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetNamespaceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetNamespaceResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "NamespaceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NamespaceNotFound" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.GetOperation": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Gets information about any operation that returns an operation ID in the response, such as a <code>CreateService</code> request.</p> <note> <p>To get a list of operations that match specified criteria, see <a>ListOperations</a>.</p> </note>",
+        "operationId": "GetOperation",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.GetOperation"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetOperationRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetOperationResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "OperationNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotFound" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.GetService": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets the settings for a specified service.",
+        "operationId": "GetService",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.GetService"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetServiceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetServiceResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "481": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.ListInstances": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists summary information about the instances that you registered by using a specified service.",
+        "operationId": "ListInstances",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.ListInstances"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListInstancesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListInstancesResponse" } } }
+          },
+          "480": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          },
+          "481": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.ListNamespaces": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists summary information about the namespaces that were created by the current AWS account.",
+        "operationId": "ListNamespaces",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.ListNamespaces"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListNamespacesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListNamespacesResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.ListOperations": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists operations that match the criteria that you specify.",
+        "operationId": "ListOperations",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.ListOperations"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListOperationsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListOperationsResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.ListServices": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists summary information for all the services that are associated with one or more specified namespaces.",
+        "operationId": "ListServices",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.ListServices"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListServicesRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListServicesResponse" } } }
+          },
+          "480": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.RegisterInstance": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a specified service. When you submit a <code>RegisterInstance</code> request, the following occurs:</p> <ul> <li> <p>For each DNS record that you define in the service that is specified by <code>ServiceId</code>, a record is created or updated in the hosted zone that is associated with the corresponding namespace.</p> </li> <li> <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings in the health check configuration.</p> </li> <li> <p>The health check, if any, is associated with each of the new or updated records.</p> </li> </ul> <important> <p>One <code>RegisterInstance</code> request must complete before you can submit another request and specify the same service ID and instance ID.</p> </important> <p>For more information, see <a>CreateService</a>.</p> <p>When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p> <ul> <li> <p> <b>If the health check is healthy</b>: returns all the records</p> </li> <li> <p> <b>If the health check is unhealthy</b>: returns the applicable value for the last healthy instance</p> </li> <li> <p> <b>If you didn't specify a health check configuration</b>: returns all the records</p> </li> </ul> <p>For the current limit on the number of instances that you can register using the same namespace and using the same service, see <a href=\"http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>",
+        "operationId": "RegisterInstance",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.RegisterInstance"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RegisterInstanceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RegisterInstanceResponse" } } }
+          },
+          "480": {
+            "description": "DuplicateRequest",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DuplicateRequest" } } }
+          },
+          "481": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "482": {
+            "description": "ResourceInUse",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceInUse" } } }
+          },
+          "483": {
+            "description": "ResourceLimitExceeded",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceeded" } } }
+          },
+          "484": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p> <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks, which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p> <p>For more information, see <a>HealthCheckCustomConfig</a>.</p>",
+        "operationId": "UpdateInstanceCustomHealthStatus",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/UpdateInstanceCustomHealthStatusRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "InstanceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InstanceNotFound" } } }
+          },
+          "481": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          },
+          "482": {
+            "description": "CustomHealthNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CustomHealthNotFound" } } }
+          },
+          "483": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=Route53AutoNaming_v20170314.UpdateService": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Submits a request to perform the following operations:</p> <ul> <li> <p>Add or delete <code>DnsRecords</code> configurations</p> </li> <li> <p>Update the TTL setting for existing <code>DnsRecords</code> configurations</p> </li> <li> <p>Add, update, or delete <code>HealthCheckConfig</code> for a specified service</p> </li> </ul> <p>For public and private DNS namespaces, you must specify all <code>DnsRecords</code> configurations (and, optionally, <code>HealthCheckConfig</code>) that you want to appear in the updated service. Any current configurations that don't appear in an <code>UpdateService</code> request are deleted.</p> <p>When you update the TTL setting for a service, AWS Cloud Map also updates the corresponding settings in all the records and health checks that were created by using the specified service.</p>",
+        "operationId": "UpdateService",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Route53AutoNaming_v20170314.UpdateService"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateServiceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateServiceResponse" } } }
+          },
+          "480": {
+            "description": "DuplicateRequest",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DuplicateRequest" } } }
+          },
+          "481": {
+            "description": "InvalidInput",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidInput" } } }
+          },
+          "482": {
+            "description": "ServiceNotFound",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceNotFound" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The ServiceDiscovery multi-region endpoint",
+      "url": "http://servicediscovery.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The ServiceDiscovery multi-region endpoint",
+      "url": "https://servicediscovery.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The ServiceDiscovery endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://servicediscovery.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The ServiceDiscovery endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://servicediscovery.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "Arn": { "maxLength": 255, "type": "string" },
+      "AttrKey": { "maxLength": 255, "type": "string" },
+      "AttrValue": { "maxLength": 1024, "type": "string" },
+      "Attributes": { "additionalProperties": { "$ref": "#/components/schemas/AttrValue" }, "type": "object" },
+      "Code": { "type": "string" },
+      "CreateHttpNamespaceRequest": {
+        "properties": {
+          "CreatorRequestId": { "$ref": "#/components/schemas/ResourceId" },
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "Name": { "$ref": "#/components/schemas/NamespaceName" }
+        },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "CreateHttpNamespaceResponse": {
+        "properties": { "OperationId": { "$ref": "#/components/schemas/OperationId" } },
+        "type": "object"
+      },
+      "CreatePrivateDnsNamespaceRequest": {
+        "properties": {
+          "CreatorRequestId": { "$ref": "#/components/schemas/ResourceId" },
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "Name": { "$ref": "#/components/schemas/NamespaceName" },
+          "Vpc": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["Name", "Vpc"],
+        "type": "object"
+      },
+      "CreatePrivateDnsNamespaceResponse": {
+        "properties": { "OperationId": { "$ref": "#/components/schemas/OperationId" } },
+        "type": "object"
+      },
+      "CreatePublicDnsNamespaceRequest": {
+        "properties": {
+          "CreatorRequestId": { "$ref": "#/components/schemas/ResourceId" },
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "Name": { "$ref": "#/components/schemas/NamespaceName" }
+        },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "CreatePublicDnsNamespaceResponse": {
+        "properties": { "OperationId": { "$ref": "#/components/schemas/OperationId" } },
+        "type": "object"
+      },
+      "CreateServiceRequest": {
+        "properties": {
+          "CreatorRequestId": { "$ref": "#/components/schemas/ResourceId" },
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "DnsConfig": { "$ref": "#/components/schemas/DnsConfig" },
+          "HealthCheckConfig": { "$ref": "#/components/schemas/HealthCheckConfig" },
+          "HealthCheckCustomConfig": { "$ref": "#/components/schemas/HealthCheckCustomConfig" },
+          "Name": { "$ref": "#/components/schemas/ServiceName" },
+          "NamespaceId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "CreateServiceResponse": {
+        "properties": { "Service": { "$ref": "#/components/schemas/Service" } },
+        "type": "object"
+      },
+      "CustomHealthNotFound": {},
+      "CustomHealthStatus": { "enum": ["HEALTHY", "UNHEALTHY"], "type": "string" },
+      "DeleteNamespaceRequest": {
+        "properties": { "Id": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "DeleteNamespaceResponse": {
+        "properties": { "OperationId": { "$ref": "#/components/schemas/OperationId" } },
+        "type": "object"
+      },
+      "DeleteServiceRequest": {
+        "properties": { "Id": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "DeleteServiceResponse": { "properties": {}, "type": "object" },
+      "DeregisterInstanceRequest": {
+        "properties": {
+          "InstanceId": { "$ref": "#/components/schemas/ResourceId" },
+          "ServiceId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ServiceId", "InstanceId"],
+        "type": "object"
+      },
+      "DeregisterInstanceResponse": {
+        "properties": { "OperationId": { "$ref": "#/components/schemas/OperationId" } },
+        "type": "object"
+      },
+      "DiscoverInstancesRequest": {
+        "properties": {
+          "HealthStatus": { "$ref": "#/components/schemas/HealthStatusFilter" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NamespaceName": { "$ref": "#/components/schemas/NamespaceName" },
+          "QueryParameters": { "$ref": "#/components/schemas/Attributes" },
+          "ServiceName": { "$ref": "#/components/schemas/ServiceName" }
+        },
+        "required": ["NamespaceName", "ServiceName"],
+        "type": "object"
+      },
+      "DiscoverInstancesResponse": {
+        "properties": { "Instances": { "$ref": "#/components/schemas/HttpInstanceSummaryList" } },
+        "type": "object"
+      },
+      "DnsConfig": {
+        "description": "A complex type that contains information about the Amazon Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.",
+        "properties": {
+          "DnsRecords": { "$ref": "#/components/schemas/DnsRecordList" },
+          "NamespaceId": { "$ref": "#/components/schemas/ResourceId" },
+          "RoutingPolicy": { "$ref": "#/components/schemas/RoutingPolicy" }
+        },
+        "required": ["DnsRecords"],
+        "type": "object"
+      },
+      "DnsConfigChange": {
+        "description": "A complex type that contains information about changes to the Route 53 DNS records that AWS Cloud Map creates when you register an instance.",
+        "properties": { "DnsRecords": { "$ref": "#/components/schemas/DnsRecordList" } },
+        "required": ["DnsRecords"],
+        "type": "object"
+      },
+      "DnsProperties": {
+        "description": "A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.",
+        "properties": { "HostedZoneId": { "$ref": "#/components/schemas/ResourceId" } },
+        "type": "object"
+      },
+      "DnsRecord": {
+        "description": "A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.",
+        "properties": {
+          "TTL": { "$ref": "#/components/schemas/RecordTTL" },
+          "Type": { "$ref": "#/components/schemas/RecordType" }
+        },
+        "required": ["Type", "TTL"],
+        "type": "object"
+      },
+      "DnsRecordList": { "items": { "$ref": "#/components/schemas/DnsRecord" }, "type": "array" },
+      "DuplicateRequest": {},
+      "FailureThreshold": { "maximum": 10, "minimum": 1, "type": "integer" },
+      "FilterCondition": { "enum": ["EQ", "IN", "BETWEEN"], "type": "string" },
+      "FilterValue": { "maxLength": 255, "minLength": 1, "type": "string" },
+      "FilterValues": { "items": { "$ref": "#/components/schemas/FilterValue" }, "type": "array" },
+      "GetInstanceRequest": {
+        "properties": {
+          "InstanceId": { "$ref": "#/components/schemas/ResourceId" },
+          "ServiceId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ServiceId", "InstanceId"],
+        "type": "object"
+      },
+      "GetInstanceResponse": {
+        "properties": { "Instance": { "$ref": "#/components/schemas/Instance" } },
+        "type": "object"
+      },
+      "GetInstancesHealthStatusRequest": {
+        "properties": {
+          "Instances": { "$ref": "#/components/schemas/InstanceIdList" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServiceId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ServiceId"],
+        "type": "object"
+      },
+      "GetInstancesHealthStatusResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Status": { "$ref": "#/components/schemas/InstanceHealthStatusMap" }
+        },
+        "type": "object"
+      },
+      "GetNamespaceRequest": {
+        "properties": { "Id": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "GetNamespaceResponse": {
+        "properties": { "Namespace": { "$ref": "#/components/schemas/Namespace" } },
+        "type": "object"
+      },
+      "GetOperationRequest": {
+        "properties": { "OperationId": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["OperationId"],
+        "type": "object"
+      },
+      "GetOperationResponse": {
+        "properties": { "Operation": { "$ref": "#/components/schemas/Operation" } },
+        "type": "object"
+      },
+      "GetServiceRequest": {
+        "properties": { "Id": { "$ref": "#/components/schemas/ResourceId" } },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "GetServiceResponse": {
+        "properties": { "Service": { "$ref": "#/components/schemas/Service" } },
+        "type": "object"
+      },
+      "HealthCheckConfig": {
+        "description": "<p> <i>Public DNS namespaces only.</i> A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in <code>DnsConfig</code>.</p> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important> <p>Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see <a href=\"http://aws.amazon.com/route53/pricing/\">Amazon Route 53 Pricing</a>.</p> <p>Note the following about configuring health checks.</p> <p> <b>A and AAAA records</b> </p> <p>If <code>DnsConfig</code> includes configurations for both A and AAAA records, AWS Cloud Map creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint that is specified by the IPv4 address is unhealthy, Route 53 considers both the A and AAAA records to be unhealthy. </p> <p> <b>CNAME records</b> </p> <p>You can't specify settings for <code>HealthCheckConfig</code> when the <code>DNSConfig</code> includes <code>CNAME</code> for the value of <code>Type</code>. If you do, the <code>CreateService</code> request will fail with an <code>InvalidInput</code> error.</p> <p> <b>Request interval</b> </p> <p>A Route 53 health checker in each health-checking region sends a health check request to an endpoint every 30 seconds. On average, your endpoint receives a health check request about every two seconds. However, health checkers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few seconds with no health checks at all.</p> <p> <b>Health checking regions</b> </p> <p>Health checkers perform checks from all Route 53 health-checking regions. For a list of the current regions, see <a href=\"http://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions\">Regions</a>.</p> <p> <b>Alias records</b> </p> <p>When you register an instance, if you include the <code>AWS_ALIAS_DNS_NAME</code> attribute, AWS Cloud Map creates a Route 53 alias record. Note the following:</p> <ul> <li> <p>Route 53 automatically sets <code>EvaluateTargetHealth</code> to true for alias records. When <code>EvaluateTargetHealth</code> is true, the alias record inherits the health of the referenced AWS resource. such as an ELB load balancer. For more information, see <a href=\"http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth\">EvaluateTargetHealth</a>.</p> </li> <li> <p>If you include <code>HealthCheckConfig</code> and then use the service to register an instance that creates an alias record, Route 53 doesn't create the health check.</p> </li> </ul> <p> <b>Charges for health checks</b> </p> <p>Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see <a href=\"http://aws.amazon.com/route53/pricing/\">Amazon Route 53 Pricing</a>.</p>",
+        "properties": {
+          "FailureThreshold": { "$ref": "#/components/schemas/FailureThreshold" },
+          "ResourcePath": { "$ref": "#/components/schemas/ResourcePath" },
+          "Type": { "$ref": "#/components/schemas/HealthCheckType" }
+        },
+        "required": ["Type"],
+        "type": "object"
+      },
+      "HealthCheckCustomConfig": {
+        "description": "<p>A complex type that contains information about an optional custom health check. A custom health check, which requires that you use a third-party health checker to evaluate the health of your resources, is useful in the following circumstances:</p> <ul> <li> <p>You can't use a health check that is defined by <code>HealthCheckConfig</code> because the resource isn't available over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC. (To check the health of resources in a VPC, the health checker must also be in the VPC.)</p> </li> <li> <p>You want to use a third-party health checker regardless of where your resources are.</p> </li> </ul> <important> <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> </important> <p>To change the status of a custom health check, submit an <code>UpdateInstanceCustomHealthStatus</code> request. Cloud Map doesn't monitor the status of the resource, it just keeps a record of the status specified in the most recent <code>UpdateInstanceCustomHealthStatus</code> request.</p> <p>Here's how custom health checks work:</p> <ol> <li> <p>You create a service and specify a value for <code>FailureThreshold</code>. </p> <p>The failure threshold indicates the number of 30-second intervals you want AWS Cloud Map to wait between the time that your application sends an <a>UpdateInstanceCustomHealthStatus</a> request and the time that AWS Cloud Map stops routing internet traffic to the corresponding resource.</p> </li> <li> <p>You register an instance.</p> </li> <li> <p>You configure a third-party health checker to monitor the resource that is associated with the new instance. </p> <note> <p>AWS Cloud Map doesn't check the health of the resource directly. </p> </note> </li> <li> <p>The third-party health-checker determines that the resource is unhealthy and notifies your application.</p> </li> <li> <p>Your application submits an <code>UpdateInstanceCustomHealthStatus</code> request.</p> </li> <li> <p>AWS Cloud Map waits for (<code>FailureThreshold</code> x 30) seconds.</p> </li> <li> <p>If another <code>UpdateInstanceCustomHealthStatus</code> request doesn't arrive during that time to change the status back to healthy, AWS Cloud Map stops routing traffic to the resource.</p> </li> </ol> <p>Note the following about configuring custom health checks.</p>",
+        "properties": { "FailureThreshold": { "$ref": "#/components/schemas/FailureThreshold" } },
+        "type": "object"
+      },
+      "HealthCheckType": { "enum": ["HTTP", "HTTPS", "TCP"], "type": "string" },
+      "HealthStatus": { "enum": ["HEALTHY", "UNHEALTHY", "UNKNOWN"], "type": "string" },
+      "HealthStatusFilter": { "enum": ["HEALTHY", "UNHEALTHY", "ALL"], "type": "string" },
+      "HttpInstanceSummary": {
+        "description": "In a response to a <a>DiscoverInstance</a> request, <code>HttpInstanceSummary</code> contains information about one instance that matches the values that you specified in the request.",
+        "properties": {
+          "Attributes": { "$ref": "#/components/schemas/Attributes" },
+          "HealthStatus": { "$ref": "#/components/schemas/HealthStatus" },
+          "InstanceId": { "$ref": "#/components/schemas/ResourceId" },
+          "NamespaceName": { "$ref": "#/components/schemas/NamespaceName" },
+          "ServiceName": { "$ref": "#/components/schemas/ServiceName" }
+        },
+        "type": "object"
+      },
+      "HttpInstanceSummaryList": { "items": { "$ref": "#/components/schemas/HttpInstanceSummary" }, "type": "array" },
+      "HttpProperties": {
+        "description": "A complex type that contains the name of an HTTP namespace.",
+        "properties": { "HttpName": { "$ref": "#/components/schemas/NamespaceName" } },
+        "type": "object"
+      },
+      "Instance": {
+        "description": "A complex type that contains information about an instance that AWS Cloud Map creates when you submit a <code>RegisterInstance</code> request.",
+        "properties": {
+          "Attributes": { "$ref": "#/components/schemas/Attributes" },
+          "CreatorRequestId": { "$ref": "#/components/schemas/ResourceId" },
+          "Id": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["Id"],
+        "type": "object"
+      },
+      "InstanceHealthStatusMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/HealthStatus" },
+        "type": "object"
+      },
+      "InstanceIdList": { "items": { "$ref": "#/components/schemas/ResourceId" }, "minItems": 1, "type": "array" },
+      "InstanceNotFound": {},
+      "InstanceSummary": {
+        "description": "A complex type that contains information about the instances that you registered by using a specified service.",
+        "properties": {
+          "Attributes": { "$ref": "#/components/schemas/Attributes" },
+          "Id": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "type": "object"
+      },
+      "InstanceSummaryList": { "items": { "$ref": "#/components/schemas/InstanceSummary" }, "type": "array" },
+      "InvalidInput": {},
+      "ListInstancesRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServiceId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ServiceId"],
+        "type": "object"
+      },
+      "ListInstancesResponse": {
+        "properties": {
+          "Instances": { "$ref": "#/components/schemas/InstanceSummaryList" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListNamespacesRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/NamespaceFilters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListNamespacesResponse": {
+        "properties": {
+          "Namespaces": { "$ref": "#/components/schemas/NamespaceSummariesList" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListOperationsRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/OperationFilters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListOperationsResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Operations": { "$ref": "#/components/schemas/OperationSummaryList" }
+        },
+        "type": "object"
+      },
+      "ListServicesRequest": {
+        "properties": {
+          "Filters": { "$ref": "#/components/schemas/ServiceFilters" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListServicesResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Services": { "$ref": "#/components/schemas/ServiceSummariesList" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "Message": { "type": "string" },
+      "Namespace": {
+        "description": "A complex type that contains information about a specified namespace.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "CreateDate": { "$ref": "#/components/schemas/Timestamp" },
+          "CreatorRequestId": { "$ref": "#/components/schemas/ResourceId" },
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "Id": { "$ref": "#/components/schemas/ResourceId" },
+          "Name": { "$ref": "#/components/schemas/NamespaceName" },
+          "Properties": { "$ref": "#/components/schemas/NamespaceProperties" },
+          "ServiceCount": { "$ref": "#/components/schemas/ResourceCount" },
+          "Type": { "$ref": "#/components/schemas/NamespaceType" }
+        },
+        "type": "object"
+      },
+      "NamespaceAlreadyExists": {},
+      "NamespaceFilter": {
+        "description": "A complex type that identifies the namespaces that you want to list. You can choose to list public or private namespaces.",
+        "properties": {
+          "Condition": { "$ref": "#/components/schemas/FilterCondition" },
+          "Name": { "$ref": "#/components/schemas/NamespaceFilterName" },
+          "Values": { "$ref": "#/components/schemas/FilterValues" }
+        },
+        "required": ["Name", "Values"],
+        "type": "object"
+      },
+      "NamespaceFilterName": { "enum": ["TYPE"], "type": "string" },
+      "NamespaceFilters": { "items": { "$ref": "#/components/schemas/NamespaceFilter" }, "type": "array" },
+      "NamespaceName": { "maxLength": 1024, "type": "string" },
+      "NamespaceNotFound": {},
+      "NamespaceProperties": {
+        "description": "A complex type that contains information that is specific to the namespace type.",
+        "properties": {
+          "DnsProperties": { "$ref": "#/components/schemas/DnsProperties" },
+          "HttpProperties": { "$ref": "#/components/schemas/HttpProperties" }
+        },
+        "type": "object"
+      },
+      "NamespaceSummariesList": { "items": { "$ref": "#/components/schemas/NamespaceSummary" }, "type": "array" },
+      "NamespaceSummary": {
+        "description": "A complex type that contains information about a namespace.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "CreateDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "Id": { "$ref": "#/components/schemas/ResourceId" },
+          "Name": { "$ref": "#/components/schemas/NamespaceName" },
+          "Properties": { "$ref": "#/components/schemas/NamespaceProperties" },
+          "ServiceCount": { "$ref": "#/components/schemas/ResourceCount" },
+          "Type": { "$ref": "#/components/schemas/NamespaceType" }
+        },
+        "type": "object"
+      },
+      "NamespaceType": { "enum": ["DNS_PUBLIC", "DNS_PRIVATE", "HTTP"], "type": "string" },
+      "NextToken": { "maxLength": 4096, "type": "string" },
+      "Operation": {
+        "description": "A complex type that contains information about a specified operation.",
+        "properties": {
+          "CreateDate": { "$ref": "#/components/schemas/Timestamp" },
+          "ErrorCode": { "$ref": "#/components/schemas/Code" },
+          "ErrorMessage": { "$ref": "#/components/schemas/Message" },
+          "Id": { "$ref": "#/components/schemas/OperationId" },
+          "Status": { "$ref": "#/components/schemas/OperationStatus" },
+          "Targets": { "$ref": "#/components/schemas/OperationTargetsMap" },
+          "Type": { "$ref": "#/components/schemas/OperationType" },
+          "UpdateDate": { "$ref": "#/components/schemas/Timestamp" }
+        },
+        "type": "object"
+      },
+      "OperationFilter": {
+        "description": "A complex type that lets you select the operations that you want to list.",
+        "properties": {
+          "Condition": { "$ref": "#/components/schemas/FilterCondition" },
+          "Name": { "$ref": "#/components/schemas/OperationFilterName" },
+          "Values": { "$ref": "#/components/schemas/FilterValues" }
+        },
+        "required": ["Name", "Values"],
+        "type": "object"
+      },
+      "OperationFilterName": {
+        "enum": ["NAMESPACE_ID", "SERVICE_ID", "STATUS", "TYPE", "UPDATE_DATE"],
+        "type": "string"
+      },
+      "OperationFilters": { "items": { "$ref": "#/components/schemas/OperationFilter" }, "type": "array" },
+      "OperationId": { "maxLength": 255, "type": "string" },
+      "OperationNotFound": {},
+      "OperationStatus": { "enum": ["SUBMITTED", "PENDING", "SUCCESS", "FAIL"], "type": "string" },
+      "OperationSummary": {
+        "description": "A complex type that contains information about an operation that matches the criteria that you specified in a <a>ListOperations</a> request.",
+        "properties": {
+          "Id": { "$ref": "#/components/schemas/OperationId" },
+          "Status": { "$ref": "#/components/schemas/OperationStatus" }
+        },
+        "type": "object"
+      },
+      "OperationSummaryList": { "items": { "$ref": "#/components/schemas/OperationSummary" }, "type": "array" },
+      "OperationTargetType": { "enum": ["NAMESPACE", "SERVICE", "INSTANCE"], "type": "string" },
+      "OperationTargetsMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/ResourceId" },
+        "type": "object"
+      },
+      "OperationType": {
+        "enum": ["CREATE_NAMESPACE", "DELETE_NAMESPACE", "UPDATE_SERVICE", "REGISTER_INSTANCE", "DEREGISTER_INSTANCE"],
+        "type": "string"
+      },
+      "RecordTTL": { "maximum": 2147483647, "minimum": 0, "type": "integer" },
+      "RecordType": { "enum": ["SRV", "A", "AAAA", "CNAME"], "type": "string" },
+      "RegisterInstanceRequest": {
+        "properties": {
+          "Attributes": { "$ref": "#/components/schemas/Attributes" },
+          "CreatorRequestId": { "$ref": "#/components/schemas/ResourceId" },
+          "InstanceId": { "$ref": "#/components/schemas/ResourceId" },
+          "ServiceId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "required": ["ServiceId", "InstanceId", "Attributes"],
+        "type": "object"
+      },
+      "RegisterInstanceResponse": {
+        "properties": { "OperationId": { "$ref": "#/components/schemas/OperationId" } },
+        "type": "object"
+      },
+      "ResourceCount": { "type": "integer" },
+      "ResourceDescription": { "maxLength": 1024, "type": "string" },
+      "ResourceId": { "maxLength": 64, "type": "string" },
+      "ResourceInUse": {},
+      "ResourceLimitExceeded": {},
+      "ResourcePath": { "maxLength": 255, "type": "string" },
+      "RoutingPolicy": { "enum": ["MULTIVALUE", "WEIGHTED"], "type": "string" },
+      "Service": {
+        "description": "A complex type that contains information about the specified service.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "CreateDate": { "$ref": "#/components/schemas/Timestamp" },
+          "CreatorRequestId": { "$ref": "#/components/schemas/ResourceId" },
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "DnsConfig": { "$ref": "#/components/schemas/DnsConfig" },
+          "HealthCheckConfig": { "$ref": "#/components/schemas/HealthCheckConfig" },
+          "HealthCheckCustomConfig": { "$ref": "#/components/schemas/HealthCheckCustomConfig" },
+          "Id": { "$ref": "#/components/schemas/ResourceId" },
+          "InstanceCount": { "$ref": "#/components/schemas/ResourceCount" },
+          "Name": { "$ref": "#/components/schemas/ServiceName" },
+          "NamespaceId": { "$ref": "#/components/schemas/ResourceId" }
+        },
+        "type": "object"
+      },
+      "ServiceAlreadyExists": {},
+      "ServiceChange": {
+        "description": "A complex type that contains changes to an existing service.",
+        "properties": {
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "DnsConfig": { "$ref": "#/components/schemas/DnsConfigChange" },
+          "HealthCheckConfig": { "$ref": "#/components/schemas/HealthCheckConfig" }
+        },
+        "required": ["DnsConfig"],
+        "type": "object"
+      },
+      "ServiceFilter": {
+        "description": "A complex type that lets you specify the namespaces that you want to list services for.",
+        "properties": {
+          "Condition": { "$ref": "#/components/schemas/FilterCondition" },
+          "Name": { "$ref": "#/components/schemas/ServiceFilterName" },
+          "Values": { "$ref": "#/components/schemas/FilterValues" }
+        },
+        "required": ["Name", "Values"],
+        "type": "object"
+      },
+      "ServiceFilterName": { "enum": ["NAMESPACE_ID"], "type": "string" },
+      "ServiceFilters": { "items": { "$ref": "#/components/schemas/ServiceFilter" }, "type": "array" },
+      "ServiceName": {
+        "pattern": "((?=^.{1,127}$)^([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9]))*$)|(^\\.$)",
+        "type": "string"
+      },
+      "ServiceNotFound": {},
+      "ServiceSummariesList": { "items": { "$ref": "#/components/schemas/ServiceSummary" }, "type": "array" },
+      "ServiceSummary": {
+        "description": "A complex type that contains information about a specified service.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "CreateDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/ResourceDescription" },
+          "DnsConfig": { "$ref": "#/components/schemas/DnsConfig" },
+          "HealthCheckConfig": { "$ref": "#/components/schemas/HealthCheckConfig" },
+          "HealthCheckCustomConfig": { "$ref": "#/components/schemas/HealthCheckCustomConfig" },
+          "Id": { "$ref": "#/components/schemas/ResourceId" },
+          "InstanceCount": { "$ref": "#/components/schemas/ResourceCount" },
+          "Name": { "$ref": "#/components/schemas/ServiceName" }
+        },
+        "type": "object"
+      },
+      "Timestamp": { "format": "date-time", "type": "string" },
+      "UpdateInstanceCustomHealthStatusRequest": {
+        "properties": {
+          "InstanceId": { "$ref": "#/components/schemas/ResourceId" },
+          "ServiceId": { "$ref": "#/components/schemas/ResourceId" },
+          "Status": { "$ref": "#/components/schemas/CustomHealthStatus" }
+        },
+        "required": ["ServiceId", "InstanceId", "Status"],
+        "type": "object"
+      },
+      "UpdateServiceRequest": {
+        "properties": {
+          "Id": { "$ref": "#/components/schemas/ResourceId" },
+          "Service": { "$ref": "#/components/schemas/ServiceChange" }
+        },
+        "required": ["Id", "Service"],
+        "type": "object"
+      },
+      "UpdateServiceResponse": {
+        "properties": { "OperationId": { "$ref": "#/components/schemas/OperationId" } },
+        "type": "object"
+      }
+    }
+  }
+}

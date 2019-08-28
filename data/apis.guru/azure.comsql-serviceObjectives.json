@@ -1,1 +1,220 @@
-{"openapi":"3.0.0","info":{"description":"Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, elastic pools, recommendations, operations, and usage metrics.","title":"Azure SQL Database","version":"2014-04-01","x-apisguru-categories":["cloud"],"x-logo":{"url":"https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"},"x-origin":[{"format":"swagger","url":"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/serviceObjectives.json","version":"2.0"}],"x-preferred":true,"x-providerName":"azure.com","x-serviceName":"sql-serviceObjectives","x-tags":["Azure","Microsoft"]},"paths":{"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/serviceObjectives":{"get":{"description":"Returns database service objectives.","operationId":"ServiceObjectives_ListByServer","parameters":[{"description":"The API version to use for the request.","in":"query","name":"api-version","required":true,"x-ms-parameter-location":"client","schema":{"type":"string"},"examples":{"List service objectives":{"value":"2014-04-01"}}},{"description":"The subscription ID that identifies an Azure subscription.","in":"path","name":"subscriptionId","required":true,"x-ms-parameter-location":"client","schema":{"type":"string"},"examples":{"List service objectives":{"value":"00000000-1111-2222-3333-444444444444"}}},{"description":"The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.","in":"path","name":"resourceGroupName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"List service objectives":{"value":"group1"}}},{"$ref":"#/components/parameters/ServerNameParameter"}],"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceObjectiveListResult"}}}}},"tags":["ServiceObjectives"],"x-ms-pageable":{}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/serviceObjectives/{serviceObjectiveName}":{"get":{"description":"Gets a database service objective.","operationId":"ServiceObjectives_Get","parameters":[{"description":"The API version to use for the request.","in":"query","name":"api-version","required":true,"x-ms-parameter-location":"client","schema":{"type":"string"},"examples":{"Get a service objective":{"value":"2014-04-01"}}},{"description":"The subscription ID that identifies an Azure subscription.","in":"path","name":"subscriptionId","required":true,"x-ms-parameter-location":"client","schema":{"type":"string"},"examples":{"Get a service objective":{"value":"00000000-1111-2222-3333-444444444444"}}},{"description":"The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.","in":"path","name":"resourceGroupName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"Get a service objective":{"value":"group1"}}},{"$ref":"#/components/parameters/ServerNameParameter"},{"description":"The name of the service objective to retrieve.","in":"path","name":"serviceObjectiveName","required":true,"schema":{"type":"string"},"examples":{"Get a service objective":{"value":"29dd7459-4a7c-4e56-be22-f0adda49440d"}}}],"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceObjective"}}}}},"tags":["ServiceObjectives"]}}},"servers":[{"url":"https://management.azure.com"}],"components":{"parameters":{"ServerNameParameter":{"description":"The name of the server.","in":"path","name":"serverName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"List service objectives":{"value":"sqlcrudtest"},"Get a service objective":{"value":"sqlcrudtest"}}}},"securitySchemes":{"azure_auth":{"description":"Azure Active Directory OAuth2 Flow","type":"oauth2","flows":{"implicit":{"authorizationUrl":"https://login.microsoftonline.com/common/oauth2/authorize","scopes":{"user_impersonation":"impersonate your user account"}}}}},"schemas":{"ServiceObjective":{"allOf":[{"allOf":[{"description":"ARM resource.","properties":{"id":{"description":"Resource ID.","readOnly":true,"type":"string"},"name":{"description":"Resource name.","readOnly":true,"type":"string"},"type":{"description":"Resource type.","readOnly":true,"type":"string"}},"type":"object","x-ms-azure-resource":true}],"description":"ARM proxy resource.","properties":{},"type":"object"}],"description":"Represents a database service objective.","properties":{"properties":{"$ref":"#/components/schemas/ServiceObjectiveProperties"}}},"ServiceObjectiveListResult":{"description":"Represents the response to a get database service objectives request.","properties":{"value":{"description":"The list of database service objectives.","items":{"$ref":"#/components/schemas/ServiceObjective"},"type":"array"}},"required":["value"]},"ServiceObjectiveProperties":{"description":"Represents the properties of a database service objective.","properties":{"description":{"description":"The description for the service level objective.","readOnly":true,"type":"string"},"enabled":{"description":"Gets whether the service level objective is enabled.","readOnly":true,"type":"boolean","nullable":false},"isDefault":{"description":"Gets whether the service level objective is the default service objective.","readOnly":true,"type":"boolean","nullable":false},"isSystem":{"description":"Gets whether the service level objective is a system service objective.","readOnly":true,"type":"boolean","nullable":false},"serviceObjectiveName":{"description":"The name for the service objective.","readOnly":true,"type":"string"}}}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, elastic pools, recommendations, operations, and usage metrics.",
+    "title": "Azure SQL Database",
+    "version": "2014-04-01",
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/sql/resource-manager/Microsoft.Sql/stable/2014-04-01/serviceObjectives.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "azure.com",
+    "x-serviceName": "sql-serviceObjectives",
+    "x-tags": ["Azure", "Microsoft"]
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/serviceObjectives": {
+      "get": {
+        "description": "Returns database service objectives.",
+        "operationId": "ServiceObjectives_ListByServer",
+        "parameters": [
+          {
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "x-ms-parameter-location": "client",
+            "schema": { "type": "string" },
+            "examples": { "List service objectives": { "value": "2014-04-01" } }
+          },
+          {
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "x-ms-parameter-location": "client",
+            "schema": { "type": "string" },
+            "examples": { "List service objectives": { "value": "00000000-1111-2222-3333-444444444444" } }
+          },
+          {
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string" },
+            "examples": { "List service objectives": { "value": "group1" } }
+          },
+          { "$ref": "#/components/parameters/ServerNameParameter" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceObjectiveListResult" } }
+            }
+          }
+        },
+        "tags": ["ServiceObjectives"],
+        "x-ms-pageable": {}
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/serviceObjectives/{serviceObjectiveName}": {
+      "get": {
+        "description": "Gets a database service objective.",
+        "operationId": "ServiceObjectives_Get",
+        "parameters": [
+          {
+            "description": "The API version to use for the request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "x-ms-parameter-location": "client",
+            "schema": { "type": "string" },
+            "examples": { "Get a service objective": { "value": "2014-04-01" } }
+          },
+          {
+            "description": "The subscription ID that identifies an Azure subscription.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "x-ms-parameter-location": "client",
+            "schema": { "type": "string" },
+            "examples": { "Get a service objective": { "value": "00000000-1111-2222-3333-444444444444" } }
+          },
+          {
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string" },
+            "examples": { "Get a service objective": { "value": "group1" } }
+          },
+          { "$ref": "#/components/parameters/ServerNameParameter" },
+          {
+            "description": "The name of the service objective to retrieve.",
+            "in": "path",
+            "name": "serviceObjectiveName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get a service objective": { "value": "29dd7459-4a7c-4e56-be22-f0adda49440d" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceObjective" } } }
+          }
+        },
+        "tags": ["ServiceObjectives"]
+      }
+    }
+  },
+  "servers": [{ "url": "https://management.azure.com" }],
+  "components": {
+    "parameters": {
+      "ServerNameParameter": {
+        "description": "The name of the server.",
+        "in": "path",
+        "name": "serverName",
+        "required": true,
+        "x-ms-parameter-location": "method",
+        "schema": { "type": "string" },
+        "examples": {
+          "List service objectives": { "value": "sqlcrudtest" },
+          "Get a service objective": { "value": "sqlcrudtest" }
+        }
+      }
+    },
+    "securitySchemes": {
+      "azure_auth": {
+        "description": "Azure Active Directory OAuth2 Flow",
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "scopes": { "user_impersonation": "impersonate your user account" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "ServiceObjective": {
+        "allOf": [
+          {
+            "allOf": [
+              {
+                "description": "ARM resource.",
+                "properties": {
+                  "id": { "description": "Resource ID.", "readOnly": true, "type": "string" },
+                  "name": { "description": "Resource name.", "readOnly": true, "type": "string" },
+                  "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
+                },
+                "type": "object",
+                "x-ms-azure-resource": true
+              }
+            ],
+            "description": "ARM proxy resource.",
+            "properties": {},
+            "type": "object"
+          }
+        ],
+        "description": "Represents a database service objective.",
+        "properties": { "properties": { "$ref": "#/components/schemas/ServiceObjectiveProperties" } }
+      },
+      "ServiceObjectiveListResult": {
+        "description": "Represents the response to a get database service objectives request.",
+        "properties": {
+          "value": {
+            "description": "The list of database service objectives.",
+            "items": { "$ref": "#/components/schemas/ServiceObjective" },
+            "type": "array"
+          }
+        },
+        "required": ["value"]
+      },
+      "ServiceObjectiveProperties": {
+        "description": "Represents the properties of a database service objective.",
+        "properties": {
+          "description": {
+            "description": "The description for the service level objective.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "enabled": {
+            "description": "Gets whether the service level objective is enabled.",
+            "readOnly": true,
+            "type": "boolean",
+            "nullable": false
+          },
+          "isDefault": {
+            "description": "Gets whether the service level objective is the default service objective.",
+            "readOnly": true,
+            "type": "boolean",
+            "nullable": false
+          },
+          "isSystem": {
+            "description": "Gets whether the service level objective is a system service objective.",
+            "readOnly": true,
+            "type": "boolean",
+            "nullable": false
+          },
+          "serviceObjectiveName": {
+            "description": "The name for the service objective.",
+            "readOnly": true,
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,2749 @@
-{"openapi":"3.0.0","info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"Amazon WorkLink is a cloud-based service that provides secure access to internal websites and web apps from iOS phones. In a single step, your users, such as employees, can access internal websites as efficiently as they access any other public website. They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink authenticates the user's access and securely renders authorized internal web content in a secure rendering service in the AWS cloud. Amazon WorkLink doesn't download or store any internal web content on mobile devices.","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"Amazon WorkLink","version":"2018-09-25","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/worklink-2018-09-25.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"worklink"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/worklink/"},"security":[{"hmac":[]}],"paths":{"/UpdateFleetMetadata":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates fleet metadata, such as DisplayName.","operationId":"UpdateFleetMetadata","requestBody":{"content":{"application/json":{"schema":{"properties":{"DisplayName":{"description":"The fleet name to display. The existing DisplayName is unset if null is passed.","maxLength":100,"type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"},"OptimizeForEndUserLocation":{"description":"The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region.","type":"boolean"}},"required":["FleetArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateFleetMetadataResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/associateDomain":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Specifies a domain to be associated to Amazon WorkLink.","operationId":"AssociateDomain","requestBody":{"content":{"application/json":{"schema":{"properties":{"AcmCertificateArn":{"description":"The ARN of an issued ACM certificate that is valid for the domain being associated.","pattern":"arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=/,.@-]+)*","type":"string"},"DisplayName":{"description":"The name to display.","maxLength":100,"type":"string"},"DomainName":{"description":"The fully qualified domain name (FQDN).","maxLength":253,"minLength":1,"pattern":"^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$","type":"string"},"FleetArn":{"description":"The Amazon Resource Name (ARN) of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn","DomainName","AcmCertificateArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateDomainResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/associateWebsiteAuthorizationProvider":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.","operationId":"AssociateWebsiteAuthorizationProvider","requestBody":{"content":{"application/json":{"schema":{"properties":{"AuthorizationProviderType":{"description":"The authorization provider type.","enum":["SAML"],"type":"string"},"DomainName":{"description":"The domain name of the authorization provider. This applies only to SAML-based authorization providers.","maxLength":253,"minLength":1,"pattern":"^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$","type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn","AuthorizationProviderType"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateWebsiteAuthorizationProviderResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/associateWebsiteCertificateAuthority":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Imports the root certificate of a certificate authority (CA) used to obtain TLS certificates used by associated websites within the company network.","operationId":"AssociateWebsiteCertificateAuthority","requestBody":{"content":{"application/json":{"schema":{"properties":{"Certificate":{"description":"The root certificate of the CA.","maxLength":8192,"minLength":1,"pattern":"-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?","type":"string"},"DisplayName":{"description":"The certificate name to display.","maxLength":100,"type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn","Certificate"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AssociateWebsiteCertificateAuthorityResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/createFleet":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a fleet. A fleet consists of resources and the configuration that delivers associated websites to authorized users who download and set up the Amazon WorkLink app.","operationId":"CreateFleet","requestBody":{"content":{"application/json":{"schema":{"properties":{"DisplayName":{"description":"The fleet name to display.","maxLength":100,"type":"string"},"FleetName":{"description":"A unique name for the fleet.","maxLength":48,"minLength":1,"pattern":"^[a-z0-9](?:[a-z0-9\\-]{0,46}[a-z0-9])?$","type":"string"},"OptimizeForEndUserLocation":{"description":"The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region.","type":"boolean"}},"required":["FleetName"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateFleetResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/deleteFleet":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes a fleet. Prevents users from accessing previously associated websites. ","operationId":"DeleteFleet","requestBody":{"$ref":"#/components/requestBodies/DeleteFleetBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteFleetResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/describeAuditStreamConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes the configuration for delivering audit streams to the customer account.","operationId":"DescribeAuditStreamConfiguration","requestBody":{"$ref":"#/components/requestBodies/DeleteFleetBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeAuditStreamConfigurationResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/describeCompanyNetworkConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes the networking configuration to access the internal websites associated with the specified fleet.","operationId":"DescribeCompanyNetworkConfiguration","requestBody":{"$ref":"#/components/requestBodies/DeleteFleetBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeCompanyNetworkConfigurationResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/describeDevice":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Provides information about a user's device.","operationId":"DescribeDevice","requestBody":{"content":{"application/json":{"schema":{"properties":{"DeviceId":{"description":"A unique identifier for a registered user's device.","maxLength":256,"minLength":1,"type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn","DeviceId"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDeviceResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/describeDevicePolicyConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes the device policy configuration for the specified fleet.","operationId":"DescribeDevicePolicyConfiguration","requestBody":{"$ref":"#/components/requestBodies/DeleteFleetBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDevicePolicyConfigurationResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/describeDomain":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Provides information about the domain.","operationId":"DescribeDomain","requestBody":{"$ref":"#/components/requestBodies/DescribeDomainBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeDomainResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/describeFleetMetadata":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Provides basic information for the specified fleet, excluding identity provider, networking, and device configuration details.","operationId":"DescribeFleetMetadata","requestBody":{"$ref":"#/components/requestBodies/DeleteFleetBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeFleetMetadataResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/describeIdentityProviderConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes the identity provider configuration of the specified fleet.","operationId":"DescribeIdentityProviderConfiguration","requestBody":{"$ref":"#/components/requestBodies/DeleteFleetBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeIdentityProviderConfigurationResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/describeWebsiteCertificateAuthority":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Provides information about the certificate authority.","operationId":"DescribeWebsiteCertificateAuthority","requestBody":{"content":{"application/json":{"schema":{"properties":{"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"},"WebsiteCaId":{"description":"A unique identifier for the certificate authority.","maxLength":256,"minLength":1,"type":"string"}},"required":["FleetArn","WebsiteCaId"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeWebsiteCertificateAuthorityResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/disassociateDomain":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. ","operationId":"DisassociateDomain","requestBody":{"$ref":"#/components/requestBodies/DescribeDomainBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateDomainResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/disassociateWebsiteAuthorizationProvider":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Disassociates a website authorization provider from a specified fleet. After the disassociation, users can't load any associated websites that require this authorization provider.","operationId":"DisassociateWebsiteAuthorizationProvider","requestBody":{"content":{"application/json":{"schema":{"properties":{"AuthorizationProviderId":{"description":"A unique identifier for the authorization provider.","maxLength":256,"minLength":1,"type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn","AuthorizationProviderId"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateWebsiteAuthorizationProviderResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"485":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/disassociateWebsiteCertificateAuthority":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Removes a certificate authority (CA).","operationId":"DisassociateWebsiteCertificateAuthority","requestBody":{"content":{"application/json":{"schema":{"properties":{"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"},"WebsiteCaId":{"description":"A unique identifier for the CA.","maxLength":256,"minLength":1,"type":"string"}},"required":["FleetArn","WebsiteCaId"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateWebsiteCertificateAuthorityResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/listDevices":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves a list of devices registered with the specified fleet.","operationId":"ListDevices","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"requestBody":{"$ref":"#/components/requestBodies/ListDevicesBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListDevicesResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/listDomains":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves a list of domains associated to a specified fleet.","operationId":"ListDomains","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"requestBody":{"$ref":"#/components/requestBodies/ListDevicesBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListDomainsResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/listFleets":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves a list of fleets for the current account and Region.","operationId":"ListFleets","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"MaxResults":{"description":"The maximum number of results to be included in the next page.","minimum":1,"type":"integer"},"NextToken":{"description":"The pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.","maxLength":4096,"minLength":1,"pattern":"[\\w\\-]+","type":"string"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListFleetsResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/listWebsiteAuthorizationProviders":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves a list of website authorization providers associated with a specified fleet.","operationId":"ListWebsiteAuthorizationProviders","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"},"MaxResults":{"description":"The maximum number of results to be included in the next page.","minimum":1,"type":"integer"},"NextToken":{"description":"The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.","maxLength":4096,"minLength":1,"pattern":"[\\w\\-]+","type":"string"}},"required":["FleetArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListWebsiteAuthorizationProvidersResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/listWebsiteCertificateAuthorities":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves a list of certificate authorities added for the current account and Region.","operationId":"ListWebsiteCertificateAuthorities","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"requestBody":{"$ref":"#/components/requestBodies/ListDevicesBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListWebsiteCertificateAuthoritiesResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/restoreDomainAccess":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Moves a domain to ACTIVE status if it was in the INACTIVE status.","operationId":"RestoreDomainAccess","requestBody":{"$ref":"#/components/requestBodies/DescribeDomainBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RestoreDomainAccessResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/revokeDomainAccess":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Moves a domain to INACTIVE status if it was in the ACTIVE status.","operationId":"RevokeDomainAccess","requestBody":{"$ref":"#/components/requestBodies/DescribeDomainBody"},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RevokeDomainAccessResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/signOutUser":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Signs the user out from all of their devices. The user can sign in again if they have valid credentials.","operationId":"SignOutUser","requestBody":{"content":{"application/json":{"schema":{"properties":{"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"},"Username":{"description":"The name of the user.","maxLength":256,"minLength":1,"type":"string"}},"required":["FleetArn","Username"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/SignOutUserResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/updateAuditStreamConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the audit stream configuration for the fleet.","operationId":"UpdateAuditStreamConfiguration","requestBody":{"content":{"application/json":{"schema":{"properties":{"AuditStreamArn":{"description":"The ARN of the Amazon Kinesis data stream that receives the audit events.","type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateAuditStreamConfigurationResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/updateCompanyNetworkConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the company network configuration for the fleet.","operationId":"UpdateCompanyNetworkConfiguration","requestBody":{"content":{"application/json":{"schema":{"properties":{"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"},"SecurityGroupIds":{"description":"The security groups associated with access to the provided subnets.","items":{"$ref":"#/components/schemas/SecurityGroupId"},"maxItems":5,"type":"array"},"SubnetIds":{"description":"The subnets used for X-ENI connections from Amazon WorkLink rendering containers.","items":{"$ref":"#/components/schemas/SubnetId"},"type":"array"},"VpcId":{"description":"The VPC with connectivity to associated websites.","pattern":"^vpc-([0-9a-f]{8}|[0-9a-f]{17})$","type":"string"}},"required":["FleetArn","VpcId","SubnetIds","SecurityGroupIds"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateCompanyNetworkConfigurationResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/updateDevicePolicyConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the device policy configuration for the fleet.","operationId":"UpdateDevicePolicyConfiguration","requestBody":{"content":{"application/json":{"schema":{"properties":{"DeviceCaCertificate":{"description":"The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.","maxLength":32768,"minLength":1,"pattern":"(-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}\\u000D?\\u000A)*-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?","type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateDevicePolicyConfigurationResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/updateDomainMetadata":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates domain metadata, such as DisplayName.","operationId":"UpdateDomainMetadata","requestBody":{"content":{"application/json":{"schema":{"properties":{"DisplayName":{"description":"The name to display.","maxLength":100,"type":"string"},"DomainName":{"description":"The name of the domain.","maxLength":253,"minLength":1,"pattern":"^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$","type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn","DomainName"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateDomainMetadataResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/updateIdentityProviderConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the identity provider configuration for the fleet.","operationId":"UpdateIdentityProviderConfiguration","requestBody":{"content":{"application/json":{"schema":{"properties":{"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"},"IdentityProviderSamlMetadata":{"description":"The SAML metadata document provided by the customer’s identity provider. The existing IdentityProviderSamlMetadata is unset if null is passed.","maxLength":204800,"minLength":1,"type":"string"},"IdentityProviderType":{"description":"The type of identity provider.","enum":["SAML"],"type":"string"}},"required":["FleetArn","IdentityProviderType"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateIdentityProviderConfigurationResponse"}}}},"480":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}}},"servers":[{"description":"The WorkLink multi-region endpoint","url":"http://worklink.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The WorkLink multi-region endpoint","url":"https://worklink.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The WorkLink endpoint for China (Beijing) and China (Ningxia)","url":"http://worklink.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The WorkLink endpoint for China (Beijing) and China (Ningxia)","url":"https://worklink.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"requestBodies":{"DeleteFleetBody":{"content":{"application/json":{"schema":{"properties":{"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn"],"type":"object"}}},"required":true},"DescribeDomainBody":{"content":{"application/json":{"schema":{"properties":{"DomainName":{"description":"The name of the domain.","maxLength":253,"minLength":1,"pattern":"^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$","type":"string"},"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"}},"required":["FleetArn","DomainName"],"type":"object"}}},"required":true},"ListDevicesBody":{"content":{"application/json":{"schema":{"properties":{"FleetArn":{"description":"The ARN of the fleet.","maxLength":2048,"minLength":20,"type":"string"},"MaxResults":{"description":"The maximum number of results to be included in the next page.","minimum":1,"type":"integer"},"NextToken":{"description":"The pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.","maxLength":4096,"minLength":1,"pattern":"[\\w\\-]+","type":"string"}},"required":["FleetArn"],"type":"object"}}},"required":true}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AcmCertificateArn":{"pattern":"arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=/,.@-]+)*","type":"string"},"AssociateDomainRequest":{"properties":{"AcmCertificateArn":{"$ref":"#/components/schemas/AcmCertificateArn"},"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"DomainName":{"$ref":"#/components/schemas/DomainName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","DomainName","AcmCertificateArn"],"type":"object"},"AssociateDomainResponse":{"properties":{},"type":"object"},"AssociateWebsiteAuthorizationProviderRequest":{"properties":{"AuthorizationProviderType":{"$ref":"#/components/schemas/AuthorizationProviderType"},"DomainName":{"$ref":"#/components/schemas/DomainName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","AuthorizationProviderType"],"type":"object"},"AssociateWebsiteAuthorizationProviderResponse":{"properties":{"AuthorizationProviderId":{"$ref":"#/components/schemas/Id"}},"type":"object"},"AssociateWebsiteCertificateAuthorityRequest":{"properties":{"Certificate":{"$ref":"#/components/schemas/Certificate"},"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","Certificate"],"type":"object"},"AssociateWebsiteCertificateAuthorityResponse":{"properties":{"WebsiteCaId":{"$ref":"#/components/schemas/Id"}},"type":"object"},"AuditStreamArn":{"type":"string"},"AuthorizationProviderType":{"enum":["SAML"],"type":"string"},"Boolean":{"type":"boolean"},"Certificate":{"maxLength":8192,"minLength":1,"pattern":"-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?","type":"string"},"CertificateChain":{"maxLength":32768,"minLength":1,"pattern":"(-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}\\u000D?\\u000A)*-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?","type":"string"},"CompanyCode":{"maxLength":32,"minLength":1,"type":"string"},"CreateFleetRequest":{"properties":{"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"FleetName":{"$ref":"#/components/schemas/FleetName"},"OptimizeForEndUserLocation":{"$ref":"#/components/schemas/Boolean"}},"required":["FleetName"],"type":"object"},"CreateFleetResponse":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"type":"object"},"DateTime":{"format":"date-time","type":"string"},"DeleteFleetRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn"],"type":"object"},"DeleteFleetResponse":{"properties":{},"type":"object"},"DescribeAuditStreamConfigurationRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn"],"type":"object"},"DescribeAuditStreamConfigurationResponse":{"properties":{"AuditStreamArn":{"$ref":"#/components/schemas/AuditStreamArn"}},"type":"object"},"DescribeCompanyNetworkConfigurationRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn"],"type":"object"},"DescribeCompanyNetworkConfigurationResponse":{"properties":{"SecurityGroupIds":{"$ref":"#/components/schemas/SecurityGroupIds"},"SubnetIds":{"$ref":"#/components/schemas/SubnetIds"},"VpcId":{"$ref":"#/components/schemas/VpcId"}},"type":"object"},"DescribeDevicePolicyConfigurationRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn"],"type":"object"},"DescribeDevicePolicyConfigurationResponse":{"properties":{"DeviceCaCertificate":{"$ref":"#/components/schemas/Certificate"}},"type":"object"},"DescribeDeviceRequest":{"properties":{"DeviceId":{"$ref":"#/components/schemas/Id"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","DeviceId"],"type":"object"},"DescribeDeviceResponse":{"properties":{"FirstAccessedTime":{"$ref":"#/components/schemas/DateTime"},"LastAccessedTime":{"$ref":"#/components/schemas/DateTime"},"Manufacturer":{"$ref":"#/components/schemas/DeviceManufacturer"},"Model":{"$ref":"#/components/schemas/DeviceModel"},"OperatingSystem":{"$ref":"#/components/schemas/DeviceOperatingSystemName"},"OperatingSystemVersion":{"$ref":"#/components/schemas/DeviceOperatingSystemVersion"},"PatchLevel":{"$ref":"#/components/schemas/DevicePatchLevel"},"Status":{"$ref":"#/components/schemas/DeviceStatus"},"Username":{"$ref":"#/components/schemas/Username"}},"type":"object"},"DescribeDomainRequest":{"properties":{"DomainName":{"$ref":"#/components/schemas/DomainName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","DomainName"],"type":"object"},"DescribeDomainResponse":{"properties":{"AcmCertificateArn":{"$ref":"#/components/schemas/AcmCertificateArn"},"CreatedTime":{"$ref":"#/components/schemas/DateTime"},"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"DomainName":{"$ref":"#/components/schemas/DomainName"},"DomainStatus":{"$ref":"#/components/schemas/DomainStatus"}},"type":"object"},"DescribeFleetMetadataRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn"],"type":"object"},"DescribeFleetMetadataResponse":{"properties":{"CompanyCode":{"$ref":"#/components/schemas/CompanyCode"},"CreatedTime":{"$ref":"#/components/schemas/DateTime"},"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"FleetName":{"$ref":"#/components/schemas/FleetName"},"FleetStatus":{"$ref":"#/components/schemas/FleetStatus"},"LastUpdatedTime":{"$ref":"#/components/schemas/DateTime"},"OptimizeForEndUserLocation":{"$ref":"#/components/schemas/Boolean"}},"type":"object"},"DescribeIdentityProviderConfigurationRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn"],"type":"object"},"DescribeIdentityProviderConfigurationResponse":{"properties":{"IdentityProviderSamlMetadata":{"$ref":"#/components/schemas/SamlMetadata"},"IdentityProviderType":{"$ref":"#/components/schemas/IdentityProviderType"},"ServiceProviderSamlMetadata":{"$ref":"#/components/schemas/SamlMetadata"}},"type":"object"},"DescribeWebsiteCertificateAuthorityRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"WebsiteCaId":{"$ref":"#/components/schemas/Id"}},"required":["FleetArn","WebsiteCaId"],"type":"object"},"DescribeWebsiteCertificateAuthorityResponse":{"properties":{"Certificate":{"$ref":"#/components/schemas/Certificate"},"CreatedTime":{"$ref":"#/components/schemas/DateTime"},"DisplayName":{"$ref":"#/components/schemas/DisplayName"}},"type":"object"},"DeviceManufacturer":{"maxLength":256,"minLength":1,"type":"string"},"DeviceModel":{"maxLength":256,"minLength":1,"type":"string"},"DeviceOperatingSystemName":{"maxLength":256,"minLength":1,"type":"string"},"DeviceOperatingSystemVersion":{"maxLength":256,"minLength":1,"type":"string"},"DevicePatchLevel":{"maxLength":256,"minLength":1,"type":"string"},"DeviceStatus":{"enum":["ACTIVE","SIGNED_OUT"],"type":"string"},"DeviceSummary":{"description":"The summary of devices.","properties":{"DeviceId":{"$ref":"#/components/schemas/Id"},"DeviceStatus":{"$ref":"#/components/schemas/DeviceStatus"}},"type":"object"},"DeviceSummaryList":{"items":{"$ref":"#/components/schemas/DeviceSummary"},"type":"array"},"DisassociateDomainRequest":{"properties":{"DomainName":{"$ref":"#/components/schemas/DomainName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","DomainName"],"type":"object"},"DisassociateDomainResponse":{"properties":{},"type":"object"},"DisassociateWebsiteAuthorizationProviderRequest":{"properties":{"AuthorizationProviderId":{"$ref":"#/components/schemas/Id"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","AuthorizationProviderId"],"type":"object"},"DisassociateWebsiteAuthorizationProviderResponse":{"properties":{},"type":"object"},"DisassociateWebsiteCertificateAuthorityRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"WebsiteCaId":{"$ref":"#/components/schemas/Id"}},"required":["FleetArn","WebsiteCaId"],"type":"object"},"DisassociateWebsiteCertificateAuthorityResponse":{"properties":{},"type":"object"},"DisplayName":{"maxLength":100,"type":"string"},"DomainName":{"maxLength":253,"minLength":1,"pattern":"^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$","type":"string"},"DomainStatus":{"enum":["PENDING_VALIDATION","ASSOCIATING","ACTIVE","INACTIVE","DISASSOCIATING","DISASSOCIATED","FAILED_TO_ASSOCIATE","FAILED_TO_DISASSOCIATE"],"type":"string"},"DomainSummary":{"description":"The summary of the domain.","properties":{"CreatedTime":{"$ref":"#/components/schemas/DateTime"},"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"DomainName":{"$ref":"#/components/schemas/DomainName"},"DomainStatus":{"$ref":"#/components/schemas/DomainStatus"}},"required":["DomainName","CreatedTime","DomainStatus"],"type":"object"},"DomainSummaryList":{"items":{"$ref":"#/components/schemas/DomainSummary"},"type":"array"},"FleetArn":{"maxLength":2048,"minLength":20,"type":"string"},"FleetName":{"maxLength":48,"minLength":1,"pattern":"^[a-z0-9](?:[a-z0-9\\-]{0,46}[a-z0-9])?$","type":"string"},"FleetStatus":{"enum":["CREATING","ACTIVE","DELETING","DELETED","FAILED_TO_CREATE","FAILED_TO_DELETE"],"type":"string"},"FleetSummary":{"description":"The summary of the fleet.","properties":{"CompanyCode":{"$ref":"#/components/schemas/CompanyCode"},"CreatedTime":{"$ref":"#/components/schemas/DateTime"},"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"FleetName":{"$ref":"#/components/schemas/FleetName"},"FleetStatus":{"$ref":"#/components/schemas/FleetStatus"},"LastUpdatedTime":{"$ref":"#/components/schemas/DateTime"}},"type":"object"},"FleetSummaryList":{"items":{"$ref":"#/components/schemas/FleetSummary"},"type":"array"},"Id":{"maxLength":256,"minLength":1,"type":"string"},"IdentityProviderType":{"enum":["SAML"],"type":"string"},"InternalServerErrorException":{},"InvalidRequestException":{},"ListDevicesRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"required":["FleetArn"],"type":"object"},"ListDevicesResponse":{"properties":{"Devices":{"$ref":"#/components/schemas/DeviceSummaryList"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListDomainsRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"required":["FleetArn"],"type":"object"},"ListDomainsResponse":{"properties":{"Domains":{"$ref":"#/components/schemas/DomainSummaryList"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListFleetsRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListFleetsResponse":{"properties":{"FleetSummaryList":{"$ref":"#/components/schemas/FleetSummaryList"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListWebsiteAuthorizationProvidersRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"required":["FleetArn"],"type":"object"},"ListWebsiteAuthorizationProvidersResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"WebsiteAuthorizationProviders":{"$ref":"#/components/schemas/WebsiteAuthorizationProvidersSummaryList"}},"type":"object"},"ListWebsiteCertificateAuthoritiesRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"required":["FleetArn"],"type":"object"},"ListWebsiteCertificateAuthoritiesResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"WebsiteCertificateAuthorities":{"$ref":"#/components/schemas/WebsiteCaSummaryList"}},"type":"object"},"MaxResults":{"minimum":1,"type":"integer"},"NextToken":{"maxLength":4096,"minLength":1,"pattern":"[\\w\\-]+","type":"string"},"ResourceAlreadyExistsException":{},"ResourceNotFoundException":{},"RestoreDomainAccessRequest":{"properties":{"DomainName":{"$ref":"#/components/schemas/DomainName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","DomainName"],"type":"object"},"RestoreDomainAccessResponse":{"properties":{},"type":"object"},"RevokeDomainAccessRequest":{"properties":{"DomainName":{"$ref":"#/components/schemas/DomainName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","DomainName"],"type":"object"},"RevokeDomainAccessResponse":{"properties":{},"type":"object"},"SamlMetadata":{"maxLength":204800,"minLength":1,"type":"string"},"SecurityGroupId":{"pattern":"^sg-([0-9a-f]{8}|[0-9a-f]{17})$","type":"string"},"SecurityGroupIds":{"items":{"$ref":"#/components/schemas/SecurityGroupId"},"maxItems":5,"type":"array"},"SignOutUserRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"Username":{"$ref":"#/components/schemas/Username"}},"required":["FleetArn","Username"],"type":"object"},"SignOutUserResponse":{"properties":{},"type":"object"},"SubnetId":{"pattern":"^subnet-([0-9a-f]{8}|[0-9a-f]{17})$","type":"string"},"SubnetIds":{"items":{"$ref":"#/components/schemas/SubnetId"},"type":"array"},"TooManyRequestsException":{},"UnauthorizedException":{},"UpdateAuditStreamConfigurationRequest":{"properties":{"AuditStreamArn":{"$ref":"#/components/schemas/AuditStreamArn"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn"],"type":"object"},"UpdateAuditStreamConfigurationResponse":{"properties":{},"type":"object"},"UpdateCompanyNetworkConfigurationRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"SecurityGroupIds":{"$ref":"#/components/schemas/SecurityGroupIds"},"SubnetIds":{"$ref":"#/components/schemas/SubnetIds"},"VpcId":{"$ref":"#/components/schemas/VpcId"}},"required":["FleetArn","VpcId","SubnetIds","SecurityGroupIds"],"type":"object"},"UpdateCompanyNetworkConfigurationResponse":{"properties":{},"type":"object"},"UpdateDevicePolicyConfigurationRequest":{"properties":{"DeviceCaCertificate":{"$ref":"#/components/schemas/CertificateChain"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn"],"type":"object"},"UpdateDevicePolicyConfigurationResponse":{"properties":{},"type":"object"},"UpdateDomainMetadataRequest":{"properties":{"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"DomainName":{"$ref":"#/components/schemas/DomainName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"}},"required":["FleetArn","DomainName"],"type":"object"},"UpdateDomainMetadataResponse":{"properties":{},"type":"object"},"UpdateFleetMetadataRequest":{"properties":{"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"OptimizeForEndUserLocation":{"$ref":"#/components/schemas/Boolean"}},"required":["FleetArn"],"type":"object"},"UpdateFleetMetadataResponse":{"properties":{},"type":"object"},"UpdateIdentityProviderConfigurationRequest":{"properties":{"FleetArn":{"$ref":"#/components/schemas/FleetArn"},"IdentityProviderSamlMetadata":{"$ref":"#/components/schemas/SamlMetadata"},"IdentityProviderType":{"$ref":"#/components/schemas/IdentityProviderType"}},"required":["FleetArn","IdentityProviderType"],"type":"object"},"UpdateIdentityProviderConfigurationResponse":{"properties":{},"type":"object"},"Username":{"maxLength":256,"minLength":1,"type":"string"},"VpcId":{"pattern":"^vpc-([0-9a-f]{8}|[0-9a-f]{17})$","type":"string"},"WebsiteAuthorizationProviderSummary":{"description":"The summary of the website authorization provider.","properties":{"AuthorizationProviderId":{"$ref":"#/components/schemas/Id"},"AuthorizationProviderType":{"$ref":"#/components/schemas/AuthorizationProviderType"},"CreatedTime":{"$ref":"#/components/schemas/DateTime"},"DomainName":{"$ref":"#/components/schemas/DomainName"}},"required":["AuthorizationProviderType"],"type":"object"},"WebsiteAuthorizationProvidersSummaryList":{"items":{"$ref":"#/components/schemas/WebsiteAuthorizationProviderSummary"},"type":"array"},"WebsiteCaSummary":{"description":"The summary of the certificate authority (CA).","properties":{"CreatedTime":{"$ref":"#/components/schemas/DateTime"},"DisplayName":{"$ref":"#/components/schemas/DisplayName"},"WebsiteCaId":{"$ref":"#/components/schemas/Id"}},"type":"object"},"WebsiteCaSummaryList":{"items":{"$ref":"#/components/schemas/WebsiteCaSummary"},"type":"array"}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Amazon WorkLink is a cloud-based service that provides secure access to internal websites and web apps from iOS phones. In a single step, your users, such as employees, can access internal websites as efficiently as they access any other public website. They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink authenticates the user's access and securely renders authorized internal web content in a secure rendering service in the AWS cloud. Amazon WorkLink doesn't download or store any internal web content on mobile devices.",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon WorkLink",
+    "version": "2018-09-25",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/worklink-2018-09-25.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "worklink"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/worklink/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/UpdateFleetMetadata": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates fleet metadata, such as DisplayName.",
+        "operationId": "UpdateFleetMetadata",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "DisplayName": {
+                    "description": "The fleet name to display. The existing DisplayName is unset if null is passed.",
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  },
+                  "OptimizeForEndUserLocation": {
+                    "description": "The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region.",
+                    "type": "boolean"
+                  }
+                },
+                "required": ["FleetArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateFleetMetadataResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/associateDomain": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Specifies a domain to be associated to Amazon WorkLink.",
+        "operationId": "AssociateDomain",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "AcmCertificateArn": {
+                    "description": "The ARN of an issued ACM certificate that is valid for the domain being associated.",
+                    "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=/,.@-]+)*",
+                    "type": "string"
+                  },
+                  "DisplayName": { "description": "The name to display.", "maxLength": 100, "type": "string" },
+                  "DomainName": {
+                    "description": "The fully qualified domain name (FQDN).",
+                    "maxLength": 253,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$",
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The Amazon Resource Name (ARN) of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "DomainName", "AcmCertificateArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AssociateDomainResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/associateWebsiteAuthorizationProvider": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.",
+        "operationId": "AssociateWebsiteAuthorizationProvider",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "AuthorizationProviderType": {
+                    "description": "The authorization provider type.",
+                    "enum": ["SAML"],
+                    "type": "string"
+                  },
+                  "DomainName": {
+                    "description": "The domain name of the authorization provider. This applies only to SAML-based authorization providers.",
+                    "maxLength": 253,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$",
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "AuthorizationProviderType"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AssociateWebsiteAuthorizationProviderResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/associateWebsiteCertificateAuthority": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Imports the root certificate of a certificate authority (CA) used to obtain TLS certificates used by associated websites within the company network.",
+        "operationId": "AssociateWebsiteCertificateAuthority",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "Certificate": {
+                    "description": "The root certificate of the CA.",
+                    "maxLength": 8192,
+                    "minLength": 1,
+                    "pattern": "-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?",
+                    "type": "string"
+                  },
+                  "DisplayName": {
+                    "description": "The certificate name to display.",
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "Certificate"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AssociateWebsiteCertificateAuthorityResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/createFleet": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a fleet. A fleet consists of resources and the configuration that delivers associated websites to authorized users who download and set up the Amazon WorkLink app.",
+        "operationId": "CreateFleet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "DisplayName": { "description": "The fleet name to display.", "maxLength": 100, "type": "string" },
+                  "FleetName": {
+                    "description": "A unique name for the fleet.",
+                    "maxLength": 48,
+                    "minLength": 1,
+                    "pattern": "^[a-z0-9](?:[a-z0-9\\-]{0,46}[a-z0-9])?$",
+                    "type": "string"
+                  },
+                  "OptimizeForEndUserLocation": {
+                    "description": "The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region.",
+                    "type": "boolean"
+                  }
+                },
+                "required": ["FleetName"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateFleetResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/deleteFleet": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes a fleet. Prevents users from accessing previously associated websites. ",
+        "operationId": "DeleteFleet",
+        "requestBody": { "$ref": "#/components/requestBodies/DeleteFleetBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteFleetResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/describeAuditStreamConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes the configuration for delivering audit streams to the customer account.",
+        "operationId": "DescribeAuditStreamConfiguration",
+        "requestBody": { "$ref": "#/components/requestBodies/DeleteFleetBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DescribeAuditStreamConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/describeCompanyNetworkConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes the networking configuration to access the internal websites associated with the specified fleet.",
+        "operationId": "DescribeCompanyNetworkConfiguration",
+        "requestBody": { "$ref": "#/components/requestBodies/DeleteFleetBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DescribeCompanyNetworkConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/describeDevice": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Provides information about a user's device.",
+        "operationId": "DescribeDevice",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "DeviceId": {
+                    "description": "A unique identifier for a registered user's device.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "DeviceId"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDeviceResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/describeDevicePolicyConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes the device policy configuration for the specified fleet.",
+        "operationId": "DescribeDevicePolicyConfiguration",
+        "requestBody": { "$ref": "#/components/requestBodies/DeleteFleetBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DescribeDevicePolicyConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/describeDomain": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Provides information about the domain.",
+        "operationId": "DescribeDomain",
+        "requestBody": { "$ref": "#/components/requestBodies/DescribeDomainBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeDomainResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/describeFleetMetadata": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Provides basic information for the specified fleet, excluding identity provider, networking, and device configuration details.",
+        "operationId": "DescribeFleetMetadata",
+        "requestBody": { "$ref": "#/components/requestBodies/DeleteFleetBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeFleetMetadataResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/describeIdentityProviderConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes the identity provider configuration of the specified fleet.",
+        "operationId": "DescribeIdentityProviderConfiguration",
+        "requestBody": { "$ref": "#/components/requestBodies/DeleteFleetBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DescribeIdentityProviderConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/describeWebsiteCertificateAuthority": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Provides information about the certificate authority.",
+        "operationId": "DescribeWebsiteCertificateAuthority",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  },
+                  "WebsiteCaId": {
+                    "description": "A unique identifier for the certificate authority.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "WebsiteCaId"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DescribeWebsiteCertificateAuthorityResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/disassociateDomain": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. ",
+        "operationId": "DisassociateDomain",
+        "requestBody": { "$ref": "#/components/requestBodies/DescribeDomainBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateDomainResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/disassociateWebsiteAuthorizationProvider": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Disassociates a website authorization provider from a specified fleet. After the disassociation, users can't load any associated websites that require this authorization provider.",
+        "operationId": "DisassociateWebsiteAuthorizationProvider",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "AuthorizationProviderId": {
+                    "description": "A unique identifier for the authorization provider.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "AuthorizationProviderId"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DisassociateWebsiteAuthorizationProviderResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/disassociateWebsiteCertificateAuthority": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Removes a certificate authority (CA).",
+        "operationId": "DisassociateWebsiteCertificateAuthority",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  },
+                  "WebsiteCaId": {
+                    "description": "A unique identifier for the CA.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "WebsiteCaId"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DisassociateWebsiteCertificateAuthorityResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/listDevices": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves a list of devices registered with the specified fleet.",
+        "operationId": "ListDevices",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": { "$ref": "#/components/requestBodies/ListDevicesBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListDevicesResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/listDomains": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves a list of domains associated to a specified fleet.",
+        "operationId": "ListDomains",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": { "$ref": "#/components/requestBodies/ListDevicesBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListDomainsResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/listFleets": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves a list of fleets for the current account and Region.",
+        "operationId": "ListFleets",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "MaxResults": {
+                    "description": "The maximum number of results to be included in the next page.",
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "NextToken": {
+                    "description": "The pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "pattern": "[\\w\\-]+",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListFleetsResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/listWebsiteAuthorizationProviders": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves a list of website authorization providers associated with a specified fleet.",
+        "operationId": "ListWebsiteAuthorizationProviders",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  },
+                  "MaxResults": {
+                    "description": "The maximum number of results to be included in the next page.",
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "NextToken": {
+                    "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "pattern": "[\\w\\-]+",
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListWebsiteAuthorizationProvidersResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/listWebsiteCertificateAuthorities": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves a list of certificate authorities added for the current account and Region.",
+        "operationId": "ListWebsiteCertificateAuthorities",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": { "$ref": "#/components/requestBodies/ListDevicesBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListWebsiteCertificateAuthoritiesResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/restoreDomainAccess": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Moves a domain to ACTIVE status if it was in the INACTIVE status.",
+        "operationId": "RestoreDomainAccess",
+        "requestBody": { "$ref": "#/components/requestBodies/DescribeDomainBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/RestoreDomainAccessResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/revokeDomainAccess": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Moves a domain to INACTIVE status if it was in the ACTIVE status.",
+        "operationId": "RevokeDomainAccess",
+        "requestBody": { "$ref": "#/components/requestBodies/DescribeDomainBody" },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/RevokeDomainAccessResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/signOutUser": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Signs the user out from all of their devices. The user can sign in again if they have valid credentials.",
+        "operationId": "SignOutUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  },
+                  "Username": {
+                    "description": "The name of the user.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "Username"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SignOutUserResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/updateAuditStreamConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the audit stream configuration for the fleet.",
+        "operationId": "UpdateAuditStreamConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "AuditStreamArn": {
+                    "description": "The ARN of the Amazon Kinesis data stream that receives the audit events.",
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UpdateAuditStreamConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/updateCompanyNetworkConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the company network configuration for the fleet.",
+        "operationId": "UpdateCompanyNetworkConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  },
+                  "SecurityGroupIds": {
+                    "description": "The security groups associated with access to the provided subnets.",
+                    "items": { "$ref": "#/components/schemas/SecurityGroupId" },
+                    "maxItems": 5,
+                    "type": "array"
+                  },
+                  "SubnetIds": {
+                    "description": "The subnets used for X-ENI connections from Amazon WorkLink rendering containers.",
+                    "items": { "$ref": "#/components/schemas/SubnetId" },
+                    "type": "array"
+                  },
+                  "VpcId": {
+                    "description": "The VPC with connectivity to associated websites.",
+                    "pattern": "^vpc-([0-9a-f]{8}|[0-9a-f]{17})$",
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "VpcId", "SubnetIds", "SecurityGroupIds"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UpdateCompanyNetworkConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/updateDevicePolicyConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the device policy configuration for the fleet.",
+        "operationId": "UpdateDevicePolicyConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "DeviceCaCertificate": {
+                    "description": "The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.",
+                    "maxLength": 32768,
+                    "minLength": 1,
+                    "pattern": "(-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}\\u000D?\\u000A)*-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?",
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UpdateDevicePolicyConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/updateDomainMetadata": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates domain metadata, such as DisplayName.",
+        "operationId": "UpdateDomainMetadata",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "DisplayName": { "description": "The name to display.", "maxLength": 100, "type": "string" },
+                  "DomainName": {
+                    "description": "The name of the domain.",
+                    "maxLength": 253,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$",
+                    "type": "string"
+                  },
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "DomainName"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateDomainMetadataResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/updateIdentityProviderConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the identity provider configuration for the fleet.",
+        "operationId": "UpdateIdentityProviderConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                  },
+                  "IdentityProviderSamlMetadata": {
+                    "description": "The SAML metadata document provided by the customer’s identity provider. The existing IdentityProviderSamlMetadata is unset if null is passed.",
+                    "maxLength": 204800,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "IdentityProviderType": {
+                    "description": "The type of identity provider.",
+                    "enum": ["SAML"],
+                    "type": "string"
+                  }
+                },
+                "required": ["FleetArn", "IdentityProviderType"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UpdateIdentityProviderConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The WorkLink multi-region endpoint",
+      "url": "http://worklink.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The WorkLink multi-region endpoint",
+      "url": "https://worklink.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The WorkLink endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://worklink.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The WorkLink endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://worklink.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "requestBodies": {
+      "DeleteFleetBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "FleetArn": {
+                  "description": "The ARN of the fleet.",
+                  "maxLength": 2048,
+                  "minLength": 20,
+                  "type": "string"
+                }
+              },
+              "required": ["FleetArn"],
+              "type": "object"
+            }
+          }
+        },
+        "required": true
+      },
+      "DescribeDomainBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "DomainName": {
+                  "description": "The name of the domain.",
+                  "maxLength": 253,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$",
+                  "type": "string"
+                },
+                "FleetArn": {
+                  "description": "The ARN of the fleet.",
+                  "maxLength": 2048,
+                  "minLength": 20,
+                  "type": "string"
+                }
+              },
+              "required": ["FleetArn", "DomainName"],
+              "type": "object"
+            }
+          }
+        },
+        "required": true
+      },
+      "ListDevicesBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "FleetArn": {
+                  "description": "The ARN of the fleet.",
+                  "maxLength": 2048,
+                  "minLength": 20,
+                  "type": "string"
+                },
+                "MaxResults": {
+                  "description": "The maximum number of results to be included in the next page.",
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                  "maxLength": 4096,
+                  "minLength": 1,
+                  "pattern": "[\\w\\-]+",
+                  "type": "string"
+                }
+              },
+              "required": ["FleetArn"],
+              "type": "object"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AcmCertificateArn": {
+        "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=/,.@-]+)*",
+        "type": "string"
+      },
+      "AssociateDomainRequest": {
+        "properties": {
+          "AcmCertificateArn": { "$ref": "#/components/schemas/AcmCertificateArn" },
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "DomainName", "AcmCertificateArn"],
+        "type": "object"
+      },
+      "AssociateDomainResponse": { "properties": {}, "type": "object" },
+      "AssociateWebsiteAuthorizationProviderRequest": {
+        "properties": {
+          "AuthorizationProviderType": { "$ref": "#/components/schemas/AuthorizationProviderType" },
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "AuthorizationProviderType"],
+        "type": "object"
+      },
+      "AssociateWebsiteAuthorizationProviderResponse": {
+        "properties": { "AuthorizationProviderId": { "$ref": "#/components/schemas/Id" } },
+        "type": "object"
+      },
+      "AssociateWebsiteCertificateAuthorityRequest": {
+        "properties": {
+          "Certificate": { "$ref": "#/components/schemas/Certificate" },
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "Certificate"],
+        "type": "object"
+      },
+      "AssociateWebsiteCertificateAuthorityResponse": {
+        "properties": { "WebsiteCaId": { "$ref": "#/components/schemas/Id" } },
+        "type": "object"
+      },
+      "AuditStreamArn": { "type": "string" },
+      "AuthorizationProviderType": { "enum": ["SAML"], "type": "string" },
+      "Boolean": { "type": "boolean" },
+      "Certificate": {
+        "maxLength": 8192,
+        "minLength": 1,
+        "pattern": "-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?",
+        "type": "string"
+      },
+      "CertificateChain": {
+        "maxLength": 32768,
+        "minLength": 1,
+        "pattern": "(-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}\\u000D?\\u000A)*-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?",
+        "type": "string"
+      },
+      "CompanyCode": { "maxLength": 32, "minLength": 1, "type": "string" },
+      "CreateFleetRequest": {
+        "properties": {
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "FleetName": { "$ref": "#/components/schemas/FleetName" },
+          "OptimizeForEndUserLocation": { "$ref": "#/components/schemas/Boolean" }
+        },
+        "required": ["FleetName"],
+        "type": "object"
+      },
+      "CreateFleetResponse": {
+        "properties": { "FleetArn": { "$ref": "#/components/schemas/FleetArn" } },
+        "type": "object"
+      },
+      "DateTime": { "format": "date-time", "type": "string" },
+      "DeleteFleetRequest": {
+        "properties": { "FleetArn": { "$ref": "#/components/schemas/FleetArn" } },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "DeleteFleetResponse": { "properties": {}, "type": "object" },
+      "DescribeAuditStreamConfigurationRequest": {
+        "properties": { "FleetArn": { "$ref": "#/components/schemas/FleetArn" } },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "DescribeAuditStreamConfigurationResponse": {
+        "properties": { "AuditStreamArn": { "$ref": "#/components/schemas/AuditStreamArn" } },
+        "type": "object"
+      },
+      "DescribeCompanyNetworkConfigurationRequest": {
+        "properties": { "FleetArn": { "$ref": "#/components/schemas/FleetArn" } },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "DescribeCompanyNetworkConfigurationResponse": {
+        "properties": {
+          "SecurityGroupIds": { "$ref": "#/components/schemas/SecurityGroupIds" },
+          "SubnetIds": { "$ref": "#/components/schemas/SubnetIds" },
+          "VpcId": { "$ref": "#/components/schemas/VpcId" }
+        },
+        "type": "object"
+      },
+      "DescribeDevicePolicyConfigurationRequest": {
+        "properties": { "FleetArn": { "$ref": "#/components/schemas/FleetArn" } },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "DescribeDevicePolicyConfigurationResponse": {
+        "properties": { "DeviceCaCertificate": { "$ref": "#/components/schemas/Certificate" } },
+        "type": "object"
+      },
+      "DescribeDeviceRequest": {
+        "properties": {
+          "DeviceId": { "$ref": "#/components/schemas/Id" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "DeviceId"],
+        "type": "object"
+      },
+      "DescribeDeviceResponse": {
+        "properties": {
+          "FirstAccessedTime": { "$ref": "#/components/schemas/DateTime" },
+          "LastAccessedTime": { "$ref": "#/components/schemas/DateTime" },
+          "Manufacturer": { "$ref": "#/components/schemas/DeviceManufacturer" },
+          "Model": { "$ref": "#/components/schemas/DeviceModel" },
+          "OperatingSystem": { "$ref": "#/components/schemas/DeviceOperatingSystemName" },
+          "OperatingSystemVersion": { "$ref": "#/components/schemas/DeviceOperatingSystemVersion" },
+          "PatchLevel": { "$ref": "#/components/schemas/DevicePatchLevel" },
+          "Status": { "$ref": "#/components/schemas/DeviceStatus" },
+          "Username": { "$ref": "#/components/schemas/Username" }
+        },
+        "type": "object"
+      },
+      "DescribeDomainRequest": {
+        "properties": {
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "DomainName"],
+        "type": "object"
+      },
+      "DescribeDomainResponse": {
+        "properties": {
+          "AcmCertificateArn": { "$ref": "#/components/schemas/AcmCertificateArn" },
+          "CreatedTime": { "$ref": "#/components/schemas/DateTime" },
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "DomainStatus": { "$ref": "#/components/schemas/DomainStatus" }
+        },
+        "type": "object"
+      },
+      "DescribeFleetMetadataRequest": {
+        "properties": { "FleetArn": { "$ref": "#/components/schemas/FleetArn" } },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "DescribeFleetMetadataResponse": {
+        "properties": {
+          "CompanyCode": { "$ref": "#/components/schemas/CompanyCode" },
+          "CreatedTime": { "$ref": "#/components/schemas/DateTime" },
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "FleetName": { "$ref": "#/components/schemas/FleetName" },
+          "FleetStatus": { "$ref": "#/components/schemas/FleetStatus" },
+          "LastUpdatedTime": { "$ref": "#/components/schemas/DateTime" },
+          "OptimizeForEndUserLocation": { "$ref": "#/components/schemas/Boolean" }
+        },
+        "type": "object"
+      },
+      "DescribeIdentityProviderConfigurationRequest": {
+        "properties": { "FleetArn": { "$ref": "#/components/schemas/FleetArn" } },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "DescribeIdentityProviderConfigurationResponse": {
+        "properties": {
+          "IdentityProviderSamlMetadata": { "$ref": "#/components/schemas/SamlMetadata" },
+          "IdentityProviderType": { "$ref": "#/components/schemas/IdentityProviderType" },
+          "ServiceProviderSamlMetadata": { "$ref": "#/components/schemas/SamlMetadata" }
+        },
+        "type": "object"
+      },
+      "DescribeWebsiteCertificateAuthorityRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "WebsiteCaId": { "$ref": "#/components/schemas/Id" }
+        },
+        "required": ["FleetArn", "WebsiteCaId"],
+        "type": "object"
+      },
+      "DescribeWebsiteCertificateAuthorityResponse": {
+        "properties": {
+          "Certificate": { "$ref": "#/components/schemas/Certificate" },
+          "CreatedTime": { "$ref": "#/components/schemas/DateTime" },
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" }
+        },
+        "type": "object"
+      },
+      "DeviceManufacturer": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "DeviceModel": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "DeviceOperatingSystemName": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "DeviceOperatingSystemVersion": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "DevicePatchLevel": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "DeviceStatus": { "enum": ["ACTIVE", "SIGNED_OUT"], "type": "string" },
+      "DeviceSummary": {
+        "description": "The summary of devices.",
+        "properties": {
+          "DeviceId": { "$ref": "#/components/schemas/Id" },
+          "DeviceStatus": { "$ref": "#/components/schemas/DeviceStatus" }
+        },
+        "type": "object"
+      },
+      "DeviceSummaryList": { "items": { "$ref": "#/components/schemas/DeviceSummary" }, "type": "array" },
+      "DisassociateDomainRequest": {
+        "properties": {
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "DomainName"],
+        "type": "object"
+      },
+      "DisassociateDomainResponse": { "properties": {}, "type": "object" },
+      "DisassociateWebsiteAuthorizationProviderRequest": {
+        "properties": {
+          "AuthorizationProviderId": { "$ref": "#/components/schemas/Id" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "AuthorizationProviderId"],
+        "type": "object"
+      },
+      "DisassociateWebsiteAuthorizationProviderResponse": { "properties": {}, "type": "object" },
+      "DisassociateWebsiteCertificateAuthorityRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "WebsiteCaId": { "$ref": "#/components/schemas/Id" }
+        },
+        "required": ["FleetArn", "WebsiteCaId"],
+        "type": "object"
+      },
+      "DisassociateWebsiteCertificateAuthorityResponse": { "properties": {}, "type": "object" },
+      "DisplayName": { "maxLength": 100, "type": "string" },
+      "DomainName": {
+        "maxLength": 253,
+        "minLength": 1,
+        "pattern": "^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$",
+        "type": "string"
+      },
+      "DomainStatus": {
+        "enum": [
+          "PENDING_VALIDATION",
+          "ASSOCIATING",
+          "ACTIVE",
+          "INACTIVE",
+          "DISASSOCIATING",
+          "DISASSOCIATED",
+          "FAILED_TO_ASSOCIATE",
+          "FAILED_TO_DISASSOCIATE"
+        ],
+        "type": "string"
+      },
+      "DomainSummary": {
+        "description": "The summary of the domain.",
+        "properties": {
+          "CreatedTime": { "$ref": "#/components/schemas/DateTime" },
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "DomainStatus": { "$ref": "#/components/schemas/DomainStatus" }
+        },
+        "required": ["DomainName", "CreatedTime", "DomainStatus"],
+        "type": "object"
+      },
+      "DomainSummaryList": { "items": { "$ref": "#/components/schemas/DomainSummary" }, "type": "array" },
+      "FleetArn": { "maxLength": 2048, "minLength": 20, "type": "string" },
+      "FleetName": {
+        "maxLength": 48,
+        "minLength": 1,
+        "pattern": "^[a-z0-9](?:[a-z0-9\\-]{0,46}[a-z0-9])?$",
+        "type": "string"
+      },
+      "FleetStatus": {
+        "enum": ["CREATING", "ACTIVE", "DELETING", "DELETED", "FAILED_TO_CREATE", "FAILED_TO_DELETE"],
+        "type": "string"
+      },
+      "FleetSummary": {
+        "description": "The summary of the fleet.",
+        "properties": {
+          "CompanyCode": { "$ref": "#/components/schemas/CompanyCode" },
+          "CreatedTime": { "$ref": "#/components/schemas/DateTime" },
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "FleetName": { "$ref": "#/components/schemas/FleetName" },
+          "FleetStatus": { "$ref": "#/components/schemas/FleetStatus" },
+          "LastUpdatedTime": { "$ref": "#/components/schemas/DateTime" }
+        },
+        "type": "object"
+      },
+      "FleetSummaryList": { "items": { "$ref": "#/components/schemas/FleetSummary" }, "type": "array" },
+      "Id": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "IdentityProviderType": { "enum": ["SAML"], "type": "string" },
+      "InternalServerErrorException": {},
+      "InvalidRequestException": {},
+      "ListDevicesRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "ListDevicesResponse": {
+        "properties": {
+          "Devices": { "$ref": "#/components/schemas/DeviceSummaryList" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListDomainsRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "ListDomainsResponse": {
+        "properties": {
+          "Domains": { "$ref": "#/components/schemas/DomainSummaryList" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListFleetsRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListFleetsResponse": {
+        "properties": {
+          "FleetSummaryList": { "$ref": "#/components/schemas/FleetSummaryList" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListWebsiteAuthorizationProvidersRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "ListWebsiteAuthorizationProvidersResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "WebsiteAuthorizationProviders": { "$ref": "#/components/schemas/WebsiteAuthorizationProvidersSummaryList" }
+        },
+        "type": "object"
+      },
+      "ListWebsiteCertificateAuthoritiesRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "ListWebsiteCertificateAuthoritiesResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "WebsiteCertificateAuthorities": { "$ref": "#/components/schemas/WebsiteCaSummaryList" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "minimum": 1, "type": "integer" },
+      "NextToken": { "maxLength": 4096, "minLength": 1, "pattern": "[\\w\\-]+", "type": "string" },
+      "ResourceAlreadyExistsException": {},
+      "ResourceNotFoundException": {},
+      "RestoreDomainAccessRequest": {
+        "properties": {
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "DomainName"],
+        "type": "object"
+      },
+      "RestoreDomainAccessResponse": { "properties": {}, "type": "object" },
+      "RevokeDomainAccessRequest": {
+        "properties": {
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "DomainName"],
+        "type": "object"
+      },
+      "RevokeDomainAccessResponse": { "properties": {}, "type": "object" },
+      "SamlMetadata": { "maxLength": 204800, "minLength": 1, "type": "string" },
+      "SecurityGroupId": { "pattern": "^sg-([0-9a-f]{8}|[0-9a-f]{17})$", "type": "string" },
+      "SecurityGroupIds": {
+        "items": { "$ref": "#/components/schemas/SecurityGroupId" },
+        "maxItems": 5,
+        "type": "array"
+      },
+      "SignOutUserRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "Username": { "$ref": "#/components/schemas/Username" }
+        },
+        "required": ["FleetArn", "Username"],
+        "type": "object"
+      },
+      "SignOutUserResponse": { "properties": {}, "type": "object" },
+      "SubnetId": { "pattern": "^subnet-([0-9a-f]{8}|[0-9a-f]{17})$", "type": "string" },
+      "SubnetIds": { "items": { "$ref": "#/components/schemas/SubnetId" }, "type": "array" },
+      "TooManyRequestsException": {},
+      "UnauthorizedException": {},
+      "UpdateAuditStreamConfigurationRequest": {
+        "properties": {
+          "AuditStreamArn": { "$ref": "#/components/schemas/AuditStreamArn" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "UpdateAuditStreamConfigurationResponse": { "properties": {}, "type": "object" },
+      "UpdateCompanyNetworkConfigurationRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "SecurityGroupIds": { "$ref": "#/components/schemas/SecurityGroupIds" },
+          "SubnetIds": { "$ref": "#/components/schemas/SubnetIds" },
+          "VpcId": { "$ref": "#/components/schemas/VpcId" }
+        },
+        "required": ["FleetArn", "VpcId", "SubnetIds", "SecurityGroupIds"],
+        "type": "object"
+      },
+      "UpdateCompanyNetworkConfigurationResponse": { "properties": {}, "type": "object" },
+      "UpdateDevicePolicyConfigurationRequest": {
+        "properties": {
+          "DeviceCaCertificate": { "$ref": "#/components/schemas/CertificateChain" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "UpdateDevicePolicyConfigurationResponse": { "properties": {}, "type": "object" },
+      "UpdateDomainMetadataRequest": {
+        "properties": {
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "DomainName": { "$ref": "#/components/schemas/DomainName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" }
+        },
+        "required": ["FleetArn", "DomainName"],
+        "type": "object"
+      },
+      "UpdateDomainMetadataResponse": { "properties": {}, "type": "object" },
+      "UpdateFleetMetadataRequest": {
+        "properties": {
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "OptimizeForEndUserLocation": { "$ref": "#/components/schemas/Boolean" }
+        },
+        "required": ["FleetArn"],
+        "type": "object"
+      },
+      "UpdateFleetMetadataResponse": { "properties": {}, "type": "object" },
+      "UpdateIdentityProviderConfigurationRequest": {
+        "properties": {
+          "FleetArn": { "$ref": "#/components/schemas/FleetArn" },
+          "IdentityProviderSamlMetadata": { "$ref": "#/components/schemas/SamlMetadata" },
+          "IdentityProviderType": { "$ref": "#/components/schemas/IdentityProviderType" }
+        },
+        "required": ["FleetArn", "IdentityProviderType"],
+        "type": "object"
+      },
+      "UpdateIdentityProviderConfigurationResponse": { "properties": {}, "type": "object" },
+      "Username": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "VpcId": { "pattern": "^vpc-([0-9a-f]{8}|[0-9a-f]{17})$", "type": "string" },
+      "WebsiteAuthorizationProviderSummary": {
+        "description": "The summary of the website authorization provider.",
+        "properties": {
+          "AuthorizationProviderId": { "$ref": "#/components/schemas/Id" },
+          "AuthorizationProviderType": { "$ref": "#/components/schemas/AuthorizationProviderType" },
+          "CreatedTime": { "$ref": "#/components/schemas/DateTime" },
+          "DomainName": { "$ref": "#/components/schemas/DomainName" }
+        },
+        "required": ["AuthorizationProviderType"],
+        "type": "object"
+      },
+      "WebsiteAuthorizationProvidersSummaryList": {
+        "items": { "$ref": "#/components/schemas/WebsiteAuthorizationProviderSummary" },
+        "type": "array"
+      },
+      "WebsiteCaSummary": {
+        "description": "The summary of the certificate authority (CA).",
+        "properties": {
+          "CreatedTime": { "$ref": "#/components/schemas/DateTime" },
+          "DisplayName": { "$ref": "#/components/schemas/DisplayName" },
+          "WebsiteCaId": { "$ref": "#/components/schemas/Id" }
+        },
+        "type": "object"
+      },
+      "WebsiteCaSummaryList": { "items": { "$ref": "#/components/schemas/WebsiteCaSummary" }, "type": "array" }
+    }
+  }
+}

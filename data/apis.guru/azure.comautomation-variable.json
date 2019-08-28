@@ -1,1 +1,558 @@
-{"openapi":"3.0.0","info":{"title":"AutomationManagement","version":"2015-10-31","x-apisguru-categories":["cloud"],"x-logo":{"url":"https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"},"x-origin":[{"format":"swagger","url":"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/variable.json","version":"2.0"}],"x-preferred":true,"x-providerName":"azure.com","x-serviceName":"automation-variable","x-tags":["Azure","Microsoft"]},"security":[{"azure_auth":["user_impersonation"]}],"paths":{"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables":{"get":{"description":"Retrieve a list of variables.","externalDocs":{"url":"http://aka.ms/azureautomationsdk/variableoperations"},"operationId":"Variable_ListByAutomationAccount","parameters":[{"description":"Name of an Azure Resource group.","in":"path","name":"resourceGroupName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string","minLength":1,"maxLength":90,"pattern":"^[-\\w\\._]+$"},"examples":{"List variables, First 100":{"value":"rg"},"List variables, Next 100":{"value":"rg"}}},{"description":"The name of the automation account.","in":"path","name":"automationAccountName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"List variables, First 100":{"value":"sampleAccount9"},"List variables, Next 100":{"value":"sampleAccount9"}}},{"description":"Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"List variables, First 100":{"value":"subid"},"List variables, Next 100":{"value":"subid"}}},{"description":"Client Api Version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"List variables, First 100":{"value":"2015-10-31"},"List variables, Next 100":{"value":"2015-10-31"}}}],"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VariableListResult"}}}},"default":{"description":"Automation error response describing why the operation failed.","content":{"application/json":{"schema":{"description":"Error response of an operation failure","properties":{"code":{"description":"Error code","type":"string"},"message":{"description":"Error message indicating why the operation failed.","type":"string"}},"type":"object"}}}}},"tags":["Variable"],"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables/{variableName}":{"delete":{"description":"Delete the variable.","externalDocs":{"url":"http://aka.ms/azureautomationsdk/variableoperations"},"operationId":"Variable_Delete","parameters":[{"description":"Name of an Azure Resource group.","in":"path","name":"resourceGroupName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string","minLength":1,"maxLength":90,"pattern":"^[-\\w\\._]+$"},"examples":{"Delete a variable":{"value":"rg"}}},{"description":"The name of the automation account.","in":"path","name":"automationAccountName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"Delete a variable":{"value":"sampleAccount9"}}},{"description":"The name of variable.","in":"path","name":"variableName","required":true,"schema":{"type":"string"},"examples":{"Delete a variable":{"value":"sampleVariable"}}},{"description":"Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Delete a variable":{"value":"subid"}}},{"description":"Client Api Version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Delete a variable":{"value":"2015-10-31"}}}],"responses":{"200":{"description":"OK"},"default":{"description":"Automation error response describing why the operation failed.","content":{"application/json":{"schema":{"description":"Error response of an operation failure","properties":{"code":{"description":"Error code","type":"string"},"message":{"description":"Error message indicating why the operation failed.","type":"string"}},"type":"object"}}}}},"tags":["Variable"]},"get":{"description":"Retrieve the variable identified by variable name.","externalDocs":{"url":"http://aka.ms/azureautomationsdk/variableoperations"},"operationId":"Variable_Get","parameters":[{"description":"Name of an Azure Resource group.","in":"path","name":"resourceGroupName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string","minLength":1,"maxLength":90,"pattern":"^[-\\w\\._]+$"},"examples":{"Get a variable":{"value":"rg"}}},{"description":"The name of the automation account.","in":"path","name":"automationAccountName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"Get a variable":{"value":"sampleAccount9"}}},{"description":"The name of variable.","in":"path","name":"variableName","required":true,"schema":{"type":"string"},"examples":{"Get a variable":{"value":"sampleVariable"}}},{"description":"Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Get a variable":{"value":"subid"}}},{"description":"Client Api Version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Get a variable":{"value":"2015-10-31"}}}],"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Variable"}}}},"default":{"description":"Automation error response describing why the operation failed.","content":{"application/json":{"schema":{"description":"Error response of an operation failure","properties":{"code":{"description":"Error code","type":"string"},"message":{"description":"Error message indicating why the operation failed.","type":"string"}},"type":"object"}}}}},"tags":["Variable"]},"patch":{"description":"Update a variable.","externalDocs":{"url":"http://aka.ms/azureautomationsdk/variableoperations"},"operationId":"Variable_Update","parameters":[{"description":"Name of an Azure Resource group.","in":"path","name":"resourceGroupName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string","minLength":1,"maxLength":90,"pattern":"^[-\\w\\._]+$"},"examples":{"Update a variable":{"value":"rg"}}},{"description":"The name of the automation account.","in":"path","name":"automationAccountName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"Update a variable":{"value":"sampleAccount9"}}},{"description":"The variable name.","in":"path","name":"variableName","required":true,"schema":{"type":"string"},"examples":{"Update a variable":{"value":"sampleVariable"}}},{"description":"Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Update a variable":{"value":"subid"}}},{"description":"Client Api Version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Update a variable":{"value":"2015-10-31"}}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/VariableUpdateParameters"}}},"description":"The parameters supplied to the update variable operation.","required":true},"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Variable"},"examples":{"Update a variable":{"$ref":"#/components/examples/Update_a_variable"}}}}},"default":{"description":"Automation error response describing why the operation failed.","content":{"application/json":{"schema":{"description":"Error response of an operation failure","properties":{"code":{"description":"Error code","type":"string"},"message":{"description":"Error message indicating why the operation failed.","type":"string"}},"type":"object"}}}}},"tags":["Variable"]},"put":{"description":"Create a variable.","externalDocs":{"url":"http://aka.ms/azureautomationsdk/variableoperations"},"operationId":"Variable_CreateOrUpdate","parameters":[{"description":"Name of an Azure Resource group.","in":"path","name":"resourceGroupName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string","minLength":1,"maxLength":90,"pattern":"^[-\\w\\._]+$"},"examples":{"Create or update a variable":{"value":"rg"}}},{"description":"The name of the automation account.","in":"path","name":"automationAccountName","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"Create or update a variable":{"value":"sampleAccount9"}}},{"description":"The variable name.","in":"path","name":"variableName","required":true,"schema":{"type":"string"},"examples":{"Create or update a variable":{"value":"sampleVariable"}}},{"description":"Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Create or update a variable":{"value":"subid"}}},{"description":"Client Api Version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Create or update a variable":{"value":"2015-10-31"}}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/VariableCreateOrUpdateParameters"}}},"description":"The parameters supplied to the create or update variable operation.","required":true},"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Variable"},"examples":{"Create or update a variable":{"$ref":"#/components/examples/Create_or_update_a_variable"}}}}},"201":{"description":"Created","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Variable"},"examples":{"Create or update a variable":{"$ref":"#/components/examples/Create_or_update_a_variable"}}}}},"default":{"description":"Automation error response describing why the operation failed.","content":{"application/json":{"schema":{"description":"Error response of an operation failure","properties":{"code":{"description":"Error code","type":"string"},"message":{"description":"Error message indicating why the operation failed.","type":"string"}},"type":"object"}}}}},"tags":["Variable"]}}},"servers":[{"url":"https://management.azure.com"}],"components":{"examples":{"Update_a_variable":{"value":{"id":"/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/variables/sampleVariable","name":"sampleVariable","properties":{"creationTime":"2017-03-28T23:00:53.363+00:00","description":"my description","isEncrypted":false,"lastModifiedTime":"2017-03-28T23:00:57.987+00:00","value":"\"ComputerName3.domain.com\""}}},"Create_or_update_a_variable":{"value":{"id":"/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/variables/sampleVariable","name":"sampleVariable","properties":{"creationTime":"2017-03-28T22:59:00.937+00:00","description":"my description","isEncrypted":false,"lastModifiedTime":"2017-03-28T22:59:00.937+00:00","value":"\"ComputerName.domain.com\""}}}},"securitySchemes":{"azure_auth":{"description":"Azure Active Directory OAuth2 Flow","type":"oauth2","flows":{"implicit":{"authorizationUrl":"https://login.microsoftonline.com/common/oauth2/authorize","scopes":{"user_impersonation":"impersonate your user account"}}}}},"schemas":{"Variable":{"allOf":[{"allOf":[{"description":"The core properties of ARM resources","properties":{"id":{"description":"Fully qualified resource Id for the resource","readOnly":true,"type":"string"},"name":{"description":"The name of the resource","readOnly":true,"type":"string"},"type":{"description":"The type of the resource.","readOnly":true,"type":"string"}},"type":"object","x-ms-azure-resource":true}],"description":"ARM proxy resource.","properties":{},"type":"object"}],"description":"Definition of the variable.","properties":{"properties":{"$ref":"#/components/schemas/VariableProperties"}}},"VariableCreateOrUpdateParameters":{"description":"The parameters supplied to the create or update variable operation.","properties":{"name":{"description":"Gets or sets the name of the variable.","type":"string"},"properties":{"$ref":"#/components/schemas/VariableCreateOrUpdateProperties"}},"required":["name","properties"]},"VariableCreateOrUpdateProperties":{"description":"The properties of the create variable operation.","properties":{"description":{"description":"Gets or sets the description of the variable.","type":"string"},"isEncrypted":{"description":"Gets or sets the encrypted flag of the variable.","type":"boolean"},"value":{"description":"Gets or sets the value of the variable.","type":"string"}}},"VariableListResult":{"description":"The response model for the list variables operation.","properties":{"nextLink":{"description":"Gets or sets the next link.","type":"string"},"value":{"description":"Gets or sets a list of variables.","items":{"$ref":"#/components/schemas/Variable"},"type":"array"}}},"VariableProperties":{"description":"Definition of the variable properties","properties":{"creationTime":{"description":"Gets or sets the creation time.","format":"date-time","type":"string","nullable":false},"description":{"description":"Gets or sets the description.","type":"string"},"isEncrypted":{"description":"Gets or sets the encrypted flag of the variable.","type":"boolean","nullable":true},"lastModifiedTime":{"description":"Gets or sets the last modified time.","format":"date-time","type":"string","nullable":false},"value":{"description":"Gets or sets the value of the variable.","type":"string"}}},"VariableUpdateParameters":{"description":"The parameters supplied to the update variable operation.","properties":{"name":{"description":"Gets or sets the name of the variable.","type":"string"},"properties":{"$ref":"#/components/schemas/VariableUpdateProperties"}}},"VariableUpdateProperties":{"description":"The properties of the update variable","properties":{"description":{"description":"Gets or sets the description of the variable.","type":"string"},"value":{"description":"Gets or sets the value of the variable.","type":"string"}}}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "AutomationManagement",
+    "version": "2015-10-31",
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/variable.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "azure.com",
+    "x-serviceName": "automation-variable",
+    "x-tags": ["Azure", "Microsoft"]
+  },
+  "security": [{ "azure_auth": ["user_impersonation"] }],
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables": {
+      "get": {
+        "description": "Retrieve a list of variables.",
+        "externalDocs": { "url": "http://aka.ms/azureautomationsdk/variableoperations" },
+        "operationId": "Variable_ListByAutomationAccount",
+        "parameters": [
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 90, "pattern": "^[-\\w\\._]+$" },
+            "examples": {
+              "List variables, First 100": { "value": "rg" },
+              "List variables, Next 100": { "value": "rg" }
+            }
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string" },
+            "examples": {
+              "List variables, First 100": { "value": "sampleAccount9" },
+              "List variables, Next 100": { "value": "sampleAccount9" }
+            }
+          },
+          {
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "List variables, First 100": { "value": "subid" },
+              "List variables, Next 100": { "value": "subid" }
+            }
+          },
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "List variables, First 100": { "value": "2015-10-31" },
+              "List variables, Next 100": { "value": "2015-10-31" }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/VariableListResult" } } }
+          },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response of an operation failure",
+                  "properties": {
+                    "code": { "description": "Error code", "type": "string" },
+                    "message": { "description": "Error message indicating why the operation failed.", "type": "string" }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Variable"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables/{variableName}": {
+      "delete": {
+        "description": "Delete the variable.",
+        "externalDocs": { "url": "http://aka.ms/azureautomationsdk/variableoperations" },
+        "operationId": "Variable_Delete",
+        "parameters": [
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 90, "pattern": "^[-\\w\\._]+$" },
+            "examples": { "Delete a variable": { "value": "rg" } }
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string" },
+            "examples": { "Delete a variable": { "value": "sampleAccount9" } }
+          },
+          {
+            "description": "The name of variable.",
+            "in": "path",
+            "name": "variableName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete a variable": { "value": "sampleVariable" } }
+          },
+          {
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete a variable": { "value": "subid" } }
+          },
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete a variable": { "value": "2015-10-31" } }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response of an operation failure",
+                  "properties": {
+                    "code": { "description": "Error code", "type": "string" },
+                    "message": { "description": "Error message indicating why the operation failed.", "type": "string" }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Variable"]
+      },
+      "get": {
+        "description": "Retrieve the variable identified by variable name.",
+        "externalDocs": { "url": "http://aka.ms/azureautomationsdk/variableoperations" },
+        "operationId": "Variable_Get",
+        "parameters": [
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 90, "pattern": "^[-\\w\\._]+$" },
+            "examples": { "Get a variable": { "value": "rg" } }
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string" },
+            "examples": { "Get a variable": { "value": "sampleAccount9" } }
+          },
+          {
+            "description": "The name of variable.",
+            "in": "path",
+            "name": "variableName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get a variable": { "value": "sampleVariable" } }
+          },
+          {
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get a variable": { "value": "subid" } }
+          },
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Get a variable": { "value": "2015-10-31" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Variable" } } }
+          },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response of an operation failure",
+                  "properties": {
+                    "code": { "description": "Error code", "type": "string" },
+                    "message": { "description": "Error message indicating why the operation failed.", "type": "string" }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Variable"]
+      },
+      "patch": {
+        "description": "Update a variable.",
+        "externalDocs": { "url": "http://aka.ms/azureautomationsdk/variableoperations" },
+        "operationId": "Variable_Update",
+        "parameters": [
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 90, "pattern": "^[-\\w\\._]+$" },
+            "examples": { "Update a variable": { "value": "rg" } }
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string" },
+            "examples": { "Update a variable": { "value": "sampleAccount9" } }
+          },
+          {
+            "description": "The variable name.",
+            "in": "path",
+            "name": "variableName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update a variable": { "value": "sampleVariable" } }
+          },
+          {
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update a variable": { "value": "subid" } }
+          },
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update a variable": { "value": "2015-10-31" } }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/VariableUpdateParameters" } } },
+          "description": "The parameters supplied to the update variable operation.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Variable" },
+                "examples": { "Update a variable": { "$ref": "#/components/examples/Update_a_variable" } }
+              }
+            }
+          },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response of an operation failure",
+                  "properties": {
+                    "code": { "description": "Error code", "type": "string" },
+                    "message": { "description": "Error message indicating why the operation failed.", "type": "string" }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Variable"]
+      },
+      "put": {
+        "description": "Create a variable.",
+        "externalDocs": { "url": "http://aka.ms/azureautomationsdk/variableoperations" },
+        "operationId": "Variable_CreateOrUpdate",
+        "parameters": [
+          {
+            "description": "Name of an Azure Resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 90, "pattern": "^[-\\w\\._]+$" },
+            "examples": { "Create or update a variable": { "value": "rg" } }
+          },
+          {
+            "description": "The name of the automation account.",
+            "in": "path",
+            "name": "automationAccountName",
+            "required": true,
+            "x-ms-parameter-location": "method",
+            "schema": { "type": "string" },
+            "examples": { "Create or update a variable": { "value": "sampleAccount9" } }
+          },
+          {
+            "description": "The variable name.",
+            "in": "path",
+            "name": "variableName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create or update a variable": { "value": "sampleVariable" } }
+          },
+          {
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create or update a variable": { "value": "subid" } }
+          },
+          {
+            "description": "Client Api Version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create or update a variable": { "value": "2015-10-31" } }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/VariableCreateOrUpdateParameters" } }
+          },
+          "description": "The parameters supplied to the create or update variable operation.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Variable" },
+                "examples": {
+                  "Create or update a variable": { "$ref": "#/components/examples/Create_or_update_a_variable" }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Variable" },
+                "examples": {
+                  "Create or update a variable": { "$ref": "#/components/examples/Create_or_update_a_variable" }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Automation error response describing why the operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response of an operation failure",
+                  "properties": {
+                    "code": { "description": "Error code", "type": "string" },
+                    "message": { "description": "Error message indicating why the operation failed.", "type": "string" }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Variable"]
+      }
+    }
+  },
+  "servers": [{ "url": "https://management.azure.com" }],
+  "components": {
+    "examples": {
+      "Update_a_variable": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/variables/sampleVariable",
+          "name": "sampleVariable",
+          "properties": {
+            "creationTime": "2017-03-28T23:00:53.363+00:00",
+            "description": "my description",
+            "isEncrypted": false,
+            "lastModifiedTime": "2017-03-28T23:00:57.987+00:00",
+            "value": "\"ComputerName3.domain.com\""
+          }
+        }
+      },
+      "Create_or_update_a_variable": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/variables/sampleVariable",
+          "name": "sampleVariable",
+          "properties": {
+            "creationTime": "2017-03-28T22:59:00.937+00:00",
+            "description": "my description",
+            "isEncrypted": false,
+            "lastModifiedTime": "2017-03-28T22:59:00.937+00:00",
+            "value": "\"ComputerName.domain.com\""
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "azure_auth": {
+        "description": "Azure Active Directory OAuth2 Flow",
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "scopes": { "user_impersonation": "impersonate your user account" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Variable": {
+        "allOf": [
+          {
+            "allOf": [
+              {
+                "description": "The core properties of ARM resources",
+                "properties": {
+                  "id": {
+                    "description": "Fully qualified resource Id for the resource",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "name": { "description": "The name of the resource", "readOnly": true, "type": "string" },
+                  "type": { "description": "The type of the resource.", "readOnly": true, "type": "string" }
+                },
+                "type": "object",
+                "x-ms-azure-resource": true
+              }
+            ],
+            "description": "ARM proxy resource.",
+            "properties": {},
+            "type": "object"
+          }
+        ],
+        "description": "Definition of the variable.",
+        "properties": { "properties": { "$ref": "#/components/schemas/VariableProperties" } }
+      },
+      "VariableCreateOrUpdateParameters": {
+        "description": "The parameters supplied to the create or update variable operation.",
+        "properties": {
+          "name": { "description": "Gets or sets the name of the variable.", "type": "string" },
+          "properties": { "$ref": "#/components/schemas/VariableCreateOrUpdateProperties" }
+        },
+        "required": ["name", "properties"]
+      },
+      "VariableCreateOrUpdateProperties": {
+        "description": "The properties of the create variable operation.",
+        "properties": {
+          "description": { "description": "Gets or sets the description of the variable.", "type": "string" },
+          "isEncrypted": { "description": "Gets or sets the encrypted flag of the variable.", "type": "boolean" },
+          "value": { "description": "Gets or sets the value of the variable.", "type": "string" }
+        }
+      },
+      "VariableListResult": {
+        "description": "The response model for the list variables operation.",
+        "properties": {
+          "nextLink": { "description": "Gets or sets the next link.", "type": "string" },
+          "value": {
+            "description": "Gets or sets a list of variables.",
+            "items": { "$ref": "#/components/schemas/Variable" },
+            "type": "array"
+          }
+        }
+      },
+      "VariableProperties": {
+        "description": "Definition of the variable properties",
+        "properties": {
+          "creationTime": {
+            "description": "Gets or sets the creation time.",
+            "format": "date-time",
+            "type": "string",
+            "nullable": false
+          },
+          "description": { "description": "Gets or sets the description.", "type": "string" },
+          "isEncrypted": {
+            "description": "Gets or sets the encrypted flag of the variable.",
+            "type": "boolean",
+            "nullable": true
+          },
+          "lastModifiedTime": {
+            "description": "Gets or sets the last modified time.",
+            "format": "date-time",
+            "type": "string",
+            "nullable": false
+          },
+          "value": { "description": "Gets or sets the value of the variable.", "type": "string" }
+        }
+      },
+      "VariableUpdateParameters": {
+        "description": "The parameters supplied to the update variable operation.",
+        "properties": {
+          "name": { "description": "Gets or sets the name of the variable.", "type": "string" },
+          "properties": { "$ref": "#/components/schemas/VariableUpdateProperties" }
+        }
+      },
+      "VariableUpdateProperties": {
+        "description": "The properties of the update variable",
+        "properties": {
+          "description": { "description": "Gets or sets the description of the variable.", "type": "string" },
+          "value": { "description": "Gets or sets the value of the variable.", "type": "string" }
+        }
+      }
+    }
+  }
+}

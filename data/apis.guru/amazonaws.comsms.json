@@ -1,1 +1,2648 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<fullname>AAWS Sever Migration Service</fullname> <p>This is the <i>AWS Sever Migration Service API Reference</i>. It provides descriptions, syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service (AWS SMS). The topic for each action shows the Query API request parameters and the XML response. You can also view the XML request elements in the WSDL.</p> <p>Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the programming language or platform that you're using. For more information, see <a href=\"http://aws.amazon.com/tools/#SDKs\">AWS SDKs</a>.</p> <p>To learn more about the Server Migration Service, see the following resources:</p> <ul> <li> <p> <a href=\"https://aws.amazon.com/server-migration-service/\">AWS Sever Migration Service product page</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/server-migration-service/latest/userguide/server-migration.html\">AWS Sever Migration Service User Guide</a> </p> </li> </ul>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS Server Migration Service","version":"2016-10-24","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sms-2016-10-24.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"sms"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/sms/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.CreateApp":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates an application. An application consists of one or more server groups. Each server group contain one or more servers.","operationId":"CreateApp","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.CreateApp"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateAppRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateAppResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.CreateReplicationJob":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a replication job. The replication job schedules periodic replication runs to replicate your server to AWS. Each replication run creates an Amazon Machine Image (AMI).","operationId":"CreateReplicationJob","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.CreateReplicationJob"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateReplicationJobRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateReplicationJobResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"482":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"483":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"484":{"description":"ServerCannotBeReplicatedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServerCannotBeReplicatedException"}}}},"485":{"description":"ReplicationJobAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ReplicationJobAlreadyExistsException"}}}},"486":{"description":"NoConnectorsAvailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoConnectorsAvailableException"}}}},"487":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"488":{"description":"TemporarilyUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemporarilyUnavailableException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteApp":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes an existing application. Optionally deletes the launched stack associated with the application and all AWS SMS replication jobs for servers in the application.","operationId":"DeleteApp","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.DeleteApp"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteAppRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteAppResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes existing launch configuration for an application.","operationId":"DeleteAppLaunchConfiguration","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteAppLaunchConfigurationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteAppLaunchConfigurationResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes existing replication configuration for an application.","operationId":"DeleteAppReplicationConfiguration","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteAppReplicationConfigurationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteAppReplicationConfigurationResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteReplicationJob":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Deletes the specified replication job.</p> <p>After you delete a replication job, there are no further replication runs. AWS deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created by the replication runs are not deleted.</p>","operationId":"DeleteReplicationJob","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.DeleteReplicationJob"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteReplicationJobRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteReplicationJobResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"482":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"483":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"484":{"description":"ReplicationJobNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ReplicationJobNotFoundException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteServerCatalog":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes all servers from your server catalog.","operationId":"DeleteServerCatalog","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.DeleteServerCatalog"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteServerCatalogRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteServerCatalogResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"482":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"483":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DisassociateConnector":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Disassociates the specified connector from AWS SMS.</p> <p>After you disassociate a connector, it is no longer available to support replication jobs.</p>","operationId":"DisassociateConnector","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.DisassociateConnector"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateConnectorRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DisassociateConnectorResponse"}}}},"480":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"481":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"482":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"483":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GenerateChangeSet":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Generates a target change set for a currently launched stack and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.","operationId":"GenerateChangeSet","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GenerateChangeSet"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GenerateChangeSetRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GenerateChangeSetResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GenerateTemplate":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Generates an Amazon CloudFormation template based on the current launch configuration and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.","operationId":"GenerateTemplate","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GenerateTemplate"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GenerateTemplateRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GenerateTemplateResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetApp":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieve information about an application.","operationId":"GetApp","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GetApp"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAppRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAppResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves the application launch configuration associated with an application.","operationId":"GetAppLaunchConfiguration","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAppLaunchConfigurationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAppLaunchConfigurationResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Retrieves an application replication configuration associatd with an application.","operationId":"GetAppReplicationConfiguration","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAppReplicationConfigurationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetAppReplicationConfigurationResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetConnectors":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes the connectors registered with the AWS SMS.","operationId":"GetConnectors","parameters":[{"description":"Pagination limit","in":"query","name":"maxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GetConnectors"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetConnectorsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetConnectorsResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetReplicationJobs":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes the specified replication job or all of your replication jobs.","operationId":"GetReplicationJobs","parameters":[{"description":"Pagination limit","in":"query","name":"maxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GetReplicationJobs"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetReplicationJobsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetReplicationJobsResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"482":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetReplicationRuns":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Describes the replication runs for the specified replication job.","operationId":"GetReplicationRuns","parameters":[{"description":"Pagination limit","in":"query","name":"maxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GetReplicationRuns"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetReplicationRunsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetReplicationRunsResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"482":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetServers":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Describes the servers in your server catalog.</p> <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>","operationId":"GetServers","parameters":[{"description":"Pagination limit","in":"query","name":"maxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.GetServers"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetServersRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetServersResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.ImportServerCatalog":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Gathers a complete list of on-premises servers. Connectors must be installed and monitoring all servers that you want to import.</p> <p>This call returns immediately, but might take additional time to retrieve all the servers.</p>","operationId":"ImportServerCatalog","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.ImportServerCatalog"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ImportServerCatalogRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ImportServerCatalogResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"482":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"483":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"484":{"description":"NoConnectorsAvailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NoConnectorsAvailableException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.LaunchApp":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Launches an application stack.","operationId":"LaunchApp","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.LaunchApp"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/LaunchAppRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/LaunchAppResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.ListApps":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns a list of summaries for all applications.","operationId":"ListApps","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.ListApps"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListAppsRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListAppsResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a launch configuration for an application.","operationId":"PutAppLaunchConfiguration","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutAppLaunchConfigurationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutAppLaunchConfigurationResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates or updates a replication configuration for an application.","operationId":"PutAppReplicationConfiguration","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutAppReplicationConfigurationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutAppReplicationConfigurationResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.StartAppReplication":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Starts replicating an application.","operationId":"StartAppReplication","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.StartAppReplication"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartAppReplicationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartAppReplicationResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Starts an on-demand replication run for the specified replication job. This replication run starts immediately. This replication run is in addition to the ones already scheduled.</p> <p>There is a limit on the number of on-demand replications runs you can request in a 24-hour period.</p>","operationId":"StartOnDemandReplicationRun","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartOnDemandReplicationRunRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartOnDemandReplicationRunResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"482":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"483":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"484":{"description":"ReplicationRunLimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ReplicationRunLimitExceededException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.StopAppReplication":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Stops replicating an application.","operationId":"StopAppReplication","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.StopAppReplication"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StopAppReplicationRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StopAppReplicationResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.TerminateApp":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Terminates the stack for an application.","operationId":"TerminateApp","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.TerminateApp"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TerminateAppRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TerminateAppResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.UpdateApp":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates an application.","operationId":"UpdateApp","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.UpdateApp"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateAppRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateAppResponse"}}}},"480":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"481":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"482":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"483":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"484":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}}}}},"/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.UpdateReplicationJob":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the specified settings for the specified replication job.","operationId":"UpdateReplicationJob","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AWSServerMigrationService_V2016_10_24.UpdateReplicationJob"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateReplicationJobRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateReplicationJobResponse"}}}},"480":{"description":"InvalidParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidParameterException"}}}},"481":{"description":"MissingRequiredParameterException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MissingRequiredParameterException"}}}},"482":{"description":"OperationNotPermittedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/OperationNotPermittedException"}}}},"483":{"description":"UnauthorizedOperationException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedOperationException"}}}},"484":{"description":"ServerCannotBeReplicatedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServerCannotBeReplicatedException"}}}},"485":{"description":"ReplicationJobNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ReplicationJobNotFoundException"}}}},"486":{"description":"InternalError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalError"}}}},"487":{"description":"TemporarilyUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TemporarilyUnavailableException"}}}}}}}},"servers":[{"description":"The SMS multi-region endpoint","url":"http://sms.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The SMS multi-region endpoint","url":"https://sms.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The SMS endpoint for China (Beijing) and China (Ningxia)","url":"http://sms.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The SMS endpoint for China (Beijing) and China (Ningxia)","url":"https://sms.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AmiId":{"type":"string"},"AppDescription":{"type":"string"},"AppId":{"type":"string"},"AppIds":{"items":{"$ref":"#/components/schemas/AppId"},"type":"array"},"AppLaunchStatus":{"enum":["READY_FOR_CONFIGURATION","CONFIGURATION_IN_PROGRESS","CONFIGURATION_INVALID","READY_FOR_LAUNCH","VALIDATION_IN_PROGRESS","LAUNCH_PENDING","LAUNCH_IN_PROGRESS","LAUNCHED","DELTA_LAUNCH_IN_PROGRESS","DELTA_LAUNCH_FAILED","LAUNCH_FAILED","TERMINATE_IN_PROGRESS","TERMINATE_FAILED","TERMINATED"],"type":"string"},"AppLaunchStatusMessage":{"type":"string"},"AppName":{"type":"string"},"AppReplicationStatus":{"enum":["READY_FOR_CONFIGURATION","CONFIGURATION_IN_PROGRESS","CONFIGURATION_INVALID","READY_FOR_REPLICATION","VALIDATION_IN_PROGRESS","REPLICATION_PENDING","REPLICATION_IN_PROGRESS","REPLICATED","DELTA_REPLICATION_IN_PROGRESS","DELTA_REPLICATED","DELTA_REPLICATION_FAILED","REPLICATION_FAILED","REPLICATION_STOPPING","REPLICATION_STOP_FAILED","REPLICATION_STOPPED"],"type":"string"},"AppReplicationStatusMessage":{"type":"string"},"AppStatus":{"enum":["CREATING","ACTIVE","UPDATING","DELETING","DELETED","DELETE_FAILED"],"type":"string"},"AppStatusMessage":{"type":"string"},"AppSummary":{"description":"Information about the application.","properties":{"appId":{"$ref":"#/components/schemas/AppId"},"creationTime":{"$ref":"#/components/schemas/Timestamp"},"description":{"$ref":"#/components/schemas/AppDescription"},"lastModified":{"$ref":"#/components/schemas/Timestamp"},"latestReplicationTime":{"$ref":"#/components/schemas/Timestamp"},"launchDetails":{"$ref":"#/components/schemas/LaunchDetails"},"launchStatus":{"$ref":"#/components/schemas/AppLaunchStatus"},"launchStatusMessage":{"$ref":"#/components/schemas/AppLaunchStatusMessage"},"name":{"$ref":"#/components/schemas/AppName"},"replicationStatus":{"$ref":"#/components/schemas/AppReplicationStatus"},"replicationStatusMessage":{"$ref":"#/components/schemas/AppReplicationStatusMessage"},"roleName":{"$ref":"#/components/schemas/RoleName"},"status":{"$ref":"#/components/schemas/AppStatus"},"statusMessage":{"$ref":"#/components/schemas/AppStatusMessage"},"totalServerGroups":{"$ref":"#/components/schemas/TotalServerGroups"},"totalServers":{"$ref":"#/components/schemas/TotalServers"}},"type":"object"},"Apps":{"items":{"$ref":"#/components/schemas/AppSummary"},"type":"array"},"AssociatePublicIpAddress":{"type":"boolean"},"BucketName":{"type":"string"},"ClientToken":{"type":"string"},"Connector":{"description":"Represents a connector.","properties":{"associatedOn":{"$ref":"#/components/schemas/Timestamp"},"capabilityList":{"$ref":"#/components/schemas/ConnectorCapabilityList"},"connectorId":{"$ref":"#/components/schemas/ConnectorId"},"ipAddress":{"$ref":"#/components/schemas/IpAddress"},"macAddress":{"$ref":"#/components/schemas/MacAddress"},"status":{"$ref":"#/components/schemas/ConnectorStatus"},"version":{"$ref":"#/components/schemas/ConnectorVersion"},"vmManagerId":{"$ref":"#/components/schemas/VmManagerId"},"vmManagerName":{"$ref":"#/components/schemas/VmManagerName"},"vmManagerType":{"$ref":"#/components/schemas/VmManagerType"}},"type":"object"},"ConnectorCapability":{"enum":["VSPHERE","SCVMM","HYPERV-MANAGER","SNAPSHOT_BATCHING"],"type":"string"},"ConnectorCapabilityList":{"items":{"$ref":"#/components/schemas/ConnectorCapability"},"type":"array"},"ConnectorId":{"type":"string"},"ConnectorList":{"items":{"$ref":"#/components/schemas/Connector"},"type":"array"},"ConnectorStatus":{"enum":["HEALTHY","UNHEALTHY"],"type":"string"},"ConnectorVersion":{"type":"string"},"CreateAppRequest":{"properties":{"clientToken":{"$ref":"#/components/schemas/ClientToken"},"description":{"$ref":"#/components/schemas/AppDescription"},"name":{"$ref":"#/components/schemas/AppName"},"roleName":{"$ref":"#/components/schemas/RoleName"},"serverGroups":{"$ref":"#/components/schemas/ServerGroups"},"tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"CreateAppResponse":{"properties":{"appSummary":{"$ref":"#/components/schemas/AppSummary"},"serverGroups":{"$ref":"#/components/schemas/ServerGroups"},"tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"CreateReplicationJobRequest":{"properties":{"description":{"$ref":"#/components/schemas/Description"},"encrypted":{"$ref":"#/components/schemas/Encrypted"},"frequency":{"$ref":"#/components/schemas/Frequency"},"kmsKeyId":{"$ref":"#/components/schemas/KmsKeyId"},"licenseType":{"$ref":"#/components/schemas/LicenseType"},"numberOfRecentAmisToKeep":{"$ref":"#/components/schemas/NumberOfRecentAmisToKeep"},"roleName":{"$ref":"#/components/schemas/RoleName"},"runOnce":{"$ref":"#/components/schemas/RunOnce"},"seedReplicationTime":{"$ref":"#/components/schemas/Timestamp"},"serverId":{"$ref":"#/components/schemas/ServerId"}},"required":["serverId","seedReplicationTime"],"type":"object"},"CreateReplicationJobResponse":{"properties":{"replicationJobId":{"$ref":"#/components/schemas/ReplicationJobId"}},"type":"object"},"DeleteAppLaunchConfigurationRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"DeleteAppLaunchConfigurationResponse":{"properties":{},"type":"object"},"DeleteAppReplicationConfigurationRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"DeleteAppReplicationConfigurationResponse":{"properties":{},"type":"object"},"DeleteAppRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"},"forceStopAppReplication":{"$ref":"#/components/schemas/ForceStopAppReplication"},"forceTerminateApp":{"$ref":"#/components/schemas/ForceTerminateApp"}},"type":"object"},"DeleteAppResponse":{"properties":{},"type":"object"},"DeleteReplicationJobRequest":{"properties":{"replicationJobId":{"$ref":"#/components/schemas/ReplicationJobId"}},"required":["replicationJobId"],"type":"object"},"DeleteReplicationJobResponse":{"properties":{},"type":"object"},"DeleteServerCatalogRequest":{"properties":{},"type":"object"},"DeleteServerCatalogResponse":{"properties":{},"type":"object"},"Description":{"type":"string"},"DisassociateConnectorRequest":{"properties":{"connectorId":{"$ref":"#/components/schemas/ConnectorId"}},"required":["connectorId"],"type":"object"},"DisassociateConnectorResponse":{"properties":{},"type":"object"},"EC2KeyName":{"type":"string"},"Encrypted":{"type":"boolean"},"ForceStopAppReplication":{"type":"boolean"},"ForceTerminateApp":{"type":"boolean"},"Frequency":{"type":"integer"},"GenerateChangeSetRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"},"changesetFormat":{"$ref":"#/components/schemas/OutputFormat"}},"type":"object"},"GenerateChangeSetResponse":{"properties":{"s3Location":{"$ref":"#/components/schemas/S3Location"}},"type":"object"},"GenerateTemplateRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"},"templateFormat":{"$ref":"#/components/schemas/OutputFormat"}},"type":"object"},"GenerateTemplateResponse":{"properties":{"s3Location":{"$ref":"#/components/schemas/S3Location"}},"type":"object"},"GetAppLaunchConfigurationRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"GetAppLaunchConfigurationResponse":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"},"roleName":{"$ref":"#/components/schemas/RoleName"},"serverGroupLaunchConfigurations":{"$ref":"#/components/schemas/ServerGroupLaunchConfigurations"}},"type":"object"},"GetAppReplicationConfigurationRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"GetAppReplicationConfigurationResponse":{"properties":{"serverGroupReplicationConfigurations":{"$ref":"#/components/schemas/ServerGroupReplicationConfigurations"}},"type":"object"},"GetAppRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"GetAppResponse":{"properties":{"appSummary":{"$ref":"#/components/schemas/AppSummary"},"serverGroups":{"$ref":"#/components/schemas/ServerGroups"},"tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"GetConnectorsRequest":{"properties":{"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"GetConnectorsResponse":{"properties":{"connectorList":{"$ref":"#/components/schemas/ConnectorList"},"nextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"GetReplicationJobsRequest":{"properties":{"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/NextToken"},"replicationJobId":{"$ref":"#/components/schemas/ReplicationJobId"}},"type":"object"},"GetReplicationJobsResponse":{"properties":{"nextToken":{"$ref":"#/components/schemas/NextToken"},"replicationJobList":{"$ref":"#/components/schemas/ReplicationJobList"}},"type":"object"},"GetReplicationRunsRequest":{"properties":{"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/NextToken"},"replicationJobId":{"$ref":"#/components/schemas/ReplicationJobId"}},"required":["replicationJobId"],"type":"object"},"GetReplicationRunsResponse":{"properties":{"nextToken":{"$ref":"#/components/schemas/NextToken"},"replicationJob":{"$ref":"#/components/schemas/ReplicationJob"},"replicationRunList":{"$ref":"#/components/schemas/ReplicationRunList"}},"type":"object"},"GetServersRequest":{"properties":{"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/NextToken"},"vmServerAddressList":{"$ref":"#/components/schemas/VmServerAddressList"}},"type":"object"},"GetServersResponse":{"properties":{"lastModifiedOn":{"$ref":"#/components/schemas/Timestamp"},"nextToken":{"$ref":"#/components/schemas/NextToken"},"serverCatalogStatus":{"$ref":"#/components/schemas/ServerCatalogStatus"},"serverList":{"$ref":"#/components/schemas/ServerList"}},"type":"object"},"ImportServerCatalogRequest":{"properties":{},"type":"object"},"ImportServerCatalogResponse":{"properties":{},"type":"object"},"InstanceType":{"type":"string"},"InternalError":{},"InvalidParameterException":{},"IpAddress":{"type":"string"},"KeyName":{"type":"string"},"KmsKeyId":{"type":"string"},"LaunchAppRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"LaunchAppResponse":{"properties":{},"type":"object"},"LaunchDetails":{"description":"Details about the latest launch of an application.","properties":{"latestLaunchTime":{"$ref":"#/components/schemas/Timestamp"},"stackId":{"$ref":"#/components/schemas/StackId"},"stackName":{"$ref":"#/components/schemas/StackName"}},"type":"object"},"LaunchOrder":{"type":"integer"},"LicenseType":{"enum":["AWS","BYOL"],"type":"string"},"ListAppsRequest":{"properties":{"appIds":{"$ref":"#/components/schemas/AppIds"},"maxResults":{"$ref":"#/components/schemas/MaxResults"},"nextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListAppsResponse":{"properties":{"apps":{"$ref":"#/components/schemas/Apps"},"nextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"LogicalId":{"type":"string"},"MacAddress":{"type":"string"},"MaxResults":{"type":"integer"},"MissingRequiredParameterException":{},"NextToken":{"type":"string"},"NoConnectorsAvailableException":{},"NumberOfRecentAmisToKeep":{"type":"integer"},"OperationNotPermittedException":{},"OutputFormat":{"enum":["JSON","YAML"],"type":"string"},"PutAppLaunchConfigurationRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"},"roleName":{"$ref":"#/components/schemas/RoleName"},"serverGroupLaunchConfigurations":{"$ref":"#/components/schemas/ServerGroupLaunchConfigurations"}},"type":"object"},"PutAppLaunchConfigurationResponse":{"properties":{},"type":"object"},"PutAppReplicationConfigurationRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"},"serverGroupReplicationConfigurations":{"$ref":"#/components/schemas/ServerGroupReplicationConfigurations"}},"type":"object"},"PutAppReplicationConfigurationResponse":{"properties":{},"type":"object"},"ReplicationJob":{"description":"Represents a replication job.","properties":{"description":{"$ref":"#/components/schemas/Description"},"encrypted":{"$ref":"#/components/schemas/Encrypted"},"frequency":{"$ref":"#/components/schemas/Frequency"},"kmsKeyId":{"$ref":"#/components/schemas/KmsKeyId"},"latestAmiId":{"$ref":"#/components/schemas/AmiId"},"licenseType":{"$ref":"#/components/schemas/LicenseType"},"nextReplicationRunStartTime":{"$ref":"#/components/schemas/Timestamp"},"numberOfRecentAmisToKeep":{"$ref":"#/components/schemas/NumberOfRecentAmisToKeep"},"replicationJobId":{"$ref":"#/components/schemas/ReplicationJobId"},"replicationRunList":{"$ref":"#/components/schemas/ReplicationRunList"},"roleName":{"$ref":"#/components/schemas/RoleName"},"runOnce":{"$ref":"#/components/schemas/RunOnce"},"seedReplicationTime":{"$ref":"#/components/schemas/Timestamp"},"serverId":{"$ref":"#/components/schemas/ServerId"},"serverType":{"$ref":"#/components/schemas/ServerType"},"state":{"$ref":"#/components/schemas/ReplicationJobState"},"statusMessage":{"$ref":"#/components/schemas/ReplicationJobStatusMessage"},"vmServer":{"$ref":"#/components/schemas/VmServer"}},"type":"object"},"ReplicationJobAlreadyExistsException":{},"ReplicationJobId":{"type":"string"},"ReplicationJobList":{"items":{"$ref":"#/components/schemas/ReplicationJob"},"type":"array"},"ReplicationJobNotFoundException":{},"ReplicationJobState":{"enum":["PENDING","ACTIVE","FAILED","DELETING","DELETED","COMPLETED","PAUSED_ON_FAILURE","FAILING"],"type":"string"},"ReplicationJobStatusMessage":{"type":"string"},"ReplicationJobTerminated":{"type":"boolean"},"ReplicationRun":{"description":"Represents a replication run.","properties":{"amiId":{"$ref":"#/components/schemas/AmiId"},"completedTime":{"$ref":"#/components/schemas/Timestamp"},"description":{"$ref":"#/components/schemas/Description"},"encrypted":{"$ref":"#/components/schemas/Encrypted"},"kmsKeyId":{"$ref":"#/components/schemas/KmsKeyId"},"replicationRunId":{"$ref":"#/components/schemas/ReplicationRunId"},"scheduledStartTime":{"$ref":"#/components/schemas/Timestamp"},"stageDetails":{"$ref":"#/components/schemas/ReplicationRunStageDetails"},"state":{"$ref":"#/components/schemas/ReplicationRunState"},"statusMessage":{"$ref":"#/components/schemas/ReplicationRunStatusMessage"},"type":{"$ref":"#/components/schemas/ReplicationRunType"}},"type":"object"},"ReplicationRunId":{"type":"string"},"ReplicationRunLimitExceededException":{},"ReplicationRunList":{"items":{"$ref":"#/components/schemas/ReplicationRun"},"type":"array"},"ReplicationRunStage":{"type":"string"},"ReplicationRunStageDetails":{"description":"Details of the current stage of a replication run.","properties":{"stage":{"$ref":"#/components/schemas/ReplicationRunStage"},"stageProgress":{"$ref":"#/components/schemas/ReplicationRunStageProgress"}},"type":"object"},"ReplicationRunStageProgress":{"type":"string"},"ReplicationRunState":{"enum":["PENDING","MISSED","ACTIVE","FAILED","COMPLETED","DELETING","DELETED"],"type":"string"},"ReplicationRunStatusMessage":{"type":"string"},"ReplicationRunType":{"enum":["ON_DEMAND","AUTOMATIC"],"type":"string"},"RoleName":{"type":"string"},"RunOnce":{"type":"boolean"},"S3Location":{"description":"Location of the Amazon S3 object in the customer's account.","properties":{"bucket":{"$ref":"#/components/schemas/BucketName"},"key":{"$ref":"#/components/schemas/KeyName"}},"type":"object"},"SecurityGroup":{"type":"string"},"Server":{"description":"Represents a server.","properties":{"replicationJobId":{"$ref":"#/components/schemas/ReplicationJobId"},"replicationJobTerminated":{"$ref":"#/components/schemas/ReplicationJobTerminated"},"serverId":{"$ref":"#/components/schemas/ServerId"},"serverType":{"$ref":"#/components/schemas/ServerType"},"vmServer":{"$ref":"#/components/schemas/VmServer"}},"type":"object"},"ServerCannotBeReplicatedException":{},"ServerCatalogStatus":{"enum":["NOT_IMPORTED","IMPORTING","AVAILABLE","DELETED","EXPIRED"],"type":"string"},"ServerGroup":{"description":"A logical grouping of servers.","properties":{"name":{"$ref":"#/components/schemas/ServerGroupName"},"serverGroupId":{"$ref":"#/components/schemas/ServerGroupId"},"serverList":{"$ref":"#/components/schemas/ServerList"}},"type":"object"},"ServerGroupId":{"type":"string"},"ServerGroupLaunchConfiguration":{"description":"Launch configuration for a server group.","properties":{"launchOrder":{"$ref":"#/components/schemas/LaunchOrder"},"serverGroupId":{"$ref":"#/components/schemas/ServerGroupId"},"serverLaunchConfigurations":{"$ref":"#/components/schemas/ServerLaunchConfigurations"}},"type":"object"},"ServerGroupLaunchConfigurations":{"items":{"$ref":"#/components/schemas/ServerGroupLaunchConfiguration"},"type":"array"},"ServerGroupName":{"type":"string"},"ServerGroupReplicationConfiguration":{"description":"Replication configuration for a server group.","properties":{"serverGroupId":{"$ref":"#/components/schemas/ServerGroupId"},"serverReplicationConfigurations":{"$ref":"#/components/schemas/ServerReplicationConfigurations"}},"type":"object"},"ServerGroupReplicationConfigurations":{"items":{"$ref":"#/components/schemas/ServerGroupReplicationConfiguration"},"type":"array"},"ServerGroups":{"items":{"$ref":"#/components/schemas/ServerGroup"},"type":"array"},"ServerId":{"type":"string"},"ServerLaunchConfiguration":{"description":"Launch configuration for a server.","properties":{"associatePublicIpAddress":{"$ref":"#/components/schemas/AssociatePublicIpAddress"},"ec2KeyName":{"$ref":"#/components/schemas/EC2KeyName"},"instanceType":{"$ref":"#/components/schemas/InstanceType"},"logicalId":{"$ref":"#/components/schemas/LogicalId"},"securityGroup":{"$ref":"#/components/schemas/SecurityGroup"},"server":{"$ref":"#/components/schemas/Server"},"subnet":{"$ref":"#/components/schemas/Subnet"},"userData":{"$ref":"#/components/schemas/UserData"},"vpc":{"$ref":"#/components/schemas/VPC"}},"type":"object"},"ServerLaunchConfigurations":{"items":{"$ref":"#/components/schemas/ServerLaunchConfiguration"},"type":"array"},"ServerList":{"items":{"$ref":"#/components/schemas/Server"},"type":"array"},"ServerReplicationConfiguration":{"description":"Replication configuration of a server.","properties":{"server":{"$ref":"#/components/schemas/Server"},"serverReplicationParameters":{"$ref":"#/components/schemas/ServerReplicationParameters"}},"type":"object"},"ServerReplicationConfigurations":{"items":{"$ref":"#/components/schemas/ServerReplicationConfiguration"},"type":"array"},"ServerReplicationParameters":{"description":"Replication parameters for replicating a server.","properties":{"encrypted":{"$ref":"#/components/schemas/Encrypted"},"frequency":{"$ref":"#/components/schemas/Frequency"},"kmsKeyId":{"$ref":"#/components/schemas/KmsKeyId"},"licenseType":{"$ref":"#/components/schemas/LicenseType"},"numberOfRecentAmisToKeep":{"$ref":"#/components/schemas/NumberOfRecentAmisToKeep"},"runOnce":{"$ref":"#/components/schemas/RunOnce"},"seedTime":{"$ref":"#/components/schemas/Timestamp"}},"type":"object"},"ServerType":{"enum":["VIRTUAL_MACHINE"],"type":"string"},"StackId":{"type":"string"},"StackName":{"type":"string"},"StartAppReplicationRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"StartAppReplicationResponse":{"properties":{},"type":"object"},"StartOnDemandReplicationRunRequest":{"properties":{"description":{"$ref":"#/components/schemas/Description"},"replicationJobId":{"$ref":"#/components/schemas/ReplicationJobId"}},"required":["replicationJobId"],"type":"object"},"StartOnDemandReplicationRunResponse":{"properties":{"replicationRunId":{"$ref":"#/components/schemas/ReplicationRunId"}},"type":"object"},"StopAppReplicationRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"StopAppReplicationResponse":{"properties":{},"type":"object"},"Subnet":{"type":"string"},"Tag":{"description":"A label that can be assigned to an application.","properties":{"key":{"$ref":"#/components/schemas/TagKey"},"value":{"$ref":"#/components/schemas/TagValue"}},"type":"object"},"TagKey":{"type":"string"},"TagValue":{"type":"string"},"Tags":{"items":{"$ref":"#/components/schemas/Tag"},"type":"array"},"TemporarilyUnavailableException":{},"TerminateAppRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"}},"type":"object"},"TerminateAppResponse":{"properties":{},"type":"object"},"Timestamp":{"format":"date-time","type":"string"},"TotalServerGroups":{"type":"integer"},"TotalServers":{"type":"integer"},"UnauthorizedOperationException":{},"UpdateAppRequest":{"properties":{"appId":{"$ref":"#/components/schemas/AppId"},"description":{"$ref":"#/components/schemas/AppDescription"},"name":{"$ref":"#/components/schemas/AppName"},"roleName":{"$ref":"#/components/schemas/RoleName"},"serverGroups":{"$ref":"#/components/schemas/ServerGroups"},"tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"UpdateAppResponse":{"properties":{"appSummary":{"$ref":"#/components/schemas/AppSummary"},"serverGroups":{"$ref":"#/components/schemas/ServerGroups"},"tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"UpdateReplicationJobRequest":{"properties":{"description":{"$ref":"#/components/schemas/Description"},"encrypted":{"$ref":"#/components/schemas/Encrypted"},"frequency":{"$ref":"#/components/schemas/Frequency"},"kmsKeyId":{"$ref":"#/components/schemas/KmsKeyId"},"licenseType":{"$ref":"#/components/schemas/LicenseType"},"nextReplicationRunStartTime":{"$ref":"#/components/schemas/Timestamp"},"numberOfRecentAmisToKeep":{"$ref":"#/components/schemas/NumberOfRecentAmisToKeep"},"replicationJobId":{"$ref":"#/components/schemas/ReplicationJobId"},"roleName":{"$ref":"#/components/schemas/RoleName"}},"required":["replicationJobId"],"type":"object"},"UpdateReplicationJobResponse":{"properties":{},"type":"object"},"UserData":{"description":"A script that runs on first launch of an Amazon EC2 instance. Used for configuring the server during launch.","properties":{"s3Location":{"$ref":"#/components/schemas/S3Location"}},"type":"object"},"VPC":{"type":"string"},"VmId":{"type":"string"},"VmManagerId":{"type":"string"},"VmManagerName":{"type":"string"},"VmManagerType":{"enum":["VSPHERE","SCVMM","HYPERV-MANAGER"],"type":"string"},"VmName":{"type":"string"},"VmPath":{"type":"string"},"VmServer":{"description":"Represents a VM server.","properties":{"vmManagerName":{"$ref":"#/components/schemas/VmManagerName"},"vmManagerType":{"$ref":"#/components/schemas/VmManagerType"},"vmName":{"$ref":"#/components/schemas/VmName"},"vmPath":{"$ref":"#/components/schemas/VmPath"},"vmServerAddress":{"$ref":"#/components/schemas/VmServerAddress"}},"type":"object"},"VmServerAddress":{"description":"Represents a VM server location.","properties":{"vmId":{"$ref":"#/components/schemas/VmId"},"vmManagerId":{"$ref":"#/components/schemas/VmManagerId"}},"type":"object"},"VmServerAddressList":{"items":{"$ref":"#/components/schemas/VmServerAddress"},"type":"array"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AAWS Sever Migration Service</fullname> <p>This is the <i>AWS Sever Migration Service API Reference</i>. It provides descriptions, syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service (AWS SMS). The topic for each action shows the Query API request parameters and the XML response. You can also view the XML request elements in the WSDL.</p> <p>Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the programming language or platform that you're using. For more information, see <a href=\"http://aws.amazon.com/tools/#SDKs\">AWS SDKs</a>.</p> <p>To learn more about the Server Migration Service, see the following resources:</p> <ul> <li> <p> <a href=\"https://aws.amazon.com/server-migration-service/\">AWS Sever Migration Service product page</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/server-migration-service/latest/userguide/server-migration.html\">AWS Sever Migration Service User Guide</a> </p> </li> </ul>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Server Migration Service",
+    "version": "2016-10-24",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sms-2016-10-24.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "sms"
+  },
+  "externalDocs": { "description": "Amazon Web Services documentation", "url": "https://docs.aws.amazon.com/sms/" },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.CreateApp": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates an application. An application consists of one or more server groups. Each server group contain one or more servers.",
+        "operationId": "CreateApp",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.CreateApp"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateAppRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateAppResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.CreateReplicationJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a replication job. The replication job schedules periodic replication runs to replicate your server to AWS. Each replication run creates an Amazon Machine Image (AMI).",
+        "operationId": "CreateReplicationJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.CreateReplicationJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CreateReplicationJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateReplicationJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "483": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "484": {
+            "description": "ServerCannotBeReplicatedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServerCannotBeReplicatedException" } }
+            }
+          },
+          "485": {
+            "description": "ReplicationJobAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ReplicationJobAlreadyExistsException" } }
+            }
+          },
+          "486": {
+            "description": "NoConnectorsAvailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoConnectorsAvailableException" } }
+            }
+          },
+          "487": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "488": {
+            "description": "TemporarilyUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TemporarilyUnavailableException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteApp": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes an existing application. Optionally deletes the launched stack associated with the application and all AWS SMS replication jobs for servers in the application.",
+        "operationId": "DeleteApp",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.DeleteApp"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteAppRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteAppResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes existing launch configuration for an application.",
+        "operationId": "DeleteAppLaunchConfiguration",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DeleteAppLaunchConfigurationRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeleteAppLaunchConfigurationResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes existing replication configuration for an application.",
+        "operationId": "DeleteAppReplicationConfiguration",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/DeleteAppReplicationConfigurationRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DeleteAppReplicationConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteReplicationJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes the specified replication job.</p> <p>After you delete a replication job, there are no further replication runs. AWS deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created by the replication runs are not deleted.</p>",
+        "operationId": "DeleteReplicationJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.DeleteReplicationJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DeleteReplicationJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeleteReplicationJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "483": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "484": {
+            "description": "ReplicationJobNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ReplicationJobNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DeleteServerCatalog": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes all servers from your server catalog.",
+        "operationId": "DeleteServerCatalog",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.DeleteServerCatalog"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DeleteServerCatalogRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DeleteServerCatalogResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "483": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.DisassociateConnector": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Disassociates the specified connector from AWS SMS.</p> <p>After you disassociate a connector, it is no longer available to support replication jobs.</p>",
+        "operationId": "DisassociateConnector",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.DisassociateConnector"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateConnectorRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DisassociateConnectorResponse" } }
+            }
+          },
+          "480": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "482": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GenerateChangeSet": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Generates a target change set for a currently launched stack and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.",
+        "operationId": "GenerateChangeSet",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.GenerateChangeSet"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GenerateChangeSetRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GenerateChangeSetResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GenerateTemplate": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Generates an Amazon CloudFormation template based on the current launch configuration and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.",
+        "operationId": "GenerateTemplate",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.GenerateTemplate"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GenerateTemplateRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GenerateTemplateResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetApp": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieve information about an application.",
+        "operationId": "GetApp",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.GetApp"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetAppRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetAppResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves the application launch configuration associated with an application.",
+        "operationId": "GetAppLaunchConfiguration",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetAppLaunchConfigurationRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetAppLaunchConfigurationResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Retrieves an application replication configuration associatd with an application.",
+        "operationId": "GetAppReplicationConfiguration",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetAppReplicationConfigurationRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GetAppReplicationConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetConnectors": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes the connectors registered with the AWS SMS.",
+        "operationId": "GetConnectors",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.GetConnectors"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetConnectorsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetConnectorsResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetReplicationJobs": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes the specified replication job or all of your replication jobs.",
+        "operationId": "GetReplicationJobs",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.GetReplicationJobs"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetReplicationJobsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetReplicationJobsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetReplicationRuns": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Describes the replication runs for the specified replication job.",
+        "operationId": "GetReplicationRuns",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.GetReplicationRuns"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetReplicationRunsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetReplicationRunsResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.GetServers": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes the servers in your server catalog.</p> <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>",
+        "operationId": "GetServers",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.GetServers"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetServersRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetServersResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.ImportServerCatalog": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Gathers a complete list of on-premises servers. Connectors must be installed and monitoring all servers that you want to import.</p> <p>This call returns immediately, but might take additional time to retrieve all the servers.</p>",
+        "operationId": "ImportServerCatalog",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.ImportServerCatalog"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ImportServerCatalogRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ImportServerCatalogResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "483": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "484": {
+            "description": "NoConnectorsAvailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/NoConnectorsAvailableException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.LaunchApp": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Launches an application stack.",
+        "operationId": "LaunchApp",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.LaunchApp"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LaunchAppRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LaunchAppResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.ListApps": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns a list of summaries for all applications.",
+        "operationId": "ListApps",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.ListApps"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListAppsRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListAppsResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a launch configuration for an application.",
+        "operationId": "PutAppLaunchConfiguration",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/PutAppLaunchConfigurationRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PutAppLaunchConfigurationResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates or updates a replication configuration for an application.",
+        "operationId": "PutAppReplicationConfiguration",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/PutAppReplicationConfigurationRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PutAppReplicationConfigurationResponse" }
+              }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.StartAppReplication": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Starts replicating an application.",
+        "operationId": "StartAppReplication",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.StartAppReplication"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/StartAppReplicationRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/StartAppReplicationResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Starts an on-demand replication run for the specified replication job. This replication run starts immediately. This replication run is in addition to the ones already scheduled.</p> <p>There is a limit on the number of on-demand replications runs you can request in a 24-hour period.</p>",
+        "operationId": "StartOnDemandReplicationRun",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun"]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/StartOnDemandReplicationRunRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/StartOnDemandReplicationRunResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "483": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "484": {
+            "description": "ReplicationRunLimitExceededException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ReplicationRunLimitExceededException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.StopAppReplication": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Stops replicating an application.",
+        "operationId": "StopAppReplication",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.StopAppReplication"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StopAppReplicationRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/StopAppReplicationResponse" } }
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.TerminateApp": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Terminates the stack for an application.",
+        "operationId": "TerminateApp",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.TerminateApp"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TerminateAppRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TerminateAppResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.UpdateApp": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates an application.",
+        "operationId": "UpdateApp",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.UpdateApp"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateAppRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateAppResponse" } } }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "482": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "483": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AWSServerMigrationService_V2016_10_24.UpdateReplicationJob": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the specified settings for the specified replication job.",
+        "operationId": "UpdateReplicationJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AWSServerMigrationService_V2016_10_24.UpdateReplicationJob"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/UpdateReplicationJobRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateReplicationJobResponse" } }
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidParameterException" } }
+            }
+          },
+          "481": {
+            "description": "MissingRequiredParameterException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MissingRequiredParameterException" } }
+            }
+          },
+          "482": {
+            "description": "OperationNotPermittedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/OperationNotPermittedException" } }
+            }
+          },
+          "483": {
+            "description": "UnauthorizedOperationException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedOperationException" } }
+            }
+          },
+          "484": {
+            "description": "ServerCannotBeReplicatedException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServerCannotBeReplicatedException" } }
+            }
+          },
+          "485": {
+            "description": "ReplicationJobNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ReplicationJobNotFoundException" } }
+            }
+          },
+          "486": {
+            "description": "InternalError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalError" } } }
+          },
+          "487": {
+            "description": "TemporarilyUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TemporarilyUnavailableException" } }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The SMS multi-region endpoint",
+      "url": "http://sms.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The SMS multi-region endpoint",
+      "url": "https://sms.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The SMS endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://sms.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The SMS endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://sms.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AmiId": { "type": "string" },
+      "AppDescription": { "type": "string" },
+      "AppId": { "type": "string" },
+      "AppIds": { "items": { "$ref": "#/components/schemas/AppId" }, "type": "array" },
+      "AppLaunchStatus": {
+        "enum": [
+          "READY_FOR_CONFIGURATION",
+          "CONFIGURATION_IN_PROGRESS",
+          "CONFIGURATION_INVALID",
+          "READY_FOR_LAUNCH",
+          "VALIDATION_IN_PROGRESS",
+          "LAUNCH_PENDING",
+          "LAUNCH_IN_PROGRESS",
+          "LAUNCHED",
+          "DELTA_LAUNCH_IN_PROGRESS",
+          "DELTA_LAUNCH_FAILED",
+          "LAUNCH_FAILED",
+          "TERMINATE_IN_PROGRESS",
+          "TERMINATE_FAILED",
+          "TERMINATED"
+        ],
+        "type": "string"
+      },
+      "AppLaunchStatusMessage": { "type": "string" },
+      "AppName": { "type": "string" },
+      "AppReplicationStatus": {
+        "enum": [
+          "READY_FOR_CONFIGURATION",
+          "CONFIGURATION_IN_PROGRESS",
+          "CONFIGURATION_INVALID",
+          "READY_FOR_REPLICATION",
+          "VALIDATION_IN_PROGRESS",
+          "REPLICATION_PENDING",
+          "REPLICATION_IN_PROGRESS",
+          "REPLICATED",
+          "DELTA_REPLICATION_IN_PROGRESS",
+          "DELTA_REPLICATED",
+          "DELTA_REPLICATION_FAILED",
+          "REPLICATION_FAILED",
+          "REPLICATION_STOPPING",
+          "REPLICATION_STOP_FAILED",
+          "REPLICATION_STOPPED"
+        ],
+        "type": "string"
+      },
+      "AppReplicationStatusMessage": { "type": "string" },
+      "AppStatus": {
+        "enum": ["CREATING", "ACTIVE", "UPDATING", "DELETING", "DELETED", "DELETE_FAILED"],
+        "type": "string"
+      },
+      "AppStatusMessage": { "type": "string" },
+      "AppSummary": {
+        "description": "Information about the application.",
+        "properties": {
+          "appId": { "$ref": "#/components/schemas/AppId" },
+          "creationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "description": { "$ref": "#/components/schemas/AppDescription" },
+          "lastModified": { "$ref": "#/components/schemas/Timestamp" },
+          "latestReplicationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "launchDetails": { "$ref": "#/components/schemas/LaunchDetails" },
+          "launchStatus": { "$ref": "#/components/schemas/AppLaunchStatus" },
+          "launchStatusMessage": { "$ref": "#/components/schemas/AppLaunchStatusMessage" },
+          "name": { "$ref": "#/components/schemas/AppName" },
+          "replicationStatus": { "$ref": "#/components/schemas/AppReplicationStatus" },
+          "replicationStatusMessage": { "$ref": "#/components/schemas/AppReplicationStatusMessage" },
+          "roleName": { "$ref": "#/components/schemas/RoleName" },
+          "status": { "$ref": "#/components/schemas/AppStatus" },
+          "statusMessage": { "$ref": "#/components/schemas/AppStatusMessage" },
+          "totalServerGroups": { "$ref": "#/components/schemas/TotalServerGroups" },
+          "totalServers": { "$ref": "#/components/schemas/TotalServers" }
+        },
+        "type": "object"
+      },
+      "Apps": { "items": { "$ref": "#/components/schemas/AppSummary" }, "type": "array" },
+      "AssociatePublicIpAddress": { "type": "boolean" },
+      "BucketName": { "type": "string" },
+      "ClientToken": { "type": "string" },
+      "Connector": {
+        "description": "Represents a connector.",
+        "properties": {
+          "associatedOn": { "$ref": "#/components/schemas/Timestamp" },
+          "capabilityList": { "$ref": "#/components/schemas/ConnectorCapabilityList" },
+          "connectorId": { "$ref": "#/components/schemas/ConnectorId" },
+          "ipAddress": { "$ref": "#/components/schemas/IpAddress" },
+          "macAddress": { "$ref": "#/components/schemas/MacAddress" },
+          "status": { "$ref": "#/components/schemas/ConnectorStatus" },
+          "version": { "$ref": "#/components/schemas/ConnectorVersion" },
+          "vmManagerId": { "$ref": "#/components/schemas/VmManagerId" },
+          "vmManagerName": { "$ref": "#/components/schemas/VmManagerName" },
+          "vmManagerType": { "$ref": "#/components/schemas/VmManagerType" }
+        },
+        "type": "object"
+      },
+      "ConnectorCapability": { "enum": ["VSPHERE", "SCVMM", "HYPERV-MANAGER", "SNAPSHOT_BATCHING"], "type": "string" },
+      "ConnectorCapabilityList": { "items": { "$ref": "#/components/schemas/ConnectorCapability" }, "type": "array" },
+      "ConnectorId": { "type": "string" },
+      "ConnectorList": { "items": { "$ref": "#/components/schemas/Connector" }, "type": "array" },
+      "ConnectorStatus": { "enum": ["HEALTHY", "UNHEALTHY"], "type": "string" },
+      "ConnectorVersion": { "type": "string" },
+      "CreateAppRequest": {
+        "properties": {
+          "clientToken": { "$ref": "#/components/schemas/ClientToken" },
+          "description": { "$ref": "#/components/schemas/AppDescription" },
+          "name": { "$ref": "#/components/schemas/AppName" },
+          "roleName": { "$ref": "#/components/schemas/RoleName" },
+          "serverGroups": { "$ref": "#/components/schemas/ServerGroups" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "CreateAppResponse": {
+        "properties": {
+          "appSummary": { "$ref": "#/components/schemas/AppSummary" },
+          "serverGroups": { "$ref": "#/components/schemas/ServerGroups" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "CreateReplicationJobRequest": {
+        "properties": {
+          "description": { "$ref": "#/components/schemas/Description" },
+          "encrypted": { "$ref": "#/components/schemas/Encrypted" },
+          "frequency": { "$ref": "#/components/schemas/Frequency" },
+          "kmsKeyId": { "$ref": "#/components/schemas/KmsKeyId" },
+          "licenseType": { "$ref": "#/components/schemas/LicenseType" },
+          "numberOfRecentAmisToKeep": { "$ref": "#/components/schemas/NumberOfRecentAmisToKeep" },
+          "roleName": { "$ref": "#/components/schemas/RoleName" },
+          "runOnce": { "$ref": "#/components/schemas/RunOnce" },
+          "seedReplicationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "serverId": { "$ref": "#/components/schemas/ServerId" }
+        },
+        "required": ["serverId", "seedReplicationTime"],
+        "type": "object"
+      },
+      "CreateReplicationJobResponse": {
+        "properties": { "replicationJobId": { "$ref": "#/components/schemas/ReplicationJobId" } },
+        "type": "object"
+      },
+      "DeleteAppLaunchConfigurationRequest": {
+        "properties": { "appId": { "$ref": "#/components/schemas/AppId" } },
+        "type": "object"
+      },
+      "DeleteAppLaunchConfigurationResponse": { "properties": {}, "type": "object" },
+      "DeleteAppReplicationConfigurationRequest": {
+        "properties": { "appId": { "$ref": "#/components/schemas/AppId" } },
+        "type": "object"
+      },
+      "DeleteAppReplicationConfigurationResponse": { "properties": {}, "type": "object" },
+      "DeleteAppRequest": {
+        "properties": {
+          "appId": { "$ref": "#/components/schemas/AppId" },
+          "forceStopAppReplication": { "$ref": "#/components/schemas/ForceStopAppReplication" },
+          "forceTerminateApp": { "$ref": "#/components/schemas/ForceTerminateApp" }
+        },
+        "type": "object"
+      },
+      "DeleteAppResponse": { "properties": {}, "type": "object" },
+      "DeleteReplicationJobRequest": {
+        "properties": { "replicationJobId": { "$ref": "#/components/schemas/ReplicationJobId" } },
+        "required": ["replicationJobId"],
+        "type": "object"
+      },
+      "DeleteReplicationJobResponse": { "properties": {}, "type": "object" },
+      "DeleteServerCatalogRequest": { "properties": {}, "type": "object" },
+      "DeleteServerCatalogResponse": { "properties": {}, "type": "object" },
+      "Description": { "type": "string" },
+      "DisassociateConnectorRequest": {
+        "properties": { "connectorId": { "$ref": "#/components/schemas/ConnectorId" } },
+        "required": ["connectorId"],
+        "type": "object"
+      },
+      "DisassociateConnectorResponse": { "properties": {}, "type": "object" },
+      "EC2KeyName": { "type": "string" },
+      "Encrypted": { "type": "boolean" },
+      "ForceStopAppReplication": { "type": "boolean" },
+      "ForceTerminateApp": { "type": "boolean" },
+      "Frequency": { "type": "integer" },
+      "GenerateChangeSetRequest": {
+        "properties": {
+          "appId": { "$ref": "#/components/schemas/AppId" },
+          "changesetFormat": { "$ref": "#/components/schemas/OutputFormat" }
+        },
+        "type": "object"
+      },
+      "GenerateChangeSetResponse": {
+        "properties": { "s3Location": { "$ref": "#/components/schemas/S3Location" } },
+        "type": "object"
+      },
+      "GenerateTemplateRequest": {
+        "properties": {
+          "appId": { "$ref": "#/components/schemas/AppId" },
+          "templateFormat": { "$ref": "#/components/schemas/OutputFormat" }
+        },
+        "type": "object"
+      },
+      "GenerateTemplateResponse": {
+        "properties": { "s3Location": { "$ref": "#/components/schemas/S3Location" } },
+        "type": "object"
+      },
+      "GetAppLaunchConfigurationRequest": {
+        "properties": { "appId": { "$ref": "#/components/schemas/AppId" } },
+        "type": "object"
+      },
+      "GetAppLaunchConfigurationResponse": {
+        "properties": {
+          "appId": { "$ref": "#/components/schemas/AppId" },
+          "roleName": { "$ref": "#/components/schemas/RoleName" },
+          "serverGroupLaunchConfigurations": { "$ref": "#/components/schemas/ServerGroupLaunchConfigurations" }
+        },
+        "type": "object"
+      },
+      "GetAppReplicationConfigurationRequest": {
+        "properties": { "appId": { "$ref": "#/components/schemas/AppId" } },
+        "type": "object"
+      },
+      "GetAppReplicationConfigurationResponse": {
+        "properties": {
+          "serverGroupReplicationConfigurations": {
+            "$ref": "#/components/schemas/ServerGroupReplicationConfigurations"
+          }
+        },
+        "type": "object"
+      },
+      "GetAppRequest": { "properties": { "appId": { "$ref": "#/components/schemas/AppId" } }, "type": "object" },
+      "GetAppResponse": {
+        "properties": {
+          "appSummary": { "$ref": "#/components/schemas/AppSummary" },
+          "serverGroups": { "$ref": "#/components/schemas/ServerGroups" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "GetConnectorsRequest": {
+        "properties": {
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "GetConnectorsResponse": {
+        "properties": {
+          "connectorList": { "$ref": "#/components/schemas/ConnectorList" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "GetReplicationJobsRequest": {
+        "properties": {
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" },
+          "replicationJobId": { "$ref": "#/components/schemas/ReplicationJobId" }
+        },
+        "type": "object"
+      },
+      "GetReplicationJobsResponse": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/NextToken" },
+          "replicationJobList": { "$ref": "#/components/schemas/ReplicationJobList" }
+        },
+        "type": "object"
+      },
+      "GetReplicationRunsRequest": {
+        "properties": {
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" },
+          "replicationJobId": { "$ref": "#/components/schemas/ReplicationJobId" }
+        },
+        "required": ["replicationJobId"],
+        "type": "object"
+      },
+      "GetReplicationRunsResponse": {
+        "properties": {
+          "nextToken": { "$ref": "#/components/schemas/NextToken" },
+          "replicationJob": { "$ref": "#/components/schemas/ReplicationJob" },
+          "replicationRunList": { "$ref": "#/components/schemas/ReplicationRunList" }
+        },
+        "type": "object"
+      },
+      "GetServersRequest": {
+        "properties": {
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" },
+          "vmServerAddressList": { "$ref": "#/components/schemas/VmServerAddressList" }
+        },
+        "type": "object"
+      },
+      "GetServersResponse": {
+        "properties": {
+          "lastModifiedOn": { "$ref": "#/components/schemas/Timestamp" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" },
+          "serverCatalogStatus": { "$ref": "#/components/schemas/ServerCatalogStatus" },
+          "serverList": { "$ref": "#/components/schemas/ServerList" }
+        },
+        "type": "object"
+      },
+      "ImportServerCatalogRequest": { "properties": {}, "type": "object" },
+      "ImportServerCatalogResponse": { "properties": {}, "type": "object" },
+      "InstanceType": { "type": "string" },
+      "InternalError": {},
+      "InvalidParameterException": {},
+      "IpAddress": { "type": "string" },
+      "KeyName": { "type": "string" },
+      "KmsKeyId": { "type": "string" },
+      "LaunchAppRequest": { "properties": { "appId": { "$ref": "#/components/schemas/AppId" } }, "type": "object" },
+      "LaunchAppResponse": { "properties": {}, "type": "object" },
+      "LaunchDetails": {
+        "description": "Details about the latest launch of an application.",
+        "properties": {
+          "latestLaunchTime": { "$ref": "#/components/schemas/Timestamp" },
+          "stackId": { "$ref": "#/components/schemas/StackId" },
+          "stackName": { "$ref": "#/components/schemas/StackName" }
+        },
+        "type": "object"
+      },
+      "LaunchOrder": { "type": "integer" },
+      "LicenseType": { "enum": ["AWS", "BYOL"], "type": "string" },
+      "ListAppsRequest": {
+        "properties": {
+          "appIds": { "$ref": "#/components/schemas/AppIds" },
+          "maxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListAppsResponse": {
+        "properties": {
+          "apps": { "$ref": "#/components/schemas/Apps" },
+          "nextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "LogicalId": { "type": "string" },
+      "MacAddress": { "type": "string" },
+      "MaxResults": { "type": "integer" },
+      "MissingRequiredParameterException": {},
+      "NextToken": { "type": "string" },
+      "NoConnectorsAvailableException": {},
+      "NumberOfRecentAmisToKeep": { "type": "integer" },
+      "OperationNotPermittedException": {},
+      "OutputFormat": { "enum": ["JSON", "YAML"], "type": "string" },
+      "PutAppLaunchConfigurationRequest": {
+        "properties": {
+          "appId": { "$ref": "#/components/schemas/AppId" },
+          "roleName": { "$ref": "#/components/schemas/RoleName" },
+          "serverGroupLaunchConfigurations": { "$ref": "#/components/schemas/ServerGroupLaunchConfigurations" }
+        },
+        "type": "object"
+      },
+      "PutAppLaunchConfigurationResponse": { "properties": {}, "type": "object" },
+      "PutAppReplicationConfigurationRequest": {
+        "properties": {
+          "appId": { "$ref": "#/components/schemas/AppId" },
+          "serverGroupReplicationConfigurations": {
+            "$ref": "#/components/schemas/ServerGroupReplicationConfigurations"
+          }
+        },
+        "type": "object"
+      },
+      "PutAppReplicationConfigurationResponse": { "properties": {}, "type": "object" },
+      "ReplicationJob": {
+        "description": "Represents a replication job.",
+        "properties": {
+          "description": { "$ref": "#/components/schemas/Description" },
+          "encrypted": { "$ref": "#/components/schemas/Encrypted" },
+          "frequency": { "$ref": "#/components/schemas/Frequency" },
+          "kmsKeyId": { "$ref": "#/components/schemas/KmsKeyId" },
+          "latestAmiId": { "$ref": "#/components/schemas/AmiId" },
+          "licenseType": { "$ref": "#/components/schemas/LicenseType" },
+          "nextReplicationRunStartTime": { "$ref": "#/components/schemas/Timestamp" },
+          "numberOfRecentAmisToKeep": { "$ref": "#/components/schemas/NumberOfRecentAmisToKeep" },
+          "replicationJobId": { "$ref": "#/components/schemas/ReplicationJobId" },
+          "replicationRunList": { "$ref": "#/components/schemas/ReplicationRunList" },
+          "roleName": { "$ref": "#/components/schemas/RoleName" },
+          "runOnce": { "$ref": "#/components/schemas/RunOnce" },
+          "seedReplicationTime": { "$ref": "#/components/schemas/Timestamp" },
+          "serverId": { "$ref": "#/components/schemas/ServerId" },
+          "serverType": { "$ref": "#/components/schemas/ServerType" },
+          "state": { "$ref": "#/components/schemas/ReplicationJobState" },
+          "statusMessage": { "$ref": "#/components/schemas/ReplicationJobStatusMessage" },
+          "vmServer": { "$ref": "#/components/schemas/VmServer" }
+        },
+        "type": "object"
+      },
+      "ReplicationJobAlreadyExistsException": {},
+      "ReplicationJobId": { "type": "string" },
+      "ReplicationJobList": { "items": { "$ref": "#/components/schemas/ReplicationJob" }, "type": "array" },
+      "ReplicationJobNotFoundException": {},
+      "ReplicationJobState": {
+        "enum": ["PENDING", "ACTIVE", "FAILED", "DELETING", "DELETED", "COMPLETED", "PAUSED_ON_FAILURE", "FAILING"],
+        "type": "string"
+      },
+      "ReplicationJobStatusMessage": { "type": "string" },
+      "ReplicationJobTerminated": { "type": "boolean" },
+      "ReplicationRun": {
+        "description": "Represents a replication run.",
+        "properties": {
+          "amiId": { "$ref": "#/components/schemas/AmiId" },
+          "completedTime": { "$ref": "#/components/schemas/Timestamp" },
+          "description": { "$ref": "#/components/schemas/Description" },
+          "encrypted": { "$ref": "#/components/schemas/Encrypted" },
+          "kmsKeyId": { "$ref": "#/components/schemas/KmsKeyId" },
+          "replicationRunId": { "$ref": "#/components/schemas/ReplicationRunId" },
+          "scheduledStartTime": { "$ref": "#/components/schemas/Timestamp" },
+          "stageDetails": { "$ref": "#/components/schemas/ReplicationRunStageDetails" },
+          "state": { "$ref": "#/components/schemas/ReplicationRunState" },
+          "statusMessage": { "$ref": "#/components/schemas/ReplicationRunStatusMessage" },
+          "type": { "$ref": "#/components/schemas/ReplicationRunType" }
+        },
+        "type": "object"
+      },
+      "ReplicationRunId": { "type": "string" },
+      "ReplicationRunLimitExceededException": {},
+      "ReplicationRunList": { "items": { "$ref": "#/components/schemas/ReplicationRun" }, "type": "array" },
+      "ReplicationRunStage": { "type": "string" },
+      "ReplicationRunStageDetails": {
+        "description": "Details of the current stage of a replication run.",
+        "properties": {
+          "stage": { "$ref": "#/components/schemas/ReplicationRunStage" },
+          "stageProgress": { "$ref": "#/components/schemas/ReplicationRunStageProgress" }
+        },
+        "type": "object"
+      },
+      "ReplicationRunStageProgress": { "type": "string" },
+      "ReplicationRunState": {
+        "enum": ["PENDING", "MISSED", "ACTIVE", "FAILED", "COMPLETED", "DELETING", "DELETED"],
+        "type": "string"
+      },
+      "ReplicationRunStatusMessage": { "type": "string" },
+      "ReplicationRunType": { "enum": ["ON_DEMAND", "AUTOMATIC"], "type": "string" },
+      "RoleName": { "type": "string" },
+      "RunOnce": { "type": "boolean" },
+      "S3Location": {
+        "description": "Location of the Amazon S3 object in the customer's account.",
+        "properties": {
+          "bucket": { "$ref": "#/components/schemas/BucketName" },
+          "key": { "$ref": "#/components/schemas/KeyName" }
+        },
+        "type": "object"
+      },
+      "SecurityGroup": { "type": "string" },
+      "Server": {
+        "description": "Represents a server.",
+        "properties": {
+          "replicationJobId": { "$ref": "#/components/schemas/ReplicationJobId" },
+          "replicationJobTerminated": { "$ref": "#/components/schemas/ReplicationJobTerminated" },
+          "serverId": { "$ref": "#/components/schemas/ServerId" },
+          "serverType": { "$ref": "#/components/schemas/ServerType" },
+          "vmServer": { "$ref": "#/components/schemas/VmServer" }
+        },
+        "type": "object"
+      },
+      "ServerCannotBeReplicatedException": {},
+      "ServerCatalogStatus": {
+        "enum": ["NOT_IMPORTED", "IMPORTING", "AVAILABLE", "DELETED", "EXPIRED"],
+        "type": "string"
+      },
+      "ServerGroup": {
+        "description": "A logical grouping of servers.",
+        "properties": {
+          "name": { "$ref": "#/components/schemas/ServerGroupName" },
+          "serverGroupId": { "$ref": "#/components/schemas/ServerGroupId" },
+          "serverList": { "$ref": "#/components/schemas/ServerList" }
+        },
+        "type": "object"
+      },
+      "ServerGroupId": { "type": "string" },
+      "ServerGroupLaunchConfiguration": {
+        "description": "Launch configuration for a server group.",
+        "properties": {
+          "launchOrder": { "$ref": "#/components/schemas/LaunchOrder" },
+          "serverGroupId": { "$ref": "#/components/schemas/ServerGroupId" },
+          "serverLaunchConfigurations": { "$ref": "#/components/schemas/ServerLaunchConfigurations" }
+        },
+        "type": "object"
+      },
+      "ServerGroupLaunchConfigurations": {
+        "items": { "$ref": "#/components/schemas/ServerGroupLaunchConfiguration" },
+        "type": "array"
+      },
+      "ServerGroupName": { "type": "string" },
+      "ServerGroupReplicationConfiguration": {
+        "description": "Replication configuration for a server group.",
+        "properties": {
+          "serverGroupId": { "$ref": "#/components/schemas/ServerGroupId" },
+          "serverReplicationConfigurations": { "$ref": "#/components/schemas/ServerReplicationConfigurations" }
+        },
+        "type": "object"
+      },
+      "ServerGroupReplicationConfigurations": {
+        "items": { "$ref": "#/components/schemas/ServerGroupReplicationConfiguration" },
+        "type": "array"
+      },
+      "ServerGroups": { "items": { "$ref": "#/components/schemas/ServerGroup" }, "type": "array" },
+      "ServerId": { "type": "string" },
+      "ServerLaunchConfiguration": {
+        "description": "Launch configuration for a server.",
+        "properties": {
+          "associatePublicIpAddress": { "$ref": "#/components/schemas/AssociatePublicIpAddress" },
+          "ec2KeyName": { "$ref": "#/components/schemas/EC2KeyName" },
+          "instanceType": { "$ref": "#/components/schemas/InstanceType" },
+          "logicalId": { "$ref": "#/components/schemas/LogicalId" },
+          "securityGroup": { "$ref": "#/components/schemas/SecurityGroup" },
+          "server": { "$ref": "#/components/schemas/Server" },
+          "subnet": { "$ref": "#/components/schemas/Subnet" },
+          "userData": { "$ref": "#/components/schemas/UserData" },
+          "vpc": { "$ref": "#/components/schemas/VPC" }
+        },
+        "type": "object"
+      },
+      "ServerLaunchConfigurations": {
+        "items": { "$ref": "#/components/schemas/ServerLaunchConfiguration" },
+        "type": "array"
+      },
+      "ServerList": { "items": { "$ref": "#/components/schemas/Server" }, "type": "array" },
+      "ServerReplicationConfiguration": {
+        "description": "Replication configuration of a server.",
+        "properties": {
+          "server": { "$ref": "#/components/schemas/Server" },
+          "serverReplicationParameters": { "$ref": "#/components/schemas/ServerReplicationParameters" }
+        },
+        "type": "object"
+      },
+      "ServerReplicationConfigurations": {
+        "items": { "$ref": "#/components/schemas/ServerReplicationConfiguration" },
+        "type": "array"
+      },
+      "ServerReplicationParameters": {
+        "description": "Replication parameters for replicating a server.",
+        "properties": {
+          "encrypted": { "$ref": "#/components/schemas/Encrypted" },
+          "frequency": { "$ref": "#/components/schemas/Frequency" },
+          "kmsKeyId": { "$ref": "#/components/schemas/KmsKeyId" },
+          "licenseType": { "$ref": "#/components/schemas/LicenseType" },
+          "numberOfRecentAmisToKeep": { "$ref": "#/components/schemas/NumberOfRecentAmisToKeep" },
+          "runOnce": { "$ref": "#/components/schemas/RunOnce" },
+          "seedTime": { "$ref": "#/components/schemas/Timestamp" }
+        },
+        "type": "object"
+      },
+      "ServerType": { "enum": ["VIRTUAL_MACHINE"], "type": "string" },
+      "StackId": { "type": "string" },
+      "StackName": { "type": "string" },
+      "StartAppReplicationRequest": {
+        "properties": { "appId": { "$ref": "#/components/schemas/AppId" } },
+        "type": "object"
+      },
+      "StartAppReplicationResponse": { "properties": {}, "type": "object" },
+      "StartOnDemandReplicationRunRequest": {
+        "properties": {
+          "description": { "$ref": "#/components/schemas/Description" },
+          "replicationJobId": { "$ref": "#/components/schemas/ReplicationJobId" }
+        },
+        "required": ["replicationJobId"],
+        "type": "object"
+      },
+      "StartOnDemandReplicationRunResponse": {
+        "properties": { "replicationRunId": { "$ref": "#/components/schemas/ReplicationRunId" } },
+        "type": "object"
+      },
+      "StopAppReplicationRequest": {
+        "properties": { "appId": { "$ref": "#/components/schemas/AppId" } },
+        "type": "object"
+      },
+      "StopAppReplicationResponse": { "properties": {}, "type": "object" },
+      "Subnet": { "type": "string" },
+      "Tag": {
+        "description": "A label that can be assigned to an application.",
+        "properties": {
+          "key": { "$ref": "#/components/schemas/TagKey" },
+          "value": { "$ref": "#/components/schemas/TagValue" }
+        },
+        "type": "object"
+      },
+      "TagKey": { "type": "string" },
+      "TagValue": { "type": "string" },
+      "Tags": { "items": { "$ref": "#/components/schemas/Tag" }, "type": "array" },
+      "TemporarilyUnavailableException": {},
+      "TerminateAppRequest": { "properties": { "appId": { "$ref": "#/components/schemas/AppId" } }, "type": "object" },
+      "TerminateAppResponse": { "properties": {}, "type": "object" },
+      "Timestamp": { "format": "date-time", "type": "string" },
+      "TotalServerGroups": { "type": "integer" },
+      "TotalServers": { "type": "integer" },
+      "UnauthorizedOperationException": {},
+      "UpdateAppRequest": {
+        "properties": {
+          "appId": { "$ref": "#/components/schemas/AppId" },
+          "description": { "$ref": "#/components/schemas/AppDescription" },
+          "name": { "$ref": "#/components/schemas/AppName" },
+          "roleName": { "$ref": "#/components/schemas/RoleName" },
+          "serverGroups": { "$ref": "#/components/schemas/ServerGroups" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "UpdateAppResponse": {
+        "properties": {
+          "appSummary": { "$ref": "#/components/schemas/AppSummary" },
+          "serverGroups": { "$ref": "#/components/schemas/ServerGroups" },
+          "tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "UpdateReplicationJobRequest": {
+        "properties": {
+          "description": { "$ref": "#/components/schemas/Description" },
+          "encrypted": { "$ref": "#/components/schemas/Encrypted" },
+          "frequency": { "$ref": "#/components/schemas/Frequency" },
+          "kmsKeyId": { "$ref": "#/components/schemas/KmsKeyId" },
+          "licenseType": { "$ref": "#/components/schemas/LicenseType" },
+          "nextReplicationRunStartTime": { "$ref": "#/components/schemas/Timestamp" },
+          "numberOfRecentAmisToKeep": { "$ref": "#/components/schemas/NumberOfRecentAmisToKeep" },
+          "replicationJobId": { "$ref": "#/components/schemas/ReplicationJobId" },
+          "roleName": { "$ref": "#/components/schemas/RoleName" }
+        },
+        "required": ["replicationJobId"],
+        "type": "object"
+      },
+      "UpdateReplicationJobResponse": { "properties": {}, "type": "object" },
+      "UserData": {
+        "description": "A script that runs on first launch of an Amazon EC2 instance. Used for configuring the server during launch.",
+        "properties": { "s3Location": { "$ref": "#/components/schemas/S3Location" } },
+        "type": "object"
+      },
+      "VPC": { "type": "string" },
+      "VmId": { "type": "string" },
+      "VmManagerId": { "type": "string" },
+      "VmManagerName": { "type": "string" },
+      "VmManagerType": { "enum": ["VSPHERE", "SCVMM", "HYPERV-MANAGER"], "type": "string" },
+      "VmName": { "type": "string" },
+      "VmPath": { "type": "string" },
+      "VmServer": {
+        "description": "Represents a VM server.",
+        "properties": {
+          "vmManagerName": { "$ref": "#/components/schemas/VmManagerName" },
+          "vmManagerType": { "$ref": "#/components/schemas/VmManagerType" },
+          "vmName": { "$ref": "#/components/schemas/VmName" },
+          "vmPath": { "$ref": "#/components/schemas/VmPath" },
+          "vmServerAddress": { "$ref": "#/components/schemas/VmServerAddress" }
+        },
+        "type": "object"
+      },
+      "VmServerAddress": {
+        "description": "Represents a VM server location.",
+        "properties": {
+          "vmId": { "$ref": "#/components/schemas/VmId" },
+          "vmManagerId": { "$ref": "#/components/schemas/VmManagerId" }
+        },
+        "type": "object"
+      },
+      "VmServerAddressList": { "items": { "$ref": "#/components/schemas/VmServerAddress" }, "type": "array" }
+    }
+  }
+}

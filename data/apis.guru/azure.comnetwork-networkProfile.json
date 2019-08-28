@@ -1,1 +1,1122 @@
-{"openapi":"3.0.0","info":{"description":"The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.","title":"NetworkManagementClient","version":"2018-12-01","x-apisguru-categories":["cloud"],"x-logo":{"url":"https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"},"x-origin":[{"format":"swagger","url":"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-12-01/networkProfile.json","version":"2.0"}],"x-preferred":true,"x-providerName":"azure.com","x-serviceName":"network-networkProfile","x-tags":["Azure","Microsoft"]},"security":[{"azure_auth":["user_impersonation"]}],"paths":{"/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkProfiles":{"get":{"description":"Gets all the network profiles in a subscription.","operationId":"NetworkProfiles_ListAll","parameters":[{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"List all network profiles":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"List all network profiles":{"value":"subid"}}}],"responses":{"200":{"description":"Request successful. The operation returns a list of NetworkProfile resources.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NetworkProfileListResult"},"examples":{"List all network profiles":{"$ref":"#/components/examples/List_all_network_profiles"}}}}}},"tags":["NetworkProfiles"],"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles":{"get":{"description":"Gets all network profiles in a resource group.","operationId":"NetworkProfiles_List","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"List resource group network profiles":{"value":"rg1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"List resource group network profiles":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"List resource group network profiles":{"value":"subid"}}}],"responses":{"200":{"description":"Request successful. The operation returns a list of NetworkProfile resources.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NetworkProfileListResult"},"examples":{"List resource group network profiles":{"$ref":"#/components/examples/List_resource_group_network_profiles"}}}}}},"tags":["NetworkProfiles"],"x-ms-pageable":{"nextLinkName":"nextLink"}}},"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles/{networkProfileName}":{"delete":{"description":"Deletes the specified network profile.","operationId":"NetworkProfiles_Delete","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Delete network profile":{"value":"rg1"}}},{"description":"The name of the NetworkProfile.","in":"path","name":"networkProfileName","required":true,"schema":{"type":"string"},"examples":{"Delete network profile":{"value":"networkProfile1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Delete network profile":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Delete network profile":{"value":"subid"}}}],"responses":{"200":{"description":"Delete successful."},"202":{"description":"Accepted and the operation will complete asynchronously."},"204":{"description":"Request successful. Resource does not exist."}},"tags":["NetworkProfiles"],"x-ms-long-running-operation":true,"x-ms-long-running-operation-options":{"final-state-via":"location"}},"get":{"description":"Gets the specified network profile in a specified resource group.","operationId":"NetworkProfiles_Get","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Get network profile":{"value":"rg1"},"Get network profile with container network interfaces":{"value":"rg1"}}},{"description":"The name of the public IP prefix.","in":"path","name":"networkProfileName","required":true,"schema":{"type":"string"},"examples":{"Get network profile":{"value":"networkProfile1"},"Get network profile with container network interfaces":{"value":"networkProfile1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Get network profile":{"value":"2018-12-01"},"Get network profile with container network interfaces":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Get network profile":{"value":"subid"},"Get network profile with container network interfaces":{"value":"subid"}}},{"description":"Expands referenced resources.","in":"query","name":"$expand","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Request successful. The operation returns the resulting NetworkProfile resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NetworkProfile"},"examples":{"Get network profile":{"$ref":"#/components/examples/Get_network_profile"},"Get network profile with container network interfaces":{"$ref":"#/components/examples/Get_network_profile_with_container_network_interfaces"}}}}}},"tags":["NetworkProfiles"]},"patch":{"description":"Updates network profile tags.","operationId":"NetworkProfiles_UpdateTags","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Update network profile tags":{"value":"rg1"}}},{"description":"The name of the network profile.","in":"path","name":"networkProfileName","required":true,"schema":{"type":"string"},"examples":{"Update network profile tags":{"value":"test-np"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Update network profile tags":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Update network profile tags":{"value":"subid"}}}],"requestBody":{"content":{"application/json":{"schema":{"description":"Tags object for patch operations.","properties":{"tags":{"additionalProperties":{"type":"string"},"description":"Resource tags.","type":"object"}}}}},"description":"Parameters supplied to update network profile tags.","required":true},"responses":{"200":{"description":"Update successful. The operation returns the resulting NetworkProfile resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NetworkProfile"},"examples":{"Update network profile tags":{"$ref":"#/components/examples/Update_network_profile_tags"}}}}}},"tags":["NetworkProfiles"],"x-ms-long-running-operation":false},"put":{"description":"Creates or updates a network profile.","operationId":"NetworkProfiles_CreateOrUpdate","parameters":[{"description":"The name of the resource group.","in":"path","name":"resourceGroupName","required":true,"schema":{"type":"string"},"examples":{"Create network profile defaults":{"value":"rg1"}}},{"description":"The name of the network profile.","in":"path","name":"networkProfileName","required":true,"schema":{"type":"string"},"examples":{"Create network profile defaults":{"value":"networkProfile1"}}},{"description":"Client API version.","in":"query","name":"api-version","required":true,"schema":{"type":"string"},"examples":{"Create network profile defaults":{"value":"2018-12-01"}}},{"description":"The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.","in":"path","name":"subscriptionId","required":true,"schema":{"type":"string"},"examples":{"Create network profile defaults":{"value":"subid"}}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/NetworkProfile"}}},"description":"Parameters supplied to the create or update network profile operation.","required":true},"responses":{"200":{"description":"Update successful. The operation returns the resulting NetworkProfile resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NetworkProfile"},"examples":{"Create network profile defaults":{"$ref":"#/components/examples/Create_network_profile_defaults"}}}}},"201":{"description":"Create successful. The operation returns the resulting NetworkProfile resource.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NetworkProfile"},"examples":{"Create network profile defaults":{"$ref":"#/components/examples/Create_network_profile_defaults"}}}}}},"tags":["NetworkProfiles"],"x-ms-long-running-operation":false}}},"servers":[{"url":"https://management.azure.com"}],"components":{"examples":{"List_all_network_profiles":{"value":{"value":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1","location":"centraluseuap","name":"networkProfile1","properties":{"containerNetworkInterfaceConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0","name":"eth0","properties":{"ipConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1","name":"ipconfigprofile1","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"}],"containerNetworkInterfaces":[],"provisioningState":"Succeeded","resourceGuid":"1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"},"type":"Microsoft.Network/networkProfiles"},{"id":"/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/networkProfiles/networkProfile2","location":"centraluseuap","name":"networkProfile2","properties":{"containerNetworkInterfaceConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1","name":"eth1","properties":{"ipConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfigprofile3","name":"ipconfigprofile3","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"}],"containerNetworkInterfaces":[]},"type":"Microsoft.Network/networkProfiles"}]}},"List_resource_group_network_profiles":{"value":{"value":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1","location":"centraluseuap","name":"networkProfile1","properties":{"containerNetworkInterfaceConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0","name":"eth0","properties":{"ipConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1","name":"ipconfigprofile1","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"},{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile2","name":"ipconfigprofile2","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"}],"containerNetworkInterfaces":[],"provisioningState":"Succeeded","resourceGuid":"1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"},"type":"Microsoft.Network/networkProfiles"},{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile2","location":"centraluseuap","name":"networkProfile2","properties":{"containerNetworkInterfaceConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1","name":"eth1","properties":{"ipConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfigprofile3","name":"ipconfigprofile3","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"}],"containerNetworkInterfaces":[]},"type":"Microsoft.Network/networkProfiles"}]}},"Get_network_profile":{"value":{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1","location":"centraluseuap","name":"networkProfile1","properties":{"containerNetworkInterfaceConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0","name":"eth0","properties":{"ipConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1","name":"ipconfigprofile1","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"},{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile2","name":"ipconfigprofile2","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"},{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1","name":"eth1","properties":{"ipConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfigprofile3","name":"ipconfigprofile3","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"}],"containerNetworkInterfaces":[],"provisioningState":"Succeeded","resourceGuid":"1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"},"type":"Microsoft.Network/networkProfiles"}},"Get_network_profile_with_container_network_interfaces":{"value":{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1","location":"centraluseuap","name":"networkProfile1","properties":{"containerNetworkInterfaceConfigurations":[{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0","name":"eth0","properties":{"containerNetworkInterfaces":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup1_eth0"},{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup2_eth0"},{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup3_eth0"}],"ipConfigurations":[{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1","name":"ipconfigprofile1","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"},{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile2","name":"ipconfigprofile2","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"},{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1","name":"eth1","properties":{"containerNetworkInterfaces":[{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup1_eth1"},{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup2_eth1"},{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup3_eth1"}],"ipConfigurations":[{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfigprofile3","name":"ipconfigprofile3","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"}],"containerNetworkInterfaces":[{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup1_eth0","name":"containerGroup1_eth0","properties":{"container":{"id":"/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup1"},"containerNetworkInterfaceConfiguration":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0"},"ipConfigurations":[],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaces"},{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup1_eth1","name":"containerGroup1_eth1","properties":{"container":{"id":"/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup1"},"containerNetworkInterfaceConfiguration":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1"},"ipConfigurations":[],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaces"},{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup2_eth0","name":"containerGroup2_eth0","properties":{"container":{"id":"/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup2"},"containerNetworkInterfaceConfiguration":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0"},"ipConfigurations":[],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaces"},{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup2_eth1","name":"containerGroup2_eth1","properties":{"container":{"id":"/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup2"},"containerNetworkInterfaceConfiguration":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1"},"ipConfigurations":[],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaces"},{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup3_eth0","name":"containerGroup3_eth0","properties":{"container":{"id":"/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup3"},"containerNetworkInterfaceConfiguration":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0"},"ipConfigurations":[],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaces"},{"etag":"W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup3_eth1","name":"containerGroup3_eth1","properties":{"container":{"id":"/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup3"},"containerNetworkInterfaceConfiguration":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1"},"ipConfigurations":[],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaces"}],"provisioningState":"Succeeded","resourceGuid":"1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"},"type":"Microsoft.Network/networkProfiles"}},"Update_network_profile_tags":{"value":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-np","location":"centraluseuap","name":"test-np","properties":{"containerNetworkInterfaceConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0","name":"eth0","properties":{"ipConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1","name":"ipconfigprofile1","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"}],"containerNetworkInterfaces":[],"provisioningState":"Succeeded","resourceGuid":"1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"},"tags":{"tag1":"value1","tag2":"value2"},"type":"Microsoft.Network/networkProfiles"}},"Create_network_profile_defaults":{"value":{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1","location":"westus","name":"networkProfile1","properties":{"containerNetworkInterfaceConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1","name":"eth1","properties":{"ipConfigurations":[{"etag":"W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"","id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfig1","name":"ipconfig1","properties":{"provisioningState":"Succeeded","subnet":{"id":"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"}},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"}],"provisioningState":"Succeeded"},"type":"Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"}],"containerNetworkInterfaces":[],"provisioningState":"Succeeded","resourceGuid":"1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"},"type":"Microsoft.Network/networkProfiles"}}},"securitySchemes":{"azure_auth":{"description":"Azure Active Directory OAuth2 Flow","type":"oauth2","flows":{"implicit":{"authorizationUrl":"https://login.microsoftonline.com/common/oauth2/authorize","scopes":{"user_impersonation":"impersonate your user account"}}}}},"schemas":{"Container":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"Reference to container resource in remote resource provider.","properties":{}},"ContainerNetworkInterface":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"Container network interface child resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"name":{"description":"The name of the resource. This name can be used to access the resource.","type":"string"},"properties":{"$ref":"#/components/schemas/ContainerNetworkInterfacePropertiesFormat"},"type":{"description":"Sub Resource type.","readOnly":true,"type":"string"}}},"ContainerNetworkInterfaceConfiguration":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"Container network interface configuration child resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"name":{"description":"The name of the resource. This name can be used to access the resource.","type":"string"},"properties":{"$ref":"#/components/schemas/ContainerNetworkInterfaceConfigurationPropertiesFormat"},"type":{"description":"Sub Resource type.","readOnly":true,"type":"string"}}},"ContainerNetworkInterfaceConfigurationPropertiesFormat":{"description":"Container network interface configuration properties.","properties":{"containerNetworkInterfaces":{"description":"A list of container network interfaces created from this container network interface configuration.","items":{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true},"type":"array"},"ipConfigurations":{"description":"A list of ip configurations of the container network interface configuration.","items":{"$ref":"#/components/schemas/IPConfigurationProfile"},"type":"array"},"provisioningState":{"description":"The provisioning state of the resource.","readOnly":true,"type":"string"}}},"ContainerNetworkInterfaceIpConfiguration":{"description":"The ip configuration for a container network interface.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"name":{"description":"The name of the resource. This name can be used to access the resource.","type":"string"},"properties":{"$ref":"#/components/schemas/ContainerNetworkInterfaceIpConfigurationPropertiesFormat"},"type":{"description":"Sub Resource type.","readOnly":true,"type":"string"}}},"ContainerNetworkInterfaceIpConfigurationPropertiesFormat":{"description":"Properties of the container network interface IP configuration.","properties":{"provisioningState":{"description":"The provisioning state of the resource.","readOnly":true,"type":"string"}}},"ContainerNetworkInterfacePropertiesFormat":{"properties":{"container":{"$ref":"#/components/schemas/Container"},"containerNetworkInterfaceConfiguration":{"$ref":"#/components/schemas/ContainerNetworkInterfaceConfiguration"},"ipConfigurations":{"description":"Reference to the ip configuration on this container nic.","items":{"$ref":"#/components/schemas/ContainerNetworkInterfaceIpConfiguration"},"type":"array"},"provisioningState":{"description":"The provisioning state of the resource.","readOnly":true,"type":"string"}}},"IPConfigurationProfile":{"allOf":[{"description":"Reference to another subresource.","properties":{"id":{"description":"Resource ID.","type":"string"}},"x-ms-azure-resource":true}],"description":"IP configuration profile child resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"name":{"description":"The name of the resource. This name can be used to access the resource.","type":"string"},"properties":{"$ref":"#/components/schemas/IPConfigurationProfilePropertiesFormat"},"type":{"description":"Sub Resource type.","readOnly":true,"type":"string"}}},"IPConfigurationProfilePropertiesFormat":{"description":"IP configuration profile properties.","properties":{"provisioningState":{"description":"The provisioning state of the resource.","readOnly":true,"type":"string"},"subnet":{"$ref":"./virtualNetwork.json#/definitions/Subnet"}}},"NetworkProfile":{"allOf":[{"description":"Common resource representation.","properties":{"id":{"description":"Resource ID.","type":"string"},"location":{"description":"Resource location.","type":"string"},"name":{"description":"Resource name.","readOnly":true,"type":"string"},"tags":{"additionalProperties":{"type":"string"},"description":"Resource tags.","type":"object"},"type":{"description":"Resource type.","readOnly":true,"type":"string"}},"x-ms-azure-resource":true}],"description":"Network profile resource.","properties":{"etag":{"description":"A unique read-only string that changes whenever the resource is updated.","type":"string"},"properties":{"$ref":"#/components/schemas/NetworkProfilePropertiesFormat"}}},"NetworkProfileListResult":{"description":"Response for ListNetworkProfiles API service call.","properties":{"nextLink":{"description":"The URL to get the next set of results.","type":"string"},"value":{"description":"A list of network profiles that exist in a resource group.","items":{"$ref":"#/components/schemas/NetworkProfile"},"type":"array"}}},"NetworkProfilePropertiesFormat":{"description":"Network profile properties.","properties":{"containerNetworkInterfaceConfigurations":{"description":"List of chid container network interface configurations.","items":{"$ref":"#/components/schemas/ContainerNetworkInterfaceConfiguration"},"type":"array"},"containerNetworkInterfaces":{"description":"List of child container network interfaces.","items":{"$ref":"#/components/schemas/ContainerNetworkInterface"},"type":"array"},"provisioningState":{"description":"The provisioning state of the resource.","readOnly":true,"type":"string"},"resourceGuid":{"description":"The resource GUID property of the network interface resource.","readOnly":true,"type":"string"}}}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
+    "title": "NetworkManagementClient",
+    "version": "2018-12-01",
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-12-01/networkProfile.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "azure.com",
+    "x-serviceName": "network-networkProfile",
+    "x-tags": ["Azure", "Microsoft"]
+  },
+  "security": [{ "azure_auth": ["user_impersonation"] }],
+  "paths": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkProfiles": {
+      "get": {
+        "description": "Gets all the network profiles in a subscription.",
+        "operationId": "NetworkProfiles_ListAll",
+        "parameters": [
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List all network profiles": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List all network profiles": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of NetworkProfile resources.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NetworkProfileListResult" },
+                "examples": {
+                  "List all network profiles": { "$ref": "#/components/examples/List_all_network_profiles" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["NetworkProfiles"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles": {
+      "get": {
+        "description": "Gets all network profiles in a resource group.",
+        "operationId": "NetworkProfiles_List",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List resource group network profiles": { "value": "rg1" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List resource group network profiles": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "List resource group network profiles": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of NetworkProfile resources.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NetworkProfileListResult" },
+                "examples": {
+                  "List resource group network profiles": {
+                    "$ref": "#/components/examples/List_resource_group_network_profiles"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["NetworkProfiles"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles/{networkProfileName}": {
+      "delete": {
+        "description": "Deletes the specified network profile.",
+        "operationId": "NetworkProfiles_Delete",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete network profile": { "value": "rg1" } }
+          },
+          {
+            "description": "The name of the NetworkProfile.",
+            "in": "path",
+            "name": "networkProfileName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete network profile": { "value": "networkProfile1" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete network profile": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Delete network profile": { "value": "subid" } }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Delete successful." },
+          "202": { "description": "Accepted and the operation will complete asynchronously." },
+          "204": { "description": "Request successful. Resource does not exist." }
+        },
+        "tags": ["NetworkProfiles"],
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": { "final-state-via": "location" }
+      },
+      "get": {
+        "description": "Gets the specified network profile in a specified resource group.",
+        "operationId": "NetworkProfiles_Get",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get network profile": { "value": "rg1" },
+              "Get network profile with container network interfaces": { "value": "rg1" }
+            }
+          },
+          {
+            "description": "The name of the public IP prefix.",
+            "in": "path",
+            "name": "networkProfileName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get network profile": { "value": "networkProfile1" },
+              "Get network profile with container network interfaces": { "value": "networkProfile1" }
+            }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get network profile": { "value": "2018-12-01" },
+              "Get network profile with container network interfaces": { "value": "2018-12-01" }
+            }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": {
+              "Get network profile": { "value": "subid" },
+              "Get network profile with container network interfaces": { "value": "subid" }
+            }
+          },
+          {
+            "description": "Expands referenced resources.",
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting NetworkProfile resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NetworkProfile" },
+                "examples": {
+                  "Get network profile": { "$ref": "#/components/examples/Get_network_profile" },
+                  "Get network profile with container network interfaces": {
+                    "$ref": "#/components/examples/Get_network_profile_with_container_network_interfaces"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["NetworkProfiles"]
+      },
+      "patch": {
+        "description": "Updates network profile tags.",
+        "operationId": "NetworkProfiles_UpdateTags",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update network profile tags": { "value": "rg1" } }
+          },
+          {
+            "description": "The name of the network profile.",
+            "in": "path",
+            "name": "networkProfileName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update network profile tags": { "value": "test-np" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update network profile tags": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Update network profile tags": { "value": "subid" } }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Tags object for patch operations.",
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "type": "string" },
+                    "description": "Resource tags.",
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Parameters supplied to update network profile tags.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting NetworkProfile resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NetworkProfile" },
+                "examples": {
+                  "Update network profile tags": { "$ref": "#/components/examples/Update_network_profile_tags" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["NetworkProfiles"],
+        "x-ms-long-running-operation": false
+      },
+      "put": {
+        "description": "Creates or updates a network profile.",
+        "operationId": "NetworkProfiles_CreateOrUpdate",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create network profile defaults": { "value": "rg1" } }
+          },
+          {
+            "description": "The name of the network profile.",
+            "in": "path",
+            "name": "networkProfileName",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create network profile defaults": { "value": "networkProfile1" } }
+          },
+          {
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create network profile defaults": { "value": "2018-12-01" } }
+          },
+          {
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "schema": { "type": "string" },
+            "examples": { "Create network profile defaults": { "value": "subid" } }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NetworkProfile" } } },
+          "description": "Parameters supplied to the create or update network profile operation.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting NetworkProfile resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NetworkProfile" },
+                "examples": {
+                  "Create network profile defaults": { "$ref": "#/components/examples/Create_network_profile_defaults" }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting NetworkProfile resource.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NetworkProfile" },
+                "examples": {
+                  "Create network profile defaults": { "$ref": "#/components/examples/Create_network_profile_defaults" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["NetworkProfiles"],
+        "x-ms-long-running-operation": false
+      }
+    }
+  },
+  "servers": [{ "url": "https://management.azure.com" }],
+  "components": {
+    "examples": {
+      "List_all_network_profiles": {
+        "value": {
+          "value": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1",
+              "location": "centraluseuap",
+              "name": "networkProfile1",
+              "properties": {
+                "containerNetworkInterfaceConfigurations": [
+                  {
+                    "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0",
+                    "name": "eth0",
+                    "properties": {
+                      "ipConfigurations": [
+                        {
+                          "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1",
+                          "name": "ipconfigprofile1",
+                          "properties": {
+                            "provisioningState": "Succeeded",
+                            "subnet": {
+                              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                            }
+                          },
+                          "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                        }
+                      ],
+                      "provisioningState": "Succeeded"
+                    },
+                    "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+                  }
+                ],
+                "containerNetworkInterfaces": [],
+                "provisioningState": "Succeeded",
+                "resourceGuid": "1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"
+              },
+              "type": "Microsoft.Network/networkProfiles"
+            },
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/networkProfiles/networkProfile2",
+              "location": "centraluseuap",
+              "name": "networkProfile2",
+              "properties": {
+                "containerNetworkInterfaceConfigurations": [
+                  {
+                    "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                    "id": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1",
+                    "name": "eth1",
+                    "properties": {
+                      "ipConfigurations": [
+                        {
+                          "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                          "id": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfigprofile3",
+                          "name": "ipconfigprofile3",
+                          "properties": {
+                            "provisioningState": "Succeeded",
+                            "subnet": {
+                              "id": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                            }
+                          },
+                          "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                        }
+                      ],
+                      "provisioningState": "Succeeded"
+                    },
+                    "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+                  }
+                ],
+                "containerNetworkInterfaces": []
+              },
+              "type": "Microsoft.Network/networkProfiles"
+            }
+          ]
+        }
+      },
+      "List_resource_group_network_profiles": {
+        "value": {
+          "value": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1",
+              "location": "centraluseuap",
+              "name": "networkProfile1",
+              "properties": {
+                "containerNetworkInterfaceConfigurations": [
+                  {
+                    "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0",
+                    "name": "eth0",
+                    "properties": {
+                      "ipConfigurations": [
+                        {
+                          "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1",
+                          "name": "ipconfigprofile1",
+                          "properties": {
+                            "provisioningState": "Succeeded",
+                            "subnet": {
+                              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                            }
+                          },
+                          "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                        },
+                        {
+                          "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile2",
+                          "name": "ipconfigprofile2",
+                          "properties": {
+                            "provisioningState": "Succeeded",
+                            "subnet": {
+                              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                            }
+                          },
+                          "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                        }
+                      ],
+                      "provisioningState": "Succeeded"
+                    },
+                    "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+                  }
+                ],
+                "containerNetworkInterfaces": [],
+                "provisioningState": "Succeeded",
+                "resourceGuid": "1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"
+              },
+              "type": "Microsoft.Network/networkProfiles"
+            },
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile2",
+              "location": "centraluseuap",
+              "name": "networkProfile2",
+              "properties": {
+                "containerNetworkInterfaceConfigurations": [
+                  {
+                    "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1",
+                    "name": "eth1",
+                    "properties": {
+                      "ipConfigurations": [
+                        {
+                          "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfigprofile3",
+                          "name": "ipconfigprofile3",
+                          "properties": {
+                            "provisioningState": "Succeeded",
+                            "subnet": {
+                              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                            }
+                          },
+                          "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                        }
+                      ],
+                      "provisioningState": "Succeeded"
+                    },
+                    "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+                  }
+                ],
+                "containerNetworkInterfaces": []
+              },
+              "type": "Microsoft.Network/networkProfiles"
+            }
+          ]
+        }
+      },
+      "Get_network_profile": {
+        "value": {
+          "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1",
+          "location": "centraluseuap",
+          "name": "networkProfile1",
+          "properties": {
+            "containerNetworkInterfaceConfigurations": [
+              {
+                "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0",
+                "name": "eth0",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1",
+                      "name": "ipconfigprofile1",
+                      "properties": {
+                        "provisioningState": "Succeeded",
+                        "subnet": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                        }
+                      },
+                      "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                    },
+                    {
+                      "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile2",
+                      "name": "ipconfigprofile2",
+                      "properties": {
+                        "provisioningState": "Succeeded",
+                        "subnet": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                        }
+                      },
+                      "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                    }
+                  ],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+              },
+              {
+                "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1",
+                "name": "eth1",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfigprofile3",
+                      "name": "ipconfigprofile3",
+                      "properties": {
+                        "provisioningState": "Succeeded",
+                        "subnet": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                        }
+                      },
+                      "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                    }
+                  ],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+              }
+            ],
+            "containerNetworkInterfaces": [],
+            "provisioningState": "Succeeded",
+            "resourceGuid": "1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"
+          },
+          "type": "Microsoft.Network/networkProfiles"
+        }
+      },
+      "Get_network_profile_with_container_network_interfaces": {
+        "value": {
+          "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1",
+          "location": "centraluseuap",
+          "name": "networkProfile1",
+          "properties": {
+            "containerNetworkInterfaceConfigurations": [
+              {
+                "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0",
+                "name": "eth0",
+                "properties": {
+                  "containerNetworkInterfaces": [
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup1_eth0"
+                    },
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup2_eth0"
+                    },
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup3_eth0"
+                    }
+                  ],
+                  "ipConfigurations": [
+                    {
+                      "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1",
+                      "name": "ipconfigprofile1",
+                      "properties": {
+                        "provisioningState": "Succeeded",
+                        "subnet": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                        }
+                      },
+                      "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                    },
+                    {
+                      "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile2",
+                      "name": "ipconfigprofile2",
+                      "properties": {
+                        "provisioningState": "Succeeded",
+                        "subnet": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                        }
+                      },
+                      "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                    }
+                  ],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+              },
+              {
+                "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1",
+                "name": "eth1",
+                "properties": {
+                  "containerNetworkInterfaces": [
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup1_eth1"
+                    },
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup2_eth1"
+                    },
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup3_eth1"
+                    }
+                  ],
+                  "ipConfigurations": [
+                    {
+                      "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfigprofile3",
+                      "name": "ipconfigprofile3",
+                      "properties": {
+                        "provisioningState": "Succeeded",
+                        "subnet": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                        }
+                      },
+                      "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                    }
+                  ],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+              }
+            ],
+            "containerNetworkInterfaces": [
+              {
+                "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup1_eth0",
+                "name": "containerGroup1_eth0",
+                "properties": {
+                  "container": {
+                    "id": "/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup1"
+                  },
+                  "containerNetworkInterfaceConfiguration": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0"
+                  },
+                  "ipConfigurations": [],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaces"
+              },
+              {
+                "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup1_eth1",
+                "name": "containerGroup1_eth1",
+                "properties": {
+                  "container": {
+                    "id": "/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup1"
+                  },
+                  "containerNetworkInterfaceConfiguration": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1"
+                  },
+                  "ipConfigurations": [],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaces"
+              },
+              {
+                "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup2_eth0",
+                "name": "containerGroup2_eth0",
+                "properties": {
+                  "container": {
+                    "id": "/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup2"
+                  },
+                  "containerNetworkInterfaceConfiguration": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0"
+                  },
+                  "ipConfigurations": [],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaces"
+              },
+              {
+                "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup2_eth1",
+                "name": "containerGroup2_eth1",
+                "properties": {
+                  "container": {
+                    "id": "/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup2"
+                  },
+                  "containerNetworkInterfaceConfiguration": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1"
+                  },
+                  "ipConfigurations": [],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaces"
+              },
+              {
+                "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup3_eth0",
+                "name": "containerGroup3_eth0",
+                "properties": {
+                  "container": {
+                    "id": "/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup3"
+                  },
+                  "containerNetworkInterfaceConfiguration": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0"
+                  },
+                  "ipConfigurations": [],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaces"
+              },
+              {
+                "etag": "W/\"de9b89d2-83b0-4da3-b488-6ea8b0557edd\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaces/containerGroup3_eth1",
+                "name": "containerGroup3_eth1",
+                "properties": {
+                  "container": {
+                    "id": "/subscriptions/subid/resourceGroups/networkProfilesDemo/providers/Microsoft.ContainerInstance/containerGroups/containerGroup3"
+                  },
+                  "containerNetworkInterfaceConfiguration": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1"
+                  },
+                  "ipConfigurations": [],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaces"
+              }
+            ],
+            "provisioningState": "Succeeded",
+            "resourceGuid": "1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"
+          },
+          "type": "Microsoft.Network/networkProfiles"
+        }
+      },
+      "Update_network_profile_tags": {
+        "value": {
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-np",
+          "location": "centraluseuap",
+          "name": "test-np",
+          "properties": {
+            "containerNetworkInterfaceConfigurations": [
+              {
+                "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0",
+                "name": "eth0",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth0/ipConfigurations/ipconfigprofile1",
+                      "name": "ipconfigprofile1",
+                      "properties": {
+                        "provisioningState": "Succeeded",
+                        "subnet": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                        }
+                      },
+                      "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                    }
+                  ],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+              }
+            ],
+            "containerNetworkInterfaces": [],
+            "provisioningState": "Succeeded",
+            "resourceGuid": "1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"
+          },
+          "tags": { "tag1": "value1", "tag2": "value2" },
+          "type": "Microsoft.Network/networkProfiles"
+        }
+      },
+      "Create_network_profile_defaults": {
+        "value": {
+          "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1",
+          "location": "westus",
+          "name": "networkProfile1",
+          "properties": {
+            "containerNetworkInterfaceConfigurations": [
+              {
+                "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1",
+                "name": "eth1",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "etag": "W/\"4d705a71-752f-4e0a-8057-c02b125b1c08\"",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1/containerNetworkInterfaceConfigurations/eth1/ipConfigurations/ipconfig1",
+                      "name": "ipconfig1",
+                      "properties": {
+                        "provisioningState": "Succeeded",
+                        "subnet": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"
+                        }
+                      },
+                      "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations/ipConfigurations"
+                    }
+                  ],
+                  "provisioningState": "Succeeded"
+                },
+                "type": "Microsoft.Network/networkProfiles/containerNetworkInterfaceConfigurations"
+              }
+            ],
+            "containerNetworkInterfaces": [],
+            "provisioningState": "Succeeded",
+            "resourceGuid": "1570d8b6-ab8a-4ad2-81d6-d2799b429cbf"
+          },
+          "type": "Microsoft.Network/networkProfiles"
+        }
+      }
+    },
+    "securitySchemes": {
+      "azure_auth": {
+        "description": "Azure Active Directory OAuth2 Flow",
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "scopes": { "user_impersonation": "impersonate your user account" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Container": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Reference to container resource in remote resource provider.",
+        "properties": {}
+      },
+      "ContainerNetworkInterface": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Container network interface child resource.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the resource. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": { "$ref": "#/components/schemas/ContainerNetworkInterfacePropertiesFormat" },
+          "type": { "description": "Sub Resource type.", "readOnly": true, "type": "string" }
+        }
+      },
+      "ContainerNetworkInterfaceConfiguration": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Container network interface configuration child resource.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the resource. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": { "$ref": "#/components/schemas/ContainerNetworkInterfaceConfigurationPropertiesFormat" },
+          "type": { "description": "Sub Resource type.", "readOnly": true, "type": "string" }
+        }
+      },
+      "ContainerNetworkInterfaceConfigurationPropertiesFormat": {
+        "description": "Container network interface configuration properties.",
+        "properties": {
+          "containerNetworkInterfaces": {
+            "description": "A list of container network interfaces created from this container network interface configuration.",
+            "items": {
+              "description": "Reference to another subresource.",
+              "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+              "x-ms-azure-resource": true
+            },
+            "type": "array"
+          },
+          "ipConfigurations": {
+            "description": "A list of ip configurations of the container network interface configuration.",
+            "items": { "$ref": "#/components/schemas/IPConfigurationProfile" },
+            "type": "array"
+          },
+          "provisioningState": {
+            "description": "The provisioning state of the resource.",
+            "readOnly": true,
+            "type": "string"
+          }
+        }
+      },
+      "ContainerNetworkInterfaceIpConfiguration": {
+        "description": "The ip configuration for a container network interface.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the resource. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": { "$ref": "#/components/schemas/ContainerNetworkInterfaceIpConfigurationPropertiesFormat" },
+          "type": { "description": "Sub Resource type.", "readOnly": true, "type": "string" }
+        }
+      },
+      "ContainerNetworkInterfaceIpConfigurationPropertiesFormat": {
+        "description": "Properties of the container network interface IP configuration.",
+        "properties": {
+          "provisioningState": {
+            "description": "The provisioning state of the resource.",
+            "readOnly": true,
+            "type": "string"
+          }
+        }
+      },
+      "ContainerNetworkInterfacePropertiesFormat": {
+        "properties": {
+          "container": { "$ref": "#/components/schemas/Container" },
+          "containerNetworkInterfaceConfiguration": {
+            "$ref": "#/components/schemas/ContainerNetworkInterfaceConfiguration"
+          },
+          "ipConfigurations": {
+            "description": "Reference to the ip configuration on this container nic.",
+            "items": { "$ref": "#/components/schemas/ContainerNetworkInterfaceIpConfiguration" },
+            "type": "array"
+          },
+          "provisioningState": {
+            "description": "The provisioning state of the resource.",
+            "readOnly": true,
+            "type": "string"
+          }
+        }
+      },
+      "IPConfigurationProfile": {
+        "allOf": [
+          {
+            "description": "Reference to another subresource.",
+            "properties": { "id": { "description": "Resource ID.", "type": "string" } },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "IP configuration profile child resource.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the resource. This name can be used to access the resource.",
+            "type": "string"
+          },
+          "properties": { "$ref": "#/components/schemas/IPConfigurationProfilePropertiesFormat" },
+          "type": { "description": "Sub Resource type.", "readOnly": true, "type": "string" }
+        }
+      },
+      "IPConfigurationProfilePropertiesFormat": {
+        "description": "IP configuration profile properties.",
+        "properties": {
+          "provisioningState": {
+            "description": "The provisioning state of the resource.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "subnet": { "$ref": "./virtualNetwork.json#/definitions/Subnet" }
+        }
+      },
+      "NetworkProfile": {
+        "allOf": [
+          {
+            "description": "Common resource representation.",
+            "properties": {
+              "id": { "description": "Resource ID.", "type": "string" },
+              "location": { "description": "Resource location.", "type": "string" },
+              "name": { "description": "Resource name.", "readOnly": true, "type": "string" },
+              "tags": {
+                "additionalProperties": { "type": "string" },
+                "description": "Resource tags.",
+                "type": "object"
+              },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
+            },
+            "x-ms-azure-resource": true
+          }
+        ],
+        "description": "Network profile resource.",
+        "properties": {
+          "etag": {
+            "description": "A unique read-only string that changes whenever the resource is updated.",
+            "type": "string"
+          },
+          "properties": { "$ref": "#/components/schemas/NetworkProfilePropertiesFormat" }
+        }
+      },
+      "NetworkProfileListResult": {
+        "description": "Response for ListNetworkProfiles API service call.",
+        "properties": {
+          "nextLink": { "description": "The URL to get the next set of results.", "type": "string" },
+          "value": {
+            "description": "A list of network profiles that exist in a resource group.",
+            "items": { "$ref": "#/components/schemas/NetworkProfile" },
+            "type": "array"
+          }
+        }
+      },
+      "NetworkProfilePropertiesFormat": {
+        "description": "Network profile properties.",
+        "properties": {
+          "containerNetworkInterfaceConfigurations": {
+            "description": "List of chid container network interface configurations.",
+            "items": { "$ref": "#/components/schemas/ContainerNetworkInterfaceConfiguration" },
+            "type": "array"
+          },
+          "containerNetworkInterfaces": {
+            "description": "List of child container network interfaces.",
+            "items": { "$ref": "#/components/schemas/ContainerNetworkInterface" },
+            "type": "array"
+          },
+          "provisioningState": {
+            "description": "The provisioning state of the resource.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "resourceGuid": {
+            "description": "The resource GUID property of the network interface resource.",
+            "readOnly": true,
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

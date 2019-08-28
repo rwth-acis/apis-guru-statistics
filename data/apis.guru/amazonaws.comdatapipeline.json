@@ -1,1 +1,1752 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline handles the details of scheduling and ensuring that data dependencies are met so that your application can focus on processing the data.</p> <p>AWS Data Pipeline provides a JAR implementation of a task runner called AWS Data Pipeline Task Runner. AWS Data Pipeline Task Runner provides logic for common data management scenarios, such as performing database queries and running data analysis using Amazon Elastic MapReduce (Amazon EMR). You can use AWS Data Pipeline Task Runner as your task runner, or you can write your own task runner to provide custom data management.</p> <p>AWS Data Pipeline implements two main sets of functionality. Use the first set to create a pipeline and define data sources, schedules, dependencies, and the transforms to be performed on the data. Use the second set in your task runner application to receive the next task ready for processing. The logic for performing the task, such as querying the data, running data analysis, or converting the data from one format to another, is contained within the task runner. The task runner performs the task assigned to it by the web service, reporting progress to the web service as it does so. When the task is done, the task runner reports the final success or failure of the task to the web service.</p>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS Data Pipeline","version":"2012-10-29","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/datapipeline-2012-10-29.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"datapipeline"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/datapipeline/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=DataPipeline.ActivatePipeline":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.</p> <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call <a>DeactivatePipeline</a>.</p> <p>To activate a finished pipeline, modify the end date for the pipeline and then activate it.</p>","operationId":"ActivatePipeline","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.ActivatePipeline"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ActivatePipelineInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ActivatePipelineOutput"}}}},"480":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"481":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}},"482":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"483":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.AddTags":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds or modifies tags for the specified pipeline.","operationId":"AddTags","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.AddTags"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AddTagsInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AddTagsOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"483":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}},"/#X-Amz-Target=DataPipeline.CreatePipeline":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.","operationId":"CreatePipeline","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.CreatePipeline"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePipelineInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePipelineOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.DeactivatePipeline":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code> state until the deactivation process completes.</p> <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.</p>","operationId":"DeactivatePipeline","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.DeactivatePipeline"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeactivatePipelineInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeactivatePipelineOutput"}}}},"480":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"481":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}},"482":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"483":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.DeletePipeline":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p> <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components. Components that are paused by <a>SetStatus</a> can be resumed.</p>","operationId":"DeletePipeline","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.DeletePipeline"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeletePipelineInput"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"481":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.DescribeObjects":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.","operationId":"DescribeObjects","parameters":[{"description":"Pagination token","in":"query","name":"marker","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.DescribeObjects"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeObjectsInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeObjectsOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"483":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}},"/#X-Amz-Target=DataPipeline.DescribePipelines":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.</p> <p>To retrieve the full pipeline definition instead of metadata about the pipeline, call <a>GetPipelineDefinition</a>.</p>","operationId":"DescribePipelines","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.DescribePipelines"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribePipelinesInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribePipelinesOutput"}}}},"480":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"481":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}},"482":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"483":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.EvaluateExpression":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.","operationId":"EvaluateExpression","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.EvaluateExpression"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/EvaluateExpressionInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EvaluateExpressionOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"TaskNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TaskNotFoundException"}}}},"482":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"484":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}},"/#X-Amz-Target=DataPipeline.GetPipelineDefinition":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve the pipeline definition that you provided using <a>PutPipelineDefinition</a>.","operationId":"GetPipelineDefinition","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.GetPipelineDefinition"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetPipelineDefinitionInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetPipelineDefinitionOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"483":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}},"/#X-Amz-Target=DataPipeline.ListPipelines":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the pipeline identifiers for all active pipelines that you have permission to access.","operationId":"ListPipelines","parameters":[{"description":"Pagination token","in":"query","name":"marker","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.ListPipelines"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListPipelinesInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListPipelinesOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.PollForTask":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials specified by the task runner.</p> <p>If tasks are ready in the work queue, <code>PollForTask</code> returns a response immediately. If no tasks are available in the queue, <code>PollForTask</code> uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task runner should not call <code>PollForTask</code> again on the same <code>workerGroup</code> until it receives a response, and this can take up to 90 seconds. </p>","operationId":"PollForTask","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.PollForTask"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PollForTaskInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PollForTaskOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"TaskNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TaskNotFoundException"}}}}}}},"/#X-Amz-Target=DataPipeline.PutPipelineDefinition":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p> <p> <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline. </p> <ol> <li>An object is missing a name or identifier field.</li> <li>A string or reference field is empty.</li> <li>The number of objects in the pipeline exceeds the maximum allowed objects.</li> <li>The pipeline is in a FINISHED state.</li> </ol> <p> Pipeline object definitions are passed to the <code>PutPipelineDefinition</code> action and returned by the <a>GetPipelineDefinition</a> action. </p>","operationId":"PutPipelineDefinition","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.PutPipelineDefinition"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutPipelineDefinitionInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PutPipelineDefinitionOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"483":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}},"/#X-Amz-Target=DataPipeline.QueryObjects":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Queries the specified pipeline for the names of objects that match the specified set of conditions.","operationId":"QueryObjects","parameters":[{"description":"Pagination limit","in":"query","name":"limit","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"marker","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.QueryObjects"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/QueryObjectsInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/QueryObjectsOutput"}}}},"480":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"481":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}},"482":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"483":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.RemoveTags":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Removes existing tags from the specified pipeline.","operationId":"RemoveTags","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.RemoveTags"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/RemoveTagsInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RemoveTagsOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"483":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}},"/#X-Amz-Target=DataPipeline.ReportTaskProgress":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement, the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time from 15 minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.</p> <p>If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task and reassigns the task in a subsequent response to <a>PollForTask</a>. Task runners should call <code>ReportTaskProgress</code> every 60 seconds.</p>","operationId":"ReportTaskProgress","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.ReportTaskProgress"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ReportTaskProgressInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ReportTaskProgressOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"TaskNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TaskNotFoundException"}}}},"483":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"484":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}},"/#X-Amz-Target=DataPipeline.ReportTaskRunnerHeartbeat":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational. If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use this call to detect when the task runner application has failed and restart a new instance.","operationId":"ReportTaskRunnerHeartbeat","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.ReportTaskRunnerHeartbeat"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ReportTaskRunnerHeartbeatInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ReportTaskRunnerHeartbeatOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.SetStatus":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.","operationId":"SetStatus","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.SetStatus"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/SetStatusInput"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"481":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}},"482":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"483":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=DataPipeline.SetTaskStatus":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status. A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.","operationId":"SetTaskStatus","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.SetTaskStatus"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/SetTaskStatusInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/SetTaskStatusOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"TaskNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TaskNotFoundException"}}}},"482":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"484":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}},"/#X-Amz-Target=DataPipeline.ValidatePipelineDefinition":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Validates the specified pipeline definition to ensure that it is well formed and can be run without error.","operationId":"ValidatePipelineDefinition","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["DataPipeline.ValidatePipelineDefinition"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidatePipelineDefinitionInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ValidatePipelineDefinitionOutput"}}}},"480":{"description":"InternalServiceError","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"481":{"description":"InvalidRequestException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"PipelineNotFoundException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineNotFoundException"}}}},"483":{"description":"PipelineDeletedException","x-aws-exception":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PipelineDeletedException"}}}}}}}},"servers":[{"description":"The AWS Data Pipeline multi-region endpoint","url":"http://datapipeline.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS Data Pipeline multi-region endpoint","url":"https://datapipeline.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS Data Pipeline endpoint for China (Beijing) and China (Ningxia)","url":"http://datapipeline.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS Data Pipeline endpoint for China (Beijing) and China (Ningxia)","url":"https://datapipeline.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"ActivatePipelineInput":{"description":"Contains the parameters for ActivatePipeline.","properties":{"parameterValues":{"$ref":"#/components/schemas/ParameterValueList"},"pipelineId":{"$ref":"#/components/schemas/id"},"startTimestamp":{"$ref":"#/components/schemas/timestamp"}},"required":["pipelineId"],"type":"object"},"ActivatePipelineOutput":{"description":"Contains the output of ActivatePipeline.","properties":{},"type":"object"},"AddTagsInput":{"description":"Contains the parameters for AddTags.","properties":{"pipelineId":{"$ref":"#/components/schemas/id"},"tags":{"$ref":"#/components/schemas/tagList"}},"required":["pipelineId","tags"],"type":"object"},"AddTagsOutput":{"description":"Contains the output of AddTags.","properties":{},"type":"object"},"CreatePipelineInput":{"description":"Contains the parameters for CreatePipeline.","properties":{"description":{"$ref":"#/components/schemas/string"},"name":{"$ref":"#/components/schemas/id"},"tags":{"$ref":"#/components/schemas/tagList"},"uniqueId":{"$ref":"#/components/schemas/id"}},"required":["name","uniqueId"],"type":"object"},"CreatePipelineOutput":{"description":"Contains the output of CreatePipeline.","properties":{"pipelineId":{"$ref":"#/components/schemas/id"}},"required":["pipelineId"],"type":"object"},"DeactivatePipelineInput":{"description":"Contains the parameters for DeactivatePipeline.","properties":{"cancelActive":{"$ref":"#/components/schemas/cancelActive"},"pipelineId":{"$ref":"#/components/schemas/id"}},"required":["pipelineId"],"type":"object"},"DeactivatePipelineOutput":{"description":"Contains the output of DeactivatePipeline.","properties":{},"type":"object"},"DeletePipelineInput":{"description":"Contains the parameters for DeletePipeline.","properties":{"pipelineId":{"$ref":"#/components/schemas/id"}},"required":["pipelineId"],"type":"object"},"DescribeObjectsInput":{"description":"Contains the parameters for DescribeObjects.","properties":{"evaluateExpressions":{"$ref":"#/components/schemas/boolean"},"marker":{"$ref":"#/components/schemas/string"},"objectIds":{"$ref":"#/components/schemas/idList"},"pipelineId":{"$ref":"#/components/schemas/id"}},"required":["pipelineId","objectIds"],"type":"object"},"DescribeObjectsOutput":{"description":"Contains the output of DescribeObjects.","properties":{"hasMoreResults":{"$ref":"#/components/schemas/boolean"},"marker":{"$ref":"#/components/schemas/string"},"pipelineObjects":{"$ref":"#/components/schemas/PipelineObjectList"}},"required":["pipelineObjects"],"type":"object"},"DescribePipelinesInput":{"description":"Contains the parameters for DescribePipelines.","properties":{"pipelineIds":{"$ref":"#/components/schemas/idList"}},"required":["pipelineIds"],"type":"object"},"DescribePipelinesOutput":{"description":"Contains the output of DescribePipelines.","properties":{"pipelineDescriptionList":{"$ref":"#/components/schemas/PipelineDescriptionList"}},"required":["pipelineDescriptionList"],"type":"object"},"EvaluateExpressionInput":{"description":"Contains the parameters for EvaluateExpression.","properties":{"expression":{"$ref":"#/components/schemas/longString"},"objectId":{"$ref":"#/components/schemas/id"},"pipelineId":{"$ref":"#/components/schemas/id"}},"required":["pipelineId","objectId","expression"],"type":"object"},"EvaluateExpressionOutput":{"description":"Contains the output of EvaluateExpression.","properties":{"evaluatedExpression":{"$ref":"#/components/schemas/longString"}},"required":["evaluatedExpression"],"type":"object"},"Field":{"description":"A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.","properties":{"key":{"$ref":"#/components/schemas/fieldNameString"},"refValue":{"$ref":"#/components/schemas/fieldNameString"},"stringValue":{"$ref":"#/components/schemas/fieldStringValue"}},"required":["key"],"type":"object"},"GetPipelineDefinitionInput":{"description":"Contains the parameters for GetPipelineDefinition.","properties":{"pipelineId":{"$ref":"#/components/schemas/id"},"version":{"$ref":"#/components/schemas/string"}},"required":["pipelineId"],"type":"object"},"GetPipelineDefinitionOutput":{"description":"Contains the output of GetPipelineDefinition.","properties":{"parameterObjects":{"$ref":"#/components/schemas/ParameterObjectList"},"parameterValues":{"$ref":"#/components/schemas/ParameterValueList"},"pipelineObjects":{"$ref":"#/components/schemas/PipelineObjectList"}},"type":"object"},"InstanceIdentity":{"description":"<p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>","properties":{"document":{"$ref":"#/components/schemas/string"},"signature":{"$ref":"#/components/schemas/string"}},"type":"object"},"InternalServiceError":{"description":"An internal service error occurred.","properties":{"message":{"$ref":"#/components/schemas/errorMessage"}},"type":"object"},"InvalidRequestException":{"description":"The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.","properties":{"message":{"$ref":"#/components/schemas/errorMessage"}},"type":"object"},"ListPipelinesInput":{"description":"Contains the parameters for ListPipelines.","properties":{"marker":{"$ref":"#/components/schemas/string"}},"type":"object"},"ListPipelinesOutput":{"description":"Contains the output of ListPipelines.","properties":{"hasMoreResults":{"$ref":"#/components/schemas/boolean"},"marker":{"$ref":"#/components/schemas/string"},"pipelineIdList":{"$ref":"#/components/schemas/pipelineList"}},"required":["pipelineIdList"],"type":"object"},"Operator":{"description":"Contains a logical operation for comparing the value of a field with a specified value.","properties":{"type":{"$ref":"#/components/schemas/OperatorType"},"values":{"$ref":"#/components/schemas/stringList"}},"type":"object"},"OperatorType":{"enum":["EQ","REF_EQ","LE","GE","BETWEEN"],"type":"string"},"ParameterAttribute":{"description":"The attributes allowed or specified with a parameter object.","properties":{"key":{"$ref":"#/components/schemas/attributeNameString"},"stringValue":{"$ref":"#/components/schemas/attributeValueString"}},"required":["key","stringValue"],"type":"object"},"ParameterAttributeList":{"items":{"$ref":"#/components/schemas/ParameterAttribute"},"type":"array"},"ParameterObject":{"description":"Contains information about a parameter object.","properties":{"attributes":{"$ref":"#/components/schemas/ParameterAttributeList"},"id":{"$ref":"#/components/schemas/fieldNameString"}},"required":["id","attributes"],"type":"object"},"ParameterObjectList":{"items":{"$ref":"#/components/schemas/ParameterObject"},"type":"array"},"ParameterValue":{"description":"A value or list of parameter values. ","properties":{"id":{"$ref":"#/components/schemas/fieldNameString"},"stringValue":{"$ref":"#/components/schemas/fieldStringValue"}},"required":["id","stringValue"],"type":"object"},"ParameterValueList":{"items":{"$ref":"#/components/schemas/ParameterValue"},"type":"array"},"PipelineDeletedException":{"description":"The specified pipeline has been deleted.","properties":{"message":{"$ref":"#/components/schemas/errorMessage"}},"type":"object"},"PipelineDescription":{"description":"Contains pipeline metadata.","properties":{"description":{"$ref":"#/components/schemas/string"},"fields":{"$ref":"#/components/schemas/fieldList"},"name":{"$ref":"#/components/schemas/id"},"pipelineId":{"$ref":"#/components/schemas/id"},"tags":{"$ref":"#/components/schemas/tagList"}},"required":["pipelineId","name","fields"],"type":"object"},"PipelineDescriptionList":{"items":{"$ref":"#/components/schemas/PipelineDescription"},"type":"array"},"PipelineIdName":{"description":"Contains the name and identifier of a pipeline.","properties":{"id":{"$ref":"#/components/schemas/id"},"name":{"$ref":"#/components/schemas/id"}},"type":"object"},"PipelineNotFoundException":{"description":"The specified pipeline was not found. Verify that you used the correct user and account identifiers.","properties":{"message":{"$ref":"#/components/schemas/errorMessage"}},"type":"object"},"PipelineObject":{"description":"Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.","properties":{"fields":{"$ref":"#/components/schemas/fieldList"},"id":{"$ref":"#/components/schemas/id"},"name":{"$ref":"#/components/schemas/id"}},"required":["id","name","fields"],"type":"object"},"PipelineObjectList":{"items":{"$ref":"#/components/schemas/PipelineObject"},"type":"array"},"PipelineObjectMap":{"additionalProperties":{"$ref":"#/components/schemas/PipelineObject"},"type":"object"},"PollForTaskInput":{"description":"Contains the parameters for PollForTask.","properties":{"hostname":{"$ref":"#/components/schemas/id"},"instanceIdentity":{"$ref":"#/components/schemas/InstanceIdentity"},"workerGroup":{"$ref":"#/components/schemas/string"}},"required":["workerGroup"],"type":"object"},"PollForTaskOutput":{"description":"Contains the output of PollForTask.","properties":{"taskObject":{"$ref":"#/components/schemas/TaskObject"}},"type":"object"},"PutPipelineDefinitionInput":{"description":"Contains the parameters for PutPipelineDefinition.","properties":{"parameterObjects":{"$ref":"#/components/schemas/ParameterObjectList"},"parameterValues":{"$ref":"#/components/schemas/ParameterValueList"},"pipelineId":{"$ref":"#/components/schemas/id"},"pipelineObjects":{"$ref":"#/components/schemas/PipelineObjectList"}},"required":["pipelineId","pipelineObjects"],"type":"object"},"PutPipelineDefinitionOutput":{"description":"Contains the output of PutPipelineDefinition.","properties":{"errored":{"$ref":"#/components/schemas/boolean"},"validationErrors":{"$ref":"#/components/schemas/ValidationErrors"},"validationWarnings":{"$ref":"#/components/schemas/ValidationWarnings"}},"required":["errored"],"type":"object"},"Query":{"description":"Defines the query to run against an object.","properties":{"selectors":{"$ref":"#/components/schemas/SelectorList"}},"type":"object"},"QueryObjectsInput":{"description":"Contains the parameters for QueryObjects.","properties":{"limit":{"$ref":"#/components/schemas/int"},"marker":{"$ref":"#/components/schemas/string"},"pipelineId":{"$ref":"#/components/schemas/id"},"query":{"$ref":"#/components/schemas/Query"},"sphere":{"$ref":"#/components/schemas/string"}},"required":["pipelineId","sphere"],"type":"object"},"QueryObjectsOutput":{"description":"Contains the output of QueryObjects.","properties":{"hasMoreResults":{"$ref":"#/components/schemas/boolean"},"ids":{"$ref":"#/components/schemas/idList"},"marker":{"$ref":"#/components/schemas/string"}},"type":"object"},"RemoveTagsInput":{"description":"Contains the parameters for RemoveTags.","properties":{"pipelineId":{"$ref":"#/components/schemas/id"},"tagKeys":{"$ref":"#/components/schemas/stringList"}},"required":["pipelineId","tagKeys"],"type":"object"},"RemoveTagsOutput":{"description":"Contains the output of RemoveTags.","properties":{},"type":"object"},"ReportTaskProgressInput":{"description":"Contains the parameters for ReportTaskProgress.","properties":{"fields":{"$ref":"#/components/schemas/fieldList"},"taskId":{"$ref":"#/components/schemas/taskId"}},"required":["taskId"],"type":"object"},"ReportTaskProgressOutput":{"description":"Contains the output of ReportTaskProgress.","properties":{"canceled":{"$ref":"#/components/schemas/boolean"}},"required":["canceled"],"type":"object"},"ReportTaskRunnerHeartbeatInput":{"description":"Contains the parameters for ReportTaskRunnerHeartbeat.","properties":{"hostname":{"$ref":"#/components/schemas/id"},"taskrunnerId":{"$ref":"#/components/schemas/id"},"workerGroup":{"$ref":"#/components/schemas/string"}},"required":["taskrunnerId"],"type":"object"},"ReportTaskRunnerHeartbeatOutput":{"description":"Contains the output of ReportTaskRunnerHeartbeat.","properties":{"terminate":{"$ref":"#/components/schemas/boolean"}},"required":["terminate"],"type":"object"},"Selector":{"description":"A comparision that is used to determine whether a query should return this object.","properties":{"fieldName":{"$ref":"#/components/schemas/string"},"operator":{"$ref":"#/components/schemas/Operator"}},"type":"object"},"SelectorList":{"description":"The list of Selectors that define queries on individual fields.","items":{"$ref":"#/components/schemas/Selector"},"type":"array"},"SetStatusInput":{"description":"Contains the parameters for SetStatus.","properties":{"objectIds":{"$ref":"#/components/schemas/idList"},"pipelineId":{"$ref":"#/components/schemas/id"},"status":{"$ref":"#/components/schemas/string"}},"required":["pipelineId","objectIds","status"],"type":"object"},"SetTaskStatusInput":{"description":"Contains the parameters for SetTaskStatus.","properties":{"errorId":{"$ref":"#/components/schemas/string"},"errorMessage":{"$ref":"#/components/schemas/errorMessage"},"errorStackTrace":{"$ref":"#/components/schemas/string"},"taskId":{"$ref":"#/components/schemas/taskId"},"taskStatus":{"$ref":"#/components/schemas/TaskStatus"}},"required":["taskId","taskStatus"],"type":"object"},"SetTaskStatusOutput":{"description":"Contains the output of SetTaskStatus.","properties":{},"type":"object"},"Tag":{"description":"Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.","properties":{"key":{"$ref":"#/components/schemas/tagKey"},"value":{"$ref":"#/components/schemas/tagValue"}},"required":["key","value"],"type":"object"},"TaskNotFoundException":{"description":"The specified task was not found. ","properties":{"message":{"$ref":"#/components/schemas/errorMessage"}},"type":"object"},"TaskObject":{"description":"Contains information about a pipeline task that is assigned to a task runner.","properties":{"attemptId":{"$ref":"#/components/schemas/id"},"objects":{"$ref":"#/components/schemas/PipelineObjectMap"},"pipelineId":{"$ref":"#/components/schemas/id"},"taskId":{"$ref":"#/components/schemas/taskId"}},"type":"object"},"TaskStatus":{"enum":["FINISHED","FAILED","FALSE"],"type":"string"},"ValidatePipelineDefinitionInput":{"description":"Contains the parameters for ValidatePipelineDefinition.","properties":{"parameterObjects":{"$ref":"#/components/schemas/ParameterObjectList"},"parameterValues":{"$ref":"#/components/schemas/ParameterValueList"},"pipelineId":{"$ref":"#/components/schemas/id"},"pipelineObjects":{"$ref":"#/components/schemas/PipelineObjectList"}},"required":["pipelineId","pipelineObjects"],"type":"object"},"ValidatePipelineDefinitionOutput":{"description":"Contains the output of ValidatePipelineDefinition.","properties":{"errored":{"$ref":"#/components/schemas/boolean"},"validationErrors":{"$ref":"#/components/schemas/ValidationErrors"},"validationWarnings":{"$ref":"#/components/schemas/ValidationWarnings"}},"required":["errored"],"type":"object"},"ValidationError":{"description":"Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.","properties":{"errors":{"$ref":"#/components/schemas/validationMessages"},"id":{"$ref":"#/components/schemas/id"}},"type":"object"},"ValidationErrors":{"items":{"$ref":"#/components/schemas/ValidationError"},"type":"array"},"ValidationWarning":{"description":"Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.","properties":{"id":{"$ref":"#/components/schemas/id"},"warnings":{"$ref":"#/components/schemas/validationMessages"}},"type":"object"},"ValidationWarnings":{"items":{"$ref":"#/components/schemas/ValidationWarning"},"type":"array"},"attributeNameString":{"maxLength":256,"minLength":1,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"attributeValueString":{"maxLength":10240,"minLength":0,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"boolean":{"type":"boolean"},"cancelActive":{"type":"boolean"},"errorMessage":{"type":"string"},"fieldList":{"items":{"$ref":"#/components/schemas/Field"},"type":"array"},"fieldNameString":{"maxLength":256,"minLength":1,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"fieldStringValue":{"maxLength":10240,"minLength":0,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"id":{"maxLength":1024,"minLength":1,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"idList":{"items":{"$ref":"#/components/schemas/id"},"type":"array"},"int":{"type":"integer"},"longString":{"maxLength":20971520,"minLength":0,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"pipelineList":{"items":{"$ref":"#/components/schemas/PipelineIdName"},"type":"array"},"string":{"maxLength":1024,"minLength":0,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"stringList":{"items":{"$ref":"#/components/schemas/string"},"type":"array"},"tagKey":{"maxLength":128,"minLength":1,"type":"string"},"tagList":{"items":{"$ref":"#/components/schemas/Tag"},"maxItems":10,"minItems":0,"type":"array"},"tagValue":{"maxLength":256,"minLength":0,"type":"string"},"taskId":{"maxLength":2048,"minLength":1,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"timestamp":{"format":"date-time","type":"string"},"validationMessage":{"maxLength":10000,"minLength":0,"type":"string","x-pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"},"validationMessages":{"items":{"$ref":"#/components/schemas/validationMessage"},"type":"array"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline handles the details of scheduling and ensuring that data dependencies are met so that your application can focus on processing the data.</p> <p>AWS Data Pipeline provides a JAR implementation of a task runner called AWS Data Pipeline Task Runner. AWS Data Pipeline Task Runner provides logic for common data management scenarios, such as performing database queries and running data analysis using Amazon Elastic MapReduce (Amazon EMR). You can use AWS Data Pipeline Task Runner as your task runner, or you can write your own task runner to provide custom data management.</p> <p>AWS Data Pipeline implements two main sets of functionality. Use the first set to create a pipeline and define data sources, schedules, dependencies, and the transforms to be performed on the data. Use the second set in your task runner application to receive the next task ready for processing. The logic for performing the task, such as querying the data, running data analysis, or converting the data from one format to another, is contained within the task runner. The task runner performs the task assigned to it by the web service, reporting progress to the web service as it does so. When the task is done, the task runner reports the final success or failure of the task to the web service.</p>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Data Pipeline",
+    "version": "2012-10-29",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/datapipeline-2012-10-29.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "datapipeline"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/datapipeline/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=DataPipeline.ActivatePipeline": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.</p> <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call <a>DeactivatePipeline</a>.</p> <p>To activate a finished pipeline, modify the end date for the pipeline and then activate it.</p>",
+        "operationId": "ActivatePipeline",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.ActivatePipeline"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ActivatePipelineInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ActivatePipelineOutput" } } }
+          },
+          "480": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          },
+          "482": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.AddTags": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds or modifies tags for the specified pipeline.",
+        "operationId": "AddTags",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.AddTags"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AddTagsInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AddTagsOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.CreatePipeline": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.",
+        "operationId": "CreatePipeline",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.CreatePipeline"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreatePipelineInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreatePipelineOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.DeactivatePipeline": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code> state until the deactivation process completes.</p> <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.</p>",
+        "operationId": "DeactivatePipeline",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.DeactivatePipeline"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeactivatePipelineInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeactivatePipelineOutput" } } }
+          },
+          "480": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          },
+          "482": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.DeletePipeline": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p> <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components. Components that are paused by <a>SetStatus</a> can be resumed.</p>",
+        "operationId": "DeletePipeline",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.DeletePipeline"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeletePipelineInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.DescribeObjects": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.",
+        "operationId": "DescribeObjects",
+        "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "marker",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.DescribeObjects"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeObjectsInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeObjectsOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.DescribePipelines": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.</p> <p>To retrieve the full pipeline definition instead of metadata about the pipeline, call <a>GetPipelineDefinition</a>.</p>",
+        "operationId": "DescribePipelines",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.DescribePipelines"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribePipelinesInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribePipelinesOutput" } } }
+          },
+          "480": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          },
+          "482": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.EvaluateExpression": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.",
+        "operationId": "EvaluateExpression",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.EvaluateExpression"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/EvaluateExpressionInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/EvaluateExpressionOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "TaskNotFoundException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TaskNotFoundException" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.GetPipelineDefinition": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve the pipeline definition that you provided using <a>PutPipelineDefinition</a>.",
+        "operationId": "GetPipelineDefinition",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.GetPipelineDefinition"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/GetPipelineDefinitionInput" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GetPipelineDefinitionOutput" } }
+            }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.ListPipelines": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the pipeline identifiers for all active pipelines that you have permission to access.",
+        "operationId": "ListPipelines",
+        "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "marker",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.ListPipelines"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListPipelinesInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListPipelinesOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.PollForTask": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials specified by the task runner.</p> <p>If tasks are ready in the work queue, <code>PollForTask</code> returns a response immediately. If no tasks are available in the queue, <code>PollForTask</code> uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task runner should not call <code>PollForTask</code> again on the same <code>workerGroup</code> until it receives a response, and this can take up to 90 seconds. </p>",
+        "operationId": "PollForTask",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.PollForTask"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PollForTaskInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PollForTaskOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "TaskNotFoundException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TaskNotFoundException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.PutPipelineDefinition": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p> <p> <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline. </p> <ol> <li>An object is missing a name or identifier field.</li> <li>A string or reference field is empty.</li> <li>The number of objects in the pipeline exceeds the maximum allowed objects.</li> <li>The pipeline is in a FINISHED state.</li> </ol> <p> Pipeline object definitions are passed to the <code>PutPipelineDefinition</code> action and returned by the <a>GetPipelineDefinition</a> action. </p>",
+        "operationId": "PutPipelineDefinition",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.PutPipelineDefinition"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/PutPipelineDefinitionInput" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PutPipelineDefinitionOutput" } }
+            }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.QueryObjects": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Queries the specified pipeline for the names of objects that match the specified set of conditions.",
+        "operationId": "QueryObjects",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "marker",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.QueryObjects"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/QueryObjectsInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/QueryObjectsOutput" } } }
+          },
+          "480": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          },
+          "482": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.RemoveTags": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Removes existing tags from the specified pipeline.",
+        "operationId": "RemoveTags",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.RemoveTags"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RemoveTagsInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RemoveTagsOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.ReportTaskProgress": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement, the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time from 15 minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.</p> <p>If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task and reassigns the task in a subsequent response to <a>PollForTask</a>. Task runners should call <code>ReportTaskProgress</code> every 60 seconds.</p>",
+        "operationId": "ReportTaskProgress",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.ReportTaskProgress"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReportTaskProgressInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReportTaskProgressOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "TaskNotFoundException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TaskNotFoundException" } } }
+          },
+          "483": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.ReportTaskRunnerHeartbeat": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational. If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use this call to detect when the task runner application has failed and restart a new instance.",
+        "operationId": "ReportTaskRunnerHeartbeat",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.ReportTaskRunnerHeartbeat"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ReportTaskRunnerHeartbeatInput" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ReportTaskRunnerHeartbeatOutput" } }
+            }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.SetStatus": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.",
+        "operationId": "SetStatus",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.SetStatus"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SetStatusInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "481": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          },
+          "482": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.SetTaskStatus": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status. A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.",
+        "operationId": "SetTaskStatus",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.SetTaskStatus"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SetTaskStatusInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SetTaskStatusOutput" } } }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "TaskNotFoundException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TaskNotFoundException" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=DataPipeline.ValidatePipelineDefinition": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Validates the specified pipeline definition to ensure that it is well formed and can be run without error.",
+        "operationId": "ValidatePipelineDefinition",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["DataPipeline.ValidatePipelineDefinition"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ValidatePipelineDefinitionInput" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ValidatePipelineDefinitionOutput" } }
+            }
+          },
+          "480": {
+            "description": "InternalServiceError",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "PipelineNotFoundException",
+            "x-aws-exception": true,
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PipelineNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "PipelineDeletedException",
+            "x-aws-exception": true,
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PipelineDeletedException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS Data Pipeline multi-region endpoint",
+      "url": "http://datapipeline.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS Data Pipeline multi-region endpoint",
+      "url": "https://datapipeline.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS Data Pipeline endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://datapipeline.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS Data Pipeline endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://datapipeline.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "ActivatePipelineInput": {
+        "description": "Contains the parameters for ActivatePipeline.",
+        "properties": {
+          "parameterValues": { "$ref": "#/components/schemas/ParameterValueList" },
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "startTimestamp": { "$ref": "#/components/schemas/timestamp" }
+        },
+        "required": ["pipelineId"],
+        "type": "object"
+      },
+      "ActivatePipelineOutput": {
+        "description": "Contains the output of ActivatePipeline.",
+        "properties": {},
+        "type": "object"
+      },
+      "AddTagsInput": {
+        "description": "Contains the parameters for AddTags.",
+        "properties": {
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "tags": { "$ref": "#/components/schemas/tagList" }
+        },
+        "required": ["pipelineId", "tags"],
+        "type": "object"
+      },
+      "AddTagsOutput": { "description": "Contains the output of AddTags.", "properties": {}, "type": "object" },
+      "CreatePipelineInput": {
+        "description": "Contains the parameters for CreatePipeline.",
+        "properties": {
+          "description": { "$ref": "#/components/schemas/string" },
+          "name": { "$ref": "#/components/schemas/id" },
+          "tags": { "$ref": "#/components/schemas/tagList" },
+          "uniqueId": { "$ref": "#/components/schemas/id" }
+        },
+        "required": ["name", "uniqueId"],
+        "type": "object"
+      },
+      "CreatePipelineOutput": {
+        "description": "Contains the output of CreatePipeline.",
+        "properties": { "pipelineId": { "$ref": "#/components/schemas/id" } },
+        "required": ["pipelineId"],
+        "type": "object"
+      },
+      "DeactivatePipelineInput": {
+        "description": "Contains the parameters for DeactivatePipeline.",
+        "properties": {
+          "cancelActive": { "$ref": "#/components/schemas/cancelActive" },
+          "pipelineId": { "$ref": "#/components/schemas/id" }
+        },
+        "required": ["pipelineId"],
+        "type": "object"
+      },
+      "DeactivatePipelineOutput": {
+        "description": "Contains the output of DeactivatePipeline.",
+        "properties": {},
+        "type": "object"
+      },
+      "DeletePipelineInput": {
+        "description": "Contains the parameters for DeletePipeline.",
+        "properties": { "pipelineId": { "$ref": "#/components/schemas/id" } },
+        "required": ["pipelineId"],
+        "type": "object"
+      },
+      "DescribeObjectsInput": {
+        "description": "Contains the parameters for DescribeObjects.",
+        "properties": {
+          "evaluateExpressions": { "$ref": "#/components/schemas/boolean" },
+          "marker": { "$ref": "#/components/schemas/string" },
+          "objectIds": { "$ref": "#/components/schemas/idList" },
+          "pipelineId": { "$ref": "#/components/schemas/id" }
+        },
+        "required": ["pipelineId", "objectIds"],
+        "type": "object"
+      },
+      "DescribeObjectsOutput": {
+        "description": "Contains the output of DescribeObjects.",
+        "properties": {
+          "hasMoreResults": { "$ref": "#/components/schemas/boolean" },
+          "marker": { "$ref": "#/components/schemas/string" },
+          "pipelineObjects": { "$ref": "#/components/schemas/PipelineObjectList" }
+        },
+        "required": ["pipelineObjects"],
+        "type": "object"
+      },
+      "DescribePipelinesInput": {
+        "description": "Contains the parameters for DescribePipelines.",
+        "properties": { "pipelineIds": { "$ref": "#/components/schemas/idList" } },
+        "required": ["pipelineIds"],
+        "type": "object"
+      },
+      "DescribePipelinesOutput": {
+        "description": "Contains the output of DescribePipelines.",
+        "properties": { "pipelineDescriptionList": { "$ref": "#/components/schemas/PipelineDescriptionList" } },
+        "required": ["pipelineDescriptionList"],
+        "type": "object"
+      },
+      "EvaluateExpressionInput": {
+        "description": "Contains the parameters for EvaluateExpression.",
+        "properties": {
+          "expression": { "$ref": "#/components/schemas/longString" },
+          "objectId": { "$ref": "#/components/schemas/id" },
+          "pipelineId": { "$ref": "#/components/schemas/id" }
+        },
+        "required": ["pipelineId", "objectId", "expression"],
+        "type": "object"
+      },
+      "EvaluateExpressionOutput": {
+        "description": "Contains the output of EvaluateExpression.",
+        "properties": { "evaluatedExpression": { "$ref": "#/components/schemas/longString" } },
+        "required": ["evaluatedExpression"],
+        "type": "object"
+      },
+      "Field": {
+        "description": "A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.",
+        "properties": {
+          "key": { "$ref": "#/components/schemas/fieldNameString" },
+          "refValue": { "$ref": "#/components/schemas/fieldNameString" },
+          "stringValue": { "$ref": "#/components/schemas/fieldStringValue" }
+        },
+        "required": ["key"],
+        "type": "object"
+      },
+      "GetPipelineDefinitionInput": {
+        "description": "Contains the parameters for GetPipelineDefinition.",
+        "properties": {
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "version": { "$ref": "#/components/schemas/string" }
+        },
+        "required": ["pipelineId"],
+        "type": "object"
+      },
+      "GetPipelineDefinitionOutput": {
+        "description": "Contains the output of GetPipelineDefinition.",
+        "properties": {
+          "parameterObjects": { "$ref": "#/components/schemas/ParameterObjectList" },
+          "parameterValues": { "$ref": "#/components/schemas/ParameterValueList" },
+          "pipelineObjects": { "$ref": "#/components/schemas/PipelineObjectList" }
+        },
+        "type": "object"
+      },
+      "InstanceIdentity": {
+        "description": "<p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>",
+        "properties": {
+          "document": { "$ref": "#/components/schemas/string" },
+          "signature": { "$ref": "#/components/schemas/string" }
+        },
+        "type": "object"
+      },
+      "InternalServiceError": {
+        "description": "An internal service error occurred.",
+        "properties": { "message": { "$ref": "#/components/schemas/errorMessage" } },
+        "type": "object"
+      },
+      "InvalidRequestException": {
+        "description": "The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.",
+        "properties": { "message": { "$ref": "#/components/schemas/errorMessage" } },
+        "type": "object"
+      },
+      "ListPipelinesInput": {
+        "description": "Contains the parameters for ListPipelines.",
+        "properties": { "marker": { "$ref": "#/components/schemas/string" } },
+        "type": "object"
+      },
+      "ListPipelinesOutput": {
+        "description": "Contains the output of ListPipelines.",
+        "properties": {
+          "hasMoreResults": { "$ref": "#/components/schemas/boolean" },
+          "marker": { "$ref": "#/components/schemas/string" },
+          "pipelineIdList": { "$ref": "#/components/schemas/pipelineList" }
+        },
+        "required": ["pipelineIdList"],
+        "type": "object"
+      },
+      "Operator": {
+        "description": "Contains a logical operation for comparing the value of a field with a specified value.",
+        "properties": {
+          "type": { "$ref": "#/components/schemas/OperatorType" },
+          "values": { "$ref": "#/components/schemas/stringList" }
+        },
+        "type": "object"
+      },
+      "OperatorType": { "enum": ["EQ", "REF_EQ", "LE", "GE", "BETWEEN"], "type": "string" },
+      "ParameterAttribute": {
+        "description": "The attributes allowed or specified with a parameter object.",
+        "properties": {
+          "key": { "$ref": "#/components/schemas/attributeNameString" },
+          "stringValue": { "$ref": "#/components/schemas/attributeValueString" }
+        },
+        "required": ["key", "stringValue"],
+        "type": "object"
+      },
+      "ParameterAttributeList": { "items": { "$ref": "#/components/schemas/ParameterAttribute" }, "type": "array" },
+      "ParameterObject": {
+        "description": "Contains information about a parameter object.",
+        "properties": {
+          "attributes": { "$ref": "#/components/schemas/ParameterAttributeList" },
+          "id": { "$ref": "#/components/schemas/fieldNameString" }
+        },
+        "required": ["id", "attributes"],
+        "type": "object"
+      },
+      "ParameterObjectList": { "items": { "$ref": "#/components/schemas/ParameterObject" }, "type": "array" },
+      "ParameterValue": {
+        "description": "A value or list of parameter values. ",
+        "properties": {
+          "id": { "$ref": "#/components/schemas/fieldNameString" },
+          "stringValue": { "$ref": "#/components/schemas/fieldStringValue" }
+        },
+        "required": ["id", "stringValue"],
+        "type": "object"
+      },
+      "ParameterValueList": { "items": { "$ref": "#/components/schemas/ParameterValue" }, "type": "array" },
+      "PipelineDeletedException": {
+        "description": "The specified pipeline has been deleted.",
+        "properties": { "message": { "$ref": "#/components/schemas/errorMessage" } },
+        "type": "object"
+      },
+      "PipelineDescription": {
+        "description": "Contains pipeline metadata.",
+        "properties": {
+          "description": { "$ref": "#/components/schemas/string" },
+          "fields": { "$ref": "#/components/schemas/fieldList" },
+          "name": { "$ref": "#/components/schemas/id" },
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "tags": { "$ref": "#/components/schemas/tagList" }
+        },
+        "required": ["pipelineId", "name", "fields"],
+        "type": "object"
+      },
+      "PipelineDescriptionList": { "items": { "$ref": "#/components/schemas/PipelineDescription" }, "type": "array" },
+      "PipelineIdName": {
+        "description": "Contains the name and identifier of a pipeline.",
+        "properties": { "id": { "$ref": "#/components/schemas/id" }, "name": { "$ref": "#/components/schemas/id" } },
+        "type": "object"
+      },
+      "PipelineNotFoundException": {
+        "description": "The specified pipeline was not found. Verify that you used the correct user and account identifiers.",
+        "properties": { "message": { "$ref": "#/components/schemas/errorMessage" } },
+        "type": "object"
+      },
+      "PipelineObject": {
+        "description": "Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.",
+        "properties": {
+          "fields": { "$ref": "#/components/schemas/fieldList" },
+          "id": { "$ref": "#/components/schemas/id" },
+          "name": { "$ref": "#/components/schemas/id" }
+        },
+        "required": ["id", "name", "fields"],
+        "type": "object"
+      },
+      "PipelineObjectList": { "items": { "$ref": "#/components/schemas/PipelineObject" }, "type": "array" },
+      "PipelineObjectMap": {
+        "additionalProperties": { "$ref": "#/components/schemas/PipelineObject" },
+        "type": "object"
+      },
+      "PollForTaskInput": {
+        "description": "Contains the parameters for PollForTask.",
+        "properties": {
+          "hostname": { "$ref": "#/components/schemas/id" },
+          "instanceIdentity": { "$ref": "#/components/schemas/InstanceIdentity" },
+          "workerGroup": { "$ref": "#/components/schemas/string" }
+        },
+        "required": ["workerGroup"],
+        "type": "object"
+      },
+      "PollForTaskOutput": {
+        "description": "Contains the output of PollForTask.",
+        "properties": { "taskObject": { "$ref": "#/components/schemas/TaskObject" } },
+        "type": "object"
+      },
+      "PutPipelineDefinitionInput": {
+        "description": "Contains the parameters for PutPipelineDefinition.",
+        "properties": {
+          "parameterObjects": { "$ref": "#/components/schemas/ParameterObjectList" },
+          "parameterValues": { "$ref": "#/components/schemas/ParameterValueList" },
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "pipelineObjects": { "$ref": "#/components/schemas/PipelineObjectList" }
+        },
+        "required": ["pipelineId", "pipelineObjects"],
+        "type": "object"
+      },
+      "PutPipelineDefinitionOutput": {
+        "description": "Contains the output of PutPipelineDefinition.",
+        "properties": {
+          "errored": { "$ref": "#/components/schemas/boolean" },
+          "validationErrors": { "$ref": "#/components/schemas/ValidationErrors" },
+          "validationWarnings": { "$ref": "#/components/schemas/ValidationWarnings" }
+        },
+        "required": ["errored"],
+        "type": "object"
+      },
+      "Query": {
+        "description": "Defines the query to run against an object.",
+        "properties": { "selectors": { "$ref": "#/components/schemas/SelectorList" } },
+        "type": "object"
+      },
+      "QueryObjectsInput": {
+        "description": "Contains the parameters for QueryObjects.",
+        "properties": {
+          "limit": { "$ref": "#/components/schemas/int" },
+          "marker": { "$ref": "#/components/schemas/string" },
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "query": { "$ref": "#/components/schemas/Query" },
+          "sphere": { "$ref": "#/components/schemas/string" }
+        },
+        "required": ["pipelineId", "sphere"],
+        "type": "object"
+      },
+      "QueryObjectsOutput": {
+        "description": "Contains the output of QueryObjects.",
+        "properties": {
+          "hasMoreResults": { "$ref": "#/components/schemas/boolean" },
+          "ids": { "$ref": "#/components/schemas/idList" },
+          "marker": { "$ref": "#/components/schemas/string" }
+        },
+        "type": "object"
+      },
+      "RemoveTagsInput": {
+        "description": "Contains the parameters for RemoveTags.",
+        "properties": {
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "tagKeys": { "$ref": "#/components/schemas/stringList" }
+        },
+        "required": ["pipelineId", "tagKeys"],
+        "type": "object"
+      },
+      "RemoveTagsOutput": { "description": "Contains the output of RemoveTags.", "properties": {}, "type": "object" },
+      "ReportTaskProgressInput": {
+        "description": "Contains the parameters for ReportTaskProgress.",
+        "properties": {
+          "fields": { "$ref": "#/components/schemas/fieldList" },
+          "taskId": { "$ref": "#/components/schemas/taskId" }
+        },
+        "required": ["taskId"],
+        "type": "object"
+      },
+      "ReportTaskProgressOutput": {
+        "description": "Contains the output of ReportTaskProgress.",
+        "properties": { "canceled": { "$ref": "#/components/schemas/boolean" } },
+        "required": ["canceled"],
+        "type": "object"
+      },
+      "ReportTaskRunnerHeartbeatInput": {
+        "description": "Contains the parameters for ReportTaskRunnerHeartbeat.",
+        "properties": {
+          "hostname": { "$ref": "#/components/schemas/id" },
+          "taskrunnerId": { "$ref": "#/components/schemas/id" },
+          "workerGroup": { "$ref": "#/components/schemas/string" }
+        },
+        "required": ["taskrunnerId"],
+        "type": "object"
+      },
+      "ReportTaskRunnerHeartbeatOutput": {
+        "description": "Contains the output of ReportTaskRunnerHeartbeat.",
+        "properties": { "terminate": { "$ref": "#/components/schemas/boolean" } },
+        "required": ["terminate"],
+        "type": "object"
+      },
+      "Selector": {
+        "description": "A comparision that is used to determine whether a query should return this object.",
+        "properties": {
+          "fieldName": { "$ref": "#/components/schemas/string" },
+          "operator": { "$ref": "#/components/schemas/Operator" }
+        },
+        "type": "object"
+      },
+      "SelectorList": {
+        "description": "The list of Selectors that define queries on individual fields.",
+        "items": { "$ref": "#/components/schemas/Selector" },
+        "type": "array"
+      },
+      "SetStatusInput": {
+        "description": "Contains the parameters for SetStatus.",
+        "properties": {
+          "objectIds": { "$ref": "#/components/schemas/idList" },
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "status": { "$ref": "#/components/schemas/string" }
+        },
+        "required": ["pipelineId", "objectIds", "status"],
+        "type": "object"
+      },
+      "SetTaskStatusInput": {
+        "description": "Contains the parameters for SetTaskStatus.",
+        "properties": {
+          "errorId": { "$ref": "#/components/schemas/string" },
+          "errorMessage": { "$ref": "#/components/schemas/errorMessage" },
+          "errorStackTrace": { "$ref": "#/components/schemas/string" },
+          "taskId": { "$ref": "#/components/schemas/taskId" },
+          "taskStatus": { "$ref": "#/components/schemas/TaskStatus" }
+        },
+        "required": ["taskId", "taskStatus"],
+        "type": "object"
+      },
+      "SetTaskStatusOutput": {
+        "description": "Contains the output of SetTaskStatus.",
+        "properties": {},
+        "type": "object"
+      },
+      "Tag": {
+        "description": "Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.",
+        "properties": {
+          "key": { "$ref": "#/components/schemas/tagKey" },
+          "value": { "$ref": "#/components/schemas/tagValue" }
+        },
+        "required": ["key", "value"],
+        "type": "object"
+      },
+      "TaskNotFoundException": {
+        "description": "The specified task was not found. ",
+        "properties": { "message": { "$ref": "#/components/schemas/errorMessage" } },
+        "type": "object"
+      },
+      "TaskObject": {
+        "description": "Contains information about a pipeline task that is assigned to a task runner.",
+        "properties": {
+          "attemptId": { "$ref": "#/components/schemas/id" },
+          "objects": { "$ref": "#/components/schemas/PipelineObjectMap" },
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "taskId": { "$ref": "#/components/schemas/taskId" }
+        },
+        "type": "object"
+      },
+      "TaskStatus": { "enum": ["FINISHED", "FAILED", "FALSE"], "type": "string" },
+      "ValidatePipelineDefinitionInput": {
+        "description": "Contains the parameters for ValidatePipelineDefinition.",
+        "properties": {
+          "parameterObjects": { "$ref": "#/components/schemas/ParameterObjectList" },
+          "parameterValues": { "$ref": "#/components/schemas/ParameterValueList" },
+          "pipelineId": { "$ref": "#/components/schemas/id" },
+          "pipelineObjects": { "$ref": "#/components/schemas/PipelineObjectList" }
+        },
+        "required": ["pipelineId", "pipelineObjects"],
+        "type": "object"
+      },
+      "ValidatePipelineDefinitionOutput": {
+        "description": "Contains the output of ValidatePipelineDefinition.",
+        "properties": {
+          "errored": { "$ref": "#/components/schemas/boolean" },
+          "validationErrors": { "$ref": "#/components/schemas/ValidationErrors" },
+          "validationWarnings": { "$ref": "#/components/schemas/ValidationWarnings" }
+        },
+        "required": ["errored"],
+        "type": "object"
+      },
+      "ValidationError": {
+        "description": "Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.",
+        "properties": {
+          "errors": { "$ref": "#/components/schemas/validationMessages" },
+          "id": { "$ref": "#/components/schemas/id" }
+        },
+        "type": "object"
+      },
+      "ValidationErrors": { "items": { "$ref": "#/components/schemas/ValidationError" }, "type": "array" },
+      "ValidationWarning": {
+        "description": "Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.",
+        "properties": {
+          "id": { "$ref": "#/components/schemas/id" },
+          "warnings": { "$ref": "#/components/schemas/validationMessages" }
+        },
+        "type": "object"
+      },
+      "ValidationWarnings": { "items": { "$ref": "#/components/schemas/ValidationWarning" }, "type": "array" },
+      "attributeNameString": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "attributeValueString": {
+        "maxLength": 10240,
+        "minLength": 0,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "boolean": { "type": "boolean" },
+      "cancelActive": { "type": "boolean" },
+      "errorMessage": { "type": "string" },
+      "fieldList": { "items": { "$ref": "#/components/schemas/Field" }, "type": "array" },
+      "fieldNameString": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "fieldStringValue": {
+        "maxLength": 10240,
+        "minLength": 0,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "id": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "idList": { "items": { "$ref": "#/components/schemas/id" }, "type": "array" },
+      "int": { "type": "integer" },
+      "longString": {
+        "maxLength": 20971520,
+        "minLength": 0,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "pipelineList": { "items": { "$ref": "#/components/schemas/PipelineIdName" }, "type": "array" },
+      "string": {
+        "maxLength": 1024,
+        "minLength": 0,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "stringList": { "items": { "$ref": "#/components/schemas/string" }, "type": "array" },
+      "tagKey": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "tagList": { "items": { "$ref": "#/components/schemas/Tag" }, "maxItems": 10, "minItems": 0, "type": "array" },
+      "tagValue": { "maxLength": 256, "minLength": 0, "type": "string" },
+      "taskId": {
+        "maxLength": 2048,
+        "minLength": 1,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "timestamp": { "format": "date-time", "type": "string" },
+      "validationMessage": {
+        "maxLength": 10000,
+        "minLength": 0,
+        "type": "string",
+        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      },
+      "validationMessages": { "items": { "$ref": "#/components/schemas/validationMessage" }, "type": "array" }
+    }
+  }
+}

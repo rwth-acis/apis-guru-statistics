@@ -1,1 +1,1536 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"AWS Transfer for SFTP is a fully managed service that enables the transfer of files directly into and out of Amazon S3 using the Secure File Transfer Protocol (SFTP)—also known as Secure Shell (SSH) File Transfer Protocol. AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer for SFTP—by integrating with existing authentication systems, and providing DNS routing with Amazon Route 53—so nothing changes for your customers and partners, or their applications. With your data in S3, you can use it with AWS services for processing, analytics, machine learning, and archiving. Getting started with AWS Transfer for SFTP (AWS SFTP) is easy; there is no infrastructure to buy and setup. ","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS Transfer for SFTP","version":"2018-11-05","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/transfer-2018-11-05.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"transfer"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/transfer/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=TransferService.CreateServer":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Instantiates an autoscaling virtual server based on Secure File Transfer Protocol (SFTP) in AWS. The call returns the <code>ServerId</code> property assigned by the service to the newly created server. Reference this <code>ServerId</code> property when you make updates to your server, or work with users.</p> <p>The response returns the <code>ServerId</code> value for the newly created server.</p>","operationId":"CreateServer","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.CreateServer"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateServerRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateServerResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceExistsException"}}}}}}},"/#X-Amz-Target=TransferService.CreateUser":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Adds a user and associate them with an existing Secure File Transfer Protocol (SFTP) server. Using parameters for <code>CreateUser</code>, you can specify the user name, set the home directory, store the user's public key, and assign the user's AWS Identity and Access Management (IAM) role. You can also optionally add a scope-down policy, and assign metadata with tags that can be used to group and search for users.</p> <p>The response returns the <code>UserName</code> and <code>ServerId</code> values of the new user for that server.</p>","operationId":"CreateUser","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.CreateUser"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateUserRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateUserResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceExistsException"}}}},"484":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.DeleteServer":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Deletes the Secure File Transfer Protocol (SFTP) server that you specify. If you used <code>SERVICE_MANAGED</code> as your <code>IdentityProviderType</code>, you need to delete all users associated with this server before deleting the server itself</p> <p>No response returns from this call.</p>","operationId":"DeleteServer","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.DeleteServer"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteServerRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.DeleteSshPublicKey":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Deletes a user's Secure Shell (SSH) public key.</p> <p>No response is returned from this call.</p>","operationId":"DeleteSshPublicKey","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.DeleteSshPublicKey"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteSshPublicKeyRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.DeleteUser":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Deletes the user belonging to the server you specify.</p> <p>No response returns from this call.</p> <note> <p>When you delete a user from a server, the user's information is lost.</p> </note>","operationId":"DeleteUser","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.DeleteUser"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteUserRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.DescribeServer":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Describes the server that you specify by passing the <code>ServerId</code> parameter.</p> <p>The response contains a description of the server's properties.</p>","operationId":"DescribeServer","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.DescribeServer"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeServerRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeServerResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.DescribeUser":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Describes the user assigned to a specific server, as identified by its <code>ServerId</code> property.</p> <p>The response from this call returns the properties of the user associated with the <code>ServerId</code> value that was specified.</p>","operationId":"DescribeUser","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.DescribeUser"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeUserRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeUserResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.ImportSshPublicKey":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Adds a Secure Shell (SSH) public key to a user account identified by a <code>UserName</code> value assigned to a specific server, identified by <code>ServerId</code>.</p> <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and the name of the <code>SshPublicKeyId</code>.</p>","operationId":"ImportSshPublicKey","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.ImportSshPublicKey"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ImportSshPublicKeyRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ImportSshPublicKeyResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceExistsException"}}}},"484":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.ListServers":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the Secure File Transfer Protocol (SFTP) servers that are associated with your AWS account.","operationId":"ListServers","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.ListServers"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServersRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListServersResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"483":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=TransferService.ListTagsForResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists all of the tags associated with the Amazon Resource Number (ARN) you specify. The resource can be a user, server, or role.","operationId":"ListTagsForResource","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.ListTagsForResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"483":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=TransferService.ListUsers":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the users for the server that you specify by passing the <code>ServerId</code> parameter.","operationId":"ListUsers","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.ListUsers"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListUsersRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListUsersResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidNextTokenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}},"483":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"484":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.StartServer":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Changes the state of a Secure File Transfer Protocol (SFTP) server from <code>OFFLINE</code> to <code>ONLINE</code>. It has no impact on an SFTP server that is already <code>ONLINE</code>. An <code>ONLINE</code> server can accept and process file transfer jobs.</p> <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state, either not fully able to respond, or not fully online. The values of <code>START_FAILED</code> can indicate an error condition. </p> <p>No response is returned from this call.</p>","operationId":"StartServer","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.StartServer"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartServerRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.StopServer":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Changes the state of an SFTP server from <code>ONLINE</code> to <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer jobs. Information tied to your server such as server and user properties are not affected by stopping your server. Stopping a server will not reduce or impact your Secure File Transfer Protocol (SFTP) endpoint billing.</p> <p>The states of <code>STOPPING</code> indicates that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code> can indicate an error condition.</p> <p>No response is returned from this call.</p>","operationId":"StopServer","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.StopServer"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StopServerRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.TagResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN). Resources are users, servers, roles, and other entities.</p> <p>There is no response returned from this call.</p>","operationId":"TagResource","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.TagResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagResourceRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=TransferService.TestIdentityProvider":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"If the <code>IdentityProviderType</code> of the server is <code>API_Gateway</code>, tests whether your API Gateway is set up successfully. We highly recommend that you call this method to test your authentication method as soon as you create your server. By doing so, you can troubleshoot issues with the API Gateway integration to ensure that your users can successfully use the service.","operationId":"TestIdentityProvider","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.TestIdentityProvider"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TestIdentityProviderRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TestIdentityProviderResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.UntagResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name (ARN). Resources are users, servers, roles, and other entities.</p> <p>No response is returned from this call.</p>","operationId":"UntagResource","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.UntagResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagResourceRequest"}}},"required":true},"responses":{"200":{"description":"Success"},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=TransferService.UpdateServer":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Updates the server properties after that server has been created.</p> <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the Secure File Transfer Protocol (SFTP) server you updated.</p>","operationId":"UpdateServer","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.UpdateServer"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateServerRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateServerResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=TransferService.UpdateUser":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Assigns new properties to a user. Parameters you pass modify any or all of the following: the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code> you specify.</p> <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the updated user.</p>","operationId":"UpdateUser","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["TransferService.UpdateUser"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateUserRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateUserResponse"}}}},"480":{"description":"ServiceUnavailableException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ServiceUnavailableException"}}}},"481":{"description":"InternalServiceError","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceError"}}}},"482":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}}},"servers":[{"description":"The AWS Transfer multi-region endpoint","url":"http://transfer.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS Transfer multi-region endpoint","url":"https://transfer.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS Transfer endpoint for China (Beijing) and China (Ningxia)","url":"http://transfer.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS Transfer endpoint for China (Beijing) and China (Ningxia)","url":"https://transfer.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"Arn":{"maxLength":1600,"minLength":20,"type":"string"},"CreateServerRequest":{"properties":{"EndpointDetails":{"$ref":"#/components/schemas/EndpointDetails"},"EndpointType":{"$ref":"#/components/schemas/EndpointType"},"HostKey":{"$ref":"#/components/schemas/HostKey"},"IdentityProviderDetails":{"$ref":"#/components/schemas/IdentityProviderDetails"},"IdentityProviderType":{"$ref":"#/components/schemas/IdentityProviderType"},"LoggingRole":{"$ref":"#/components/schemas/Role"},"Tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"CreateServerResponse":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"}},"required":["ServerId"],"type":"object"},"CreateUserRequest":{"properties":{"HomeDirectory":{"$ref":"#/components/schemas/HomeDirectory"},"Policy":{"$ref":"#/components/schemas/Policy"},"Role":{"$ref":"#/components/schemas/Role"},"ServerId":{"$ref":"#/components/schemas/ServerId"},"SshPublicKeyBody":{"$ref":"#/components/schemas/SshPublicKeyBody"},"Tags":{"$ref":"#/components/schemas/Tags"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["Role","ServerId","UserName"],"type":"object"},"CreateUserResponse":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["ServerId","UserName"],"type":"object"},"DateImported":{"format":"date-time","type":"string"},"DeleteServerRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"}},"required":["ServerId"],"type":"object"},"DeleteSshPublicKeyRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"SshPublicKeyId":{"$ref":"#/components/schemas/SshPublicKeyId"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["ServerId","SshPublicKeyId","UserName"],"type":"object"},"DeleteUserRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["ServerId","UserName"],"type":"object"},"DescribeServerRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"}},"required":["ServerId"],"type":"object"},"DescribeServerResponse":{"properties":{"Server":{"$ref":"#/components/schemas/DescribedServer"}},"required":["Server"],"type":"object"},"DescribeUserRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["ServerId","UserName"],"type":"object"},"DescribeUserResponse":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"User":{"$ref":"#/components/schemas/DescribedUser"}},"required":["ServerId","User"],"type":"object"},"DescribedServer":{"description":"Describe the properties of the server that was specified. Information returned includes: the server Amazon Resource Name (ARN), the authentication configuration and type, the logging role, server Id and state, and assigned tags or metadata. ","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"EndpointDetails":{"$ref":"#/components/schemas/EndpointDetails"},"EndpointType":{"$ref":"#/components/schemas/EndpointType"},"HostKeyFingerprint":{"$ref":"#/components/schemas/HostKeyFingerprint"},"IdentityProviderDetails":{"$ref":"#/components/schemas/IdentityProviderDetails"},"IdentityProviderType":{"$ref":"#/components/schemas/IdentityProviderType"},"LoggingRole":{"$ref":"#/components/schemas/Role"},"ServerId":{"$ref":"#/components/schemas/ServerId"},"State":{"$ref":"#/components/schemas/State"},"Tags":{"$ref":"#/components/schemas/Tags"},"UserCount":{"$ref":"#/components/schemas/UserCount"}},"required":["Arn"],"type":"object"},"DescribedUser":{"description":"Returns properties of the user that you wish to describe.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"HomeDirectory":{"$ref":"#/components/schemas/HomeDirectory"},"Policy":{"$ref":"#/components/schemas/Policy"},"Role":{"$ref":"#/components/schemas/Role"},"SshPublicKeys":{"$ref":"#/components/schemas/SshPublicKeys"},"Tags":{"$ref":"#/components/schemas/Tags"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["Arn"],"type":"object"},"EndpointDetails":{"description":"The configuration settings for the virtual private cloud (VPC) endpoint for your SFTP server.","properties":{"VpcEndpointId":{"$ref":"#/components/schemas/VpcEndpointId"}},"type":"object"},"EndpointType":{"enum":["PUBLIC","VPC_ENDPOINT"],"type":"string"},"HomeDirectory":{"maxLength":1024,"pattern":"^$|/.*","type":"string"},"HostKey":{"maxLength":4096,"type":"string"},"HostKeyFingerprint":{"type":"string"},"IdentityProviderDetails":{"description":"Returns information related to the type of user authentication that is in use for a server's users. A server can only have one method of authentication.","properties":{"InvocationRole":{"$ref":"#/components/schemas/Role"},"Url":{"$ref":"#/components/schemas/Url"}},"type":"object"},"IdentityProviderType":{"description":"Returns information related to the type of user authentication that is in use for a server's users. For <code>SERVICE_MANAGED</code> authentication, the Secure Shell (SSH) public keys are stored with a user on an SFTP server instance. For <code>API_GATEWAY</code> authentication, your custom authentication method is implemented by using an API call. A server can only have one method of authentication.","enum":["SERVICE_MANAGED","API_GATEWAY"],"type":"string"},"ImportSshPublicKeyRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"SshPublicKeyBody":{"$ref":"#/components/schemas/SshPublicKeyBody"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["ServerId","SshPublicKeyBody","UserName"],"type":"object"},"ImportSshPublicKeyResponse":{"description":"This response identifies the user, server they belong to, and the identifier of the SSH public key associated with that user. A user can have more than one key on each server that they are associate with.","properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"SshPublicKeyId":{"$ref":"#/components/schemas/SshPublicKeyId"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["ServerId","SshPublicKeyId","UserName"],"type":"object"},"InternalServiceError":{},"InvalidNextTokenException":{},"InvalidRequestException":{},"ListServersRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"type":"object"},"ListServersResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"Servers":{"$ref":"#/components/schemas/ListedServers"}},"required":["Servers"],"type":"object"},"ListTagsForResourceRequest":{"properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"}},"required":["Arn"],"type":"object"},"ListTagsForResourceResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"Tags":{"$ref":"#/components/schemas/Tags"}},"type":"object"},"ListUsersRequest":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxResults"},"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServerId":{"$ref":"#/components/schemas/ServerId"}},"required":["ServerId"],"type":"object"},"ListUsersResponse":{"properties":{"NextToken":{"$ref":"#/components/schemas/NextToken"},"ServerId":{"$ref":"#/components/schemas/ServerId"},"Users":{"$ref":"#/components/schemas/ListedUsers"}},"required":["ServerId","Users"],"type":"object"},"ListedServer":{"description":"Returns properties of the server that was specified.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"EndpointType":{"$ref":"#/components/schemas/EndpointType"},"IdentityProviderType":{"$ref":"#/components/schemas/IdentityProviderType"},"LoggingRole":{"$ref":"#/components/schemas/Role"},"ServerId":{"$ref":"#/components/schemas/ServerId"},"State":{"$ref":"#/components/schemas/State"},"UserCount":{"$ref":"#/components/schemas/UserCount"}},"required":["Arn"],"type":"object"},"ListedServers":{"items":{"$ref":"#/components/schemas/ListedServer"},"type":"array"},"ListedUser":{"description":"Returns properties of the user that you specify.","properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"HomeDirectory":{"$ref":"#/components/schemas/HomeDirectory"},"Role":{"$ref":"#/components/schemas/Role"},"SshPublicKeyCount":{"$ref":"#/components/schemas/SshPublicKeyCount"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["Arn"],"type":"object"},"ListedUsers":{"items":{"$ref":"#/components/schemas/ListedUser"},"type":"array"},"MaxResults":{"maximum":1000,"minimum":1,"type":"integer"},"Message":{"type":"string"},"NextToken":{"maxLength":6144,"minLength":1,"type":"string"},"NullableRole":{"pattern":"^$|arn:.*role/.*","type":"string"},"Policy":{"type":"string"},"ResourceExistsException":{},"ResourceNotFoundException":{},"Role":{"pattern":"arn:.*role/.*","type":"string"},"ServerId":{"pattern":"^s-([0-9a-f]{17})$","type":"string"},"ServiceUnavailableException":{},"SshPublicKey":{"description":"Provides information about the public Secure Shell (SSH) key that is associated with a user account for a specific server (as identified by <code>ServerId</code>). The information returned includes the date the key was imported, the public key contents, and the public key ID. A user can store more than one SSH public key associated with their user name on a specific SFTP server.","properties":{"DateImported":{"$ref":"#/components/schemas/DateImported"},"SshPublicKeyBody":{"$ref":"#/components/schemas/SshPublicKeyBody"},"SshPublicKeyId":{"$ref":"#/components/schemas/SshPublicKeyId"}},"required":["DateImported","SshPublicKeyBody","SshPublicKeyId"],"type":"object"},"SshPublicKeyBody":{"maxLength":2048,"pattern":"^ssh-rsa\\s+[A-Za-z0-9+/]+[=]{0,3}(\\s+.+)?\\s*$","type":"string"},"SshPublicKeyCount":{"type":"integer"},"SshPublicKeyId":{"pattern":"^key-[0-9a-f]{17}$","type":"string"},"SshPublicKeys":{"items":{"$ref":"#/components/schemas/SshPublicKey"},"maxItems":5,"type":"array"},"StartServerRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"}},"required":["ServerId"],"type":"object"},"State":{"description":"<p>Describes the condition of the SFTP server with respect to its ability to perform file operations. There are six possible states: <code>OFFLINE</code>, <code>ONLINE</code>, <code>STARTING</code>, <code>STOPPING</code>, <code>START_FAILED</code>, and <code>STOP_FAILED</code>.</p> <p> <code>OFFLINE</code> indicates that the SFTP server exists, but that it is not available for file operations. <code>ONLINE</code> indicates that the SFTP server is available to perform file operations. <code>STARTING</code> indicates that the SFTP server's was instantiated, but the server is not yet available to perform file operations. Under normal conditions, it can take a couple of minutes for an SFTP server to be completely operational. Both <code>START_FAILED</code> and <code>STOP_FAILED</code> are error conditions.</p>","enum":["OFFLINE","ONLINE","STARTING","STOPPING","START_FAILED","STOP_FAILED"],"type":"string"},"StatusCode":{"type":"integer"},"StopServerRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"}},"required":["ServerId"],"type":"object"},"Tag":{"description":"Creates a key-value pair for a specific resource. Tags are metadata that you can use to search for and group a resource for various purposes. You can apply tags to servers, users, and roles. A tag key can take more than one value. For example, to group servers for accounting purposes, you might create a tag called <code>Group</code> and assign the values <code>Research</code> and <code>Accounting</code> to that group.","properties":{"Key":{"$ref":"#/components/schemas/TagKey"},"Value":{"$ref":"#/components/schemas/TagValue"}},"required":["Key","Value"],"type":"object"},"TagKey":{"type":"string"},"TagKeys":{"items":{"$ref":"#/components/schemas/TagKey"},"maxItems":50,"minItems":1,"type":"array"},"TagResourceRequest":{"properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"Tags":{"$ref":"#/components/schemas/Tags"}},"required":["Arn","Tags"],"type":"object"},"TagValue":{"type":"string"},"Tags":{"items":{"$ref":"#/components/schemas/Tag"},"maxItems":50,"minItems":1,"type":"array"},"TestIdentityProviderRequest":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"UserName":{"$ref":"#/components/schemas/UserName"},"UserPassword":{"$ref":"#/components/schemas/UserPassword"}},"required":["ServerId","UserName"],"type":"object"},"TestIdentityProviderResponse":{"properties":{"Message":{"$ref":"#/components/schemas/Message"},"StatusCode":{"$ref":"#/components/schemas/StatusCode"},"Url":{"$ref":"#/components/schemas/Url"}},"required":["StatusCode","Url"],"type":"object"},"UntagResourceRequest":{"properties":{"Arn":{"$ref":"#/components/schemas/Arn"},"TagKeys":{"$ref":"#/components/schemas/TagKeys"}},"required":["Arn","TagKeys"],"type":"object"},"UpdateServerRequest":{"properties":{"EndpointDetails":{"$ref":"#/components/schemas/EndpointDetails"},"EndpointType":{"$ref":"#/components/schemas/EndpointType"},"HostKey":{"$ref":"#/components/schemas/HostKey"},"IdentityProviderDetails":{"$ref":"#/components/schemas/IdentityProviderDetails"},"LoggingRole":{"$ref":"#/components/schemas/NullableRole"},"ServerId":{"$ref":"#/components/schemas/ServerId"}},"required":["ServerId"],"type":"object"},"UpdateServerResponse":{"properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"}},"required":["ServerId"],"type":"object"},"UpdateUserRequest":{"properties":{"HomeDirectory":{"$ref":"#/components/schemas/HomeDirectory"},"Policy":{"$ref":"#/components/schemas/Policy"},"Role":{"$ref":"#/components/schemas/Role"},"ServerId":{"$ref":"#/components/schemas/ServerId"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["ServerId","UserName"],"type":"object"},"UpdateUserResponse":{"description":" <code>UpdateUserResponse</code> returns the user name and server identifier for the request to update a user's properties.","properties":{"ServerId":{"$ref":"#/components/schemas/ServerId"},"UserName":{"$ref":"#/components/schemas/UserName"}},"required":["ServerId","UserName"],"type":"object"},"Url":{"type":"string"},"UserCount":{"type":"integer"},"UserName":{"pattern":"^[a-zA-Z0-9_][a-zA-Z0-9_-]{2,31}$","type":"string"},"UserPassword":{"type":"string"},"VpcEndpointId":{"pattern":"^vpce-[0-9a-f]{17}$","type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Transfer for SFTP is a fully managed service that enables the transfer of files directly into and out of Amazon S3 using the Secure File Transfer Protocol (SFTP)—also known as Secure Shell (SSH) File Transfer Protocol. AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer for SFTP—by integrating with existing authentication systems, and providing DNS routing with Amazon Route 53—so nothing changes for your customers and partners, or their applications. With your data in S3, you can use it with AWS services for processing, analytics, machine learning, and archiving. Getting started with AWS Transfer for SFTP (AWS SFTP) is easy; there is no infrastructure to buy and set up. ",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Transfer for SFTP",
+    "version": "2018-11-05",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/transfer-2018-11-05.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "transfer"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/transfer/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=TransferService.CreateServer": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Instantiates an autoscaling virtual server based on Secure File Transfer Protocol (SFTP) in AWS. When you make updates to your server or when you work with users, use the service-generated <code>ServerId</code> property that is assigned to the newly created server.",
+        "operationId": "CreateServer",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.CreateServer"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateServerRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateServerResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceExistsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceExistsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.CreateUser": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a user and associates them with an existing Secure File Transfer Protocol (SFTP) server. You can only create and associate users with SFTP servers that have the <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for <code>CreateUser</code>, you can specify the user name, set the home directory, store the user's public key, and assign the user's AWS Identity and Access Management (IAM) role. You can also optionally add a scope-down policy, and assign metadata with tags that can be used to group and search for users.",
+        "operationId": "CreateUser",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.CreateUser"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateUserRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateUserResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceExistsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceExistsException" } } }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.DeleteServer": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes the Secure File Transfer Protocol (SFTP) server that you specify.</p> <p>No response returns from this operation.</p>",
+        "operationId": "DeleteServer",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.DeleteServer"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteServerRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.DeleteSshPublicKey": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes a user's Secure Shell (SSH) public key.</p> <p>No response is returned from this operation.</p>",
+        "operationId": "DeleteSshPublicKey",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.DeleteSshPublicKey"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteSshPublicKeyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.DeleteUser": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes the user belonging to the server you specify.</p> <p>No response returns from this operation.</p> <note> <p>When you delete a user from a server, the user's information is lost.</p> </note>",
+        "operationId": "DeleteUser",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.DeleteUser"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteUserRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.DescribeServer": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes the server that you specify by passing the <code>ServerId</code> parameter.</p> <p>The response contains a description of the server's properties.</p>",
+        "operationId": "DescribeServer",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.DescribeServer"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeServerRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeServerResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.DescribeUser": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Describes the user assigned to a specific server, as identified by its <code>ServerId</code> property.</p> <p>The response from this call returns the properties of the user associated with the <code>ServerId</code> value that was specified.</p>",
+        "operationId": "DescribeUser",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.DescribeUser"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeUserRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeUserResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.ImportSshPublicKey": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Adds a Secure Shell (SSH) public key to a user account identified by a <code>UserName</code> value assigned to a specific server, identified by <code>ServerId</code>.</p> <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and the name of the <code>SshPublicKeyId</code>.</p>",
+        "operationId": "ImportSshPublicKey",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.ImportSshPublicKey"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportSshPublicKeyRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ImportSshPublicKeyResponse" } }
+            }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceExistsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourceExistsException" } } }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.ListServers": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the Secure File Transfer Protocol (SFTP) servers that are associated with your AWS account.",
+        "operationId": "ListServers",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.ListServers"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListServersRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListServersResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.ListTagsForResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists all of the tags associated with the Amazon Resource Number (ARN) you specify. The resource can be a user, server, or role.",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.ListTagsForResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceResponse" } }
+            }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.ListUsers": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the users for the server that you specify by passing the <code>ServerId</code> parameter.",
+        "operationId": "ListUsers",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.ListUsers"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListUsersRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListUsersResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } }
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.StartServer": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Changes the state of a Secure File Transfer Protocol (SFTP) server from <code>OFFLINE</code> to <code>ONLINE</code>. It has no impact on an SFTP server that is already <code>ONLINE</code>. An <code>ONLINE</code> server can accept and process file transfer jobs.</p> <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state, either not fully able to respond, or not fully online. The values of <code>START_FAILED</code> can indicate an error condition. </p> <p>No response is returned from this call.</p>",
+        "operationId": "StartServer",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.StartServer"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StartServerRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.StopServer": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Changes the state of an SFTP server from <code>ONLINE</code> to <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer jobs. Information tied to your server such as server and user properties are not affected by stopping your server. Stopping a server will not reduce or impact your Secure File Transfer Protocol (SFTP) endpoint billing.</p> <p>The state of <code>STOPPING</code> indicates that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code> can indicate an error condition.</p> <p>No response is returned from this call.</p>",
+        "operationId": "StopServer",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.StopServer"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StopServerRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.TagResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN). Resources are users, servers, roles, and other entities.</p> <p>There is no response returned from this call.</p>",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.TagResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagResourceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.TestIdentityProvider": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "If the <code>IdentityProviderType</code> of the server is <code>API_Gateway</code>, tests whether your API Gateway is set up successfully. We highly recommend that you call this operation to test your authentication method as soon as you create your server. By doing so, you can troubleshoot issues with the API Gateway integration to ensure that your users can successfully use the service.",
+        "operationId": "TestIdentityProvider",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.TestIdentityProvider"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/TestIdentityProviderRequest" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/TestIdentityProviderResponse" } }
+            }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.UntagResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name (ARN). Resources are users, servers, roles, and other entities.</p> <p>No response is returned from this call.</p>",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.UntagResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagResourceRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.UpdateServer": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Updates the server properties after that server has been created.</p> <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the Secure File Transfer Protocol (SFTP) server you updated.</p>",
+        "operationId": "UpdateServer",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.UpdateServer"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateServerRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateServerResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=TransferService.UpdateUser": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Assigns new properties to a user. Parameters you pass modify any or all of the following: the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code> you specify.</p> <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the updated user.</p>",
+        "operationId": "UpdateUser",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["TransferService.UpdateUser"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateUserRequest" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateUserResponse" } } }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ServiceUnavailableException" } }
+            }
+          },
+          "481": {
+            "description": "InternalServiceError",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceError" } } }
+          },
+          "482": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS Transfer multi-region endpoint",
+      "url": "http://transfer.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS Transfer multi-region endpoint",
+      "url": "https://transfer.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS Transfer endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://transfer.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS Transfer endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://transfer.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "Arn": { "maxLength": 1600, "minLength": 20, "type": "string" },
+      "CreateServerRequest": {
+        "properties": {
+          "EndpointDetails": { "$ref": "#/components/schemas/EndpointDetails" },
+          "EndpointType": { "$ref": "#/components/schemas/EndpointType" },
+          "HostKey": { "$ref": "#/components/schemas/HostKey" },
+          "IdentityProviderDetails": { "$ref": "#/components/schemas/IdentityProviderDetails" },
+          "IdentityProviderType": { "$ref": "#/components/schemas/IdentityProviderType" },
+          "LoggingRole": { "$ref": "#/components/schemas/Role" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "CreateServerResponse": {
+        "properties": { "ServerId": { "$ref": "#/components/schemas/ServerId" } },
+        "required": ["ServerId"],
+        "type": "object"
+      },
+      "CreateUserRequest": {
+        "properties": {
+          "HomeDirectory": { "$ref": "#/components/schemas/HomeDirectory" },
+          "Policy": { "$ref": "#/components/schemas/Policy" },
+          "Role": { "$ref": "#/components/schemas/Role" },
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "SshPublicKeyBody": { "$ref": "#/components/schemas/SshPublicKeyBody" },
+          "Tags": { "$ref": "#/components/schemas/Tags" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["Role", "ServerId", "UserName"],
+        "type": "object"
+      },
+      "CreateUserResponse": {
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["ServerId", "UserName"],
+        "type": "object"
+      },
+      "DateImported": { "format": "date-time", "type": "string" },
+      "DeleteServerRequest": {
+        "properties": { "ServerId": { "$ref": "#/components/schemas/ServerId" } },
+        "required": ["ServerId"],
+        "type": "object"
+      },
+      "DeleteSshPublicKeyRequest": {
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "SshPublicKeyId": { "$ref": "#/components/schemas/SshPublicKeyId" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["ServerId", "SshPublicKeyId", "UserName"],
+        "type": "object"
+      },
+      "DeleteUserRequest": {
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["ServerId", "UserName"],
+        "type": "object"
+      },
+      "DescribeServerRequest": {
+        "properties": { "ServerId": { "$ref": "#/components/schemas/ServerId" } },
+        "required": ["ServerId"],
+        "type": "object"
+      },
+      "DescribeServerResponse": {
+        "properties": { "Server": { "$ref": "#/components/schemas/DescribedServer" } },
+        "required": ["Server"],
+        "type": "object"
+      },
+      "DescribeUserRequest": {
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["ServerId", "UserName"],
+        "type": "object"
+      },
+      "DescribeUserResponse": {
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "User": { "$ref": "#/components/schemas/DescribedUser" }
+        },
+        "required": ["ServerId", "User"],
+        "type": "object"
+      },
+      "DescribedServer": {
+        "description": "Describes the properties of the server that was specified. Information returned includes the following: the server Amazon Resource Name (ARN), the authentication configuration and type, the logging role, the server ID and state, and assigned tags or metadata. ",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "EndpointDetails": { "$ref": "#/components/schemas/EndpointDetails" },
+          "EndpointType": { "$ref": "#/components/schemas/EndpointType" },
+          "HostKeyFingerprint": { "$ref": "#/components/schemas/HostKeyFingerprint" },
+          "IdentityProviderDetails": { "$ref": "#/components/schemas/IdentityProviderDetails" },
+          "IdentityProviderType": { "$ref": "#/components/schemas/IdentityProviderType" },
+          "LoggingRole": { "$ref": "#/components/schemas/Role" },
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "State": { "$ref": "#/components/schemas/State" },
+          "Tags": { "$ref": "#/components/schemas/Tags" },
+          "UserCount": { "$ref": "#/components/schemas/UserCount" }
+        },
+        "required": ["Arn"],
+        "type": "object"
+      },
+      "DescribedUser": {
+        "description": "Returns properties of the user that you want to describe.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "HomeDirectory": { "$ref": "#/components/schemas/HomeDirectory" },
+          "Policy": { "$ref": "#/components/schemas/Policy" },
+          "Role": { "$ref": "#/components/schemas/Role" },
+          "SshPublicKeys": { "$ref": "#/components/schemas/SshPublicKeys" },
+          "Tags": { "$ref": "#/components/schemas/Tags" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["Arn"],
+        "type": "object"
+      },
+      "EndpointDetails": {
+        "description": "The configuration settings for the virtual private cloud (VPC) endpoint for your SFTP server.",
+        "properties": { "VpcEndpointId": { "$ref": "#/components/schemas/VpcEndpointId" } },
+        "type": "object"
+      },
+      "EndpointType": { "enum": ["PUBLIC", "VPC_ENDPOINT"], "type": "string" },
+      "HomeDirectory": { "maxLength": 1024, "pattern": "^$|/.*", "type": "string" },
+      "HostKey": { "format": "password", "maxLength": 4096, "type": "string" },
+      "HostKeyFingerprint": { "type": "string" },
+      "IdentityProviderDetails": {
+        "description": "Returns information related to the type of user authentication that is in use for a server's users. A server can have only one method of authentication.",
+        "properties": {
+          "InvocationRole": { "$ref": "#/components/schemas/Role" },
+          "Url": { "$ref": "#/components/schemas/Url" }
+        },
+        "type": "object"
+      },
+      "IdentityProviderType": {
+        "description": "Returns information related to the type of user authentication that is in use for a server's users. For <code>SERVICE_MANAGED</code> authentication, the Secure Shell (SSH) public keys are stored with a user on an SFTP server instance. For <code>API_GATEWAY</code> authentication, your custom authentication method is implemented by using an API call. A server can have only one method of authentication.",
+        "enum": ["SERVICE_MANAGED", "API_GATEWAY"],
+        "type": "string"
+      },
+      "ImportSshPublicKeyRequest": {
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "SshPublicKeyBody": { "$ref": "#/components/schemas/SshPublicKeyBody" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["ServerId", "SshPublicKeyBody", "UserName"],
+        "type": "object"
+      },
+      "ImportSshPublicKeyResponse": {
+        "description": "This response identifies the user, the server they belong to, and the identifier of the SSH public key associated with that user. A user can have more than one key on each server that they are associated with.",
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "SshPublicKeyId": { "$ref": "#/components/schemas/SshPublicKeyId" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["ServerId", "SshPublicKeyId", "UserName"],
+        "type": "object"
+      },
+      "InternalServiceError": {},
+      "InvalidNextTokenException": {},
+      "InvalidRequestException": {},
+      "ListServersRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "type": "object"
+      },
+      "ListServersResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Servers": { "$ref": "#/components/schemas/ListedServers" }
+        },
+        "required": ["Servers"],
+        "type": "object"
+      },
+      "ListTagsForResourceRequest": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" }
+        },
+        "required": ["Arn"],
+        "type": "object"
+      },
+      "ListTagsForResourceResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "type": "object"
+      },
+      "ListUsersRequest": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxResults" },
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServerId": { "$ref": "#/components/schemas/ServerId" }
+        },
+        "required": ["ServerId"],
+        "type": "object"
+      },
+      "ListUsersResponse": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/NextToken" },
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "Users": { "$ref": "#/components/schemas/ListedUsers" }
+        },
+        "required": ["ServerId", "Users"],
+        "type": "object"
+      },
+      "ListedServer": {
+        "description": "Returns properties of the server that was specified.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "EndpointType": { "$ref": "#/components/schemas/EndpointType" },
+          "IdentityProviderType": { "$ref": "#/components/schemas/IdentityProviderType" },
+          "LoggingRole": { "$ref": "#/components/schemas/Role" },
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "State": { "$ref": "#/components/schemas/State" },
+          "UserCount": { "$ref": "#/components/schemas/UserCount" }
+        },
+        "required": ["Arn"],
+        "type": "object"
+      },
+      "ListedServers": { "items": { "$ref": "#/components/schemas/ListedServer" }, "type": "array" },
+      "ListedUser": {
+        "description": "Returns properties of the user that you specify.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "HomeDirectory": { "$ref": "#/components/schemas/HomeDirectory" },
+          "Role": { "$ref": "#/components/schemas/Role" },
+          "SshPublicKeyCount": { "$ref": "#/components/schemas/SshPublicKeyCount" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["Arn"],
+        "type": "object"
+      },
+      "ListedUsers": { "items": { "$ref": "#/components/schemas/ListedUser" }, "type": "array" },
+      "MaxResults": { "maximum": 1000, "minimum": 1, "type": "integer" },
+      "Message": { "type": "string" },
+      "NextToken": { "maxLength": 6144, "minLength": 1, "type": "string" },
+      "NullableRole": { "pattern": "^$|arn:.*role/.*", "type": "string" },
+      "Policy": { "type": "string" },
+      "ResourceExistsException": {},
+      "ResourceNotFoundException": {},
+      "Response": { "type": "string" },
+      "Role": { "pattern": "arn:.*role/.*", "type": "string" },
+      "ServerId": { "pattern": "^s-([0-9a-f]{17})$", "type": "string" },
+      "ServiceUnavailableException": {},
+      "SshPublicKey": {
+        "description": "Provides information about the public Secure Shell (SSH) key that is associated with a user account for a specific server (as identified by <code>ServerId</code>). The information returned includes the date the key was imported, the public key contents, and the public key ID. A user can store more than one SSH public key associated with their user name on a specific SFTP server.",
+        "properties": {
+          "DateImported": { "$ref": "#/components/schemas/DateImported" },
+          "SshPublicKeyBody": { "$ref": "#/components/schemas/SshPublicKeyBody" },
+          "SshPublicKeyId": { "$ref": "#/components/schemas/SshPublicKeyId" }
+        },
+        "required": ["DateImported", "SshPublicKeyBody", "SshPublicKeyId"],
+        "type": "object"
+      },
+      "SshPublicKeyBody": {
+        "maxLength": 2048,
+        "pattern": "^ssh-rsa\\s+[A-Za-z0-9+/]+[=]{0,3}(\\s+.+)?\\s*$",
+        "type": "string"
+      },
+      "SshPublicKeyCount": { "type": "integer" },
+      "SshPublicKeyId": { "pattern": "^key-[0-9a-f]{17}$", "type": "string" },
+      "SshPublicKeys": { "items": { "$ref": "#/components/schemas/SshPublicKey" }, "maxItems": 5, "type": "array" },
+      "StartServerRequest": {
+        "properties": { "ServerId": { "$ref": "#/components/schemas/ServerId" } },
+        "required": ["ServerId"],
+        "type": "object"
+      },
+      "State": {
+        "description": "<p>Describes the condition of the SFTP server with respect to its ability to perform file operations. There are six possible states: <code>OFFLINE</code>, <code>ONLINE</code>, <code>STARTING</code>, <code>STOPPING</code>, <code>START_FAILED</code>, and <code>STOP_FAILED</code>.</p> <p> <code>OFFLINE</code> indicates that the SFTP server exists, but that it is not available for file operations. <code>ONLINE</code> indicates that the SFTP server is available to perform file operations. <code>STARTING</code> indicates that the SFTP server's was instantiated, but the server is not yet available to perform file operations. Under normal conditions, it can take a couple of minutes for an SFTP server to be completely operational. Both <code>START_FAILED</code> and <code>STOP_FAILED</code> are error conditions.</p>",
+        "enum": ["OFFLINE", "ONLINE", "STARTING", "STOPPING", "START_FAILED", "STOP_FAILED"],
+        "type": "string"
+      },
+      "StatusCode": { "type": "integer" },
+      "StopServerRequest": {
+        "properties": { "ServerId": { "$ref": "#/components/schemas/ServerId" } },
+        "required": ["ServerId"],
+        "type": "object"
+      },
+      "Tag": {
+        "description": "Creates a key-value pair for a specific resource. Tags are metadata that you can use to search for and group a resource for various purposes. You can apply tags to servers, users, and roles. A tag key can take more than one value. For example, to group servers for accounting purposes, you might create a tag called <code>Group</code> and assign the values <code>Research</code> and <code>Accounting</code> to that group.",
+        "properties": {
+          "Key": { "$ref": "#/components/schemas/TagKey" },
+          "Value": { "$ref": "#/components/schemas/TagValue" }
+        },
+        "required": ["Key", "Value"],
+        "type": "object"
+      },
+      "TagKey": { "type": "string" },
+      "TagKeys": { "items": { "$ref": "#/components/schemas/TagKey" }, "maxItems": 50, "minItems": 1, "type": "array" },
+      "TagResourceRequest": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "Tags": { "$ref": "#/components/schemas/Tags" }
+        },
+        "required": ["Arn", "Tags"],
+        "type": "object"
+      },
+      "TagValue": { "type": "string" },
+      "Tags": { "items": { "$ref": "#/components/schemas/Tag" }, "maxItems": 50, "minItems": 1, "type": "array" },
+      "TestIdentityProviderRequest": {
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "UserName": { "$ref": "#/components/schemas/UserName" },
+          "UserPassword": { "$ref": "#/components/schemas/UserPassword" }
+        },
+        "required": ["ServerId", "UserName"],
+        "type": "object"
+      },
+      "TestIdentityProviderResponse": {
+        "properties": {
+          "Message": { "$ref": "#/components/schemas/Message" },
+          "Response": { "$ref": "#/components/schemas/Response" },
+          "StatusCode": { "$ref": "#/components/schemas/StatusCode" },
+          "Url": { "$ref": "#/components/schemas/Url" }
+        },
+        "required": ["StatusCode", "Url"],
+        "type": "object"
+      },
+      "UntagResourceRequest": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/Arn" },
+          "TagKeys": { "$ref": "#/components/schemas/TagKeys" }
+        },
+        "required": ["Arn", "TagKeys"],
+        "type": "object"
+      },
+      "UpdateServerRequest": {
+        "properties": {
+          "EndpointDetails": { "$ref": "#/components/schemas/EndpointDetails" },
+          "EndpointType": { "$ref": "#/components/schemas/EndpointType" },
+          "HostKey": { "$ref": "#/components/schemas/HostKey" },
+          "IdentityProviderDetails": { "$ref": "#/components/schemas/IdentityProviderDetails" },
+          "LoggingRole": { "$ref": "#/components/schemas/NullableRole" },
+          "ServerId": { "$ref": "#/components/schemas/ServerId" }
+        },
+        "required": ["ServerId"],
+        "type": "object"
+      },
+      "UpdateServerResponse": {
+        "properties": { "ServerId": { "$ref": "#/components/schemas/ServerId" } },
+        "required": ["ServerId"],
+        "type": "object"
+      },
+      "UpdateUserRequest": {
+        "properties": {
+          "HomeDirectory": { "$ref": "#/components/schemas/HomeDirectory" },
+          "Policy": { "$ref": "#/components/schemas/Policy" },
+          "Role": { "$ref": "#/components/schemas/Role" },
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["ServerId", "UserName"],
+        "type": "object"
+      },
+      "UpdateUserResponse": {
+        "description": " <code>UpdateUserResponse</code> returns the user name and server identifier for the request to update a user's properties.",
+        "properties": {
+          "ServerId": { "$ref": "#/components/schemas/ServerId" },
+          "UserName": { "$ref": "#/components/schemas/UserName" }
+        },
+        "required": ["ServerId", "UserName"],
+        "type": "object"
+      },
+      "Url": { "type": "string" },
+      "UserCount": { "type": "integer" },
+      "UserName": { "pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_-]{2,31}$", "type": "string" },
+      "UserPassword": { "format": "password", "type": "string" },
+      "VpcEndpointId": { "pattern": "^vpce-[0-9a-f]{17}$", "type": "string" }
+    }
+  }
+}

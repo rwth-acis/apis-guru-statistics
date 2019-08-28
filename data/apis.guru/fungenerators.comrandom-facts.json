@@ -1,1 +1,416 @@
-{"openapi":"3.0.0","info":{"description":"A full featured Facts API. REST access with json/xml/jsonp result support. On this day birth and death support, random fact, keyword search support etc. Below is the documentation for the Random Facts API calls. You can try them out right here. \n","title":"Random Facts","version":"1.5","x-apisguru-categories":["text"],"x-origin":[{"format":"swagger","url":"https://fungenerators.com/yaml/facts.yaml","version":"2.0"}],"x-preferred":true,"x-providerName":"fungenerators.com","x-serviceName":"random-facts"},"tags":[{"description":"Facts API","externalDocs":{"description":"Find out more","url":"http://fungenerators.com/api/facts"},"name":"Facts"}],"paths":{"/fact":{"delete":{"description":"Delete a Fact entry identified by the id.","parameters":[{"description":"Fact ID","in":"query","name":"id","required":true,"schema":{"type":"string","format":"string"}}],"responses":{"200":{"description":"200  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"success\": {\n        \"total\": 1\n    },\n    \"contents\": {\n        \"mesg\": \"Fact 62D6iKM9GSlJxK5nrMf9XwrE is deleted\"\n    }\n}"}}}}},"401":{"description":"401  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"}}}}}},"security":[{"X-Fungenerators-Api-Secret":[]}],"tags":["Facts"]},"get":{"description":"Get a Fact belonging to the id.","parameters":[{"description":"ID of the fact to fetch","in":"query","name":"id","required":false,"schema":{"type":"string","format":"string"}}],"responses":{"200":{"description":"200  response","content":{"application/json":{"examples":{"response":{"value":"{\n  \"success\":{\"total\":1},\n  \"contents\":{\n    \"fact\":\"There are more than 1,100 known tributaries flowing into the Amazon River. Tributaries are sources of water such as a small river, stream  or other water flow that reaches the river.\",\n    \"id\":\"LCN5KlSn6BMpcm3ruXhfGweF\",\n    \"category\":null,\n    \"subcategory\":null\n    \n  }\n  \n}"}}}}},"401":{"description":"401  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"}}}}}},"security":[{"X-Fungenerators-Api-Secret":[]}],"tags":["Facts"]},"put":{"description":"Add a Fact entry to the database (private collection).","parameters":[{"description":"Fact Text","in":"query","name":"fact","required":true,"schema":{"type":"string","format":"string"}},{"description":"Category of the fact","in":"query","name":"category","required":true,"schema":{"type":"string","format":"string"}},{"description":"Sub Category of the fact","in":"query","name":"subcategory","required":true,"schema":{"type":"string","format":"string"}},{"description":"Tags","in":"query","name":"tags","required":true,"schema":{"type":"string","format":"string"}}],"responses":{"200":{"description":"200  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"success\": {\n        \"total\": 1\n    },\n    \"contents\": {\n        \"id\": \"62D6iKM9GSlJxK5nrMf9XwrE\"\n    }\n}"}}}}},"401":{"description":"401  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"}}}}}},"security":[{"X-Fungenerators-Api-Secret":[]}],"tags":["Facts"]}},"/fact/categories":{"get":{"description":"Get a random Fact.","parameters":[{"description":"start","in":"query","name":"start","required":false,"schema":{"type":"integer","format":"integer"}}],"responses":{"200":{"description":"200  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"success\": {\n        \"total\": 1\n    },\n    \"contents\": [\n        {\n            \"id\": \"VO_foToeaTPvaDn_utYcOweF\",\n            \"question\": \"What is the unit of currency in the United States of America\",\n            \"category\": \"usa\",\n            \"category_name\": \"USA\",\n            \"answer\": [\n                \"Dollar\"\n            ]\n        }\n    ]\n}"}}}}},"401":{"description":"401  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"}}}}}},"security":[{"X-Fungenerators-Api-Secret":[]}],"tags":["Facts"]}},"/fact/onthisday/born":{"get":{"description":"Returns a random ( famous/ relatively famous ) person born on a given day and month","parameters":[{"description":"Optional month (1-12). Defaults to current month","in":"query","name":"month","required":false,"schema":{"type":"string","format":"string"}},{"description":"Optional day of the month (1- 28/30/31 based on the month). Defaults to current day of the month.","in":"query","name":"day","required":false,"schema":{"type":"string","format":"string"}}],"responses":{"200":{"description":"200  response","content":{"application/json":{"examples":{"response":{"value":"\t\t{\n\t\t  \"success\": {\n\t\t    \"total\": 1\n\t\t  },\n\t\t  \"contents\": [\n\t\t    {\n\t\t      \"name\": \"Edward R. Bradley\",\n\t\t      \"occupation\": \"American businessman and horse owner (1st to own 4 Kentucky Derby winners)\",\n\t\t      \"notable\": null,\n\t\t      \"born\": \"1859-12-12\",\n\t\t      \"died\": \"1946-08-15\"\n\t\t    }\n\t\t  ]\n\t\t}"}}}}},"401":{"description":"401  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"}}}}}},"security":[{"X-Fungenerators-Api-Secret":[]}],"tags":["Facts"]}},"/fact/onthisday/died":{"get":{"description":"Returns a random ( famous/ relatively famous ) person died on a given day and month","parameters":[{"description":"Optional month (1-12). Defaults to current month","in":"query","name":"month","required":false,"schema":{"type":"string","format":"string"}},{"description":"Optional day of the month (1- 28/30/31 based on the month). Defaults to current day of the month.","in":"query","name":"day","required":false,"schema":{"type":"string","format":"string"}}],"responses":{"200":{"description":"200  response","content":{"application/json":{"examples":{"response":{"value":"\t\t{\n\t\t  \"success\": {\n\t\t    \"total\": 1\n\t\t  },\n\t\t  \"contents\": [\n\t\t    {\n\t\t      \"name\": \"Edward R. Bradley\",\n\t\t      \"occupation\": \"American businessman and horse owner (1st to own 4 Kentucky Derby winners)\",\n\t\t      \"notable\": null,\n\t\t      \"born\": \"1859-12-12\",\n\t\t      \"died\": \"1946-08-15\"\n\t\t    }\n\t\t  ]\n\t\t}"}}}}},"401":{"description":"401  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"}}}}}},"security":[{"X-Fungenerators-Api-Secret":[]}],"tags":["Facts"]}},"/fact/random":{"get":{"description":"Get a random Fact for a given category(optional) and subcategory(optional).","parameters":[{"description":"Category to get the fact from","in":"query","name":"category","required":false,"schema":{"type":"string","format":"string"}},{"description":"Sub Category to get the fact from","in":"query","name":"subcategory","required":false,"schema":{"type":"string","format":"string"}}],"responses":{"200":{"description":"200  response","content":{"application/json":{"examples":{"response":{"value":"{\n  \"success\":{\"total\":1},\n  \"contents\":{\n    \"fact\":\"There are more than 1,100 known tributaries flowing into the Amazon River. Tributaries are sources of water such as a small river, stream  or other water flow that reaches the river.\",\n    \"id\":\"LCN5KlSn6BMpcm3ruXhfGweF\",\n    \"category\":null,\n    \"subcategory\":null\n    \n  }\n  \n}"}}}}},"401":{"description":"401  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}                    "}}}}}},"security":[{"X-Fungenerators-Api-Secret":[]}],"tags":["Facts"]}},"/fact/search":{"get":{"description":"Search for random Fact which has the text in the query, for a given category(optional) and subcategory(optional).","parameters":[{"description":"Text to search for in the facts","in":"query","name":"query","required":false,"schema":{"type":"string","format":"string"}},{"description":"Category to get the fact from","in":"query","name":"category","required":false,"schema":{"type":"string","format":"string"}},{"description":"Sub Category to get the fact from","in":"query","name":"subcategory","required":false,"schema":{"type":"string","format":"string"}}],"responses":{"200":{"description":"200  response","content":{"application/json":{"examples":{"response":{"value":"{\n  \"success\":{\"total\":1},\n  \"contents\":{\n    \"fact\":\"There are more than 1,100 known tributaries flowing into the Amazon River. Tributaries are sources of water such as a small river, stream  or other water flow that reaches the river.\",\n    \"id\":\"LCN5KlSn6BMpcm3ruXhfGweF\",\n    \"category\": \"Rivers\",\n    \"subcategory\": \"Amazon River\"\n    \n  }\n  \n}"}}}}},"401":{"description":"401  response","content":{"application/json":{"examples":{"response":{"value":"{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}                    "}}}}}},"security":[{"X-Fungenerators-Api-Secret":[]}],"tags":["Facts"]}}},"servers":[{"url":"https://api.fungenerators.com"},{"url":"http://api.fungenerators.com"}],"components":{"securitySchemes":{"X-Fungenerators-Api-Secret":{"in":"header","name":"X-Fungenerators-Api-Secret","type":"apiKey"}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "A full featured Facts API. REST access with json/xml/jsonp result support. On this day birth and death support, random fact, keyword search support etc. Below is the documentation for the Random Facts API calls. You can try them out right here. \n",
+    "title": "Random Facts",
+    "version": "1.5",
+    "x-apisguru-categories": ["text"],
+    "x-origin": [{ "format": "swagger", "url": "https://fungenerators.com/yaml/facts.yaml", "version": "2.0" }],
+    "x-preferred": true,
+    "x-providerName": "fungenerators.com",
+    "x-serviceName": "random-facts"
+  },
+  "tags": [
+    {
+      "description": "Facts API",
+      "externalDocs": { "description": "Find out more", "url": "http://fungenerators.com/api/facts" },
+      "name": "Facts"
+    }
+  ],
+  "paths": {
+    "/fact": {
+      "delete": {
+        "description": "Delete a Fact entry identified by the id.",
+        "parameters": [
+          {
+            "description": "Fact ID",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string", "format": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"success\": {\n        \"total\": 1\n    },\n    \"contents\": {\n        \"mesg\": \"Fact 62D6iKM9GSlJxK5nrMf9XwrE is deleted\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "X-Fungenerators-Api-Secret": [] }],
+        "tags": ["Facts"]
+      },
+      "get": {
+        "description": "Get a Fact belonging to the id.",
+        "parameters": [
+          {
+            "description": "ID of the fact to fetch",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"success\":{\"total\":1},\n  \"contents\":{\n    \"fact\":\"There are more than 1,100 known tributaries flowing into the Amazon River. Tributaries are sources of water such as a small river, stream  or other water flow that reaches the river.\",\n    \"id\":\"LCN5KlSn6BMpcm3ruXhfGweF\",\n    \"category\":null,\n    \"subcategory\":null\n    \n  }\n  \n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "X-Fungenerators-Api-Secret": [] }],
+        "tags": ["Facts"]
+      },
+      "put": {
+        "description": "Add a Fact entry to the database (private collection).",
+        "parameters": [
+          {
+            "description": "Fact Text",
+            "in": "query",
+            "name": "fact",
+            "required": true,
+            "schema": { "type": "string", "format": "string" }
+          },
+          {
+            "description": "Category of the fact",
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "schema": { "type": "string", "format": "string" }
+          },
+          {
+            "description": "Sub Category of the fact",
+            "in": "query",
+            "name": "subcategory",
+            "required": true,
+            "schema": { "type": "string", "format": "string" }
+          },
+          {
+            "description": "Tags",
+            "in": "query",
+            "name": "tags",
+            "required": true,
+            "schema": { "type": "string", "format": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"success\": {\n        \"total\": 1\n    },\n    \"contents\": {\n        \"id\": \"62D6iKM9GSlJxK5nrMf9XwrE\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "X-Fungenerators-Api-Secret": [] }],
+        "tags": ["Facts"]
+      }
+    },
+    "/fact/categories": {
+      "get": {
+        "description": "Get a random Fact.",
+        "parameters": [
+          {
+            "description": "start",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "schema": { "type": "integer", "format": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"success\": {\n        \"total\": 1\n    },\n    \"contents\": [\n        {\n            \"id\": \"VO_foToeaTPvaDn_utYcOweF\",\n            \"question\": \"What is the unit of currency in the United States of America\",\n            \"category\": \"usa\",\n            \"category_name\": \"USA\",\n            \"answer\": [\n                \"Dollar\"\n            ]\n        }\n    ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "X-Fungenerators-Api-Secret": [] }],
+        "tags": ["Facts"]
+      }
+    },
+    "/fact/onthisday/born": {
+      "get": {
+        "description": "Returns a random ( famous/ relatively famous ) person born on a given day and month",
+        "parameters": [
+          {
+            "description": "Optional month (1-12). Defaults to current month",
+            "in": "query",
+            "name": "month",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          },
+          {
+            "description": "Optional day of the month (1- 28/30/31 based on the month). Defaults to current day of the month.",
+            "in": "query",
+            "name": "day",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "\t\t{\n\t\t  \"success\": {\n\t\t    \"total\": 1\n\t\t  },\n\t\t  \"contents\": [\n\t\t    {\n\t\t      \"name\": \"Edward R. Bradley\",\n\t\t      \"occupation\": \"American businessman and horse owner (1st to own 4 Kentucky Derby winners)\",\n\t\t      \"notable\": null,\n\t\t      \"born\": \"1859-12-12\",\n\t\t      \"died\": \"1946-08-15\"\n\t\t    }\n\t\t  ]\n\t\t}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "X-Fungenerators-Api-Secret": [] }],
+        "tags": ["Facts"]
+      }
+    },
+    "/fact/onthisday/died": {
+      "get": {
+        "description": "Returns a random ( famous/ relatively famous ) person died on a given day and month",
+        "parameters": [
+          {
+            "description": "Optional month (1-12). Defaults to current month",
+            "in": "query",
+            "name": "month",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          },
+          {
+            "description": "Optional day of the month (1- 28/30/31 based on the month). Defaults to current day of the month.",
+            "in": "query",
+            "name": "day",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "\t\t{\n\t\t  \"success\": {\n\t\t    \"total\": 1\n\t\t  },\n\t\t  \"contents\": [\n\t\t    {\n\t\t      \"name\": \"Edward R. Bradley\",\n\t\t      \"occupation\": \"American businessman and horse owner (1st to own 4 Kentucky Derby winners)\",\n\t\t      \"notable\": null,\n\t\t      \"born\": \"1859-12-12\",\n\t\t      \"died\": \"1946-08-15\"\n\t\t    }\n\t\t  ]\n\t\t}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "X-Fungenerators-Api-Secret": [] }],
+        "tags": ["Facts"]
+      }
+    },
+    "/fact/random": {
+      "get": {
+        "description": "Get a random Fact for a given category(optional) and subcategory(optional).",
+        "parameters": [
+          {
+            "description": "Category to get the fact from",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          },
+          {
+            "description": "Sub Category to get the fact from",
+            "in": "query",
+            "name": "subcategory",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"success\":{\"total\":1},\n  \"contents\":{\n    \"fact\":\"There are more than 1,100 known tributaries flowing into the Amazon River. Tributaries are sources of water such as a small river, stream  or other water flow that reaches the river.\",\n    \"id\":\"LCN5KlSn6BMpcm3ruXhfGweF\",\n    \"category\":null,\n    \"subcategory\":null\n    \n  }\n  \n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}                    "
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "X-Fungenerators-Api-Secret": [] }],
+        "tags": ["Facts"]
+      }
+    },
+    "/fact/search": {
+      "get": {
+        "description": "Search for random Fact which has the text in the query, for a given category(optional) and subcategory(optional).",
+        "parameters": [
+          {
+            "description": "Text to search for in the facts",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          },
+          {
+            "description": "Category to get the fact from",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          },
+          {
+            "description": "Sub Category to get the fact from",
+            "in": "query",
+            "name": "subcategory",
+            "required": false,
+            "schema": { "type": "string", "format": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"success\":{\"total\":1},\n  \"contents\":{\n    \"fact\":\"There are more than 1,100 known tributaries flowing into the Amazon River. Tributaries are sources of water such as a small river, stream  or other water flow that reaches the river.\",\n    \"id\":\"LCN5KlSn6BMpcm3ruXhfGweF\",\n    \"category\": \"Rivers\",\n    \"subcategory\": \"Amazon River\"\n    \n  }\n  \n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401  response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "response": {
+                    "value": "{\n    \"error\": {\n        \"code\": 401,\n        \"message\": \"Unauthorized\"\n    }\n}                    "
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "X-Fungenerators-Api-Secret": [] }],
+        "tags": ["Facts"]
+      }
+    }
+  },
+  "servers": [{ "url": "https://api.fungenerators.com" }, { "url": "http://api.fungenerators.com" }],
+  "components": {
+    "securitySchemes": {
+      "X-Fungenerators-Api-Secret": { "in": "header", "name": "X-Fungenerators-Api-Secret", "type": "apiKey" }
+    }
+  }
+}

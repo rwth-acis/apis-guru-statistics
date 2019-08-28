@@ -3,9 +3,7 @@
   "info": {
     "title": "ResourceHealthMetadata API Client",
     "version": "2018-02-01",
-    "x-apisguru-categories": [
-      "cloud"
-    ],
+    "x-apisguru-categories": ["cloud"],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
@@ -19,39 +17,24 @@
     "x-preferred": true,
     "x-providerName": "azure.com",
     "x-serviceName": "web-ResourceHealthMetadata",
-    "x-tags": [
-      "Azure",
-      "Microsoft"
-    ]
+    "x-tags": ["Azure", "Microsoft"]
   },
-  "security": [
-    {
-      "azure_auth": [
-        "user_impersonation"
-      ]
-    }
-  ],
+  "security": [{ "azure_auth": ["user_impersonation"] }],
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Web/resourceHealthMetadata": {
       "get": {
         "description": "List all ResourceHealthMetadata for all sites in the subscription.",
         "operationId": "ResourceHealthMetadata_List",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceHealthMetadataCollection"
-                },
+                "schema": { "$ref": "#/components/schemas/ResourceHealthMetadataCollection" },
                 "examples": {
                   "List ResourceHealthMetadata for a subscription": {
                     "$ref": "#/components/examples/List_ResourceHealthMetadata_for_a_subscription"
@@ -126,12 +109,8 @@
           }
         },
         "summary": "List all ResourceHealthMetadata for all sites in the subscription.",
-        "tags": [
-          "ResourceHealthMetadata"
-        ],
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "tags": ["ResourceHealthMetadata"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/resourceHealthMetadata": {
@@ -139,24 +118,16 @@
         "description": "List all ResourceHealthMetadata for all sites in the resource group in the subscription.",
         "operationId": "ResourceHealthMetadata_ListByResourceGroup",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceHealthMetadataCollection"
-                },
+                "schema": { "$ref": "#/components/schemas/ResourceHealthMetadataCollection" },
                 "examples": {
                   "List ResourceHealthMetadata for a resource group": {
                     "$ref": "#/components/examples/List_ResourceHealthMetadata_for_a_resource_group"
@@ -231,12 +202,8 @@
           }
         },
         "summary": "List all ResourceHealthMetadata for all sites in the resource group in the subscription.",
-        "tags": [
-          "ResourceHealthMetadata"
-        ],
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "tags": ["ResourceHealthMetadata"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/resourceHealthMetadata": {
@@ -244,38 +211,24 @@
         "description": "Gets the category of ResourceHealthMetadata to use for the given site as a collection",
         "operationId": "ResourceHealthMetadata_ListBySite",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
           {
             "description": "Name of web app.",
             "in": "path",
             "name": "name",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "List ResourceHealthMetadata for a site": {
-                "value": "newsiteinnewASE-NCUS"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "List ResourceHealthMetadata for a site": { "value": "newsiteinnewASE-NCUS" } }
           },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceHealthMetadataCollection"
-                },
+                "schema": { "$ref": "#/components/schemas/ResourceHealthMetadataCollection" },
                 "examples": {
                   "List ResourceHealthMetadata for a site": {
                     "$ref": "#/components/examples/List_ResourceHealthMetadata_for_a_site"
@@ -350,12 +303,8 @@
           }
         },
         "summary": "Gets the category of ResourceHealthMetadata to use for the given site as a collection",
-        "tags": [
-          "ResourceHealthMetadata"
-        ],
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "tags": ["ResourceHealthMetadata"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/resourceHealthMetadata/default": {
@@ -363,42 +312,26 @@
         "description": "Gets the category of ResourceHealthMetadata to use for the given site",
         "operationId": "ResourceHealthMetadata_GetBySite",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
           {
             "description": "Name of web app",
             "in": "path",
             "name": "name",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "Get ResourceHealthMetadata": {
-                "value": "newsiteinnewASE-NCUS"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "Get ResourceHealthMetadata": { "value": "newsiteinnewASE-NCUS" } }
           },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceHealthMetadata"
-                },
+                "schema": { "$ref": "#/components/schemas/ResourceHealthMetadata" },
                 "examples": {
-                  "Get ResourceHealthMetadata": {
-                    "$ref": "#/components/examples/Get_ResourceHealthMetadata"
-                  }
+                  "Get ResourceHealthMetadata": { "$ref": "#/components/examples/Get_ResourceHealthMetadata" }
                 }
               }
             }
@@ -469,9 +402,7 @@
           }
         },
         "summary": "Gets the category of ResourceHealthMetadata to use for the given site",
-        "tags": [
-          "ResourceHealthMetadata"
-        ]
+        "tags": ["ResourceHealthMetadata"]
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/resourceHealthMetadata": {
@@ -479,52 +410,32 @@
         "description": "Gets the category of ResourceHealthMetadata to use for the given site as a collection",
         "operationId": "ResourceHealthMetadata_ListBySiteSlot",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
           {
             "description": "Name of web app.",
             "in": "path",
             "name": "name",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "List ResourceHealthMetadata for a site": {
-                "value": "newsiteinnewASE-NCUS"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "List ResourceHealthMetadata for a site": { "value": "newsiteinnewASE-NCUS" } }
           },
           {
             "description": "Name of web app slot. If not specified then will default to production slot.",
             "in": "path",
             "name": "slot",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "List ResourceHealthMetadata for a site": {
-                "value": "Production"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "List ResourceHealthMetadata for a site": { "value": "Production" } }
           },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceHealthMetadataCollection"
-                },
+                "schema": { "$ref": "#/components/schemas/ResourceHealthMetadataCollection" },
                 "examples": {
                   "List ResourceHealthMetadata for a site": {
                     "$ref": "#/components/examples/List_ResourceHealthMetadata_for_a_site"
@@ -599,12 +510,8 @@
           }
         },
         "summary": "Gets the category of ResourceHealthMetadata to use for the given site as a collection",
-        "tags": [
-          "ResourceHealthMetadata"
-        ],
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
+        "tags": ["ResourceHealthMetadata"],
+        "x-ms-pageable": { "nextLinkName": "nextLink" }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/resourceHealthMetadata/default": {
@@ -612,56 +519,34 @@
         "description": "Gets the category of ResourceHealthMetadata to use for the given site",
         "operationId": "ResourceHealthMetadata_GetBySiteSlot",
         "parameters": [
-          {
-            "$ref": "#/components/parameters/resourceGroupNameParameter"
-          },
+          { "$ref": "#/components/parameters/resourceGroupNameParameter" },
           {
             "description": "Name of web app",
             "in": "path",
             "name": "name",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "Get ResourceHealthMetadata": {
-                "value": "newsiteinnewASE-NCUS"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "Get ResourceHealthMetadata": { "value": "newsiteinnewASE-NCUS" } }
           },
           {
             "description": "Name of web app slot. If not specified then will default to production slot.",
             "in": "path",
             "name": "slot",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "Get ResourceHealthMetadata": {
-                "value": "Production"
-              }
-            }
+            "schema": { "type": "string" },
+            "examples": { "Get ResourceHealthMetadata": { "value": "Production" } }
           },
-          {
-            "$ref": "#/components/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/components/parameters/apiVersionParameter"
-          }
+          { "$ref": "#/components/parameters/subscriptionIdParameter" },
+          { "$ref": "#/components/parameters/apiVersionParameter" }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceHealthMetadata"
-                },
+                "schema": { "$ref": "#/components/schemas/ResourceHealthMetadata" },
                 "examples": {
-                  "Get ResourceHealthMetadata": {
-                    "$ref": "#/components/examples/Get_ResourceHealthMetadata"
-                  }
+                  "Get ResourceHealthMetadata": { "$ref": "#/components/examples/Get_ResourceHealthMetadata" }
                 }
               }
             }
@@ -732,17 +617,11 @@
           }
         },
         "summary": "Gets the category of ResourceHealthMetadata to use for the given site",
-        "tags": [
-          "ResourceHealthMetadata"
-        ]
+        "tags": ["ResourceHealthMetadata"]
       }
     }
   },
-  "servers": [
-    {
-      "url": "https://management.azure.com"
-    }
-  ],
+  "servers": [{ "url": "https://management.azure.com" }],
   "components": {
     "examples": {
       "List_ResourceHealthMetadata_for_a_subscription": {
@@ -752,10 +631,7 @@
             {
               "id": "/subscriptions/4adb32ad-8327-4cbb-b775-b84b4465bb38/resourceGroups/Default-Web-NorthCentralUS/providers/Microsoft.Web/sites/newsiteinnewASE-NCUS/resourceHealthMetadata/default",
               "name": "default",
-              "properties": {
-                "category": "Shared",
-                "signalAvailability": true
-              },
+              "properties": { "category": "Shared", "signalAvailability": true },
               "type": "Microsoft.Web/sites/resourceHealthMetadata"
             }
           ]
@@ -768,10 +644,7 @@
             {
               "id": "/subscriptions/4adb32ad-8327-4cbb-b775-b84b4465bb38/resourceGroups/Default-Web-NorthCentralUS/providers/Microsoft.Web/sites/newsiteinnewASE-NCUS/resourceHealthMetadata/default",
               "name": "default",
-              "properties": {
-                "category": "Shared",
-                "signalAvailability": true
-              },
+              "properties": { "category": "Shared", "signalAvailability": true },
               "type": "Microsoft.Web/sites/resourceHealthMetadata"
             }
           ]
@@ -784,10 +657,7 @@
             {
               "id": "/subscriptions/4adb32ad-8327-4cbb-b775-b84b4465bb38/resourceGroups/Default-Web-NorthCentralUS/providers/Microsoft.Web/sites/newsiteinnewASE-NCUS/resourceHealthMetadata/default",
               "name": "default",
-              "properties": {
-                "category": "Shared",
-                "signalAvailability": true
-              },
+              "properties": { "category": "Shared", "signalAvailability": true },
               "type": "Microsoft.Web/sites/resourceHealthMetadata"
             }
           ]
@@ -797,10 +667,7 @@
         "value": {
           "id": "/subscriptions/4adb32ad-8327-4cbb-b775-b84b4465bb38/resourceGroups/Default-Web-NorthCentralUS/providers/Microsoft.Web/sites/newsiteinnewASE-NCUS/resourceHealthMetadata/default",
           "name": "default",
-          "properties": {
-            "category": "Shared",
-            "signalAvailability": true
-          },
+          "properties": { "category": "Shared", "signalAvailability": true },
           "type": "Microsoft.Web/sites/resourceHealthMetadata"
         }
       }
@@ -811,22 +678,12 @@
         "in": "query",
         "name": "api-version",
         "required": true,
-        "schema": {
-          "type": "string"
-        },
+        "schema": { "type": "string" },
         "examples": {
-          "List ResourceHealthMetadata for a subscription": {
-            "value": "2018-02-01"
-          },
-          "List ResourceHealthMetadata for a resource group": {
-            "value": "2018-02-01"
-          },
-          "List ResourceHealthMetadata for a site": {
-            "value": "2018-02-01"
-          },
-          "Get ResourceHealthMetadata": {
-            "value": "2018-02-01"
-          }
+          "List ResourceHealthMetadata for a subscription": { "value": "2018-02-01" },
+          "List ResourceHealthMetadata for a resource group": { "value": "2018-02-01" },
+          "List ResourceHealthMetadata for a site": { "value": "2018-02-01" },
+          "Get ResourceHealthMetadata": { "value": "2018-02-01" }
         }
       },
       "resourceGroupNameParameter": {
@@ -835,22 +692,11 @@
         "name": "resourceGroupName",
         "required": true,
         "x-ms-parameter-location": "method",
-        "schema": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 90,
-          "pattern": "^[-\\w\\._\\(\\)]+[^\\.]$"
-        },
+        "schema": { "type": "string", "minLength": 1, "maxLength": 90, "pattern": "^[-\\w\\._\\(\\)]+[^\\.]$" },
         "examples": {
-          "List ResourceHealthMetadata for a resource group": {
-            "value": "Default-Web-NorthCentralUS"
-          },
-          "List ResourceHealthMetadata for a site": {
-            "value": "Default-Web-NorthCentralUS"
-          },
-          "Get ResourceHealthMetadata": {
-            "value": "Default-Web-NorthCentralUS"
-          }
+          "List ResourceHealthMetadata for a resource group": { "value": "Default-Web-NorthCentralUS" },
+          "List ResourceHealthMetadata for a site": { "value": "Default-Web-NorthCentralUS" },
+          "Get ResourceHealthMetadata": { "value": "Default-Web-NorthCentralUS" }
         }
       },
       "subscriptionIdParameter": {
@@ -858,22 +704,12 @@
         "in": "path",
         "name": "subscriptionId",
         "required": true,
-        "schema": {
-          "type": "string"
-        },
+        "schema": { "type": "string" },
         "examples": {
-          "List ResourceHealthMetadata for a subscription": {
-            "value": "4adb32ad-8327-4cbb-b775-b84b4465bb38"
-          },
-          "List ResourceHealthMetadata for a resource group": {
-            "value": "4adb32ad-8327-4cbb-b775-b84b4465bb38"
-          },
-          "List ResourceHealthMetadata for a site": {
-            "value": "4adb32ad-8327-4cbb-b775-b84b4465bb38"
-          },
-          "Get ResourceHealthMetadata": {
-            "value": "4adb32ad-8327-4cbb-b775-b84b4465bb38"
-          }
+          "List ResourceHealthMetadata for a subscription": { "value": "4adb32ad-8327-4cbb-b775-b84b4465bb38" },
+          "List ResourceHealthMetadata for a resource group": { "value": "4adb32ad-8327-4cbb-b775-b84b4465bb38" },
+          "List ResourceHealthMetadata for a site": { "value": "4adb32ad-8327-4cbb-b775-b84b4465bb38" },
+          "Get ResourceHealthMetadata": { "value": "4adb32ad-8327-4cbb-b775-b84b4465bb38" }
         }
       }
     },
@@ -884,9 +720,7 @@
         "flows": {
           "implicit": {
             "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-            "scopes": {
-              "user_impersonation": "impersonate your user account"
-            }
+            "scopes": { "user_impersonation": "impersonate your user account" }
           }
         }
       }
@@ -897,25 +731,10 @@
           {
             "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
             "properties": {
-              "id": {
-                "description": "Resource Id.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "kind": {
-                "description": "Kind of resource.",
-                "type": "string"
-              },
-              "name": {
-                "description": "Resource Name.",
-                "readOnly": true,
-                "type": "string"
-              },
-              "type": {
-                "description": "Resource type.",
-                "readOnly": true,
-                "type": "string"
-              }
+              "id": { "description": "Resource Id.", "readOnly": true, "type": "string" },
+              "kind": { "description": "Kind of resource.", "type": "string" },
+              "name": { "description": "Resource Name.", "readOnly": true, "type": "string" },
+              "type": { "description": "Resource type.", "readOnly": true, "type": "string" }
             },
             "x-ms-azure-resource": true
           }
@@ -929,10 +748,7 @@
                 "description": "The category that the resource matches in the RHC Policy File",
                 "type": "string"
               },
-              "signalAvailability": {
-                "description": "Is there a health signal for the resource",
-                "type": "boolean"
-              }
+              "signalAvailability": { "description": "Is there a health signal for the resource", "type": "boolean" }
             },
             "x-ms-client-flatten": true
           }
@@ -942,22 +758,14 @@
       "ResourceHealthMetadataCollection": {
         "description": "Collection of resource health metadata.",
         "properties": {
-          "nextLink": {
-            "description": "Link to next page of resources.",
-            "readOnly": true,
-            "type": "string"
-          },
+          "nextLink": { "description": "Link to next page of resources.", "readOnly": true, "type": "string" },
           "value": {
             "description": "Collection of resources.",
-            "items": {
-              "$ref": "#/components/schemas/ResourceHealthMetadata"
-            },
+            "items": { "$ref": "#/components/schemas/ResourceHealthMetadata" },
             "type": "array"
           }
         },
-        "required": [
-          "value"
-        ],
+        "required": ["value"],
         "type": "object"
       }
     }

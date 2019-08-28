@@ -1,1 +1,2034 @@
-{"openapi":"3.0.0","info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<p/> <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority. Currently, Managed Blockchain supports the Hyperledger Fabric open source framework. </p>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"Amazon Managed Blockchain","version":"2018-09-24","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/managedblockchain-2018-09-24.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"managedblockchain"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/managedblockchain/"},"security":[{"hmac":[]}],"paths":{"/invitations":{"get":{"description":"Returns a listing of all invitations made on the specified network.","operationId":"ListInvitations","parameters":[{"description":"The maximum number of invitations to return.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":"The pagination token that indicates the next set of results to retrieve.","in":"query","name":"nextToken","required":false,"schema":{"type":"string","maxLength":128}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListInvitationsOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"ResourceLimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceededException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/invitations/{invitationId}":{"delete":{"description":"Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.","operationId":"RejectInvitation","parameters":[{"description":"The unique identifier of the invitation to reject.","in":"path","name":"invitationId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RejectInvitationOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"IllegalActionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalActionException"}}}},"482":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/networks":{"get":{"description":"Returns information about the networks in which the current AWS account has members.","operationId":"ListNetworks","parameters":[{"description":"The name of the network.","in":"query","name":"name","required":false,"schema":{"type":"string"}},{"description":"An optional framework specifier. If provided, only networks of this framework type are listed.","in":"query","name":"framework","required":false,"schema":{"type":"string","enum":["HYPERLEDGER_FABRIC"]}},{"description":"An optional status specifier. If provided, only networks currently in this status are listed.","in":"query","name":"status","required":false,"schema":{"type":"string","enum":["CREATING","AVAILABLE","CREATE_FAILED","DELETING","DELETED"]}},{"description":"The maximum number of networks to list.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":10}},{"description":"The pagination token that indicates the next set of results to retrieve.","in":"query","name":"nextToken","required":false,"schema":{"type":"string","maxLength":128}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListNetworksOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new blockchain network using Amazon Managed Blockchain.","operationId":"CreateNetwork","requestBody":{"content":{"application/json":{"schema":{"properties":{"ClientRequestToken":{"description":"A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.","maxLength":64,"minLength":1,"type":"string"},"Description":{"description":"An optional description for the network.","maxLength":128,"type":"string"},"Framework":{"description":"The blockchain framework that the network uses.","enum":["HYPERLEDGER_FABRIC"],"type":"string"},"FrameworkConfiguration":{"description":" Configuration properties relevant to the network for the blockchain framework that the network uses. ","properties":{"Fabric":{"$ref":"#/components/schemas/NetworkFabricConfiguration"}},"type":"object"},"FrameworkVersion":{"description":"The version of the blockchain framework that the network uses.","maxLength":8,"minLength":1,"type":"string"},"MemberConfiguration":{"description":"Configuration properties of the member.","properties":{"Description":{"$ref":"#/components/schemas/DescriptionString"},"FrameworkConfiguration":{"$ref":"#/components/schemas/MemberFrameworkConfiguration"},"Name":{"$ref":"#/components/schemas/NetworkMemberNameString"}},"type":"object"},"Name":{"description":"The name of the network.","maxLength":64,"minLength":1,"pattern":".*\\S.*","type":"string"},"VotingPolicy":{"description":" The voting rules for the network to decide if a proposal is accepted ","properties":{"ApprovalThresholdPolicy":{"$ref":"#/components/schemas/ApprovalThresholdPolicy"}},"type":"object"}},"required":["ClientRequestToken","Name","Framework","FrameworkVersion","VotingPolicy","MemberConfiguration"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateNetworkOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"ResourceLimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceededException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}}},"/networks/{networkId}":{"get":{"description":"Returns detailed information about a network.","operationId":"GetNetwork","parameters":[{"description":"The unique identifier of the network to get information about.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetNetworkOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/networks/{networkId}/members":{"get":{"description":"Returns a listing of the members in a network and properties of their configurations.","operationId":"ListMembers","parameters":[{"description":"The unique identifier of the network for which to list members.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The optional name of the member to list.","in":"query","name":"name","required":false,"schema":{"type":"string"}},{"description":"An optional status specifier. If provided, only members currently in this status are listed.","in":"query","name":"status","required":false,"schema":{"type":"string","enum":["CREATING","AVAILABLE","CREATE_FAILED","DELETING","DELETED"]}},{"description":"An optional Boolean value. If provided, the request is limited either to members that the current AWS account owns (<code>true</code>) or that other AWS accounts own (<code>false</code>). If omitted, all members are listed.","in":"query","name":"isOwned","required":false,"schema":{"type":"boolean"}},{"description":"The maximum number of members to return in the request.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":20}},{"description":"The pagination token that indicates the next set of results to retrieve.","in":"query","name":"nextToken","required":false,"schema":{"type":"string","maxLength":128}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListMembersOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a member within a Managed Blockchain network.","operationId":"CreateMember","parameters":[{"description":"The unique identifier of the network in which the member is created.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"ClientRequestToken":{"description":"A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.","maxLength":64,"minLength":1,"type":"string"},"InvitationId":{"description":"The unique identifier of the invitation that is sent to the member to join the network.","maxLength":32,"minLength":1,"type":"string"},"MemberConfiguration":{"description":"Configuration properties of the member.","properties":{"Description":{"$ref":"#/components/schemas/DescriptionString"},"FrameworkConfiguration":{"$ref":"#/components/schemas/MemberFrameworkConfiguration"},"Name":{"$ref":"#/components/schemas/NetworkMemberNameString"}},"type":"object"}},"required":["ClientRequestToken","InvitationId","MemberConfiguration"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateMemberOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"484":{"description":"ResourceNotReadyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotReadyException"}}}},"485":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"486":{"description":"ResourceLimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceededException"}}}},"487":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}}},"/networks/{networkId}/members/{memberId}":{"delete":{"description":"Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.","operationId":"DeleteMember","parameters":[{"description":"The unique identifier of the network from which the member is removed.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the member to remove.","in":"path","name":"memberId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteMemberOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ResourceNotReadyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotReadyException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"get":{"description":"Returns detailed information about a member.","operationId":"GetMember","parameters":[{"description":"The unique identifier of the network to which the member belongs.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the member.","in":"path","name":"memberId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetMemberOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/networks/{networkId}/members/{memberId}/nodes":{"get":{"description":"Returns information about the nodes within a network.","operationId":"ListNodes","parameters":[{"description":"The unique identifier of the network for which to list nodes.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the member who owns the nodes to list.","in":"path","name":"memberId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"An optional status specifier. If provided, only nodes currently in this status are listed.","in":"query","name":"status","required":false,"schema":{"type":"string","enum":["CREATING","AVAILABLE","CREATE_FAILED","DELETING","DELETED","FAILED"]}},{"description":"The maximum number of nodes to list.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":20}},{"description":"The pagination token that indicates the next set of results to retrieve.","in":"query","name":"nextToken","required":false,"schema":{"type":"string","maxLength":128}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListNodesOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a peer node in a member.","operationId":"CreateNode","parameters":[{"description":"The unique identifier of the network in which this node runs.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the member that owns this node.","in":"path","name":"memberId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"ClientRequestToken":{"description":"A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.","maxLength":64,"minLength":1,"type":"string"},"NodeConfiguration":{"description":"Configuration properties of a peer node.","properties":{"AvailabilityZone":{"$ref":"#/components/schemas/AvailabilityZoneString"},"InstanceType":{"$ref":"#/components/schemas/InstanceTypeString"}},"type":"object"}},"required":["ClientRequestToken","NodeConfiguration"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateNodeOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ResourceAlreadyExistsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceAlreadyExistsException"}}}},"484":{"description":"ResourceNotReadyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotReadyException"}}}},"485":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"486":{"description":"ResourceLimitExceededException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceLimitExceededException"}}}},"487":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}}},"/networks/{networkId}/members/{memberId}/nodes/{nodeId}":{"delete":{"description":"Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.","operationId":"DeleteNode","parameters":[{"description":"The unique identifier of the network that the node belongs to.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the member that owns this node.","in":"path","name":"memberId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the node.","in":"path","name":"nodeId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteNodeOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ResourceNotReadyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotReadyException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"get":{"description":"Returns detailed information about a peer node.","operationId":"GetNode","parameters":[{"description":"The unique identifier of the network to which the node belongs.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the member that owns the node.","in":"path","name":"memberId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the node.","in":"path","name":"nodeId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetNodeOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/networks/{networkId}/proposals":{"get":{"description":"Returns a listing of proposals for the network.","operationId":"ListProposals","parameters":[{"description":" The unique identifier of the network. ","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":" The maximum number of proposals to return. ","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":" The pagination token that indicates the next set of results to retrieve. ","in":"query","name":"nextToken","required":false,"schema":{"type":"string","maxLength":128}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListProposalsOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"482":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.","operationId":"CreateProposal","parameters":[{"description":" The unique identifier of the network for which the proposal is made.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"Actions":{"description":" The actions to carry out if a proposal is <code>APPROVED</code>. ","properties":{"Invitations":{"$ref":"#/components/schemas/InviteActionList"},"Removals":{"$ref":"#/components/schemas/RemoveActionList"}},"type":"object"},"ClientRequestToken":{"description":"A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.","maxLength":64,"minLength":1,"type":"string"},"Description":{"description":"A description for the proposal that is visible to voting members, for example, \"Proposal to add Example Corp. as member.\"","maxLength":128,"type":"string"},"MemberId":{"description":"The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account.","maxLength":32,"minLength":1,"type":"string"}},"required":["ClientRequestToken","MemberId","Actions"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateProposalOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ResourceNotReadyException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotReadyException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}}},"/networks/{networkId}/proposals/{proposalId}":{"get":{"description":"Returns detailed information about a proposal.","operationId":"GetProposal","parameters":[{"description":"The unique identifier of the network for which the proposal is made.","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":"The unique identifier of the proposal.","in":"path","name":"proposalId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetProposalOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"483":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"484":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/networks/{networkId}/proposals/{proposalId}/votes":{"get":{"description":"Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.","operationId":"ListProposalVotes","parameters":[{"description":" The unique identifier of the network. ","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":" The unique identifier of the proposal. ","in":"path","name":"proposalId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":" The maximum number of votes to return. ","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":" The pagination token that indicates the next set of results to retrieve. ","in":"query","name":"nextToken","required":false,"schema":{"type":"string","maxLength":128}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListProposalVotesOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"482":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"483":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.","operationId":"VoteOnProposal","parameters":[{"description":" The unique identifier of the network. ","in":"path","name":"networkId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}},{"description":" The unique identifier of the proposal. ","in":"path","name":"proposalId","required":true,"schema":{"type":"string","minLength":1,"maxLength":32}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"Vote":{"description":" The value of the vote. ","enum":["YES","NO"],"type":"string"},"VoterMemberId":{"description":"The unique identifier of the member casting the vote. ","maxLength":32,"minLength":1,"type":"string"}},"required":["VoterMemberId","Vote"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VoteOnProposalOutput"}}}},"480":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"IllegalActionException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IllegalActionException"}}}},"482":{"description":"AccessDeniedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AccessDeniedException"}}}},"483":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}},"484":{"description":"ThrottlingException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ThrottlingException"}}}},"485":{"description":"InternalServiceErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServiceErrorException"}}}}}}}},"servers":[{"description":"The ManagedBlockchain multi-region endpoint","url":"http://managedblockchain.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The ManagedBlockchain multi-region endpoint","url":"https://managedblockchain.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The ManagedBlockchain endpoint for China (Beijing) and China (Ningxia)","url":"http://managedblockchain.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The ManagedBlockchain endpoint for China (Beijing) and China (Ningxia)","url":"https://managedblockchain.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AccessDeniedException":{},"ApprovalThresholdPolicy":{"description":"A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.","properties":{"ProposalDurationInHours":{"$ref":"#/components/schemas/ProposalDurationInt"},"ThresholdComparator":{"$ref":"#/components/schemas/ThresholdComparator"},"ThresholdPercentage":{"$ref":"#/components/schemas/ThresholdPercentageInt"}},"type":"object"},"AvailabilityZoneString":{"type":"string"},"ClientRequestTokenString":{"maxLength":64,"minLength":1,"type":"string"},"CreateMemberInput":{"properties":{"ClientRequestToken":{"$ref":"#/components/schemas/ClientRequestTokenString"},"InvitationId":{"$ref":"#/components/schemas/ResourceIdString"},"MemberConfiguration":{"$ref":"#/components/schemas/MemberConfiguration"}},"required":["ClientRequestToken","InvitationId","MemberConfiguration"],"type":"object"},"CreateMemberOutput":{"properties":{"MemberId":{"$ref":"#/components/schemas/ResourceIdString"}},"type":"object"},"CreateNetworkInput":{"properties":{"ClientRequestToken":{"$ref":"#/components/schemas/ClientRequestTokenString"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"Framework":{"$ref":"#/components/schemas/Framework"},"FrameworkConfiguration":{"$ref":"#/components/schemas/NetworkFrameworkConfiguration"},"FrameworkVersion":{"$ref":"#/components/schemas/FrameworkVersionString"},"MemberConfiguration":{"$ref":"#/components/schemas/MemberConfiguration"},"Name":{"$ref":"#/components/schemas/NameString"},"VotingPolicy":{"$ref":"#/components/schemas/VotingPolicy"}},"required":["ClientRequestToken","Name","Framework","FrameworkVersion","VotingPolicy","MemberConfiguration"],"type":"object"},"CreateNetworkOutput":{"properties":{"MemberId":{"$ref":"#/components/schemas/ResourceIdString"},"NetworkId":{"$ref":"#/components/schemas/ResourceIdString"}},"type":"object"},"CreateNodeInput":{"properties":{"ClientRequestToken":{"$ref":"#/components/schemas/ClientRequestTokenString"},"NodeConfiguration":{"$ref":"#/components/schemas/NodeConfiguration"}},"required":["ClientRequestToken","NodeConfiguration"],"type":"object"},"CreateNodeOutput":{"properties":{"NodeId":{"$ref":"#/components/schemas/ResourceIdString"}},"type":"object"},"CreateProposalInput":{"properties":{"Actions":{"$ref":"#/components/schemas/ProposalActions"},"ClientRequestToken":{"$ref":"#/components/schemas/ClientRequestTokenString"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"MemberId":{"$ref":"#/components/schemas/ResourceIdString"}},"required":["ClientRequestToken","MemberId","Actions"],"type":"object"},"CreateProposalOutput":{"properties":{"ProposalId":{"$ref":"#/components/schemas/ResourceIdString"}},"type":"object"},"DeleteMemberInput":{"properties":{},"type":"object"},"DeleteMemberOutput":{"properties":{},"type":"object"},"DeleteNodeInput":{"properties":{},"type":"object"},"DeleteNodeOutput":{"properties":{},"type":"object"},"DescriptionString":{"maxLength":128,"type":"string"},"Edition":{"enum":["STARTER","STANDARD"],"type":"string"},"Framework":{"enum":["HYPERLEDGER_FABRIC"],"type":"string"},"FrameworkVersionString":{"maxLength":8,"minLength":1,"type":"string"},"GetMemberInput":{"properties":{},"type":"object"},"GetMemberOutput":{"properties":{"Member":{"$ref":"#/components/schemas/Member"}},"type":"object"},"GetNetworkInput":{"properties":{},"type":"object"},"GetNetworkOutput":{"properties":{"Network":{"$ref":"#/components/schemas/Network"}},"type":"object"},"GetNodeInput":{"properties":{},"type":"object"},"GetNodeOutput":{"properties":{"Node":{"$ref":"#/components/schemas/Node"}},"type":"object"},"GetProposalInput":{"properties":{},"type":"object"},"GetProposalOutput":{"properties":{"Proposal":{"$ref":"#/components/schemas/Proposal"}},"type":"object"},"IllegalActionException":{},"InstanceTypeString":{"type":"string"},"InternalServiceErrorException":{},"InvalidRequestException":{},"Invitation":{"description":"An invitation to an AWS account to create a member and join the network.","properties":{"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"ExpirationDate":{"$ref":"#/components/schemas/Timestamp"},"InvitationId":{"$ref":"#/components/schemas/ResourceIdString"},"NetworkSummary":{"$ref":"#/components/schemas/NetworkSummary"},"Status":{"$ref":"#/components/schemas/InvitationStatus"}},"type":"object"},"InvitationList":{"items":{"$ref":"#/components/schemas/Invitation"},"type":"array"},"InvitationStatus":{"enum":["PENDING","ACCEPTED","ACCEPTING","REJECTED","EXPIRED"],"type":"string"},"InviteAction":{"description":"An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.","properties":{"Principal":{"$ref":"#/components/schemas/PrincipalString"}},"required":["Principal"],"type":"object"},"InviteActionList":{"items":{"$ref":"#/components/schemas/InviteAction"},"type":"array"},"IsOwned":{"type":"boolean"},"ListInvitationsInput":{"properties":{},"type":"object"},"ListInvitationsOutput":{"properties":{"Invitations":{"$ref":"#/components/schemas/InvitationList"},"NextToken":{"$ref":"#/components/schemas/PaginationToken"}},"type":"object"},"ListMembersInput":{"properties":{},"type":"object"},"ListMembersOutput":{"properties":{"Members":{"$ref":"#/components/schemas/MemberSummaryList"},"NextToken":{"$ref":"#/components/schemas/PaginationToken"}},"type":"object"},"ListNetworksInput":{"properties":{},"type":"object"},"ListNetworksOutput":{"properties":{"Networks":{"$ref":"#/components/schemas/NetworkSummaryList"},"NextToken":{"$ref":"#/components/schemas/PaginationToken"}},"type":"object"},"ListNodesInput":{"properties":{},"type":"object"},"ListNodesOutput":{"properties":{"NextToken":{"$ref":"#/components/schemas/PaginationToken"},"Nodes":{"$ref":"#/components/schemas/NodeSummaryList"}},"type":"object"},"ListProposalVotesInput":{"properties":{},"type":"object"},"ListProposalVotesOutput":{"properties":{"NextToken":{"$ref":"#/components/schemas/PaginationToken"},"ProposalVotes":{"$ref":"#/components/schemas/ProposalVoteList"}},"type":"object"},"ListProposalsInput":{"properties":{},"type":"object"},"ListProposalsOutput":{"properties":{"NextToken":{"$ref":"#/components/schemas/PaginationToken"},"Proposals":{"$ref":"#/components/schemas/ProposalSummaryList"}},"type":"object"},"Member":{"description":"Member configuration properties.","properties":{"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"FrameworkAttributes":{"$ref":"#/components/schemas/MemberFrameworkAttributes"},"Id":{"$ref":"#/components/schemas/ResourceIdString"},"Name":{"$ref":"#/components/schemas/NetworkMemberNameString"},"NetworkId":{"$ref":"#/components/schemas/ResourceIdString"},"Status":{"$ref":"#/components/schemas/MemberStatus"}},"type":"object"},"MemberConfiguration":{"description":"Configuration properties of the member.","properties":{"Description":{"$ref":"#/components/schemas/DescriptionString"},"FrameworkConfiguration":{"$ref":"#/components/schemas/MemberFrameworkConfiguration"},"Name":{"$ref":"#/components/schemas/NetworkMemberNameString"}},"required":["Name","FrameworkConfiguration"],"type":"object"},"MemberFabricAttributes":{"description":"Attributes of Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.","properties":{"AdminUsername":{"$ref":"#/components/schemas/UsernameString"},"CaEndpoint":{"$ref":"#/components/schemas/String"}},"type":"object"},"MemberFabricConfiguration":{"description":"Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.","properties":{"AdminPassword":{"$ref":"#/components/schemas/PasswordString"},"AdminUsername":{"$ref":"#/components/schemas/UsernameString"}},"required":["AdminUsername","AdminPassword"],"type":"object"},"MemberFrameworkAttributes":{"description":"Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.","properties":{"Fabric":{"$ref":"#/components/schemas/MemberFabricAttributes"}},"type":"object"},"MemberFrameworkConfiguration":{"description":"Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.","properties":{"Fabric":{"$ref":"#/components/schemas/MemberFabricConfiguration"}},"type":"object"},"MemberListMaxResults":{"maximum":20,"minimum":1,"type":"integer"},"MemberStatus":{"enum":["CREATING","AVAILABLE","CREATE_FAILED","DELETING","DELETED"],"type":"string"},"MemberSummary":{"description":"A summary of configuration properties for a member.","properties":{"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"Id":{"$ref":"#/components/schemas/ResourceIdString"},"IsOwned":{"$ref":"#/components/schemas/IsOwned"},"Name":{"$ref":"#/components/schemas/NetworkMemberNameString"},"Status":{"$ref":"#/components/schemas/MemberStatus"}},"type":"object"},"MemberSummaryList":{"items":{"$ref":"#/components/schemas/MemberSummary"},"type":"array"},"NameString":{"maxLength":64,"minLength":1,"pattern":".*\\S.*","type":"string"},"Network":{"description":"Network configuration properties.","properties":{"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"Framework":{"$ref":"#/components/schemas/Framework"},"FrameworkAttributes":{"$ref":"#/components/schemas/NetworkFrameworkAttributes"},"FrameworkVersion":{"$ref":"#/components/schemas/FrameworkVersionString"},"Id":{"$ref":"#/components/schemas/ResourceIdString"},"Name":{"$ref":"#/components/schemas/NameString"},"Status":{"$ref":"#/components/schemas/NetworkStatus"},"VotingPolicy":{"$ref":"#/components/schemas/VotingPolicy"},"VpcEndpointServiceName":{"$ref":"#/components/schemas/String"}},"type":"object"},"NetworkFabricAttributes":{"description":"Attributes of Hyperledger Fabric for a network.","properties":{"Edition":{"$ref":"#/components/schemas/Edition"},"OrderingServiceEndpoint":{"$ref":"#/components/schemas/String"}},"type":"object"},"NetworkFabricConfiguration":{"description":"Hyperledger Fabric configuration properties for the network.","properties":{"Edition":{"$ref":"#/components/schemas/Edition"}},"required":["Edition"],"type":"object"},"NetworkFrameworkAttributes":{"description":"Attributes relevant to the network for the blockchain framework that the network uses.","properties":{"Fabric":{"$ref":"#/components/schemas/NetworkFabricAttributes"}},"type":"object"},"NetworkFrameworkConfiguration":{"description":" Configuration properties relevant to the network for the blockchain framework that the network uses. ","properties":{"Fabric":{"$ref":"#/components/schemas/NetworkFabricConfiguration"}},"type":"object"},"NetworkListMaxResults":{"maximum":10,"minimum":1,"type":"integer"},"NetworkMemberNameString":{"maxLength":64,"minLength":1,"pattern":"^(?!-)^[^0-9](?!.*--)[A-Za-z0-9-]+[^- ]$","type":"string"},"NetworkStatus":{"enum":["CREATING","AVAILABLE","CREATE_FAILED","DELETING","DELETED"],"type":"string"},"NetworkSummary":{"description":"A summary of network configuration properties.","properties":{"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"Framework":{"$ref":"#/components/schemas/Framework"},"FrameworkVersion":{"$ref":"#/components/schemas/FrameworkVersionString"},"Id":{"$ref":"#/components/schemas/ResourceIdString"},"Name":{"$ref":"#/components/schemas/NameString"},"Status":{"$ref":"#/components/schemas/NetworkStatus"}},"type":"object"},"NetworkSummaryList":{"items":{"$ref":"#/components/schemas/NetworkSummary"},"type":"array"},"Node":{"description":"Configuration properties of a peer node.","properties":{"AvailabilityZone":{"$ref":"#/components/schemas/AvailabilityZoneString"},"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"FrameworkAttributes":{"$ref":"#/components/schemas/NodeFrameworkAttributes"},"Id":{"$ref":"#/components/schemas/ResourceIdString"},"InstanceType":{"$ref":"#/components/schemas/InstanceTypeString"},"MemberId":{"$ref":"#/components/schemas/ResourceIdString"},"NetworkId":{"$ref":"#/components/schemas/ResourceIdString"},"Status":{"$ref":"#/components/schemas/NodeStatus"}},"type":"object"},"NodeConfiguration":{"description":"Configuration properties of a peer node.","properties":{"AvailabilityZone":{"$ref":"#/components/schemas/AvailabilityZoneString"},"InstanceType":{"$ref":"#/components/schemas/InstanceTypeString"}},"required":["InstanceType","AvailabilityZone"],"type":"object"},"NodeFabricAttributes":{"description":"Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.","properties":{"PeerEndpoint":{"$ref":"#/components/schemas/String"},"PeerEventEndpoint":{"$ref":"#/components/schemas/String"}},"type":"object"},"NodeFrameworkAttributes":{"description":"Attributes relevant to a peer node on a Managed Blockchain network for the blockchain framework that the network uses.","properties":{"Fabric":{"$ref":"#/components/schemas/NodeFabricAttributes"}},"type":"object"},"NodeListMaxResults":{"maximum":20,"minimum":1,"type":"integer"},"NodeStatus":{"enum":["CREATING","AVAILABLE","CREATE_FAILED","DELETING","DELETED","FAILED"],"type":"string"},"NodeSummary":{"description":"A summary of configuration properties for a peer node.","properties":{"AvailabilityZone":{"$ref":"#/components/schemas/AvailabilityZoneString"},"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"Id":{"$ref":"#/components/schemas/ResourceIdString"},"InstanceType":{"$ref":"#/components/schemas/InstanceTypeString"},"Status":{"$ref":"#/components/schemas/NodeStatus"}},"type":"object"},"NodeSummaryList":{"items":{"$ref":"#/components/schemas/NodeSummary"},"type":"array"},"PaginationToken":{"maxLength":128,"type":"string"},"PasswordString":{"format":"password","maxLength":32,"minLength":8,"pattern":"^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?!.*[@'\\\\\"/])[a-zA-Z0-9\\S]*$","type":"string"},"PrincipalString":{"type":"string"},"Proposal":{"description":"Properties of a proposal on a Managed Blockchain network.","properties":{"Actions":{"$ref":"#/components/schemas/ProposalActions"},"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"ExpirationDate":{"$ref":"#/components/schemas/Timestamp"},"NetworkId":{"$ref":"#/components/schemas/ResourceIdString"},"NoVoteCount":{"$ref":"#/components/schemas/VoteCount"},"OutstandingVoteCount":{"$ref":"#/components/schemas/VoteCount"},"ProposalId":{"$ref":"#/components/schemas/ResourceIdString"},"ProposedByMemberId":{"$ref":"#/components/schemas/ResourceIdString"},"ProposedByMemberName":{"$ref":"#/components/schemas/NetworkMemberNameString"},"Status":{"$ref":"#/components/schemas/ProposalStatus"},"YesVoteCount":{"$ref":"#/components/schemas/VoteCount"}},"type":"object"},"ProposalActions":{"description":" The actions to carry out if a proposal is <code>APPROVED</code>. ","properties":{"Invitations":{"$ref":"#/components/schemas/InviteActionList"},"Removals":{"$ref":"#/components/schemas/RemoveActionList"}},"type":"object"},"ProposalDurationInt":{"maximum":168,"minimum":1,"type":"integer"},"ProposalListMaxResults":{"maximum":100,"minimum":1,"type":"integer"},"ProposalStatus":{"enum":["IN_PROGRESS","APPROVED","REJECTED","EXPIRED","ACTION_FAILED"],"type":"string"},"ProposalSummary":{"description":"Properties of a proposal.","properties":{"CreationDate":{"$ref":"#/components/schemas/Timestamp"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"ExpirationDate":{"$ref":"#/components/schemas/Timestamp"},"ProposalId":{"$ref":"#/components/schemas/ResourceIdString"},"ProposedByMemberId":{"$ref":"#/components/schemas/ResourceIdString"},"ProposedByMemberName":{"$ref":"#/components/schemas/NetworkMemberNameString"},"Status":{"$ref":"#/components/schemas/ProposalStatus"}},"type":"object"},"ProposalSummaryList":{"items":{"$ref":"#/components/schemas/ProposalSummary"},"type":"array"},"ProposalVoteList":{"items":{"$ref":"#/components/schemas/VoteSummary"},"type":"array"},"RejectInvitationInput":{"properties":{},"type":"object"},"RejectInvitationOutput":{"properties":{},"type":"object"},"RemoveAction":{"description":"An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.","properties":{"MemberId":{"$ref":"#/components/schemas/ResourceIdString"}},"required":["MemberId"],"type":"object"},"RemoveActionList":{"items":{"$ref":"#/components/schemas/RemoveAction"},"type":"array"},"ResourceAlreadyExistsException":{},"ResourceIdString":{"maxLength":32,"minLength":1,"type":"string"},"ResourceLimitExceededException":{},"ResourceNotFoundException":{},"ResourceNotReadyException":{},"String":{"type":"string"},"ThresholdComparator":{"enum":["GREATER_THAN","GREATER_THAN_OR_EQUAL_TO"],"type":"string"},"ThresholdPercentageInt":{"maximum":100,"minimum":0,"type":"integer"},"ThrottlingException":{},"Timestamp":{"format":"date-time","type":"string"},"UsernameString":{"maxLength":16,"minLength":1,"pattern":"^[a-zA-Z][a-zA-Z0-9]*$","type":"string"},"VoteCount":{"type":"integer"},"VoteOnProposalInput":{"properties":{"Vote":{"$ref":"#/components/schemas/VoteValue"},"VoterMemberId":{"$ref":"#/components/schemas/ResourceIdString"}},"required":["VoterMemberId","Vote"],"type":"object"},"VoteOnProposalOutput":{"properties":{},"type":"object"},"VoteSummary":{"description":" Properties of an individual vote that a member cast for a proposal. ","properties":{"MemberId":{"$ref":"#/components/schemas/ResourceIdString"},"MemberName":{"$ref":"#/components/schemas/NetworkMemberNameString"},"Vote":{"$ref":"#/components/schemas/VoteValue"}},"type":"object"},"VoteValue":{"enum":["YES","NO"],"type":"string"},"VotingPolicy":{"description":" The voting rules for the network to decide if a proposal is accepted ","properties":{"ApprovalThresholdPolicy":{"$ref":"#/components/schemas/ApprovalThresholdPolicy"}},"type":"object"}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p/> <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority. Currently, Managed Blockchain supports the Hyperledger Fabric open source framework. </p>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Managed Blockchain",
+    "version": "2018-09-24",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/managedblockchain-2018-09-24.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "managedblockchain"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/managedblockchain/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/invitations": {
+      "get": {
+        "description": "Returns a listing of all invitations made on the specified network.",
+        "operationId": "ListInvitations",
+        "parameters": [
+          {
+            "description": "The maximum number of invitations to return.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": "The pagination token that indicates the next set of results to retrieve.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 128 }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListInvitationsOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "ResourceLimitExceededException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceededException" } }
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/invitations/{invitationId}": {
+      "delete": {
+        "description": "Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.",
+        "operationId": "RejectInvitation",
+        "parameters": [
+          {
+            "description": "The unique identifier of the invitation to reject.",
+            "in": "path",
+            "name": "invitationId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RejectInvitationOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "IllegalActionException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalActionException" } } }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/networks": {
+      "get": {
+        "description": "Returns information about the networks in which the current AWS account has members.",
+        "operationId": "ListNetworks",
+        "parameters": [
+          {
+            "description": "The name of the network.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "An optional framework specifier. If provided, only networks of this framework type are listed.",
+            "in": "query",
+            "name": "framework",
+            "required": false,
+            "schema": { "type": "string", "enum": ["HYPERLEDGER_FABRIC"] }
+          },
+          {
+            "description": "An optional status specifier. If provided, only networks currently in this status are listed.",
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": { "type": "string", "enum": ["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED"] }
+          },
+          {
+            "description": "The maximum number of networks to list.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 10 }
+          },
+          {
+            "description": "The pagination token that indicates the next set of results to retrieve.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 128 }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListNetworksOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new blockchain network using Amazon Managed Blockchain.",
+        "operationId": "CreateNetwork",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "ClientRequestToken": {
+                    "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "Description": {
+                    "description": "An optional description for the network.",
+                    "maxLength": 128,
+                    "type": "string"
+                  },
+                  "Framework": {
+                    "description": "The blockchain framework that the network uses.",
+                    "enum": ["HYPERLEDGER_FABRIC"],
+                    "type": "string"
+                  },
+                  "FrameworkConfiguration": {
+                    "description": " Configuration properties relevant to the network for the blockchain framework that the network uses. ",
+                    "properties": { "Fabric": { "$ref": "#/components/schemas/NetworkFabricConfiguration" } },
+                    "type": "object"
+                  },
+                  "FrameworkVersion": {
+                    "description": "The version of the blockchain framework that the network uses.",
+                    "maxLength": 8,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "MemberConfiguration": {
+                    "description": "Configuration properties of the member.",
+                    "properties": {
+                      "Description": { "$ref": "#/components/schemas/DescriptionString" },
+                      "FrameworkConfiguration": { "$ref": "#/components/schemas/MemberFrameworkConfiguration" },
+                      "Name": { "$ref": "#/components/schemas/NetworkMemberNameString" }
+                    },
+                    "type": "object"
+                  },
+                  "Name": {
+                    "description": "The name of the network.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": ".*\\S.*",
+                    "type": "string"
+                  },
+                  "VotingPolicy": {
+                    "description": " The voting rules for the network to decide if a proposal is accepted ",
+                    "properties": {
+                      "ApprovalThresholdPolicy": { "$ref": "#/components/schemas/ApprovalThresholdPolicy" }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "ClientRequestToken",
+                  "Name",
+                  "Framework",
+                  "FrameworkVersion",
+                  "VotingPolicy",
+                  "MemberConfiguration"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateNetworkOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "ResourceLimitExceededException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceededException" } }
+            }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{networkId}": {
+      "get": {
+        "description": "Returns detailed information about a network.",
+        "operationId": "GetNetwork",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network to get information about.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetNetworkOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/networks/{networkId}/members": {
+      "get": {
+        "description": "Returns a listing of the members in a network and properties of their configurations.",
+        "operationId": "ListMembers",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network for which to list members.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The optional name of the member to list.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "An optional status specifier. If provided, only members currently in this status are listed.",
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": { "type": "string", "enum": ["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED"] }
+          },
+          {
+            "description": "An optional Boolean value. If provided, the request is limited either to members that the current AWS account owns (<code>true</code>) or that other AWS accounts own (<code>false</code>). If omitted, all members are listed.",
+            "in": "query",
+            "name": "isOwned",
+            "required": false,
+            "schema": { "type": "boolean" }
+          },
+          {
+            "description": "The maximum number of members to return in the request.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 20 }
+          },
+          {
+            "description": "The pagination token that indicates the next set of results to retrieve.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 128 }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListMembersOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a member within a Managed Blockchain network.",
+        "operationId": "CreateMember",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network in which the member is created.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "ClientRequestToken": {
+                    "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "InvitationId": {
+                    "description": "The unique identifier of the invitation that is sent to the member to join the network.",
+                    "maxLength": 32,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "MemberConfiguration": {
+                    "description": "Configuration properties of the member.",
+                    "properties": {
+                      "Description": { "$ref": "#/components/schemas/DescriptionString" },
+                      "FrameworkConfiguration": { "$ref": "#/components/schemas/MemberFrameworkConfiguration" },
+                      "Name": { "$ref": "#/components/schemas/NetworkMemberNameString" }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": ["ClientRequestToken", "InvitationId", "MemberConfiguration"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateMemberOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceNotReadyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotReadyException" } }
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "486": {
+            "description": "ResourceLimitExceededException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceededException" } }
+            }
+          },
+          "487": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{networkId}/members/{memberId}": {
+      "delete": {
+        "description": "Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.",
+        "operationId": "DeleteMember",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network from which the member is removed.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the member to remove.",
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteMemberOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceNotReadyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotReadyException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns detailed information about a member.",
+        "operationId": "GetMember",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network to which the member belongs.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the member.",
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetMemberOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/networks/{networkId}/members/{memberId}/nodes": {
+      "get": {
+        "description": "Returns information about the nodes within a network.",
+        "operationId": "ListNodes",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network for which to list nodes.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the member who owns the nodes to list.",
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "An optional status specifier. If provided, only nodes currently in this status are listed.",
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED", "FAILED"]
+            }
+          },
+          {
+            "description": "The maximum number of nodes to list.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 20 }
+          },
+          {
+            "description": "The pagination token that indicates the next set of results to retrieve.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 128 }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListNodesOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a peer node in a member.",
+        "operationId": "CreateNode",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network in which this node runs.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the member that owns this node.",
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "ClientRequestToken": {
+                    "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "NodeConfiguration": {
+                    "description": "Configuration properties of a peer node.",
+                    "properties": {
+                      "AvailabilityZone": { "$ref": "#/components/schemas/AvailabilityZoneString" },
+                      "InstanceType": { "$ref": "#/components/schemas/InstanceTypeString" }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": ["ClientRequestToken", "NodeConfiguration"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateNodeOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceAlreadyExistsException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceAlreadyExistsException" } }
+            }
+          },
+          "484": {
+            "description": "ResourceNotReadyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotReadyException" } }
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "486": {
+            "description": "ResourceLimitExceededException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceLimitExceededException" } }
+            }
+          },
+          "487": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{networkId}/members/{memberId}/nodes/{nodeId}": {
+      "delete": {
+        "description": "Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.",
+        "operationId": "DeleteNode",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network that the node belongs to.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the member that owns this node.",
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the node.",
+            "in": "path",
+            "name": "nodeId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteNodeOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceNotReadyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotReadyException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns detailed information about a peer node.",
+        "operationId": "GetNode",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network to which the node belongs.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the member that owns the node.",
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the node.",
+            "in": "path",
+            "name": "nodeId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetNodeOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/networks/{networkId}/proposals": {
+      "get": {
+        "description": "Returns a listing of proposals for the network.",
+        "operationId": "ListProposals",
+        "parameters": [
+          {
+            "description": " The unique identifier of the network. ",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": " The maximum number of proposals to return. ",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": " The pagination token that indicates the next set of results to retrieve. ",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 128 }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListProposalsOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.",
+        "operationId": "CreateProposal",
+        "parameters": [
+          {
+            "description": " The unique identifier of the network for which the proposal is made.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "Actions": {
+                    "description": " The actions to carry out if a proposal is <code>APPROVED</code>. ",
+                    "properties": {
+                      "Invitations": { "$ref": "#/components/schemas/InviteActionList" },
+                      "Removals": { "$ref": "#/components/schemas/RemoveActionList" }
+                    },
+                    "type": "object"
+                  },
+                  "ClientRequestToken": {
+                    "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "Description": {
+                    "description": "A description for the proposal that is visible to voting members, for example, \"Proposal to add Example Corp. as member.\"",
+                    "maxLength": 128,
+                    "type": "string"
+                  },
+                  "MemberId": {
+                    "description": "The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account.",
+                    "maxLength": 32,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": ["ClientRequestToken", "MemberId", "Actions"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateProposalOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ResourceNotReadyException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotReadyException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{networkId}/proposals/{proposalId}": {
+      "get": {
+        "description": "Returns detailed information about a proposal.",
+        "operationId": "GetProposal",
+        "parameters": [
+          {
+            "description": "The unique identifier of the network for which the proposal is made.",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": "The unique identifier of the proposal.",
+            "in": "path",
+            "name": "proposalId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetProposalOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "484": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/networks/{networkId}/proposals/{proposalId}/votes": {
+      "get": {
+        "description": "Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.",
+        "operationId": "ListProposalVotes",
+        "parameters": [
+          {
+            "description": " The unique identifier of the network. ",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": " The unique identifier of the proposal. ",
+            "in": "path",
+            "name": "proposalId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": " The maximum number of votes to return. ",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": " The pagination token that indicates the next set of results to retrieve. ",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 128 }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListProposalVotesOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.",
+        "operationId": "VoteOnProposal",
+        "parameters": [
+          {
+            "description": " The unique identifier of the network. ",
+            "in": "path",
+            "name": "networkId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          },
+          {
+            "description": " The unique identifier of the proposal. ",
+            "in": "path",
+            "name": "proposalId",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 32 }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "Vote": { "description": " The value of the vote. ", "enum": ["YES", "NO"], "type": "string" },
+                  "VoterMemberId": {
+                    "description": "The unique identifier of the member casting the vote. ",
+                    "maxLength": 32,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": ["VoterMemberId", "Vote"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/VoteOnProposalOutput" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "IllegalActionException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IllegalActionException" } } }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AccessDeniedException" } } }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ThrottlingException" } } }
+          },
+          "485": {
+            "description": "InternalServiceErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServiceErrorException" } }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The ManagedBlockchain multi-region endpoint",
+      "url": "http://managedblockchain.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The ManagedBlockchain multi-region endpoint",
+      "url": "https://managedblockchain.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The ManagedBlockchain endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://managedblockchain.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The ManagedBlockchain endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://managedblockchain.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AccessDeniedException": {},
+      "ApprovalThresholdPolicy": {
+        "description": "A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.",
+        "properties": {
+          "ProposalDurationInHours": { "$ref": "#/components/schemas/ProposalDurationInt" },
+          "ThresholdComparator": { "$ref": "#/components/schemas/ThresholdComparator" },
+          "ThresholdPercentage": { "$ref": "#/components/schemas/ThresholdPercentageInt" }
+        },
+        "type": "object"
+      },
+      "AvailabilityZoneString": { "type": "string" },
+      "ClientRequestTokenString": { "maxLength": 64, "minLength": 1, "type": "string" },
+      "CreateMemberInput": {
+        "properties": {
+          "ClientRequestToken": { "$ref": "#/components/schemas/ClientRequestTokenString" },
+          "InvitationId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "MemberConfiguration": { "$ref": "#/components/schemas/MemberConfiguration" }
+        },
+        "required": ["ClientRequestToken", "InvitationId", "MemberConfiguration"],
+        "type": "object"
+      },
+      "CreateMemberOutput": {
+        "properties": { "MemberId": { "$ref": "#/components/schemas/ResourceIdString" } },
+        "type": "object"
+      },
+      "CreateNetworkInput": {
+        "properties": {
+          "ClientRequestToken": { "$ref": "#/components/schemas/ClientRequestTokenString" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "Framework": { "$ref": "#/components/schemas/Framework" },
+          "FrameworkConfiguration": { "$ref": "#/components/schemas/NetworkFrameworkConfiguration" },
+          "FrameworkVersion": { "$ref": "#/components/schemas/FrameworkVersionString" },
+          "MemberConfiguration": { "$ref": "#/components/schemas/MemberConfiguration" },
+          "Name": { "$ref": "#/components/schemas/NameString" },
+          "VotingPolicy": { "$ref": "#/components/schemas/VotingPolicy" }
+        },
+        "required": [
+          "ClientRequestToken",
+          "Name",
+          "Framework",
+          "FrameworkVersion",
+          "VotingPolicy",
+          "MemberConfiguration"
+        ],
+        "type": "object"
+      },
+      "CreateNetworkOutput": {
+        "properties": {
+          "MemberId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "NetworkId": { "$ref": "#/components/schemas/ResourceIdString" }
+        },
+        "type": "object"
+      },
+      "CreateNodeInput": {
+        "properties": {
+          "ClientRequestToken": { "$ref": "#/components/schemas/ClientRequestTokenString" },
+          "NodeConfiguration": { "$ref": "#/components/schemas/NodeConfiguration" }
+        },
+        "required": ["ClientRequestToken", "NodeConfiguration"],
+        "type": "object"
+      },
+      "CreateNodeOutput": {
+        "properties": { "NodeId": { "$ref": "#/components/schemas/ResourceIdString" } },
+        "type": "object"
+      },
+      "CreateProposalInput": {
+        "properties": {
+          "Actions": { "$ref": "#/components/schemas/ProposalActions" },
+          "ClientRequestToken": { "$ref": "#/components/schemas/ClientRequestTokenString" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "MemberId": { "$ref": "#/components/schemas/ResourceIdString" }
+        },
+        "required": ["ClientRequestToken", "MemberId", "Actions"],
+        "type": "object"
+      },
+      "CreateProposalOutput": {
+        "properties": { "ProposalId": { "$ref": "#/components/schemas/ResourceIdString" } },
+        "type": "object"
+      },
+      "DeleteMemberInput": { "properties": {}, "type": "object" },
+      "DeleteMemberOutput": { "properties": {}, "type": "object" },
+      "DeleteNodeInput": { "properties": {}, "type": "object" },
+      "DeleteNodeOutput": { "properties": {}, "type": "object" },
+      "DescriptionString": { "maxLength": 128, "type": "string" },
+      "Edition": { "enum": ["STARTER", "STANDARD"], "type": "string" },
+      "Framework": { "enum": ["HYPERLEDGER_FABRIC"], "type": "string" },
+      "FrameworkVersionString": { "maxLength": 8, "minLength": 1, "type": "string" },
+      "GetMemberInput": { "properties": {}, "type": "object" },
+      "GetMemberOutput": { "properties": { "Member": { "$ref": "#/components/schemas/Member" } }, "type": "object" },
+      "GetNetworkInput": { "properties": {}, "type": "object" },
+      "GetNetworkOutput": { "properties": { "Network": { "$ref": "#/components/schemas/Network" } }, "type": "object" },
+      "GetNodeInput": { "properties": {}, "type": "object" },
+      "GetNodeOutput": { "properties": { "Node": { "$ref": "#/components/schemas/Node" } }, "type": "object" },
+      "GetProposalInput": { "properties": {}, "type": "object" },
+      "GetProposalOutput": {
+        "properties": { "Proposal": { "$ref": "#/components/schemas/Proposal" } },
+        "type": "object"
+      },
+      "IllegalActionException": {},
+      "InstanceTypeString": { "type": "string" },
+      "InternalServiceErrorException": {},
+      "InvalidRequestException": {},
+      "Invitation": {
+        "description": "An invitation to an AWS account to create a member and join the network.",
+        "properties": {
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "ExpirationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "InvitationId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "NetworkSummary": { "$ref": "#/components/schemas/NetworkSummary" },
+          "Status": { "$ref": "#/components/schemas/InvitationStatus" }
+        },
+        "type": "object"
+      },
+      "InvitationList": { "items": { "$ref": "#/components/schemas/Invitation" }, "type": "array" },
+      "InvitationStatus": { "enum": ["PENDING", "ACCEPTED", "ACCEPTING", "REJECTED", "EXPIRED"], "type": "string" },
+      "InviteAction": {
+        "description": "An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.",
+        "properties": { "Principal": { "$ref": "#/components/schemas/PrincipalString" } },
+        "required": ["Principal"],
+        "type": "object"
+      },
+      "InviteActionList": { "items": { "$ref": "#/components/schemas/InviteAction" }, "type": "array" },
+      "IsOwned": { "type": "boolean" },
+      "ListInvitationsInput": { "properties": {}, "type": "object" },
+      "ListInvitationsOutput": {
+        "properties": {
+          "Invitations": { "$ref": "#/components/schemas/InvitationList" },
+          "NextToken": { "$ref": "#/components/schemas/PaginationToken" }
+        },
+        "type": "object"
+      },
+      "ListMembersInput": { "properties": {}, "type": "object" },
+      "ListMembersOutput": {
+        "properties": {
+          "Members": { "$ref": "#/components/schemas/MemberSummaryList" },
+          "NextToken": { "$ref": "#/components/schemas/PaginationToken" }
+        },
+        "type": "object"
+      },
+      "ListNetworksInput": { "properties": {}, "type": "object" },
+      "ListNetworksOutput": {
+        "properties": {
+          "Networks": { "$ref": "#/components/schemas/NetworkSummaryList" },
+          "NextToken": { "$ref": "#/components/schemas/PaginationToken" }
+        },
+        "type": "object"
+      },
+      "ListNodesInput": { "properties": {}, "type": "object" },
+      "ListNodesOutput": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "Nodes": { "$ref": "#/components/schemas/NodeSummaryList" }
+        },
+        "type": "object"
+      },
+      "ListProposalVotesInput": { "properties": {}, "type": "object" },
+      "ListProposalVotesOutput": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "ProposalVotes": { "$ref": "#/components/schemas/ProposalVoteList" }
+        },
+        "type": "object"
+      },
+      "ListProposalsInput": { "properties": {}, "type": "object" },
+      "ListProposalsOutput": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/PaginationToken" },
+          "Proposals": { "$ref": "#/components/schemas/ProposalSummaryList" }
+        },
+        "type": "object"
+      },
+      "Member": {
+        "description": "Member configuration properties.",
+        "properties": {
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "FrameworkAttributes": { "$ref": "#/components/schemas/MemberFrameworkAttributes" },
+          "Id": { "$ref": "#/components/schemas/ResourceIdString" },
+          "Name": { "$ref": "#/components/schemas/NetworkMemberNameString" },
+          "NetworkId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "Status": { "$ref": "#/components/schemas/MemberStatus" }
+        },
+        "type": "object"
+      },
+      "MemberConfiguration": {
+        "description": "Configuration properties of the member.",
+        "properties": {
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "FrameworkConfiguration": { "$ref": "#/components/schemas/MemberFrameworkConfiguration" },
+          "Name": { "$ref": "#/components/schemas/NetworkMemberNameString" }
+        },
+        "required": ["Name", "FrameworkConfiguration"],
+        "type": "object"
+      },
+      "MemberFabricAttributes": {
+        "description": "Attributes of Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.",
+        "properties": {
+          "AdminUsername": { "$ref": "#/components/schemas/UsernameString" },
+          "CaEndpoint": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "MemberFabricConfiguration": {
+        "description": "Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.",
+        "properties": {
+          "AdminPassword": { "$ref": "#/components/schemas/PasswordString" },
+          "AdminUsername": { "$ref": "#/components/schemas/UsernameString" }
+        },
+        "required": ["AdminUsername", "AdminPassword"],
+        "type": "object"
+      },
+      "MemberFrameworkAttributes": {
+        "description": "Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.",
+        "properties": { "Fabric": { "$ref": "#/components/schemas/MemberFabricAttributes" } },
+        "type": "object"
+      },
+      "MemberFrameworkConfiguration": {
+        "description": "Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.",
+        "properties": { "Fabric": { "$ref": "#/components/schemas/MemberFabricConfiguration" } },
+        "type": "object"
+      },
+      "MemberListMaxResults": { "maximum": 20, "minimum": 1, "type": "integer" },
+      "MemberStatus": { "enum": ["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED"], "type": "string" },
+      "MemberSummary": {
+        "description": "A summary of configuration properties for a member.",
+        "properties": {
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "Id": { "$ref": "#/components/schemas/ResourceIdString" },
+          "IsOwned": { "$ref": "#/components/schemas/IsOwned" },
+          "Name": { "$ref": "#/components/schemas/NetworkMemberNameString" },
+          "Status": { "$ref": "#/components/schemas/MemberStatus" }
+        },
+        "type": "object"
+      },
+      "MemberSummaryList": { "items": { "$ref": "#/components/schemas/MemberSummary" }, "type": "array" },
+      "NameString": { "maxLength": 64, "minLength": 1, "pattern": ".*\\S.*", "type": "string" },
+      "Network": {
+        "description": "Network configuration properties.",
+        "properties": {
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "Framework": { "$ref": "#/components/schemas/Framework" },
+          "FrameworkAttributes": { "$ref": "#/components/schemas/NetworkFrameworkAttributes" },
+          "FrameworkVersion": { "$ref": "#/components/schemas/FrameworkVersionString" },
+          "Id": { "$ref": "#/components/schemas/ResourceIdString" },
+          "Name": { "$ref": "#/components/schemas/NameString" },
+          "Status": { "$ref": "#/components/schemas/NetworkStatus" },
+          "VotingPolicy": { "$ref": "#/components/schemas/VotingPolicy" },
+          "VpcEndpointServiceName": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "NetworkFabricAttributes": {
+        "description": "Attributes of Hyperledger Fabric for a network.",
+        "properties": {
+          "Edition": { "$ref": "#/components/schemas/Edition" },
+          "OrderingServiceEndpoint": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "NetworkFabricConfiguration": {
+        "description": "Hyperledger Fabric configuration properties for the network.",
+        "properties": { "Edition": { "$ref": "#/components/schemas/Edition" } },
+        "required": ["Edition"],
+        "type": "object"
+      },
+      "NetworkFrameworkAttributes": {
+        "description": "Attributes relevant to the network for the blockchain framework that the network uses.",
+        "properties": { "Fabric": { "$ref": "#/components/schemas/NetworkFabricAttributes" } },
+        "type": "object"
+      },
+      "NetworkFrameworkConfiguration": {
+        "description": " Configuration properties relevant to the network for the blockchain framework that the network uses. ",
+        "properties": { "Fabric": { "$ref": "#/components/schemas/NetworkFabricConfiguration" } },
+        "type": "object"
+      },
+      "NetworkListMaxResults": { "maximum": 10, "minimum": 1, "type": "integer" },
+      "NetworkMemberNameString": {
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^(?!-)^[^0-9](?!.*--)[A-Za-z0-9-]+[^- ]$",
+        "type": "string"
+      },
+      "NetworkStatus": { "enum": ["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED"], "type": "string" },
+      "NetworkSummary": {
+        "description": "A summary of network configuration properties.",
+        "properties": {
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "Framework": { "$ref": "#/components/schemas/Framework" },
+          "FrameworkVersion": { "$ref": "#/components/schemas/FrameworkVersionString" },
+          "Id": { "$ref": "#/components/schemas/ResourceIdString" },
+          "Name": { "$ref": "#/components/schemas/NameString" },
+          "Status": { "$ref": "#/components/schemas/NetworkStatus" }
+        },
+        "type": "object"
+      },
+      "NetworkSummaryList": { "items": { "$ref": "#/components/schemas/NetworkSummary" }, "type": "array" },
+      "Node": {
+        "description": "Configuration properties of a peer node.",
+        "properties": {
+          "AvailabilityZone": { "$ref": "#/components/schemas/AvailabilityZoneString" },
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "FrameworkAttributes": { "$ref": "#/components/schemas/NodeFrameworkAttributes" },
+          "Id": { "$ref": "#/components/schemas/ResourceIdString" },
+          "InstanceType": { "$ref": "#/components/schemas/InstanceTypeString" },
+          "MemberId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "NetworkId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "Status": { "$ref": "#/components/schemas/NodeStatus" }
+        },
+        "type": "object"
+      },
+      "NodeConfiguration": {
+        "description": "Configuration properties of a peer node.",
+        "properties": {
+          "AvailabilityZone": { "$ref": "#/components/schemas/AvailabilityZoneString" },
+          "InstanceType": { "$ref": "#/components/schemas/InstanceTypeString" }
+        },
+        "required": ["InstanceType", "AvailabilityZone"],
+        "type": "object"
+      },
+      "NodeFabricAttributes": {
+        "description": "Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.",
+        "properties": {
+          "PeerEndpoint": { "$ref": "#/components/schemas/String" },
+          "PeerEventEndpoint": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "NodeFrameworkAttributes": {
+        "description": "Attributes relevant to a peer node on a Managed Blockchain network for the blockchain framework that the network uses.",
+        "properties": { "Fabric": { "$ref": "#/components/schemas/NodeFabricAttributes" } },
+        "type": "object"
+      },
+      "NodeListMaxResults": { "maximum": 20, "minimum": 1, "type": "integer" },
+      "NodeStatus": {
+        "enum": ["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED", "FAILED"],
+        "type": "string"
+      },
+      "NodeSummary": {
+        "description": "A summary of configuration properties for a peer node.",
+        "properties": {
+          "AvailabilityZone": { "$ref": "#/components/schemas/AvailabilityZoneString" },
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Id": { "$ref": "#/components/schemas/ResourceIdString" },
+          "InstanceType": { "$ref": "#/components/schemas/InstanceTypeString" },
+          "Status": { "$ref": "#/components/schemas/NodeStatus" }
+        },
+        "type": "object"
+      },
+      "NodeSummaryList": { "items": { "$ref": "#/components/schemas/NodeSummary" }, "type": "array" },
+      "PaginationToken": { "maxLength": 128, "type": "string" },
+      "PasswordString": {
+        "format": "password",
+        "maxLength": 32,
+        "minLength": 8,
+        "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?!.*[@'\\\\\"/])[a-zA-Z0-9\\S]*$",
+        "type": "string"
+      },
+      "PrincipalString": { "type": "string" },
+      "Proposal": {
+        "description": "Properties of a proposal on a Managed Blockchain network.",
+        "properties": {
+          "Actions": { "$ref": "#/components/schemas/ProposalActions" },
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "ExpirationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "NetworkId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "NoVoteCount": { "$ref": "#/components/schemas/VoteCount" },
+          "OutstandingVoteCount": { "$ref": "#/components/schemas/VoteCount" },
+          "ProposalId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "ProposedByMemberId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "ProposedByMemberName": { "$ref": "#/components/schemas/NetworkMemberNameString" },
+          "Status": { "$ref": "#/components/schemas/ProposalStatus" },
+          "YesVoteCount": { "$ref": "#/components/schemas/VoteCount" }
+        },
+        "type": "object"
+      },
+      "ProposalActions": {
+        "description": " The actions to carry out if a proposal is <code>APPROVED</code>. ",
+        "properties": {
+          "Invitations": { "$ref": "#/components/schemas/InviteActionList" },
+          "Removals": { "$ref": "#/components/schemas/RemoveActionList" }
+        },
+        "type": "object"
+      },
+      "ProposalDurationInt": { "maximum": 168, "minimum": 1, "type": "integer" },
+      "ProposalListMaxResults": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "ProposalStatus": {
+        "enum": ["IN_PROGRESS", "APPROVED", "REJECTED", "EXPIRED", "ACTION_FAILED"],
+        "type": "string"
+      },
+      "ProposalSummary": {
+        "description": "Properties of a proposal.",
+        "properties": {
+          "CreationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "ExpirationDate": { "$ref": "#/components/schemas/Timestamp" },
+          "ProposalId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "ProposedByMemberId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "ProposedByMemberName": { "$ref": "#/components/schemas/NetworkMemberNameString" },
+          "Status": { "$ref": "#/components/schemas/ProposalStatus" }
+        },
+        "type": "object"
+      },
+      "ProposalSummaryList": { "items": { "$ref": "#/components/schemas/ProposalSummary" }, "type": "array" },
+      "ProposalVoteList": { "items": { "$ref": "#/components/schemas/VoteSummary" }, "type": "array" },
+      "RejectInvitationInput": { "properties": {}, "type": "object" },
+      "RejectInvitationOutput": { "properties": {}, "type": "object" },
+      "RemoveAction": {
+        "description": "An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.",
+        "properties": { "MemberId": { "$ref": "#/components/schemas/ResourceIdString" } },
+        "required": ["MemberId"],
+        "type": "object"
+      },
+      "RemoveActionList": { "items": { "$ref": "#/components/schemas/RemoveAction" }, "type": "array" },
+      "ResourceAlreadyExistsException": {},
+      "ResourceIdString": { "maxLength": 32, "minLength": 1, "type": "string" },
+      "ResourceLimitExceededException": {},
+      "ResourceNotFoundException": {},
+      "ResourceNotReadyException": {},
+      "String": { "type": "string" },
+      "ThresholdComparator": { "enum": ["GREATER_THAN", "GREATER_THAN_OR_EQUAL_TO"], "type": "string" },
+      "ThresholdPercentageInt": { "maximum": 100, "minimum": 0, "type": "integer" },
+      "ThrottlingException": {},
+      "Timestamp": { "format": "date-time", "type": "string" },
+      "UsernameString": { "maxLength": 16, "minLength": 1, "pattern": "^[a-zA-Z][a-zA-Z0-9]*$", "type": "string" },
+      "VoteCount": { "type": "integer" },
+      "VoteOnProposalInput": {
+        "properties": {
+          "Vote": { "$ref": "#/components/schemas/VoteValue" },
+          "VoterMemberId": { "$ref": "#/components/schemas/ResourceIdString" }
+        },
+        "required": ["VoterMemberId", "Vote"],
+        "type": "object"
+      },
+      "VoteOnProposalOutput": { "properties": {}, "type": "object" },
+      "VoteSummary": {
+        "description": " Properties of an individual vote that a member cast for a proposal. ",
+        "properties": {
+          "MemberId": { "$ref": "#/components/schemas/ResourceIdString" },
+          "MemberName": { "$ref": "#/components/schemas/NetworkMemberNameString" },
+          "Vote": { "$ref": "#/components/schemas/VoteValue" }
+        },
+        "type": "object"
+      },
+      "VoteValue": { "enum": ["YES", "NO"], "type": "string" },
+      "VotingPolicy": {
+        "description": " The voting rules for the network to decide if a proposal is accepted ",
+        "properties": { "ApprovalThresholdPolicy": { "$ref": "#/components/schemas/ApprovalThresholdPolicy" } },
+        "type": "object"
+      }
+    }
+  }
+}

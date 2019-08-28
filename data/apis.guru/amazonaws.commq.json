@@ -1,1 +1,1969 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AmazonMQ","version":"2017-11-27","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mq-2017-11-27.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"mq"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/mq/"},"security":[{"hmac":[]}],"paths":{"/v1/broker-engine-types":{"get":{"description":"Describe available engine types and versions.","operationId":"DescribeBrokerEngineTypes","parameters":[{"description":"Filter response by engine type.","in":"query","name":"engineType","required":false,"schema":{"type":"string"}},{"description":"The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":"The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeBrokerEngineTypesResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v1/broker-instance-options":{"get":{"description":"Describe available broker instance options.","operationId":"DescribeBrokerInstanceOptions","parameters":[{"description":"Filter response by engine type.","in":"query","name":"engineType","required":false,"schema":{"type":"string"}},{"description":"Filter response by host instance type.","in":"query","name":"hostInstanceType","required":false,"schema":{"type":"string"}},{"description":"The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":"The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeBrokerInstanceOptionsResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v1/brokers":{"get":{"description":"Returns a list of all brokers.","operationId":"ListBrokers","parameters":[{"description":"The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":"The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListBrokersResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a broker. Note: This API is asynchronous.","operationId":"CreateBroker","requestBody":{"content":{"application/json":{"schema":{"properties":{"autoMinorVersionUpgrade":{"description":"Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.","type":"boolean"},"brokerName":{"description":"Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.","type":"string"},"configuration":{"description":"A list of information about the configuration.","properties":{"Id":{"$ref":"#/components/schemas/__string"},"Revision":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"creatorRequestId":{"description":"The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.","type":"string"},"deploymentMode":{"description":"The deployment mode of the broker.","enum":["SINGLE_INSTANCE","ACTIVE_STANDBY_MULTI_AZ"],"type":"string"},"encryptionOptions":{"description":"Encryption options for the broker.","properties":{"KmsKeyId":{"$ref":"#/components/schemas/__string"},"UseAwsOwnedKey":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"engineType":{"description":"The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.","enum":["ACTIVEMQ"],"type":"string"},"engineVersion":{"description":"Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html","type":"string"},"hostInstanceType":{"description":"Required. The broker's instance type.","type":"string"},"logs":{"description":"The list of information about logs to be enabled for the specified broker.","properties":{"Audit":{"$ref":"#/components/schemas/__boolean"},"General":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"maintenanceWindowStartTime":{"description":"The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.","properties":{"DayOfWeek":{"$ref":"#/components/schemas/DayOfWeek"},"TimeOfDay":{"$ref":"#/components/schemas/__string"},"TimeZone":{"$ref":"#/components/schemas/__string"}},"type":"object"},"publiclyAccessible":{"description":"Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.","type":"boolean"},"securityGroups":{"description":"The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.","items":{"$ref":"#/components/schemas/__string"},"type":"array"},"subnetIds":{"description":"The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.","items":{"$ref":"#/components/schemas/__string"},"type":"array"},"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"Create tags when creating the broker.","type":"object"},"users":{"description":"Required. The list of ActiveMQ users (persons or applications) who can access queues and topics. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.","items":{"$ref":"#/components/schemas/User"},"type":"array"}},"required":["encryptionOptions"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateBrokerResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"UnauthorizedException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}},"484":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}}},"/v1/brokers/{broker-id}":{"delete":{"description":"Deletes a broker. Note: This API is asynchronous.","operationId":"DeleteBroker","parameters":[{"description":"The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteBrokerResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"get":{"description":"Returns information about the specified broker.","operationId":"DescribeBroker","parameters":[{"description":"The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeBrokerResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Adds a pending configuration change to a broker.","operationId":"UpdateBroker","parameters":[{"description":"The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"autoMinorVersionUpgrade":{"description":"Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.","type":"boolean"},"configuration":{"description":"A list of information about the configuration.","properties":{"Id":{"$ref":"#/components/schemas/__string"},"Revision":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"engineVersion":{"description":"The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html","type":"string"},"logs":{"description":"The list of information about logs to be enabled for the specified broker.","properties":{"Audit":{"$ref":"#/components/schemas/__boolean"},"General":{"$ref":"#/components/schemas/__boolean"}},"type":"object"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateBrokerResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}},"484":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}}},"/v1/brokers/{broker-id}/reboot":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Reboots a broker. Note: This API is asynchronous.","operationId":"RebootBroker","parameters":[{"description":"The unique ID that Amazon MQ generates for the broker.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/RebootBrokerResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}}},"/v1/brokers/{broker-id}/users":{"get":{"description":"Returns a list of all ActiveMQ users.","operationId":"ListUsers","parameters":[{"description":"The unique ID that Amazon MQ generates for the broker.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}},{"description":"The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":"The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListUsersResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v1/brokers/{broker-id}/users/{username}":{"delete":{"description":"Deletes an ActiveMQ user.","operationId":"DeleteUser","parameters":[{"description":"The unique ID that Amazon MQ generates for the broker.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}},{"description":"The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.","in":"path","name":"username","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteUserResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"get":{"description":"Returns information about an ActiveMQ user.","operationId":"DescribeUser","parameters":[{"description":"The unique ID that Amazon MQ generates for the broker.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}},{"description":"The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.","in":"path","name":"username","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeUserResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates an ActiveMQ user.","operationId":"CreateUser","parameters":[{"description":"The unique ID that Amazon MQ generates for the broker.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}},{"description":"The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.","in":"path","name":"username","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"consoleAccess":{"description":"Enables access to the the ActiveMQ Web Console for the ActiveMQ user.","type":"boolean"},"groups":{"description":"The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.","items":{"$ref":"#/components/schemas/__string"},"type":"array"},"password":{"description":"Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.","type":"string"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateUserResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}},"484":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"put":{"description":"Updates the information for an ActiveMQ user.","operationId":"UpdateUser","parameters":[{"description":"The unique ID that Amazon MQ generates for the broker.","in":"path","name":"broker-id","required":true,"schema":{"type":"string"}},{"description":"Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.","in":"path","name":"username","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"consoleAccess":{"description":"Enables access to the the ActiveMQ Web Console for the ActiveMQ user.","type":"boolean"},"groups":{"description":"The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.","items":{"$ref":"#/components/schemas/__string"},"type":"array"},"password":{"description":"The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.","type":"string"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateUserResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}},"484":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}}},"/v1/configurations":{"get":{"description":"Returns a list of all configurations.","operationId":"ListConfigurations","parameters":[{"description":"The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":"The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListConfigurationsResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).","operationId":"CreateConfiguration","requestBody":{"content":{"application/json":{"schema":{"properties":{"engineType":{"description":"The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.","enum":["ACTIVEMQ"],"type":"string"},"engineVersion":{"description":"Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html","type":"string"},"name":{"description":"Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.","type":"string"},"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"Create tags when creating the configuration.","type":"object"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateConfigurationResponse"}}}},"480":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"482":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}}},"/v1/configurations/{configuration-id}":{"get":{"description":"Returns information about the specified configuration.","operationId":"DescribeConfiguration","parameters":[{"description":"The unique ID that Amazon MQ generates for the configuration.","in":"path","name":"configuration-id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeConfigurationResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"Updates the specified configuration.","operationId":"UpdateConfiguration","parameters":[{"description":"The unique ID that Amazon MQ generates for the configuration.","in":"path","name":"configuration-id","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"data":{"description":"Required. The base64-encoded XML configuration.","type":"string"},"description":{"description":"The description of the configuration.","type":"string"}},"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateConfigurationResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ConflictException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConflictException"}}}},"484":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}}},"/v1/configurations/{configuration-id}/revisions":{"get":{"description":"Returns a list of all revisions for the specified configuration.","operationId":"ListConfigurationRevisions","parameters":[{"description":"The unique ID that Amazon MQ generates for the configuration.","in":"path","name":"configuration-id","required":true,"schema":{"type":"string"}},{"description":"The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":100}},{"description":"The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.","in":"query","name":"nextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListConfigurationRevisionsResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v1/configurations/{configuration-id}/revisions/{configuration-revision}":{"get":{"description":"Returns the specified configuration revision for the specified configuration.","operationId":"DescribeConfigurationRevision","parameters":[{"description":"The unique ID that Amazon MQ generates for the configuration.","in":"path","name":"configuration-id","required":true,"schema":{"type":"string"}},{"description":"The revision of the configuration.","in":"path","name":"configuration-revision","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DescribeConfigurationRevisionResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v1/tags/{resource-arn}":{"get":{"description":"Lists tags for a resource.","operationId":"ListTags","parameters":[{"description":"The Amazon Resource Name (ARN) of the resource tag.","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsResponse"}}}},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Add a tag to a resource.","operationId":"CreateTags","parameters":[{"description":"The Amazon Resource Name (ARN) of the resource tag.","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}}],"requestBody":{"content":{"application/json":{"schema":{"properties":{"tags":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"description":"The key-value pair for the resource tag.","type":"object"}},"type":"object"}}},"required":true},"responses":{"204":{"description":"Success"},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}}},"/v1/tags/{resource-arn}#tagKeys":{"delete":{"description":"Removes a tag from a resource.","operationId":"DeleteTags","parameters":[{"description":"The Amazon Resource Name (ARN) of the resource tag.","in":"path","name":"resource-arn","required":true,"schema":{"type":"string"}},{"description":"An array of tag keys to delete","in":"query","name":"tagKeys","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"204":{"description":"Success"},"480":{"description":"NotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"481":{"description":"BadRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"InternalServerErrorException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerErrorException"}}}},"483":{"description":"ForbiddenException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ForbiddenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]}},"servers":[{"description":"The AmazonMQ multi-region endpoint","url":"http://mq.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AmazonMQ multi-region endpoint","url":"https://mq.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AmazonMQ endpoint for China (Beijing) and China (Ningxia)","url":"http://mq.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AmazonMQ endpoint for China (Beijing) and China (Ningxia)","url":"https://mq.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AvailabilityZone":{"description":"Name of the availability zone.","properties":{"Name":{"$ref":"#/components/schemas/__string"}},"type":"object"},"BadRequestException":{},"BrokerEngineType":{"description":"Types of broker engines.","properties":{"EngineType":{"$ref":"#/components/schemas/EngineType"},"EngineVersions":{"$ref":"#/components/schemas/__listOfEngineVersion"}},"type":"object"},"BrokerInstance":{"description":"Returns information about all brokers.","properties":{"ConsoleURL":{"$ref":"#/components/schemas/__string"},"Endpoints":{"$ref":"#/components/schemas/__listOf__string"},"IpAddress":{"$ref":"#/components/schemas/__string"}},"type":"object"},"BrokerInstanceOption":{"description":"Option for host instance type.","properties":{"AvailabilityZones":{"$ref":"#/components/schemas/__listOfAvailabilityZone"},"EngineType":{"$ref":"#/components/schemas/EngineType"},"HostInstanceType":{"$ref":"#/components/schemas/__string"},"SupportedEngineVersions":{"$ref":"#/components/schemas/__listOf__string"}},"type":"object"},"BrokerState":{"description":"The status of the broker.","enum":["CREATION_IN_PROGRESS","CREATION_FAILED","DELETION_IN_PROGRESS","RUNNING","REBOOT_IN_PROGRESS"],"type":"string"},"BrokerSummary":{"description":"The Amazon Resource Name (ARN) of the broker.","properties":{"BrokerArn":{"$ref":"#/components/schemas/__string"},"BrokerId":{"$ref":"#/components/schemas/__string"},"BrokerName":{"$ref":"#/components/schemas/__string"},"BrokerState":{"$ref":"#/components/schemas/BrokerState"},"Created":{"$ref":"#/components/schemas/__timestampIso8601"},"DeploymentMode":{"$ref":"#/components/schemas/DeploymentMode"},"HostInstanceType":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ChangeType":{"description":"The type of change pending for the ActiveMQ user.","enum":["CREATE","UPDATE","DELETE"],"type":"string"},"Configuration":{"description":"Returns information about all configurations.","properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Created":{"$ref":"#/components/schemas/__timestampIso8601"},"Description":{"$ref":"#/components/schemas/__string"},"EngineType":{"$ref":"#/components/schemas/EngineType"},"EngineVersion":{"$ref":"#/components/schemas/__string"},"Id":{"$ref":"#/components/schemas/__string"},"LatestRevision":{"$ref":"#/components/schemas/ConfigurationRevision"},"Name":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"ConfigurationId":{"description":"A list of information about the configuration.","properties":{"Id":{"$ref":"#/components/schemas/__string"},"Revision":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"ConfigurationRevision":{"description":"Returns information about the specified configuration revision.","properties":{"Created":{"$ref":"#/components/schemas/__timestampIso8601"},"Description":{"$ref":"#/components/schemas/__string"},"Revision":{"$ref":"#/components/schemas/__integer"}},"type":"object"},"Configurations":{"description":"Broker configuration information","properties":{"Current":{"$ref":"#/components/schemas/ConfigurationId"},"History":{"$ref":"#/components/schemas/__listOfConfigurationId"},"Pending":{"$ref":"#/components/schemas/ConfigurationId"}},"type":"object"},"ConflictException":{},"CreateBrokerRequest":{"description":"Creates a broker using the specified properties.","properties":{"AutoMinorVersionUpgrade":{"$ref":"#/components/schemas/__boolean"},"BrokerName":{"$ref":"#/components/schemas/__string"},"Configuration":{"$ref":"#/components/schemas/ConfigurationId"},"CreatorRequestId":{"$ref":"#/components/schemas/__string"},"DeploymentMode":{"$ref":"#/components/schemas/DeploymentMode"},"EncryptionOptions":{"$ref":"#/components/schemas/EncryptionOptions"},"EngineType":{"$ref":"#/components/schemas/EngineType"},"EngineVersion":{"$ref":"#/components/schemas/__string"},"HostInstanceType":{"$ref":"#/components/schemas/__string"},"Logs":{"$ref":"#/components/schemas/Logs"},"MaintenanceWindowStartTime":{"$ref":"#/components/schemas/WeeklyStartTime"},"PubliclyAccessible":{"$ref":"#/components/schemas/__boolean"},"SecurityGroups":{"$ref":"#/components/schemas/__listOf__string"},"SubnetIds":{"$ref":"#/components/schemas/__listOf__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"},"Users":{"$ref":"#/components/schemas/__listOfUser"}},"type":"object"},"CreateBrokerResponse":{"properties":{"BrokerArn":{"$ref":"#/components/schemas/__string"},"BrokerId":{"$ref":"#/components/schemas/__string"}},"type":"object"},"CreateConfigurationRequest":{"description":"Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).","properties":{"EngineType":{"$ref":"#/components/schemas/EngineType"},"EngineVersion":{"$ref":"#/components/schemas/__string"},"Name":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"CreateConfigurationResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Created":{"$ref":"#/components/schemas/__timestampIso8601"},"Id":{"$ref":"#/components/schemas/__string"},"LatestRevision":{"$ref":"#/components/schemas/ConfigurationRevision"},"Name":{"$ref":"#/components/schemas/__string"}},"type":"object"},"CreateTagsRequest":{"description":"A map of the key-value pairs for the resource tag.","properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"CreateUserRequest":{"description":"Creates a new ActiveMQ user.","properties":{"ConsoleAccess":{"$ref":"#/components/schemas/__boolean"},"Groups":{"$ref":"#/components/schemas/__listOf__string"},"Password":{"$ref":"#/components/schemas/__string"}},"type":"object"},"CreateUserResponse":{"properties":{},"type":"object"},"DayOfWeek":{"enum":["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY"],"type":"string"},"DeleteBrokerRequest":{"properties":{},"type":"object"},"DeleteBrokerResponse":{"properties":{"BrokerId":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DeleteTagsRequest":{"properties":{},"type":"object"},"DeleteUserRequest":{"properties":{},"type":"object"},"DeleteUserResponse":{"properties":{},"type":"object"},"DeploymentMode":{"description":"The deployment mode of the broker.","enum":["SINGLE_INSTANCE","ACTIVE_STANDBY_MULTI_AZ"],"type":"string"},"DescribeBrokerEngineTypesRequest":{"properties":{},"type":"object"},"DescribeBrokerEngineTypesResponse":{"properties":{"BrokerEngineTypes":{"$ref":"#/components/schemas/__listOfBrokerEngineType"},"MaxResults":{"$ref":"#/components/schemas/__integerMin5Max100"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DescribeBrokerInstanceOptionsRequest":{"properties":{},"type":"object"},"DescribeBrokerInstanceOptionsResponse":{"properties":{"BrokerInstanceOptions":{"$ref":"#/components/schemas/__listOfBrokerInstanceOption"},"MaxResults":{"$ref":"#/components/schemas/__integerMin5Max100"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DescribeBrokerRequest":{"properties":{},"type":"object"},"DescribeBrokerResponse":{"properties":{"AutoMinorVersionUpgrade":{"$ref":"#/components/schemas/__boolean"},"BrokerArn":{"$ref":"#/components/schemas/__string"},"BrokerId":{"$ref":"#/components/schemas/__string"},"BrokerInstances":{"$ref":"#/components/schemas/__listOfBrokerInstance"},"BrokerName":{"$ref":"#/components/schemas/__string"},"BrokerState":{"$ref":"#/components/schemas/BrokerState"},"Configurations":{"$ref":"#/components/schemas/Configurations"},"Created":{"$ref":"#/components/schemas/__timestampIso8601"},"DeploymentMode":{"$ref":"#/components/schemas/DeploymentMode"},"EncryptionOptions":{"$ref":"#/components/schemas/EncryptionOptions"},"EngineType":{"$ref":"#/components/schemas/EngineType"},"EngineVersion":{"$ref":"#/components/schemas/__string"},"HostInstanceType":{"$ref":"#/components/schemas/__string"},"Logs":{"$ref":"#/components/schemas/LogsSummary"},"MaintenanceWindowStartTime":{"$ref":"#/components/schemas/WeeklyStartTime"},"PendingEngineVersion":{"$ref":"#/components/schemas/__string"},"PubliclyAccessible":{"$ref":"#/components/schemas/__boolean"},"SecurityGroups":{"$ref":"#/components/schemas/__listOf__string"},"SubnetIds":{"$ref":"#/components/schemas/__listOf__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"},"Users":{"$ref":"#/components/schemas/__listOfUserSummary"}},"type":"object"},"DescribeConfigurationRequest":{"properties":{},"type":"object"},"DescribeConfigurationResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Created":{"$ref":"#/components/schemas/__timestampIso8601"},"Description":{"$ref":"#/components/schemas/__string"},"EngineType":{"$ref":"#/components/schemas/EngineType"},"EngineVersion":{"$ref":"#/components/schemas/__string"},"Id":{"$ref":"#/components/schemas/__string"},"LatestRevision":{"$ref":"#/components/schemas/ConfigurationRevision"},"Name":{"$ref":"#/components/schemas/__string"},"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"DescribeConfigurationRevisionRequest":{"properties":{},"type":"object"},"DescribeConfigurationRevisionResponse":{"properties":{"ConfigurationId":{"$ref":"#/components/schemas/__string"},"Created":{"$ref":"#/components/schemas/__timestampIso8601"},"Data":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"}},"type":"object"},"DescribeUserRequest":{"properties":{},"type":"object"},"DescribeUserResponse":{"properties":{"BrokerId":{"$ref":"#/components/schemas/__string"},"ConsoleAccess":{"$ref":"#/components/schemas/__boolean"},"Groups":{"$ref":"#/components/schemas/__listOf__string"},"Pending":{"$ref":"#/components/schemas/UserPendingChanges"},"Username":{"$ref":"#/components/schemas/__string"}},"type":"object"},"EncryptionOptions":{"description":"Encryption options for the broker.","properties":{"KmsKeyId":{"$ref":"#/components/schemas/__string"},"UseAwsOwnedKey":{"$ref":"#/components/schemas/__boolean"}},"required":["UseAwsOwnedKey"],"type":"object"},"EngineType":{"description":"The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.","enum":["ACTIVEMQ"],"type":"string"},"EngineVersion":{"description":"Id of the engine version.","properties":{"Name":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ForbiddenException":{},"InternalServerErrorException":{},"ListBrokersRequest":{"properties":{},"type":"object"},"ListBrokersResponse":{"properties":{"BrokerSummaries":{"$ref":"#/components/schemas/__listOfBrokerSummary"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListConfigurationRevisionsRequest":{"properties":{},"type":"object"},"ListConfigurationRevisionsResponse":{"properties":{"ConfigurationId":{"$ref":"#/components/schemas/__string"},"MaxResults":{"$ref":"#/components/schemas/__integer"},"NextToken":{"$ref":"#/components/schemas/__string"},"Revisions":{"$ref":"#/components/schemas/__listOfConfigurationRevision"}},"type":"object"},"ListConfigurationsRequest":{"properties":{},"type":"object"},"ListConfigurationsResponse":{"properties":{"Configurations":{"$ref":"#/components/schemas/__listOfConfiguration"},"MaxResults":{"$ref":"#/components/schemas/__integer"},"NextToken":{"$ref":"#/components/schemas/__string"}},"type":"object"},"ListTagsRequest":{"properties":{},"type":"object"},"ListTagsResponse":{"properties":{"Tags":{"$ref":"#/components/schemas/__mapOf__string"}},"type":"object"},"ListUsersRequest":{"properties":{},"type":"object"},"ListUsersResponse":{"properties":{"BrokerId":{"$ref":"#/components/schemas/__string"},"MaxResults":{"$ref":"#/components/schemas/__integerMin5Max100"},"NextToken":{"$ref":"#/components/schemas/__string"},"Users":{"$ref":"#/components/schemas/__listOfUserSummary"}},"type":"object"},"Logs":{"description":"The list of information about logs to be enabled for the specified broker.","properties":{"Audit":{"$ref":"#/components/schemas/__boolean"},"General":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"LogsSummary":{"description":"The list of information about logs currently enabled and pending to be deployed for the specified broker.","properties":{"Audit":{"$ref":"#/components/schemas/__boolean"},"AuditLogGroup":{"$ref":"#/components/schemas/__string"},"General":{"$ref":"#/components/schemas/__boolean"},"GeneralLogGroup":{"$ref":"#/components/schemas/__string"},"Pending":{"$ref":"#/components/schemas/PendingLogs"}},"type":"object"},"MaxResults":{"maximum":100,"minimum":1,"type":"integer"},"NotFoundException":{},"PendingLogs":{"description":"The list of information about logs to be enabled for the specified broker.","properties":{"Audit":{"$ref":"#/components/schemas/__boolean"},"General":{"$ref":"#/components/schemas/__boolean"}},"type":"object"},"RebootBrokerRequest":{"properties":{},"type":"object"},"RebootBrokerResponse":{"properties":{},"type":"object"},"SanitizationWarning":{"description":"Returns information about the XML element or attribute that was sanitized in the configuration.","properties":{"AttributeName":{"$ref":"#/components/schemas/__string"},"ElementName":{"$ref":"#/components/schemas/__string"},"Reason":{"$ref":"#/components/schemas/SanitizationWarningReason"}},"type":"object"},"SanitizationWarningReason":{"description":"The reason for which the XML elements or attributes were sanitized.","enum":["DISALLOWED_ELEMENT_REMOVED","DISALLOWED_ATTRIBUTE_REMOVED","INVALID_ATTRIBUTE_VALUE_REMOVED"],"type":"string"},"UnauthorizedException":{},"UpdateBrokerRequest":{"description":"Updates the broker using the specified properties.","properties":{"AutoMinorVersionUpgrade":{"$ref":"#/components/schemas/__boolean"},"Configuration":{"$ref":"#/components/schemas/ConfigurationId"},"EngineVersion":{"$ref":"#/components/schemas/__string"},"Logs":{"$ref":"#/components/schemas/Logs"}},"type":"object"},"UpdateBrokerResponse":{"properties":{"AutoMinorVersionUpgrade":{"$ref":"#/components/schemas/__boolean"},"BrokerId":{"$ref":"#/components/schemas/__string"},"Configuration":{"$ref":"#/components/schemas/ConfigurationId"},"EngineVersion":{"$ref":"#/components/schemas/__string"},"Logs":{"$ref":"#/components/schemas/Logs"}},"type":"object"},"UpdateConfigurationRequest":{"description":"Updates the specified configuration.","properties":{"Data":{"$ref":"#/components/schemas/__string"},"Description":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UpdateConfigurationResponse":{"properties":{"Arn":{"$ref":"#/components/schemas/__string"},"Created":{"$ref":"#/components/schemas/__timestampIso8601"},"Id":{"$ref":"#/components/schemas/__string"},"LatestRevision":{"$ref":"#/components/schemas/ConfigurationRevision"},"Name":{"$ref":"#/components/schemas/__string"},"Warnings":{"$ref":"#/components/schemas/__listOfSanitizationWarning"}},"type":"object"},"UpdateUserRequest":{"description":"Updates the information for an ActiveMQ user.","properties":{"ConsoleAccess":{"$ref":"#/components/schemas/__boolean"},"Groups":{"$ref":"#/components/schemas/__listOf__string"},"Password":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UpdateUserResponse":{"properties":{},"type":"object"},"User":{"description":"An ActiveMQ user associated with the broker.","properties":{"ConsoleAccess":{"$ref":"#/components/schemas/__boolean"},"Groups":{"$ref":"#/components/schemas/__listOf__string"},"Password":{"$ref":"#/components/schemas/__string"},"Username":{"$ref":"#/components/schemas/__string"}},"type":"object"},"UserPendingChanges":{"description":"Returns information about the status of the changes pending for the ActiveMQ user.","properties":{"ConsoleAccess":{"$ref":"#/components/schemas/__boolean"},"Groups":{"$ref":"#/components/schemas/__listOf__string"},"PendingChange":{"$ref":"#/components/schemas/ChangeType"}},"type":"object"},"UserSummary":{"description":"Returns a list of all ActiveMQ users.","properties":{"PendingChange":{"$ref":"#/components/schemas/ChangeType"},"Username":{"$ref":"#/components/schemas/__string"}},"type":"object"},"WeeklyStartTime":{"description":"The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.","properties":{"DayOfWeek":{"$ref":"#/components/schemas/DayOfWeek"},"TimeOfDay":{"$ref":"#/components/schemas/__string"},"TimeZone":{"$ref":"#/components/schemas/__string"}},"type":"object"},"__boolean":{"type":"boolean"},"__integer":{"type":"integer"},"__integerMin5Max100":{"maximum":100,"minimum":5,"type":"integer"},"__listOfAvailabilityZone":{"items":{"$ref":"#/components/schemas/AvailabilityZone"},"type":"array"},"__listOfBrokerEngineType":{"items":{"$ref":"#/components/schemas/BrokerEngineType"},"type":"array"},"__listOfBrokerInstance":{"items":{"$ref":"#/components/schemas/BrokerInstance"},"type":"array"},"__listOfBrokerInstanceOption":{"items":{"$ref":"#/components/schemas/BrokerInstanceOption"},"type":"array"},"__listOfBrokerSummary":{"items":{"$ref":"#/components/schemas/BrokerSummary"},"type":"array"},"__listOfConfiguration":{"items":{"$ref":"#/components/schemas/Configuration"},"type":"array"},"__listOfConfigurationId":{"items":{"$ref":"#/components/schemas/ConfigurationId"},"type":"array"},"__listOfConfigurationRevision":{"items":{"$ref":"#/components/schemas/ConfigurationRevision"},"type":"array"},"__listOfEngineVersion":{"items":{"$ref":"#/components/schemas/EngineVersion"},"type":"array"},"__listOfSanitizationWarning":{"items":{"$ref":"#/components/schemas/SanitizationWarning"},"type":"array"},"__listOfUser":{"items":{"$ref":"#/components/schemas/User"},"type":"array"},"__listOfUserSummary":{"items":{"$ref":"#/components/schemas/UserSummary"},"type":"array"},"__listOf__string":{"items":{"$ref":"#/components/schemas/__string"},"type":"array"},"__mapOf__string":{"additionalProperties":{"$ref":"#/components/schemas/__string"},"type":"object"},"__string":{"type":"string"},"__timestampIso8601":{"format":"date-time","type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AmazonMQ",
+    "version": "2017-11-27",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mq-2017-11-27.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mq"
+  },
+  "externalDocs": { "description": "Amazon Web Services documentation", "url": "https://docs.aws.amazon.com/mq/" },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/v1/broker-engine-types": {
+      "get": {
+        "description": "Describe available engine types and versions.",
+        "operationId": "DescribeBrokerEngineTypes",
+        "parameters": [
+          {
+            "description": "Filter response by engine type.",
+            "in": "query",
+            "name": "engineType",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeBrokerEngineTypesResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v1/broker-instance-options": {
+      "get": {
+        "description": "Describe available broker instance options.",
+        "operationId": "DescribeBrokerInstanceOptions",
+        "parameters": [
+          {
+            "description": "Filter response by engine type.",
+            "in": "query",
+            "name": "engineType",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Filter response by host instance type.",
+            "in": "query",
+            "name": "hostInstanceType",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeBrokerInstanceOptionsResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v1/brokers": {
+      "get": {
+        "description": "Returns a list of all brokers.",
+        "operationId": "ListBrokers",
+        "parameters": [
+          {
+            "description": "The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListBrokersResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a broker. Note: This API is asynchronous.",
+        "operationId": "CreateBroker",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "autoMinorVersionUpgrade": {
+                    "description": "Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.",
+                    "type": "boolean"
+                  },
+                  "brokerName": {
+                    "description": "Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.",
+                    "type": "string"
+                  },
+                  "configuration": {
+                    "description": "A list of information about the configuration.",
+                    "properties": {
+                      "Id": { "$ref": "#/components/schemas/__string" },
+                      "Revision": { "$ref": "#/components/schemas/__integer" }
+                    },
+                    "type": "object"
+                  },
+                  "creatorRequestId": {
+                    "description": "The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.",
+                    "type": "string"
+                  },
+                  "deploymentMode": {
+                    "description": "The deployment mode of the broker.",
+                    "enum": ["SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ"],
+                    "type": "string"
+                  },
+                  "encryptionOptions": {
+                    "description": "Encryption options for the broker.",
+                    "properties": {
+                      "KmsKeyId": { "$ref": "#/components/schemas/__string" },
+                      "UseAwsOwnedKey": { "$ref": "#/components/schemas/__boolean" }
+                    },
+                    "type": "object"
+                  },
+                  "engineType": {
+                    "description": "The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.",
+                    "enum": ["ACTIVEMQ"],
+                    "type": "string"
+                  },
+                  "engineVersion": {
+                    "description": "Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html",
+                    "type": "string"
+                  },
+                  "hostInstanceType": { "description": "Required. The broker's instance type.", "type": "string" },
+                  "logs": {
+                    "description": "The list of information about logs to be enabled for the specified broker.",
+                    "properties": {
+                      "Audit": { "$ref": "#/components/schemas/__boolean" },
+                      "General": { "$ref": "#/components/schemas/__boolean" }
+                    },
+                    "type": "object"
+                  },
+                  "maintenanceWindowStartTime": {
+                    "description": "The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.",
+                    "properties": {
+                      "DayOfWeek": { "$ref": "#/components/schemas/DayOfWeek" },
+                      "TimeOfDay": { "$ref": "#/components/schemas/__string" },
+                      "TimeZone": { "$ref": "#/components/schemas/__string" }
+                    },
+                    "type": "object"
+                  },
+                  "publiclyAccessible": {
+                    "description": "Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.",
+                    "type": "boolean"
+                  },
+                  "securityGroups": {
+                    "description": "The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.",
+                    "items": { "$ref": "#/components/schemas/__string" },
+                    "type": "array"
+                  },
+                  "subnetIds": {
+                    "description": "The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.",
+                    "items": { "$ref": "#/components/schemas/__string" },
+                    "type": "array"
+                  },
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "Create tags when creating the broker.",
+                    "type": "object"
+                  },
+                  "users": {
+                    "description": "Required. The list of ActiveMQ users (persons or applications) who can access queues and topics. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
+                    "items": { "$ref": "#/components/schemas/User" },
+                    "type": "array"
+                  }
+                },
+                "required": ["encryptionOptions"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateBrokerResponse" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UnauthorizedException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      }
+    },
+    "/v1/brokers/{broker-id}": {
+      "delete": {
+        "description": "Deletes a broker. Note: This API is asynchronous.",
+        "operationId": "DeleteBroker",
+        "parameters": [
+          {
+            "description": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteBrokerResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns information about the specified broker.",
+        "operationId": "DescribeBroker",
+        "parameters": [
+          {
+            "description": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeBrokerResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Adds a pending configuration change to a broker.",
+        "operationId": "UpdateBroker",
+        "parameters": [
+          {
+            "description": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "autoMinorVersionUpgrade": {
+                    "description": "Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.",
+                    "type": "boolean"
+                  },
+                  "configuration": {
+                    "description": "A list of information about the configuration.",
+                    "properties": {
+                      "Id": { "$ref": "#/components/schemas/__string" },
+                      "Revision": { "$ref": "#/components/schemas/__integer" }
+                    },
+                    "type": "object"
+                  },
+                  "engineVersion": {
+                    "description": "The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html",
+                    "type": "string"
+                  },
+                  "logs": {
+                    "description": "The list of information about logs to be enabled for the specified broker.",
+                    "properties": {
+                      "Audit": { "$ref": "#/components/schemas/__boolean" },
+                      "General": { "$ref": "#/components/schemas/__boolean" }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateBrokerResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      }
+    },
+    "/v1/brokers/{broker-id}/reboot": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Reboots a broker. Note: This API is asynchronous.",
+        "operationId": "RebootBroker",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the broker.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RebootBrokerResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      }
+    },
+    "/v1/brokers/{broker-id}/users": {
+      "get": {
+        "description": "Returns a list of all ActiveMQ users.",
+        "operationId": "ListUsers",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the broker.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListUsersResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v1/brokers/{broker-id}/users/{username}": {
+      "delete": {
+        "description": "Deletes an ActiveMQ user.",
+        "operationId": "DeleteUser",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the broker.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteUserResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns information about an ActiveMQ user.",
+        "operationId": "DescribeUser",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the broker.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DescribeUserResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates an ActiveMQ user.",
+        "operationId": "CreateUser",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the broker.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "consoleAccess": {
+                    "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user.",
+                    "type": "boolean"
+                  },
+                  "groups": {
+                    "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
+                    "items": { "$ref": "#/components/schemas/__string" },
+                    "type": "array"
+                  },
+                  "password": {
+                    "description": "Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateUserResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "put": {
+        "description": "Updates the information for an ActiveMQ user.",
+        "operationId": "UpdateUser",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the broker.",
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "consoleAccess": {
+                    "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user.",
+                    "type": "boolean"
+                  },
+                  "groups": {
+                    "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
+                    "items": { "$ref": "#/components/schemas/__string" },
+                    "type": "array"
+                  },
+                  "password": {
+                    "description": "The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateUserResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      }
+    },
+    "/v1/configurations": {
+      "get": {
+        "description": "Returns a list of all configurations.",
+        "operationId": "ListConfigurations",
+        "parameters": [
+          {
+            "description": "The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListConfigurationsResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).",
+        "operationId": "CreateConfiguration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "engineType": {
+                    "description": "The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.",
+                    "enum": ["ACTIVEMQ"],
+                    "type": "string"
+                  },
+                  "engineVersion": {
+                    "description": "Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "Create tags when creating the configuration.",
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/CreateConfigurationResponse" } }
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      }
+    },
+    "/v1/configurations/{configuration-id}": {
+      "get": {
+        "description": "Returns information about the specified configuration.",
+        "operationId": "DescribeConfiguration",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the configuration.",
+            "in": "path",
+            "name": "configuration-id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeConfigurationResponse" } }
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "Updates the specified configuration.",
+        "operationId": "UpdateConfiguration",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the configuration.",
+            "in": "path",
+            "name": "configuration-id",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "data": { "description": "Required. The base64-encoded XML configuration.", "type": "string" },
+                  "description": { "description": "The description of the configuration.", "type": "string" }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/UpdateConfigurationResponse" } }
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConflictException" } } }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      }
+    },
+    "/v1/configurations/{configuration-id}/revisions": {
+      "get": {
+        "description": "Returns a list of all revisions for the specified configuration.",
+        "operationId": "ListConfigurationRevisions",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the configuration.",
+            "in": "path",
+            "name": "configuration-id",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100 }
+          },
+          {
+            "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListConfigurationRevisionsResponse" } }
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v1/configurations/{configuration-id}/revisions/{configuration-revision}": {
+      "get": {
+        "description": "Returns the specified configuration revision for the specified configuration.",
+        "operationId": "DescribeConfigurationRevision",
+        "parameters": [
+          {
+            "description": "The unique ID that Amazon MQ generates for the configuration.",
+            "in": "path",
+            "name": "configuration-id",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "The revision of the configuration.",
+            "in": "path",
+            "name": "configuration-revision",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/DescribeConfigurationRevisionResponse" } }
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v1/tags/{resource-arn}": {
+      "get": {
+        "description": "Lists tags for a resource.",
+        "operationId": "ListTags",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource tag.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsResponse" } } }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Add a tag to a resource.",
+        "operationId": "CreateTags",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource tag.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "tags": {
+                    "additionalProperties": { "$ref": "#/components/schemas/__string" },
+                    "description": "The key-value pair for the resource tag.",
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": { "description": "Success" },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      }
+    },
+    "/v1/tags/{resource-arn}#tagKeys": {
+      "delete": {
+        "description": "Removes a tag from a resource.",
+        "operationId": "DeleteTags",
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource tag.",
+            "in": "path",
+            "name": "resource-arn",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "An array of tag keys to delete",
+            "in": "query",
+            "name": "tagKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Success" },
+          "480": {
+            "description": "NotFoundException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerErrorException" } }
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ForbiddenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    }
+  },
+  "servers": [
+    {
+      "description": "The AmazonMQ multi-region endpoint",
+      "url": "http://mq.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AmazonMQ multi-region endpoint",
+      "url": "https://mq.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AmazonMQ endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://mq.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AmazonMQ endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://mq.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AvailabilityZone": {
+        "description": "Name of the availability zone.",
+        "properties": { "Name": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "BadRequestException": {},
+      "BrokerEngineType": {
+        "description": "Types of broker engines.",
+        "properties": {
+          "EngineType": { "$ref": "#/components/schemas/EngineType" },
+          "EngineVersions": { "$ref": "#/components/schemas/__listOfEngineVersion" }
+        },
+        "type": "object"
+      },
+      "BrokerInstance": {
+        "description": "Returns information about all brokers.",
+        "properties": {
+          "ConsoleURL": { "$ref": "#/components/schemas/__string" },
+          "Endpoints": { "$ref": "#/components/schemas/__listOf__string" },
+          "IpAddress": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "BrokerInstanceOption": {
+        "description": "Option for host instance type.",
+        "properties": {
+          "AvailabilityZones": { "$ref": "#/components/schemas/__listOfAvailabilityZone" },
+          "EngineType": { "$ref": "#/components/schemas/EngineType" },
+          "HostInstanceType": { "$ref": "#/components/schemas/__string" },
+          "SupportedEngineVersions": { "$ref": "#/components/schemas/__listOf__string" }
+        },
+        "type": "object"
+      },
+      "BrokerState": {
+        "description": "The status of the broker.",
+        "enum": ["CREATION_IN_PROGRESS", "CREATION_FAILED", "DELETION_IN_PROGRESS", "RUNNING", "REBOOT_IN_PROGRESS"],
+        "type": "string"
+      },
+      "BrokerSummary": {
+        "description": "The Amazon Resource Name (ARN) of the broker.",
+        "properties": {
+          "BrokerArn": { "$ref": "#/components/schemas/__string" },
+          "BrokerId": { "$ref": "#/components/schemas/__string" },
+          "BrokerName": { "$ref": "#/components/schemas/__string" },
+          "BrokerState": { "$ref": "#/components/schemas/BrokerState" },
+          "Created": { "$ref": "#/components/schemas/__timestampIso8601" },
+          "DeploymentMode": { "$ref": "#/components/schemas/DeploymentMode" },
+          "HostInstanceType": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ChangeType": {
+        "description": "The type of change pending for the ActiveMQ user.",
+        "enum": ["CREATE", "UPDATE", "DELETE"],
+        "type": "string"
+      },
+      "Configuration": {
+        "description": "Returns information about all configurations.",
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Created": { "$ref": "#/components/schemas/__timestampIso8601" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "EngineType": { "$ref": "#/components/schemas/EngineType" },
+          "EngineVersion": { "$ref": "#/components/schemas/__string" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "LatestRevision": { "$ref": "#/components/schemas/ConfigurationRevision" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" }
+        },
+        "type": "object"
+      },
+      "ConfigurationId": {
+        "description": "A list of information about the configuration.",
+        "properties": {
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "Revision": { "$ref": "#/components/schemas/__integer" }
+        },
+        "type": "object"
+      },
+      "ConfigurationRevision": {
+        "description": "Returns information about the specified configuration revision.",
+        "properties": {
+          "Created": { "$ref": "#/components/schemas/__timestampIso8601" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "Revision": { "$ref": "#/components/schemas/__integer" }
+        },
+        "type": "object"
+      },
+      "Configurations": {
+        "description": "Broker configuration information",
+        "properties": {
+          "Current": { "$ref": "#/components/schemas/ConfigurationId" },
+          "History": { "$ref": "#/components/schemas/__listOfConfigurationId" },
+          "Pending": { "$ref": "#/components/schemas/ConfigurationId" }
+        },
+        "type": "object"
+      },
+      "ConflictException": {},
+      "CreateBrokerRequest": {
+        "description": "Creates a broker using the specified properties.",
+        "properties": {
+          "AutoMinorVersionUpgrade": { "$ref": "#/components/schemas/__boolean" },
+          "BrokerName": { "$ref": "#/components/schemas/__string" },
+          "Configuration": { "$ref": "#/components/schemas/ConfigurationId" },
+          "CreatorRequestId": { "$ref": "#/components/schemas/__string" },
+          "DeploymentMode": { "$ref": "#/components/schemas/DeploymentMode" },
+          "EncryptionOptions": { "$ref": "#/components/schemas/EncryptionOptions" },
+          "EngineType": { "$ref": "#/components/schemas/EngineType" },
+          "EngineVersion": { "$ref": "#/components/schemas/__string" },
+          "HostInstanceType": { "$ref": "#/components/schemas/__string" },
+          "Logs": { "$ref": "#/components/schemas/Logs" },
+          "MaintenanceWindowStartTime": { "$ref": "#/components/schemas/WeeklyStartTime" },
+          "PubliclyAccessible": { "$ref": "#/components/schemas/__boolean" },
+          "SecurityGroups": { "$ref": "#/components/schemas/__listOf__string" },
+          "SubnetIds": { "$ref": "#/components/schemas/__listOf__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" },
+          "Users": { "$ref": "#/components/schemas/__listOfUser" }
+        },
+        "type": "object"
+      },
+      "CreateBrokerResponse": {
+        "properties": {
+          "BrokerArn": { "$ref": "#/components/schemas/__string" },
+          "BrokerId": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "CreateConfigurationRequest": {
+        "description": "Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).",
+        "properties": {
+          "EngineType": { "$ref": "#/components/schemas/EngineType" },
+          "EngineVersion": { "$ref": "#/components/schemas/__string" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" }
+        },
+        "type": "object"
+      },
+      "CreateConfigurationResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Created": { "$ref": "#/components/schemas/__timestampIso8601" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "LatestRevision": { "$ref": "#/components/schemas/ConfigurationRevision" },
+          "Name": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "CreateTagsRequest": {
+        "description": "A map of the key-value pairs for the resource tag.",
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "type": "object"
+      },
+      "CreateUserRequest": {
+        "description": "Creates a new ActiveMQ user.",
+        "properties": {
+          "ConsoleAccess": { "$ref": "#/components/schemas/__boolean" },
+          "Groups": { "$ref": "#/components/schemas/__listOf__string" },
+          "Password": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "CreateUserResponse": { "properties": {}, "type": "object" },
+      "DayOfWeek": {
+        "enum": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"],
+        "type": "string"
+      },
+      "DeleteBrokerRequest": { "properties": {}, "type": "object" },
+      "DeleteBrokerResponse": {
+        "properties": { "BrokerId": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "DeleteTagsRequest": { "properties": {}, "type": "object" },
+      "DeleteUserRequest": { "properties": {}, "type": "object" },
+      "DeleteUserResponse": { "properties": {}, "type": "object" },
+      "DeploymentMode": {
+        "description": "The deployment mode of the broker.",
+        "enum": ["SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ"],
+        "type": "string"
+      },
+      "DescribeBrokerEngineTypesRequest": { "properties": {}, "type": "object" },
+      "DescribeBrokerEngineTypesResponse": {
+        "properties": {
+          "BrokerEngineTypes": { "$ref": "#/components/schemas/__listOfBrokerEngineType" },
+          "MaxResults": { "$ref": "#/components/schemas/__integerMin5Max100" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DescribeBrokerInstanceOptionsRequest": { "properties": {}, "type": "object" },
+      "DescribeBrokerInstanceOptionsResponse": {
+        "properties": {
+          "BrokerInstanceOptions": { "$ref": "#/components/schemas/__listOfBrokerInstanceOption" },
+          "MaxResults": { "$ref": "#/components/schemas/__integerMin5Max100" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DescribeBrokerRequest": { "properties": {}, "type": "object" },
+      "DescribeBrokerResponse": {
+        "properties": {
+          "AutoMinorVersionUpgrade": { "$ref": "#/components/schemas/__boolean" },
+          "BrokerArn": { "$ref": "#/components/schemas/__string" },
+          "BrokerId": { "$ref": "#/components/schemas/__string" },
+          "BrokerInstances": { "$ref": "#/components/schemas/__listOfBrokerInstance" },
+          "BrokerName": { "$ref": "#/components/schemas/__string" },
+          "BrokerState": { "$ref": "#/components/schemas/BrokerState" },
+          "Configurations": { "$ref": "#/components/schemas/Configurations" },
+          "Created": { "$ref": "#/components/schemas/__timestampIso8601" },
+          "DeploymentMode": { "$ref": "#/components/schemas/DeploymentMode" },
+          "EncryptionOptions": { "$ref": "#/components/schemas/EncryptionOptions" },
+          "EngineType": { "$ref": "#/components/schemas/EngineType" },
+          "EngineVersion": { "$ref": "#/components/schemas/__string" },
+          "HostInstanceType": { "$ref": "#/components/schemas/__string" },
+          "Logs": { "$ref": "#/components/schemas/LogsSummary" },
+          "MaintenanceWindowStartTime": { "$ref": "#/components/schemas/WeeklyStartTime" },
+          "PendingEngineVersion": { "$ref": "#/components/schemas/__string" },
+          "PubliclyAccessible": { "$ref": "#/components/schemas/__boolean" },
+          "SecurityGroups": { "$ref": "#/components/schemas/__listOf__string" },
+          "SubnetIds": { "$ref": "#/components/schemas/__listOf__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" },
+          "Users": { "$ref": "#/components/schemas/__listOfUserSummary" }
+        },
+        "type": "object"
+      },
+      "DescribeConfigurationRequest": { "properties": {}, "type": "object" },
+      "DescribeConfigurationResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Created": { "$ref": "#/components/schemas/__timestampIso8601" },
+          "Description": { "$ref": "#/components/schemas/__string" },
+          "EngineType": { "$ref": "#/components/schemas/EngineType" },
+          "EngineVersion": { "$ref": "#/components/schemas/__string" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "LatestRevision": { "$ref": "#/components/schemas/ConfigurationRevision" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Tags": { "$ref": "#/components/schemas/__mapOf__string" }
+        },
+        "type": "object"
+      },
+      "DescribeConfigurationRevisionRequest": { "properties": {}, "type": "object" },
+      "DescribeConfigurationRevisionResponse": {
+        "properties": {
+          "ConfigurationId": { "$ref": "#/components/schemas/__string" },
+          "Created": { "$ref": "#/components/schemas/__timestampIso8601" },
+          "Data": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "DescribeUserRequest": { "properties": {}, "type": "object" },
+      "DescribeUserResponse": {
+        "properties": {
+          "BrokerId": { "$ref": "#/components/schemas/__string" },
+          "ConsoleAccess": { "$ref": "#/components/schemas/__boolean" },
+          "Groups": { "$ref": "#/components/schemas/__listOf__string" },
+          "Pending": { "$ref": "#/components/schemas/UserPendingChanges" },
+          "Username": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "EncryptionOptions": {
+        "description": "Encryption options for the broker.",
+        "properties": {
+          "KmsKeyId": { "$ref": "#/components/schemas/__string" },
+          "UseAwsOwnedKey": { "$ref": "#/components/schemas/__boolean" }
+        },
+        "required": ["UseAwsOwnedKey"],
+        "type": "object"
+      },
+      "EngineType": {
+        "description": "The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.",
+        "enum": ["ACTIVEMQ"],
+        "type": "string"
+      },
+      "EngineVersion": {
+        "description": "Id of the engine version.",
+        "properties": { "Name": { "$ref": "#/components/schemas/__string" } },
+        "type": "object"
+      },
+      "ForbiddenException": {},
+      "InternalServerErrorException": {},
+      "ListBrokersRequest": { "properties": {}, "type": "object" },
+      "ListBrokersResponse": {
+        "properties": {
+          "BrokerSummaries": { "$ref": "#/components/schemas/__listOfBrokerSummary" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListConfigurationRevisionsRequest": { "properties": {}, "type": "object" },
+      "ListConfigurationRevisionsResponse": {
+        "properties": {
+          "ConfigurationId": { "$ref": "#/components/schemas/__string" },
+          "MaxResults": { "$ref": "#/components/schemas/__integer" },
+          "NextToken": { "$ref": "#/components/schemas/__string" },
+          "Revisions": { "$ref": "#/components/schemas/__listOfConfigurationRevision" }
+        },
+        "type": "object"
+      },
+      "ListConfigurationsRequest": { "properties": {}, "type": "object" },
+      "ListConfigurationsResponse": {
+        "properties": {
+          "Configurations": { "$ref": "#/components/schemas/__listOfConfiguration" },
+          "MaxResults": { "$ref": "#/components/schemas/__integer" },
+          "NextToken": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "ListTagsRequest": { "properties": {}, "type": "object" },
+      "ListTagsResponse": {
+        "properties": { "Tags": { "$ref": "#/components/schemas/__mapOf__string" } },
+        "type": "object"
+      },
+      "ListUsersRequest": { "properties": {}, "type": "object" },
+      "ListUsersResponse": {
+        "properties": {
+          "BrokerId": { "$ref": "#/components/schemas/__string" },
+          "MaxResults": { "$ref": "#/components/schemas/__integerMin5Max100" },
+          "NextToken": { "$ref": "#/components/schemas/__string" },
+          "Users": { "$ref": "#/components/schemas/__listOfUserSummary" }
+        },
+        "type": "object"
+      },
+      "Logs": {
+        "description": "The list of information about logs to be enabled for the specified broker.",
+        "properties": {
+          "Audit": { "$ref": "#/components/schemas/__boolean" },
+          "General": { "$ref": "#/components/schemas/__boolean" }
+        },
+        "type": "object"
+      },
+      "LogsSummary": {
+        "description": "The list of information about logs currently enabled and pending to be deployed for the specified broker.",
+        "properties": {
+          "Audit": { "$ref": "#/components/schemas/__boolean" },
+          "AuditLogGroup": { "$ref": "#/components/schemas/__string" },
+          "General": { "$ref": "#/components/schemas/__boolean" },
+          "GeneralLogGroup": { "$ref": "#/components/schemas/__string" },
+          "Pending": { "$ref": "#/components/schemas/PendingLogs" }
+        },
+        "type": "object"
+      },
+      "MaxResults": { "maximum": 100, "minimum": 1, "type": "integer" },
+      "NotFoundException": {},
+      "PendingLogs": {
+        "description": "The list of information about logs to be enabled for the specified broker.",
+        "properties": {
+          "Audit": { "$ref": "#/components/schemas/__boolean" },
+          "General": { "$ref": "#/components/schemas/__boolean" }
+        },
+        "type": "object"
+      },
+      "RebootBrokerRequest": { "properties": {}, "type": "object" },
+      "RebootBrokerResponse": { "properties": {}, "type": "object" },
+      "SanitizationWarning": {
+        "description": "Returns information about the XML element or attribute that was sanitized in the configuration.",
+        "properties": {
+          "AttributeName": { "$ref": "#/components/schemas/__string" },
+          "ElementName": { "$ref": "#/components/schemas/__string" },
+          "Reason": { "$ref": "#/components/schemas/SanitizationWarningReason" }
+        },
+        "type": "object"
+      },
+      "SanitizationWarningReason": {
+        "description": "The reason for which the XML elements or attributes were sanitized.",
+        "enum": ["DISALLOWED_ELEMENT_REMOVED", "DISALLOWED_ATTRIBUTE_REMOVED", "INVALID_ATTRIBUTE_VALUE_REMOVED"],
+        "type": "string"
+      },
+      "UnauthorizedException": {},
+      "UpdateBrokerRequest": {
+        "description": "Updates the broker using the specified properties.",
+        "properties": {
+          "AutoMinorVersionUpgrade": { "$ref": "#/components/schemas/__boolean" },
+          "Configuration": { "$ref": "#/components/schemas/ConfigurationId" },
+          "EngineVersion": { "$ref": "#/components/schemas/__string" },
+          "Logs": { "$ref": "#/components/schemas/Logs" }
+        },
+        "type": "object"
+      },
+      "UpdateBrokerResponse": {
+        "properties": {
+          "AutoMinorVersionUpgrade": { "$ref": "#/components/schemas/__boolean" },
+          "BrokerId": { "$ref": "#/components/schemas/__string" },
+          "Configuration": { "$ref": "#/components/schemas/ConfigurationId" },
+          "EngineVersion": { "$ref": "#/components/schemas/__string" },
+          "Logs": { "$ref": "#/components/schemas/Logs" }
+        },
+        "type": "object"
+      },
+      "UpdateConfigurationRequest": {
+        "description": "Updates the specified configuration.",
+        "properties": {
+          "Data": { "$ref": "#/components/schemas/__string" },
+          "Description": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "UpdateConfigurationResponse": {
+        "properties": {
+          "Arn": { "$ref": "#/components/schemas/__string" },
+          "Created": { "$ref": "#/components/schemas/__timestampIso8601" },
+          "Id": { "$ref": "#/components/schemas/__string" },
+          "LatestRevision": { "$ref": "#/components/schemas/ConfigurationRevision" },
+          "Name": { "$ref": "#/components/schemas/__string" },
+          "Warnings": { "$ref": "#/components/schemas/__listOfSanitizationWarning" }
+        },
+        "type": "object"
+      },
+      "UpdateUserRequest": {
+        "description": "Updates the information for an ActiveMQ user.",
+        "properties": {
+          "ConsoleAccess": { "$ref": "#/components/schemas/__boolean" },
+          "Groups": { "$ref": "#/components/schemas/__listOf__string" },
+          "Password": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "UpdateUserResponse": { "properties": {}, "type": "object" },
+      "User": {
+        "description": "An ActiveMQ user associated with the broker.",
+        "properties": {
+          "ConsoleAccess": { "$ref": "#/components/schemas/__boolean" },
+          "Groups": { "$ref": "#/components/schemas/__listOf__string" },
+          "Password": { "$ref": "#/components/schemas/__string" },
+          "Username": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "UserPendingChanges": {
+        "description": "Returns information about the status of the changes pending for the ActiveMQ user.",
+        "properties": {
+          "ConsoleAccess": { "$ref": "#/components/schemas/__boolean" },
+          "Groups": { "$ref": "#/components/schemas/__listOf__string" },
+          "PendingChange": { "$ref": "#/components/schemas/ChangeType" }
+        },
+        "type": "object"
+      },
+      "UserSummary": {
+        "description": "Returns a list of all ActiveMQ users.",
+        "properties": {
+          "PendingChange": { "$ref": "#/components/schemas/ChangeType" },
+          "Username": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "WeeklyStartTime": {
+        "description": "The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.",
+        "properties": {
+          "DayOfWeek": { "$ref": "#/components/schemas/DayOfWeek" },
+          "TimeOfDay": { "$ref": "#/components/schemas/__string" },
+          "TimeZone": { "$ref": "#/components/schemas/__string" }
+        },
+        "type": "object"
+      },
+      "__boolean": { "type": "boolean" },
+      "__integer": { "type": "integer" },
+      "__integerMin5Max100": { "maximum": 100, "minimum": 5, "type": "integer" },
+      "__listOfAvailabilityZone": { "items": { "$ref": "#/components/schemas/AvailabilityZone" }, "type": "array" },
+      "__listOfBrokerEngineType": { "items": { "$ref": "#/components/schemas/BrokerEngineType" }, "type": "array" },
+      "__listOfBrokerInstance": { "items": { "$ref": "#/components/schemas/BrokerInstance" }, "type": "array" },
+      "__listOfBrokerInstanceOption": {
+        "items": { "$ref": "#/components/schemas/BrokerInstanceOption" },
+        "type": "array"
+      },
+      "__listOfBrokerSummary": { "items": { "$ref": "#/components/schemas/BrokerSummary" }, "type": "array" },
+      "__listOfConfiguration": { "items": { "$ref": "#/components/schemas/Configuration" }, "type": "array" },
+      "__listOfConfigurationId": { "items": { "$ref": "#/components/schemas/ConfigurationId" }, "type": "array" },
+      "__listOfConfigurationRevision": {
+        "items": { "$ref": "#/components/schemas/ConfigurationRevision" },
+        "type": "array"
+      },
+      "__listOfEngineVersion": { "items": { "$ref": "#/components/schemas/EngineVersion" }, "type": "array" },
+      "__listOfSanitizationWarning": {
+        "items": { "$ref": "#/components/schemas/SanitizationWarning" },
+        "type": "array"
+      },
+      "__listOfUser": { "items": { "$ref": "#/components/schemas/User" }, "type": "array" },
+      "__listOfUserSummary": { "items": { "$ref": "#/components/schemas/UserSummary" }, "type": "array" },
+      "__listOf__string": { "items": { "$ref": "#/components/schemas/__string" }, "type": "array" },
+      "__mapOf__string": { "additionalProperties": { "$ref": "#/components/schemas/__string" }, "type": "object" },
+      "__string": { "type": "string" },
+      "__timestampIso8601": { "format": "date-time", "type": "string" }
+    }
+  }
+}

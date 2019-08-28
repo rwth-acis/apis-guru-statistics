@@ -1,1 +1,360 @@
-{"openapi":"3.0.0","info":{"contact":{"email":"aiapi@microsoft.com","name":"AIAPI Team","url":"https://dev.loganalytics.io/support"},"description":"This API exposes Azure Log Analytics query capabilities","license":{"name":"Microsoft","url":"https://dev.loganalytics.io/license"},"termsOfService":"https://dev.loganalytics.io/tos","title":"Azure Log Analytics","version":"v1","x-origin":[{"format":"swagger","url":"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/operationalinsights/data-plane/Microsoft.OperationalInsights/stable/v1/OperationalInsights.json","version":"2.0"}],"x-preferred":true,"x-providerName":"loganalytics.io","x-serviceName":"operationalinsights-OperationalInsights"},"security":[{"azure_auth":["user_impersonation"]}],"paths":{"/workspaces/{workspaceId}/query":{"get":{"description":"Executes an Analytics query for data","operationId":"Query_Get","parameters":[{"$ref":"#/components/parameters/workspaceId"},{"$ref":"#/components/parameters/queryParam"},{"$ref":"#/components/parameters/timespanParam"}],"responses":{"200":{"description":"OK. The API call succeeded and the Analytics query result is in the response payload","content":{"application/json":{"schema":{"$ref":"#/components/schemas/queryResults"},"examples":{"cross-workspace":{"$ref":"#/components/examples/cross-workspace"},"simple-query":{"$ref":"#/components/examples/simple-query"}}}}},"default":{"description":"An error response object.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/errorResponse"}}}}},"summary":"Execute an Analytics query"},"post":{"description":"Executes an Analytics query for data. [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an example for using POST with an Analytics query.","operationId":"Query_Execute","parameters":[{"$ref":"#/components/parameters/workspaceId"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/queryBody"}}},"description":"The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/)","required":true,"x-ms-parameter-location":"method"},"responses":{"200":{"description":"OK. The API call succeeded and the Analytics query result is in the response payload","content":{"application/json":{"schema":{"$ref":"#/components/schemas/queryResults"},"examples":{"cross-workspace":{"$ref":"#/components/examples/cross-workspace"},"simple-query":{"$ref":"#/components/examples/simple-query"}}}}},"default":{"description":"An error response object.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/errorResponse"}}}}},"summary":"Execute an Analytics query"}}},"servers":[{"url":"https://api.loganalytics.io/v1"}],"components":{"examples":{"cross-workspace":{"value":{"tables":[{"columns":[{"name":"Type","type":"string"},{"name":"TenantId","type":"string"},{"name":"count_","type":"long"}],"name":"PrimaryResult","rows":[["Usage","63613592-b6f7-4c3d-a390-22ba13102111","1"],["Usage","d436f322-a9f4-4aad-9a7d-271fbf66001c","1"],["BillingFact","63613592-b6f7-4c3d-a390-22ba13102111","1"],["BillingFact","d436f322-a9f4-4aad-9a7d-271fbf66001c","1"],["Operation","63613592-b6f7-4c3d-a390-22ba13102111","7"],["Operation","d436f322-a9f4-4aad-9a7d-271fbf66001c","5"]]}]}},"simple-query":{"value":{"tables":[{"columns":[{"name":"TenantId","type":"string"},{"name":"Computer","type":"string"},{"name":"TimeGenerated","type":"datetime"},{"name":"SourceSystem","type":"string"},{"name":"StartTime","type":"datetime"},{"name":"EndTime","type":"datetime"},{"name":"ResourceUri","type":"string"},{"name":"LinkedResourceUri","type":"string"},{"name":"DataType","type":"string"},{"name":"Solution","type":"string"},{"name":"BatchesWithinSla","type":"long"},{"name":"BatchesOutsideSla","type":"long"},{"name":"BatchesCapped","type":"long"},{"name":"TotalBatches","type":"long"},{"name":"AvgLatencyInSeconds","type":"real"},{"name":"Quantity","type":"real"},{"name":"QuantityUnit","type":"string"},{"name":"IsBillable","type":"bool"},{"name":"MeterId","type":"string"},{"name":"LinkedMeterId","type":"string"},{"name":"Type","type":"string"}],"name":"PrimaryResult","rows":[["b438b4f6-912a-46d5-9cb1-b44069212abc","ContosoSQLSrv1","2017-08-24T06:59:59Z","OMS","2017-08-24T06:00:00Z","2017-08-24T06:59:59Z","/subscriptions/e4272367-5645-4c4e-9c67-3b74b59a6982/resourcegroups/contosoazurehq/providers/microsoft.operationalinsights/workspaces/contosoretail-it",null,"Perf","LogManagement","1","0","0","1","1.286","0.076408","MBytes","true","a4e29a95-5b4c-408b-80e3-113f9410566e","00000000-0000-0000-0000-000000000000","Usage"],["b438b4f6-912a-46d5-9cb1-b44069212abc","Store010Web3","2017-08-24T06:59:59Z","OMS","2017-08-24T06:00:00Z","2017-08-24T06:59:59Z","/subscriptions/e4272367-5645-4c4e-9c67-3b74b59a6982/resourcegroups/contosoazurehq/providers/microsoft.operationalinsights/workspaces/contosoretail-it",null,"Perf","LogManagement","1","0","0","1","1.7","0.106767","MBytes","true","a4e29a95-5b4c-408b-80e3-113f9410566e","00000000-0000-0000-0000-000000000000","Usage"]]}]}}},"parameters":{"queryParam":{"description":"The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/)","in":"query","name":"query","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"cross-workspace":{"value":"union * | where TimeGenerated > ago(1h) | summarize count() by Type, TenantId"},"simple-query":{"value":"Usage | take 10"}}},"timespanParam":{"description":"Optional. The timespan over which to query data. This is an ISO8601 time period value.  This timespan is applied in addition to any that are specified in the query expression.","in":"query","name":"timespan","required":false,"x-ms-parameter-location":"method","schema":{"type":"string","format":"duration"},"examples":{"simple-query":{"value":"PT12H"}}},"workspaceId":{"description":"ID of the workspace. This is Workspace ID from the Properties blade in the Azure portal.","in":"path","name":"workspaceId","required":true,"x-ms-parameter-location":"method","schema":{"type":"string"},"examples":{"cross-workspace":{"value":"63613592-b6f7-4c3d-a390-22ba13102111"},"simple-query":{"value":"63613592-b6f7-4c3d-a390-22ba13102111"}}},"workspacesParam":{"description":"Comma separated workspace IDs to include in cross-workspace queries.","in":"query","name":"workspaces","required":false,"x-ms-parameter-location":"method","schema":{"type":"string","default":""}}},"securitySchemes":{"azure_auth":{"description":"Azure Active Directory OAuth2 Flow","type":"oauth2","flows":{"implicit":{"authorizationUrl":"https://login.microsoftonline.com/common/oauth2/authorize","scopes":{"user_impersonation":"impersonate your user account"}}}}},"schemas":{"column":{"description":"A column in a table.","properties":{"name":{"description":"The name of this column.","type":"string"},"type":{"description":"The data type of this column.","type":"string"}},"title":"A table column.","type":"object"},"errorDetail":{"properties":{"additionalProperties":{"type":"object"},"code":{"description":"The error's code.","type":"string"},"message":{"description":"A human readable error message.","type":"string"},"resources":{"description":"Indicates resources which were responsible for the error.","items":{"type":"string"},"type":"array"},"target":{"description":"Indicates which property in the request is responsible for the error.","type":"string"},"value":{"description":"Indicates which value in 'target' is responsible for the error.","type":"string"}},"required":["code","message"],"title":"Error details.","type":"object"},"errorInfo":{"properties":{"additionalProperties":{"type":"object"},"code":{"description":"A machine readable error code.","type":"string"},"details":{"description":"error details.","items":{"$ref":"#/components/schemas/errorDetail"},"type":"array"},"innererror":{"$ref":"#/components/schemas/errorInfo"},"message":{"description":"A human readable error message.","type":"string"}},"required":["code","message"],"title":"The code and message for an error.","type":"object"},"errorResponse":{"description":"Contains details when the response code indicates an error.","properties":{"error":{"$ref":"#/components/schemas/errorInfo"}},"required":["error"],"title":"Error details.","type":"object"},"queryBody":{"description":"The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/)","properties":{"query":{"$ref":"#/components/schemas/queryParam"},"timespan":{"$ref":"#/components/schemas/timespanParam"},"workspaces":{"$ref":"#/components/schemas/workspacesParam"}},"required":["query"],"type":"object"},"queryParam":{"description":"The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/)","type":"string"},"queryResults":{"description":"Contains the tables, columns & rows resulting from a query.","properties":{"tables":{"description":"The list of tables, columns and rows.","items":{"$ref":"#/components/schemas/table"},"type":"array"}},"required":["tables"],"title":"A query response.","type":"object"},"table":{"description":"Contains the columns and rows for one table in a query response.","properties":{"columns":{"description":"The list of columns in this table.","items":{"$ref":"#/components/schemas/column"},"type":"array"},"name":{"description":"The name of the table.","type":"string"},"rows":{"description":"The resulting rows from this query.","items":{"items":{"type":"string"},"type":"array"},"type":"array"}},"required":["name","columns","rows"],"title":"A query response table.","type":"object"},"timespanParam":{"description":"Optional. The timespan over which to query data. This is an ISO8601 time period value.  This timespan is applied in addition to any that are specified in the query expression.","type":"string"},"workspacesParam":{"description":"Workspace IDs to include in cross-workspace queries.","items":{"type":"string"},"type":"array"}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": { "email": "aiapi@microsoft.com", "name": "AIAPI Team", "url": "https://dev.loganalytics.io/support" },
+    "description": "This API exposes Azure Log Analytics query capabilities",
+    "license": { "name": "Microsoft", "url": "https://dev.loganalytics.io/license" },
+    "termsOfService": "https://dev.loganalytics.io/tos",
+    "title": "Azure Log Analytics",
+    "version": "v1",
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/operationalinsights/data-plane/Microsoft.OperationalInsights/stable/v1/OperationalInsights.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "loganalytics.io",
+    "x-serviceName": "operationalinsights-OperationalInsights"
+  },
+  "security": [{ "azure_auth": ["user_impersonation"] }],
+  "paths": {
+    "/workspaces/{workspaceId}/query": {
+      "get": {
+        "description": "Executes an Analytics query for data",
+        "operationId": "Query_Get",
+        "parameters": [
+          { "$ref": "#/components/parameters/workspaceId" },
+          { "$ref": "#/components/parameters/queryParam" },
+          { "$ref": "#/components/parameters/timespanParam" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The API call succeeded and the Analytics query result is in the response payload",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/queryResults" },
+                "examples": {
+                  "cross-workspace": { "$ref": "#/components/examples/cross-workspace" },
+                  "simple-query": { "$ref": "#/components/examples/simple-query" }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response object.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/errorResponse" } } }
+          }
+        },
+        "summary": "Execute an Analytics query"
+      },
+      "post": {
+        "description": "Executes an Analytics query for data. [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an example for using POST with an Analytics query.",
+        "operationId": "Query_Execute",
+        "parameters": [{ "$ref": "#/components/parameters/workspaceId" }],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/queryBody" } } },
+          "description": "The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/)",
+          "required": true,
+          "x-ms-parameter-location": "method"
+        },
+        "responses": {
+          "200": {
+            "description": "OK. The API call succeeded and the Analytics query result is in the response payload",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/queryResults" },
+                "examples": {
+                  "cross-workspace": { "$ref": "#/components/examples/cross-workspace" },
+                  "simple-query": { "$ref": "#/components/examples/simple-query" }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response object.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/errorResponse" } } }
+          }
+        },
+        "summary": "Execute an Analytics query"
+      }
+    }
+  },
+  "servers": [{ "url": "https://api.loganalytics.io/v1" }],
+  "components": {
+    "examples": {
+      "cross-workspace": {
+        "value": {
+          "tables": [
+            {
+              "columns": [
+                { "name": "Type", "type": "string" },
+                { "name": "TenantId", "type": "string" },
+                { "name": "count_", "type": "long" }
+              ],
+              "name": "PrimaryResult",
+              "rows": [
+                ["Usage", "63613592-b6f7-4c3d-a390-22ba13102111", "1"],
+                ["Usage", "d436f322-a9f4-4aad-9a7d-271fbf66001c", "1"],
+                ["BillingFact", "63613592-b6f7-4c3d-a390-22ba13102111", "1"],
+                ["BillingFact", "d436f322-a9f4-4aad-9a7d-271fbf66001c", "1"],
+                ["Operation", "63613592-b6f7-4c3d-a390-22ba13102111", "7"],
+                ["Operation", "d436f322-a9f4-4aad-9a7d-271fbf66001c", "5"]
+              ]
+            }
+          ]
+        }
+      },
+      "simple-query": {
+        "value": {
+          "tables": [
+            {
+              "columns": [
+                { "name": "TenantId", "type": "string" },
+                { "name": "Computer", "type": "string" },
+                { "name": "TimeGenerated", "type": "datetime" },
+                { "name": "SourceSystem", "type": "string" },
+                { "name": "StartTime", "type": "datetime" },
+                { "name": "EndTime", "type": "datetime" },
+                { "name": "ResourceUri", "type": "string" },
+                { "name": "LinkedResourceUri", "type": "string" },
+                { "name": "DataType", "type": "string" },
+                { "name": "Solution", "type": "string" },
+                { "name": "BatchesWithinSla", "type": "long" },
+                { "name": "BatchesOutsideSla", "type": "long" },
+                { "name": "BatchesCapped", "type": "long" },
+                { "name": "TotalBatches", "type": "long" },
+                { "name": "AvgLatencyInSeconds", "type": "real" },
+                { "name": "Quantity", "type": "real" },
+                { "name": "QuantityUnit", "type": "string" },
+                { "name": "IsBillable", "type": "bool" },
+                { "name": "MeterId", "type": "string" },
+                { "name": "LinkedMeterId", "type": "string" },
+                { "name": "Type", "type": "string" }
+              ],
+              "name": "PrimaryResult",
+              "rows": [
+                [
+                  "b438b4f6-912a-46d5-9cb1-b44069212abc",
+                  "ContosoSQLSrv1",
+                  "2017-08-24T06:59:59Z",
+                  "OMS",
+                  "2017-08-24T06:00:00Z",
+                  "2017-08-24T06:59:59Z",
+                  "/subscriptions/e4272367-5645-4c4e-9c67-3b74b59a6982/resourcegroups/contosoazurehq/providers/microsoft.operationalinsights/workspaces/contosoretail-it",
+                  null,
+                  "Perf",
+                  "LogManagement",
+                  "1",
+                  "0",
+                  "0",
+                  "1",
+                  "1.286",
+                  "0.076408",
+                  "MBytes",
+                  "true",
+                  "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                  "00000000-0000-0000-0000-000000000000",
+                  "Usage"
+                ],
+                [
+                  "b438b4f6-912a-46d5-9cb1-b44069212abc",
+                  "Store010Web3",
+                  "2017-08-24T06:59:59Z",
+                  "OMS",
+                  "2017-08-24T06:00:00Z",
+                  "2017-08-24T06:59:59Z",
+                  "/subscriptions/e4272367-5645-4c4e-9c67-3b74b59a6982/resourcegroups/contosoazurehq/providers/microsoft.operationalinsights/workspaces/contosoretail-it",
+                  null,
+                  "Perf",
+                  "LogManagement",
+                  "1",
+                  "0",
+                  "0",
+                  "1",
+                  "1.7",
+                  "0.106767",
+                  "MBytes",
+                  "true",
+                  "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                  "00000000-0000-0000-0000-000000000000",
+                  "Usage"
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "queryParam": {
+        "description": "The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/)",
+        "in": "query",
+        "name": "query",
+        "required": true,
+        "x-ms-parameter-location": "method",
+        "schema": { "type": "string" },
+        "examples": {
+          "cross-workspace": {
+            "value": "union * | where TimeGenerated > ago(1h) | summarize count() by Type, TenantId"
+          },
+          "simple-query": { "value": "Usage | take 10" }
+        }
+      },
+      "timespanParam": {
+        "description": "Optional. The timespan over which to query data. This is an ISO8601 time period value.  This timespan is applied in addition to any that are specified in the query expression.",
+        "in": "query",
+        "name": "timespan",
+        "required": false,
+        "x-ms-parameter-location": "method",
+        "schema": { "type": "string", "format": "duration" },
+        "examples": { "simple-query": { "value": "PT12H" } }
+      },
+      "workspaceId": {
+        "description": "ID of the workspace. This is Workspace ID from the Properties blade in the Azure portal.",
+        "in": "path",
+        "name": "workspaceId",
+        "required": true,
+        "x-ms-parameter-location": "method",
+        "schema": { "type": "string" },
+        "examples": {
+          "cross-workspace": { "value": "63613592-b6f7-4c3d-a390-22ba13102111" },
+          "simple-query": { "value": "63613592-b6f7-4c3d-a390-22ba13102111" }
+        }
+      },
+      "workspacesParam": {
+        "description": "Comma separated workspace IDs to include in cross-workspace queries.",
+        "in": "query",
+        "name": "workspaces",
+        "required": false,
+        "x-ms-parameter-location": "method",
+        "schema": { "type": "string", "default": "" }
+      }
+    },
+    "securitySchemes": {
+      "azure_auth": {
+        "description": "Azure Active Directory OAuth2 Flow",
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "scopes": { "user_impersonation": "impersonate your user account" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "column": {
+        "description": "A column in a table.",
+        "properties": {
+          "name": { "description": "The name of this column.", "type": "string" },
+          "type": { "description": "The data type of this column.", "type": "string" }
+        },
+        "title": "A table column.",
+        "type": "object"
+      },
+      "errorDetail": {
+        "properties": {
+          "additionalProperties": { "type": "object" },
+          "code": { "description": "The error's code.", "type": "string" },
+          "message": { "description": "A human readable error message.", "type": "string" },
+          "resources": {
+            "description": "Indicates resources which were responsible for the error.",
+            "items": { "type": "string" },
+            "type": "array"
+          },
+          "target": {
+            "description": "Indicates which property in the request is responsible for the error.",
+            "type": "string"
+          },
+          "value": {
+            "description": "Indicates which value in 'target' is responsible for the error.",
+            "type": "string"
+          }
+        },
+        "required": ["code", "message"],
+        "title": "Error details.",
+        "type": "object"
+      },
+      "errorInfo": {
+        "properties": {
+          "additionalProperties": { "type": "object" },
+          "code": { "description": "A machine readable error code.", "type": "string" },
+          "details": {
+            "description": "error details.",
+            "items": { "$ref": "#/components/schemas/errorDetail" },
+            "type": "array"
+          },
+          "innererror": { "$ref": "#/components/schemas/errorInfo" },
+          "message": { "description": "A human readable error message.", "type": "string" }
+        },
+        "required": ["code", "message"],
+        "title": "The code and message for an error.",
+        "type": "object"
+      },
+      "errorResponse": {
+        "description": "Contains details when the response code indicates an error.",
+        "properties": { "error": { "$ref": "#/components/schemas/errorInfo" } },
+        "required": ["error"],
+        "title": "Error details.",
+        "type": "object"
+      },
+      "queryBody": {
+        "description": "The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/)",
+        "properties": {
+          "query": { "$ref": "#/components/schemas/queryParam" },
+          "timespan": { "$ref": "#/components/schemas/timespanParam" },
+          "workspaces": { "$ref": "#/components/schemas/workspacesParam" }
+        },
+        "required": ["query"],
+        "type": "object"
+      },
+      "queryParam": {
+        "description": "The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/)",
+        "type": "string"
+      },
+      "queryResults": {
+        "description": "Contains the tables, columns & rows resulting from a query.",
+        "properties": {
+          "tables": {
+            "description": "The list of tables, columns and rows.",
+            "items": { "$ref": "#/components/schemas/table" },
+            "type": "array"
+          }
+        },
+        "required": ["tables"],
+        "title": "A query response.",
+        "type": "object"
+      },
+      "table": {
+        "description": "Contains the columns and rows for one table in a query response.",
+        "properties": {
+          "columns": {
+            "description": "The list of columns in this table.",
+            "items": { "$ref": "#/components/schemas/column" },
+            "type": "array"
+          },
+          "name": { "description": "The name of the table.", "type": "string" },
+          "rows": {
+            "description": "The resulting rows from this query.",
+            "items": { "items": { "type": "string" }, "type": "array" },
+            "type": "array"
+          }
+        },
+        "required": ["name", "columns", "rows"],
+        "title": "A query response table.",
+        "type": "object"
+      },
+      "timespanParam": {
+        "description": "Optional. The timespan over which to query data. This is an ISO8601 time period value.  This timespan is applied in addition to any that are specified in the query expression.",
+        "type": "string"
+      },
+      "workspacesParam": {
+        "description": "Workspace IDs to include in cross-workspace queries.",
+        "items": { "type": "string" },
+        "type": "array"
+      }
+    }
+  }
+}

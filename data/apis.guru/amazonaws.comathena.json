@@ -1,1 +1,1521 @@
-{"openapi":"3.0.0","x-hasEquivalentPaths":true,"info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":"<p>Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries. For more information, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/what-is.html\">What is Amazon Athena</a> in the <i>Amazon Athena User Guide</i>.</p> <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html\">Accessing Amazon Athena with JDBC</a>.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"Amazon Athena","version":"2017-05-18","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/athena-2017-05-18.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"v4","x-serviceName":"athena"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/athena/"},"security":[{"hmac":[]}],"paths":{"/#X-Amz-Target=AmazonAthena.BatchGetNamedQuery":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns the details of a single named query or a list of up to 50 queries, which you provide as an array of query ID strings. Requires you to have access to the workgroup in which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the list of named query IDs in the specified workgroup. If information could not be retrieved for a submitted query ID, information about the query ID submitted is listed under <a>UnprocessedNamedQueryId</a>. Named queries differ from executed queries. Use <a>BatchGetQueryExecutionInput</a> to get details about each unique query execution, and <a>ListQueryExecutionsInput</a> to get a list of query execution IDs.","operationId":"BatchGetNamedQuery","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.BatchGetNamedQuery"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/BatchGetNamedQueryInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BatchGetNamedQueryOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.BatchGetQueryExecution":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns the details of a single query execution or a list of up to 50 query executions, which you provide as an array of query execution ID strings. Requires you to have access to the workgroup in which the queries ran. To get a list of query execution IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details about named queries.","operationId":"BatchGetQueryExecution","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.BatchGetQueryExecution"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/BatchGetQueryExecutionInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BatchGetQueryExecutionOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.CreateNamedQuery":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Creates a named query in the specified workgroup. Requires that you have access to the workgroup.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>","operationId":"CreateNamedQuery","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.CreateNamedQuery"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateNamedQueryInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateNamedQueryOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.CreateWorkGroup":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates a workgroup with the specified name.","operationId":"CreateWorkGroup","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.CreateWorkGroup"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateWorkGroupInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateWorkGroupOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.DeleteNamedQuery":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Deletes the named query if you have access to the workgroup in which the query was saved.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>","operationId":"DeleteNamedQuery","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.DeleteNamedQuery"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteNamedQueryInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteNamedQueryOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.DeleteWorkGroup":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Deletes the workgroup with the specified name. The primary workgroup cannot be deleted.","operationId":"DeleteWorkGroup","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.DeleteWorkGroup"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteWorkGroupInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteWorkGroupOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.GetNamedQuery":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns information about a single query. Requires that you have access to the workgroup in which the query was saved.","operationId":"GetNamedQuery","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.GetNamedQuery"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetNamedQueryInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetNamedQueryOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.GetQueryExecution":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns information about a single execution of a query if you have access to the workgroup in which the query ran. Each time a query executes, information about the query execution is saved with a unique ID.","operationId":"GetQueryExecution","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.GetQueryExecution"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetQueryExecutionInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetQueryExecutionOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.GetQueryResults":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns the results of a single query execution specified by <code>QueryExecutionId</code> if you have access to the workgroup in which the query ran. This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.","operationId":"GetQueryResults","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.GetQueryResults"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetQueryResultsInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetQueryResultsOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.GetWorkGroup":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Returns information about the workgroup with the specified name.","operationId":"GetWorkGroup","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.GetWorkGroup"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetWorkGroupInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GetWorkGroupOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.ListNamedQueries":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Provides a list of available query IDs only for queries saved in the specified workgroup. Requires that you have access to the workgroup.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>","operationId":"ListNamedQueries","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.ListNamedQueries"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListNamedQueriesInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListNamedQueriesOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.ListQueryExecutions":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Provides a list of available query execution IDs for the queries in the specified workgroup. Requires you to have access to the workgroup in which the queries ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>","operationId":"ListQueryExecutions","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.ListQueryExecutions"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListQueryExecutionsInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListQueryExecutionsOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.ListTagsForResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists the tags associated with this workgroup.","operationId":"ListTagsForResource","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.ListTagsForResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListTagsForResourceOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AmazonAthena.ListWorkGroups":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Lists available workgroups for the account.","operationId":"ListWorkGroups","parameters":[{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}},{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.ListWorkGroups"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListWorkGroupsInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ListWorkGroupsOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.StartQueryExecution":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to have access to the workgroup in which the query ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>","operationId":"StartQueryExecution","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.StartQueryExecution"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartQueryExecutionInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StartQueryExecutionOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"TooManyRequestsException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}}}}},"/#X-Amz-Target=AmazonAthena.StopQueryExecution":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"<p>Stops a query execution. Requires you to have access to the workgroup in which the query ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>","operationId":"StopQueryExecution","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.StopQueryExecution"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StopQueryExecutionInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StopQueryExecutionOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}},"/#X-Amz-Target=AmazonAthena.TagResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Adds one or more tags to the resource, such as a workgroup. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize resources (workgroups) in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account. For best practices, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>. The key length is from 1 (minimum) to 128 (maximum) Unicode characters in UTF-8. The tag value length is from 0 (minimum) to 256 (maximum) Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you specify more than one, separate them by commas.","operationId":"TagResource","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.TagResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagResourceInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TagResourceOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AmazonAthena.UntagResource":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Removes one or more tags from the workgroup resource. Takes as an input a list of TagKey Strings separated by commas, and removes their tags at the same time.","operationId":"UntagResource","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.UntagResource"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagResourceInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UntagResourceOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"482":{"description":"ResourceNotFoundException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ResourceNotFoundException"}}}}}}},"/#X-Amz-Target=AmazonAthena.UpdateWorkGroup":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the workgroup with the specified name. The workgroup's name cannot be changed.","operationId":"UpdateWorkGroup","parameters":[{"in":"header","name":"X-Amz-Target","required":true,"schema":{"type":"string","enum":["AmazonAthena.UpdateWorkGroup"]}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateWorkGroupInput"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateWorkGroupOutput"}}}},"480":{"description":"InternalServerException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InternalServerException"}}}},"481":{"description":"InvalidRequestException","content":{"application/json":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}}}}}},"servers":[{"description":"The Amazon Athena multi-region endpoint","url":"http://athena.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Amazon Athena multi-region endpoint","url":"https://athena.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The Amazon Athena endpoint for China (Beijing) and China (Ningxia)","url":"http://athena.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The Amazon Athena endpoint for China (Beijing) and China (Ningxia)","url":"https://athena.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AmazonResourceName":{"maxLength":1011,"minLength":1,"type":"string"},"BatchGetNamedQueryInput":{"properties":{"NamedQueryIds":{"$ref":"#/components/schemas/NamedQueryIdList"}},"required":["NamedQueryIds"],"type":"object"},"BatchGetNamedQueryOutput":{"properties":{"NamedQueries":{"$ref":"#/components/schemas/NamedQueryList"},"UnprocessedNamedQueryIds":{"$ref":"#/components/schemas/UnprocessedNamedQueryIdList"}},"type":"object"},"BatchGetQueryExecutionInput":{"properties":{"QueryExecutionIds":{"$ref":"#/components/schemas/QueryExecutionIdList"}},"required":["QueryExecutionIds"],"type":"object"},"BatchGetQueryExecutionOutput":{"properties":{"QueryExecutions":{"$ref":"#/components/schemas/QueryExecutionList"},"UnprocessedQueryExecutionIds":{"$ref":"#/components/schemas/UnprocessedQueryExecutionIdList"}},"type":"object"},"Boolean":{"type":"boolean"},"BoxedBoolean":{"type":"boolean"},"BytesScannedCutoffValue":{"minimum":10000000,"type":"integer"},"ColumnInfo":{"description":"Information about the columns in a query execution result.","properties":{"CaseSensitive":{"$ref":"#/components/schemas/Boolean"},"CatalogName":{"$ref":"#/components/schemas/String"},"Label":{"$ref":"#/components/schemas/String"},"Name":{"$ref":"#/components/schemas/String"},"Nullable":{"$ref":"#/components/schemas/ColumnNullable"},"Precision":{"$ref":"#/components/schemas/Integer"},"Scale":{"$ref":"#/components/schemas/Integer"},"SchemaName":{"$ref":"#/components/schemas/String"},"TableName":{"$ref":"#/components/schemas/String"},"Type":{"$ref":"#/components/schemas/String"}},"required":["Name","Type"],"type":"object"},"ColumnInfoList":{"items":{"$ref":"#/components/schemas/ColumnInfo"},"type":"array"},"ColumnNullable":{"enum":["NOT_NULL","NULLABLE","UNKNOWN"],"type":"string"},"CreateNamedQueryInput":{"properties":{"ClientRequestToken":{"$ref":"#/components/schemas/IdempotencyToken"},"Database":{"$ref":"#/components/schemas/DatabaseString"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"Name":{"$ref":"#/components/schemas/NameString"},"QueryString":{"$ref":"#/components/schemas/QueryString"},"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"required":["Name","Database","QueryString"],"type":"object"},"CreateNamedQueryOutput":{"properties":{"NamedQueryId":{"$ref":"#/components/schemas/NamedQueryId"}},"type":"object"},"CreateWorkGroupInput":{"properties":{"Configuration":{"$ref":"#/components/schemas/WorkGroupConfiguration"},"Description":{"$ref":"#/components/schemas/WorkGroupDescriptionString"},"Name":{"$ref":"#/components/schemas/WorkGroupName"},"Tags":{"$ref":"#/components/schemas/TagList"}},"required":["Name"],"type":"object"},"CreateWorkGroupOutput":{"properties":{},"type":"object"},"DatabaseString":{"maxLength":255,"minLength":1,"type":"string"},"Date":{"format":"date-time","type":"string"},"Datum":{"description":"A piece of data (a field in the table).","properties":{"VarCharValue":{"$ref":"#/components/schemas/datumString"}},"type":"object"},"DeleteNamedQueryInput":{"properties":{"NamedQueryId":{"$ref":"#/components/schemas/NamedQueryId"}},"required":["NamedQueryId"],"type":"object"},"DeleteNamedQueryOutput":{"properties":{},"type":"object"},"DeleteWorkGroupInput":{"properties":{"RecursiveDeleteOption":{"$ref":"#/components/schemas/BoxedBoolean"},"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"required":["WorkGroup"],"type":"object"},"DeleteWorkGroupOutput":{"properties":{},"type":"object"},"DescriptionString":{"maxLength":1024,"minLength":1,"type":"string"},"EncryptionConfiguration":{"description":"If query results are encrypted in Amazon S3, indicates the encryption option used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.","properties":{"EncryptionOption":{"$ref":"#/components/schemas/EncryptionOption"},"KmsKey":{"$ref":"#/components/schemas/String"}},"required":["EncryptionOption"],"type":"object"},"EncryptionOption":{"enum":["SSE_S3","SSE_KMS","CSE_KMS"],"type":"string"},"ErrorCode":{"description":"The error code returned when the query execution failed to process, or when the processing request for the named query failed.","maxLength":256,"minLength":1,"type":"string"},"ErrorMessage":{"type":"string"},"GetNamedQueryInput":{"properties":{"NamedQueryId":{"$ref":"#/components/schemas/NamedQueryId"}},"required":["NamedQueryId"],"type":"object"},"GetNamedQueryOutput":{"properties":{"NamedQuery":{"$ref":"#/components/schemas/NamedQuery"}},"type":"object"},"GetQueryExecutionInput":{"properties":{"QueryExecutionId":{"$ref":"#/components/schemas/QueryExecutionId"}},"required":["QueryExecutionId"],"type":"object"},"GetQueryExecutionOutput":{"properties":{"QueryExecution":{"$ref":"#/components/schemas/QueryExecution"}},"type":"object"},"GetQueryResultsInput":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxQueryResults"},"NextToken":{"$ref":"#/components/schemas/Token"},"QueryExecutionId":{"$ref":"#/components/schemas/QueryExecutionId"}},"required":["QueryExecutionId"],"type":"object"},"GetQueryResultsOutput":{"properties":{"NextToken":{"$ref":"#/components/schemas/Token"},"ResultSet":{"$ref":"#/components/schemas/ResultSet"},"UpdateCount":{"$ref":"#/components/schemas/Long"}},"type":"object"},"GetWorkGroupInput":{"properties":{"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"required":["WorkGroup"],"type":"object"},"GetWorkGroupOutput":{"properties":{"WorkGroup":{"$ref":"#/components/schemas/WorkGroup"}},"type":"object"},"IdempotencyToken":{"maxLength":128,"minLength":32,"type":"string"},"Integer":{"type":"integer"},"InternalServerException":{},"InvalidRequestException":{},"ListNamedQueriesInput":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxNamedQueriesCount"},"NextToken":{"$ref":"#/components/schemas/Token"},"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"type":"object"},"ListNamedQueriesOutput":{"properties":{"NamedQueryIds":{"$ref":"#/components/schemas/NamedQueryIdList"},"NextToken":{"$ref":"#/components/schemas/Token"}},"type":"object"},"ListQueryExecutionsInput":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxQueryExecutionsCount"},"NextToken":{"$ref":"#/components/schemas/Token"},"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"type":"object"},"ListQueryExecutionsOutput":{"properties":{"NextToken":{"$ref":"#/components/schemas/Token"},"QueryExecutionIds":{"$ref":"#/components/schemas/QueryExecutionIdList"}},"type":"object"},"ListTagsForResourceInput":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxTagsCount"},"NextToken":{"$ref":"#/components/schemas/Token"},"ResourceARN":{"$ref":"#/components/schemas/AmazonResourceName"}},"required":["ResourceARN"],"type":"object"},"ListTagsForResourceOutput":{"properties":{"NextToken":{"$ref":"#/components/schemas/Token"},"Tags":{"$ref":"#/components/schemas/TagList"}},"type":"object"},"ListWorkGroupsInput":{"properties":{"MaxResults":{"$ref":"#/components/schemas/MaxWorkGroupsCount"},"NextToken":{"$ref":"#/components/schemas/Token"}},"type":"object"},"ListWorkGroupsOutput":{"properties":{"NextToken":{"$ref":"#/components/schemas/Token"},"WorkGroups":{"$ref":"#/components/schemas/WorkGroupsList"}},"type":"object"},"Long":{"type":"integer"},"MaxNamedQueriesCount":{"maximum":50,"minimum":0,"type":"integer"},"MaxQueryExecutionsCount":{"maximum":50,"minimum":0,"type":"integer"},"MaxQueryResults":{"maximum":1000,"minimum":1,"type":"integer"},"MaxTagsCount":{"minimum":75,"type":"integer"},"MaxWorkGroupsCount":{"maximum":50,"minimum":1,"type":"integer"},"NameString":{"maxLength":128,"minLength":1,"type":"string"},"NamedQuery":{"description":"A query, where <code>QueryString</code> is the list of SQL query statements that comprise the query.","properties":{"Database":{"$ref":"#/components/schemas/DatabaseString"},"Description":{"$ref":"#/components/schemas/DescriptionString"},"Name":{"$ref":"#/components/schemas/NameString"},"NamedQueryId":{"$ref":"#/components/schemas/NamedQueryId"},"QueryString":{"$ref":"#/components/schemas/QueryString"},"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"required":["Name","Database","QueryString"],"type":"object"},"NamedQueryId":{"type":"string"},"NamedQueryIdList":{"items":{"$ref":"#/components/schemas/NamedQueryId"},"maxItems":50,"minItems":1,"type":"array"},"NamedQueryList":{"items":{"$ref":"#/components/schemas/NamedQuery"},"type":"array"},"QueryExecution":{"description":"Information about a single instance of a query execution.","properties":{"Query":{"$ref":"#/components/schemas/QueryString"},"QueryExecutionContext":{"$ref":"#/components/schemas/QueryExecutionContext"},"QueryExecutionId":{"$ref":"#/components/schemas/QueryExecutionId"},"ResultConfiguration":{"$ref":"#/components/schemas/ResultConfiguration"},"StatementType":{"$ref":"#/components/schemas/StatementType"},"Statistics":{"$ref":"#/components/schemas/QueryExecutionStatistics"},"Status":{"$ref":"#/components/schemas/QueryExecutionStatus"},"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"type":"object"},"QueryExecutionContext":{"description":"The database in which the query execution occurs.","properties":{"Database":{"$ref":"#/components/schemas/DatabaseString"}},"type":"object"},"QueryExecutionId":{"type":"string"},"QueryExecutionIdList":{"items":{"$ref":"#/components/schemas/QueryExecutionId"},"maxItems":50,"minItems":1,"type":"array"},"QueryExecutionList":{"items":{"$ref":"#/components/schemas/QueryExecution"},"type":"array"},"QueryExecutionState":{"enum":["QUEUED","RUNNING","SUCCEEDED","FAILED","CANCELLED"],"type":"string"},"QueryExecutionStatistics":{"description":"The amount of data scanned during the query execution and the amount of time that it took to execute, and the type of statement that was run.","properties":{"DataScannedInBytes":{"$ref":"#/components/schemas/Long"},"EngineExecutionTimeInMillis":{"$ref":"#/components/schemas/Long"}},"type":"object"},"QueryExecutionStatus":{"description":"The completion date, current state, submission time, and state change reason (if applicable) for the query execution.","properties":{"CompletionDateTime":{"$ref":"#/components/schemas/Date"},"State":{"$ref":"#/components/schemas/QueryExecutionState"},"StateChangeReason":{"$ref":"#/components/schemas/String"},"SubmissionDateTime":{"$ref":"#/components/schemas/Date"}},"type":"object"},"QueryString":{"maxLength":262144,"minLength":1,"type":"string"},"ResourceNotFoundException":{},"ResultConfiguration":{"description":"The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as \"client-side settings\". If workgroup settings override client-side settings, then the query uses the workgroup settings.","properties":{"EncryptionConfiguration":{"$ref":"#/components/schemas/EncryptionConfiguration"},"OutputLocation":{"$ref":"#/components/schemas/String"}},"type":"object"},"ResultConfigurationUpdates":{"description":"The information about the updates in the query results, such as output location and encryption configuration for the query results.","properties":{"EncryptionConfiguration":{"$ref":"#/components/schemas/EncryptionConfiguration"},"OutputLocation":{"$ref":"#/components/schemas/String"},"RemoveEncryptionConfiguration":{"$ref":"#/components/schemas/BoxedBoolean"},"RemoveOutputLocation":{"$ref":"#/components/schemas/BoxedBoolean"}},"type":"object"},"ResultSet":{"description":"The metadata and rows that comprise a query result set. The metadata describes the column structure and data types.","properties":{"ResultSetMetadata":{"$ref":"#/components/schemas/ResultSetMetadata"},"Rows":{"$ref":"#/components/schemas/RowList"}},"type":"object"},"ResultSetMetadata":{"description":"The metadata that describes the column structure and data types of a table of query results. ","properties":{"ColumnInfo":{"$ref":"#/components/schemas/ColumnInfoList"}},"type":"object"},"Row":{"description":"The rows that comprise a query result table.","properties":{"Data":{"$ref":"#/components/schemas/datumList"}},"type":"object"},"RowList":{"items":{"$ref":"#/components/schemas/Row"},"type":"array"},"StartQueryExecutionInput":{"properties":{"ClientRequestToken":{"$ref":"#/components/schemas/IdempotencyToken"},"QueryExecutionContext":{"$ref":"#/components/schemas/QueryExecutionContext"},"QueryString":{"$ref":"#/components/schemas/QueryString"},"ResultConfiguration":{"$ref":"#/components/schemas/ResultConfiguration"},"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"required":["QueryString"],"type":"object"},"StartQueryExecutionOutput":{"properties":{"QueryExecutionId":{"$ref":"#/components/schemas/QueryExecutionId"}},"type":"object"},"StatementType":{"enum":["DDL","DML","UTILITY"],"type":"string"},"StopQueryExecutionInput":{"properties":{"QueryExecutionId":{"$ref":"#/components/schemas/QueryExecutionId"}},"required":["QueryExecutionId"],"type":"object"},"StopQueryExecutionOutput":{"properties":{},"type":"object"},"String":{"type":"string"},"Tag":{"description":"A tag that you can add to a resource. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize workgroups in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account. The maximum tag key length is 128 Unicode characters in UTF-8. The maximum tag value length is 256 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. ","properties":{"Key":{"$ref":"#/components/schemas/TagKey"},"Value":{"$ref":"#/components/schemas/TagValue"}},"type":"object"},"TagKey":{"maxLength":128,"minLength":1,"type":"string"},"TagKeyList":{"items":{"$ref":"#/components/schemas/TagKey"},"type":"array"},"TagList":{"items":{"$ref":"#/components/schemas/Tag"},"type":"array"},"TagResourceInput":{"properties":{"ResourceARN":{"$ref":"#/components/schemas/AmazonResourceName"},"Tags":{"$ref":"#/components/schemas/TagList"}},"required":["ResourceARN","Tags"],"type":"object"},"TagResourceOutput":{"properties":{},"type":"object"},"TagValue":{"maxLength":256,"minLength":0,"type":"string"},"Token":{"maxLength":1024,"minLength":1,"type":"string"},"TooManyRequestsException":{},"UnprocessedNamedQueryId":{"description":"Information about a named query ID that could not be processed.","properties":{"ErrorCode":{"$ref":"#/components/schemas/ErrorCode"},"ErrorMessage":{"$ref":"#/components/schemas/ErrorMessage"},"NamedQueryId":{"$ref":"#/components/schemas/NamedQueryId"}},"type":"object"},"UnprocessedNamedQueryIdList":{"items":{"$ref":"#/components/schemas/UnprocessedNamedQueryId"},"type":"array"},"UnprocessedQueryExecutionId":{"description":"Describes a query execution that failed to process.","properties":{"ErrorCode":{"$ref":"#/components/schemas/ErrorCode"},"ErrorMessage":{"$ref":"#/components/schemas/ErrorMessage"},"QueryExecutionId":{"$ref":"#/components/schemas/QueryExecutionId"}},"type":"object"},"UnprocessedQueryExecutionIdList":{"items":{"$ref":"#/components/schemas/UnprocessedQueryExecutionId"},"type":"array"},"UntagResourceInput":{"properties":{"ResourceARN":{"$ref":"#/components/schemas/AmazonResourceName"},"TagKeys":{"$ref":"#/components/schemas/TagKeyList"}},"required":["ResourceARN","TagKeys"],"type":"object"},"UntagResourceOutput":{"properties":{},"type":"object"},"UpdateWorkGroupInput":{"properties":{"ConfigurationUpdates":{"$ref":"#/components/schemas/WorkGroupConfigurationUpdates"},"Description":{"$ref":"#/components/schemas/WorkGroupDescriptionString"},"State":{"$ref":"#/components/schemas/WorkGroupState"},"WorkGroup":{"$ref":"#/components/schemas/WorkGroupName"}},"required":["WorkGroup"],"type":"object"},"UpdateWorkGroupOutput":{"properties":{},"type":"object"},"WorkGroup":{"description":"A workgroup, which contains a name, description, creation time, state, and other configuration, listed under <a>WorkGroup$Configuration</a>. Each workgroup enables you to isolate queries for you or your group of users from other queries in the same account, to configure the query results location and the encryption configuration (known as workgroup settings), to enable sending query metrics to Amazon CloudWatch, and to establish per-query data usage control limits for all queries in a workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.","properties":{"Configuration":{"$ref":"#/components/schemas/WorkGroupConfiguration"},"CreationTime":{"$ref":"#/components/schemas/Date"},"Description":{"$ref":"#/components/schemas/WorkGroupDescriptionString"},"Name":{"$ref":"#/components/schemas/WorkGroupName"},"State":{"$ref":"#/components/schemas/WorkGroupState"}},"required":["Name"],"type":"object"},"WorkGroupConfiguration":{"description":"The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup and whether workgroup settings override query settings, and the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>. ","properties":{"BytesScannedCutoffPerQuery":{"$ref":"#/components/schemas/BytesScannedCutoffValue"},"EnforceWorkGroupConfiguration":{"$ref":"#/components/schemas/BoxedBoolean"},"PublishCloudWatchMetricsEnabled":{"$ref":"#/components/schemas/BoxedBoolean"},"RequesterPaysEnabled":{"$ref":"#/components/schemas/BoxedBoolean"},"ResultConfiguration":{"$ref":"#/components/schemas/ResultConfiguration"}},"type":"object"},"WorkGroupConfigurationUpdates":{"description":"The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.","properties":{"BytesScannedCutoffPerQuery":{"$ref":"#/components/schemas/BytesScannedCutoffValue"},"EnforceWorkGroupConfiguration":{"$ref":"#/components/schemas/BoxedBoolean"},"PublishCloudWatchMetricsEnabled":{"$ref":"#/components/schemas/BoxedBoolean"},"RemoveBytesScannedCutoffPerQuery":{"$ref":"#/components/schemas/BoxedBoolean"},"RequesterPaysEnabled":{"$ref":"#/components/schemas/BoxedBoolean"},"ResultConfigurationUpdates":{"$ref":"#/components/schemas/ResultConfigurationUpdates"}},"type":"object"},"WorkGroupDescriptionString":{"maxLength":1024,"minLength":0,"type":"string"},"WorkGroupName":{"pattern":"[a-zA-z0-9._-]{1,128}","type":"string"},"WorkGroupState":{"enum":["ENABLED","DISABLED"],"type":"string"},"WorkGroupSummary":{"description":"The summary information for the workgroup, which includes its name, state, description, and the date and time it was created.","properties":{"CreationTime":{"$ref":"#/components/schemas/Date"},"Description":{"$ref":"#/components/schemas/WorkGroupDescriptionString"},"Name":{"$ref":"#/components/schemas/WorkGroupName"},"State":{"$ref":"#/components/schemas/WorkGroupState"}},"type":"object"},"WorkGroupsList":{"items":{"$ref":"#/components/schemas/WorkGroupSummary"},"maxItems":50,"minItems":0,"type":"array"},"datumList":{"items":{"$ref":"#/components/schemas/Datum"},"type":"array"},"datumString":{"type":"string"}}}}
+{
+  "openapi": "3.0.0",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries. For more information, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/what-is.html\">What is Amazon Athena</a> in the <i>Amazon Athena User Guide</i>.</p> <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html\">Accessing Amazon Athena with JDBC</a>.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Athena",
+    "version": "2017-05-18",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/athena-2017-05-18.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "athena"
+  },
+  "externalDocs": { "description": "Amazon Web Services documentation", "url": "https://docs.aws.amazon.com/athena/" },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/#X-Amz-Target=AmazonAthena.BatchGetNamedQuery": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns the details of a single named query or a list of up to 50 queries, which you provide as an array of query ID strings. Requires you to have access to the workgroup in which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the list of named query IDs in the specified workgroup. If information could not be retrieved for a submitted query ID, information about the query ID submitted is listed under <a>UnprocessedNamedQueryId</a>. Named queries differ from executed queries. Use <a>BatchGetQueryExecutionInput</a> to get details about each unique query execution, and <a>ListQueryExecutionsInput</a> to get a list of query execution IDs.",
+        "operationId": "BatchGetNamedQuery",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.BatchGetNamedQuery"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BatchGetNamedQueryInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BatchGetNamedQueryOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.BatchGetQueryExecution": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns the details of a single query execution or a list of up to 50 query executions, which you provide as an array of query execution ID strings. Requires you to have access to the workgroup in which the queries ran. To get a list of query execution IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details about named queries.",
+        "operationId": "BatchGetQueryExecution",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.BatchGetQueryExecution"] }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/BatchGetQueryExecutionInput" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/BatchGetQueryExecutionOutput" } }
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.CreateNamedQuery": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Creates a named query in the specified workgroup. Requires that you have access to the workgroup.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+        "operationId": "CreateNamedQuery",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.CreateNamedQuery"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateNamedQueryInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateNamedQueryOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.CreateWorkGroup": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates a workgroup with the specified name.",
+        "operationId": "CreateWorkGroup",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.CreateWorkGroup"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateWorkGroupInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateWorkGroupOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.DeleteNamedQuery": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Deletes the named query if you have access to the workgroup in which the query was saved.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+        "operationId": "DeleteNamedQuery",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.DeleteNamedQuery"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteNamedQueryInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteNamedQueryOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.DeleteWorkGroup": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Deletes the workgroup with the specified name. The primary workgroup cannot be deleted.",
+        "operationId": "DeleteWorkGroup",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.DeleteWorkGroup"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteWorkGroupInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DeleteWorkGroupOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.GetNamedQuery": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns information about a single query. Requires that you have access to the workgroup in which the query was saved.",
+        "operationId": "GetNamedQuery",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.GetNamedQuery"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetNamedQueryInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetNamedQueryOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.GetQueryExecution": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns information about a single execution of a query if you have access to the workgroup in which the query ran. Each time a query executes, information about the query execution is saved with a unique ID.",
+        "operationId": "GetQueryExecution",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.GetQueryExecution"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetQueryExecutionInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetQueryExecutionOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.GetQueryResults": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns the results of a single query execution specified by <code>QueryExecutionId</code> if you have access to the workgroup in which the query ran. This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.",
+        "operationId": "GetQueryResults",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.GetQueryResults"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetQueryResultsInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetQueryResultsOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.GetWorkGroup": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Returns information about the workgroup with the specified name.",
+        "operationId": "GetWorkGroup",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.GetWorkGroup"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetWorkGroupInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GetWorkGroupOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.ListNamedQueries": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Provides a list of available query IDs only for queries saved in the specified workgroup. Requires that you have access to the workgroup.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+        "operationId": "ListNamedQueries",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.ListNamedQueries"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListNamedQueriesInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListNamedQueriesOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.ListQueryExecutions": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Provides a list of available query execution IDs for the queries in the specified workgroup. Requires you to have access to the workgroup in which the queries ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+        "operationId": "ListQueryExecutions",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.ListQueryExecutions"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListQueryExecutionsInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListQueryExecutionsOutput" } }
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.ListTagsForResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists the tags associated with this workgroup.",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.ListTagsForResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ListTagsForResourceOutput" } }
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.ListWorkGroups": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Lists available workgroups for the account.",
+        "operationId": "ListWorkGroups",
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.ListWorkGroups"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListWorkGroupsInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ListWorkGroupsOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.StartQueryExecution": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to have access to the workgroup in which the query ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+        "operationId": "StartQueryExecution",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.StartQueryExecution"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StartQueryExecutionInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/StartQueryExecutionOutput" } }
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.StopQueryExecution": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "<p>Stops a query execution. Requires you to have access to the workgroup in which the query ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+        "operationId": "StopQueryExecution",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.StopQueryExecution"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StopQueryExecutionInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StopQueryExecutionOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.TagResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Adds one or more tags to the resource, such as a workgroup. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize resources (workgroups) in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account. For best practices, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>. The key length is from 1 (minimum) to 128 (maximum) Unicode characters in UTF-8. The tag value length is from 0 (minimum) to 256 (maximum) Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you specify more than one, separate them by commas.",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.TagResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagResourceInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TagResourceOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.UntagResource": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Removes one or more tags from the workgroup resource. Takes as an input a list of TagKey Strings separated by commas, and removes their tags at the same time.",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.UntagResource"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagResourceInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UntagResourceOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ResourceNotFoundException" } }
+            }
+          }
+        }
+      }
+    },
+    "/#X-Amz-Target=AmazonAthena.UpdateWorkGroup": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the workgroup with the specified name. The workgroup's name cannot be changed.",
+        "operationId": "UpdateWorkGroup",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "schema": { "type": "string", "enum": ["AmazonAthena.UpdateWorkGroup"] }
+          }
+        ],
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateWorkGroupInput" } } },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UpdateWorkGroupOutput" } } }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InternalServerException" } } }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The Amazon Athena multi-region endpoint",
+      "url": "http://athena.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Amazon Athena multi-region endpoint",
+      "url": "https://athena.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The Amazon Athena endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://athena.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The Amazon Athena endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://athena.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AmazonResourceName": { "maxLength": 1011, "minLength": 1, "type": "string" },
+      "BatchGetNamedQueryInput": {
+        "properties": { "NamedQueryIds": { "$ref": "#/components/schemas/NamedQueryIdList" } },
+        "required": ["NamedQueryIds"],
+        "type": "object"
+      },
+      "BatchGetNamedQueryOutput": {
+        "properties": {
+          "NamedQueries": { "$ref": "#/components/schemas/NamedQueryList" },
+          "UnprocessedNamedQueryIds": { "$ref": "#/components/schemas/UnprocessedNamedQueryIdList" }
+        },
+        "type": "object"
+      },
+      "BatchGetQueryExecutionInput": {
+        "properties": { "QueryExecutionIds": { "$ref": "#/components/schemas/QueryExecutionIdList" } },
+        "required": ["QueryExecutionIds"],
+        "type": "object"
+      },
+      "BatchGetQueryExecutionOutput": {
+        "properties": {
+          "QueryExecutions": { "$ref": "#/components/schemas/QueryExecutionList" },
+          "UnprocessedQueryExecutionIds": { "$ref": "#/components/schemas/UnprocessedQueryExecutionIdList" }
+        },
+        "type": "object"
+      },
+      "Boolean": { "type": "boolean" },
+      "BoxedBoolean": { "type": "boolean" },
+      "BytesScannedCutoffValue": { "minimum": 10000000, "type": "integer" },
+      "ColumnInfo": {
+        "description": "Information about the columns in a query execution result.",
+        "properties": {
+          "CaseSensitive": { "$ref": "#/components/schemas/Boolean" },
+          "CatalogName": { "$ref": "#/components/schemas/String" },
+          "Label": { "$ref": "#/components/schemas/String" },
+          "Name": { "$ref": "#/components/schemas/String" },
+          "Nullable": { "$ref": "#/components/schemas/ColumnNullable" },
+          "Precision": { "$ref": "#/components/schemas/Integer" },
+          "Scale": { "$ref": "#/components/schemas/Integer" },
+          "SchemaName": { "$ref": "#/components/schemas/String" },
+          "TableName": { "$ref": "#/components/schemas/String" },
+          "Type": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["Name", "Type"],
+        "type": "object"
+      },
+      "ColumnInfoList": { "items": { "$ref": "#/components/schemas/ColumnInfo" }, "type": "array" },
+      "ColumnNullable": { "enum": ["NOT_NULL", "NULLABLE", "UNKNOWN"], "type": "string" },
+      "CreateNamedQueryInput": {
+        "properties": {
+          "ClientRequestToken": { "$ref": "#/components/schemas/IdempotencyToken" },
+          "Database": { "$ref": "#/components/schemas/DatabaseString" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "Name": { "$ref": "#/components/schemas/NameString" },
+          "QueryString": { "$ref": "#/components/schemas/QueryString" },
+          "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" }
+        },
+        "required": ["Name", "Database", "QueryString"],
+        "type": "object"
+      },
+      "CreateNamedQueryOutput": {
+        "properties": { "NamedQueryId": { "$ref": "#/components/schemas/NamedQueryId" } },
+        "type": "object"
+      },
+      "CreateWorkGroupInput": {
+        "properties": {
+          "Configuration": { "$ref": "#/components/schemas/WorkGroupConfiguration" },
+          "Description": { "$ref": "#/components/schemas/WorkGroupDescriptionString" },
+          "Name": { "$ref": "#/components/schemas/WorkGroupName" },
+          "Tags": { "$ref": "#/components/schemas/TagList" }
+        },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "CreateWorkGroupOutput": { "properties": {}, "type": "object" },
+      "DatabaseString": { "maxLength": 255, "minLength": 1, "type": "string" },
+      "Date": { "format": "date-time", "type": "string" },
+      "Datum": {
+        "description": "A piece of data (a field in the table).",
+        "properties": { "VarCharValue": { "$ref": "#/components/schemas/datumString" } },
+        "type": "object"
+      },
+      "DeleteNamedQueryInput": {
+        "properties": { "NamedQueryId": { "$ref": "#/components/schemas/NamedQueryId" } },
+        "required": ["NamedQueryId"],
+        "type": "object"
+      },
+      "DeleteNamedQueryOutput": { "properties": {}, "type": "object" },
+      "DeleteWorkGroupInput": {
+        "properties": {
+          "RecursiveDeleteOption": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" }
+        },
+        "required": ["WorkGroup"],
+        "type": "object"
+      },
+      "DeleteWorkGroupOutput": { "properties": {}, "type": "object" },
+      "DescriptionString": { "maxLength": 1024, "minLength": 1, "type": "string" },
+      "EncryptionConfiguration": {
+        "description": "If query results are encrypted in Amazon S3, indicates the encryption option used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.",
+        "properties": {
+          "EncryptionOption": { "$ref": "#/components/schemas/EncryptionOption" },
+          "KmsKey": { "$ref": "#/components/schemas/String" }
+        },
+        "required": ["EncryptionOption"],
+        "type": "object"
+      },
+      "EncryptionOption": { "enum": ["SSE_S3", "SSE_KMS", "CSE_KMS"], "type": "string" },
+      "ErrorCode": {
+        "description": "The error code returned when the query execution failed to process, or when the processing request for the named query failed.",
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "ErrorMessage": { "type": "string" },
+      "GetNamedQueryInput": {
+        "properties": { "NamedQueryId": { "$ref": "#/components/schemas/NamedQueryId" } },
+        "required": ["NamedQueryId"],
+        "type": "object"
+      },
+      "GetNamedQueryOutput": {
+        "properties": { "NamedQuery": { "$ref": "#/components/schemas/NamedQuery" } },
+        "type": "object"
+      },
+      "GetQueryExecutionInput": {
+        "properties": { "QueryExecutionId": { "$ref": "#/components/schemas/QueryExecutionId" } },
+        "required": ["QueryExecutionId"],
+        "type": "object"
+      },
+      "GetQueryExecutionOutput": {
+        "properties": { "QueryExecution": { "$ref": "#/components/schemas/QueryExecution" } },
+        "type": "object"
+      },
+      "GetQueryResultsInput": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxQueryResults" },
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "QueryExecutionId": { "$ref": "#/components/schemas/QueryExecutionId" }
+        },
+        "required": ["QueryExecutionId"],
+        "type": "object"
+      },
+      "GetQueryResultsOutput": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "ResultSet": { "$ref": "#/components/schemas/ResultSet" },
+          "UpdateCount": { "$ref": "#/components/schemas/Long" }
+        },
+        "type": "object"
+      },
+      "GetWorkGroupInput": {
+        "properties": { "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" } },
+        "required": ["WorkGroup"],
+        "type": "object"
+      },
+      "GetWorkGroupOutput": {
+        "properties": { "WorkGroup": { "$ref": "#/components/schemas/WorkGroup" } },
+        "type": "object"
+      },
+      "IdempotencyToken": { "maxLength": 128, "minLength": 32, "type": "string" },
+      "Integer": { "type": "integer" },
+      "InternalServerException": {},
+      "InvalidRequestException": {},
+      "ListNamedQueriesInput": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxNamedQueriesCount" },
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" }
+        },
+        "type": "object"
+      },
+      "ListNamedQueriesOutput": {
+        "properties": {
+          "NamedQueryIds": { "$ref": "#/components/schemas/NamedQueryIdList" },
+          "NextToken": { "$ref": "#/components/schemas/Token" }
+        },
+        "type": "object"
+      },
+      "ListQueryExecutionsInput": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxQueryExecutionsCount" },
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" }
+        },
+        "type": "object"
+      },
+      "ListQueryExecutionsOutput": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "QueryExecutionIds": { "$ref": "#/components/schemas/QueryExecutionIdList" }
+        },
+        "type": "object"
+      },
+      "ListTagsForResourceInput": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxTagsCount" },
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "ResourceARN": { "$ref": "#/components/schemas/AmazonResourceName" }
+        },
+        "required": ["ResourceARN"],
+        "type": "object"
+      },
+      "ListTagsForResourceOutput": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "Tags": { "$ref": "#/components/schemas/TagList" }
+        },
+        "type": "object"
+      },
+      "ListWorkGroupsInput": {
+        "properties": {
+          "MaxResults": { "$ref": "#/components/schemas/MaxWorkGroupsCount" },
+          "NextToken": { "$ref": "#/components/schemas/Token" }
+        },
+        "type": "object"
+      },
+      "ListWorkGroupsOutput": {
+        "properties": {
+          "NextToken": { "$ref": "#/components/schemas/Token" },
+          "WorkGroups": { "$ref": "#/components/schemas/WorkGroupsList" }
+        },
+        "type": "object"
+      },
+      "Long": { "type": "integer" },
+      "MaxNamedQueriesCount": { "maximum": 50, "minimum": 0, "type": "integer" },
+      "MaxQueryExecutionsCount": { "maximum": 50, "minimum": 0, "type": "integer" },
+      "MaxQueryResults": { "maximum": 1000, "minimum": 1, "type": "integer" },
+      "MaxTagsCount": { "minimum": 75, "type": "integer" },
+      "MaxWorkGroupsCount": { "maximum": 50, "minimum": 1, "type": "integer" },
+      "NameString": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "NamedQuery": {
+        "description": "A query, where <code>QueryString</code> is the list of SQL query statements that comprise the query.",
+        "properties": {
+          "Database": { "$ref": "#/components/schemas/DatabaseString" },
+          "Description": { "$ref": "#/components/schemas/DescriptionString" },
+          "Name": { "$ref": "#/components/schemas/NameString" },
+          "NamedQueryId": { "$ref": "#/components/schemas/NamedQueryId" },
+          "QueryString": { "$ref": "#/components/schemas/QueryString" },
+          "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" }
+        },
+        "required": ["Name", "Database", "QueryString"],
+        "type": "object"
+      },
+      "NamedQueryId": { "type": "string" },
+      "NamedQueryIdList": {
+        "items": { "$ref": "#/components/schemas/NamedQueryId" },
+        "maxItems": 50,
+        "minItems": 1,
+        "type": "array"
+      },
+      "NamedQueryList": { "items": { "$ref": "#/components/schemas/NamedQuery" }, "type": "array" },
+      "QueryExecution": {
+        "description": "Information about a single instance of a query execution.",
+        "properties": {
+          "Query": { "$ref": "#/components/schemas/QueryString" },
+          "QueryExecutionContext": { "$ref": "#/components/schemas/QueryExecutionContext" },
+          "QueryExecutionId": { "$ref": "#/components/schemas/QueryExecutionId" },
+          "ResultConfiguration": { "$ref": "#/components/schemas/ResultConfiguration" },
+          "StatementType": { "$ref": "#/components/schemas/StatementType" },
+          "Statistics": { "$ref": "#/components/schemas/QueryExecutionStatistics" },
+          "Status": { "$ref": "#/components/schemas/QueryExecutionStatus" },
+          "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" }
+        },
+        "type": "object"
+      },
+      "QueryExecutionContext": {
+        "description": "The database in which the query execution occurs.",
+        "properties": { "Database": { "$ref": "#/components/schemas/DatabaseString" } },
+        "type": "object"
+      },
+      "QueryExecutionId": { "type": "string" },
+      "QueryExecutionIdList": {
+        "items": { "$ref": "#/components/schemas/QueryExecutionId" },
+        "maxItems": 50,
+        "minItems": 1,
+        "type": "array"
+      },
+      "QueryExecutionList": { "items": { "$ref": "#/components/schemas/QueryExecution" }, "type": "array" },
+      "QueryExecutionState": { "enum": ["QUEUED", "RUNNING", "SUCCEEDED", "FAILED", "CANCELLED"], "type": "string" },
+      "QueryExecutionStatistics": {
+        "description": "The amount of data scanned during the query execution and the amount of time that it took to execute, and the type of statement that was run.",
+        "properties": {
+          "DataScannedInBytes": { "$ref": "#/components/schemas/Long" },
+          "EngineExecutionTimeInMillis": { "$ref": "#/components/schemas/Long" }
+        },
+        "type": "object"
+      },
+      "QueryExecutionStatus": {
+        "description": "The completion date, current state, submission time, and state change reason (if applicable) for the query execution.",
+        "properties": {
+          "CompletionDateTime": { "$ref": "#/components/schemas/Date" },
+          "State": { "$ref": "#/components/schemas/QueryExecutionState" },
+          "StateChangeReason": { "$ref": "#/components/schemas/String" },
+          "SubmissionDateTime": { "$ref": "#/components/schemas/Date" }
+        },
+        "type": "object"
+      },
+      "QueryString": { "maxLength": 262144, "minLength": 1, "type": "string" },
+      "ResourceNotFoundException": {},
+      "ResultConfiguration": {
+        "description": "The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as \"client-side settings\". If workgroup settings override client-side settings, then the query uses the workgroup settings.",
+        "properties": {
+          "EncryptionConfiguration": { "$ref": "#/components/schemas/EncryptionConfiguration" },
+          "OutputLocation": { "$ref": "#/components/schemas/String" }
+        },
+        "type": "object"
+      },
+      "ResultConfigurationUpdates": {
+        "description": "The information about the updates in the query results, such as output location and encryption configuration for the query results.",
+        "properties": {
+          "EncryptionConfiguration": { "$ref": "#/components/schemas/EncryptionConfiguration" },
+          "OutputLocation": { "$ref": "#/components/schemas/String" },
+          "RemoveEncryptionConfiguration": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "RemoveOutputLocation": { "$ref": "#/components/schemas/BoxedBoolean" }
+        },
+        "type": "object"
+      },
+      "ResultSet": {
+        "description": "The metadata and rows that comprise a query result set. The metadata describes the column structure and data types.",
+        "properties": {
+          "ResultSetMetadata": { "$ref": "#/components/schemas/ResultSetMetadata" },
+          "Rows": { "$ref": "#/components/schemas/RowList" }
+        },
+        "type": "object"
+      },
+      "ResultSetMetadata": {
+        "description": "The metadata that describes the column structure and data types of a table of query results. ",
+        "properties": { "ColumnInfo": { "$ref": "#/components/schemas/ColumnInfoList" } },
+        "type": "object"
+      },
+      "Row": {
+        "description": "The rows that comprise a query result table.",
+        "properties": { "Data": { "$ref": "#/components/schemas/datumList" } },
+        "type": "object"
+      },
+      "RowList": { "items": { "$ref": "#/components/schemas/Row" }, "type": "array" },
+      "StartQueryExecutionInput": {
+        "properties": {
+          "ClientRequestToken": { "$ref": "#/components/schemas/IdempotencyToken" },
+          "QueryExecutionContext": { "$ref": "#/components/schemas/QueryExecutionContext" },
+          "QueryString": { "$ref": "#/components/schemas/QueryString" },
+          "ResultConfiguration": { "$ref": "#/components/schemas/ResultConfiguration" },
+          "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" }
+        },
+        "required": ["QueryString"],
+        "type": "object"
+      },
+      "StartQueryExecutionOutput": {
+        "properties": { "QueryExecutionId": { "$ref": "#/components/schemas/QueryExecutionId" } },
+        "type": "object"
+      },
+      "StatementType": { "enum": ["DDL", "DML", "UTILITY"], "type": "string" },
+      "StopQueryExecutionInput": {
+        "properties": { "QueryExecutionId": { "$ref": "#/components/schemas/QueryExecutionId" } },
+        "required": ["QueryExecutionId"],
+        "type": "object"
+      },
+      "StopQueryExecutionOutput": { "properties": {}, "type": "object" },
+      "String": { "type": "string" },
+      "Tag": {
+        "description": "A tag that you can add to a resource. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize workgroups in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account. The maximum tag key length is 128 Unicode characters in UTF-8. The maximum tag value length is 256 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. ",
+        "properties": {
+          "Key": { "$ref": "#/components/schemas/TagKey" },
+          "Value": { "$ref": "#/components/schemas/TagValue" }
+        },
+        "type": "object"
+      },
+      "TagKey": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "TagKeyList": { "items": { "$ref": "#/components/schemas/TagKey" }, "type": "array" },
+      "TagList": { "items": { "$ref": "#/components/schemas/Tag" }, "type": "array" },
+      "TagResourceInput": {
+        "properties": {
+          "ResourceARN": { "$ref": "#/components/schemas/AmazonResourceName" },
+          "Tags": { "$ref": "#/components/schemas/TagList" }
+        },
+        "required": ["ResourceARN", "Tags"],
+        "type": "object"
+      },
+      "TagResourceOutput": { "properties": {}, "type": "object" },
+      "TagValue": { "maxLength": 256, "minLength": 0, "type": "string" },
+      "Token": { "maxLength": 1024, "minLength": 1, "type": "string" },
+      "TooManyRequestsException": {},
+      "UnprocessedNamedQueryId": {
+        "description": "Information about a named query ID that could not be processed.",
+        "properties": {
+          "ErrorCode": { "$ref": "#/components/schemas/ErrorCode" },
+          "ErrorMessage": { "$ref": "#/components/schemas/ErrorMessage" },
+          "NamedQueryId": { "$ref": "#/components/schemas/NamedQueryId" }
+        },
+        "type": "object"
+      },
+      "UnprocessedNamedQueryIdList": {
+        "items": { "$ref": "#/components/schemas/UnprocessedNamedQueryId" },
+        "type": "array"
+      },
+      "UnprocessedQueryExecutionId": {
+        "description": "Describes a query execution that failed to process.",
+        "properties": {
+          "ErrorCode": { "$ref": "#/components/schemas/ErrorCode" },
+          "ErrorMessage": { "$ref": "#/components/schemas/ErrorMessage" },
+          "QueryExecutionId": { "$ref": "#/components/schemas/QueryExecutionId" }
+        },
+        "type": "object"
+      },
+      "UnprocessedQueryExecutionIdList": {
+        "items": { "$ref": "#/components/schemas/UnprocessedQueryExecutionId" },
+        "type": "array"
+      },
+      "UntagResourceInput": {
+        "properties": {
+          "ResourceARN": { "$ref": "#/components/schemas/AmazonResourceName" },
+          "TagKeys": { "$ref": "#/components/schemas/TagKeyList" }
+        },
+        "required": ["ResourceARN", "TagKeys"],
+        "type": "object"
+      },
+      "UntagResourceOutput": { "properties": {}, "type": "object" },
+      "UpdateWorkGroupInput": {
+        "properties": {
+          "ConfigurationUpdates": { "$ref": "#/components/schemas/WorkGroupConfigurationUpdates" },
+          "Description": { "$ref": "#/components/schemas/WorkGroupDescriptionString" },
+          "State": { "$ref": "#/components/schemas/WorkGroupState" },
+          "WorkGroup": { "$ref": "#/components/schemas/WorkGroupName" }
+        },
+        "required": ["WorkGroup"],
+        "type": "object"
+      },
+      "UpdateWorkGroupOutput": { "properties": {}, "type": "object" },
+      "WorkGroup": {
+        "description": "A workgroup, which contains a name, description, creation time, state, and other configuration, listed under <a>WorkGroup$Configuration</a>. Each workgroup enables you to isolate queries for you or your group of users from other queries in the same account, to configure the query results location and the encryption configuration (known as workgroup settings), to enable sending query metrics to Amazon CloudWatch, and to establish per-query data usage control limits for all queries in a workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.",
+        "properties": {
+          "Configuration": { "$ref": "#/components/schemas/WorkGroupConfiguration" },
+          "CreationTime": { "$ref": "#/components/schemas/Date" },
+          "Description": { "$ref": "#/components/schemas/WorkGroupDescriptionString" },
+          "Name": { "$ref": "#/components/schemas/WorkGroupName" },
+          "State": { "$ref": "#/components/schemas/WorkGroupState" }
+        },
+        "required": ["Name"],
+        "type": "object"
+      },
+      "WorkGroupConfiguration": {
+        "description": "The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup and whether workgroup settings override query settings, and the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>. ",
+        "properties": {
+          "BytesScannedCutoffPerQuery": { "$ref": "#/components/schemas/BytesScannedCutoffValue" },
+          "EnforceWorkGroupConfiguration": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "PublishCloudWatchMetricsEnabled": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "RequesterPaysEnabled": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "ResultConfiguration": { "$ref": "#/components/schemas/ResultConfiguration" }
+        },
+        "type": "object"
+      },
+      "WorkGroupConfigurationUpdates": {
+        "description": "The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.",
+        "properties": {
+          "BytesScannedCutoffPerQuery": { "$ref": "#/components/schemas/BytesScannedCutoffValue" },
+          "EnforceWorkGroupConfiguration": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "PublishCloudWatchMetricsEnabled": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "RemoveBytesScannedCutoffPerQuery": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "RequesterPaysEnabled": { "$ref": "#/components/schemas/BoxedBoolean" },
+          "ResultConfigurationUpdates": { "$ref": "#/components/schemas/ResultConfigurationUpdates" }
+        },
+        "type": "object"
+      },
+      "WorkGroupDescriptionString": { "maxLength": 1024, "minLength": 0, "type": "string" },
+      "WorkGroupName": { "pattern": "[a-zA-z0-9._-]{1,128}", "type": "string" },
+      "WorkGroupState": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
+      "WorkGroupSummary": {
+        "description": "The summary information for the workgroup, which includes its name, state, description, and the date and time it was created.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/Date" },
+          "Description": { "$ref": "#/components/schemas/WorkGroupDescriptionString" },
+          "Name": { "$ref": "#/components/schemas/WorkGroupName" },
+          "State": { "$ref": "#/components/schemas/WorkGroupState" }
+        },
+        "type": "object"
+      },
+      "WorkGroupsList": {
+        "items": { "$ref": "#/components/schemas/WorkGroupSummary" },
+        "maxItems": 50,
+        "minItems": 0,
+        "type": "array"
+      },
+      "datumList": { "items": { "$ref": "#/components/schemas/Datum" }, "type": "array" },
+      "datumString": { "type": "string" }
+    }
+  }
+}

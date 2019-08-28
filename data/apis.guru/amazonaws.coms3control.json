@@ -1,1 +1,1022 @@
-{"openapi":"3.0.0","info":{"contact":{"email":"mike.ralphson@gmail.com","name":"Mike Ralphson","url":"https://github.com/mermade/aws2openapi","x-twitter":"PermittedSoc"},"description":" AWS S3 Control provides access to Amazon S3 control plane operations. ","license":{"name":"Apache 2.0 License","url":"http://www.apache.org/licenses/"},"termsOfService":"https://aws.amazon.com/service-terms/","title":"AWS S3 Control","version":"2018-08-20","x-apiClientRegistration":{"url":"https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"},"x-apisguru-categories":["cloud"],"x-logo":{"backgroundColor":"#FFFFFF","url":"https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"},"x-origin":[{"contentType":"application/json","converter":{"url":"https://github.com/mermade/aws2openapi","version":"1.0.0"},"url":"https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/s3control-2018-08-20.normal.json","x-apisguru-direct":true}],"x-preferred":true,"x-providerName":"amazonaws.com","x-release":"s3v4","x-serviceName":"s3control"},"externalDocs":{"description":"Amazon Web Services documentation","url":"https://docs.aws.amazon.com/s3-control/"},"security":[{"hmac":[]}],"paths":{"/v20180820/configuration/publicAccessBlock#x-amz-account-id":{"delete":{"description":"Deletes the block public access configuration for the specified account.","operationId":"DeletePublicAccessBlock","parameters":[{"description":"The account ID for the AWS account whose block public access configuration you want to delete.","in":"header","name":"x-amz-account-id","required":true,"schema":{"type":"string","maxLength":64}}],"responses":{"200":{"description":"Success"}}},"get":{"description":"<p/>","operationId":"GetPublicAccessBlock","parameters":[{"description":"<p/>","in":"header","name":"x-amz-account-id","required":true,"schema":{"type":"string","maxLength":64}}],"responses":{"200":{"description":"Success","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/GetPublicAccessBlockOutput"}}}},"480":{"description":"NoSuchPublicAccessBlockConfiguration","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/NoSuchPublicAccessBlockConfiguration"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"put":{"description":"<p/>","operationId":"PutPublicAccessBlock","parameters":[{"description":"<p/>","in":"header","name":"x-amz-account-id","required":true,"schema":{"type":"string","maxLength":64}}],"requestBody":{"content":{"text/xml":{"schema":{"properties":{"PublicAccessBlockConfiguration":{"description":"<p/>","properties":{"BlockPublicAcls":{"$ref":"#/components/schemas/Setting"},"BlockPublicPolicy":{"$ref":"#/components/schemas/Setting"},"IgnorePublicAcls":{"$ref":"#/components/schemas/Setting"},"RestrictPublicBuckets":{"$ref":"#/components/schemas/Setting"}},"type":"object"}},"required":["PublicAccessBlockConfiguration"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success"}}}},"/v20180820/jobs#x-amz-account-id":{"get":{"description":"Lists current jobs and jobs that have ended within the last 30 days for the AWS account making the request.","operationId":"ListJobs","parameters":[{"description":"<p/>","in":"header","name":"x-amz-account-id","required":true,"schema":{"type":"string","maxLength":64}},{"description":"The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.","in":"query","name":"jobStatuses","required":false,"schema":{"type":"array","items":{"type":"string"}}},{"description":"A pagination token to request the next page of results. Use the token that Amazon S3 returned in the <code>NextToken</code> element of the <code>ListJobsResult</code> from the previous <code>List Jobs</code> request.","in":"query","name":"nextToken","required":false,"schema":{"type":"string","minLength":1,"maxLength":1024}},{"description":"The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.","in":"query","name":"maxResults","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000}},{"description":"Pagination limit","in":"query","name":"MaxResults","required":false,"schema":{"type":"string"}},{"description":"Pagination token","in":"query","name":"NextToken","required":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/ListJobsResult"}}}},"480":{"description":"InvalidRequestException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/InvalidRequestException"}}}},"481":{"description":"InternalServiceException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/InternalServiceException"}}}},"482":{"description":"InvalidNextTokenException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/InvalidNextTokenException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Creates an Amazon S3 batch operations job.","operationId":"CreateJob","parameters":[{"description":"<p/>","in":"header","name":"x-amz-account-id","required":true,"schema":{"type":"string","maxLength":64}}],"requestBody":{"content":{"text/xml":{"schema":{"properties":{"ClientRequestToken":{"description":"An idempotency token to ensure that you don't accidentally submit the same request twice. You can use any string up to the maximum length.","maxLength":64,"minLength":1,"type":"string"},"ConfirmationRequired":{"description":"Indicates whether confirmation is required before Amazon S3 runs the job. Confirmation is only required for jobs created through the Amazon S3 console.","type":"boolean"},"Description":{"description":"A description for this job. You can use any string within the permitted length. Descriptions don't need to be unique and can be used for multiple jobs.","maxLength":256,"minLength":1,"type":"string"},"Manifest":{"description":"Contains the configuration information for a job's manifest.","properties":{"Location":{"$ref":"#/components/schemas/JobManifestLocation"},"Spec":{"$ref":"#/components/schemas/JobManifestSpec"}},"type":"object"},"Operation":{"description":"The operation that you want this job to perform on each object listed in the manifest. For more information about the available operations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html\">Available Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.","properties":{"LambdaInvoke":{"$ref":"#/components/schemas/LambdaInvokeOperation"},"S3InitiateRestoreObject":{"$ref":"#/components/schemas/S3InitiateRestoreObjectOperation"},"S3PutObjectAcl":{"$ref":"#/components/schemas/S3SetObjectAclOperation"},"S3PutObjectCopy":{"$ref":"#/components/schemas/S3CopyObjectOperation"},"S3PutObjectTagging":{"$ref":"#/components/schemas/S3SetObjectTaggingOperation"}},"type":"object"},"Priority":{"description":"The numerical priority for this job. Higher numbers indicate higher priority.","maximum":2147483647,"minimum":0,"type":"integer"},"Report":{"description":"Contains the configuration parameters for a job-completion report.","properties":{"Bucket":{"$ref":"#/components/schemas/S3BucketArnString"},"Enabled":{"$ref":"#/components/schemas/Boolean"},"Format":{"$ref":"#/components/schemas/JobReportFormat"},"Prefix":{"$ref":"#/components/schemas/ReportPrefixString"},"ReportScope":{"$ref":"#/components/schemas/JobReportScope"}},"type":"object"},"RoleArn":{"description":"The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) Role that batch operations will use to execute this job's operation on each object in the manifest.","maxLength":2048,"minLength":1,"type":"string"}},"required":["Operation","Report","ClientRequestToken","Manifest","Priority","RoleArn"],"type":"object"}}},"required":true},"responses":{"200":{"description":"Success","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/CreateJobResult"}}}},"480":{"description":"TooManyRequestsException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"481":{"description":"BadRequestException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"482":{"description":"IdempotencyException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/IdempotencyException"}}}},"483":{"description":"InternalServiceException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/InternalServiceException"}}}}}}},"/v20180820/jobs/{id}#x-amz-account-id":{"get":{"description":"Retrieves the configuration parameters and status for a batch operations job.","operationId":"DescribeJob","parameters":[{"description":"<p/>","in":"header","name":"x-amz-account-id","required":true,"schema":{"type":"string","maxLength":64}},{"description":"The ID for the job whose information you want to retrieve.","in":"path","name":"id","required":true,"schema":{"type":"string","minLength":5,"maxLength":36}}],"responses":{"200":{"description":"Success","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/DescribeJobResult"}}}},"480":{"description":"BadRequestException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"TooManyRequestsException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"482":{"description":"NotFoundException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"483":{"description":"InternalServiceException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/InternalServiceException"}}}}}},"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}]},"/v20180820/jobs/{id}/priority#x-amz-account-id&priority":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates an existing job's priority.","operationId":"UpdateJobPriority","parameters":[{"description":"<p/>","in":"header","name":"x-amz-account-id","required":true,"schema":{"type":"string","maxLength":64}},{"description":"The ID for the job whose priority you want to update.","in":"path","name":"id","required":true,"schema":{"type":"string","minLength":5,"maxLength":36}},{"description":"The priority you want to assign to this job.","in":"query","name":"priority","required":true,"schema":{"type":"integer","minimum":0,"maximum":2147483647}}],"responses":{"200":{"description":"Success","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/UpdateJobPriorityResult"}}}},"480":{"description":"BadRequestException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"TooManyRequestsException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"482":{"description":"NotFoundException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"483":{"description":"InternalServiceException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/InternalServiceException"}}}}}}},"/v20180820/jobs/{id}/status#x-amz-account-id&requestedJobStatus":{"parameters":[{"$ref":"#/components/parameters/X-Amz-Content-Sha256"},{"$ref":"#/components/parameters/X-Amz-Date"},{"$ref":"#/components/parameters/X-Amz-Algorithm"},{"$ref":"#/components/parameters/X-Amz-Credential"},{"$ref":"#/components/parameters/X-Amz-Security-Token"},{"$ref":"#/components/parameters/X-Amz-Signature"},{"$ref":"#/components/parameters/X-Amz-SignedHeaders"}],"post":{"description":"Updates the status for the specified job. Use this operation to confirm that you want to run a job or to cancel an existing job.","operationId":"UpdateJobStatus","parameters":[{"description":"<p/>","in":"header","name":"x-amz-account-id","required":true,"schema":{"type":"string","maxLength":64}},{"description":"The ID of the job whose status you want to update.","in":"path","name":"id","required":true,"schema":{"type":"string","minLength":5,"maxLength":36}},{"description":"The status that you want to move the specified job to.","in":"query","name":"requestedJobStatus","required":true,"schema":{"type":"string","enum":["Cancelled","Ready"]}},{"description":"A description of the reason why you want to change the specified job's status. This field can be any string up to the maximum length.","in":"query","name":"statusUpdateReason","required":false,"schema":{"type":"string","minLength":1,"maxLength":256}}],"responses":{"200":{"description":"Success","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/UpdateJobStatusResult"}}}},"480":{"description":"BadRequestException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/BadRequestException"}}}},"481":{"description":"TooManyRequestsException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/TooManyRequestsException"}}}},"482":{"description":"NotFoundException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/NotFoundException"}}}},"483":{"description":"JobStatusException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/JobStatusException"}}}},"484":{"description":"InternalServiceException","content":{"text/xml":{"schema":{"$ref":"#/components/schemas/InternalServiceException"}}}}}}}},"servers":[{"description":"The AWS S3 Control multi-region endpoint","url":"http://s3-control.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS S3 Control multi-region endpoint","url":"https://s3-control.{region}.amazonaws.com","variables":{"region":{"default":"us-east-1","description":"The AWS region","enum":["us-east-1","us-east-2","us-west-1","us-west-2","us-gov-west-1","us-gov-east-1","ca-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","eu-central-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1"]}}},{"description":"The AWS S3 Control endpoint for China (Beijing) and China (Ningxia)","url":"http://s3-control.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}},{"description":"The AWS S3 Control endpoint for China (Beijing) and China (Ningxia)","url":"https://s3-control.{region}.amazonaws.com.cn","variables":{"region":{"default":"cn-north-1","description":"The AWS region","enum":["cn-north-1","cn-northwest-1"]}}}],"components":{"parameters":{"X-Amz-Algorithm":{"in":"header","name":"X-Amz-Algorithm","required":false,"schema":{"type":"string"}},"X-Amz-Content-Sha256":{"in":"header","name":"X-Amz-Content-Sha256","required":false,"schema":{"type":"string"}},"X-Amz-Credential":{"in":"header","name":"X-Amz-Credential","required":false,"schema":{"type":"string"}},"X-Amz-Date":{"in":"header","name":"X-Amz-Date","required":false,"schema":{"type":"string"}},"X-Amz-Security-Token":{"in":"header","name":"X-Amz-Security-Token","required":false,"schema":{"type":"string"}},"X-Amz-Signature":{"in":"header","name":"X-Amz-Signature","required":false,"schema":{"type":"string"}},"X-Amz-SignedHeaders":{"in":"header","name":"X-Amz-SignedHeaders","required":false,"schema":{"type":"string"}}},"securitySchemes":{"hmac":{"description":"Amazon Signature authorization v4","in":"header","name":"Authorization","type":"apiKey","x-amazon-apigateway-authtype":"awsSigv4"}},"schemas":{"AccountId":{"maxLength":64,"type":"string"},"BadRequestException":{},"Boolean":{"type":"boolean"},"ConfirmationRequired":{"type":"boolean"},"CreateJobRequest":{"properties":{"ClientRequestToken":{"$ref":"#/components/schemas/NonEmptyMaxLength64String"},"ConfirmationRequired":{"$ref":"#/components/schemas/ConfirmationRequired"},"Description":{"$ref":"#/components/schemas/NonEmptyMaxLength256String"},"Manifest":{"$ref":"#/components/schemas/JobManifest"},"Operation":{"$ref":"#/components/schemas/JobOperation"},"Priority":{"$ref":"#/components/schemas/JobPriority"},"Report":{"$ref":"#/components/schemas/JobReport"},"RoleArn":{"$ref":"#/components/schemas/IAMRoleArn"}},"required":["Operation","Report","ClientRequestToken","Manifest","Priority","RoleArn"],"type":"object"},"CreateJobResult":{"properties":{"JobId":{"$ref":"#/components/schemas/JobId"}},"type":"object"},"DeletePublicAccessBlockRequest":{"properties":{},"type":"object"},"DescribeJobRequest":{"properties":{},"type":"object"},"DescribeJobResult":{"properties":{"Job":{"$ref":"#/components/schemas/JobDescriptor"}},"type":"object"},"GetPublicAccessBlockOutput":{"properties":{"PublicAccessBlockConfiguration":{"$ref":"#/components/schemas/PublicAccessBlockConfiguration"}},"type":"object"},"GetPublicAccessBlockRequest":{"properties":{},"type":"object"},"IAMRoleArn":{"maxLength":2048,"minLength":1,"type":"string"},"IdempotencyException":{},"InternalServiceException":{},"InvalidNextTokenException":{},"InvalidRequestException":{},"JobArn":{"maxLength":1024,"minLength":1,"type":"string"},"JobCreationTime":{"format":"date-time","type":"string"},"JobDescriptor":{"description":"A container element for the job configuration and status information returned by a <code>Describe Job</code> request.","properties":{"ConfirmationRequired":{"$ref":"#/components/schemas/ConfirmationRequired"},"CreationTime":{"$ref":"#/components/schemas/JobCreationTime"},"Description":{"$ref":"#/components/schemas/NonEmptyMaxLength256String"},"FailureReasons":{"$ref":"#/components/schemas/JobFailureList"},"JobArn":{"$ref":"#/components/schemas/JobArn"},"JobId":{"$ref":"#/components/schemas/JobId"},"Manifest":{"$ref":"#/components/schemas/JobManifest"},"Operation":{"$ref":"#/components/schemas/JobOperation"},"Priority":{"$ref":"#/components/schemas/JobPriority"},"ProgressSummary":{"$ref":"#/components/schemas/JobProgressSummary"},"Report":{"$ref":"#/components/schemas/JobReport"},"RoleArn":{"$ref":"#/components/schemas/IAMRoleArn"},"Status":{"$ref":"#/components/schemas/JobStatus"},"StatusUpdateReason":{"$ref":"#/components/schemas/JobStatusUpdateReason"},"SuspendedCause":{"$ref":"#/components/schemas/SuspendedCause"},"SuspendedDate":{"$ref":"#/components/schemas/SuspendedDate"},"TerminationDate":{"$ref":"#/components/schemas/JobTerminationDate"}},"type":"object"},"JobFailure":{"description":"If this job failed, this element indicates why the job failed.","properties":{"FailureCode":{"$ref":"#/components/schemas/JobFailureCode"},"FailureReason":{"$ref":"#/components/schemas/JobFailureReason"}},"type":"object"},"JobFailureCode":{"maxLength":64,"minLength":1,"type":"string"},"JobFailureList":{"items":{"$ref":"#/components/schemas/JobFailure"},"type":"array"},"JobFailureReason":{"maxLength":256,"minLength":1,"type":"string"},"JobId":{"maxLength":36,"minLength":5,"type":"string"},"JobListDescriptor":{"description":"Contains the configuration and status information for a single job retrieved as part of a job list.","properties":{"CreationTime":{"$ref":"#/components/schemas/JobCreationTime"},"Description":{"$ref":"#/components/schemas/NonEmptyMaxLength256String"},"JobId":{"$ref":"#/components/schemas/JobId"},"Operation":{"$ref":"#/components/schemas/OperationName"},"Priority":{"$ref":"#/components/schemas/JobPriority"},"ProgressSummary":{"$ref":"#/components/schemas/JobProgressSummary"},"Status":{"$ref":"#/components/schemas/JobStatus"},"TerminationDate":{"$ref":"#/components/schemas/JobTerminationDate"}},"type":"object"},"JobListDescriptorList":{"items":{"$ref":"#/components/schemas/JobListDescriptor"},"type":"array"},"JobManifest":{"description":"Contains the configuration information for a job's manifest.","properties":{"Location":{"$ref":"#/components/schemas/JobManifestLocation"},"Spec":{"$ref":"#/components/schemas/JobManifestSpec"}},"required":["Spec","Location"],"type":"object"},"JobManifestFieldList":{"items":{"$ref":"#/components/schemas/JobManifestFieldName"},"type":"array"},"JobManifestFieldName":{"enum":["Ignore","Bucket","Key","VersionId"],"type":"string"},"JobManifestFormat":{"enum":["S3BatchOperations_CSV_20180820","S3InventoryReport_CSV_20161130"],"type":"string"},"JobManifestLocation":{"description":"Contains the information required to locate a manifest object.","properties":{"ETag":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"ObjectArn":{"$ref":"#/components/schemas/S3KeyArnString"},"ObjectVersionId":{"$ref":"#/components/schemas/S3ObjectVersionId"}},"required":["ObjectArn","ETag"],"type":"object"},"JobManifestSpec":{"description":"Describes the format of a manifest. If the manifest is in CSV format, also describes the columns contained within the manifest.","properties":{"Fields":{"$ref":"#/components/schemas/JobManifestFieldList"},"Format":{"$ref":"#/components/schemas/JobManifestFormat"}},"required":["Format"],"type":"object"},"JobNumberOfTasksFailed":{"minimum":0,"type":"integer"},"JobNumberOfTasksSucceeded":{"minimum":0,"type":"integer"},"JobOperation":{"description":"The operation that you want this job to perform on each object listed in the manifest. For more information about the available operations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html\">Available Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.","properties":{"LambdaInvoke":{"$ref":"#/components/schemas/LambdaInvokeOperation"},"S3InitiateRestoreObject":{"$ref":"#/components/schemas/S3InitiateRestoreObjectOperation"},"S3PutObjectAcl":{"$ref":"#/components/schemas/S3SetObjectAclOperation"},"S3PutObjectCopy":{"$ref":"#/components/schemas/S3CopyObjectOperation"},"S3PutObjectTagging":{"$ref":"#/components/schemas/S3SetObjectTaggingOperation"}},"type":"object"},"JobPriority":{"maximum":2147483647,"minimum":0,"type":"integer"},"JobProgressSummary":{"description":"Describes the total number of tasks that the specified job has executed, the number of tasks that succeeded, and the number of tasks that failed.","properties":{"NumberOfTasksFailed":{"$ref":"#/components/schemas/JobNumberOfTasksFailed"},"NumberOfTasksSucceeded":{"$ref":"#/components/schemas/JobNumberOfTasksSucceeded"},"TotalNumberOfTasks":{"$ref":"#/components/schemas/JobTotalNumberOfTasks"}},"type":"object"},"JobReport":{"description":"Contains the configuration parameters for a job-completion report.","properties":{"Bucket":{"$ref":"#/components/schemas/S3BucketArnString"},"Enabled":{"$ref":"#/components/schemas/Boolean"},"Format":{"$ref":"#/components/schemas/JobReportFormat"},"Prefix":{"$ref":"#/components/schemas/ReportPrefixString"},"ReportScope":{"$ref":"#/components/schemas/JobReportScope"}},"required":["Enabled"],"type":"object"},"JobReportFormat":{"enum":["Report_CSV_20180820"],"type":"string"},"JobReportScope":{"enum":["AllTasks","FailedTasksOnly"],"type":"string"},"JobStatus":{"enum":["Active","Cancelled","Cancelling","Complete","Completing","Failed","Failing","New","Paused","Pausing","Preparing","Ready","Suspended"],"type":"string"},"JobStatusException":{},"JobStatusList":{"items":{"$ref":"#/components/schemas/JobStatus"},"type":"array"},"JobStatusUpdateReason":{"maxLength":256,"minLength":1,"type":"string"},"JobTerminationDate":{"format":"date-time","type":"string"},"JobTotalNumberOfTasks":{"minimum":0,"type":"integer"},"KmsKeyArnString":{"maxLength":2000,"minLength":1,"type":"string"},"LambdaInvokeOperation":{"description":"Contains the configuration parameters for a <code>Lambda Invoke</code> operation.","properties":{"FunctionArn":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"}},"type":"object"},"ListJobsRequest":{"properties":{},"type":"object"},"ListJobsResult":{"properties":{"Jobs":{"$ref":"#/components/schemas/JobListDescriptorList"},"NextToken":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"}},"type":"object"},"MaxLength1024String":{"maxLength":1024,"type":"string"},"MaxResults":{"maximum":1000,"minimum":1,"type":"integer"},"NoSuchPublicAccessBlockConfiguration":{},"NonEmptyMaxLength1024String":{"maxLength":1024,"minLength":1,"type":"string"},"NonEmptyMaxLength2048String":{"maxLength":2048,"minLength":1,"type":"string"},"NonEmptyMaxLength256String":{"maxLength":256,"minLength":1,"type":"string"},"NonEmptyMaxLength64String":{"maxLength":64,"minLength":1,"type":"string"},"NotFoundException":{},"OperationName":{"enum":["LambdaInvoke","S3PutObjectCopy","S3PutObjectAcl","S3PutObjectTagging","S3InitiateRestoreObject"],"type":"string"},"PublicAccessBlockConfiguration":{"description":"<p/>","properties":{"BlockPublicAcls":{"$ref":"#/components/schemas/Setting"},"BlockPublicPolicy":{"$ref":"#/components/schemas/Setting"},"IgnorePublicAcls":{"$ref":"#/components/schemas/Setting"},"RestrictPublicBuckets":{"$ref":"#/components/schemas/Setting"}},"type":"object"},"PutPublicAccessBlockRequest":{"properties":{"PublicAccessBlockConfiguration":{"$ref":"#/components/schemas/PublicAccessBlockConfiguration"}},"required":["PublicAccessBlockConfiguration"],"type":"object","xml":{"namespace":"http://awss3control.amazonaws.com/doc/2018-08-20/"}},"ReportPrefixString":{"maxLength":512,"minLength":1,"type":"string"},"RequestedJobStatus":{"enum":["Cancelled","Ready"],"type":"string"},"S3AccessControlList":{"description":"<p/>","properties":{"Grants":{"$ref":"#/components/schemas/S3GrantList"},"Owner":{"$ref":"#/components/schemas/S3ObjectOwner"}},"required":["Owner"],"type":"object"},"S3AccessControlPolicy":{"description":"<p/>","properties":{"AccessControlList":{"$ref":"#/components/schemas/S3AccessControlList"},"CannedAccessControlList":{"$ref":"#/components/schemas/S3CannedAccessControlList"}},"type":"object"},"S3BucketArnString":{"maxLength":128,"minLength":1,"type":"string"},"S3CannedAccessControlList":{"enum":["private","public-read","public-read-write","aws-exec-read","authenticated-read","bucket-owner-read","bucket-owner-full-control"],"type":"string"},"S3ContentLength":{"minimum":0,"type":"integer"},"S3CopyObjectOperation":{"description":"Contains the configuration parameters for a PUT Copy object operation. Amazon S3 batch operations passes each value through to the underlying PUT Copy object API. For more information about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html\">PUT Object - Copy</a>.","properties":{"AccessControlGrants":{"$ref":"#/components/schemas/S3GrantList"},"CannedAccessControlList":{"$ref":"#/components/schemas/S3CannedAccessControlList"},"MetadataDirective":{"$ref":"#/components/schemas/S3MetadataDirective"},"ModifiedSinceConstraint":{"$ref":"#/components/schemas/TimeStamp"},"NewObjectMetadata":{"$ref":"#/components/schemas/S3ObjectMetadata"},"NewObjectTagging":{"$ref":"#/components/schemas/S3TagSet"},"ObjectLockLegalHoldStatus":{"$ref":"#/components/schemas/S3ObjectLockLegalHoldStatus"},"ObjectLockMode":{"$ref":"#/components/schemas/S3ObjectLockMode"},"ObjectLockRetainUntilDate":{"$ref":"#/components/schemas/TimeStamp"},"RedirectLocation":{"$ref":"#/components/schemas/NonEmptyMaxLength2048String"},"RequesterPays":{"$ref":"#/components/schemas/Boolean"},"SSEAwsKmsKeyId":{"$ref":"#/components/schemas/KmsKeyArnString"},"StorageClass":{"$ref":"#/components/schemas/S3StorageClass"},"TargetKeyPrefix":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"TargetResource":{"$ref":"#/components/schemas/S3BucketArnString"},"UnModifiedSinceConstraint":{"$ref":"#/components/schemas/TimeStamp"}},"type":"object"},"S3ExpirationInDays":{"minimum":0,"type":"integer"},"S3GlacierJobTier":{"enum":["BULK","STANDARD"],"type":"string"},"S3Grant":{"description":"<p/>","properties":{"Grantee":{"$ref":"#/components/schemas/S3Grantee"},"Permission":{"$ref":"#/components/schemas/S3Permission"}},"type":"object"},"S3GrantList":{"items":{"$ref":"#/components/schemas/S3Grant"},"type":"array"},"S3Grantee":{"description":"<p/>","properties":{"DisplayName":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"Identifier":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"TypeIdentifier":{"$ref":"#/components/schemas/S3GranteeTypeIdentifier"}},"type":"object"},"S3GranteeTypeIdentifier":{"enum":["id","emailAddress","uri"],"type":"string"},"S3InitiateRestoreObjectOperation":{"description":"Contains the configuration parameters for an Initiate Glacier Restore job. Amazon S3 batch operations passes each value through to the underlying POST Object restore API. For more information about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html#RESTObjectPOSTrestore-restore-request\">Restoring Archives</a>.","properties":{"ExpirationInDays":{"$ref":"#/components/schemas/S3ExpirationInDays"},"GlacierJobTier":{"$ref":"#/components/schemas/S3GlacierJobTier"}},"type":"object"},"S3KeyArnString":{"maxLength":2000,"minLength":1,"type":"string"},"S3MetadataDirective":{"enum":["COPY","REPLACE"],"type":"string"},"S3ObjectLockLegalHoldStatus":{"enum":["OFF","ON"],"type":"string"},"S3ObjectLockMode":{"enum":["COMPLIANCE","GOVERNANCE"],"type":"string"},"S3ObjectMetadata":{"description":"<p/>","properties":{"CacheControl":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"ContentDisposition":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"ContentEncoding":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"ContentLanguage":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"ContentLength":{"$ref":"#/components/schemas/S3ContentLength"},"ContentMD5":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"ContentType":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"HttpExpiresDate":{"$ref":"#/components/schemas/TimeStamp"},"RequesterCharged":{"$ref":"#/components/schemas/Boolean"},"SSEAlgorithm":{"$ref":"#/components/schemas/S3SSEAlgorithm"},"UserMetadata":{"$ref":"#/components/schemas/S3UserMetadata"}},"type":"object"},"S3ObjectOwner":{"description":"<p/>","properties":{"DisplayName":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"ID":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"}},"type":"object"},"S3ObjectVersionId":{"maxLength":2000,"minLength":1,"type":"string"},"S3Permission":{"enum":["FULL_CONTROL","READ","WRITE","READ_ACP","WRITE_ACP"],"type":"string"},"S3SSEAlgorithm":{"enum":["AES256","KMS"],"type":"string"},"S3SetObjectAclOperation":{"description":"Contains the configuration parameters for a Set Object ACL operation. Amazon S3 batch operations passes each value through to the underlying PUT Object acl API. For more information about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html\">PUT Object acl</a>.","properties":{"AccessControlPolicy":{"$ref":"#/components/schemas/S3AccessControlPolicy"}},"type":"object"},"S3SetObjectTaggingOperation":{"description":"Contains the configuration parameters for a Set Object Tagging operation. Amazon S3 batch operations passes each value through to the underlying PUT Object tagging API. For more information about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTtagging.html\">PUT Object tagging</a>.","properties":{"TagSet":{"$ref":"#/components/schemas/S3TagSet"}},"type":"object"},"S3StorageClass":{"enum":["STANDARD","STANDARD_IA","ONEZONE_IA","GLACIER","INTELLIGENT_TIERING","DEEP_ARCHIVE"],"type":"string"},"S3Tag":{"description":"<p/>","properties":{"Key":{"$ref":"#/components/schemas/NonEmptyMaxLength1024String"},"Value":{"$ref":"#/components/schemas/MaxLength1024String"}},"required":["Key","Value"],"type":"object"},"S3TagSet":{"items":{"$ref":"#/components/schemas/S3Tag"},"type":"array"},"S3UserMetadata":{"additionalProperties":{"$ref":"#/components/schemas/MaxLength1024String"},"maxProperties":8192,"type":"object"},"Setting":{"type":"boolean"},"SuspendedCause":{"maxLength":1024,"minLength":1,"type":"string"},"SuspendedDate":{"format":"date-time","type":"string"},"TimeStamp":{"format":"date-time","type":"string"},"TooManyRequestsException":{},"UpdateJobPriorityRequest":{"properties":{},"type":"object"},"UpdateJobPriorityResult":{"properties":{"JobId":{"$ref":"#/components/schemas/JobId"},"Priority":{"$ref":"#/components/schemas/JobPriority"}},"required":["JobId","Priority"],"type":"object"},"UpdateJobStatusRequest":{"properties":{},"type":"object"},"UpdateJobStatusResult":{"properties":{"JobId":{"$ref":"#/components/schemas/JobId"},"Status":{"$ref":"#/components/schemas/JobStatus"},"StatusUpdateReason":{"$ref":"#/components/schemas/JobStatusUpdateReason"}},"type":"object"}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": " AWS S3 Control provides access to Amazon S3 control plane operations. ",
+    "license": { "name": "Apache 2.0 License", "url": "http://www.apache.org/licenses/" },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS S3 Control",
+    "version": "2018-08-20",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": ["cloud"],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": { "url": "https://github.com/mermade/aws2openapi", "version": "1.0.0" },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/s3control-2018-08-20.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "s3v4",
+    "x-serviceName": "s3control"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/s3-control/"
+  },
+  "security": [{ "hmac": [] }],
+  "paths": {
+    "/v20180820/configuration/publicAccessBlock#x-amz-account-id": {
+      "delete": {
+        "description": "Deletes the block public access configuration for the specified account.",
+        "operationId": "DeletePublicAccessBlock",
+        "parameters": [
+          {
+            "description": "The account ID for the AWS account whose block public access configuration you want to delete.",
+            "in": "header",
+            "name": "x-amz-account-id",
+            "required": true,
+            "schema": { "type": "string", "maxLength": 64 }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "get": {
+        "description": "<p/>",
+        "operationId": "GetPublicAccessBlock",
+        "parameters": [
+          {
+            "description": "<p/>",
+            "in": "header",
+            "name": "x-amz-account-id",
+            "required": true,
+            "schema": { "type": "string", "maxLength": 64 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/GetPublicAccessBlockOutput" } } }
+          },
+          "480": {
+            "description": "NoSuchPublicAccessBlockConfiguration",
+            "content": {
+              "text/xml": { "schema": { "$ref": "#/components/schemas/NoSuchPublicAccessBlockConfiguration" } }
+            }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "put": {
+        "description": "<p/>",
+        "operationId": "PutPublicAccessBlock",
+        "parameters": [
+          {
+            "description": "<p/>",
+            "in": "header",
+            "name": "x-amz-account-id",
+            "required": true,
+            "schema": { "type": "string", "maxLength": 64 }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/xml": {
+              "schema": {
+                "properties": {
+                  "PublicAccessBlockConfiguration": {
+                    "description": "<p/>",
+                    "properties": {
+                      "BlockPublicAcls": { "$ref": "#/components/schemas/Setting" },
+                      "BlockPublicPolicy": { "$ref": "#/components/schemas/Setting" },
+                      "IgnorePublicAcls": { "$ref": "#/components/schemas/Setting" },
+                      "RestrictPublicBuckets": { "$ref": "#/components/schemas/Setting" }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": ["PublicAccessBlockConfiguration"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/v20180820/jobs#x-amz-account-id": {
+      "get": {
+        "description": "Lists current jobs and jobs that have ended within the last 30 days for the AWS account making the request.",
+        "operationId": "ListJobs",
+        "parameters": [
+          {
+            "description": "<p/>",
+            "in": "header",
+            "name": "x-amz-account-id",
+            "required": true,
+            "schema": { "type": "string", "maxLength": 64 }
+          },
+          {
+            "description": "The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.",
+            "in": "query",
+            "name": "jobStatuses",
+            "required": false,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          {
+            "description": "A pagination token to request the next page of results. Use the token that Amazon S3 returned in the <code>NextToken</code> element of the <code>ListJobsResult</code> from the previous <code>List Jobs</code> request.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 1024 }
+          },
+          {
+            "description": "The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/ListJobsResult" } } }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/InvalidRequestException" } } }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/InternalServiceException" } } }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/InvalidNextTokenException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Creates an Amazon S3 batch operations job.",
+        "operationId": "CreateJob",
+        "parameters": [
+          {
+            "description": "<p/>",
+            "in": "header",
+            "name": "x-amz-account-id",
+            "required": true,
+            "schema": { "type": "string", "maxLength": 64 }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/xml": {
+              "schema": {
+                "properties": {
+                  "ClientRequestToken": {
+                    "description": "An idempotency token to ensure that you don't accidentally submit the same request twice. You can use any string up to the maximum length.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "ConfirmationRequired": {
+                    "description": "Indicates whether confirmation is required before Amazon S3 runs the job. Confirmation is only required for jobs created through the Amazon S3 console.",
+                    "type": "boolean"
+                  },
+                  "Description": {
+                    "description": "A description for this job. You can use any string within the permitted length. Descriptions don't need to be unique and can be used for multiple jobs.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "Manifest": {
+                    "description": "Contains the configuration information for a job's manifest.",
+                    "properties": {
+                      "Location": { "$ref": "#/components/schemas/JobManifestLocation" },
+                      "Spec": { "$ref": "#/components/schemas/JobManifestSpec" }
+                    },
+                    "type": "object"
+                  },
+                  "Operation": {
+                    "description": "The operation that you want this job to perform on each object listed in the manifest. For more information about the available operations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html\">Available Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.",
+                    "properties": {
+                      "LambdaInvoke": { "$ref": "#/components/schemas/LambdaInvokeOperation" },
+                      "S3InitiateRestoreObject": { "$ref": "#/components/schemas/S3InitiateRestoreObjectOperation" },
+                      "S3PutObjectAcl": { "$ref": "#/components/schemas/S3SetObjectAclOperation" },
+                      "S3PutObjectCopy": { "$ref": "#/components/schemas/S3CopyObjectOperation" },
+                      "S3PutObjectTagging": { "$ref": "#/components/schemas/S3SetObjectTaggingOperation" }
+                    },
+                    "type": "object"
+                  },
+                  "Priority": {
+                    "description": "The numerical priority for this job. Higher numbers indicate higher priority.",
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "Report": {
+                    "description": "Contains the configuration parameters for a job-completion report.",
+                    "properties": {
+                      "Bucket": { "$ref": "#/components/schemas/S3BucketArnString" },
+                      "Enabled": { "$ref": "#/components/schemas/Boolean" },
+                      "Format": { "$ref": "#/components/schemas/JobReportFormat" },
+                      "Prefix": { "$ref": "#/components/schemas/ReportPrefixString" },
+                      "ReportScope": { "$ref": "#/components/schemas/JobReportScope" }
+                    },
+                    "type": "object"
+                  },
+                  "RoleArn": {
+                    "description": "The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) Role that batch operations will use to execute this job's operation on each object in the manifest.",
+                    "maxLength": 2048,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": ["Operation", "Report", "ClientRequestToken", "Manifest", "Priority", "RoleArn"],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/CreateJobResult" } } }
+          },
+          "480": {
+            "description": "TooManyRequestsException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "482": {
+            "description": "IdempotencyException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/IdempotencyException" } } }
+          },
+          "483": {
+            "description": "InternalServiceException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/InternalServiceException" } } }
+          }
+        }
+      }
+    },
+    "/v20180820/jobs/{id}#x-amz-account-id": {
+      "get": {
+        "description": "Retrieves the configuration parameters and status for a batch operations job.",
+        "operationId": "DescribeJob",
+        "parameters": [
+          {
+            "description": "<p/>",
+            "in": "header",
+            "name": "x-amz-account-id",
+            "required": true,
+            "schema": { "type": "string", "maxLength": 64 }
+          },
+          {
+            "description": "The ID for the job whose information you want to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string", "minLength": 5, "maxLength": 36 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/DescribeJobResult" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "483": {
+            "description": "InternalServiceException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/InternalServiceException" } } }
+          }
+        }
+      },
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ]
+    },
+    "/v20180820/jobs/{id}/priority#x-amz-account-id&priority": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates an existing job's priority.",
+        "operationId": "UpdateJobPriority",
+        "parameters": [
+          {
+            "description": "<p/>",
+            "in": "header",
+            "name": "x-amz-account-id",
+            "required": true,
+            "schema": { "type": "string", "maxLength": 64 }
+          },
+          {
+            "description": "The ID for the job whose priority you want to update.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string", "minLength": 5, "maxLength": 36 }
+          },
+          {
+            "description": "The priority you want to assign to this job.",
+            "in": "query",
+            "name": "priority",
+            "required": true,
+            "schema": { "type": "integer", "minimum": 0, "maximum": 2147483647 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/UpdateJobPriorityResult" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "483": {
+            "description": "InternalServiceException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/InternalServiceException" } } }
+          }
+        }
+      }
+    },
+    "/v20180820/jobs/{id}/status#x-amz-account-id&requestedJobStatus": {
+      "parameters": [
+        { "$ref": "#/components/parameters/X-Amz-Content-Sha256" },
+        { "$ref": "#/components/parameters/X-Amz-Date" },
+        { "$ref": "#/components/parameters/X-Amz-Algorithm" },
+        { "$ref": "#/components/parameters/X-Amz-Credential" },
+        { "$ref": "#/components/parameters/X-Amz-Security-Token" },
+        { "$ref": "#/components/parameters/X-Amz-Signature" },
+        { "$ref": "#/components/parameters/X-Amz-SignedHeaders" }
+      ],
+      "post": {
+        "description": "Updates the status for the specified job. Use this operation to confirm that you want to run a job or to cancel an existing job.",
+        "operationId": "UpdateJobStatus",
+        "parameters": [
+          {
+            "description": "<p/>",
+            "in": "header",
+            "name": "x-amz-account-id",
+            "required": true,
+            "schema": { "type": "string", "maxLength": 64 }
+          },
+          {
+            "description": "The ID of the job whose status you want to update.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string", "minLength": 5, "maxLength": 36 }
+          },
+          {
+            "description": "The status that you want to move the specified job to.",
+            "in": "query",
+            "name": "requestedJobStatus",
+            "required": true,
+            "schema": { "type": "string", "enum": ["Cancelled", "Ready"] }
+          },
+          {
+            "description": "A description of the reason why you want to change the specified job's status. This field can be any string up to the maximum length.",
+            "in": "query",
+            "name": "statusUpdateReason",
+            "required": false,
+            "schema": { "type": "string", "minLength": 1, "maxLength": 256 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/UpdateJobStatusResult" } } }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/BadRequestException" } } }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/TooManyRequestsException" } } }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/NotFoundException" } } }
+          },
+          "483": {
+            "description": "JobStatusException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/JobStatusException" } } }
+          },
+          "484": {
+            "description": "InternalServiceException",
+            "content": { "text/xml": { "schema": { "$ref": "#/components/schemas/InternalServiceException" } } }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "The AWS S3 Control multi-region endpoint",
+      "url": "http://s3-control.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS S3 Control multi-region endpoint",
+      "url": "https://s3-control.{region}.amazonaws.com",
+      "variables": {
+        "region": {
+          "default": "us-east-1",
+          "description": "The AWS region",
+          "enum": [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+            "us-gov-west-1",
+            "us-gov-east-1",
+            "ca-central-1",
+            "eu-north-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "eu-central-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-south-1",
+            "sa-east-1"
+          ]
+        }
+      }
+    },
+    {
+      "description": "The AWS S3 Control endpoint for China (Beijing) and China (Ningxia)",
+      "url": "http://s3-control.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    },
+    {
+      "description": "The AWS S3 Control endpoint for China (Beijing) and China (Ningxia)",
+      "url": "https://s3-control.{region}.amazonaws.com.cn",
+      "variables": {
+        "region": { "default": "cn-north-1", "description": "The AWS region", "enum": ["cn-north-1", "cn-northwest-1"] }
+      }
+    }
+  ],
+  "components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Date": { "in": "header", "name": "X-Amz-Date", "required": false, "schema": { "type": "string" } },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "schema": { "type": "string" }
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "schema": { "type": "string" }
+      }
+    },
+    "securitySchemes": {
+      "hmac": {
+        "description": "Amazon Signature authorization v4",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey",
+        "x-amazon-apigateway-authtype": "awsSigv4"
+      }
+    },
+    "schemas": {
+      "AccountId": { "maxLength": 64, "type": "string" },
+      "BadRequestException": {},
+      "Boolean": { "type": "boolean" },
+      "ConfirmationRequired": { "type": "boolean" },
+      "CreateJobRequest": {
+        "properties": {
+          "ClientRequestToken": { "$ref": "#/components/schemas/NonEmptyMaxLength64String" },
+          "ConfirmationRequired": { "$ref": "#/components/schemas/ConfirmationRequired" },
+          "Description": { "$ref": "#/components/schemas/NonEmptyMaxLength256String" },
+          "Manifest": { "$ref": "#/components/schemas/JobManifest" },
+          "Operation": { "$ref": "#/components/schemas/JobOperation" },
+          "Priority": { "$ref": "#/components/schemas/JobPriority" },
+          "Report": { "$ref": "#/components/schemas/JobReport" },
+          "RoleArn": { "$ref": "#/components/schemas/IAMRoleArn" }
+        },
+        "required": ["Operation", "Report", "ClientRequestToken", "Manifest", "Priority", "RoleArn"],
+        "type": "object"
+      },
+      "CreateJobResult": { "properties": { "JobId": { "$ref": "#/components/schemas/JobId" } }, "type": "object" },
+      "DeletePublicAccessBlockRequest": { "properties": {}, "type": "object" },
+      "DescribeJobRequest": { "properties": {}, "type": "object" },
+      "DescribeJobResult": {
+        "properties": { "Job": { "$ref": "#/components/schemas/JobDescriptor" } },
+        "type": "object"
+      },
+      "GetPublicAccessBlockOutput": {
+        "properties": {
+          "PublicAccessBlockConfiguration": { "$ref": "#/components/schemas/PublicAccessBlockConfiguration" }
+        },
+        "type": "object"
+      },
+      "GetPublicAccessBlockRequest": { "properties": {}, "type": "object" },
+      "IAMRoleArn": { "maxLength": 2048, "minLength": 1, "type": "string" },
+      "IdempotencyException": {},
+      "InternalServiceException": {},
+      "InvalidNextTokenException": {},
+      "InvalidRequestException": {},
+      "JobArn": { "maxLength": 1024, "minLength": 1, "type": "string" },
+      "JobCreationTime": { "format": "date-time", "type": "string" },
+      "JobDescriptor": {
+        "description": "A container element for the job configuration and status information returned by a <code>Describe Job</code> request.",
+        "properties": {
+          "ConfirmationRequired": { "$ref": "#/components/schemas/ConfirmationRequired" },
+          "CreationTime": { "$ref": "#/components/schemas/JobCreationTime" },
+          "Description": { "$ref": "#/components/schemas/NonEmptyMaxLength256String" },
+          "FailureReasons": { "$ref": "#/components/schemas/JobFailureList" },
+          "JobArn": { "$ref": "#/components/schemas/JobArn" },
+          "JobId": { "$ref": "#/components/schemas/JobId" },
+          "Manifest": { "$ref": "#/components/schemas/JobManifest" },
+          "Operation": { "$ref": "#/components/schemas/JobOperation" },
+          "Priority": { "$ref": "#/components/schemas/JobPriority" },
+          "ProgressSummary": { "$ref": "#/components/schemas/JobProgressSummary" },
+          "Report": { "$ref": "#/components/schemas/JobReport" },
+          "RoleArn": { "$ref": "#/components/schemas/IAMRoleArn" },
+          "Status": { "$ref": "#/components/schemas/JobStatus" },
+          "StatusUpdateReason": { "$ref": "#/components/schemas/JobStatusUpdateReason" },
+          "SuspendedCause": { "$ref": "#/components/schemas/SuspendedCause" },
+          "SuspendedDate": { "$ref": "#/components/schemas/SuspendedDate" },
+          "TerminationDate": { "$ref": "#/components/schemas/JobTerminationDate" }
+        },
+        "type": "object"
+      },
+      "JobFailure": {
+        "description": "If this job failed, this element indicates why the job failed.",
+        "properties": {
+          "FailureCode": { "$ref": "#/components/schemas/JobFailureCode" },
+          "FailureReason": { "$ref": "#/components/schemas/JobFailureReason" }
+        },
+        "type": "object"
+      },
+      "JobFailureCode": { "maxLength": 64, "minLength": 1, "type": "string" },
+      "JobFailureList": { "items": { "$ref": "#/components/schemas/JobFailure" }, "type": "array" },
+      "JobFailureReason": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "JobId": { "maxLength": 36, "minLength": 5, "type": "string" },
+      "JobListDescriptor": {
+        "description": "Contains the configuration and status information for a single job retrieved as part of a job list.",
+        "properties": {
+          "CreationTime": { "$ref": "#/components/schemas/JobCreationTime" },
+          "Description": { "$ref": "#/components/schemas/NonEmptyMaxLength256String" },
+          "JobId": { "$ref": "#/components/schemas/JobId" },
+          "Operation": { "$ref": "#/components/schemas/OperationName" },
+          "Priority": { "$ref": "#/components/schemas/JobPriority" },
+          "ProgressSummary": { "$ref": "#/components/schemas/JobProgressSummary" },
+          "Status": { "$ref": "#/components/schemas/JobStatus" },
+          "TerminationDate": { "$ref": "#/components/schemas/JobTerminationDate" }
+        },
+        "type": "object"
+      },
+      "JobListDescriptorList": { "items": { "$ref": "#/components/schemas/JobListDescriptor" }, "type": "array" },
+      "JobManifest": {
+        "description": "Contains the configuration information for a job's manifest.",
+        "properties": {
+          "Location": { "$ref": "#/components/schemas/JobManifestLocation" },
+          "Spec": { "$ref": "#/components/schemas/JobManifestSpec" }
+        },
+        "required": ["Spec", "Location"],
+        "type": "object"
+      },
+      "JobManifestFieldList": { "items": { "$ref": "#/components/schemas/JobManifestFieldName" }, "type": "array" },
+      "JobManifestFieldName": { "enum": ["Ignore", "Bucket", "Key", "VersionId"], "type": "string" },
+      "JobManifestFormat": {
+        "enum": ["S3BatchOperations_CSV_20180820", "S3InventoryReport_CSV_20161130"],
+        "type": "string"
+      },
+      "JobManifestLocation": {
+        "description": "Contains the information required to locate a manifest object.",
+        "properties": {
+          "ETag": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "ObjectArn": { "$ref": "#/components/schemas/S3KeyArnString" },
+          "ObjectVersionId": { "$ref": "#/components/schemas/S3ObjectVersionId" }
+        },
+        "required": ["ObjectArn", "ETag"],
+        "type": "object"
+      },
+      "JobManifestSpec": {
+        "description": "Describes the format of a manifest. If the manifest is in CSV format, also describes the columns contained within the manifest.",
+        "properties": {
+          "Fields": { "$ref": "#/components/schemas/JobManifestFieldList" },
+          "Format": { "$ref": "#/components/schemas/JobManifestFormat" }
+        },
+        "required": ["Format"],
+        "type": "object"
+      },
+      "JobNumberOfTasksFailed": { "minimum": 0, "type": "integer" },
+      "JobNumberOfTasksSucceeded": { "minimum": 0, "type": "integer" },
+      "JobOperation": {
+        "description": "The operation that you want this job to perform on each object listed in the manifest. For more information about the available operations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html\">Available Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.",
+        "properties": {
+          "LambdaInvoke": { "$ref": "#/components/schemas/LambdaInvokeOperation" },
+          "S3InitiateRestoreObject": { "$ref": "#/components/schemas/S3InitiateRestoreObjectOperation" },
+          "S3PutObjectAcl": { "$ref": "#/components/schemas/S3SetObjectAclOperation" },
+          "S3PutObjectCopy": { "$ref": "#/components/schemas/S3CopyObjectOperation" },
+          "S3PutObjectTagging": { "$ref": "#/components/schemas/S3SetObjectTaggingOperation" }
+        },
+        "type": "object"
+      },
+      "JobPriority": { "maximum": 2147483647, "minimum": 0, "type": "integer" },
+      "JobProgressSummary": {
+        "description": "Describes the total number of tasks that the specified job has executed, the number of tasks that succeeded, and the number of tasks that failed.",
+        "properties": {
+          "NumberOfTasksFailed": { "$ref": "#/components/schemas/JobNumberOfTasksFailed" },
+          "NumberOfTasksSucceeded": { "$ref": "#/components/schemas/JobNumberOfTasksSucceeded" },
+          "TotalNumberOfTasks": { "$ref": "#/components/schemas/JobTotalNumberOfTasks" }
+        },
+        "type": "object"
+      },
+      "JobReport": {
+        "description": "Contains the configuration parameters for a job-completion report.",
+        "properties": {
+          "Bucket": { "$ref": "#/components/schemas/S3BucketArnString" },
+          "Enabled": { "$ref": "#/components/schemas/Boolean" },
+          "Format": { "$ref": "#/components/schemas/JobReportFormat" },
+          "Prefix": { "$ref": "#/components/schemas/ReportPrefixString" },
+          "ReportScope": { "$ref": "#/components/schemas/JobReportScope" }
+        },
+        "required": ["Enabled"],
+        "type": "object"
+      },
+      "JobReportFormat": { "enum": ["Report_CSV_20180820"], "type": "string" },
+      "JobReportScope": { "enum": ["AllTasks", "FailedTasksOnly"], "type": "string" },
+      "JobStatus": {
+        "enum": [
+          "Active",
+          "Cancelled",
+          "Cancelling",
+          "Complete",
+          "Completing",
+          "Failed",
+          "Failing",
+          "New",
+          "Paused",
+          "Pausing",
+          "Preparing",
+          "Ready",
+          "Suspended"
+        ],
+        "type": "string"
+      },
+      "JobStatusException": {},
+      "JobStatusList": { "items": { "$ref": "#/components/schemas/JobStatus" }, "type": "array" },
+      "JobStatusUpdateReason": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "JobTerminationDate": { "format": "date-time", "type": "string" },
+      "JobTotalNumberOfTasks": { "minimum": 0, "type": "integer" },
+      "KmsKeyArnString": { "maxLength": 2000, "minLength": 1, "type": "string" },
+      "LambdaInvokeOperation": {
+        "description": "Contains the configuration parameters for a <code>Lambda Invoke</code> operation.",
+        "properties": { "FunctionArn": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" } },
+        "type": "object"
+      },
+      "ListJobsRequest": { "properties": {}, "type": "object" },
+      "ListJobsResult": {
+        "properties": {
+          "Jobs": { "$ref": "#/components/schemas/JobListDescriptorList" },
+          "NextToken": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" }
+        },
+        "type": "object"
+      },
+      "MaxLength1024String": { "maxLength": 1024, "type": "string" },
+      "MaxResults": { "maximum": 1000, "minimum": 1, "type": "integer" },
+      "NoSuchPublicAccessBlockConfiguration": {},
+      "NonEmptyMaxLength1024String": { "maxLength": 1024, "minLength": 1, "type": "string" },
+      "NonEmptyMaxLength2048String": { "maxLength": 2048, "minLength": 1, "type": "string" },
+      "NonEmptyMaxLength256String": { "maxLength": 256, "minLength": 1, "type": "string" },
+      "NonEmptyMaxLength64String": { "maxLength": 64, "minLength": 1, "type": "string" },
+      "NotFoundException": {},
+      "OperationName": {
+        "enum": ["LambdaInvoke", "S3PutObjectCopy", "S3PutObjectAcl", "S3PutObjectTagging", "S3InitiateRestoreObject"],
+        "type": "string"
+      },
+      "PublicAccessBlockConfiguration": {
+        "description": "<p/>",
+        "properties": {
+          "BlockPublicAcls": { "$ref": "#/components/schemas/Setting" },
+          "BlockPublicPolicy": { "$ref": "#/components/schemas/Setting" },
+          "IgnorePublicAcls": { "$ref": "#/components/schemas/Setting" },
+          "RestrictPublicBuckets": { "$ref": "#/components/schemas/Setting" }
+        },
+        "type": "object"
+      },
+      "PutPublicAccessBlockRequest": {
+        "properties": {
+          "PublicAccessBlockConfiguration": { "$ref": "#/components/schemas/PublicAccessBlockConfiguration" }
+        },
+        "required": ["PublicAccessBlockConfiguration"],
+        "type": "object",
+        "xml": { "namespace": "http://awss3control.amazonaws.com/doc/2018-08-20/" }
+      },
+      "ReportPrefixString": { "maxLength": 512, "minLength": 1, "type": "string" },
+      "RequestedJobStatus": { "enum": ["Cancelled", "Ready"], "type": "string" },
+      "S3AccessControlList": {
+        "description": "<p/>",
+        "properties": {
+          "Grants": { "$ref": "#/components/schemas/S3GrantList" },
+          "Owner": { "$ref": "#/components/schemas/S3ObjectOwner" }
+        },
+        "required": ["Owner"],
+        "type": "object"
+      },
+      "S3AccessControlPolicy": {
+        "description": "<p/>",
+        "properties": {
+          "AccessControlList": { "$ref": "#/components/schemas/S3AccessControlList" },
+          "CannedAccessControlList": { "$ref": "#/components/schemas/S3CannedAccessControlList" }
+        },
+        "type": "object"
+      },
+      "S3BucketArnString": { "maxLength": 128, "minLength": 1, "type": "string" },
+      "S3CannedAccessControlList": {
+        "enum": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "aws-exec-read",
+          "authenticated-read",
+          "bucket-owner-read",
+          "bucket-owner-full-control"
+        ],
+        "type": "string"
+      },
+      "S3ContentLength": { "minimum": 0, "type": "integer" },
+      "S3CopyObjectOperation": {
+        "description": "Contains the configuration parameters for a PUT Copy object operation. Amazon S3 batch operations passes each value through to the underlying PUT Copy object API. For more information about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html\">PUT Object - Copy</a>.",
+        "properties": {
+          "AccessControlGrants": { "$ref": "#/components/schemas/S3GrantList" },
+          "CannedAccessControlList": { "$ref": "#/components/schemas/S3CannedAccessControlList" },
+          "MetadataDirective": { "$ref": "#/components/schemas/S3MetadataDirective" },
+          "ModifiedSinceConstraint": { "$ref": "#/components/schemas/TimeStamp" },
+          "NewObjectMetadata": { "$ref": "#/components/schemas/S3ObjectMetadata" },
+          "NewObjectTagging": { "$ref": "#/components/schemas/S3TagSet" },
+          "ObjectLockLegalHoldStatus": { "$ref": "#/components/schemas/S3ObjectLockLegalHoldStatus" },
+          "ObjectLockMode": { "$ref": "#/components/schemas/S3ObjectLockMode" },
+          "ObjectLockRetainUntilDate": { "$ref": "#/components/schemas/TimeStamp" },
+          "RedirectLocation": { "$ref": "#/components/schemas/NonEmptyMaxLength2048String" },
+          "RequesterPays": { "$ref": "#/components/schemas/Boolean" },
+          "SSEAwsKmsKeyId": { "$ref": "#/components/schemas/KmsKeyArnString" },
+          "StorageClass": { "$ref": "#/components/schemas/S3StorageClass" },
+          "TargetKeyPrefix": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "TargetResource": { "$ref": "#/components/schemas/S3BucketArnString" },
+          "UnModifiedSinceConstraint": { "$ref": "#/components/schemas/TimeStamp" }
+        },
+        "type": "object"
+      },
+      "S3ExpirationInDays": { "minimum": 0, "type": "integer" },
+      "S3GlacierJobTier": { "enum": ["BULK", "STANDARD"], "type": "string" },
+      "S3Grant": {
+        "description": "<p/>",
+        "properties": {
+          "Grantee": { "$ref": "#/components/schemas/S3Grantee" },
+          "Permission": { "$ref": "#/components/schemas/S3Permission" }
+        },
+        "type": "object"
+      },
+      "S3GrantList": { "items": { "$ref": "#/components/schemas/S3Grant" }, "type": "array" },
+      "S3Grantee": {
+        "description": "<p/>",
+        "properties": {
+          "DisplayName": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "Identifier": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "TypeIdentifier": { "$ref": "#/components/schemas/S3GranteeTypeIdentifier" }
+        },
+        "type": "object"
+      },
+      "S3GranteeTypeIdentifier": { "enum": ["id", "emailAddress", "uri"], "type": "string" },
+      "S3InitiateRestoreObjectOperation": {
+        "description": "Contains the configuration parameters for an Initiate Glacier Restore job. Amazon S3 batch operations passes each value through to the underlying POST Object restore API. For more information about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html#RESTObjectPOSTrestore-restore-request\">Restoring Archives</a>.",
+        "properties": {
+          "ExpirationInDays": { "$ref": "#/components/schemas/S3ExpirationInDays" },
+          "GlacierJobTier": { "$ref": "#/components/schemas/S3GlacierJobTier" }
+        },
+        "type": "object"
+      },
+      "S3KeyArnString": { "maxLength": 2000, "minLength": 1, "type": "string" },
+      "S3MetadataDirective": { "enum": ["COPY", "REPLACE"], "type": "string" },
+      "S3ObjectLockLegalHoldStatus": { "enum": ["OFF", "ON"], "type": "string" },
+      "S3ObjectLockMode": { "enum": ["COMPLIANCE", "GOVERNANCE"], "type": "string" },
+      "S3ObjectMetadata": {
+        "description": "<p/>",
+        "properties": {
+          "CacheControl": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "ContentDisposition": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "ContentEncoding": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "ContentLanguage": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "ContentLength": { "$ref": "#/components/schemas/S3ContentLength" },
+          "ContentMD5": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "ContentType": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "HttpExpiresDate": { "$ref": "#/components/schemas/TimeStamp" },
+          "RequesterCharged": { "$ref": "#/components/schemas/Boolean" },
+          "SSEAlgorithm": { "$ref": "#/components/schemas/S3SSEAlgorithm" },
+          "UserMetadata": { "$ref": "#/components/schemas/S3UserMetadata" }
+        },
+        "type": "object"
+      },
+      "S3ObjectOwner": {
+        "description": "<p/>",
+        "properties": {
+          "DisplayName": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "ID": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" }
+        },
+        "type": "object"
+      },
+      "S3ObjectVersionId": { "maxLength": 2000, "minLength": 1, "type": "string" },
+      "S3Permission": { "enum": ["FULL_CONTROL", "READ", "WRITE", "READ_ACP", "WRITE_ACP"], "type": "string" },
+      "S3SSEAlgorithm": { "enum": ["AES256", "KMS"], "type": "string" },
+      "S3SetObjectAclOperation": {
+        "description": "Contains the configuration parameters for a Set Object ACL operation. Amazon S3 batch operations passes each value through to the underlying PUT Object acl API. For more information about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html\">PUT Object acl</a>.",
+        "properties": { "AccessControlPolicy": { "$ref": "#/components/schemas/S3AccessControlPolicy" } },
+        "type": "object"
+      },
+      "S3SetObjectTaggingOperation": {
+        "description": "Contains the configuration parameters for a Set Object Tagging operation. Amazon S3 batch operations passes each value through to the underlying PUT Object tagging API. For more information about the parameters for this operation, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTtagging.html\">PUT Object tagging</a>.",
+        "properties": { "TagSet": { "$ref": "#/components/schemas/S3TagSet" } },
+        "type": "object"
+      },
+      "S3StorageClass": {
+        "enum": ["STANDARD", "STANDARD_IA", "ONEZONE_IA", "GLACIER", "INTELLIGENT_TIERING", "DEEP_ARCHIVE"],
+        "type": "string"
+      },
+      "S3Tag": {
+        "description": "<p/>",
+        "properties": {
+          "Key": { "$ref": "#/components/schemas/NonEmptyMaxLength1024String" },
+          "Value": { "$ref": "#/components/schemas/MaxLength1024String" }
+        },
+        "required": ["Key", "Value"],
+        "type": "object"
+      },
+      "S3TagSet": { "items": { "$ref": "#/components/schemas/S3Tag" }, "type": "array" },
+      "S3UserMetadata": {
+        "additionalProperties": { "$ref": "#/components/schemas/MaxLength1024String" },
+        "maxProperties": 8192,
+        "type": "object"
+      },
+      "Setting": { "type": "boolean" },
+      "SuspendedCause": { "maxLength": 1024, "minLength": 1, "type": "string" },
+      "SuspendedDate": { "format": "date-time", "type": "string" },
+      "TimeStamp": { "format": "date-time", "type": "string" },
+      "TooManyRequestsException": {},
+      "UpdateJobPriorityRequest": { "properties": {}, "type": "object" },
+      "UpdateJobPriorityResult": {
+        "properties": {
+          "JobId": { "$ref": "#/components/schemas/JobId" },
+          "Priority": { "$ref": "#/components/schemas/JobPriority" }
+        },
+        "required": ["JobId", "Priority"],
+        "type": "object"
+      },
+      "UpdateJobStatusRequest": { "properties": {}, "type": "object" },
+      "UpdateJobStatusResult": {
+        "properties": {
+          "JobId": { "$ref": "#/components/schemas/JobId" },
+          "Status": { "$ref": "#/components/schemas/JobStatus" },
+          "StatusUpdateReason": { "$ref": "#/components/schemas/JobStatusUpdateReason" }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

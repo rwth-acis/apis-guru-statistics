@@ -1,1 +1,168 @@
-{"openapi":"3.0.0","info":{"title":"NFL v3 RotoBaller Premium News","version":"1.0","x-origin":[{"format":"swagger","url":"https://fantasydata.com/downloads/swagger/nfl-v3-rotoballer-premium-news.json","version":"2.0"}],"x-preferred":true,"x-providerName":"sportsdata.io","x-serviceName":"nfl-v3-rotoballer-premium-news"},"security":[{"apiKeyHeader":[]},{"apiKeyQuery":[]}],"tags":[],"paths":{"/{format}/RotoBallerPremiumNews":{"get":{"operationId":"PremiumNews","parameters":[{"description":"Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.","in":"path","name":"format","required":true,"schema":{"type":"string","enum":["xml","json"],"default":"xml"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/News"},"type":"array"}}}}},"summary":"Premium News"}},"/{format}/RotoBallerPremiumNewsByDate/{date}":{"get":{"operationId":"PremiumNewsByDate","parameters":[{"description":"Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.","in":"path","name":"format","required":true,"schema":{"type":"string","enum":["xml","json"],"default":"xml"}},{"description":"The date of the news.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.","in":"path","name":"date","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/News"},"type":"array"}}}}},"summary":"Premium News by Date"}},"/{format}/RotoBallerPremiumNewsByPlayerID/{playerid}":{"get":{"operationId":"PremiumNewsByPlayer","parameters":[{"description":"Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.","in":"path","name":"format","required":true,"schema":{"type":"string","enum":["xml","json"],"default":"xml"}},{"description":"Unique FantasyData Player ID.\nExample:<code>10000507</code>.","in":"path","name":"playerid","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/News"},"type":"array"}}}}},"summary":"Premium News by Player"}},"/{format}/RotoBallerPremiumNewsByTeam/{team}":{"get":{"operationId":"PremiumNewsByTeam","parameters":[{"description":"Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.","in":"path","name":"format","required":true,"schema":{"type":"string","enum":["xml","json"],"default":"xml"}},{"description":"Abbreviation of the team. Example: <code>WAS</code>.","in":"path","name":"team","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/News"},"type":"array"}}}}},"summary":"Premium News by Team"}}},"servers":[{"url":"http://api.sportsdata.io"},{"url":"https://api.sportsdata.io"},{"url":"http://api.fantasydata.net"},{"url":"https://api.fantasydata.net"}],"components":{"securitySchemes":{"apiKeyHeader":{"in":"header","name":"Ocp-Apim-Subscription-Key","type":"apiKey"},"apiKeyQuery":{"in":"query","name":"subscription-key","type":"apiKey"}},"schemas":{"News":{"properties":{"Author":{"type":"string"},"Categories":{"type":"string"},"Content":{"type":"string"},"NewsID":{"type":"integer"},"PlayerID":{"type":"integer"},"PlayerID2":{"type":"integer"},"Source":{"type":"string"},"Team":{"type":"string"},"Team2":{"type":"string"},"TeamID":{"type":"integer"},"TeamID2":{"type":"integer"},"TermsOfUse":{"type":"string"},"TimeAgo":{"type":"string"},"Title":{"type":"string"},"Updated":{"type":"string"},"Url":{"type":"string"}}}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NFL v3 RotoBaller Premium News",
+    "version": "1.0",
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://fantasydata.com/downloads/swagger/nfl-v3-rotoballer-premium-news.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "sportsdata.io",
+    "x-serviceName": "nfl-v3-rotoballer-premium-news"
+  },
+  "security": [{ "apiKeyHeader": [] }, { "apiKeyQuery": [] }],
+  "tags": [],
+  "paths": {
+    "/{format}/RotoBallerPremiumNews": {
+      "get": {
+        "operationId": "PremiumNews",
+        "parameters": [
+          {
+            "description": "Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.",
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": { "type": "string", "enum": ["xml", "json"], "default": "xml" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": { "schema": { "items": { "$ref": "#/components/schemas/News" }, "type": "array" } }
+            }
+          }
+        },
+        "summary": "Premium News"
+      }
+    },
+    "/{format}/RotoBallerPremiumNewsByDate/{date}": {
+      "get": {
+        "operationId": "PremiumNewsByDate",
+        "parameters": [
+          {
+            "description": "Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.",
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": { "type": "string", "enum": ["xml", "json"], "default": "xml" }
+          },
+          {
+            "description": "The date of the news.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.",
+            "in": "path",
+            "name": "date",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": { "schema": { "items": { "$ref": "#/components/schemas/News" }, "type": "array" } }
+            }
+          }
+        },
+        "summary": "Premium News by Date"
+      }
+    },
+    "/{format}/RotoBallerPremiumNewsByPlayerID/{playerid}": {
+      "get": {
+        "operationId": "PremiumNewsByPlayer",
+        "parameters": [
+          {
+            "description": "Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.",
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": { "type": "string", "enum": ["xml", "json"], "default": "xml" }
+          },
+          {
+            "description": "Unique FantasyData Player ID.\nExample:<code>10000507</code>.",
+            "in": "path",
+            "name": "playerid",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": { "schema": { "items": { "$ref": "#/components/schemas/News" }, "type": "array" } }
+            }
+          }
+        },
+        "summary": "Premium News by Player"
+      }
+    },
+    "/{format}/RotoBallerPremiumNewsByTeam/{team}": {
+      "get": {
+        "operationId": "PremiumNewsByTeam",
+        "parameters": [
+          {
+            "description": "Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.",
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": { "type": "string", "enum": ["xml", "json"], "default": "xml" }
+          },
+          {
+            "description": "Abbreviation of the team. Example: <code>WAS</code>.",
+            "in": "path",
+            "name": "team",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": { "schema": { "items": { "$ref": "#/components/schemas/News" }, "type": "array" } }
+            }
+          }
+        },
+        "summary": "Premium News by Team"
+      }
+    }
+  },
+  "servers": [
+    { "url": "http://api.sportsdata.io" },
+    { "url": "https://api.sportsdata.io" },
+    { "url": "http://api.fantasydata.net" },
+    { "url": "https://api.fantasydata.net" }
+  ],
+  "components": {
+    "securitySchemes": {
+      "apiKeyHeader": { "in": "header", "name": "Ocp-Apim-Subscription-Key", "type": "apiKey" },
+      "apiKeyQuery": { "in": "query", "name": "subscription-key", "type": "apiKey" }
+    },
+    "schemas": {
+      "News": {
+        "properties": {
+          "Author": { "type": "string" },
+          "Categories": { "type": "string" },
+          "Content": { "type": "string" },
+          "NewsID": { "type": "integer" },
+          "PlayerID": { "type": "integer" },
+          "PlayerID2": { "type": "integer" },
+          "Source": { "type": "string" },
+          "Team": { "type": "string" },
+          "Team2": { "type": "string" },
+          "TeamID": { "type": "integer" },
+          "TeamID2": { "type": "integer" },
+          "TermsOfUse": { "type": "string" },
+          "TimeAgo": { "type": "string" },
+          "Title": { "type": "string" },
+          "Updated": { "type": "string" },
+          "Url": { "type": "string" }
+        }
+      }
+    }
+  }
+}
