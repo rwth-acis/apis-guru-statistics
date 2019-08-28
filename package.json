@@ -4,7 +4,7 @@
   "description": "Generate statistics about OpenAPI documentations using data from the APIs.Guru OpenAPI database",
   "scripts": {
     "delete": "echo 'Deleting downloaded data...' && rimraf ./data/apis.guru/* ./data/requirements-bazaar/* ./data/apis.guru.json",
-    "download:apisguru": "node ./src/downloader/apisguru-downloader.js && prettier --write --loglevel silent \"./data/apis.guru/*.json\"",
+    "download:apisguru": "node ./src/downloader/apisguru-downloader.js && prettier --write --loglevel silent \"./data/apis.guru/*.json\" \"./data/apis.guru.json\"",
     "download:requirementsbazaar": "node ./src/downloader/requirementsbazaar-downloader.js && prettier --write --loglevel silent \"./data/requirements-bazaar/*.json\"",
     "download": "npm run delete && npm run download:apisguru && npm run download:requirementsbazaar",
     "prettier": "prettier --write \"./src/**/*.js\" \"./*.md\" \"./*.json\"",
