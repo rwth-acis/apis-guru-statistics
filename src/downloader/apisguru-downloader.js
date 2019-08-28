@@ -9,6 +9,7 @@ const fse = require('fs-extra');
 const path = require('path');
 const sanitize = require('sanitize-filename');
 const directory = path.resolve(__dirname, '../../data/apis.guru');
+const listFile = path.resolve(__dirname, '../../data/apis.guru.json');
 const apiUrl = 'https://api.apis.guru/v2/list.json';
 
 function sleep(ms) {
@@ -57,6 +58,7 @@ async function iterateApiSchemas(apisguruData) {
 async function loadData() {
   // Load the API list from APIs.Guru
   const data = JSON.parse(await rp(apiUrl));
+  await fse.writeFile(listFile, JSON.stringify(data), { flag: 'w' });
   // Ensure that the data-directory exists
   if (!(await fse.exists(directory))) {
     console.log(`Directory ${directory} does not exist. Aborting.`);
