@@ -14,16 +14,16 @@ const directory = path.resolve(__dirname, '../../data/apis.guru');
 const getSchemaObjects = require('../tools/schema-parser');
 const relevantKeys = [
   'multipleOf',
-  'maximum',
   'minimum',
-  'maxLength',
+  'maximum',
   'minLength',
+  'maxLength',
   'pattern',
-  'maxItems',
   'minItems',
+  'maxItems',
   'uniqueItems',
-  'maxProperties',
   'minProperties',
+  'maxProperties',
   'oneOf',
   'anyOf',
   'not'
@@ -77,7 +77,7 @@ async function loadData() {
   console.log(`Total number of documents that use such properties: ${totalSpecs} of ${files.length}`);
   for (const key of relevantKeys) {
     console.log(
-      `${key}: ${sumOfSpecsThatUseResult[key]}, ${(sumOfSpecsThatUseResult[key] / files.length) * 100}%, ${
+      `${key}: ${sumOfSpecsThatUseResult[key]}, ${((sumOfSpecsThatUseResult[key] / files.length) * 100).toFixed(1)}%, ${
         sumOfTotalUsageResult[key]
       }`
     );

@@ -37,7 +37,7 @@ function parseAPISourceType(apisguruData) {
 
   console.log(`Total number of API definitions: ${definitionNumber}`);
   for (const [key, value] of apiTypeMap.entries()) {
-    console.log(`${key}: ${value}`);
+    console.log(`${key}: ${value}, ${(value / definitionNumber) * 100}%`);
   }
   console.log();
 }
