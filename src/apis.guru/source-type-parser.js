@@ -2,7 +2,9 @@
  * Take the most recent data from APIs.Guru and count how many APIs have which source format.
  */
 'use strict';
-const rp = require('request-promise-native');
+const fse = require('fs-extra');
+const path = require('path');
+const file = path.resolve(__dirname, '../../data/apis.guru.json');
 
 function parseAPISourceType(apisguruData) {
   // For each API type, count how many times it appears
@@ -34,17 +36,15 @@ function parseAPISourceType(apisguruData) {
   }
 
   console.log(`Total number of API definitions: ${definitionNumber}`);
-  let sum = 0;
   for (const [key, value] of apiTypeMap.entries()) {
     console.log(`${key}: ${value}`);
-    sum += value;
   }
   console.log();
 }
 
 async function loadData() {
   // Read the data from APIs.Guru
-  const data = JSON.parse(await rp('https://api.apis.guru/v2/list.json'));
+  const data = JSON.parse(await fse.readFile(file, 'utf8'));
   parseAPISourceType(data);
 }
 

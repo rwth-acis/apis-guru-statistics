@@ -10,8 +10,8 @@
 'use strict';
 const fse = require('fs-extra');
 const path = require('path');
-const directory = path.resolve(__dirname, '../apis.guru');
-const getSchemaObjects = require('./schema-parser');
+const directory = path.resolve(__dirname, '../../data/apis.guru');
+const getSchemaObjects = require('../tools/schema-parser');
 const relevantKeys = [
   'multipleOf',
   'maximum',

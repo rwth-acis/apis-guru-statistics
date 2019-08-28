@@ -4,7 +4,7 @@
 'use strict';
 const fse = require('fs-extra');
 const path = require('path');
-const directory = path.resolve(__dirname, '../apis.guru');
+const directory = path.resolve(__dirname, '../../data/apis.guru');
 
 async function loadData() {
   const pathNumberDistribution = {};
@@ -21,12 +21,14 @@ async function loadData() {
     }
   }
 
+  console.log('<number of paths>: <number of documents with that number of paths>');
   for (const key in pathNumberDistribution) {
     console.log(`${key}: ${pathNumberDistribution[key]}`);
   }
   console.log();
 
   // Generate paper statistics
+  console.log('<range of number of paths>: <number of documents with path number in that range>');
   const ranges = [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 10], [11, 20], [21, 50], [51, 5000]];
   for (const range of ranges) {
     let sum = 0;

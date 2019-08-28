@@ -1,10 +1,10 @@
 /**
- * Add links to every openapi-document and count how many links we have added in total
+ * Add links to every openapi-document and count how many links we have added in total.
  */
 'use strict';
 const fse = require('fs-extra');
 const path = require('path');
-const directory = path.resolve(__dirname, '../apis.guru');
+const directory = path.resolve(__dirname, '../../data/apis.guru');
 const addLinkDefinitions = require('openapi-link-generator').default;
 
 async function loadData() {
@@ -50,14 +50,16 @@ async function loadData() {
 
   console.log(`Total number of added links: ${totalLinks}`);
   console.log(`Total number of paths: ${totalPaths}`);
-  console.log(`Total number of oas: ${totalOas}/${files.length}`);
+  console.log(`Total number of oas (with at least one path/total): ${totalOas}/${files.length}`);
+  console.log();
+  console.log('<average number of links per 100 paths>: <number of documents>');
   for (const key in linkNumberDistribution) {
     console.log(`${key}: ${linkNumberDistribution[key]}`);
   }
 
   console.log();
+  console.log('<range of number of paths>: <average number of links added per document>');
   for (const key in linkAveragePerRange) {
-    // console.log(linkAveragePerRange[key]);
     console.log(`${key}: ${linkAveragePerRange[key].linkCount / linkAveragePerRange[key].docSum}`);
   }
 }

@@ -3,7 +3,7 @@
  */
 'use strict';
 const fse = require('fs-extra');
-const getSchemaObjects = require('./schema-parser');
+const getSchemaObjects = require('../tools/schema-parser');
 
 function processOpenAPISpec(openapiSpec) {
   // Get all the schemas defined in the doc
@@ -22,6 +22,7 @@ function processOpenAPISpec(openapiSpec) {
     }
   });
 
+  console.log('<number of items in anyOf>: <number of occurences>');
   for (const [key, value] of Object.entries(resultObject)) {
     console.log(`${key}: ${value}`);
   }

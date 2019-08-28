@@ -3,13 +3,13 @@
  */
 'use strict';
 const fse = require('fs-extra');
-const getSchemaObjects = require('./schema-parser');
+const getSchemaObjects = require('../tools/schema-parser');
 
 function processOpenAPISpec(openapiSpec) {
   // Get all the schemas defined in the doc
   const schemas = getSchemaObjects(openapiSpec);
 
-  // Search every occurrence of the anyOf property and count how many schemas are given there
+  // Search every occurrence of the uniqueItems property and count how many times it is used with what type
   const resultObject = {};
   schemas.forEach(schema => {
     if ('uniqueItems' in schema) {
