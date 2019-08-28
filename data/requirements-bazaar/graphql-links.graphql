@@ -1,0 +1,1281 @@
+"""No description available."""
+type Attachment {
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  creator: User
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  fileUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  identifier: String
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  mimeType: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  requirementId: Int
+}
+
+"""No description available."""
+input AttachmentInput {
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  creator: UserInput
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  fileUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  identifier: String
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  mimeType: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  requirementId: Int
+}
+
+"""No description available."""
+type Category {
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /categories/{categoryId}/contributors
+  """
+  contributors: CategoryContributors
+
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  description: String
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /categories/{categoryId}/followers
+  """
+  followers(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+  ): [User]
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  isFollower: Boolean
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  leader: User
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  numberOfFollowers: Int
+
+  """No description available."""
+  numberOfRequirements: Int
+
+  """No description available."""
+  projectId: Int
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /categories/{categoryId}/requirements
+  """
+  requirements(
+    """Page number"""
+    page: Int
+
+    """Elements of requirements by page"""
+    perPage: Int
+
+    """Search filter"""
+    search: String
+
+    """Sort"""
+    sort: [SortListItem]
+
+    """State filter"""
+    state: State
+  ): [Category]
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /categories/{categoryId}/statistics
+  """
+  statistics(
+    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    since: String
+  ): Statistic
+}
+
+"""No description available."""
+type CategoryContributors {
+  """No description available."""
+  attachmentCreator: [User]
+
+  """No description available."""
+  commentCreator: [User]
+
+  """No description available."""
+  developers: [User]
+
+  """No description available."""
+  leadDeveloper: [User]
+
+  """No description available."""
+  leader: User
+
+  """No description available."""
+  requirementCreator: [User]
+}
+
+"""No description available."""
+input CategoryInput {
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  isFollower: Boolean
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  leader: UserInput
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  numberOfFollowers: Int
+
+  """No description available."""
+  numberOfRequirements: Int
+
+  """No description available."""
+  projectId: Int
+}
+
+"""No description available."""
+type Comment {
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  creator: User
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  replyToComment: Int
+
+  """No description available."""
+  requirementId: Int
+}
+
+"""No description available."""
+input CommentInput {
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  creator: UserInput
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  replyToComment: Int
+
+  """No description available."""
+  requirementId: Int
+}
+
+enum Direction {
+  up
+  down
+}
+
+"""The start of any mutation"""
+type Mutation {
+  """
+  This method allows to create a new attachment.
+
+  Equivalent to POST /attachments
+  """
+  createAttachment(
+    """No description available."""
+    attachmentInput: AttachmentInput!
+  ): Attachment
+
+  """
+  This method allows to create a new category under a given a project.
+
+  Equivalent to POST /categories
+  """
+  createCategory(
+    """No description available."""
+    categoryInput: CategoryInput!
+  ): Category
+
+  """
+  This method allows to create a new comment.
+
+  Equivalent to POST /comments
+  """
+  createComment(
+    """No description available."""
+    commentInput: CommentInput!
+  ): Comment
+
+  """
+  This method allows to create a new project.
+
+  Equivalent to POST /projects
+  """
+  createProject(
+    """No description available."""
+    projectInput: ProjectInput!
+  ): Project
+
+  """
+  This method allows to create a new requirement.
+
+  Equivalent to POST /requirements
+  """
+  createRequirement(
+    """No description available."""
+    requirementInput: RequirementInput!
+  ): Requirement
+
+  """
+  This method deletes a specific attachment.
+
+  Equivalent to DELETE /attachments/{attachmentId}
+  """
+  deleteAttachment(attachmentId: Int!): Attachment
+
+  """
+  This method deletes a specific category.
+
+  Equivalent to DELETE /categories/{categoryId}
+  """
+  deleteCategory(categoryId: Int!): Category
+
+  """
+  This method deletes a specific comment.
+
+  Equivalent to DELETE /comments/{commentId}
+  """
+  deleteComment(commentId: Int!): Comment
+
+  """
+  This method deletes a specific requirement.
+
+  Equivalent to DELETE /requirements/{requirementId}
+  """
+  deleteRequirement(requirementId: Int!): Requirement
+
+  """
+  This method add the current user to the developers list of a given requirement.
+
+  Equivalent to POST /requirements/{requirementId}/developers
+  """
+  developRequirement(requirementId: Int!): Requirement
+
+  """
+  This method add the current user to the followers list of a given category.
+
+  Equivalent to POST /categories/{categoryId}/followers
+  """
+  followCategory(categoryId: Int!): Category
+
+  """
+  This method add the current user to the followers list of a given project.
+
+  Equivalent to POST /projects/{projectId}/followers
+  """
+  followProject(projectId: Int!): Project
+
+  """
+  This method add the current user to the followers list of a given requirement.
+
+  Equivalent to POST /requirements/{requirementId}/followers
+  """
+  followRequirement(requirementId: Int!): Requirement
+
+  """
+  This method set the current user as lead developer for a given requirement.
+
+  Equivalent to POST /requirements/{requirementId}/leaddevelopers
+  """
+  leaddevelopRequirement(requirementId: Int!): Requirement
+
+  """
+  This method set the realized field to now for a given requirement.
+
+  Equivalent to POST /requirements/{requirementId}/realized
+  """
+  realize(requirementId: Int!): Requirement
+
+  """
+  This method remove the current user from a developers list of a given requirement.
+
+  Equivalent to DELETE /requirements/{requirementId}/developers
+  """
+  undevelopRequirement(requirementId: Int!): Requirement
+
+  """
+  This method removes the current user from a followers list of a given category.
+
+  Equivalent to DELETE /categories/{categoryId}/followers
+  """
+  unfollowCategory(categoryId: Int!): Category
+
+  """
+  This method removes the current user from a followers list of a given project.
+
+  Equivalent to DELETE /projects/{projectId}/followers
+  """
+  unfollowProject(projectId: Int!): Project
+
+  """
+  This method removes the current user from a followers list of a given requirement.
+
+  Equivalent to DELETE /requirements/{requirementId}/followers
+  """
+  unfollowRequirement(requirementId: Int!): Requirement
+
+  """
+  This method removes the current user as lead developer for a given requirement.
+
+  Equivalent to DELETE /requirements/{requirementId}/leaddevelopers
+  """
+  unleaddevelopRequirement(requirementId: Int!): Requirement
+
+  """
+  This method removes the realized information for the given requirement.
+
+  Equivalent to DELETE /requirements/{requirementId}/realized
+  """
+  unrealize(requirementId: Int!): Requirement
+
+  """
+  This method removes the vote of the given requirement made by the current user.
+
+  Equivalent to DELETE /requirements/{requirementId}/votes
+  """
+  unvote(requirementId: Int!): Requirement
+
+  """
+  This method allows to update a certain category.
+
+  Equivalent to PUT /categories/{categoryId}
+  """
+  updateCategory(
+    categoryId: Int!
+
+    """No description available."""
+    categoryInput: CategoryInput!
+  ): Category
+
+  """
+  This method allows to update a certain project.
+
+  Equivalent to PUT /projects/{projectId}
+  """
+  updateProject(
+    projectId: Int!
+
+    """No description available."""
+    projectInput: ProjectInput!
+  ): Project
+
+  """
+  This method updates a specific requirement.
+
+  Equivalent to PUT /requirements/{requirementId}
+  """
+  updateRequirement(
+    requirementId: Int!
+
+    """No description available."""
+    requirementInput: RequirementInput!
+  ): Requirement
+
+  """
+  This method allows to update the user profile.
+
+  Equivalent to PUT /users/{userId}
+  """
+  updateUser(
+    userId: Int!
+
+    """No description available."""
+    userInput: UserInput!
+  ): User
+
+  """
+  This method creates a vote for the given requirement in the name of the current user.
+
+  Equivalent to POST /requirements/{requirementId}/votes
+  """
+  vote(
+    """Vote direction"""
+    direction: Direction
+    requirementId: Int!
+  ): Requirement
+}
+
+"""No description available."""
+type Project {
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /projects/{projectId}/categories
+  """
+  categories(
+    """Page number"""
+    page: Int
+
+    """Elements of categories by page"""
+    perPage: Int
+
+    """Search filter"""
+    search: String
+
+    """Sort"""
+    sort: [Sort2ListItem]
+  ): [Category]
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /projects/{projectId}/contributors
+  """
+  contributors: ProjectContributors
+
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  defaultCategoryId: Int
+
+  """No description available."""
+  description: String
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /projects/{projectId}/followers
+  """
+  followers(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+  ): [User]
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  isFollower: Boolean
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  leader: User
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  numberOfCategories: Int
+
+  """No description available."""
+  numberOfFollowers: Int
+
+  """No description available."""
+  numberOfRequirements: Int
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /projects/{projectId}/requirements
+  """
+  requirements(
+    """Page number"""
+    page: Int
+
+    """Elements of requirements by page"""
+    perPage: Int
+
+    """Search filter"""
+    search: String
+
+    """Sort"""
+    sort: [SortListItem]
+
+    """State filter"""
+    state: State
+  ): [Requirement]
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /projects/{projectId}/statistics
+  """
+  statistics(
+    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    since: String
+  ): Statistic
+
+  """No description available."""
+  visibility: Boolean
+}
+
+"""No description available."""
+type ProjectContributors {
+  """No description available."""
+  attachmentCreator: [User]
+
+  """No description available."""
+  categoryLeader: [User]
+
+  """No description available."""
+  commentCreator: [User]
+
+  """No description available."""
+  developers: [User]
+
+  """No description available."""
+  leadDeveloper: [User]
+
+  """No description available."""
+  leader: User
+
+  """No description available."""
+  requirementCreator: [User]
+}
+
+"""No description available."""
+input ProjectInput {
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  defaultCategoryId: Int
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  isFollower: Boolean
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  leader: UserInput
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  numberOfCategories: Int
+
+  """No description available."""
+  numberOfFollowers: Int
+
+  """No description available."""
+  numberOfRequirements: Int
+
+  """No description available."""
+  visibility: Boolean
+}
+
+"""The start of any query"""
+type Query {
+  """
+  This method allows to retrieve a certain attachment
+
+  Equivalent to GET /attachments/{attachmentId}
+  """
+  attachment(attachmentId: Int!): Attachment
+
+  """
+  This method returns the list of followers for a specific category.
+
+  Equivalent to GET /categories/{categoryId}/followers
+  """
+  categoriesFollowers(
+    categoryId: Int!
+
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+  ): [User]
+
+  """
+  This method returns the list of requirements for a specific category.
+
+  Equivalent to GET /categories/{categoryId}/requirements
+  """
+  categoriesRequirements(
+    categoryId: Int!
+
+    """Page number"""
+    page: Int
+
+    """Elements of requirements by page"""
+    perPage: Int
+
+    """Search filter"""
+    search: String
+
+    """Sort"""
+    sort: [SortListItem]
+
+    """State filter"""
+    state: State
+  ): [Category]
+
+  """
+  This method allows to retrieve a certain category.
+
+  Equivalent to GET /categories/{categoryId}
+  """
+  category(categoryId: Int!): Category
+
+  """
+  This method returns the list of contributors for a specific category.
+
+  Equivalent to GET /categories/{categoryId}/contributors
+  """
+  categoryContributors(categoryId: Int!): CategoryContributors
+
+  """
+  This method allows to retrieve a certain comment
+
+  Equivalent to GET /comments/{commentId}
+  """
+  comment(commentId: Int!): Comment
+
+  """
+  This method allows to retrieve statistics over all projects.
+
+  Equivalent to GET /statistics
+  """
+  getStatistics(
+    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    since: String
+  ): Statistic
+
+  """
+  This method allows to retrieve statistics for one project.
+
+  Equivalent to GET /projects/{projectId}/statistics
+  """
+  getStatisticsForProject(
+    projectId: Int!
+
+    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    since: String
+  ): Statistic
+
+  """
+  This method allows to retrieve statistics for one requirement.
+
+  Equivalent to GET /requirements/{requirementId}/statistics
+  """
+  getStatisticsForRequirement(
+    requirementId: Int!
+
+    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    since: String
+  ): Statistic
+
+  """
+  This method allows to retrieve a certain user.
+
+  Equivalent to GET /users/{userId}
+  """
+  getUser(userId: Int!): User
+
+  """
+  This method allows to retrieve a certain project.
+
+  Equivalent to GET /projects/{projectId}
+  """
+  project(projectId: Int!): Project
+
+  """
+  This method returns the list of contributors for a specific project.
+
+  Equivalent to GET /projects/{projectId}/contributors
+  """
+  projectContributors(projectId: Int!): ProjectContributors
+
+  """
+  This method returns the list of projects on the server.
+
+  Equivalent to GET /projects
+  """
+  projects(
+    """Page number"""
+    page: Int
+
+    """Elements of project by page"""
+    perPage: Int
+
+    """Search filter"""
+    search: String
+
+    """Sort"""
+    sort: [Sort2ListItem]
+  ): [Project]
+
+  """
+  This method returns the list of categories under a given project.
+
+  Equivalent to GET /projects/{projectId}/categories
+  """
+  projectsCategories(
+    """Page number"""
+    page: Int
+
+    """Elements of categories by page"""
+    perPage: Int
+    projectId: Int!
+
+    """Search filter"""
+    search: String
+
+    """Sort"""
+    sort: [Sort2ListItem]
+  ): [Category]
+
+  """
+  This method returns the list of followers for a specific project.
+
+  Equivalent to GET /projects/{projectId}/followers
+  """
+  projectsFollowers(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+    projectId: Int!
+  ): [User]
+
+  """
+  This method returns the list of requirements for a specific project.
+
+  Equivalent to GET /projects/{projectId}/requirements
+  """
+  projectsRequirements(
+    """Page number"""
+    page: Int
+
+    """Elements of requirements by page"""
+    perPage: Int
+    projectId: Int!
+
+    """Search filter"""
+    search: String
+
+    """Sort"""
+    sort: [SortListItem]
+
+    """State filter"""
+    state: State
+  ): [Requirement]
+
+  """
+  This method returns a specific requirement.
+
+  Equivalent to GET /requirements/{requirementId}
+  """
+  requirement(requirementId: Int!): Requirement
+
+  """
+  This method returns the list of contributors for a specific requirement.
+
+  Equivalent to GET /requirements/{requirementId}/contributors
+  """
+  requirementContributors(requirementId: Int!): RequirementContributors
+
+  """
+  This method returns the list of attachments for a specific requirement.
+
+  Equivalent to GET /requirements/{requirementId}/attachments
+  """
+  requirementsAttachments(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+    requirementId: Int!
+  ): [Attachment]
+
+  """
+  This method returns the list of comments for a specific requirement.
+
+  Equivalent to GET /requirements/{requirementId}/comments
+  """
+  requirementsComments(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+    requirementId: Int!
+  ): [Comment]
+
+  """
+  This method returns the list of developers for a specific requirement.
+
+  Equivalent to GET /requirements/{requirementId}/developers
+  """
+  requirementsDevelopers(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+    requirementId: Int!
+  ): [User]
+
+  """
+  This method returns the list of followers for a specific requirement.
+
+  Equivalent to GET /requirements/{requirementId}/followers
+  """
+  requirementsFollowers(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+    requirementId: Int!
+  ): [User]
+
+  """
+  This method allows to retrieve statistics for one category.
+
+  Equivalent to GET /categories/{categoryId}/statistics
+  """
+  statistic(
+    categoryId: Int!
+
+    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    since: String
+  ): Statistic
+
+  """
+  This method allows to retrieve the active user.
+
+  Equivalent to GET /users/me
+  """
+  user: User
+}
+
+"""No description available."""
+type Requirement {
+  """No description available."""
+  attachments: [Attachment]
+
+  """No description available."""
+  categories: [Category]
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /requirements/{requirementId}/comments
+  """
+  comments(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+  ): [Comment]
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /requirements/{requirementId}/contributors
+  """
+  contributors: RequirementContributors
+
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  creator: User
+
+  """No description available."""
+  description: String
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /requirements/{requirementId}/developers
+  """
+  developers(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+  ): [User]
+
+  """No description available."""
+  downVotes: Int
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /requirements/{requirementId}/followers
+  """
+  followers(
+    """Page number"""
+    page: Int
+
+    """Elements of comments by page"""
+    perPage: Int
+  ): [User]
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  isContributor: Boolean
+
+  """No description available."""
+  isDeveloper: Boolean
+
+  """No description available."""
+  isFollower: Boolean
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  leadDeveloper: User
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  numberOfAttachments: Int
+
+  """No description available."""
+  numberOfComments: Int
+
+  """No description available."""
+  numberOfFollowers: Int
+
+  """No description available."""
+  projectId: Int
+
+  """No description available."""
+  realized: String
+
+  """
+  Automatically generated link definition
+
+  Equivalent to GET /requirements/{requirementId}/statistics
+  """
+  statistics(
+    """Since timestamp, ISO-8601 e.g. 2017-12-30 or 2017-12-30T18:30:00Z"""
+    since: String
+  ): Statistic
+
+  """No description available."""
+  upVotes: Int
+
+  """No description available."""
+  userVoted: UserVoted
+}
+
+"""No description available."""
+type RequirementContributors {
+  """No description available."""
+  attachmentCreator: [User]
+
+  """No description available."""
+  commentCreator: [User]
+
+  """No description available."""
+  creator: User
+
+  """No description available."""
+  developers: [User]
+
+  """No description available."""
+  leadDeveloper: User
+}
+
+"""No description available."""
+input RequirementInput {
+  """No description available."""
+  attachments: [AttachmentInput]
+
+  """No description available."""
+  categories: [CategoryInput]
+
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  creator: UserInput
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  downVotes: Int
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  isContributor: Boolean
+
+  """No description available."""
+  isDeveloper: Boolean
+
+  """No description available."""
+  isFollower: Boolean
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  leadDeveloper: UserInput
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  numberOfAttachments: Int
+
+  """No description available."""
+  numberOfComments: Int
+
+  """No description available."""
+  numberOfFollowers: Int
+
+  """No description available."""
+  projectId: Int
+
+  """No description available."""
+  realized: String
+
+  """No description available."""
+  upVotes: Int
+
+  """No description available."""
+  userVoted: UserVoted
+}
+
+enum Sort2ListItem {
+  name
+  date
+  lastActivity
+  requirement
+  follower
+}
+
+enum SortListItem {
+  date
+  lastActivity
+  name
+  vote
+  comment
+  follower
+  realized
+}
+
+enum State {
+  all
+  open
+  realized
+}
+
+"""No description available."""
+type Statistic {
+  """No description available."""
+  numberOfAttachments: Int
+
+  """No description available."""
+  numberOfCategories: Int
+
+  """No description available."""
+  numberOfComments: Int
+
+  """No description available."""
+  numberOfProjects: Int
+
+  """No description available."""
+  numberOfRequirements: Int
+
+  """No description available."""
+  numberOfVotes: Int
+}
+
+"""No description available."""
+type User {
+  """No description available."""
+  admin: Boolean
+
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  emailFollowSubscription: Boolean
+
+  """No description available."""
+  emailLeadSubscription: Boolean
+
+  """No description available."""
+  firstName: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  las2peerId: Float
+
+  """No description available."""
+  lastLoginDate: String
+
+  """No description available."""
+  lastName: String
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  profileImage: String
+
+  """No description available."""
+  userName: String
+}
+
+"""No description available."""
+input UserInput {
+  """No description available."""
+  admin: Boolean
+
+  """No description available."""
+  creationDate: String
+
+  """No description available."""
+  emailFollowSubscription: Boolean
+
+  """No description available."""
+  emailLeadSubscription: Boolean
+
+  """No description available."""
+  firstName: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  las2peerId: Float
+
+  """No description available."""
+  lastLoginDate: String
+
+  """No description available."""
+  lastName: String
+
+  """No description available."""
+  lastUpdatedDate: String
+
+  """No description available."""
+  profileImage: String
+
+  """No description available."""
+  userName: String
+}
+
+enum UserVoted {
+  UPVOTE
+  DOWNVOTE
+  NOVOTE
+}
+

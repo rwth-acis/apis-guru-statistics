@@ -1,0 +1,41 @@
+{
+  "name": "apis-guru-statistics",
+  "version": "1.0.0",
+  "description": "Generate statistics about OpenAPI documentations using data from the APIs.Guru OpenAPI database",
+  "scripts": {
+    "delete": "echo 'Deleting downloaded data...' && rimraf ./data/apis.guru/* ./data/requirements-bazaar/*",
+    "download:apisguru": "node ./src/downloader/apisguru-downloader.js",
+    "download:requirementsbazaar": "node ./src/downloader/requirementsbazaar-downloader.js",
+    "download": "npm run delete && npm run download:apisguru && npm run download:requirementsbazaar",
+    "prettier": "prettier --write \"./src/**/*.js\" \"./*.md\" \"./*.json\"",
+    "pretty-quick": "pretty-quick --staged --pattern \"./src/**/*.js\" --pattern \"./*.md\" --pattern \"./*.json\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwth-acis/apis-guru-statistics.git"
+  },
+  "keywords": [
+    "apis.guru"
+  ],
+  "author": "Dominik Kus",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "graphql": "^14.5.3",
+    "openapi-to-graphql": "^1.5.0",
+    "request-promise-native": "^1.0.7",
+    "sanitize-filename": "^1.6.2",
+    "swagger2openapi": "^5.3.1"
+  },
+  "devDependencies": {
+    "husky": "^3.0.4",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "rimraf": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretty-quick"
+    }
+  }
+}
