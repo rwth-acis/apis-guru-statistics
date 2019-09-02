@@ -59,6 +59,15 @@ Usage: node link-usage-parser.js
 
 Analyzes all the API documentations in the [data/apis.guru](data/apis.guru) folder and counts how many documentations use link definitions.
 
+### multiple-response-parser.js
+
+```
+Usage: node multiple-response-parser.js
+```
+
+Analyzes all the API documentations in the [data/apis.guru](data/apis.guru) folder and counts how many documentations have at least one operation defined that has multiple success response codes (HTTP status codes in the range 200 to 299).
+It also outputs how many operations there are in all documents with a specific number of successful responses defined.
+
 ### path-number-statistics.js
 
 ```
