@@ -23,6 +23,7 @@
     "fs-extra": "^8.1.0",
     "graphql": "^14.5.3",
     "openapi-to-graphql": "^1.5.0",
+    "openapi-to-graphql-cli": "^1.5.0",
     "request-promise-native": "^1.0.7",
     "sanitize-filename": "^1.6.2",
     "swagger2openapi": "^5.3.1"
