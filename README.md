@@ -7,21 +7,10 @@ I used these tools to generate statistics for my bachelors thesis.
 
 The scripts have been tested with Node v12 but may also run with older versions.
 
-Some scripts depend on the [openapi-link-generator](https://github.com/rwth-acis/openapi-link-generator).
-As the generator is not yet published to npm, it has to be manually linked to the project.
-Cloning and linking the generator can be done as follows:
-
-```
-git clone https://github.com/rwth-acis/openapi-link-generator
-cd openapi-link-generator
-npm link
-```
-
-Then, to initialize the project, run:
+To initialize the project, run:
 
 ```
 npm install
-npm link openapi-link-generator
 ```
 
 ## Download
