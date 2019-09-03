@@ -12,9 +12,12 @@ function processOperation(operationObject) {
 }
 
 function processResponses(responsesObject) {
-  return Object.keys(responsesObject)
-    .map(key => Number(key))
-    .filter(key => key >= 200 && key < 300).length;
+  return {
+    successCount: Object.keys(responsesObject)
+      .map(key => Number(key))
+      .filter(key => key >= 200 && key < 300).length,
+    default: 'default' in responsesObject
+  };
 }
 
 function processOpenAPIDocumentation(oas) {
@@ -23,14 +26,25 @@ function processOpenAPIDocumentation(oas) {
   // Returns an object of the form { "1": 20, "5": 1 } if there is 20 operations
   // with one response and one operation with 5 responses defined.
   const responseCountNumbers = {};
-  for (const pathItem of Object.values(oas.paths)) {
+  for (const [pathName, pathItem] of Object.entries(oas.paths)) {
     for (const op of ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace']) {
       if (op in pathItem) {
-        const count = processOperation(pathItem[op]);
-        if (!(count in responseCountNumbers)) {
-          responseCountNumbers[count] = 1;
+        const res = processOperation(pathItem[op]);
+
+        let entry;
+        if (res.successCount === 0 && res.default) {
+          entry = '0+default';
         } else {
-          responseCountNumbers[count]++;
+          entry = res.successCount;
+          // if (res.successCount === 0) {
+          //   console.log(`${oas.info['x-providerName']}: ${pathName}`);
+          // }
+        }
+
+        if (!(entry in responseCountNumbers)) {
+          responseCountNumbers[entry] = 1;
+        } else {
+          responseCountNumbers[entry]++;
         }
       }
     }
@@ -41,6 +55,7 @@ function processOpenAPIDocumentation(oas) {
 async function loadData() {
   const responseCountSum = {};
   let totalDocsWithMultiple = 0;
+  let totalDocsWithZero = 0;
   let totalOperations = 0;
 
   const files = await fse.readdir(directory);
@@ -50,7 +65,10 @@ async function loadData() {
 
     if (Object.keys(countNumbers).some(key => Number(key) > 1)) {
       totalDocsWithMultiple++;
+    }
+    if ('0' in countNumbers && countNumbers['0'] > 0) {
       console.log(file);
+      totalDocsWithZero++;
     }
 
     for (const responseCount of Object.keys(countNumbers)) {
@@ -68,6 +86,9 @@ async function loadData() {
 
   console.log(
     `Total number of documents with at least one operation with multiple successful responses: ${totalDocsWithMultiple}`
+  );
+  console.log(
+    `Total number of documents with at least one operation with no successful response: ${totalDocsWithZero}`
   );
   console.log(`Total number of operations in all documents: ${totalOperations}`);
   console.log();
