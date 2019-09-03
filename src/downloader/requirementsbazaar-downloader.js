@@ -8,7 +8,7 @@ const rp = require('request-promise-native');
 const sw2oai = require('swagger2openapi');
 const fse = require('fs-extra');
 const path = require('path');
-const addLinkDefinitions = require('openapi-link-generator').default;
+const { addLinkDefinitions } = require('openapi-link-generator');
 const { createGraphQlSchema } = require('openapi-to-graphql');
 const { printSchema } = require('graphql');
 

@@ -5,7 +5,7 @@
 const fse = require('fs-extra');
 const path = require('path');
 const directory = path.resolve(__dirname, '../../data/apis.guru');
-const addLinkDefinitions = require('openapi-link-generator').default;
+const { addLinkDefinitions } = require('openapi-link-generator');
 
 async function loadData() {
   // We sum how many links are added
