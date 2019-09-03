@@ -108,3 +108,15 @@ Usage: node uniqueitems-detail-parser.js <pathToOpenAPI>
 
 Takes a path to an OpenAPI document as parameter.
 Analyzes the given OpenAPI document by counting how many times the `uniqueItems` keyword is used with a specific type.
+
+# Research
+
+In my thesis, I used the GitHub v3 API as an example to translate its schema to GraphQL.
+The OpenAPI documentation used for this can be found [data/apis.guru/github.com.json](here).
+To run [openapi-to-graphql](https://github.com/IBM/openapi-to-graphql) on that API, the following command can be used:
+
+```
+npx openapi-to-graphql data/apis.guru/github.com.json --save output.graphql
+```
+
+This will output the converted schema to `output.graphql`, if no errors occur.
