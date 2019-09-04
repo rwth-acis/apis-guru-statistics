@@ -22,7 +22,7 @@ async function loadData() {
     const tempResult = addLinkDefinitions(JSON.parse(await fse.readFile(path.join(directory, file))));
 
     totalLinks += tempResult.numLinks;
-    const pathCount = Object.keys(tempResult.oas.paths).length;
+    const pathCount = Object.keys(tempResult.openapi.paths).length;
     totalPaths += pathCount;
     if (pathCount > 0) {
       let key = Math.round((tempResult.numLinks / pathCount) * 100);
