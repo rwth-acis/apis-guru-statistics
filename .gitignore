@@ -1,3 +1,6 @@
+# Potential TypeScript dist folder
+dist/
+
 # Logs
 logs
 *.log

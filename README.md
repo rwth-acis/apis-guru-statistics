@@ -49,6 +49,12 @@ Usage: node external-reference-parser.js
 Analyzes all the API documentations in the [data/apis.guru](data/apis.guru) folder.
 Counts how many documents use at least one external references in place of response objects, schema objects or parameter objects.
 
+### link-definition-graphql-schema-depth.ts
+
+```
+Usage: npx ts-node .\src\apis.guru\link-definition-graphql-schema-depth.ts
+```
+
 ### link-usage-parser.js
 
 ```
