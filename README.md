@@ -40,6 +40,15 @@ Usage: node anyof-detail-parser.js <pathToOpenAPI>
 Takes a path to an OpenAPI document as parameter.
 Counts how many times the `anyOf` keyword is used in schema objects in that OpenAPI document and with how many entries it is used.
 
+### external-reference-parser.js
+
+```
+Usage: node external-reference-parser.js
+```
+
+Analyzes all the API documentations in the [data/apis.guru](data/apis.guru) folder.
+Counts how many documents use at least one external references in place of response objects, schema objects or parameter objects.
+
 ### link-usage-parser.js
 
 ```
