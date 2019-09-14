@@ -76,7 +76,7 @@ Analyzes all the API documentations in the [data/apis.guru](data/apis.guru) fold
 The properties are:
 
 ```
-multipleOf, maximum, minimum, maxLength, minLength, pattern, maxItems, minItems, uniqueItems, maxProperties, minProperties, oneOf, anyOf, not
+multipleOf, maximum, minimum, exclusiveMinimum, exclusiveMaximum, maxLength, minLength, pattern, maxItems, minItems, uniqueItems, maxProperties, minProperties, oneOf, anyOf, not
 ```
 
 ### source-type-parser.js

@@ -1,8 +1,8 @@
 /**
  * Take the most recent data from APIs.Guru and count how many of the APIs use one of the following
  * JSON Schema features:
- *  multipleOf, maximum, minimum, maxLength, minLength, pattern, maxItems, minItems, uniqueItems,
- *  maxProperties, minProperties, oneOf, anyOf, not
+ *  multipleOf, maximum, minimum, exclusiveMinimum, exclusiveMaximum, maxLength, minLength, pattern, maxItems,
+ *  minItems, uniqueItems, maxProperties, minProperties, oneOf, anyOf, not
  *
  * Reference objects are purposefully ignored everywhere, as they either point somewhere outside the file, which we want to ignore
  * or point somewhere internally which we will see anyway.
@@ -16,6 +16,8 @@ const relevantKeys = [
   'multipleOf',
   'minimum',
   'maximum',
+  'exclusiveMinimum',
+  'exclusiveMaximum',
   'minLength',
   'maxLength',
   'pattern',
