@@ -180,12 +180,12 @@
             "links": {
               "public": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1gists/get",
+                "operationRef": "#/paths/~1gists~1public/get",
                 "parameters": { "since": "$request.query.since", "Accept": "$request.header.Accept" }
               },
               "starred": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1gists/get",
+                "operationRef": "#/paths/~1gists~1starred/get",
                 "parameters": { "since": "$request.query.since", "Accept": "$request.header.Accept" }
               }
             }
@@ -427,12 +427,12 @@
             "links": {
               "comments": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1gists~1{id}/get",
+                "operationRef": "#/paths/~1gists~1{id}~1comments/get",
                 "parameters": { "id": "$request.path.id", "Accept": "$request.header.Accept" }
               },
               "star": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1gists~1{id}/get",
+                "operationRef": "#/paths/~1gists~1{id}~1star/get",
                 "parameters": { "id": "$request.path.id", "Accept": "$request.header.Accept" }
               }
             }
@@ -1723,7 +1723,7 @@
             "links": {
               "subscription": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1notifications~1threads~1{id}/get",
+                "operationRef": "#/paths/~1notifications~1threads~1{id}~1subscription/get",
                 "parameters": { "id": "$request.path.id", "Accept": "$request.header.Accept" }
               }
             }
@@ -1971,27 +1971,27 @@
             "links": {
               "events": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1orgs~1{org}/get",
+                "operationRef": "#/paths/~1orgs~1{org}~1events/get",
                 "parameters": { "org": "$request.path.org", "Accept": "$request.header.Accept" }
               },
               "members": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1orgs~1{org}/get",
+                "operationRef": "#/paths/~1orgs~1{org}~1members/get",
                 "parameters": { "org": "$request.path.org", "Accept": "$request.header.Accept" }
               },
               "public_members": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1orgs~1{org}/get",
+                "operationRef": "#/paths/~1orgs~1{org}~1public_members/get",
                 "parameters": { "org": "$request.path.org", "Accept": "$request.header.Accept" }
               },
               "repos": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1orgs~1{org}/get",
+                "operationRef": "#/paths/~1orgs~1{org}~1repos/get",
                 "parameters": { "org": "$request.path.org", "Accept": "$request.header.Accept" }
               },
               "teams": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1orgs~1{org}/get",
+                "operationRef": "#/paths/~1orgs~1{org}~1teams/get",
                 "parameters": { "org": "$request.path.org", "Accept": "$request.header.Accept" }
               }
             }
@@ -2965,7 +2965,7 @@
             "links": {
               "assignees": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1assignees/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -2974,7 +2974,7 @@
               },
               "branches": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1branches/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -2983,7 +2983,7 @@
               },
               "collaborators": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1collaborators/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -2992,7 +2992,7 @@
               },
               "comments": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1comments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3001,7 +3001,7 @@
               },
               "commits": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1commits/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3010,7 +3010,7 @@
               },
               "deployments": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1deployments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3019,7 +3019,7 @@
               },
               "downloads": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1downloads/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3028,7 +3028,7 @@
               },
               "events": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1events/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3037,7 +3037,7 @@
               },
               "forks": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1forks/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3046,7 +3046,7 @@
               },
               "refs": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1git~1refs/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3055,7 +3055,7 @@
               },
               "hooks": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1hooks/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3064,7 +3064,7 @@
               },
               "comments1": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1comments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3073,7 +3073,7 @@
               },
               "events1": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1events/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3082,7 +3082,7 @@
               },
               "keys": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1keys/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3091,7 +3091,7 @@
               },
               "labels": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1labels/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3100,7 +3100,7 @@
               },
               "languages": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1languages/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3109,7 +3109,7 @@
               },
               "milestones": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1milestones/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3118,7 +3118,7 @@
               },
               "notifications": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1notifications/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3127,7 +3127,7 @@
               },
               "pulls": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3136,7 +3136,7 @@
               },
               "comments11": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1comments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3145,7 +3145,7 @@
               },
               "readme": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1readme/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3154,7 +3154,7 @@
               },
               "releases": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1releases/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3163,7 +3163,7 @@
               },
               "stargazers": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1stargazers/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3172,7 +3172,7 @@
               },
               "code_frequency": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1stats~1code_frequency/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3181,7 +3181,7 @@
               },
               "commit_activity": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1stats~1commit_activity/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3190,7 +3190,7 @@
               },
               "contributors": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1stats~1contributors/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3199,7 +3199,7 @@
               },
               "participation": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1stats~1participation/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3208,7 +3208,7 @@
               },
               "punch_card": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1stats~1punch_card/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3217,7 +3217,7 @@
               },
               "subscribers": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1subscribers/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3226,7 +3226,7 @@
               },
               "subscription": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1subscription/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3235,7 +3235,7 @@
               },
               "tags": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1tags/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3244,7 +3244,7 @@
               },
               "teams": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1teams/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -3253,7 +3253,7 @@
               },
               "watchers": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1watchers/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -4270,7 +4270,7 @@
             "links": {
               "comments": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1commits~1{shaCode}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1commits~1{shaCode}~1comments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -6545,7 +6545,7 @@
             "links": {
               "comments": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1comments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -6555,7 +6555,7 @@
               },
               "events": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1events/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -7062,7 +7062,7 @@
             "links": {
               "comments": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1{number}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1{number}~1comments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -7072,7 +7072,7 @@
               },
               "events": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1{number}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1{number}~1events/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -7082,7 +7082,7 @@
               },
               "labels": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1{number}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1issues~1{number}~1labels/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -8599,7 +8599,7 @@
             "links": {
               "labels": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1milestones~1{number}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1milestones~1{number}~1labels/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -8938,7 +8938,7 @@
             "links": {
               "comments": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1comments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -9329,7 +9329,7 @@
             "links": {
               "comments": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1{number}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1{number}~1comments/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -9339,7 +9339,7 @@
               },
               "commits": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1{number}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1{number}~1commits/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -9349,7 +9349,7 @@
               },
               "files": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1{number}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1{number}~1files/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -9359,7 +9359,7 @@
               },
               "merge": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1{number}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1pulls~1{number}~1merge/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -10298,7 +10298,7 @@
             "links": {
               "assets": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1releases~1{id}/get",
+                "operationRef": "#/paths/~1repos~1{owner}~1{repo}~1releases~1{id}~1assets/get",
                 "parameters": {
                   "owner": "$request.path.owner",
                   "repo": "$request.path.repo",
@@ -11733,12 +11733,12 @@
             "links": {
               "members": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1teams~1{teamId}/get",
+                "operationRef": "#/paths/~1teams~1{teamId}~1members/get",
                 "parameters": { "teamId": "$request.path.teamId", "Accept": "$request.header.Accept" }
               },
               "repos": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1teams~1{teamId}/get",
+                "operationRef": "#/paths/~1teams~1{teamId}~1repos/get",
                 "parameters": { "teamId": "$request.path.teamId", "Accept": "$request.header.Accept" }
               }
             }
@@ -12473,47 +12473,47 @@
             "links": {
               "emails": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1emails/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               },
               "followers": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1followers/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               },
               "following": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1following/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               },
               "keys": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1keys/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               },
               "orgs": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1orgs/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               },
               "repos": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1repos/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               },
               "starred": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1starred/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               },
               "subscriptions": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1subscriptions/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               },
               "teams": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1user/get",
+                "operationRef": "#/paths/~1user~1teams/get",
                 "parameters": { "Accept": "$request.header.Accept" }
               }
             }
@@ -13895,27 +13895,27 @@
             "links": {
               "followers": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1users~1{username}/get",
+                "operationRef": "#/paths/~1users~1{username}~1followers/get",
                 "parameters": { "username": "$request.path.username", "Accept": "$request.header.Accept" }
               },
               "gists": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1users~1{username}/get",
+                "operationRef": "#/paths/~1users~1{username}~1gists/get",
                 "parameters": { "username": "$request.path.username", "Accept": "$request.header.Accept" }
               },
               "keys": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1users~1{username}/get",
+                "operationRef": "#/paths/~1users~1{username}~1keys/get",
                 "parameters": { "username": "$request.path.username", "Accept": "$request.header.Accept" }
               },
               "orgs": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1users~1{username}/get",
+                "operationRef": "#/paths/~1users~1{username}~1orgs/get",
                 "parameters": { "username": "$request.path.username", "Accept": "$request.header.Accept" }
               },
               "repos": {
                 "description": "Automatically generated link definition",
-                "operationRef": "#/paths/~1users~1{username}/get",
+                "operationRef": "#/paths/~1users~1{username}~1repos/get",
                 "parameters": { "username": "$request.path.username", "Accept": "$request.header.Accept" }
               }
             }

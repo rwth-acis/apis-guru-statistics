@@ -1260,13 +1260,6 @@ type Gist {
   """No description available."""
   public: Boolean
 
-  """
-  Automatically generated link definition
-  
-  Equivalent to GET /gists/{id}
-  """
-  star: Gist
-
   """No description available."""
   url: String
 
@@ -1477,16 +1470,16 @@ type Issue {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}/issues/{number}
+  Equivalent to GET /repos/{owner}/{repo}/issues/{number}/comments
   """
-  comments: Issue
+  comments: [IssuesCommentsListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}/issues/{number}
+  Equivalent to GET /repos/{owner}/{repo}/issues/{number}/events
   """
-  events: Issue
+  events: [IssueEvent]
 
   """No description available."""
   labels: [String]
@@ -2042,9 +2035,9 @@ type Milestone {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}/milestones/{number}
+  Equivalent to GET /repos/{owner}/{repo}/milestones/{number}/labels
   """
-  labels: Milestone
+  labels: [ReposIssuesLabelsListItem]
 
   """No description available."""
   number: Int
@@ -3133,9 +3126,9 @@ type Notifications {
   """
   Automatically generated link definition
   
-  Equivalent to GET /notifications/threads/{id}
+  Equivalent to GET /notifications/threads/{id}/subscription
   """
-  subscription: Notifications
+  subscription: Subscription
 
   """No description available."""
   unread: Boolean
@@ -6128,16 +6121,16 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/assignees
   """
-  assignees: Repo2
+  assignees: [JSON]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/branches
   """
-  branches: Repo2
+  branches: [BranchesListItem]
 
   """No description available."""
   cloneUrl: String
@@ -6145,58 +6138,99 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/stats/code_frequency
   """
-  codeFrequency: Repo2
+  codeFrequency: [Int]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/collaborators
   """
-  collaborators: Repo2
+  collaborators: [JSON]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/comments
   """
-  comments: Repo2
+  comments: [RepoCommentsListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/issues/comments
   """
-  comments1: Repo2
+  comments1(
+    """Ignored without 'sort' parameter."""
+    direction: String
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+    sort: Sort9
+  ): [IssuesCommentsListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/pulls/comments
   """
-  comments11: Repo2
+  comments11(
+    """Ignored without 'sort' parameter."""
+    direction: String
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+    sort: Sort9
+  ): [IssuesCommentsListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/stats/commit_activity
   """
-  commitActivity: Repo2
+  commitActivity: [CommitActivityStatsListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/commits
   """
-  commits: Repo2
+  commits(
+    """GitHub login, name, or email by which to filter by commit author."""
+    author: String
+
+    """Only commits containing this file path will be returned."""
+    path: String
+
+    """Sha or branch to start listing commits from."""
+    sha: String
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+
+    """ISO 8601 Date - Only commits before this date will be returned."""
+    until: String
+  ): [CommitsListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/stats/contributors
   """
-  contributors: Repo2
+  contributors: [ContributorsStatsListItem]
 
   """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
   createdAt: String
@@ -6204,9 +6238,9 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/deployments
   """
-  deployments: Repo2
+  deployments: [RepoDeploymentsListItem]
 
   """No description available."""
   description: String
@@ -6214,23 +6248,23 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/downloads
   """
-  downloads: Repo2
+  downloads: [Download]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/events
   """
-  events: Repo2
+  events: [Event]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/issues/events
   """
-  events1: Repo2
+  events1: [IssueEvent]
 
   """No description available."""
   fork: Boolean
@@ -6262,9 +6296,9 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/hooks
   """
-  hooks: Repo2
+  hooks: [HookListItem]
 
   """No description available."""
   htmlUrl: String
@@ -6275,16 +6309,16 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/keys
   """
-  keys: Repo2
+  keys: [KeysListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/labels
   """
-  labels: Repo2
+  labels: [ReposIssuesLabelsListItem]
 
   """No description available."""
   language: String
@@ -6292,9 +6326,9 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/languages
   """
-  languages: Repo2
+  languages: JSON
 
   """No description available."""
   masterBranch: String
@@ -6302,9 +6336,16 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/milestones
   """
-  milestones: Repo2
+  milestones(
+    """Ignored without 'sort' parameter."""
+    direction: String
+    sort: Sort2
+
+    """String to filter by state."""
+    state: State4
+  ): Milestone
 
   """No description available."""
   mirrorUrl: String
@@ -6315,9 +6356,26 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/notifications
   """
-  notifications: Repo2
+  notifications(
+    """True to show notifications marked as read."""
+    all: Boolean
+
+    """
+    True to show only notifications in which the user is directly participating
+    or mentioned.
+    
+    """
+    participating: Boolean
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+  ): Notifications
 
   """No description available."""
   openIssues: Int
@@ -6337,9 +6395,9 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/stats/participation
   """
-  participation: Repo2
+  participation: ParticipationStats
 
   """No description available."""
   private: Boolean
@@ -6347,16 +6405,29 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/pulls
   """
-  pulls: Repo2
+  pulls(
+    """Filter pulls by base branch name. Example - gh-pages."""
+    base: String
+
+    """
+    Filter pulls by head user and branch name in the format of 'user:ref-name'.
+    Example: github:new-script-format.
+    
+    """
+    head: String
+
+    """String to filter by state."""
+    state: State4
+  ): [PullsListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/stats/punch_card
   """
-  punchCard: Repo2
+  punchCard: [Int]
 
   """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
   pushedAt: String
@@ -6364,23 +6435,26 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/readme
   """
-  readme: Repo2
+  readme(
+    """The String name of the Commit/Branch/Tag. Defaults to master."""
+    ref: String
+  ): ContentsPath
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/git/refs
   """
-  refs: Repo2
+  refs: [RefsListItem]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/releases
   """
-  releases: Repo2
+  releases: [ReleasesListItem]
 
   """No description available."""
   size: Int
@@ -6394,23 +6468,23 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/stargazers
   """
-  stargazers: Repo2
+  stargazers: [JSON]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/subscribers
   """
-  subscribers: Repo2
+  subscribers: [JSON]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/subscription
   """
-  subscription: Repo2
+  subscription: Subscription
 
   """No description available."""
   svnUrl: String
@@ -6418,16 +6492,16 @@ type Repo2 {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/tags
   """
-  tags: Repo2
+  tags: [ReposGitTags]
 
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}
+  Equivalent to GET /repos/{owner}/{repo}/teams
   """
-  teams: Repo2
+  teams: [TeamsListItem]
 
   """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
   updatedAt: String
@@ -6579,9 +6653,9 @@ type ReposCommits {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}/commits/{shaCode}
+  Equivalent to GET /repos/{owner}/{repo}/commits/{shaCode}/comments
   """
-  comments: ReposCommits
+  comments: [RepoCommentsListItem]
 
   """No description available."""
   commit: Commit4
@@ -6859,9 +6933,9 @@ type ReposPulls {
   """
   Automatically generated link definition
   
-  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}
+  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}/files
   """
-  files: ReposPulls
+  files: [PullsListItem]
 
   """No description available."""
   head: Head2
@@ -6874,13 +6948,6 @@ type ReposPulls {
 
   """No description available."""
   links: Links5
-
-  """
-  Automatically generated link definition
-  
-  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}
-  """
-  merge: ReposPulls
 
   """No description available."""
   mergeCommitSha: String
@@ -7243,9 +7310,9 @@ type Team {
   """
   Automatically generated link definition
   
-  Equivalent to GET /teams/{teamId}
+  Equivalent to GET /teams/{teamId}/members
   """
-  members: Team
+  members: [JSON]
 
   """No description available."""
   membersCount: Int
@@ -7259,9 +7326,9 @@ type Team {
   """
   Automatically generated link definition
   
-  Equivalent to GET /teams/{teamId}
+  Equivalent to GET /teams/{teamId}/repos
   """
-  repos: Team
+  repos: [Repo2]
 
   """No description available."""
   reposCount: Int
