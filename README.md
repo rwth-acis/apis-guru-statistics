@@ -16,7 +16,7 @@ npm install
 ## Download
 
 The repository already contains the downloaded data I used to generate my statistics.
-Run `npm run download` to redownload all data from APIs.Guru and Requirements-Bazaar and update it to the newest version.
+Run `npm run download` to redownload all data from APIs.Guru, Requirements-Bazaar and GitHub and update it to the newest version.
 
 ## Scripts
 
@@ -117,4 +117,8 @@ To run [openapi-to-graphql](https://github.com/IBM/openapi-to-graphql) on that A
 npx openapi-to-graphql data/apis.guru/github.com.json --save output.graphql
 ```
 
-This will output the converted schema to `output.graphql`, if no errors occur.
+This will result in errors.
+
+A modified version of this OpenAPI documentation that works with [openapi-to-graphql](https://github.com/IBM/openapi-to-graphql) can be found under [data/github/v3-source-modified.json](data/github/v3-source-modified.json).
+Running `npm run download:github` runs the link generator on this documentation and saves the output in the folder.
+In addition, it converts both OpenAPI documentations to a GraphQL schema using [openapi-to-graphql](https://github.com/IBM/openapi-to-graphql) and downloads the official GraphQL schema of GitHubs v4 API.
