@@ -1,0 +1,7525 @@
+"""A user or organization"""
+type Actor {
+  """No description available."""
+  avatarUrl: String
+
+  """No description available."""
+  bio: String
+
+  """The website URL from the profile page"""
+  blog: String
+
+  """No description available."""
+  collaborators: Int
+
+  """No description available."""
+  company: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  diskUsage: Int
+
+  """
+  Note: The returned email is the user’s publicly visible email address (or null
+  if the user has not specified a public email address in their profile).
+  """
+  email: String
+
+  """No description available."""
+  followers: Int
+
+  """No description available."""
+  followersUrl: String
+
+  """No description available."""
+  following: Int
+
+  """No description available."""
+  followingUrl: String
+
+  """No description available."""
+  gistsUrl: String
+
+  """No description available."""
+  gravatarId: String
+
+  """No description available."""
+  hireable: Boolean
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  location: String
+
+  """The account username"""
+  login: String
+
+  """The full account name"""
+  name: String
+
+  """No description available."""
+  organizationsUrl: String
+
+  """No description available."""
+  ownedPrivateRepos: Int
+
+  """No description available."""
+  plan: Plan
+
+  """No description available."""
+  privateGists: Int
+
+  """No description available."""
+  publicGists: Int
+
+  """No description available."""
+  publicRepos: Int
+
+  """No description available."""
+  starredUrl: String
+
+  """No description available."""
+  subscriptionsUrl: String
+
+  """No description available."""
+  totalPrivateRepos: Int
+
+  """No description available."""
+  type: Type
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Asset {
+  """No description available."""
+  contentType: String
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  downloadCount: Float
+
+  """No description available."""
+  id: Float
+
+  """No description available."""
+  label: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  size: Float
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  updatedAt: String
+
+  """A GitHub user"""
+  uploader: User2Placeholder
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input AssetPatchInput {
+  """No description available."""
+  label: String
+
+  """No description available."""
+  name: String!
+}
+
+"""No description available."""
+type AssetsListItem {
+  """No description available."""
+  contentType: String
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  downloadCount: Int
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  label: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  size: Int
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  updatedAt: String
+
+  """A GitHub user"""
+  uploader: User2Placeholder
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Author {
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  date: String
+
+  """No description available."""
+  email: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type Author2 {
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  date: String
+
+  """No description available."""
+  email: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type Author3 {
+  """No description available."""
+  date: String
+
+  """No description available."""
+  email: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+input Author3Input {
+  """No description available."""
+  date: String
+
+  """No description available."""
+  email: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type Author4 {
+  """No description available."""
+  avatarUrl: String
+
+  """No description available."""
+  gravatarId: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  login: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Base2 {
+  """No description available."""
+  label: String
+
+  """No description available."""
+  ref: String
+
+  """No description available."""
+  repo: Repo2
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  user: User4
+}
+
+"""No description available."""
+type BaseCommit {
+  """A GitHub user"""
+  author: User2Placeholder
+
+  """No description available."""
+  commit: Commit5
+
+  """A GitHub user"""
+  committer: User2Placeholder
+
+  """No description available."""
+  parents: [ParentsListItem]
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Blob {
+  """No description available."""
+  content: String
+
+  """No description available."""
+  encoding: Encoding2
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  size: Int
+}
+
+"""No description available."""
+input BlobInput {
+  """No description available."""
+  content: String
+
+  """No description available."""
+  encoding: Encoding2
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  size: Int
+}
+
+"""No description available."""
+type Blobs {
+  """No description available."""
+  sha: String
+}
+
+"""No description available."""
+type Branch {
+  """No description available."""
+  commit: Commit2
+
+  """No description available."""
+  links: Links2
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type BranchesListItem {
+  """No description available."""
+  commit: Commit
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type ChangeStatus {
+  """No description available."""
+  additions: Int
+
+  """No description available."""
+  deletions: Int
+
+  """No description available."""
+  total: Int
+}
+
+"""No description available."""
+type Comment {
+  """No description available."""
+  body: String
+}
+
+"""No description available."""
+input CommentBodyInput {
+  """No description available."""
+  body: String!
+}
+
+"""No description available."""
+input CommentInput {
+  """No description available."""
+  body: String
+}
+
+"""No description available."""
+type Comments2 {
+  """No description available."""
+  href: String
+}
+
+"""No description available."""
+type Commit {
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Commit2 {
+  """A GitHub user"""
+  author: User2Placeholder
+
+  """No description available."""
+  commit: Commit3
+
+  """A GitHub user"""
+  committer: User2Placeholder
+
+  """No description available."""
+  parents: [ParentsListItem]
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Commit3 {
+  """No description available."""
+  author: Author
+
+  """No description available."""
+  committer: Committer
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  tree: Tree
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Commit4 {
+  """No description available."""
+  author: Author2
+
+  """No description available."""
+  committer: Committer
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  tree: Tree
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Commit5 {
+  """No description available."""
+  author: Author3
+
+  """No description available."""
+  committer: Committer2
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  tree: Tree
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Commit6 {
+  """No description available."""
+  author: Author3
+
+  """No description available."""
+  committer: Committer4
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  parents: Parents2
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  tree: Tree
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Commit7 {
+  """No description available."""
+  author: Author3
+
+  """No description available."""
+  committer: Committer2
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  parents: [Parents3ListItem]
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  tree: Tree
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Commit8 {
+  """No description available."""
+  author: Author3
+
+  """No description available."""
+  commentCount: Int
+
+  """No description available."""
+  committer: Committer2
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  tree: Tree
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type CommitActivityStatsListItem {
+  """No description available."""
+  days: [Int]
+
+  """No description available."""
+  total: Int
+
+  """No description available."""
+  week: Int
+}
+
+"""No description available."""
+type CommitComment {
+  """No description available."""
+  body: String
+
+  """No description available."""
+  commitId: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  line: Int
+
+  """No description available."""
+  path: String
+
+  """No description available."""
+  position: Int
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+input CommitCommentBodyInput {
+  """No description available."""
+  body: String!
+
+  """Deprecated - Use position parameter instead."""
+  line: String
+
+  """Line number in the file to comment on. Defaults to null."""
+  number: String
+
+  """Relative path of the file to comment on."""
+  path: String
+
+  """Line index in the diff to comment on."""
+  position: Int
+
+  """SHA of the commit to comment on."""
+  sha: String!
+}
+
+"""No description available."""
+type Commits2ListItem {
+  """A GitHub user"""
+  author: User2Placeholder
+
+  """No description available."""
+  commit: Commit5
+
+  """A GitHub user"""
+  committer: User2Placeholder
+
+  """No description available."""
+  parents: [ParentsListItem]
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type CommitsListItem {
+  """A GitHub user"""
+  author: User2Placeholder
+
+  """No description available."""
+  commit: Commit4
+
+  """A GitHub user"""
+  committer: User2Placeholder
+
+  """No description available."""
+  parents: [ParentsListItem]
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Committer {
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  date: String
+
+  """No description available."""
+  email: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type Committer2 {
+  """No description available."""
+  date: String
+
+  """No description available."""
+  email: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+input Committer3Input {
+  """No description available."""
+  email: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type Committer4 {
+  """No description available."""
+  date: String
+
+  """No description available."""
+  email: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type CompareCommits {
+  """No description available."""
+  aheadBy: Int
+
+  """No description available."""
+  baseCommit: BaseCommit
+
+  """No description available."""
+  behindBy: Int
+
+  """No description available."""
+  commits: [Commits2ListItem]
+
+  """No description available."""
+  diffUrl: String
+
+  """No description available."""
+  files: [Files5ListItem]
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  patchUrl: String
+
+  """No description available."""
+  permalinkUrl: String
+
+  """No description available."""
+  status: String
+
+  """No description available."""
+  totalCommits: Int
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Config {
+  """No description available."""
+  contentType: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Content2 {
+  """No description available."""
+  gitUrl: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  links: Links3
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  path: String
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  size: Int
+
+  """No description available."""
+  type: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ContentsPath {
+  """No description available."""
+  content: String
+
+  """No description available."""
+  encoding: String
+
+  """No description available."""
+  gitUrl: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  links: Links3
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  path: String
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  size: Int
+
+  """No description available."""
+  type: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ContributorsStatsListItem {
+  """No description available."""
+  author: Author4
+
+  """The Total number of commits authored by the contributor."""
+  total: Int
+
+  """No description available."""
+  weeks: [WeeksListItem]
+}
+
+"""No description available."""
+type CreateFile {
+  """No description available."""
+  commit: Commit7
+
+  """No description available."""
+  content: Content2
+}
+
+"""No description available."""
+input CreateFileBodyInput {
+  """No description available."""
+  committer: Committer3Input
+
+  """No description available."""
+  content: String
+
+  """No description available."""
+  message: String
+}
+
+"""No description available."""
+type Creator {
+  """No description available."""
+  avatarUrl: String
+
+  """No description available."""
+  gravatarId: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  login: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type CurrentUser {
+  """No description available."""
+  href: String
+
+  """No description available."""
+  type: String
+}
+
+"""No description available."""
+type CurrentUserActor {
+  """No description available."""
+  href: String
+
+  """No description available."""
+  type: String
+}
+
+"""No description available."""
+type CurrentUserOrganization {
+  """No description available."""
+  href: String
+
+  """No description available."""
+  type: String
+}
+
+"""No description available."""
+type CurrentUserPublic {
+  """No description available."""
+  href: String
+
+  """No description available."""
+  type: String
+}
+
+"""No description available."""
+type DeleteFile {
+  """No description available."""
+  commit: Commit6
+
+  """No description available."""
+  content: String
+}
+
+"""No description available."""
+input DeleteFileBodyInput {
+  """No description available."""
+  committer: Committer3Input
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  sha: String
+}
+
+"""No description available."""
+input DeploymentInput {
+  """No description available."""
+  description: String
+
+  """No description available."""
+  payload: Payload3Input
+
+  """No description available."""
+  ref: String
+}
+
+"""No description available."""
+type DeploymentResp {
+  """No description available."""
+  createdAt: String
+
+  """A GitHub user"""
+  creator: User2Placeholder
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  payload: String
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  statusesUrl: String
+
+  """No description available."""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type DeploymentStatusesListItem {
+  """No description available."""
+  createdAt: String
+
+  """A GitHub user"""
+  creator: User2Placeholder
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  payload: String
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  targetUrl: String
+
+  """No description available."""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+}
+
+enum Direction2 {
+  asc
+  desc
+}
+
+"""No description available."""
+type Download {
+  """No description available."""
+  contentType: String
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  downloadCount: Int
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  size: Int
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input EditTeamInput {
+  """No description available."""
+  name: String!
+
+  """No description available."""
+  permission: Permission
+}
+
+enum Encoding2 {
+  utf8
+  base64
+}
+
+"""No description available."""
+type Event {
+  """A user or organization"""
+  actor: Actor
+
+  """No description available."""
+  createdAt: JSON
+
+  """No description available."""
+  id: Int
+
+  """A GitHub organization"""
+  org: OrganizationPlaceholder
+
+  """No description available."""
+  payload: Payload
+
+  """No description available."""
+  public: Boolean
+
+  """No description available."""
+  repo: Repo
+
+  """No description available."""
+  type: String
+}
+
+enum Events2ListItem {
+  push
+  issues
+  issueComment
+  commitComment
+  pullRequest
+  pullRequestReviewComment
+  gollum
+  watch
+  download
+  fork
+  forkApply
+  member
+  public
+  teamAdd
+  status
+}
+
+"""No description available."""
+type Feeds {
+  """No description available."""
+  currentUserActorUrl: String
+
+  """No description available."""
+  currentUserOrganizationUrl: String
+
+  """No description available."""
+  currentUserPublic: String
+
+  """No description available."""
+  currentUserUrl: String
+
+  """No description available."""
+  links: Links
+
+  """No description available."""
+  timelineUrl: String
+
+  """No description available."""
+  userUrl: String
+}
+
+"""No description available."""
+input File1TxtInput {
+  """No description available."""
+  content: String
+}
+
+"""No description available."""
+type Files {
+  """No description available."""
+  ringErl: RingErl
+}
+
+"""No description available."""
+input Files2Input {
+  """No description available."""
+  file1Txt: File1TxtInput
+}
+
+"""No description available."""
+input Files3Input {
+  """No description available."""
+  deleteThisFileTxt: String
+
+  """No description available."""
+  file1Txt: File1TxtInput
+
+  """No description available."""
+  newFileTxt: NewFileTxtInput
+
+  """No description available."""
+  oldNameTxt: OldNameTxtInput
+}
+
+"""No description available."""
+type Files4ListItem {
+  """No description available."""
+  additions: Int
+
+  """No description available."""
+  blobUrl: String
+
+  """No description available."""
+  changes: Int
+
+  """No description available."""
+  deletions: Int
+
+  """No description available."""
+  filename: String
+
+  """No description available."""
+  patch: String
+
+  """No description available."""
+  rawUrl: String
+
+  """No description available."""
+  status: String
+}
+
+"""No description available."""
+type Files5ListItem {
+  """No description available."""
+  additions: Int
+
+  """No description available."""
+  blobUrl: String
+
+  """No description available."""
+  changes: Int
+
+  """No description available."""
+  contentsUrl: String
+
+  """No description available."""
+  deletions: Int
+
+  """No description available."""
+  filename: String
+
+  """No description available."""
+  patch: String
+
+  """No description available."""
+  rawUrl: String
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  status: String
+}
+
+enum Filter {
+  assigned
+  created
+  mentioned
+  subscribed
+  all
+}
+
+"""No description available."""
+input ForkBodyInput {
+  """No description available."""
+  organization: String
+}
+
+"""No description available."""
+type ForksListItem {
+  """Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."""
+  createdAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type Gist {
+  """No description available."""
+  comments: Int
+
+  """No description available."""
+  commentsUrl: String
+
+  """Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."""
+  createdAt: String
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  files: Files
+
+  """No description available."""
+  forks: [ForksListItem]
+
+  """No description available."""
+  gitPullUrl: String
+
+  """No description available."""
+  gitPushUrl: String
+
+  """No description available."""
+  history: [HistoryListItem]
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: String
+
+  """No description available."""
+  public: Boolean
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /gists/{id}
+  """
+  star: Gist
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type GistsCommentsListItem {
+  """No description available."""
+  body: String
+
+  """ISO 8601."""
+  createdAt: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type GistsListItem {
+  """No description available."""
+  comments: Int
+
+  """No description available."""
+  commentsUrl: String
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  files: Files
+
+  """No description available."""
+  gitPullUrl: String
+
+  """No description available."""
+  gitPushUrl: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: String
+
+  """No description available."""
+  public: Boolean
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type GitCommit {
+  """No description available."""
+  author: Author3
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  parents: String
+
+  """No description available."""
+  tree: String
+}
+
+"""No description available."""
+type GitignoreLang {
+  """No description available."""
+  name: String
+
+  """No description available."""
+  source: String
+}
+
+"""No description available."""
+input GitRefPatchInput {
+  """No description available."""
+  force: Boolean
+
+  """No description available."""
+  sha: String
+}
+
+"""No description available."""
+type Head2 {
+  """No description available."""
+  label: String
+
+  """No description available."""
+  ref: String
+
+  """No description available."""
+  repo: Repo2
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  user: User4
+}
+
+"""No description available."""
+type HeadBranch {
+  """No description available."""
+  object: Object
+
+  """No description available."""
+  ref: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input HeadBranchInput {
+  """No description available."""
+  object: ObjectInput
+
+  """No description available."""
+  ref: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type HistoryListItem {
+  """No description available."""
+  changeStatus: ChangeStatus
+
+  """Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."""
+  committedAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+
+  """No description available."""
+  version: String
+}
+
+"""No description available."""
+input HookBodyInput {
+  """No description available."""
+  active: Boolean
+
+  """No description available."""
+  addEvents: [String]
+}
+
+"""No description available."""
+type HookListItem {
+  """No description available."""
+  active: Boolean
+
+  """No description available."""
+  config: Config
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  events: [Events2ListItem]
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  name: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Html2 {
+  """No description available."""
+  href: String
+}
+
+"""No description available."""
+type Issue {
+  """No description available."""
+  assignee: String
+
+  """No description available."""
+  body: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/{number}
+  """
+  comments: Issue
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/{number}
+  """
+  events: Issue
+
+  """No description available."""
+  labels: [String]
+
+  """No description available."""
+  milestone: Float
+
+  """No description available."""
+  title: String
+}
+
+"""No description available."""
+type Issue2 {
+  """A GitHub user"""
+  assignee: User2Placeholder
+
+  """No description available."""
+  body: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  closedAt: String
+
+  """No description available."""
+  comments: Int
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  labels: [LabelsListItem]
+
+  """No description available."""
+  milestone: Milestone
+
+  """No description available."""
+  number: Int
+
+  """No description available."""
+  pullRequest: PullRequest
+
+  """No description available."""
+  state: State
+
+  """No description available."""
+  title: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type IssueEvent {
+  """A user or organization"""
+  actor: Actor
+
+  """No description available."""
+  commitId: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  event: String
+
+  """No description available."""
+  issue: Issue2
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input IssueInput {
+  """No description available."""
+  assignee: String
+
+  """No description available."""
+  body: String
+
+  """No description available."""
+  labels: [String]
+
+  """No description available."""
+  milestone: Float
+
+  """No description available."""
+  title: String
+}
+
+"""No description available."""
+type Issues2ListItem {
+  """No description available."""
+  body: String
+
+  """No description available."""
+  comments: Int
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  gravatarId: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  labels: [String]
+
+  """No description available."""
+  number: Int
+
+  """No description available."""
+  position: Int
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  title: String
+
+  """No description available."""
+  updatedAt: String
+
+  """No description available."""
+  user: String
+
+  """No description available."""
+  votes: Int
+}
+
+"""No description available."""
+type IssuesComment {
+  """No description available."""
+  body: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type IssuesCommentsListItem {
+  """No description available."""
+  body: String
+
+  """No description available."""
+  commitId: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  links: Links4
+
+  """No description available."""
+  path: String
+
+  """No description available."""
+  position: Int
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type IssuesListItem {
+  """A GitHub user"""
+  assignee: User2Placeholder
+
+  """No description available."""
+  body: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  closedAt: String
+
+  """No description available."""
+  comments: Int
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  labels: [LabelsListItem]
+
+  """No description available."""
+  milestone: Milestone
+
+  """No description available."""
+  number: Int
+
+  """No description available."""
+  pullRequest: PullRequest
+
+  """No description available."""
+  state: State
+
+  """No description available."""
+  title: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type Items2ListItem {
+  """No description available."""
+  assignee: String
+
+  """No description available."""
+  body: String
+
+  """No description available."""
+  closedAt: String
+
+  """No description available."""
+  comments: Int
+
+  """No description available."""
+  commentsUrl: String
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  eventsUrl: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  labels: [LabelsListItem]
+
+  """No description available."""
+  labelsUrl: String
+
+  """No description available."""
+  milestone: String
+
+  """No description available."""
+  number: Int
+
+  """No description available."""
+  pullRequest: PullRequest3
+
+  """No description available."""
+  score: Float
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  title: String
+
+  """No description available."""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type ItemsListItem {
+  """No description available."""
+  gitUrl: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  path: String
+
+  """No description available."""
+  repository: Repository2
+
+  """No description available."""
+  score: Float
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""No description available."""
+type KeysListItem {
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  key: String
+
+  """No description available."""
+  title: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Label {
+  """No description available."""
+  color: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type LabelsListItem {
+  """No description available."""
+  color: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Links {
+  """No description available."""
+  currentUser: CurrentUser
+
+  """No description available."""
+  currentUserActor: CurrentUserActor
+
+  """No description available."""
+  currentUserOrganization: CurrentUserOrganization
+
+  """No description available."""
+  currentUserPublic: CurrentUserPublic
+
+  """No description available."""
+  timeline: Timeline
+
+  """No description available."""
+  user: User
+}
+
+"""No description available."""
+type Links2 {
+  """No description available."""
+  html: String
+
+  """No description available."""
+  self: String
+}
+
+"""No description available."""
+type Links3 {
+  """No description available."""
+  git: String
+
+  """No description available."""
+  html: String
+
+  """No description available."""
+  self: String
+}
+
+"""No description available."""
+type Links4 {
+  """No description available."""
+  html: Html2
+
+  """No description available."""
+  pullRequest: PullRequest2
+
+  """No description available."""
+  self: Self2
+}
+
+"""No description available."""
+type Links5 {
+  """No description available."""
+  comments: Comments2
+
+  """No description available."""
+  html: Html2
+
+  """No description available."""
+  reviewComments: ReviewComments
+
+  """No description available."""
+  self: Self2
+}
+
+"""No description available."""
+type Merge {
+  """No description available."""
+  merged: Boolean
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  sha: String
+}
+
+"""No description available."""
+type MergedBy {
+  """No description available."""
+  avatarUrl: String
+
+  """No description available."""
+  gravatarId: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  login: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input MergePullBodyInput {
+  """No description available."""
+  commitMessage: String
+}
+
+"""No description available."""
+input MergesBodyInput {
+  """No description available."""
+  base: String
+
+  """No description available."""
+  commitMessage: String
+
+  """No description available."""
+  head: String
+}
+
+"""No description available."""
+type MergesSuccessful {
+  """A GitHub user"""
+  author: User2Placeholder
+
+  """No description available."""
+  commentsUrl: String
+
+  """No description available."""
+  commit: Commit8
+
+  """A GitHub user"""
+  committer: User2Placeholder
+
+  """No description available."""
+  merged: Boolean
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  parents: [ParentsListItem]
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Meta {
+  """No description available."""
+  git: [String]
+
+  """No description available."""
+  hooks: [String]
+}
+
+"""No description available."""
+type Milestone {
+  """No description available."""
+  closedIssues: Int
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """A GitHub user"""
+  creator: User2Placeholder
+
+  """No description available."""
+  description: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  dueOn: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}/milestones/{number}
+  """
+  labels: Milestone
+
+  """No description available."""
+  number: Int
+
+  """No description available."""
+  openIssues: Int
+
+  """No description available."""
+  state: State
+
+  """No description available."""
+  title: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input MilestoneUpdateInput {
+  """No description available."""
+  description: String
+
+  """No description available."""
+  dueOn: String
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  title: String
+}
+
+enum Mode2 {
+  _100644
+  _100755
+  _040000
+  _160000
+  _120000
+}
+
+"""The start of any mutation"""
+type Mutation {
+  """
+  Delete a file.
+  This method deletes a file in a repository.
+  
+  
+  Equivalent to DELETE /repos/{owner}/{repo}/contents/{path}
+  """
+  deleteReposOwnerRepoContentsPath(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    deleteFileBodyInput: DeleteFileBodyInput!
+
+    """Name of repository owner."""
+    owner: String!
+    path: String!
+
+    """Name of repository."""
+    repo: String!
+  ): DeleteFile
+
+  """
+  Edit a gist.
+  
+  Equivalent to PATCH /gists/{id}
+  """
+  patchGistsId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of gist."""
+    id: Int!
+
+    """No description available."""
+    patchGistInput: PatchGistInput!
+  ): Gist
+
+  """
+  Edit a comment.
+  
+  Equivalent to PATCH /gists/{id}/comments/{commentId}
+  """
+  patchGistsIdCommentsCommentId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of comment."""
+    commentId: Int!
+
+    """No description available."""
+    commentInput: CommentInput!
+
+    """Id of gist."""
+    id: Int!
+  ): Comment
+
+  """
+  Edit an Organization.
+  
+  Equivalent to PATCH /orgs/{org}
+  """
+  patchOrgsOrg(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+
+    """No description available."""
+    patchOrgInput: PatchOrgInput!
+  ): JSON
+
+  """
+  Edit repository.
+  
+  Equivalent to PATCH /repos/{owner}/{repo}
+  """
+  patchReposOwnerRepo(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """No description available."""
+    repoEditInput: RepoEditInput!
+  ): Repo2
+
+  """
+  Update a commit comment.
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/comments/{commentId}
+  """
+  patchReposOwnerRepoCommentsCommentId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    commentBodyInput: CommentBodyInput!
+
+    """Id of comment."""
+    commentId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): CommitComment
+
+  """
+  Update a Reference
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/git/refs/{ref}
+  """
+  patchReposOwnerRepoGitRefsRef(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    gitRefPatchInput: GitRefPatchInput!
+
+    """Name of repository owner."""
+    owner: String!
+    ref: String!
+
+    """Name of repository."""
+    repo: String!
+  ): HeadBranch
+
+  """
+  Edit a hook.
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/hooks/{hookId}
+  """
+  patchReposOwnerRepoHooksHookId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    hookBodyInput: HookBodyInput!
+
+    """Id of hook."""
+    hookId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [HookListItem]
+
+  """
+  Edit a comment.
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/issues/comments/{commentId}
+  """
+  patchReposOwnerRepoIssuesCommentsCommentId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    commentBodyInput: CommentBodyInput!
+
+    """ID of comment."""
+    commentId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): IssuesComment
+
+  """
+  Edit an issue.
+  Issue owners and users with push access can edit an issue.
+  
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/issues/{number}
+  """
+  patchReposOwnerRepoIssuesNumber(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    issueInput: IssueInput!
+
+    """Number of issue."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Issue
+
+  """
+  Update a label.
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/labels/{name}
+  """
+  patchReposOwnerRepoLabelsName(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    emailsPostInput: [String]!
+
+    """Name of the label."""
+    name: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Label
+
+  """
+  Update a milestone.
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/milestones/{number}
+  """
+  patchReposOwnerRepoMilestonesNumber(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    milestoneUpdateInput: MilestoneUpdateInput!
+
+    """Number of milestone."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Milestone
+
+  """
+  Edit a comment.
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/pulls/comments/{commentId}
+  """
+  patchReposOwnerRepoPullsCommentsCommentId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    commentBodyInput: CommentBodyInput!
+
+    """Id of comment."""
+    commentId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): PullsComment
+
+  """
+  Update a pull request.
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/pulls/{number}
+  """
+  patchReposOwnerRepoPullsNumber(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of pull."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """No description available."""
+    pullUpdateInput: PullUpdateInput!
+
+    """Name of repository."""
+    repo: String!
+  ): Repo2
+
+  """
+  Edit a release asset
+  Users with push access to the repository can edit a release asset.
+  
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/releases/assets/{id}
+  """
+  patchReposOwnerRepoReleasesAssetsId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    assetPatchInput: AssetPatchInput!
+    id: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Asset
+
+  """
+  Users with push access to the repository can edit a release
+  
+  Equivalent to PATCH /repos/{owner}/{repo}/releases/{id}
+  """
+  patchReposOwnerRepoReleasesId(
+    """Is used to set specified media type."""
+    accept: String
+    id: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """No description available."""
+    releaseCreateInput: ReleaseCreateInput!
+
+    """Name of repository."""
+    repo: String!
+  ): Release
+
+  """
+  Edit team.
+  In order to edit a team, the authenticated user must be an owner of the org
+  that the team is associated with.
+  
+  
+  Equivalent to PATCH /teams/{teamId}
+  """
+  patchTeamsTeamId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    editTeamInput: EditTeamInput!
+
+    """Id of team."""
+    teamId: Int!
+  ): Team
+
+  """
+  Update the authenticated user.
+  
+  Equivalent to PATCH /user
+  """
+  patchUser(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    userUpdateInput: UserUpdateInput!
+  ): JSON
+
+  """
+  Create a gist.
+  
+  Equivalent to POST /gists
+  """
+  postGists(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    postGistInput: PostGistInput!
+  ): Gist
+
+  """
+  Create a commen
+  
+  Equivalent to POST /gists/{id}/comments
+  """
+  postGistsIdComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    commentBodyInput: CommentBodyInput!
+
+    """Id of gist."""
+    id: Int!
+  ): Comment
+
+  """
+  Create a new repository for the authenticated user. OAuth users must supply
+  repo scope.
+  
+  
+  Equivalent to POST /orgs/{org}/repos
+  """
+  postOrgsOrgRepos(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+
+    """No description available."""
+    postRepoInput: PostRepoInput!
+  ): [Repo2]
+
+  """
+  Create team.
+  In order to create a team, the authenticated user must be an owner of organization.
+  
+  
+  Equivalent to POST /orgs/{org}/teams
+  """
+  postOrgsOrgTeams(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+
+    """No description available."""
+    orgTeamsPostInput: OrgTeamsPostInput!
+  ): Team
+
+  """
+  Create a commit comment.
+  
+  Equivalent to POST /repos/{owner}/{repo}/commits/{shaCode}/comments
+  """
+  postReposOwnerRepoCommitsShaCodeComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    commitCommentBodyInput: CommitCommentBodyInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """SHA-1 code of the commit."""
+    shaCode: String!
+  ): CommitComment
+
+  """
+  Users with push access can create a deployment for a given ref
+  
+  Equivalent to POST /repos/{owner}/{repo}/deployments
+  """
+  postReposOwnerRepoDeployments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    deploymentInput: DeploymentInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): DeploymentResp
+
+  """
+  Create a fork.
+  Forking a Repository happens asynchronously. Therefore, you may have to wai
+  a short period before accessing the git objects. If this takes longer than 5
+  minutes, be sure to contact Support.
+  
+  
+  Equivalent to POST /repos/{owner}/{repo}/forks
+  """
+  postReposOwnerRepoForks(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    forkBodyInput: ForkBodyInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Repo2
+
+  """
+  Create a Blob.
+  
+  Equivalent to POST /repos/{owner}/{repo}/git/blobs
+  """
+  postReposOwnerRepoGitBlobs(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    blobInput: BlobInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Blobs
+
+  """
+  Create a Commit.
+  
+  Equivalent to POST /repos/{owner}/{repo}/git/commits
+  """
+  postReposOwnerRepoGitCommits(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """No description available."""
+    repoCommitBodyInput: RepoCommitBodyInput!
+  ): GitCommit
+
+  """
+  Create a Reference
+  
+  Equivalent to POST /repos/{owner}/{repo}/git/refs
+  """
+  postReposOwnerRepoGitRefs(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """No description available."""
+    refsBodyInput: RefsBodyInput!
+
+    """Name of repository."""
+    repo: String!
+  ): HeadBranch
+
+  """
+  Create a Tag Object.
+  Note that creating a tag object does not create the reference that makes a
+  tag in Git. If you want to create an annotated tag in Git, you have to do
+  this call to create the tag object, and then create the refs/tags/[tag]
+  reference. If you want to create a lightweight tag, you only have to create
+  the tag reference - this call would be unnecessary.
+  
+  
+  Equivalent to POST /repos/{owner}/{repo}/git/tags
+  """
+  postReposOwnerRepoGitTags(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """No description available."""
+    tagBodyInput: TagBodyInput!
+  ): ReposGitTags
+
+  """
+  Create a Tree.
+  The tree creation API will take nested entries as well. If both a tree and
+  a nested path modifying that tree are specified, it will overwrite the
+  contents of that tree with the new path contents and write a new tree out.
+  
+  
+  Equivalent to POST /repos/{owner}/{repo}/git/trees
+  """
+  postReposOwnerRepoGitTrees(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """No description available."""
+    reposGitTreesInput: ReposGitTreesInput!
+  ): Trees
+
+  """
+  Create a hook.
+  
+  Equivalent to POST /repos/{owner}/{repo}/hooks
+  """
+  postReposOwnerRepoHooks(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    hookBodyInput: HookBodyInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [HookListItem]
+
+  """
+  Create an issue.
+  Any user with pull access to a repository can create an issue.
+  
+  
+  Equivalent to POST /repos/{owner}/{repo}/issues
+  """
+  postReposOwnerRepoIssues(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    issueInput: IssueInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Issue
+
+  """
+  Create a comment.
+  
+  Equivalent to POST /repos/{owner}/{repo}/issues/{number}/comments
+  """
+  postReposOwnerRepoIssuesNumberComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    commentBodyInput: CommentBodyInput!
+
+    """Number of issue."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): IssuesComment
+
+  """
+  Add labels to an issue.
+  
+  Equivalent to POST /repos/{owner}/{repo}/issues/{number}/labels
+  """
+  postReposOwnerRepoIssuesNumberLabels(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    emailsPostInput: [String]!
+
+    """Number of issue."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Label
+
+  """
+  Create a key.
+  
+  Equivalent to POST /repos/{owner}/{repo}/keys
+  """
+  postReposOwnerRepoKeys(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """No description available."""
+    userKeysPostInput: UserKeysPostInput!
+  ): UserKeysKeyId
+
+  """
+  Create a label.
+  
+  Equivalent to POST /repos/{owner}/{repo}/labels
+  """
+  postReposOwnerRepoLabels(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    emailsPostInput: [String]!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Label
+
+  """
+  Perform a merge.
+  
+  Equivalent to POST /repos/{owner}/{repo}/merges
+  """
+  postReposOwnerRepoMerges(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    mergesBodyInput: MergesBodyInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): MergesSuccessful
+
+  """
+  Create a milestone.
+  
+  Equivalent to POST /repos/{owner}/{repo}/milestones
+  """
+  postReposOwnerRepoMilestones(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    milestoneUpdateInput: MilestoneUpdateInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Milestone
+
+  """
+  Create a pull request.
+  
+  Equivalent to POST /repos/{owner}/{repo}/pulls
+  """
+  postReposOwnerRepoPulls(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """No description available."""
+    pullsPostInput: PullsPostInput!
+
+    """Name of repository."""
+    repo: String!
+  ): [PullsListItem]
+
+  """
+  Create a comment.
+    #TODO Alternative input ( http://developer.github.com/v3/pulls/comments/ )
+    description: |
+      Alternative Input.
+      Instead of passing commit_id, path, and position you can reply to an
+      existing Pull Request Comment like this:
+  
+          body
+             Required string
+          in_reply_to
+             Required number - Comment id to reply to.
+  
+  
+  Equivalent to POST /repos/{owner}/{repo}/pulls/{number}/comments
+  """
+  postReposOwnerRepoPullsNumberComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of pull."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """No description available."""
+    pullsCommentPostInput: PullsCommentPostInput!
+
+    """Name of repository."""
+    repo: String!
+  ): PullsComment
+
+  """
+  Create a release
+  Users with push access to the repository can create a release.
+  
+  
+  Equivalent to POST /repos/{owner}/{repo}/releases
+  """
+  postReposOwnerRepoReleases(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """No description available."""
+    releaseCreateInput: ReleaseCreateInput!
+
+    """Name of repository."""
+    repo: String!
+  ): Release
+
+  """
+  Create a Status.
+  
+  Equivalent to POST /repos/{owner}/{repo}/statuses/{ref}
+  """
+  postReposOwnerRepoStatusesRef(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    headBranchInput: HeadBranchInput!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """
+    Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+    
+    """
+    ref: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [ReposStatusesListItem]
+
+  """
+  Create a public key.
+  
+  Equivalent to POST /user/keys
+  """
+  postUserKeys(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    userKeysPostInput: UserKeysPostInput!
+  ): UserKeysKeyId
+
+  """
+  Create a new repository for the authenticated user. OAuth users must supply
+  repo scope.
+  
+  
+  Equivalent to POST /user/repos
+  """
+  postUserRepos(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    postRepoInput: PostRepoInput!
+  ): [Repo2]
+
+  """
+  Set a Thread Subscription.
+  This lets you subscribe to a thread, or ignore it. Subscribing to a thread
+  is unnecessary if the user is already subscribed to the repository. Ignoring
+  a thread will mute all future notifications (until you comment or get @mentioned).
+  
+  
+  Equivalent to PUT /notifications/threads/{id}/subscription
+  """
+  putNotificationsThreadsIdSubscription(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of thread."""
+    id: Int!
+
+    """No description available."""
+    putSubscriptionInput: PutSubscriptionInput!
+  ): Subscription
+
+  """
+  Create a file.
+  
+  Equivalent to PUT /repos/{owner}/{repo}/contents/{path}
+  """
+  putReposOwnerRepoContentsPath(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    createFileBodyInput: CreateFileBodyInput!
+
+    """Name of repository owner."""
+    owner: String!
+    path: String!
+
+    """Name of repository."""
+    repo: String!
+  ): CreateFile
+
+  """
+  Replace all labels for an issue.
+  Sending an empty array ([]) will remove all Labels from the Issue.
+  
+  
+  Equivalent to PUT /repos/{owner}/{repo}/issues/{number}/labels
+  """
+  putReposOwnerRepoIssuesNumberLabels(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    emailsPostInput: [String]!
+
+    """Number of issue."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Label
+
+  """
+  Merge a pull request (Merge Button's)
+  
+  Equivalent to PUT /repos/{owner}/{repo}/pulls/{number}/merge
+  """
+  putReposOwnerRepoPullsNumberMerge(
+    """Is used to set specified media type."""
+    accept: String
+
+    """No description available."""
+    mergePullBodyInput: MergePullBodyInput!
+
+    """Id of pull."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Merge
+
+  """
+  Set a Repository Subscription
+  
+  Equivalent to PUT /repos/{owner}/{repo}/subscription
+  """
+  putReposOwnerRepoSubscription(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """No description available."""
+    subscriptionBodyInput: SubscriptionBodyInput!
+  ): Subscription
+
+  """
+  Add team membership.
+  In order to add a membership between a user and a team, the authenticated user
+  must have 'admin' permissions to the team or be an owner of the organization
+  that the team is associated with.
+  
+  If the user is already a part of the team's organization (meaning they're on
+  at least one other team in the organization), this endpoint will add the user to the team.
+  
+  If the user is completely unaffiliated with the team's organization (meaning
+  they're on none of the organization's teams), this endpoint will send an
+  invitation to the user via email. This newly-created membership will be in the
+  'pending' state until the user accepts the invitation, at which point the
+  membership will transition to the 'active' state and the user will be added as
+  a member of the team.
+  
+  
+  Equivalent to PUT /teams/{teamId}/memberships/{username}
+  """
+  putTeamsTeamIdMembershipsUsername(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of team."""
+    teamId: Int!
+
+    """Name of a member."""
+    username: String!
+  ): TeamMembership
+}
+
+"""No description available."""
+input NewFileTxtInput {
+  """No description available."""
+  content: String
+}
+
+"""No description available."""
+type Notifications {
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  lastReadAt: String
+
+  """No description available."""
+  reason: String
+
+  """No description available."""
+  repository: Repository
+
+  """No description available."""
+  subject: Subject
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /notifications/threads/{id}
+  """
+  subscription: Notifications
+
+  """No description available."""
+  unread: Boolean
+
+  """No description available."""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Object {
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  type: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Object3 {
+  """No description available."""
+  sha: String
+
+  """
+  String of the type of the tagged object. Normally this is a commit but it can also be a tree or a blob.
+  """
+  type: Type4
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input ObjectInput {
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  type: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input OldNameTxtInput {
+  """No description available."""
+  content: String
+
+  """No description available."""
+  filename: String
+}
+
+enum Order {
+  desc
+  asc
+}
+
+"""No description available."""
+type Organization3 {
+  """No description available."""
+  avatarUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  login: String
+
+  """No description available."""
+  url: String
+}
+
+type OrganizationPlaceholder {
+  message: String
+}
+
+"""No description available."""
+input OrgTeamsPostInput {
+  """No description available."""
+  name: String!
+
+  """No description available."""
+  permission: Permission
+
+  """No description available."""
+  repoNames: [String]
+}
+
+"""No description available."""
+type Parents2 {
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Parents3ListItem {
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ParentsListItem {
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ParticipationStats {
+  """No description available."""
+  all: [Int]
+
+  """No description available."""
+  owner: [Int]
+}
+
+"""No description available."""
+input PatchGistInput {
+  """No description available."""
+  description: String
+
+  """No description available."""
+  files: Files3Input
+}
+
+"""No description available."""
+input PatchOrgInput {
+  """Billing email address. This address is not publicized."""
+  billingEmail: String
+
+  """No description available."""
+  company: String
+
+  """Publicly visible email address."""
+  email: String
+
+  """No description available."""
+  location: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type Payload
+
+"""No description available."""
+input Payload3Input {
+  """No description available."""
+  deployUser: String
+
+  """No description available."""
+  environment: String
+
+  """No description available."""
+  roomId: Float
+}
+
+enum Permission {
+  pull
+  push
+  admin
+}
+
+"""No description available."""
+type Plan {
+  """No description available."""
+  collaborators: Int
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  privateRepos: Int
+
+  """No description available."""
+  space: Int
+}
+
+"""No description available."""
+input PostGistInput {
+  """No description available."""
+  description: String
+
+  """No description available."""
+  files: Files2Input
+
+  """No description available."""
+  public: Boolean
+}
+
+"""No description available."""
+input PostRepoInput {
+  """True to create an initial commit with empty README. Default is false."""
+  autoInit: Boolean
+
+  """No description available."""
+  description: String
+
+  """
+  Desired language or platform .gitignore template to apply. Use the name of the
+  template without the extension. For example, "Haskell" Ignored if auto_init
+  parameter is not provided. 
+  """
+  gitignoreTemplate: String
+
+  """
+  True to enable downloads for this repository, false to disable them. Default is true.
+  """
+  hasDownloads: Boolean
+
+  """
+  True to enable issues for this repository, false to disable them. Default is true.
+  """
+  hasIssues: Boolean
+
+  """
+  True to enable the wiki for this repository, false to disable it. Default is true.
+  """
+  hasWiki: Boolean
+
+  """No description available."""
+  homepage: String
+
+  """No description available."""
+  name: String!
+
+  """
+  True to create a private repository, false to create a public one. Creating
+  private repositories requires a paid GitHub account.
+  """
+  private: Boolean
+
+  """
+  The id of the team that will be granted access to this repository. This is
+  only valid when creating a repo in an organization.
+  """
+  teamId: Int
+}
+
+"""No description available."""
+type PullRequest {
+  """No description available."""
+  diffUrl: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  patchUrl: String
+}
+
+"""No description available."""
+type PullRequest2 {
+  """No description available."""
+  href: String
+}
+
+"""No description available."""
+type PullRequest3 {
+  """No description available."""
+  diffUrl: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  patchUrl: String
+}
+
+"""No description available."""
+type PullsComment {
+  """No description available."""
+  body: String
+
+  """No description available."""
+  commitId: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  links: Links4
+
+  """No description available."""
+  path: String
+
+  """No description available."""
+  position: Int
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """No description available."""
+  user: User4
+}
+
+"""No description available."""
+input PullsCommentPostInput {
+  """No description available."""
+  body: String
+
+  """No description available."""
+  commitId: String
+
+  """No description available."""
+  path: String
+
+  """No description available."""
+  position: Float
+}
+
+"""No description available."""
+type PullsListItem {
+  """No description available."""
+  base: Base2
+
+  """No description available."""
+  body: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  closedAt: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  diffUrl: String
+
+  """No description available."""
+  head: Head2
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  issueUrl: String
+
+  """No description available."""
+  links: Links5
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  mergedAt: String
+
+  """No description available."""
+  number: Int
+
+  """No description available."""
+  patchUrl: String
+
+  """No description available."""
+  state: State
+
+  """No description available."""
+  title: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """No description available."""
+  user: User4
+}
+
+"""No description available."""
+input PullsPostInput {
+  """No description available."""
+  base: String
+
+  """No description available."""
+  body: String
+
+  """No description available."""
+  head: String
+
+  """No description available."""
+  title: String
+}
+
+"""No description available."""
+input PullUpdateInput {
+  """No description available."""
+  body: String
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  title: String
+}
+
+"""No description available."""
+input PutSubscriptionInput {
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  ignored: Boolean
+
+  """No description available."""
+  reason: JSON
+
+  """No description available."""
+  subscribed: Boolean
+
+  """No description available."""
+  threadUrl: String
+
+  """No description available."""
+  url: String
+}
+
+"""The start of any query"""
+type Query {
+  """
+  Get a single release asset
+  
+  Equivalent to GET /repos/{owner}/{repo}/releases/assets/{id}
+  """
+  asset(
+    """Is used to set specified media type."""
+    accept: String
+    id: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Asset
+
+  """
+  List assignees.
+  This call lists all the available assignees (owner + collaborators) to which
+  issues may be assigned.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/assignees
+  """
+  assignees(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [JSON]
+
+  """
+  Get a Blob.
+  Since blobs can be any arbitrary binary data, the input and responses for
+  the blob API takes an encoding parameter that can be either utf-8 or
+  base64. If your data cannot be losslessly sent as a UTF-8 string, you can
+  base64 encode it.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/git/blobs/{shaCode}
+  """
+  blob(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """SHA-1 code."""
+    shaCode: String!
+  ): Blob
+
+  """
+  Get Branch
+  
+  Equivalent to GET /repos/{owner}/{repo}/branches/{branch}
+  """
+  branch(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of the branch."""
+    branch: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Branch
+
+  """
+  Get list of branches
+  
+  Equivalent to GET /repos/{owner}/{repo}/branches
+  """
+  branches(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [BranchesListItem]
+
+  """
+  Get the number of additions and deletions per week.
+  Returns a weekly aggregate of the number of additions and deletions pushed
+  to a repository.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/stats/code_frequency
+  """
+  codeFrequencyStats(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [Int]
+
+  """
+  Get a single comment.
+  
+  Equivalent to GET /gists/{id}/comments/{commentId}
+  """
+  comment(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of comment."""
+    commentId: Int!
+
+    """Id of gist."""
+    id: Int!
+  ): Comment
+
+  """
+  Get the last year of commit activity data.
+  Returns the last year of commit activity grouped by week. The days array
+  is a group of commits per day, starting on Sunday.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/stats/commit_activity
+  """
+  commitActivityStats(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [CommitActivityStatsListItem]
+
+  """
+  Get a single commit comment.
+  
+  Equivalent to GET /repos/{owner}/{repo}/comments/{commentId}
+  """
+  commitComment(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of comment."""
+    commentId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): CommitComment
+
+  """
+  List commits on a repository.
+  
+  Equivalent to GET /repos/{owner}/{repo}/commits
+  """
+  commits(
+    """Is used to set specified media type."""
+    accept: String
+
+    """GitHub login, name, or email by which to filter by commit author."""
+    author: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Only commits containing this file path will be returned."""
+    path: String
+
+    """Name of repository."""
+    repo: String!
+
+    """Sha or branch to start listing commits from."""
+    sha: String
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+
+    """ISO 8601 Date - Only commits before this date will be returned."""
+    until: String
+  ): [CommitsListItem]
+
+  """
+  Compare two commits
+  
+  Equivalent to GET /repos/{owner}/{repo}/compare/{baseId}...{headId}
+  """
+  compareCommits(
+    """Is used to set specified media type."""
+    accept: String
+    baseId: String!
+    headId: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): CompareCommits
+
+  """
+  Get contents.
+  This method returns the contents of a file or directory in a repository.
+  Files and symlinks support a custom media type for getting the raw content.
+  Directories and submodules do not support custom media types.
+  Note: This API supports files up to 1 megabyte in size.
+  Here can be many outcomes. For details see "http://developer.github.com/v3/repos/contents/"
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/contents/{path}
+  """
+  contentsPath(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """The content path."""
+    path: String
+
+    """The String name of the Commit/Branch/Tag. Defaults to 'master'."""
+    ref: String
+
+    """Name of repository."""
+    repo: String!
+  ): ContentsPath
+
+  """
+  Get contributors list with additions, deletions, and commit counts.
+  
+  Equivalent to GET /repos/{owner}/{repo}/stats/contributors
+  """
+  contributorsStats(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [ContributorsStatsListItem]
+
+  """
+  Users with pull access can view deployment statuses for a deployment
+  
+  Equivalent to GET /repos/{owner}/{repo}/deployments/{id}/statuses
+  """
+  deploymentStatuses(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The Deployment ID to list the statuses from."""
+    id: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [DeploymentStatusesListItem]
+
+  """
+  Deprecated. Get a single download.
+  
+  Equivalent to GET /repos/{owner}/{repo}/downloads/{downloadId}
+  """
+  download(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of download."""
+    downloadId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Download
+
+  """
+  Deprecated. List downloads for a repository.
+  
+  Equivalent to GET /repos/{owner}/{repo}/downloads
+  """
+  downloads(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [Download]
+
+  """
+  Lists all the emojis available to use on GitHub.
+  
+  Equivalent to GET /emojis
+  """
+  emojis(
+    """Is used to set specified media type."""
+    accept: String
+  ): JSON
+
+  """
+  List public events.
+  
+  Equivalent to GET /events
+  """
+  events(
+    """Is used to set specified media type."""
+    accept: String
+  ): [Event]
+
+  """
+  List Feeds.
+  GitHub provides several timeline resources in Atom format. The Feeds API
+   lists all the feeds available to the authenticating user.
+  
+  
+  Equivalent to GET /feeds
+  """
+  feeds(
+    """Is used to set specified media type."""
+    accept: String
+  ): Feeds
+
+  """
+  List all public gists.
+  
+  Equivalent to GET /gists/public
+  """
+  getGistsPublic(
+    """Is used to set specified media type."""
+    accept: String
+
+    """
+    Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+    Only gists updated at or after this time are returned.
+    
+    """
+    since: String
+  ): [GistsListItem]
+
+  """
+  List the authenticated user's starred gists.
+  
+  Equivalent to GET /gists/starred
+  """
+  getGistsStarred(
+    """Is used to set specified media type."""
+    accept: String
+
+    """
+    Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+    Only gists updated at or after this time are returned.
+    
+    """
+    since: String
+  ): [GistsListItem]
+
+  """
+  List public events for a network of repositories.
+  
+  Equivalent to GET /networks/{owner}/{repo}/events
+  """
+  getNetworksOwnerRepoEvents(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of the owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [Event]
+
+  """
+  View a single thread.
+  
+  Equivalent to GET /notifications/threads/{id}
+  """
+  getNotificationsThreadsId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of thread."""
+    id: Int!
+  ): Notifications
+
+  """
+  List public events for an organization.
+  
+  Equivalent to GET /orgs/{org}/events
+  """
+  getOrgsOrgEvents(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+  ): [Event]
+
+  """
+  List issues.
+  List all issues for a given organization for the authenticated user.
+  
+  
+  Equivalent to GET /orgs/{org}/issues
+  """
+  getOrgsOrgIssues(
+    """Is used to set specified media type."""
+    accept: String
+    direction: Direction2
+
+    """
+    Issues assigned to you / created by you / mentioning you / you're
+    subscribed to updates for / All issues the authenticated user can see
+    
+    """
+    filter: Filter
+
+    """String list of comma separated Label names. Example - bug,ui,@high."""
+    labels: String!
+
+    """Name of organisation."""
+    org: String!
+
+    """
+    Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Only issues updated at or after this time are returned.
+    
+    """
+    since: String
+    sort: Sort7
+    state: State4
+  ): [IssuesListItem]
+
+  """
+  Public members list.
+  Members of an organization can choose to have their membership publicized
+  or not.
+  
+  
+  Equivalent to GET /orgs/{org}/public_members
+  """
+  getOrgsOrgPublicMembers(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+  ): [JSON]
+
+  """
+  List.
+  When authenticating as an organization owner of an organization-owned
+  repository, all organization owners are included in the list of
+  collaborators. Otherwise, only users with access to the repository are
+  returned in the collaborators list.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/collaborators
+  """
+  getReposOwnerRepoCollaborators(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [JSON]
+
+  """
+  List comments for a single commitList comments for a single commit.
+  
+  Equivalent to GET /repos/{owner}/{repo}/commits/{shaCode}/comments
+  """
+  getReposOwnerRepoCommitsShaCodeComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """SHA-1 code of the commit."""
+    shaCode: String!
+  ): [RepoCommentsListItem]
+
+  """
+  Get list of contributors.
+  
+  Equivalent to GET /repos/{owner}/{repo}/contributors
+  """
+  getReposOwnerRepoContributors(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Set to 1 or true to include anonymous contributors in results."""
+    anon: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [JSON]
+
+  """
+  Get list of repository events.
+  
+  Equivalent to GET /repos/{owner}/{repo}/events
+  """
+  getReposOwnerRepoEvents(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [Event]
+
+  """
+  Get single hook.
+  
+  Equivalent to GET /repos/{owner}/{repo}/hooks/{hookId}
+  """
+  getReposOwnerRepoHooksHookId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of hook."""
+    hookId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [HookListItem]
+
+  """
+  List issues for a repository.
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues
+  """
+  getReposOwnerRepoIssues(
+    """Is used to set specified media type."""
+    accept: String
+    direction: Direction2
+
+    """
+    Issues assigned to you / created by you / mentioning you / you're
+    subscribed to updates for / All issues the authenticated user can see
+    
+    """
+    filter: Filter
+
+    """String list of comma separated Label names. Example - bug,ui,@high."""
+    labels: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """
+    Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Only issues updated at or after this time are returned.
+    
+    """
+    since: String
+    sort: Sort7
+    state: State4
+  ): [IssuesListItem]
+
+  """
+  List comments on an issue.
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/{number}/comments
+  """
+  getReposOwnerRepoIssuesNumberComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Number of issue."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [IssuesCommentsListItem]
+
+  """
+  List events for an issue.
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/{number}/events
+  """
+  getReposOwnerRepoIssuesNumberEvents(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Number of issue."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [IssueEvent]
+
+  """
+  List all labels for this repository.
+  
+  Equivalent to GET /repos/{owner}/{repo}/labels
+  """
+  getReposOwnerRepoLabels(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [ReposIssuesLabelsListItem]
+
+  """
+  Get a single milestone.
+  
+  Equivalent to GET /repos/{owner}/{repo}/milestones/{number}
+  """
+  getReposOwnerRepoMilestonesNumber(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Number of milestone."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Milestone
+
+  """
+  Get labels for every issue in a milestone.
+  
+  Equivalent to GET /repos/{owner}/{repo}/milestones/{number}/labels
+  """
+  getReposOwnerRepoMilestonesNumberLabels(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Number of milestone."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [ReposIssuesLabelsListItem]
+
+  """
+  List your notifications in a repository
+  List all notifications for the current user.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/notifications
+  """
+  getReposOwnerRepoNotifications(
+    """Is used to set specified media type."""
+    accept: String
+
+    """True to show notifications marked as read."""
+    all: Boolean
+
+    """Name of repository owner."""
+    owner: String!
+
+    """
+    True to show only notifications in which the user is directly participating
+    or mentioned.
+    
+    """
+    participating: Boolean
+
+    """Name of repository."""
+    repo: String!
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+  ): Notifications
+
+  """
+  List comments in a repository.
+  By default, Review Comments are ordered by ascending ID.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls/comments
+  """
+  getReposOwnerRepoPullsComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Ignored without 'sort' parameter."""
+    direction: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+    sort: Sort9
+  ): [IssuesCommentsListItem]
+
+  """
+  List comments on a pull request.
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}/comments
+  """
+  getReposOwnerRepoPullsNumberComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of pull."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): PullsComment
+
+  """
+  List commits on a pull request.
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}/commits
+  """
+  getReposOwnerRepoPullsNumberCommits(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of pull."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [CommitsListItem]
+
+  """
+  List pull requests files.
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}/files
+  """
+  getReposOwnerRepoPullsNumberFiles(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of pull."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [PullsListItem]
+
+  """
+  Get the README.
+  This method returns the preferred README for a repository.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/readme
+  """
+  getReposOwnerRepoReadme(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """The String name of the Commit/Branch/Tag. Defaults to master."""
+    ref: String
+
+    """Name of repository."""
+    repo: String!
+  ): ContentsPath
+
+  """
+  List Stargazers.
+  
+  Equivalent to GET /repos/{owner}/{repo}/stargazers
+  """
+  getReposOwnerRepoStargazers(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [JSON]
+
+  """
+  Get the number of commits per hour in each day.
+  Each array contains the day number, hour number, and number of commits
+  0-6 Sunday - Saturday
+  0-23 Hour of day
+  Number of commits
+  
+  For example, [2, 14, 25] indicates that there were 25 total commits, during
+  the 2.00pm hour on Tuesdays. All times are based on the time zone of
+  individual commits.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/stats/punch_card
+  """
+  getReposOwnerRepoStatsPunchCard(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [Int]
+
+  """
+  List watchers.
+  
+  Equivalent to GET /repos/{owner}/{repo}/subscribers
+  """
+  getReposOwnerRepoSubscribers(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [JSON]
+
+  """
+  Get a Repository Subscription.
+  
+  Equivalent to GET /repos/{owner}/{repo}/subscription
+  """
+  getReposOwnerRepoSubscription(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Subscription
+
+  """
+  Get list of teams
+  
+  Equivalent to GET /repos/{owner}/{repo}/teams
+  """
+  getReposOwnerRepoTeams(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [TeamsListItem]
+
+  """
+  List Stargazers. New implementation.
+  
+  Equivalent to GET /repos/{owner}/{repo}/watchers
+  """
+  getReposOwnerRepoWatchers(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [JSON]
+
+  """
+  List all public repositories.
+  This provides a dump of every public repository, in the order that they
+  were created.
+  Note: Pagination is powered exclusively by the since parameter. is the
+  Link header to get the URL for the next page of repositories.
+  
+  
+  Equivalent to GET /repositories
+  """
+  getRepositories(
+    """Is used to set specified media type."""
+    accept: String
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+  ): [Repo2]
+
+  """
+  List team members.
+  In order to list members in a team, the authenticated user must be a member
+  of the team.
+  
+  
+  Equivalent to GET /teams/{teamId}/members
+  """
+  getTeamsTeamIdMembers(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of team."""
+    teamId: Int!
+  ): [JSON]
+
+  """
+  List the authenticated user's followers
+  
+  Equivalent to GET /user/followers
+  """
+  getUserFollowers(
+    """Is used to set specified media type."""
+    accept: String
+  ): [JSON]
+
+  """
+  List who the authenticated user is following.
+  
+  Equivalent to GET /user/following
+  """
+  getUserFollowing(
+    """Is used to set specified media type."""
+    accept: String
+  ): [JSON]
+
+  """
+  List issues.
+  List all issues across owned and member repositories for the authenticated
+  user.
+  
+  
+  Equivalent to GET /user/issues
+  """
+  getUserIssues(
+    """Is used to set specified media type."""
+    accept: String
+    direction: Direction2
+
+    """
+    Issues assigned to you / created by you / mentioning you / you're
+    subscribed to updates for / All issues the authenticated user can see
+    
+    """
+    filter: Filter
+
+    """String list of comma separated Label names. Example - bug,ui,@high."""
+    labels: String!
+
+    """
+    Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Only issues updated at or after this time are returned.
+    
+    """
+    since: String
+    sort: Sort7
+    state: State4
+  ): [IssuesListItem]
+
+  """
+  List your public keys.
+  Lists the current user's keys. Management of public keys via the API requires
+  that you are authenticated through basic auth, or OAuth with the 'user', 'write:public_key' scopes.
+  
+  
+  Equivalent to GET /user/keys
+  """
+  getUserKeys(
+    """Is used to set specified media type."""
+    accept: String
+  ): [String]
+
+  """
+  Get a single public key.
+  
+  Equivalent to GET /user/keys/{keyId}
+  """
+  getUserKeysKeyId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """ID of key."""
+    keyId: Int!
+  ): UserKeysKeyId
+
+  """
+  List public and private organizations for the authenticated user.
+  
+  Equivalent to GET /user/orgs
+  """
+  getUserOrgs(
+    """Is used to set specified media type."""
+    accept: String
+  ): [String]
+
+  """
+  List repositories for the authenticated user. Note that this does not include
+  repositories owned by organizations which the user can access. You can lis
+  user organizations and list organization repositories separately.
+  
+  
+  Equivalent to GET /user/repos
+  """
+  getUserRepos(
+    """Is used to set specified media type."""
+    accept: String
+    type: Type6
+  ): [Repo2]
+
+  """
+  List repositories being starred by the authenticated user.
+  
+  Equivalent to GET /user/starred
+  """
+  getUserStarred(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Ignored without 'sort' parameter."""
+    direction: String
+    sort: Sort10
+  ): [String]
+
+  """
+  List repositories being watched by the authenticated user.
+  
+  Equivalent to GET /user/subscriptions
+  """
+  getUserSubscriptions(
+    """Is used to set specified media type."""
+    accept: String
+  ): [Repo2]
+
+  """
+  Get all users.
+  This provides a dump of every user, in the order that they signed up for GitHub.
+  Note: Pagination is powered exclusively by the since parameter. Use the Link
+  header to get the URL for the next page of users.
+  
+  
+  Equivalent to GET /users
+  """
+  getUsers(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The integer ID of the last user that you've seen."""
+    since: Int
+  ): [JSON]
+
+  """
+  Get a single user.
+  
+  Equivalent to GET /users/{username}
+  """
+  getUsersUsername(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of user."""
+    username: String!
+  ): JSON
+
+  """
+  List a user's followers
+  
+  Equivalent to GET /users/{username}/followers
+  """
+  getUsersUsernameFollowers(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of user."""
+    username: String!
+  ): [JSON]
+
+  """
+  List a users gists.
+  
+  Equivalent to GET /users/{username}/gists
+  """
+  getUsersUsernameGists(
+    """Is used to set specified media type."""
+    accept: String
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+
+    """Name of user."""
+    username: String!
+  ): [GistsListItem]
+
+  """
+  List public keys for a user.
+  Lists the verified public keys for a user. This is accessible by anyone.
+  
+  
+  Equivalent to GET /users/{username}/keys
+  """
+  getUsersUsernameKeys(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of user."""
+    username: String!
+  ): [String]
+
+  """
+  List all public organizations for a user.
+  
+  Equivalent to GET /users/{username}/orgs
+  """
+  getUsersUsernameOrgs(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of user."""
+    username: String!
+  ): [String]
+
+  """
+  List public repositories for the specified user.
+  
+  Equivalent to GET /users/{username}/repos
+  """
+  getUsersUsernameRepos(
+    """Is used to set specified media type."""
+    accept: String
+    type: Type6
+
+    """Name of user."""
+    username: String!
+  ): [Repo2]
+
+  """
+  Get a single gist.
+  
+  Equivalent to GET /gists/{id}
+  """
+  gist(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of gist."""
+    id: Int!
+  ): Gist
+
+  """
+  List the authenticated user's gists or if called anonymously, this will
+  return all public gists.
+  
+  
+  Equivalent to GET /gists
+  """
+  gists(
+    """Is used to set specified media type."""
+    accept: String
+
+    """
+    Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+    Only gists updated at or after this time are returned.
+    
+    """
+    since: String
+  ): [GistsListItem]
+
+  """
+  List comments on a gist.
+  
+  Equivalent to GET /gists/{id}/comments
+  """
+  gistsComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of gist."""
+    id: Int!
+  ): [GistsCommentsListItem]
+
+  """
+  Listing available templates.
+  List all templates available to pass as an option when creating a repository.
+  
+  
+  Equivalent to GET /gitignore/templates
+  """
+  gitignore(
+    """Is used to set specified media type."""
+    accept: String
+  ): [String]
+
+  """
+  Get a single template.
+  
+  Equivalent to GET /gitignore/templates/{language}
+  """
+  gitignoreLang(
+    """Is used to set specified media type."""
+    accept: String
+    language: String!
+  ): GitignoreLang
+
+  """
+  Get a Reference
+  
+  Equivalent to GET /repos/{owner}/{repo}/git/refs/{ref}
+  """
+  headBranch(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+    ref: String!
+
+    """Name of repository."""
+    repo: String!
+  ): HeadBranch
+
+  """
+  Get list of hooks.
+  
+  Equivalent to GET /repos/{owner}/{repo}/hooks
+  """
+  hook(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [HookListItem]
+
+  """
+  Get a single issue
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/{number}
+  """
+  issue(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Number of issue."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Issue
+
+  """
+  Get a single event.
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/events/{eventId}
+  """
+  issueEvent(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of the event."""
+    eventId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): IssueEvent
+
+  """
+  List issue events for a repository.
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/events
+  """
+  issueEvents(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [IssueEvent]
+
+  """
+  List issues.
+  List all issues across all the authenticated user's visible repositories.
+  
+  
+  Equivalent to GET /issues
+  """
+  issues(
+    """Is used to set specified media type."""
+    accept: String
+    direction: Direction2
+
+    """
+    Issues assigned to you / created by you / mentioning you / you're
+    subscribed to updates for / All issues the authenticated user can see
+    
+    """
+    filter: Filter
+
+    """String list of comma separated Label names. Example - bug,ui,@high."""
+    labels: String!
+
+    """
+    Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Only issues updated at or after this time are returned.
+    
+    """
+    since: String
+    sort: Sort7
+    state: State4
+  ): [IssuesListItem]
+
+  """
+  Get a single comment.
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/comments/{commentId}
+  """
+  issuesComment(
+    """Is used to set specified media type."""
+    accept: String
+
+    """ID of comment."""
+    commentId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): IssuesComment
+
+  """
+  List comments in a repository.
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/comments
+  """
+  issuesComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Ignored without 'sort' parameter."""
+    direction: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+    sort: Sort9
+  ): [IssuesCommentsListItem]
+
+  """
+  Get list of keys.
+  
+  Equivalent to GET /repos/{owner}/{repo}/keys
+  """
+  keys(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [KeysListItem]
+
+  """
+  Get a single label.
+  
+  Equivalent to GET /repos/{owner}/{repo}/labels/{name}
+  """
+  label(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of the label."""
+    name: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Label
+
+  """
+  List languages.
+  List languages for the specified repository. The value on the right of a
+  language is the number of bytes of code written in that language.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/languages
+  """
+  languages(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): JSON
+
+  """
+  This gives some information about GitHub.com, the service.
+  
+  Equivalent to GET /meta
+  """
+  meta(
+    """Is used to set specified media type."""
+    accept: String
+  ): Meta
+
+  """
+  List milestones for a repository.
+  
+  Equivalent to GET /repos/{owner}/{repo}/milestones
+  """
+  milestone(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Ignored without 'sort' parameter."""
+    direction: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+    sort: Sort2
+
+    """String to filter by state."""
+    state: State4
+  ): Milestone
+
+  """
+  List your notifications.
+  List all notifications for the current user, grouped by repository.
+  
+  
+  Equivalent to GET /notifications
+  """
+  notifications(
+    """Is used to set specified media type."""
+    accept: String
+
+    """True to show notifications marked as read."""
+    all: Boolean
+
+    """
+    True to show only notifications in which the user is directly participating
+    or mentioned.
+    
+    """
+    participating: Boolean
+
+    """
+    The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+    Example: "2012-10-09T23:39:01Z".
+    
+    """
+    since: String
+  ): Notifications
+
+  """
+  Get an Organization.
+  
+  Equivalent to GET /orgs/{org}
+  """
+  organization(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+  ): JSON
+
+  """
+  Get the weekly commit count for the repo owner and everyone else.
+  
+  Equivalent to GET /repos/{owner}/{repo}/stats/participation
+  """
+  participationStats(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): ParticipationStats
+
+  """
+  List pull requests.
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls
+  """
+  pulls(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Filter pulls by base branch name. Example - gh-pages."""
+    base: String
+
+    """
+    Filter pulls by head user and branch name in the format of 'user:ref-name'.
+    Example: github:new-script-format.
+    
+    """
+    head: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """String to filter by state."""
+    state: State4
+  ): [PullsListItem]
+
+  """
+  Get a single comment.
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls/comments/{commentId}
+  """
+  pullsComment(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of comment."""
+    commentId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): PullsComment
+
+  """
+  Get your current rate limit status
+  Note: Accessing this endpoint does not count against your rate limit.
+  
+  
+  Equivalent to GET /rate_limit
+  """
+  rateLimit(
+    """Is used to set specified media type."""
+    accept: String
+  ): RateLimit
+
+  """
+  Get the combined Status for a specific Ref
+  The Combined status endpoint is currently available for developers to preview.
+  During the preview period, the API may change without advance notice. Please
+  see the blog post for full details.
+  To access this endpoint during the preview period, you must provide a custom media type in the Accept header:
+  application/vnd.github.she-hulk-preview+json
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/commits/{ref}/status
+  """
+  refStatus(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+    ref: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [RefStatusListItem]
+
+  """
+  Get all References
+  
+  Equivalent to GET /repos/{owner}/{repo}/git/refs
+  """
+  refs(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [RefsListItem]
+
+  """
+  Get a single release
+  
+  Equivalent to GET /repos/{owner}/{repo}/releases/{id}
+  """
+  release(
+    """Is used to set specified media type."""
+    accept: String
+    id: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Release
+
+  """
+  Users with push access to the repository will receive all releases (i.e.,
+  published releases and draft releases). Users with pull access will receive
+  published releases only
+  
+  Equivalent to GET /repos/{owner}/{repo}/releases
+  """
+  releases(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [ReleasesListItem]
+
+  """
+  Get repository.
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  repo2(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): Repo2
+
+  """
+  List commit comments for a repository.
+  Comments are ordered by ascending ID.
+  
+  
+  Equivalent to GET /repos/{owner}/{repo}/comments
+  """
+  repoComments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [RepoCommentsListItem]
+
+  """
+  Get a Commit.
+  
+  Equivalent to GET /repos/{owner}/{repo}/git/commits/{shaCode}
+  """
+  repoCommit(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """SHA-1 code."""
+    shaCode: String!
+  ): RepoCommit
+
+  """
+  Users with pull access can view deployments for a repository
+  
+  Equivalent to GET /repos/{owner}/{repo}/deployments
+  """
+  repoDeployments(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [RepoDeploymentsListItem]
+
+  """
+  List repositories for the specified org.
+  
+  Equivalent to GET /orgs/{org}/repos
+  """
+  repos(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+    type: Type6
+  ): [Repo2]
+
+  """
+  Get a single commit.
+  
+  Equivalent to GET /repos/{owner}/{repo}/commits/{shaCode}
+  """
+  reposCommits(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+
+    """SHA-1 code of the commit."""
+    shaCode: String!
+  ): ReposCommits
+
+  """
+  List forks.
+  
+  Equivalent to GET /repos/{owner}/{repo}/forks
+  """
+  reposForks(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+    sort: Sort8
+  ): [Repo2]
+
+  """
+  Get a Tag.
+  
+  Equivalent to GET /repos/{owner}/{repo}/git/tags/{shaCode}
+  """
+  reposGitTags(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+    shaCode: String!
+  ): ReposGitTags
+
+  """
+  Get a Tree.
+  
+  Equivalent to GET /repos/{owner}/{repo}/git/trees/{shaCode}
+  """
+  reposGitTrees(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Get a Tree Recursively. (0 or 1)"""
+    recursive: Int
+
+    """Name of repository."""
+    repo: String!
+
+    """Tree SHA."""
+    shaCode: String!
+  ): ReposGitTrees
+
+  """
+  List labels on an issue.
+  
+  Equivalent to GET /repos/{owner}/{repo}/issues/{number}/labels
+  """
+  reposIssuesLabels(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Number of issue."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [ReposIssuesLabelsListItem]
+
+  """
+  Get a single pull request.
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}
+  """
+  reposPulls(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of pull."""
+    number: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): ReposPulls
+
+  """
+  List assets for a release
+  
+  Equivalent to GET /repos/{owner}/{repo}/releases/{id}/assets
+  """
+  reposReleasesAssets(
+    """Is used to set specified media type."""
+    accept: String
+    id: String!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [Asset]
+
+  """
+  List Statuses for a specific Ref.
+  
+  Equivalent to GET /repos/{owner}/{repo}/statuses/{ref}
+  """
+  reposStatuses(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """
+    Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+    
+    """
+    ref: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [ReposStatusesListItem]
+
+  """
+  Search code.
+  
+  Equivalent to GET /search/code
+  """
+  searchCode(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The sort field. if sort param is provided. Can be either asc or desc."""
+    order: Order
+
+    """
+    The search terms. This can be any combination of the supported code
+    search parameters:
+    'Search In' Qualifies which fields are searched. With this qualifier
+    you can restrict the search to just the file contents, the file path,
+    or both.
+    'Languages' Searches code based on the language it's written in.
+    'Forks' Filters repositories based on the number of forks, and/or
+    whether code from forked repositories should be included in the results
+    at all.
+    'Size' Finds files that match a certain size (in bytes).
+    'Path' Specifies the path that the resulting file must be at.
+    'Extension' Matches files with a certain extension.
+    'Users' or 'Repositories' Limits searches to a specific user or repository.
+    
+    """
+    q: String!
+
+    """
+    Can only be 'indexed', which indicates how recently a file has been indexed
+    by the GitHub search infrastructure. If not provided, results are sorted
+    by best match.
+    
+    """
+    sort: Sort3
+  ): SearchCode
+
+  """
+  Find issues by state and keyword. (This method returns up to 100 results per page.)
+  
+  Equivalent to GET /search/issues
+  """
+  searchIssues(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The sort field. if sort param is provided. Can be either asc or desc."""
+    order: Order
+
+    """
+    The q search term can also contain any combination of the supported issue search qualifiers:
+    """
+    q: String!
+
+    """
+    The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
+    """
+    sort: Sort4
+  ): SearchIssues
+
+  """
+  Find issues by state and keyword.
+  
+  Equivalent to GET /legacy/issues/search/{owner}/{repository}/{state}/{keyword}
+  """
+  searchIssuesByKeyword(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The search term."""
+    keyword: String!
+    owner: String!
+    repository: String!
+
+    """
+    Indicates the state of the issues to return. Can be either open or closed.
+    """
+    state: State3!
+  ): SearchIssuesByKeyword
+
+  """
+  Search repositories.
+  
+  Equivalent to GET /search/repositories
+  """
+  searchRepositories(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The sort field. if sort param is provided. Can be either asc or desc."""
+    order: Order
+
+    """
+    The search terms. This can be any combination of the supported repository
+    search parameters:
+    'Search In' Qualifies which fields are searched. With this qualifier you
+    can restrict the search to just the repository name, description, readme,
+    or any combination of these.
+    'Size' Finds repositories that match a certain size (in kilobytes).
+    'Forks' Filters repositories based on the number of forks, and/or whether
+    forked repositories should be included in the results at all.
+    'Created' and 'Last Updated' Filters repositories based on times of
+    creation, or when they were last updated.
+    'Users or Repositories' Limits searches to a specific user or repository.
+    'Languages' Searches repositories based on the language they are written in.
+    'Stars' Searches repositories based on the number of stars.
+    
+    """
+    q: String!
+
+    """If not provided, results are sorted by best match."""
+    sort: Sort5
+  ): SearchRepositories
+
+  """
+  Find repositories by keyword. Note, this legacy method does not follow the v3
+  pagination pattern. This method returns up to 100 results per page and pages
+  can be fetched using the start_page parameter.
+  
+  Equivalent to GET /legacy/repos/search/{keyword}
+  """
+  searchRepositoriesByKeyword(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The search term"""
+    keyword: String!
+
+    """Filter results by language"""
+    language: String
+
+    """The sort field. if sort param is provided. Can be either asc or desc."""
+    order: Order
+
+    """
+    The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+    """
+    sort: Sort
+
+    """The page number to fetch"""
+    startPage: String
+  ): SearchRepositoriesByKeyword
+
+  """
+  This API call is added for compatibility reasons only.
+  
+  Equivalent to GET /legacy/user/email/{email}
+  """
+  searchUserByEmail(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The email address"""
+    email: String!
+  ): SearchUserByEmail
+
+  """
+  Search users.
+  
+  Equivalent to GET /search/users
+  """
+  searchUsers(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The sort field. if sort param is provided. Can be either asc or desc."""
+    order: Order
+
+    """
+    The search terms. This can be any combination of the supported user
+    search parameters:
+    'Search In' Qualifies which fields are searched. With this qualifier you
+    can restrict the search to just the username, public email, full name,
+    location, or any combination of these.
+    'Repository count' Filters users based on the number of repositories they
+    have.
+    'Location' Filter users by the location indicated in their profile.
+    'Language' Search for users that have repositories that match a certain
+    language.
+    'Created' Filter users based on when they joined.
+    'Followers' Filter users based on the number of followers they have.
+    
+    """
+    q: String!
+
+    """If not provided, results are sorted by best match."""
+    sort: Sort6
+  ): SearchUsers
+
+  """
+  Find users by keyword.
+  
+  Equivalent to GET /legacy/user/search/{keyword}
+  """
+  searchUsersByKeyword(
+    """Is used to set specified media type."""
+    accept: String
+
+    """The search term"""
+    keyword: String!
+
+    """The sort field. if sort param is provided. Can be either asc or desc."""
+    order: Order
+
+    """
+    The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+    """
+    sort: Sort
+
+    """The page number to fetch"""
+    startPage: String
+  ): SearchUsersByKeyword
+
+  """
+  Get a Thread Subscription.
+  
+  Equivalent to GET /notifications/threads/{id}/subscription
+  """
+  subscription(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of thread."""
+    id: Int!
+  ): Subscription
+
+  """
+  Get list of tags.
+  
+  Equivalent to GET /repos/{owner}/{repo}/tags
+  """
+  tags(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): [ReposGitTags]
+
+  """
+  Get team.
+  
+  Equivalent to GET /teams/{teamId}
+  """
+  team(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of team."""
+    teamId: Int!
+  ): Team
+
+  """
+  Get team membership.
+  In order to get a user's membership with a team, the authenticated user must
+  be a member of the team or an owner of the team's organization.
+  
+  
+  Equivalent to GET /teams/{teamId}/memberships/{username}
+  """
+  teamMembership(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of team."""
+    teamId: Int!
+
+    """Name of a member."""
+    username: String!
+  ): TeamMembership
+
+  """
+  List team repos
+  
+  Equivalent to GET /teams/{teamId}/repos
+  """
+  teamRepos(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of team."""
+    teamId: Int!
+  ): [Repo2]
+
+  """
+  List teams.
+  
+  Equivalent to GET /orgs/{org}/teams
+  """
+  teams(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+  ): [TeamsListItem]
+
+  """
+  List all of the teams across all of the organizations to which the
+  authenticated user belongs. This method requires user or repo scope when
+  authenticating via OAuth.
+  
+  Equivalent to GET /user/teams
+  """
+  teamsList(
+    """Is used to set specified media type."""
+    accept: String
+  ): [TeamsListListItem]
+
+  """
+  Get the authenticated user.
+  
+  Equivalent to GET /user
+  """
+  user2(
+    """Is used to set specified media type."""
+    accept: String
+  ): JSON
+
+  """
+  List email addresses for a user.
+  In the final version of the API, this method will return an array of hashes
+  with extended information for each email address indicating if the address
+  has been verified and if it's primary email address for GitHub.
+  Until API v3 is finalized, use the application/vnd.github.v3 media type to
+  get other response format.
+  
+  
+  Equivalent to GET /user/emails
+  """
+  userEmails2(
+    """Is used to set specified media type."""
+    accept: String
+  ): String
+
+  """
+  Get a key
+  
+  Equivalent to GET /repos/{owner}/{repo}/keys/{keyId}
+  """
+  userKeysKeyId(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Id of key."""
+    keyId: Int!
+
+    """Name of repository owner."""
+    owner: String!
+
+    """Name of repository."""
+    repo: String!
+  ): UserKeysKeyId
+
+  """
+  Members list.
+  List all users who are members of an organization. A member is a user tha
+  belongs to at least 1 team in the organization. If the authenticated user
+  is also an owner of this organization then both concealed and public members
+  will be returned. If the requester is not an owner of the organization the
+  query will be redirected to the public members list.
+  
+  
+  Equivalent to GET /orgs/{org}/members
+  """
+  users(
+    """Is used to set specified media type."""
+    accept: String
+
+    """Name of organisation."""
+    org: String!
+  ): [JSON]
+}
+
+"""No description available."""
+type Rate {
+  """No description available."""
+  limit: Int
+
+  """No description available."""
+  remaining: Int
+
+  """No description available."""
+  reset: Int
+}
+
+"""No description available."""
+type RateLimit {
+  """No description available."""
+  rate: Rate
+}
+
+"""No description available."""
+input RefsBodyInput {
+  """No description available."""
+  ref: String
+
+  """No description available."""
+  sha: String
+}
+
+"""No description available."""
+type RefsListItem {
+  """No description available."""
+  object: Object
+
+  """No description available."""
+  ref: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type RefStatusListItem {
+  """No description available."""
+  commitUrl: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  repositoryUrl: String
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  statuses: [StatusesListItem]
+}
+
+"""No description available."""
+type Release {
+  """No description available."""
+  assets: [AssetsListItem]
+
+  """No description available."""
+  assetsUrl: String
+
+  """A GitHub user"""
+  author: User2Placeholder
+
+  """No description available."""
+  body: String
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  draft: Boolean
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  prerelease: Boolean
+
+  """No description available."""
+  publishedAt: String
+
+  """No description available."""
+  tagName: String
+
+  """No description available."""
+  tarballUrl: String
+
+  """No description available."""
+  targetCommitish: String
+
+  """No description available."""
+  uploadUrl: String
+
+  """No description available."""
+  url: String
+
+  """No description available."""
+  zipballUrl: String
+}
+
+"""No description available."""
+input ReleaseCreateInput {
+  """No description available."""
+  body: String
+
+  """No description available."""
+  draft: Boolean
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  prerelease: Boolean
+
+  """No description available."""
+  tagName: String
+
+  """No description available."""
+  targetCommitish: String
+}
+
+"""No description available."""
+type ReleasesListItem {
+  """No description available."""
+  assets: [AssetsListItem]
+
+  """No description available."""
+  assetsUrl: String
+
+  """A GitHub user"""
+  author: User2Placeholder
+
+  """No description available."""
+  body: String
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  draft: Boolean
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  prerelease: Boolean
+
+  """No description available."""
+  publishedAt: String
+
+  """No description available."""
+  tagName: String
+
+  """No description available."""
+  tarballUrl: String
+
+  """No description available."""
+  targetCommitish: String
+
+  """No description available."""
+  uploadUrl: String
+
+  """No description available."""
+  url: String
+
+  """No description available."""
+  zipballUrl: String
+}
+
+"""No description available."""
+type Repo {
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Repo2 {
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  assignees: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  branches: Repo2
+
+  """No description available."""
+  cloneUrl: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  codeFrequency: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  collaborators: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  comments: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  comments1: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  comments11: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  commitActivity: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  commits: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  contributors: Repo2
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  deployments: Repo2
+
+  """No description available."""
+  description: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  downloads: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  events: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  events1: Repo2
+
+  """No description available."""
+  fork: Boolean
+
+  """No description available."""
+  forks: Int
+
+  """No description available."""
+  forksCount: Int
+
+  """No description available."""
+  fullName: String
+
+  """No description available."""
+  gitUrl: String
+
+  """No description available."""
+  hasDownloads: Boolean
+
+  """No description available."""
+  hasIssues: Boolean
+
+  """No description available."""
+  hasWiki: Boolean
+
+  """No description available."""
+  homepage: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  hooks: Repo2
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  keys: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  labels: Repo2
+
+  """No description available."""
+  language: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  languages: Repo2
+
+  """No description available."""
+  masterBranch: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  milestones: Repo2
+
+  """No description available."""
+  mirrorUrl: String
+
+  """No description available."""
+  name: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  notifications: Repo2
+
+  """No description available."""
+  openIssues: Int
+
+  """No description available."""
+  openIssuesCount: Int
+
+  """A GitHub organization"""
+  organization: OrganizationPlaceholder
+
+  """A user or organization"""
+  owner: Actor
+
+  """No description available."""
+  parent: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  participation: Repo2
+
+  """No description available."""
+  private: Boolean
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  pulls: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  punchCard: Repo2
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  pushedAt: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  readme: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  refs: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  releases: Repo2
+
+  """No description available."""
+  size: Int
+
+  """No description available."""
+  source: Repo2
+
+  """No description available."""
+  sshUrl: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  stargazers: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  subscribers: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  subscription: Repo2
+
+  """No description available."""
+  svnUrl: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  tags: Repo2
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}
+  """
+  teams: Repo2
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """No description available."""
+  watchers: Int
+
+  """No description available."""
+  watchersCount: Int
+}
+
+"""No description available."""
+type RepoCommentsListItem {
+  """No description available."""
+  body: String
+
+  """No description available."""
+  commitId: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  line: Int
+
+  """No description available."""
+  path: String
+
+  """No description available."""
+  position: Int
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type RepoCommit {
+  """No description available."""
+  author: Author2
+
+  """No description available."""
+  committer: Committer
+
+  """No description available."""
+  message: String
+
+  """No description available."""
+  parents: [ParentsListItem]
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  tree: Tree
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input RepoCommitBodyInput {
+  """No description available."""
+  author: Author3Input
+
+  """No description available."""
+  message: String!
+
+  """No description available."""
+  parents: [String]!
+
+  """No description available."""
+  tree: String!
+}
+
+"""No description available."""
+type RepoDeploymentsListItem {
+  """No description available."""
+  createdAt: String
+
+  """A GitHub user"""
+  creator: User2Placeholder
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  payload: String
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  statusesUrl: String
+
+  """No description available."""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input RepoEditInput {
+  """No description available."""
+  description: String
+
+  """No description available."""
+  hasDownloads: Boolean
+
+  """No description available."""
+  hasIssues: Boolean
+
+  """No description available."""
+  hasWiki: Boolean
+
+  """No description available."""
+  homepage: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  private: Boolean
+}
+
+"""No description available."""
+type ReposCommits {
+  """A GitHub user"""
+  author: User2Placeholder
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}/commits/{shaCode}
+  """
+  comments: ReposCommits
+
+  """No description available."""
+  commit: Commit4
+
+  """A GitHub user"""
+  committer: User2Placeholder
+
+  """No description available."""
+  files: [Files4ListItem]
+
+  """No description available."""
+  parents: [ParentsListItem]
+
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  stats: Stats
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ReposGitTags {
+  """String of the tag message."""
+  message: String
+
+  """No description available."""
+  object: Object3
+
+  """No description available."""
+  sha: String
+
+  """The tag's name. This is typically a version (e.g., "v0.0.1")."""
+  tag: String
+
+  """No description available."""
+  tagger: Tagger
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ReposGitTrees {
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  tree: [Tree3ListItem]
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input ReposGitTreesInput {
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  tree: [Tree3ListItemInput]
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ReposIssuesLabelsListItem {
+  """No description available."""
+  color: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Repository {
+  """No description available."""
+  description: String
+
+  """No description available."""
+  fork: Boolean
+
+  """No description available."""
+  fullName: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  name: String
+
+  """A user or organization"""
+  owner: Actor
+
+  """No description available."""
+  private: Boolean
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Repository2 {
+  """No description available."""
+  archiveUrl: String
+
+  """No description available."""
+  assigneesUrl: String
+
+  """No description available."""
+  blobsUrl: String
+
+  """No description available."""
+  branchesUrl: String
+
+  """No description available."""
+  collaboratorsUrl: String
+
+  """No description available."""
+  commentsUrl: String
+
+  """No description available."""
+  commitsUrl: String
+
+  """No description available."""
+  compareUrl: String
+
+  """No description available."""
+  contentsUrl: String
+
+  """No description available."""
+  contributorsUrl: String
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  downloadsUrl: String
+
+  """No description available."""
+  eventsUrl: String
+
+  """No description available."""
+  fork: Boolean
+
+  """No description available."""
+  forksUrl: String
+
+  """No description available."""
+  fullName: String
+
+  """No description available."""
+  gitCommitsUrl: String
+
+  """No description available."""
+  gitRefsUrl: String
+
+  """No description available."""
+  gitTagsUrl: String
+
+  """No description available."""
+  hooksUrl: String
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  issueCommentUrl: String
+
+  """No description available."""
+  issueEventsUrl: String
+
+  """No description available."""
+  issuesUrl: String
+
+  """No description available."""
+  keysUrl: String
+
+  """No description available."""
+  labelsUrl: String
+
+  """No description available."""
+  languagesUrl: String
+
+  """No description available."""
+  mergesUrl: String
+
+  """No description available."""
+  milestonesUrl: String
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  notificationsUrl: String
+
+  """A user or organization"""
+  owner: Actor
+
+  """No description available."""
+  private: Boolean
+
+  """No description available."""
+  pullsUrl: String
+
+  """No description available."""
+  stargazersUrl: String
+
+  """No description available."""
+  statusesUrl: String
+
+  """No description available."""
+  subscribersUrl: String
+
+  """No description available."""
+  subscriptionUrl: String
+
+  """No description available."""
+  tagsUrl: String
+
+  """No description available."""
+  teamsUrl: String
+
+  """No description available."""
+  treesUrl: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ReposPulls {
+  """No description available."""
+  additions: Int
+
+  """No description available."""
+  base: Base2
+
+  """No description available."""
+  body: String
+
+  """No description available."""
+  changedFiles: Int
+
+  """No description available."""
+  closedAt: String
+
+  """No description available."""
+  comments: Int
+
+  """No description available."""
+  commits: Int
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  deletions: Int
+
+  """No description available."""
+  diffUrl: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}
+  """
+  files: ReposPulls
+
+  """No description available."""
+  head: Head2
+
+  """No description available."""
+  htmlUrl: String
+
+  """No description available."""
+  issueUrl: String
+
+  """No description available."""
+  links: Links5
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /repos/{owner}/{repo}/pulls/{number}
+  """
+  merge: ReposPulls
+
+  """No description available."""
+  mergeCommitSha: String
+
+  """No description available."""
+  mergeable: Boolean
+
+  """No description available."""
+  merged: Boolean
+
+  """No description available."""
+  mergedAt: String
+
+  """No description available."""
+  mergedBy: MergedBy
+
+  """No description available."""
+  number: Int
+
+  """No description available."""
+  patchUrl: String
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  title: String
+
+  """No description available."""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+
+  """No description available."""
+  user: User4
+}
+
+"""No description available."""
+type ReposStatusesListItem {
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  creator: Creator
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  targetUrl: String
+
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type ReviewComments {
+  """No description available."""
+  href: String
+}
+
+"""No description available."""
+type RingErl {
+  """No description available."""
+  filename: String
+
+  """No description available."""
+  rawUrl: String
+
+  """No description available."""
+  size: Int
+}
+
+"""No description available."""
+type SearchCode {
+  """No description available."""
+  items: [ItemsListItem]
+
+  """No description available."""
+  totalCount: Int
+}
+
+"""No description available."""
+type SearchIssues {
+  """No description available."""
+  items: [Items2ListItem]
+
+  """No description available."""
+  totalCount: Int
+}
+
+"""No description available."""
+type SearchIssuesByKeyword {
+  """No description available."""
+  issues: [Issues2ListItem]
+}
+
+"""No description available."""
+type SearchRepositories {
+  """No description available."""
+  items: [Repo2]
+
+  """No description available."""
+  totalCount: Int
+}
+
+"""No description available."""
+type SearchRepositoriesByKeyword {
+  """No description available."""
+  repositories: [Repo2]
+}
+
+"""No description available."""
+type SearchUserByEmail {
+  """A GitHub user"""
+  user: User2Placeholder
+}
+
+"""No description available."""
+type SearchUsers {
+  """No description available."""
+  items: [JSON]
+
+  """No description available."""
+  totalCount: Int
+}
+
+"""No description available."""
+type SearchUsersByKeyword {
+  """No description available."""
+  users: [JSON]
+}
+
+"""No description available."""
+type Self2 {
+  """No description available."""
+  href: String
+}
+
+enum Sort {
+  updated
+  stars
+  forks
+}
+
+enum Sort10 {
+  created
+  updated
+}
+
+enum Sort2 {
+  dueDate
+  completeness
+}
+
+enum Sort3 {
+  indexed
+}
+
+enum Sort4 {
+  updated
+  created
+  comments
+}
+
+enum Sort5 {
+  stars
+  forks
+  updated
+}
+
+enum Sort6 {
+  followers
+  repositories
+  joined
+}
+
+enum Sort7 {
+  created
+  updated
+  comments
+}
+
+enum Sort8 {
+  newes
+  oldes
+  watchers
+}
+
+enum Sort9 {
+  created
+  updated
+}
+
+enum State {
+  open
+  closed
+}
+
+enum State3 {
+  open
+  closed
+}
+
+enum State4 {
+  open
+  closed
+}
+
+"""No description available."""
+type Stats {
+  """No description available."""
+  additions: Int
+
+  """No description available."""
+  deletions: Int
+
+  """No description available."""
+  total: Int
+}
+
+"""No description available."""
+type StatusesListItem {
+  """No description available."""
+  context: String
+
+  """No description available."""
+  createdAt: String
+
+  """No description available."""
+  description: String
+
+  """No description available."""
+  id: Float
+
+  """No description available."""
+  state: String
+
+  """No description available."""
+  targetUrl: String
+
+  """No description available."""
+  updatedAt: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Subject {
+  """No description available."""
+  latestCommentUrl: String
+
+  """No description available."""
+  title: String
+
+  """No description available."""
+  type: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Subscription {
+  """ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"""
+  createdAt: String
+
+  """No description available."""
+  ignored: Boolean
+
+  """No description available."""
+  reason: String
+
+  """No description available."""
+  repositoryUrl: String
+
+  """No description available."""
+  subscribed: Boolean
+
+  """No description available."""
+  threadUrl: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input SubscriptionBodyInput {
+  """No description available."""
+  ignored: Boolean
+
+  """No description available."""
+  subscribed: Boolean
+}
+
+"""No description available."""
+input TagBodyInput {
+  """String of the tag message."""
+  message: String!
+
+  """String of the SHA of the git object this is tagging."""
+  object: String!
+
+  """The tag's name. This is typically a version (e.g., "v0.0.1")."""
+  tag: String!
+
+  """No description available."""
+  tagger: TaggerInput!
+
+  """
+  String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob.
+  """
+  type: Type3!
+}
+
+"""No description available."""
+type Tagger {
+  """
+  Timestamp of when this object was tagged, in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  """
+  date: String
+
+  """String of the email of the author of the tag."""
+  email: String
+
+  """String of the name of the author of the tag."""
+  name: String
+}
+
+"""No description available."""
+input TaggerInput {
+  """
+  Timestamp of when this object was tagged, in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  """
+  date: String
+
+  """String of the email of the author of the tag."""
+  email: String
+
+  """String of the name of the author of the tag."""
+  name: String
+}
+
+"""No description available."""
+type Team {
+  """No description available."""
+  id: Int
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /teams/{teamId}
+  """
+  members: Team
+
+  """No description available."""
+  membersCount: Int
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  permission: String
+
+  """
+  Automatically generated link definition
+  
+  Equivalent to GET /teams/{teamId}
+  """
+  repos: Team
+
+  """No description available."""
+  reposCount: Int
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type TeamMembership {
+  """No description available."""
+  state: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type TeamsListItem {
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type TeamsListListItem {
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  membersCount: Int
+
+  """No description available."""
+  name: String
+
+  """No description available."""
+  organization: Organization3
+
+  """No description available."""
+  permission: String
+
+  """No description available."""
+  reposCount: Int
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Timeline {
+  """No description available."""
+  href: String
+
+  """No description available."""
+  type: String
+}
+
+"""No description available."""
+type Tree {
+  """No description available."""
+  sha: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Tree3ListItem {
+  """
+  One of 100644 for file (blob), 100755 for executable (blob), 040000 for
+  subdirectory (tree), 160000 for submodule (commit) or 120000 for a blob that
+  specifies the path of a symlink.
+  """
+  mode: Mode2
+
+  """No description available."""
+  path: String
+
+  """SHA1 checksum ID of the object in the tree."""
+  sha: String
+
+  """No description available."""
+  size: Int
+
+  """No description available."""
+  type: Type5
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input Tree3ListItemInput {
+  """
+  One of 100644 for file (blob), 100755 for executable (blob), 040000 for
+  subdirectory (tree), 160000 for submodule (commit) or 120000 for a blob that
+  specifies the path of a symlink.
+  """
+  mode: Mode2
+
+  """No description available."""
+  path: String
+
+  """SHA1 checksum ID of the object in the tree."""
+  sha: String
+
+  """No description available."""
+  size: Int
+
+  """No description available."""
+  type: Type5
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type Trees {
+  """No description available."""
+  baseTree: String
+
+  """SHA1 checksum ID of the object in the tree."""
+  sha: String
+
+  """No description available."""
+  tree: [ReposGitTrees]
+
+  """No description available."""
+  url: String
+}
+
+enum Type {
+  User
+  Organization
+}
+
+enum Type3 {
+  commit
+  tree
+  blob
+}
+
+enum Type4 {
+  commit
+  tree
+  blob
+}
+
+enum Type5 {
+  blob
+  tree
+  commit
+}
+
+enum Type6 {
+  all
+  public
+  private
+  forks
+  sources
+  member
+}
+
+"""No description available."""
+type User {
+  """No description available."""
+  href: String
+
+  """No description available."""
+  type: String
+}
+
+type User2Placeholder {
+  message: String
+}
+
+"""No description available."""
+type User4 {
+  """No description available."""
+  avatarUrl: String
+
+  """No description available."""
+  gravatarId: String
+
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  login: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+type UserKeysKeyId {
+  """No description available."""
+  id: Int
+
+  """No description available."""
+  key: String
+
+  """No description available."""
+  title: String
+
+  """No description available."""
+  url: String
+}
+
+"""No description available."""
+input UserKeysPostInput {
+  """No description available."""
+  key: String
+
+  """No description available."""
+  title: String
+}
+
+"""No description available."""
+input UserUpdateInput {
+  """No description available."""
+  bio: String
+
+  """No description available."""
+  blog: String
+
+  """No description available."""
+  company: String
+
+  """No description available."""
+  email: String
+
+  """No description available."""
+  hireable: Boolean
+
+  """No description available."""
+  location: String
+
+  """No description available."""
+  name: String
+}
+
+"""No description available."""
+type WeeksListItem {
+  """Number of additions."""
+  a: Int
+
+  """Number of commits."""
+  c: Int
+
+  """Number of deletions."""
+  d: Int
+
+  """Start of the week."""
+  w: String
+}
