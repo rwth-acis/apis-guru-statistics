@@ -52,7 +52,7 @@ async function loadData() {
   // Add links using the link-generator
   let openapiWithLinks;
   try {
-    openapiWithLinks = addLinkDefinitions(openapiObj).oas;
+    openapiWithLinks = addLinkDefinitions(openapiObj).openapi;
   } catch (err) {
     console.error('Failed to add link definitions to OpenAPI documentation.');
     console.error(err.message);
